@@ -65,6 +65,14 @@ function uploadFile(){
       }
     }).done(function (e) {
         alert("upload succeed")
+        var elem = document.getElementById("myBarPlus");
+        var elem1 = document.getElementById("myBarMoins");
+        var span = document.getElementById("sendButton");
+        var span1 = document.getElementById("barSpan2");
+        elem.style.width = "0%";
+        span.innerHTML = "0 %";
+        elem1.style.width = "100%";
+        span1.innerHTML = "ENVOYER";
     }).fail(function (e) {
         alert("upload failed");
     });

@@ -2,7 +2,7 @@
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Media Player</title>
+    <title>Music Player</title>
     <?php
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/header.php");
     ?>
