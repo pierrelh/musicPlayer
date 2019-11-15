@@ -1,0 +1,38 @@
+.library{
+  margin: 50px 5px 0 20%;
+}
+
+.library > ul{
+  list-style: none;
+  padding: 0;
+  width: min-content;
+  display: inline-block;
+  width: 32.692%;
+  margin: 5px 0 0 5px;
+}
+
+.library > ul > .view{
+  width: 100%;
+  height: 150px;
+  cursor: pointer;
+  background-color: black;
+}
+
+.library > ul > li > .no-image{
+  height: 150px;
+}
+
+.library > ul > li > img{
+  display: block;
+  margin: auto;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.library > ul > li > p{
+  text-align: center;
+  color: #fff;
+  font-family: "Open-sans", sans-serif;
+  margin: 5px;
+  font-size: 1.1em;
+}

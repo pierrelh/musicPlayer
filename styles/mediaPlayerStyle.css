@@ -1,0 +1,13 @@
+#mediaPlayer{
+  background-color: #0B0B0B;
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+  transition-duration: 0.8s;
+  position: fixed;
+}
+
+#mediaPlayer > video{
+  width: 100%;
+  height: 90%;
+}

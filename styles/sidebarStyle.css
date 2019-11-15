@@ -1,0 +1,33 @@
+.sidebar{
+  position: fixed;
+  height: 100%;
+  background-color: #0B0B0B;
+  width: 20%;
+  top: 0;
+  padding-top: 50px;
+}
+
+.sidebar > ul{
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar > ul > li{
+  margin: 10px;
+}
+
+.sidebar > ul > li > input[type="button"]{
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: "Open-sans", sans-serif;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.5em;
+  transition-duration: 0.8s;
+}
+
+.sidebar > ul > li > input[type="button"]:hover{
+  padding-left: 15px;
+  transition-duration: 0.8s;
+}
