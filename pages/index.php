@@ -26,7 +26,7 @@
               echo "<img src='".$value['file_image']."' alt=''>";
             }
             echo "</li>
-                  <li><p onclick='mediaPlayerAppear(\"".$value['file_url']."\", \"".$value['file_image']."\")'>".$value['file_name']."</p></li>
+                  <li><p onclick='mediaPlayerAppear(\"".$value['file_url']."\", \"".$value['file_image']."\")'>".$value['file_author']." - ".$value['file_name']."</p></li>
                   </ul>";
           }
         }else {
