@@ -36,6 +36,9 @@
 
       ?>
     </section>
+    <?php
+      include_once($_SERVER['DOCUMENT_ROOT']."/assets/reader.php");
+    ?>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="<?php echo $link ?>/js/page-scripts.js"></script>
   </body>

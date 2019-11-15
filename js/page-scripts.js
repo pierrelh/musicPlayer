@@ -12,8 +12,11 @@ function uploadHide(){
 
 function mediaPlayerAppear(link, cover){
   var mediaPlayer = document.getElementById('mediaPlayer');
+  var musicPlayer = document.getElementById('musicPlayer');
+  var readerPlayer = document.getElementById('readerPlayer');
+  var readerPlayer = musicPlayer.cloneNode();
   mediaPlayer.className = 'background-appear';
-  document.getElementById('musicPlayer').src = link;
+  musicPlayer.src = link;
   document.getElementById('cover').src = cover;
 }
 
