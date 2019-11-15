@@ -14,11 +14,11 @@ function mediaPlayerAppear(link, cover, artist, name){
   var mediaPlayer = document.getElementById('mediaPlayer');
   var musicPlayer = document.getElementById('musicPlayer');
   var readerPlayer = document.getElementById('readerPlayer');
-  var name = document.getElementById('songName');
-  name.innerHTML = artist + " - " + name;
-  var readerPlayer = musicPlayer.cloneNode();
+  var nameTxt = document.getElementById('songName');
+  nameTxt.innerHTML = artist + " - " + name;
   mediaPlayer.className = 'background-appear';
   musicPlayer.src = link;
+  var readerPlayer = musicPlayer.cloneNode();
   document.getElementById('cover').src = cover;
 }
 
