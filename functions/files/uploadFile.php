@@ -32,7 +32,7 @@
   }
 
   if (!isset($_POST['album']) || $_POST['album'] == "") {
-    $_POST['album'] = "indéfini"
+    $_POST['album'] = "indéfini";
   }
 
 
