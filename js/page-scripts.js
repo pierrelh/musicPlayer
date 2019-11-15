@@ -10,10 +10,11 @@ function uploadHide(){
   upload.className = '';
 }
 
-function mediaPlayerAppear(link){
+function mediaPlayerAppear(link, cover){
   var mediaPlayer = document.getElementById('mediaPlayer');
   mediaPlayer.className = 'background-appear';
   document.getElementById('musicPlayer').src = link;
+  document.getElementById('cover').src = cover;
 }
 
 function mediaPlayerHide(){
