@@ -10,10 +10,12 @@ function uploadHide(){
   upload.className = '';
 }
 
-function mediaPlayerAppear(link, cover){
+function mediaPlayerAppear(link, cover, artist, name){
   var mediaPlayer = document.getElementById('mediaPlayer');
   var musicPlayer = document.getElementById('musicPlayer');
   var readerPlayer = document.getElementById('readerPlayer');
+  var name = document.getElementById('songName');
+  name.innerHTML = artist + " - " + name;
   var readerPlayer = musicPlayer.cloneNode();
   mediaPlayer.className = 'background-appear';
   musicPlayer.src = link;

@@ -21,12 +21,12 @@
         $response = getAllFiles();
         if ($response != "") {
           foreach ($response as $key => $value) {
-            echo "<ul><li onclick='mediaPlayerAppear(\"".$value['file_url']."\", \"".$value['file_image']."\")' class='view'>";
+            echo "<ul><li onclick='mediaPlayerAppear(\"".$value['file_url']."\", \"".$value['file_image']."\", \"".$value['file_author']."\", \"".$value['file_name']."\")' class='view'>";
             if (!empty($value['file_image'])) {
               echo "<img src='".$value['file_image']."' alt=''>";
             }
             echo "</li>
-                  <li><p onclick='mediaPlayerAppear(\"".$value['file_url']."\", \"".$value['file_image']."\")'>".$value['file_author']." - ".$value['file_name']."</p></li>
+                  <li><p onclick='mediaPlayerAppear(\"".$value['file_url']."\", \"".$value['file_image']."\", \"".$value['file_author']."\", \"".$value['file_name']."\")'>".$value['file_author']." - ".$value['file_name']."</p></li>
                   </ul>";
           }
         }else {

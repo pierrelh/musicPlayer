@@ -4,3 +4,20 @@
   width: 100%;
   background-color: #0B0B0B;
 }
+
+#reader > ul{
+  display: flex;
+  margin: 0 25px;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+#reader > ul > li{
+  font-family: "Open-sans", sans-serif;
+  font-size: 1.4em;
+  color: white;
+}
+
+#reader > ul > li > audio{
+
+}
