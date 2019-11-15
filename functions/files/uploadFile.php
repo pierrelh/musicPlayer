@@ -4,11 +4,9 @@
     include_once($_SERVER['DOCUMENT_ROOT']."/functions/getCloudinary.php");
     $date = date_create();
     $name =  date_timestamp_get($date) . rand(1, 999999999);
-    $result = \Cloudinary\Uploader::upload_large($file_path, array(
+    $result = \Cloudinary\Uploader::upload($file_path, array(
               "public_id" => $name,
-              "resource_type" => "video",
-              "folder" => "video/",
-              "chunk_size" => 6000000
+              "resource_type" => "video"
     ));
     unlink($file_path);
     return $result['secure_url'];

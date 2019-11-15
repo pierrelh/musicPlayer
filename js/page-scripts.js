@@ -13,7 +13,7 @@ function uploadHide(){
 function mediaPlayerAppear(link){
   var mediaPlayer = document.getElementById('mediaPlayer');
   mediaPlayer.className = 'background-appear';
-  document.getElementById('videoPlayer').src = link;
+  document.getElementById('musicPlayer').src = link;
 }
 
 function mediaPlayerHide(){

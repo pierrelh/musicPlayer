@@ -2,7 +2,7 @@
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Media Player - Login</title>
+    <title>Music Player - Login</title>
     <?php
       $link = 'https://' . $_SERVER['HTTP_HOST'];
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/header.php");
@@ -22,7 +22,7 @@
     ?>
   </head>
   <body>
-    <form class="" method="post">
+    <form class="log-form" method="post">
       <label for="login">Login</label>
       <input id="login" type="email" name="login" value="">
       <br>
