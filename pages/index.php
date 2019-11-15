@@ -21,7 +21,7 @@
         $response = getAllFiles();
         if ($response != "") {
           foreach ($response as $key => $value) {
-            echo "<ul><li onclick='mediaPlayerAppear(\"".$value['file_url']."\")' class='view'>";
+            echo "<ul><li onclick='mediaPlayerAppear(\"".$value['file_url']."\", \"".$value['file_image']."\")' class='view'>";
             if (!empty($value['file_image'])) {
               echo "<img src='".$value['file_image']."' alt=''>";
             }

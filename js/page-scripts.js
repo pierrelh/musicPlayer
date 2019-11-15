@@ -26,20 +26,24 @@ function uploadFile(){
   var file = $("#file").prop("files")[0];
   var picture = $("#picture").prop("files")[0];
   var name = document.getElementById('fileName').value;
+  var author = document.getElementById('fileAuthor').value;
+  var album = document.getElementById('fileAlbum').value;
   if (document.getElementById("file").files.length == 0) {
     if (document.getElementById('error-msg').innerHTML == "") {
       var errormsg = document.createTextNode("Aucun fichier n'a été choisi.");
       document.getElementById("error-msg").appendChild(errormsg);
     }
-  }else if (name == '') {
+  }else if (name == '' || author == '') {
     document.getElementById('error-msg').innerHTML = ""
-    var errormsg = document.createTextNode("Aucun nom n'a été choisi pour le fichier.");
+    var errormsg = document.createTextNode("Merci de remplir tous les champs.");
     document.getElementById("error-msg").appendChild(errormsg);
   }else{
     var form_data = new FormData($('formUpload')[0]);
     form_data.append('file', file);
     form_data.append('picture', picture);
     form_data.append('name', name);
+    form_data.append('author', author);
+    form_data.append('album', album);
     $.ajax({
       url: "../functions/files/uploadFile.php",
       type: "POST",

@@ -8,8 +8,10 @@
       <li><label for="picture"><img src="../img/picture.png" alt=""></label></li>
     </ul>
     <input class="upload-file" id="file" type="file" name="file" value="">
-    <input id="fileName" type="text" placeholder="Nom du Fichier" name="" value="">
     <input class="upload-file" id="picture" type="file" name="picture" value="">
+    <input id="fileName" type="text" placeholder="Nom du Fichier" name="" value="">
+    <input id="fileAuthor" type="text" placeholder="Nom de l'artiste" name="" value="">
+    <input id="fileAlbum" type="text" placeholder="Nom de l'album" name="" value="">
     <div class="progress-bar">
       <div id="myBarPlus" class="bar positive">
         <span id="sendButton">ENVOYER</span>

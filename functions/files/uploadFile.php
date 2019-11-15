@@ -20,6 +20,7 @@
   }else {
     $fileName = "false";
   }
+
   if (isset($_FILES['picture']) && !empty($_FILES['picture'])) {
     $file_name = $_FILES['picture']['name'];
     $file_tmp = $_FILES['picture']['tmp_name'];
@@ -30,10 +31,14 @@
     $base64 = "";
   }
 
+  if (!isset($_POST['album']) || $_POST['album'] == "") {
+    $_POST['album'] = "indéfini"
+  }
+
 
   $db = connect();
-  $selectSql = "INSERT INTO files (file_name, file_url, file_image) VALUES ($1, $2, $3)";
-  $result =  pg_query_params($db, $selectSql, array($_POST['name'], $fileName, $base64));
+  $selectSql = "INSERT INTO files (file_name, file_url, file_image, file_author, file_album) VALUES ($1, $2, $3, $4, $5)";
+  $result =  pg_query_params($db, $selectSql, array($_POST['name'], $fileName, $base64, $_POST['author'], $_POST['album']));
 
 
 ?>
