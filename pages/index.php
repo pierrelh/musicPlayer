@@ -6,11 +6,8 @@
     <?php
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/header.php");
     ?>
-    <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo $link ?>/js/page-scripts.js"></script>
     <link rel="stylesheet" href="<?php echo $link ?>/styles/videoStyle.css">
   </head>
   <body>
@@ -41,6 +38,9 @@
 
       ?>
     </section>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo $link ?>/js/page-scripts.js"></script>
     <?php
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/reader.php");
     ?>
