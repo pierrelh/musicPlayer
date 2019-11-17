@@ -28,7 +28,9 @@
   height: 50px;
   background-color: #808080;
   width: auto;
-  margin: 0 75px;
+  min-width: 890px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .time {
@@ -60,7 +62,7 @@
 }
 
 #progressbar {
-  width: 150px;
+  width: 73%;
 }
 
 #play,
@@ -76,5 +78,5 @@
 }
 
 #volume {
-  width: 50px;
+  width: 9%;
 }
