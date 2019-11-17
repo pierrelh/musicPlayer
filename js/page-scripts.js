@@ -24,8 +24,8 @@ function mediaPlayerAppear(link, cover, artist, name){
 function mediaPlayerHide(){
   var mediaPlayer = document.getElementById('mediaPlayer');
   mediaPlayer.className = '';
-    var audio-player = document.getElementById('audio-player');
-    audio-player.className = 'show';
+  var audioPlayer = document.getElementById('audio-player');
+  audioPlayer.className = 'show';
 }
 
 function uploadFile(){
