@@ -2,6 +2,12 @@
   font-family: "Open-sans", sans-serif;
   font-size: 1.4em;
   color: white;
+  display: inline-block;
+  margin-left: 25px;
+}
+
+#audio-player > ul {
+  padding: 0;
 }
 
 #audio-player {
@@ -18,9 +24,11 @@
 }
 
 #controls {
+  display: block;
   height: 50px;
   background-color: #808080;
-  width: 350px;
+  width: auto;
+  margin: 0 75px;
 }
 
 .time {
@@ -29,6 +37,8 @@
   position: relative;
   top: 14px;
   margin: 5px;
+  font-family: "Open-sans", sans-serif;
+  font-size: 1.2em;
 }
 
 .ui-progressbar {
@@ -41,7 +51,7 @@
 
 #progressbar,
 #volume {
-  height: 10px;
+  height: 14px;
   display: inline-block;
   border-radius: 0px;
   border: none;
