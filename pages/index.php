@@ -6,6 +6,7 @@
     <?php
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/header.php");
     ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo $link ?>/styles/videoStyle.css">
   </head>
   <body>

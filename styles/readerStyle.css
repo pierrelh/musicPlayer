@@ -19,6 +19,66 @@
   color: white;
 }
 
-#reader > ul > li > audio{
+#audio-player {
+  height: 50px;
+  width: 350px;
+  overflow: hidden;
+  background-color: #2B2B2B;
+  color: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+}
 
+#controls {
+  height: 50px;
+  background-color: #808080;
+  width: 350px;
+}
+
+.time {
+  font-size: 10px;
+  color: white;
+  position: relative;
+  top: 14px;
+  margin: 5px;
+}
+
+.ui-progressbar {
+  background: #2B2B2B;
+}
+
+.ui-progressbar-value {
+  background: white;
+}
+
+#progressbar,
+#volume {
+  height: 10px;
+  display: inline-block;
+  border-radius: 0px;
+  border: none;
+  position: relative;
+  top: 16px;
+}
+
+#progressbar {
+  width: 150px;
+}
+
+#play,
+#mute {
+  font-size: 16px;
+  width: 20px;
+  position: relative;
+  top: 17px;
+}
+
+#play {
+  margin-left: 15px;
+}
+
+#volume {
+  width: 50px;
 }
