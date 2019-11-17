@@ -19,6 +19,8 @@ function mediaPlayerAppear(link, cover, artist, name){
   mediaPlayer.className = 'background-appear';
   musicPlayer.src = link;
   document.getElementById('cover').src = cover;
+  var audioPlayer = document.getElementById('audio-player');
+  audioPlayer.className = '';
 }
 
 function mediaPlayerHide(){
