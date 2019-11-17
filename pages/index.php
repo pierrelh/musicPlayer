@@ -39,7 +39,7 @@
       ?>
     </section>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script type="text/javascript" src="<?php echo $link ?>/js/page-scripts.js"></script>
     <?php
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/reader.php");
