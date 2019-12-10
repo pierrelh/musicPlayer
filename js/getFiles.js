@@ -15,7 +15,7 @@ function getFiles(){
         for (var i = 0; i < data.length; i++) {
           console.log(i)
           var ul = document.createElement("ul");
-          library.appendChild(ul);
+          ul.appendChild(library);
 
           var li = document.createElement("li");
           li.appendChild(ul);
