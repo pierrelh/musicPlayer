@@ -14,7 +14,7 @@ $(document).ready(function () {
 
   player.onloadedmetadata = function() {
     duration = player.duration;
-    progressBar.slider("option", "max", duration);
+    progressBar.max = duration;
     // progress_bar.progressbar("option", {
     //   'max': duration
     // });
@@ -44,7 +44,7 @@ $(document).ready(function () {
 
   player.addEventListener("timeupdate", function() {
     console.log(player.currentTime);
-    progressBar.slider('value', player.currentTime);
+    progressBar.value = player.currentTime;
     // progress_bar.progressbar('value', player.currentTime);
     start.text(getTime(player.currentTime));
   }, false);
