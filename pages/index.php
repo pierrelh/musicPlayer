@@ -9,6 +9,12 @@
     <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo $link ?>/styles/videoStyle.css">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="<?php echo $link ?>/js/getFiles.js"></script>
+    <script type="text/javascript" src="<?php echo $link ?>/js/page-scripts.js"></script>
+    <script type="text/javascript" src="<?php echo $link ?>/js/uploadFile.js"></script>
+    <script type="text/javascript" src="<?php echo $link ?>/js/musicPlayer.js"></script>
   </head>
   <body>
     <?php
@@ -41,12 +47,6 @@
 
       ?>
     </section>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="<?php echo $link ?>/js/getFiles.js"></script>
-    <script type="text/javascript" src="<?php echo $link ?>/js/page-scripts.js"></script>
-    <script type="text/javascript" src="<?php echo $link ?>/js/uploadFile.js"></script>
-    <script type="text/javascript" src="<?php echo $link ?>/js/musicPlayer.js"></script>
     <?php
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/reader.php");
     ?>
