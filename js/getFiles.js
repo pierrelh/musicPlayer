@@ -8,6 +8,7 @@ function getFiles(){
     processData: false,
     success: function(data){
       data = JSON.parse(data);
+      console.log(data);
       var library = document.getElementById('Library');
       library.innerHTML = '';
       if (data != "") {
