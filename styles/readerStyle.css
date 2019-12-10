@@ -2,8 +2,9 @@
   font-family: "Open-sans", sans-serif;
   font-size: 1.4em;
   color: white;
-  display: inline-block;
-  margin: 0 0 15px 25px;
+  display: flex;
+  justify-content: center;
+  width: 52%;
 }
 
 #audio-player > ul {
@@ -31,9 +32,11 @@
 }
 
 #controls {
-  display: block;
+  display: flex;
   height: 50px;
   width: 100%;
+  margin: auto;
+  justify-content: center;
 }
 
 .time {
@@ -65,7 +68,7 @@
 }
 
 #progressbar {
-  width: 73%;
+  width: 40%;
 }
 
 #play,
