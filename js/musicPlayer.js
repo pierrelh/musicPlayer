@@ -41,6 +41,14 @@ $(document).ready(function () {
   player.addEventListener("timeupdate", function() {
     progressBar.value = player.currentTime;
     start.text(getTime(player.currentTime));
+    var val = ($('#progress-bar').val() - $('#progress-bar').attr('min')) / ($('#progress-bar').attr('max') - $('#progress-bar').attr('min'));
+    var percent = val * 100;
+
+    $('#progress-bar').css('background-image',
+        '-webkit-gradient(linear, left top, right top, ' +
+        'color-stop(' + percent + '%, #FFF), ' +
+        'color-stop(' + percent + '%, #0B0B0B)' +
+        ')');
   }, false);
 
   player.addEventListener("ended", function(){
@@ -65,16 +73,16 @@ $(document).ready(function () {
         ')');
 });
 
-$("#progress-bar").mousemove(function (e) {
-  var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
-  var percent = val * 100;
-
-  $(this).css('background-image',
-      '-webkit-gradient(linear, left top, right top, ' +
-      'color-stop(' + percent + '%, #FFF), ' +
-      'color-stop(' + percent + '%, #0B0B0B)' +
-      ')');
-});
+// $("#progress-bar").mousemove(function (e) {
+//   var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
+//   var percent = val * 100;
+//
+//   $(this).css('background-image',
+//       '-webkit-gradient(linear, left top, right top, ' +
+//       'color-stop(' + percent + '%, #FFF), ' +
+//       'color-stop(' + percent + '%, #0B0B0B)' +
+//       ')');
+// });
 
   function getTime(t) {
     var m = ~~(t / 60),
