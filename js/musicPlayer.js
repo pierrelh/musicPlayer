@@ -34,9 +34,9 @@ $(document).ready(function () {
   volumeSlider.addEventListener('input', function(){
     player.volume = volumeSlider.value / 100;
     if (player.volume == 0) {
-      mute_button.toggleClass('fa-volume-off');
+      mute_button.className = 'fa fa-volume-off';
     }else if (mute_button.className == 'fa fa-volume-off') {
-      mute_button.toggleClass('fa-volume-on');
+      mute_button.className = 'fa fa-volume-on';
     }
   }, false);
 
