@@ -90,9 +90,9 @@ $(document).ready(function () {
   //   };
   // }
 
-  progressBar.slider({
-    value: player.currentTime,
-  });
+  // progressBar.slider({
+  //   value: player.currentTime,
+  // });
 
   // progress_bar.progressbar({
   //   value: player.currentTime,
