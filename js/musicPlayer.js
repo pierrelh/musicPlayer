@@ -41,6 +41,7 @@ $(document).ready(function () {
   $(play_button).toggleClass("fa-pause", player.paused);
 
   player.addEventListener("timeupdate", function() {
+    console.log(player.currentTime);
     progress_bar.progressbar('value', player.currentTime);
     start.text(getTime(player.currentTime));
   }, false);
