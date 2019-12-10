@@ -11,9 +11,6 @@ $(document).ready(function () {
   var duration = 0;
   var volume = 0.75;
 
-  $(play_button).toggleClass("fa-play", !player.paused);
-  $(play_button).toggleClass("fa-pause", player.paused);
-
   player.onloadedmetadata = function() {
     duration = player.duration;
     progress_bar.progressbar("option", {
@@ -24,6 +21,25 @@ $(document).ready(function () {
 
   player.load();
   player.volume = 0.75;
+
+  player.addEventListener("pause", function() {
+    $(play_button).toggleClass("fa-play", !player.paused);
+    $(play_button).toggleClass("fa-pause", player.paused);
+  }, false);
+
+  player.addEventListener("play", function() {
+    $(play_button).toggleClass("fa-play", !player.paused);
+    $(play_button).toggleClass("fa-pause", player.paused);
+  }, false);
+
+  player.addEventListener("playing", function() {
+    $(play_button).toggleClass("fa-play", !player.paused);
+    $(play_button).toggleClass("fa-pause", player.paused);
+  }, false);
+
+  $(play_button).toggleClass("fa-play", !player.paused);
+  $(play_button).toggleClass("fa-pause", player.paused);
+
   player.addEventListener("timeupdate", function() {
     progress_bar.progressbar('value', player.currentTime);
     start.text(getTime(player.currentTime));
