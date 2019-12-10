@@ -32,6 +32,12 @@ $(document).ready(function () {
   });
 
   volumeSlider.addEventListener('onchange', function(){
+    console.log(volumeSlider.value);
+    player.volume = volumeSlider.value / 100;
+  });
+
+  volumeSlider.addEventListener('oninput', function(){
+    console.log(volumeSlider.value);
     player.volume = volumeSlider.value / 100;
   });
 
