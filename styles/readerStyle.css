@@ -96,6 +96,7 @@
   transition: opacity .2s;
   margin-top: 18px;
   margin-left: 10px;
+  background-image: linear-gradient(linear, left top right, color-stop(75%, #FFF), color-stop(75%, #0B0B0B));
 }
 
 #Volume:hover {
