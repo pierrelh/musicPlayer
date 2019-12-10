@@ -33,6 +33,7 @@ $(document).ready(function () {
 
   volumeSlider.addEventListener('input', function(){
     player.volume = volumeSlider.value / 100;
+    console.log(volumeSlider.value);
     if (volumeSlider.value == 0) {
       mute_button.className = 'fa fa-volume-off';
     }else if (mute_button.className == 'fa fa-volume-off') {
