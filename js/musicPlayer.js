@@ -7,6 +7,7 @@ $(document).ready(function () {
   var mute_button = $('#mute');
   var volume_bar = $('#volume');
   var player = document.getElementById('musicPlayer');
+  var volumeSlider = document.getElementById('Volume');
   var duration = 0;
   var volume = 0.75;
 
@@ -28,6 +29,10 @@ $(document).ready(function () {
   player.addEventListener("ended", function(){
        player.currentTime = 0;
        console.log("ended");
+  });
+
+  volumeSlider.addEventListener('onchange', function{
+    player.volume = volumeSlider.value;
   });
 
   function getTime(t) {
