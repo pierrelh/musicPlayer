@@ -34,11 +34,13 @@ $(document).ready(function () {
   volumeSlider.addEventListener('input', function(){
     player.volume = volumeSlider.value / 100;
     console.log(volumeSlider.value);
-    if (volumeSlider.value == 0) {
-      mute_button.className = 'fa fa-volume-off';
-    }else if (mute_button.className == 'fa fa-volume-off') {
-      mute_button.className = 'fa fa-volume-on';
-    }
+    $(mute_button).toggleClass("fa-volume-up", player.volume != 0);
+    $(mute_button).toggleClass("fa-volume-off", player.volume == 0);
+    // if (volumeSlider.value == 0) {
+    //   mute_button.classList = 'fa fa-volume-off';
+    // }else if (mute_button.classList == 'fa fa-volume-off') {
+    //   mute_button.className = 'fa fa-volume-on';
+    // }
   }, false);
 
   function getTime(t) {
