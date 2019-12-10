@@ -86,3 +86,8 @@ $(document).ready(function () {
     $(this).toggleClass("fa-volume-off", player.volume == 0);
   });
 });
+
+player.addEventListener("ended", function(){
+     player.currentTime = 0;
+     console.log("ended");
+});
