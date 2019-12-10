@@ -5,7 +5,7 @@ $(document).ready(function () {
   // var progress_bar = $("#progressbar");
   var time = $("#time");
   var mute_button = $('#mute');
-  var progressBar = document.getElementById('Progressbar');
+  var progressBar = document.getElementById('progress-bar');
   var player = document.getElementById('musicPlayer');
   var volumeSlider = document.getElementById('Volume');
   var duration = 0;
