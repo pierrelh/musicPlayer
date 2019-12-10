@@ -22,6 +22,7 @@
 
 .library > ul > li > p{
   display: flex;
+  justify-content: center;
   text-align: center;
   color: #fff;
   font-family: "Open-sans", sans-serif;
