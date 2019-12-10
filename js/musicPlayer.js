@@ -32,7 +32,7 @@ $(document).ready(function () {
   });
 
   volumeSlider.addEventListener('onchange', function(){
-    player.volume = volumeSlider.value;
+    player.volume = volumeSlider.value / 100;
   });
 
   function getTime(t) {
