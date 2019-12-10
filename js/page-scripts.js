@@ -9,11 +9,12 @@ function mediaPlayerAppear(link, cover, artist, name){
   document.getElementById('cover').src = cover;
   var audioPlayer = document.getElementById('audio-player');
   audioPlayer.className = '';
-  
-  var play_button = $('#play');
-  var player = document.getElementById('musicPlayer');
-  $(play_button).toggleClass("fa-play", !player.paused);
-  $(play_button).toggleClass("fa-pause", player.paused);
+  $(document).ready(function () {
+    var play_button = $('#play');
+    var player = document.getElementById('musicPlayer');
+    $(play_button).toggleClass("fa-play", !player.paused);
+    $(play_button).toggleClass("fa-pause", player.paused);
+  }
 }
 
 function mediaPlayerHide(){
