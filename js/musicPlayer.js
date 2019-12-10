@@ -31,15 +31,10 @@ $(document).ready(function () {
        console.log("ended");
   });
 
-  volumeSlider.addEventListener('onchange', function(){
+  volumeSlider.addEventListener('input', function(){
     console.log(volumeSlider.value);
     player.volume = volumeSlider.value / 100;
-  });
-
-  volumeSlider.addEventListener('oninput', function(){
-    console.log(volumeSlider.value);
-    player.volume = volumeSlider.value / 100;
-  });
+  }, false);
 
   function getTime(t) {
     var m = ~~(t / 60),
