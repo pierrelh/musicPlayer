@@ -25,6 +25,11 @@ $(document).ready(function () {
     start.text(getTime(player.currentTime));
   }, false);
 
+  player.addEventListener("ended", function(){
+       player.currentTime = 0;
+       console.log("ended");
+  });
+
   function getTime(t) {
     var m = ~~(t / 60),
       s = ~~(t % 60);
@@ -85,9 +90,4 @@ $(document).ready(function () {
     $(this).toggleClass("fa-volume-up", player.volume != 0);
     $(this).toggleClass("fa-volume-off", player.volume == 0);
   });
-});
-
-player.addEventListener("ended", function(){
-     player.currentTime = 0;
-     console.log("ended");
 });
