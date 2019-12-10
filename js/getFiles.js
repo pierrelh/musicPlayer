@@ -13,26 +13,25 @@ function getFiles(){
       library.innerHTML = '';
       if (data.length != 0) {
         for (var i = 0; i < data.length; i++) {
-          console.log(i)
           var ul = document.createElement("ul");
-          ul.appendChild(library);
+          library.appendChild(ul);
 
           var li = document.createElement("li");
-          li.appendChild(ul);
+          ul.appendChild(li);
           li.className = 'view';
           li.setAttribute("onclick", "mediaPlayerAppear('"+data[i]['file_url']+"', '"+data[i]['file_image']+"', '"+data[i]['file_author']+"', '"+data[i]['file_name']+"')");
 
           if (data[i]['file_image'] != "") {
             var img = document.createElement("img");
-            img.appendChild(li);
+            li.appendChild(img);
             img.src = data[i]['file_image'];
           }
 
           var lip = document.createElement("li");
-          lip.appendChild(ul);
+          ul.appendChild(lip);
 
           var p = document.createElement("p");
-          p.appendChild(lip);
+          lip.appendChild(p);
           p.innerHTML = data[i]['file_author'] + " - " + data[i]['file_name'];
           p.setAttribute("onclick", "mediaPlayerAppear('"+data[i]['file_url']+"', '"+data[i]['file_image']+"', '"+data[i]['file_author']+"', '"+data[i]['file_name']+"')");
         }
