@@ -16,17 +16,8 @@
   height: 150px;
   cursor: pointer;
   background-color: black;
-}
-
-.library > ul > li > .no-image{
-  height: 150px;
-}
-
-.library > ul > li > img{
-  display: block;
-  margin: auto;
-  box-sizing: border-box;
-  height: 100%;
+  background-position: center;
+  background-size: cover;
 }
 
 .library > ul > li > p{
