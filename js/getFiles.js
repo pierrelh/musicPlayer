@@ -11,8 +11,9 @@ function getFiles(){
       console.log(data);
       var library = document.getElementById('Library');
       library.innerHTML = '';
-      if (data != "") {
+      if (data.length != 0) {
         for (var i = 0; i < data.length; i++) {
+          console.log(i)
           var ul = document.createElement("ul");
           library.appendChild(ul);
 
