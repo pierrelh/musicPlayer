@@ -5,7 +5,7 @@
   $result = pg_query($db, "SELECT * FROM files ORDER BY file_name DESC");
   if (!empty($result)) {
     $val = pg_fetch_all($result);
-    return $val;
+    print $val;
   }
 
 ?>
