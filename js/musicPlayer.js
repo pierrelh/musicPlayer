@@ -31,7 +31,7 @@ $(document).ready(function () {
        console.log("ended");
   });
 
-  volumeSlider.addEventListener('onchange', function{
+  volumeSlider.addEventListener('onchange', function(){
     player.volume = volumeSlider.value;
   });
 
