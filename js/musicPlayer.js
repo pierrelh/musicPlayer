@@ -65,6 +65,17 @@ $(document).ready(function () {
         ')');
 });
 
+$("#progress-bar").mousemove(function (e) {
+  var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
+  var percent = val * 100;
+
+  $(this).css('background-image',
+      '-webkit-gradient(linear, left top, right top, ' +
+      'color-stop(' + percent + '%, #FFF), ' +
+      'color-stop(' + percent + '%, #0B0B0B)' +
+      ')');
+});
+
   function getTime(t) {
     var m = ~~(t / 60),
       s = ~~(t % 60);

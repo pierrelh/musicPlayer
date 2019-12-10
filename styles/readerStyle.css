@@ -101,6 +101,11 @@
   background: linear-gradient(to right, #FFF 75%, #0B0B0B 75%)
 }
 
+#progress-bar {
+  width: 40% !important;
+  background: linear-gradient(to right, #FFF 0%, #0B0B0B 0%)
+}
+
 #Volume:hover,
 #progress-bar:hover {
   opacity: 1;
