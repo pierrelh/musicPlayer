@@ -12,7 +12,6 @@
         <span id="time" class="time">00:00</span>
         <i id="mute" class="fa fa-volume-up"></i>
         <input type="range" min="0" max="100" value="75" id="Volume" name="" value="">
-        <!-- <div id="volume"></div> -->
       </div>
     </li>
   </ul>

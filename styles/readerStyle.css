@@ -57,8 +57,7 @@
   background: white;
 }
 
-#progressbar,
-#volume {
+#progressbar {
   height: 14px;
   display: inline-block;
   border-radius: 0px;
@@ -84,6 +83,36 @@
   margin-left: 15px;
 }
 
-#volume {
-  width: 9%;
+#Volume {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #2B2B2B;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+#Volume:hover {
+  opacity: 1;
+}
+
+#Volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #2B2B2B;
+  cursor: pointer;
+}
+
+#Volume::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
 }
