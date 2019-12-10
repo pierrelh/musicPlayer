@@ -4,9 +4,8 @@ $(document).ready(function () {
   var play_button = $('#play');
   // var progress_bar = $("#progressbar");
   var time = $("#time");
-  var progressBar = $("#Progressbar");
   var mute_button = $('#mute');
-  var volume_bar = $('#volume');
+  var progressBar = document.getElementById('Progressbar');
   var player = document.getElementById('musicPlayer');
   var volumeSlider = document.getElementById('Volume');
   var duration = 0;
@@ -14,7 +13,7 @@ $(document).ready(function () {
 
   player.onloadedmetadata = function() {
     duration = player.duration;
-    progressBar.max = duration;
+    progressBar.max = round(duration);
     // progress_bar.progressbar("option", {
     //   'max': duration
     // });
@@ -43,7 +42,6 @@ $(document).ready(function () {
   $(play_button).toggleClass("fa-pause", player.paused);
 
   player.addEventListener("timeupdate", function() {
-    console.log(player.currentTime);
     progressBar.value = player.currentTime;
     // progress_bar.progressbar('value', player.currentTime);
     start.text(getTime(player.currentTime));
@@ -92,17 +90,6 @@ $(document).ready(function () {
   //   };
   // }
 
-  volume_bar.progressbar({
-    value: player.volume * 100,
-  });
-
-  volume_bar.click(function(e) {
-      var info = getProgressBarClickInfo($(this), e);
-      volume_bar.progressbar('value', info.value);
-      player.volume = info.value / info.max;
-      $('#mute').toggleClass("fa-volume-up", player.volume != 0);
-  });
-
   progressBar.slider({
     value: player.currentTime,
   });
@@ -129,8 +116,6 @@ $(document).ready(function () {
       volume = player.volume;
       player.volume = 0;
     }
-
-    volume_bar.progressbar('value', player.volume * 100);
 
     $(this).toggleClass("fa-volume-up", player.volume != 0);
     $(this).toggleClass("fa-volume-off", player.volume == 0);
