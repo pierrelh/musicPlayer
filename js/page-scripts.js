@@ -14,7 +14,7 @@ function mediaPlayerAppear(link, cover, artist, name){
     var player = document.getElementById('musicPlayer');
     $(play_button).toggleClass("fa-play", !player.paused);
     $(play_button).toggleClass("fa-pause", player.paused);
-  )};
+  });
 }
 
 function mediaPlayerHide(){
