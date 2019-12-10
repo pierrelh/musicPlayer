@@ -15,7 +15,6 @@
   if (!empty($_FILES)) {
     $files = $_FILES["file"];
     $files = is_array($files) ? $files : array( $files );
-    error_log("tmp_name: " . $files["tmp_name"]);
     $fileName = uploadFile($files["tmp_name"]);
   }else {
     $fileName = "false";
