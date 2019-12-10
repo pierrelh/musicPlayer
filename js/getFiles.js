@@ -22,9 +22,7 @@ function getFiles(){
           li.setAttribute("onclick", "mediaPlayerAppear('"+data[i]['file_url']+"', '"+data[i]['file_image']+"', '"+data[i]['file_author']+"', '"+data[i]['file_name']+"')");
 
           if (data[i]['file_image'] != "") {
-            var img = document.createElement("img");
-            li.appendChild(img);
-            img.src = data[i]['file_image'];
+            li.style.backgroundImage = "url('"+data[i]['file_url']+"')";
           }
 
           var lip = document.createElement("li");
