@@ -11,6 +11,9 @@ $(document).ready(function () {
   var duration = 0;
   var volume = 0.75;
 
+  $(play_button).toggleClass("fa-play", !player.paused);
+  $(play_button).toggleClass("fa-pause", player.paused);
+
   player.onloadedmetadata = function() {
     duration = player.duration;
     progress_bar.progressbar("option", {
