@@ -7,7 +7,7 @@ $(document).ready(function () {
   var mute_button = $('#mute');
   var volume_bar = $('#volume');
   var player = document.getElementById('musicPlayer');
-  var volumeSlider = document.getElementById('#Volume');
+  var volumeSlider = document.getElementById('Volume');
   var duration = 0;
   var volume = 0.75;
 
