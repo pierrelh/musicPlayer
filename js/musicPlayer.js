@@ -44,11 +44,11 @@ $(document).ready(function () {
     $(this).css('background-image',
         '-webkit-gradient(linear, left top, right top, ' +
         'color-stop(' + percent + '%, #FFF), ' +
-        'color-stop(' + percent + '%, #FFF)' +
+        'color-stop(' + percent + '%, #0B0B0B)' +
         ')');
 
     $(this).css('background-image',
-        '-moz-linear-gradient(left center, #DF7164 0%, #DF7164 ' + percent + '%, #0B0B0B ' + percent + '%, #0B0B0B 100%)');
+        '-moz-linear-gradient(left center, #DF7164 0%, #DF7164 ' + percent + '%, #F5D0CC ' + percent + '%, #F5D0CC 100%)');
 });
 
   function getTime(t) {
