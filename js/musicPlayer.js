@@ -104,8 +104,8 @@ $(document).ready(function () {
   });
 
   progressBar.slider({
-    value: player.currentTime;
-  })
+    value: player.currentTime,
+  });
 
   // progress_bar.progressbar({
   //   value: player.currentTime,
