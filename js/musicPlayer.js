@@ -13,7 +13,7 @@ $(document).ready(function () {
 
   player.onloadedmetadata = function() {
     duration = player.duration;
-    progressBar.max = round(duration);
+    progressBar.max = duration;
     // progress_bar.progressbar("option", {
     //   'max': duration
     // });
