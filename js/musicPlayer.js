@@ -14,9 +14,6 @@ $(document).ready(function () {
   player.onloadedmetadata = function() {
     duration = player.duration;
     progressBar.max = duration;
-    // progress_bar.progressbar("option", {
-    //   'max': duration
-    // });
     time.text(getTime(player.duration));
   };
 
@@ -43,7 +40,6 @@ $(document).ready(function () {
 
   player.addEventListener("timeupdate", function() {
     progressBar.value = player.currentTime;
-    // progress_bar.progressbar('value', player.currentTime);
     start.text(getTime(player.currentTime));
   }, false);
 
@@ -102,6 +98,10 @@ $(document).ready(function () {
   //   var info = getProgressBarClickInfo($(this), e);
   //   player.currentTime = player.duration / info.max * info.value;
   // });
+
+  progressBar.addEventListener('input', function(){
+    player.currentTime = player.duration / progressBar.max * progressBar.value;
+  }, false);
 
   play_button.click(function() {
     player[player.paused ? 'play' : 'pause']();
