@@ -32,8 +32,12 @@ $(document).ready(function () {
   });
 
   volumeSlider.addEventListener('input', function(){
-    console.log(volumeSlider.value);
     player.volume = volumeSlider.value / 100;
+    if (player.volume == 0) {
+      mute_button.toggleClass('fa-volume-off');
+    }else if (mute_button.className == 'fa fa-volume-off') {
+      mute_button.toggleClass('fa-volume-on');
+    }
   }, false);
 
   function getTime(t) {
