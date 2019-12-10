@@ -85,7 +85,8 @@
   margin-left: 0 !important;
 }
 
-#Volume {
+#Volume,
+#progress-bar {
   -webkit-appearance: none;
   width: 10%;
   height: 7px;
@@ -100,11 +101,13 @@
   background: linear-gradient(to right, #FFF 75%, #0B0B0B 75%)
 }
 
-#Volume:hover {
+#Volume:hover,
+#progress-bar:hover {
   opacity: 1;
 }
 
-#Volume::-webkit-slider-thumb {
+#Volume::-webkit-slider-thumb,
+#progress-bar::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 15px;
@@ -114,7 +117,8 @@
   cursor: pointer;
 }
 
-#Volume::-moz-range-thumb {
+#Volume::-moz-range-thumb,
+#progress-bar::-moz-range-thumb {
   width: 25px;
   height: 25px;
   border-radius: 50%;
