@@ -2,9 +2,8 @@
   font-family: "Open-sans", sans-serif;
   font-size: 1.4em;
   color: white;
-  display: flex;
-  justify-content: center;
-  width: 52%;
+  padding-left: 2%;
+  margin: 0;
 }
 
 #audio-player > ul {
@@ -12,6 +11,7 @@
 }
 
 #audio-player {
+  padding-left: 20%;
   position: fixed;
   bottom: -100px;
   width: 100%;
@@ -32,11 +32,10 @@
 }
 
 #controls {
-  display: flex;
+  padding-left: 1%;
   height: 50px;
   width: 100%;
   margin: auto;
-  justify-content: center;
 }
 
 .time {
@@ -50,7 +49,7 @@
 }
 
 .ui-progressbar {
-  background: #2B2B2B;
+  background: #0B0B0B;
 }
 
 .ui-progressbar-value {
@@ -63,7 +62,7 @@
   border-radius: 0px;
   position: relative;
   top: 16px;
-  border: 1px solid white;
+  border: none;
 }
 
 #progressbar {

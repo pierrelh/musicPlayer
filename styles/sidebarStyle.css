@@ -5,6 +5,7 @@
   width: 20%;
   top: 0;
   padding-top: 50px;
+  z-index: 800;
 }
 
 .sidebar > ul{
