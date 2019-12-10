@@ -32,21 +32,6 @@ function getFiles(){
           p.appendChild(lip);
           p.innerHTML = data[i]['file_author'] + " - " + data[i]['file_name'];
           p.setAttribute("onclick", "mediaPlayerAppear('"+data[i]['file_url']+"', '"+data[i]['file_image']+"', '"+data[i]['file_author']+"', '"+data[i]['file_name']+"')");
-
-          var divBackground = document.createElement("div");
-          divMain.appendChild(divBackground);
-          divBackground.className = 'div-detail div-'+position[i];
-          divBackground.style.backgroundImage = "url('"+data[i]['blog_img']+"')";
-
-          var code = document.createElement("p");
-          divMain.appendChild(code);
-          code.className = 'code';
-          code.innerHTML = explicitDate(data[i]['blog_date']);
-
-          var span = document.createElement("span");
-          code.appendChild(span);
-          span.className = 'filtered '+data[i]['blog_tag'];
-          span.innerHTML = elementClass.get(data[i]['blog_tag']);
         }
       }
     }
