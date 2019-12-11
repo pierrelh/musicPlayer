@@ -1,8 +1,9 @@
-function getFiles(){
+function getFiles(data){
   $.ajax({
     url: "../functions/files/ajaxGetAllFiles.php",
     type: "POST",
     dataType: 'script',
+    data: {'row': data},
     cache: false,
     contentType: false,
     processData: false,

@@ -25,7 +25,7 @@
     ?>
     <section id="Library" class="library">
       <script type="text/javascript">
-        getFiles();
+        getFiles('file_id');
       </script>
     </section>
     <?php
