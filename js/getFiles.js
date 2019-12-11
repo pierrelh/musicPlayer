@@ -1,8 +1,9 @@
-function getFiles(row){
+function getFiles(row, type){
   $.ajax({
     url: "../functions/files/ajaxGetAllFiles.php",
     type: "POST",
-    data: {'row': row},
+    data: {'row': row,
+           'type': type},
     success: function(data){
       data = JSON.parse(data);
       var library = document.getElementById('Library');
