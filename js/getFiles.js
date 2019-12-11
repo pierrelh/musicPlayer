@@ -1,12 +1,8 @@
-function getFiles(data){
+function getFiles(row){
   $.ajax({
     url: "../functions/files/ajaxGetAllFiles.php",
     type: "POST",
-    dataType: 'script',
-    data: {'row': data},
-    cache: false,
-    contentType: false,
-    processData: false,
+    data: {'row': row},
     success: function(data){
       data = JSON.parse(data);
       var library = document.getElementById('Library');
