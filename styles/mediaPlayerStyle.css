@@ -5,20 +5,5 @@
   overflow: hidden;
   transition-duration: 0.8s;
   position: fixed;
-  z-index: 900;
-}
-
-#mediaPlayer > #cover{
-  width: 70%;
-  max-width: 680px;
-  display: block;
-  margin: auto;
-}
-
-#mediaPlayer > audio{
-  width: 70%;
-  min-width: 725px;
-  max-width: 725px;
-  display: block;
-  margin: auto;
+  z-index: 0;
 }
