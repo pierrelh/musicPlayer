@@ -120,8 +120,6 @@
   border-radius: 50%;
   background: #FFF;
   cursor: pointer;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
 }
 
 #Volume::-moz-range-thumb,
@@ -135,20 +133,16 @@
 
 #Volume::-webkit-slider-thumb:hover,
 #progress-bar::-webkit-slider-thumb:hover {
-  -webkit-appearance: none;
-  appearance: none;
   width: 15px;
   height: 15px;
-  border-radius: 50%;
-  background: #FFF;
-  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: max-height .2s;
 }
 
 #Volume::-moz-range-thumb:hover,
 #progress-bar::-moz-range-thumb:hover {
   width: 15px;
   height: 15px;
-  border-radius: 50%;
-  background: #4CAF50;
-  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: max-height .2s;
 }
