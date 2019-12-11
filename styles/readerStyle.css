@@ -115,6 +115,28 @@
 #progress-bar::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #FFF;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+#Volume::-moz-range-thumb,
+#progress-bar::-moz-range-thumb {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+#Volume::-webkit-slider-thumb:hover,
+#progress-bar::-webkit-slider-thumb:hover {
+  -webkit-appearance: none;
+  appearance: none;
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -122,10 +144,10 @@
   cursor: pointer;
 }
 
-#Volume::-moz-range-thumb,
-#progress-bar::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
+#Volume::-moz-range-thumb:hover,
+#progress-bar::-moz-range-thumb:hover {
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background: #4CAF50;
   cursor: pointer;
