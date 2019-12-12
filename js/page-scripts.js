@@ -1,5 +1,7 @@
 function mediaPlayerAppear(identifier){
+  console.log(identifier);
   var song = document.getElementById('identifier');
+  console.log(song);
   var url = song.getAttribute('data-url');
   var author = song.getAttribute('data-artist');
   var name = song.getAttribute('data-title');
