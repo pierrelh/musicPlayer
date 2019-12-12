@@ -9,7 +9,7 @@ function getFiles(row, type){
       var library = document.getElementById('Library');
       library.innerHTML = '';
       if (data.length != 0) {
-        for (var i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.length; i++) (function(i) {
           var ul = document.createElement("ul");
           library.appendChild(ul);
 
@@ -17,6 +17,20 @@ function getFiles(row, type){
           ul.appendChild(li);
           li.className = 'view';
           li.id = 'li'+i;
+          document.getElementById('li'+i).onclick = function () {
+            song = i;
+            if (i == 0) {
+              previous = 0;
+            }else {
+              previous = i - 1;
+            }
+            if (i + 1 == data.length) {
+              next = 0;
+            }else {
+              next = i + 1;
+            }
+            mediaPlayerAppear(data[song], data[previous], data[next]);
+          };
           // li.setAttribute("onclick", "mediaPlayerAppear('"+JSON.parse(data[i])+"', '"+JSON.parse(data[i-1])+"', '"+JSON.parse(data[i+1])+"')");
 
           if (data[i]['file_image'] != "") {
@@ -30,23 +44,7 @@ function getFiles(row, type){
           lip.appendChild(p);
           p.innerHTML = data[i]['file_author'] + " - " + data[i]['file_name'];
           p.setAttribute("onclick", "mediaPlayerAppear('"+data[i]+"', '"+data[i-1]+"', '"+data[i+1]+"')");
-        }
-        for (var i = 0; i < data.length; i++) (function(i) {
-          document.getElementById('li'+i).onclick = function () {
-            song = i;
-            if (i == 0) {
-              previous = 0;
-            }else {
-              previous = i - 1;
-            }
-            if (i + 1 == data.length) {
-              next = 0;
-            }else {
-              next = i + 1;
-            }
-            mediaPlayerAppear(data[parseInt(song)], data[previous], data[next]);
-          };
-        })
+        })(i);
       }
     }
   });
