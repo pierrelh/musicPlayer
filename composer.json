@@ -1,6 +1,7 @@
 {
     "require": {
         "php": ">=5.5",
-        "cloudinary/cloudinary_php": "^1.14"
+        "cloudinary/cloudinary_php": "^1.14",
+        "ext-gd":" *"
       }
 }

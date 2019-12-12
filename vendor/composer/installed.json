@@ -1,17 +1,17 @@
 [
     {
         "name": "cloudinary/cloudinary_php",
-        "version": "1.15.1",
-        "version_normalized": "1.15.1.0",
+        "version": "1.16.0",
+        "version_normalized": "1.16.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/cloudinary/cloudinary_php.git",
-            "reference": "d3ff05f2436a5322b70a00782c1d4b1656b043e9"
+            "reference": "e33619e48ea8fa0350c007d640777091bfa4fdbc"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/cloudinary/cloudinary_php/zipball/d3ff05f2436a5322b70a00782c1d4b1656b043e9",
-            "reference": "d3ff05f2436a5322b70a00782c1d4b1656b043e9",
+            "url": "https://api.github.com/repos/cloudinary/cloudinary_php/zipball/e33619e48ea8fa0350c007d640777091bfa4fdbc",
+            "reference": "e33619e48ea8fa0350c007d640777091bfa4fdbc",
             "shasum": ""
         },
         "require": {
@@ -22,7 +22,7 @@
         "require-dev": {
             "phpunit/phpunit": "4.8.*"
         },
-        "time": "2019-10-30T15:43:32+00:00",
+        "time": "2019-11-28T15:57:33+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

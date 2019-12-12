@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0aaef4f5b960dce432bb3946117fe928",
+    "content-hash": "04789ba59ff54a8b621371aa406f53ee",
     "packages": [
         {
             "name": "cloudinary/cloudinary_php",
-            "version": "1.15.1",
+            "version": "1.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudinary/cloudinary_php.git",
-                "reference": "d3ff05f2436a5322b70a00782c1d4b1656b043e9"
+                "reference": "e33619e48ea8fa0350c007d640777091bfa4fdbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudinary/cloudinary_php/zipball/d3ff05f2436a5322b70a00782c1d4b1656b043e9",
-                "reference": "d3ff05f2436a5322b70a00782c1d4b1656b043e9",
+                "url": "https://api.github.com/repos/cloudinary/cloudinary_php/zipball/e33619e48ea8fa0350c007d640777091bfa4fdbc",
+                "reference": "e33619e48ea8fa0350c007d640777091bfa4fdbc",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
                 "image management",
                 "sdk"
             ],
-            "time": "2019-10-30T15:43:32+00:00"
+            "time": "2019-11-28T15:57:33+00:00"
         }
     ],
     "packages-dev": [],
@@ -66,7 +66,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5"
+        "php": ">=5.5",
+        "ext-gd": " *"
     },
     "platform-dev": []
 }
