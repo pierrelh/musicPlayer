@@ -18,8 +18,8 @@ function getFiles(row, type){
           li.className = 'view';
           li.id = i;
           li.dataset.url = data[i]['file_url'];
-          li.dataset.artist = data[i]['file_artist'];
-          li.dataset.title = data[i]['file_title'];
+          li.dataset.artist = data[i]['file_author'];
+          li.dataset.title = data[i]['file_name'];
           document.getElementById(i).onclick = function () {
             mediaPlayerAppear(li.id);
           };

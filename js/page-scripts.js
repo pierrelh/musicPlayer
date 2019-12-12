@@ -1,4 +1,5 @@
 function mediaPlayerAppear(identifier){
+  console.log('ID: ' + identifer);
   var song = document.getElementById('identifer');
   var url = song.dataset.url;
   var artist = song.dataset.artist;
