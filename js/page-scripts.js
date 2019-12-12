@@ -18,7 +18,7 @@ function mediaPlayerAppear(identifier){
   };
   document.getElementById('Next').onclick = function () {
     if (document.getElementById(identifier+1) != undefined) {
-      identifier = identifier - 1;
+      identifier = identifier + 1;
     }else {
       identifier = 0;
     }
