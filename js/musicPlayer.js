@@ -55,7 +55,7 @@ $(document).ready(function () {
        var url = player.src;
        console.log(url)
        var library = document.querySelector('#Library');
-       var element = library.querySelectorAll("li[data-url='"+url+"']");
+       var element = library.querySelectorAll("li[data-url='"+url+"']")[0];
        console.log(element)
        var identifier = element.id;
        console.log(identifier)
