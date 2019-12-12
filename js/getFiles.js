@@ -9,7 +9,7 @@ function getFiles(row, type){
       var library = document.getElementById('Library');
       library.innerHTML = '';
       if (data.length != 0) {
-        for (var i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.length; i++) (function(i) {
           var ul = document.createElement("ul");
           library.appendChild(ul);
 
@@ -44,7 +44,7 @@ function getFiles(row, type){
           lip.appendChild(p);
           p.innerHTML = data[i]['file_author'] + " - " + data[i]['file_name'];
           p.setAttribute("onclick", "mediaPlayerAppear('"+data[i]+"', '"+data[i-1]+"', '"+data[i+1]+"')");
-        }
+        })
       }
     }
   });
