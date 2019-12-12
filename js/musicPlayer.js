@@ -52,7 +52,10 @@ $(document).ready(function () {
 
   player.addEventListener("ended", function(){
        player.currentTime = 0;
-       console.log("ended");
+       var url = player.src;
+       var element = document.querySelectorAll('[data-url~="'+url+'"]');
+       var identifier = element.id;
+       mediaPlayerAppear(identifier)
   });
 
   volumeSlider.addEventListener('input', function(){
