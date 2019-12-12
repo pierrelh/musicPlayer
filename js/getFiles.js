@@ -6,17 +6,19 @@ function getFiles(row, type){
            'type': type},
     success: function(data){
       data = JSON.parse(data);
+      console.log(data);
       var library = document.getElementById('Library');
       library.innerHTML = '';
       if (data.length != 0) {
         for (var i = 0; i < data.length; i++) {
+          console.log(data[i]);
           var ul = document.createElement("ul");
           library.appendChild(ul);
 
           var li = document.createElement("li");
           ul.appendChild(li);
           li.className = 'view';
-          li.setAttribute("onclick", "mediaPlayerAppear('"+data[i].json+"', '"+data[i-1].json+"', '"+data[i+1].json+"')");
+          li.setAttribute("onclick", "mediaPlayerAppear('"+data[i]+"', '"+data[i-1]+"', '"+data[i+1]+"')");
 
           if (data[i]['file_image'] != "") {
             li.style.backgroundImage = "url('"+data[i]['file_image']+"')";
