@@ -35,3 +35,23 @@ function backgroundHide(){
   var background = document.getElementById('background');
   background.className = '';
 }
+
+function hideSidebar(){
+  var arrow = document.getElementById('arrow');
+  var sidebar = document.getElementById('sidebar');
+  var library = document.getElementById('Library');
+  arrow.className = 'arrow-active';
+  sidebar.className = 'sidebar-hide';
+  library.className = 'library-show';
+  arrow.setAttribute('onclick', 'showSidebar()');
+}
+
+function showSidebar(){
+  var arrow = document.getElementById('arrow');
+  var sidebar = document.getElementById('sidebar');
+  var library = document.getElementById('Library');
+  arrow.className = 'arrow';
+  sidebar.className = 'sidebar';
+  library.className = 'library';
+  arrow.setAttribute('onclick', 'hideSidebar()');
+}

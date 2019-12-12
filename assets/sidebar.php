@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/sidebarStyle.css">
-<section class="sidebar">
+<section id="sidebar" class="sidebar">
   <ul>
     <li><input onclick="" type="button" name="" value="Mon Compte"></li>
     <li><input onclick="" type="button" name="" value="Créer un compte"></li>

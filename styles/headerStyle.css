@@ -10,6 +10,21 @@ header{
 
 .arrow {
   cursor: pointer;
+  position: absolute;
+  height: 35px;
+  left: 17%;
+  top: 10%;
+  transition: 0.8s;
+}
+
+.arrow-active {
+  cursor: pointer;
+  position: absolute;
+  height: 35px;
+  top: 10%;
+  transform: rotate(90deg);
+  transition: 0.8s;
+  left: 2%;
 }
 
 header > h1{
