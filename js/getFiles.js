@@ -13,11 +13,11 @@ function getFiles(row, type){
           var ul = document.createElement("ul");
           library.appendChild(ul);
 
-          var li = document.createElement("li");
+          li = document.createElement("li");
           ul.appendChild(li);
           li.className = 'view';
           li.id = 'li'+i;
-          var document.getElementById('li'+i).onclick = function () {
+          document.getElementById('li'+i).onclick = function () {
             mediaPlayerAppear(data[i], data[i-1], data[i+1]);
           };
           // li.setAttribute("onclick", "mediaPlayerAppear('"+JSON.parse(data[i])+"', '"+JSON.parse(data[i-1])+"', '"+JSON.parse(data[i+1])+"')");
