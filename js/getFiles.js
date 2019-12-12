@@ -29,7 +29,7 @@ function getFiles(row, type){
             }else {
               next = i + 1;
             }
-            mediaPlayerAppear(data[song], data[previous], data[next]);
+            mediaPlayerAppear(data[parseInt(song)], data[previous], data[next]);
           };
           // li.setAttribute("onclick", "mediaPlayerAppear('"+JSON.parse(data[i])+"', '"+JSON.parse(data[i-1])+"', '"+JSON.parse(data[i+1])+"')");
 
