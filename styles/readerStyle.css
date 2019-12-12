@@ -81,10 +81,7 @@
   top: 13px;
   margin-left: 20px;
   cursor: pointer;
-}
-
-.player-button {
-  height: 16px !important;
+  height: 16px;
 }
 
 .previous {
@@ -145,8 +142,4 @@
   border-radius: 50%;
   background: #4CAF50;
   cursor: pointer;
-}
-
-.player-button{
-  height: 20px;
 }
