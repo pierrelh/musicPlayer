@@ -19,8 +19,16 @@ function getFiles(row, type){
           li.id = 'li'+i;
           document.getElementById('li'+i).onclick = function () {
             song = i;
-            previous = i - 1;
-            next = i + 1;
+            if (i == 0) {
+              previous = 0;
+            }else {
+              previous = i - 1;
+            }
+            if (i + 1 == data.length) {
+              next = 0;
+            }else {
+              next = i + 1;
+            }
             mediaPlayerAppear(data[song], data[previous], data[next]);
           };
           // li.setAttribute("onclick", "mediaPlayerAppear('"+JSON.parse(data[i])+"', '"+JSON.parse(data[i-1])+"', '"+JSON.parse(data[i+1])+"')");
