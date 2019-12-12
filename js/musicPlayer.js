@@ -53,13 +53,10 @@ $(document).ready(function () {
   player.addEventListener("ended", function(){
        player.currentTime = 0;
        var url = player.src;
-       console.log(url)
        var library = document.querySelector('#Library');
        var element = library.querySelectorAll("li[data-url='"+url+"']")[0];
-       console.log(element)
        var identifier = element.id;
-       console.log(identifier)
-       mediaPlayerAppear(identifier)
+       mediaPlayerAppear(identifier + 1)
   });
 
   volumeSlider.addEventListener('input', function(){
