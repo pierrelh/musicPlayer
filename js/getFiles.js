@@ -17,7 +17,7 @@ function getFiles(row, type){
           ul.appendChild(li);
           li.className = 'view';
           li.id = 'li'+i;
-          library.getElementById('li'i)[i].onclick = function () {
+          library.getElementById('li'+i)[i].onclick = function () {
             mediaPlayerAppear(data[i], data[i-1], data[i+1]);
           };
           // li.setAttribute("onclick", "mediaPlayerAppear('"+JSON.parse(data[i])+"', '"+JSON.parse(data[i-1])+"', '"+JSON.parse(data[i+1])+"')");
