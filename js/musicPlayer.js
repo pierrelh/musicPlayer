@@ -54,8 +54,8 @@ $(document).ready(function () {
        player.currentTime = 0;
        var url = player.src;
        console.log(url)
-       var library = document.getElementById('Library');
-       var element = library.querySelectorAll('li[data-url="'+url+'"]');
+       var library = document.querySelector('#Library');
+       var element = library.querySelectorAll("li[data-url='"+url+"']");
        var identifier = element.id;
        console.log(identifier)
        mediaPlayerAppear(identifier)
