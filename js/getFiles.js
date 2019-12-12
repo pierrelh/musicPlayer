@@ -37,7 +37,7 @@ function getFiles(row, type){
           };
 
           delete data[i]['file_image'];
-          li.value = data[i];
+          li.value = JSON.stringify(data[i]);
         })(i);
       }
     }
