@@ -53,8 +53,11 @@ $(document).ready(function () {
   player.addEventListener("ended", function(){
        player.currentTime = 0;
        var url = player.src;
-       var element = document.querySelectorAll('[data-url~="'+url+'"]');
+       console.log(url)
+       var library = document.getElementById('Library');
+       var element = library.querySelectorAll('li[data-url="'+url+'"]');
        var identifier = element.id;
+       console.log(identifier)
        mediaPlayerAppear(identifier)
   });
 
