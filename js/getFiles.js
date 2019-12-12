@@ -21,7 +21,7 @@ function getFiles(row, type){
           li.dataset.artist = data[i]['file_author'];
           li.dataset.title = data[i]['file_name'];
           document.getElementById(i).onclick = function () {
-            mediaPlayerAppear(li.id);
+            mediaPlayerAppear(i);
           };
 
           if (data[i]['file_image'] != "") {
@@ -36,7 +36,7 @@ function getFiles(row, type){
           p.innerHTML = data[i]['file_author'] + " - " + data[i]['file_name'];
           p.id = 'p'+i;
           document.getElementById('p'+i).onclick = function () {
-            mediaPlayerAppear(li.id);
+            mediaPlayerAppear(i);
           };
         })(i);
       }
