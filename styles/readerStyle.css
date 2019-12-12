@@ -160,9 +160,9 @@
 }
 
 .fa-pause{
-  background-image: url("../img/pause.png");
+  background-image: url("../img/play.png");
 }
 
 .fa-play{
-  background-image: url("../img/play.png");
+  background-image: url("../img/pause.png");
 }
