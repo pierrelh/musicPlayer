@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Music Player - Login</title>
+    <link rel="shortcut icon" href="./img/favicon.png">
     <?php
       $link = 'https://' . $_SERVER['HTTP_HOST'];
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/header.php");
