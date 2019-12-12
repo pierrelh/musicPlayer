@@ -47,6 +47,7 @@
   position: relative;
   top: 13px;
   margin: 5px;
+  margin-top: 3px !important;
   font-family: "Open-sans", sans-serif;
   font-size: 1.2em;
 }
@@ -109,8 +110,7 @@
   opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
-  margin-top: 18px;
-  margin-left: 10px;
+  margin: 18px 10px 0 10px;
   background: linear-gradient(to right, #FFF 75%, #0B0B0B 75%)
 }
 
