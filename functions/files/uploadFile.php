@@ -26,7 +26,7 @@
     $img = is_array($img) ? $img : array( $img );
 
     include_once($_SERVER['DOCUMENT_ROOT']."/functions/compress.php");
-    $img = compress($img["tmp_name"], 90);
+    $img["tmp_name"] = compress($img["tmp_name"], 90);
 
     $imgName = uploadFile($img["tmp_name"], 'image');
   }else {
