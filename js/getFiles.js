@@ -13,7 +13,7 @@ function getFiles(row, type){
           var ul = document.createElement("ul");
           library.appendChild(ul);
 
-          var li = document.createElement("li");
+          li = document.createElement("li");
           ul.appendChild(li);
           li.className = 'view';
           li.id = 'li'+i;

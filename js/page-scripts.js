@@ -4,6 +4,7 @@ function mediaPlayerAppear(song, previous, next){
   var nameTxt = document.getElementById('songName');
   console.log(song);
   console.log(previous);
+  console.log(next);
   nameTxt.innerHTML = song['file_author'] + " - " + song['file_name'];
   musicPlayer.src = song['file_url'];
   var audioPlayer = document.getElementById('audio-player');
