@@ -18,7 +18,10 @@ function getFiles(row, type){
           var li = document.createElement("li");
           ul.appendChild(li);
           li.className = 'view';
-          li.setAttribute("onclick", "mediaPlayerAppear('"+JSON.parse(data[i])+"', '"+JSON.parse(data[i-1])+"', '"+JSON.parse(data[i+1])+"')");
+          library.getElementsByTagName('li')[i].onclick = function () {
+            alert(data[i+1])
+          };
+          // li.setAttribute("onclick", "mediaPlayerAppear('"+JSON.parse(data[i])+"', '"+JSON.parse(data[i-1])+"', '"+JSON.parse(data[i+1])+"')");
 
           if (data[i]['file_image'] != "") {
             li.style.backgroundImage = "url('"+data[i]['file_image']+"')";
