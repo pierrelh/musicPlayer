@@ -76,7 +76,7 @@
 #mute,
 .player-button {
   font-size: 16px;
-  width: 20px;
+  width: 16px;
   position: relative;
   top: 13px;
   margin-left: 20px;
@@ -90,7 +90,7 @@
 }
 
 .next {
-  margin-left: 7px !important;
+  margin-left: 15px !important;
   margin-right: 15px !important;
 }
 
@@ -142,6 +142,13 @@
   border-radius: 50%;
   background: #4CAF50;
   cursor: pointer;
+}
+
+.fa-volume-up,
+.fa-volume-off,
+.fa-pause,
+.fa-play {
+  background-size: cover;
 }
 
 .fa-volume-up{
