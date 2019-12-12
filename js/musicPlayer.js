@@ -55,8 +55,13 @@ $(document).ready(function () {
        var url = player.src;
        var library = document.querySelector('#Library');
        var element = library.querySelectorAll("li[data-url='"+url+"']")[0];
-       var identifier = element.id;
-       mediaPlayerAppear(identifier + 1)
+       var identifier = parseInt(element.id);
+       if (document.getElementById(identifier+1) != undefined) {
+         var identifier = identifier + 1;
+       }else {
+         identifier = 0;
+       }
+       mediaPlayerAppear(identifier)
   });
 
   volumeSlider.addEventListener('input', function(){
