@@ -18,7 +18,10 @@ function getFiles(row, type){
           li.className = 'view';
           li.id = 'li'+i;
           document.getElementById('li'+i).onclick = function () {
-            mediaPlayerAppear(data[1], data[0], data[2]);
+            song = i;
+            previous = i - 1;
+            next = i + 1;
+            mediaPlayerAppear(data[song], data[previous], data[next]);
           };
           // li.setAttribute("onclick", "mediaPlayerAppear('"+JSON.parse(data[i])+"', '"+JSON.parse(data[i-1])+"', '"+JSON.parse(data[i+1])+"')");
 
