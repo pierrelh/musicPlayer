@@ -1,10 +1,11 @@
 function mediaPlayerAppear(identifier){
   var song = document.getElementById('identifer');
-  var raw = song.value;
-  console.log(raw);
-  var value = JSONparse(song.value);
-  console.log(value);
-  var url = song;
+  var url = song.dataset.url;
+  var artist = song.dataset.artist;
+  var title = song.dataset.title;
+  console.log(url);
+  console.log(artist);
+  console.log(title);
   // var musicPlayer = document.getElementById('musicPlayer');
   // var readerPlayer = document.getElementById('readerPlayer');
   // var nameTxt = document.getElementById('songName');

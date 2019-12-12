@@ -17,6 +17,9 @@ function getFiles(row, type){
           ul.appendChild(li);
           li.className = 'view';
           li.id = i;
+          li.dataset.url = data[i]['file_url'];
+          li.dataset.artist = data[i]['file_artist'];
+          li.dataset.title = data[i]['file_title'];
           document.getElementById(i).onclick = function () {
             mediaPlayerAppear(li.id);
           };
@@ -35,9 +38,6 @@ function getFiles(row, type){
           document.getElementById('p'+i).onclick = function () {
             mediaPlayerAppear(li.id);
           };
-
-          delete data[i]['file_image'];
-          li.value = JSON.stringify(data[i]);
         })(i);
       }
     }
