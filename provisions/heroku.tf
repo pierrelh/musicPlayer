@@ -16,7 +16,6 @@ resource "heroku_app" "staging" {
 
   buildpacks = [
     "heroku/php",
-    "https://github.com/a2ikm/heroku-buildpack-libjpeg-turbo.git",
   ]
 }
 
