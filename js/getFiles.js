@@ -16,7 +16,7 @@ function getFiles(row, type){
           var li = document.createElement("li");
           ul.appendChild(li);
           li.className = 'view';
-          li.setAttribute("onclick", "mediaPlayerAppear('"+data[i]['file_url']+"', '"+data[i]['file_author']+"', '"+data[i]['file_name']+"')");
+          li.setAttribute("onclick", "mediaPlayerAppear('"+data[i]+"', '"+data[i-1]+"', '"+data[i+1]+"')");
 
           if (data[i]['file_image'] != "") {
             li.style.backgroundImage = "url('"+data[i]['file_image']+"')";
@@ -28,7 +28,7 @@ function getFiles(row, type){
           var p = document.createElement("p");
           lip.appendChild(p);
           p.innerHTML = data[i]['file_author'] + " - " + data[i]['file_name'];
-          p.setAttribute("onclick", "mediaPlayerAppear('"+data[i]['file_url']+"', '"+data[i]['file_author']+"', '"+data[i]['file_name']+"')");
+          p.setAttribute("onclick", "mediaPlayerAppear('"+data[i]+"', '"+data[i-1]+"', '"+data[i+1]+"')");
         }
       }
     }
