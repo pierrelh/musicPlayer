@@ -5,6 +5,11 @@ header{
   top: 0;
   position: fixed;
   height: 50px;
+  z-index: 805;
+}
+
+.arrow {
+  cursor: pointer;
 }
 
 header > h1{
