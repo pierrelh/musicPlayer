@@ -73,12 +73,27 @@
 }
 
 #play,
-#mute {
+#mute,
+.player-button {
   font-size: 16px;
   width: 20px;
   position: relative;
   top: 13px;
   margin-left: 20px;
+}
+
+.player-button {
+  height: 16px;
+}
+
+.previous {
+  margin-left: 0 !important;
+  margin-right: 15px !important;
+}
+
+.next {
+  margin-left: 15px !important;
+  margin-right: 15px !important;
 }
 
 #play {
@@ -129,4 +144,8 @@
   border-radius: 50%;
   background: #4CAF50;
   cursor: pointer;
+}
+
+.player-button{
+  height: 20px;
 }

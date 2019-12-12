@@ -6,9 +6,9 @@
     </li>
     <li>
       <div id="controls">
-        <img onclick="playPreviousSong()" src="../img/back.png" alt="">
+        <img class='previous player-button' onclick="playPreviousSong()" src="../img/back.png" alt="">
         <i id="play" class="fa fa-pause"></i>
-        <img onclick="playNextSong()" src="../img/skip.png" alt="">
+        <img class='next player-button' onclick="playNextSong()" src="../img/skip.png" alt="">
         <span id="start" class="time">00:00</span>
         <input type="range" min="0" max="100" value="0" id="progress-bar" name="" value="">
         <span id="time" class="time">00:00</span>
