@@ -16,7 +16,7 @@ function getFiles(row, type){
           var li = document.createElement("li");
           ul.appendChild(li);
           li.className = 'view';
-          li.setAttribute("onclick", "mediaPlayerAppear('"+data[i]+"', '"+data[i-1]+"', '"+data[i+1]+"')");
+          li.setAttribute("onclick", "mediaPlayerAppear('"+data[i].json+"', '"+data[i-1].json+"', '"+data[i+1].json+"')");
 
           if (data[i]['file_image'] != "") {
             li.style.backgroundImage = "url('"+data[i]['file_image']+"')";
