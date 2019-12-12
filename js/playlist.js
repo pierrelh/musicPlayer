@@ -1,0 +1,7 @@
+function playNextSong(){
+
+}
+
+function getNextSong(){
+  
+}
