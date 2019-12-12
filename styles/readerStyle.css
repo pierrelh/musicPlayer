@@ -143,3 +143,19 @@
   background: #4CAF50;
   cursor: pointer;
 }
+
+.fa-volume-up{
+  background-image: url("../img/audio-on.png");
+}
+
+.fa-volume-off{
+  background-image: url("../img/audio-off.png");
+}
+
+.fa-pause{
+  background-image: url("../img/pause.png");
+}
+
+.fa-play{
+  background-image: url("../img/play.png");
+}
