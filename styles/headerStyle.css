@@ -22,7 +22,7 @@ header{
   position: absolute;
   height: 35px;
   top: 10%;
-  transform: rotate(90deg);
+  transform: rotate(180deg);
   transition: 0.8s;
   left: 2%;
 }
