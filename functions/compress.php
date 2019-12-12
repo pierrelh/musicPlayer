@@ -1,6 +1,6 @@
 <?php
 
-  function compress($source, $destination, $quality) {
+  function compress($source, $quality) {
 
       $info = getimagesize($source);
 
@@ -13,9 +13,9 @@
       elseif ($info['mime'] == 'image/png')
           $image = imagecreatefrompng($source);
 
-      imagejpeg($image, $destination, $quality);
+      imagejpeg($image, $source, $quality);
 
-      return $destination;
+      return $source;
   }
 
 ?>

@@ -25,15 +25,10 @@
     $img = $_FILES["picture"];
     $img = is_array($img) ? $img : array( $img );
 
-    // include_once($_SERVER['DOCUMENT_ROOT']."/functions/compress.php");
-    // $img = compress($img, $destination_img, 90);
+    include_once($_SERVER['DOCUMENT_ROOT']."/functions/compress.php");
+    $img = compress($img, 90);
 
     $imgName = uploadFile($img["tmp_name"], 'image');
-    // $file_name = $_FILES['picture']['name'];
-    // $file_tmp = $_FILES['picture']['tmp_name'];
-    // $type = pathinfo($file_tmp, PATHINFO_EXTENSION);
-    // $data = file_get_contents( $file_tmp );
-    // $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
   }else {
     $imgName = "";
   }
