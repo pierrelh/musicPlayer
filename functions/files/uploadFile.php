@@ -43,7 +43,7 @@
   }
 
   include_once($_SERVER['DOCUMENT_ROOT']."/functions/filter.php");
-  $filtered = map_entities($_POST);
+  $filtered = array_map('map_entities', $_POST);
 
   $db = connect();
   $selectSql = "INSERT INTO files (file_name, file_url, file_image, file_author, file_album) VALUES ($1, $2, $3, $4, $5)";
