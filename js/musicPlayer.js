@@ -56,6 +56,7 @@ $(document).ready(function () {
        console.log(url)
        var library = document.querySelector('#Library');
        var element = library.querySelectorAll("li[data-url='"+url+"']");
+       console.log(element)
        var identifier = element.id;
        console.log(identifier)
        mediaPlayerAppear(identifier)
