@@ -30,12 +30,17 @@ function hideEdit(){
     li.classList.add('edit-hide');
     li.classList.remove("edit");
   }
+
   setTimeout(function(){
     for (var i = 0; i < library.length; i++){
       var li = document.getElementById('edit'+i);
-      li.remove();
+      if (li != undefined) {
+        li.remove();
+      }else {
+        break;
+      }
     }
-  },800);
+  }, 800);
 
   var filter = document.getElementById('editFile');
   filter.setAttribute('onclick', 'editFiles()');
