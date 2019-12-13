@@ -57,6 +57,15 @@
 
 .edit-hide,
 .delete-hide {
+  background-image: url(../img/edit.png);
+  height: 150px;
+  position: absolute;
+  background-color: rgba(0, 0, 0, .5);
+  width: 152px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: -1px;
+  cursor: pointer;
   animation: hide-edit 0.8s ease;
 }
 
@@ -78,6 +87,7 @@
     }
 }
 
-.delete {
+.delete,
+.delete-hide {
   background-image: url(../img/delete.png) !important;
 }

@@ -28,6 +28,7 @@ function hideDelete(){
   for (var i = 0; i < library.length; i++){
     var li = document.getElementById('delete'+i);
     li.classList.add('delete-hide');
+    li.classList.remove("delete");
   }
   setTimeout(function(){
     for (var i = 0; i < library.length; i++){

@@ -28,6 +28,7 @@ function hideEdit(){
   for (var i = 0; i < library.length; i++){
     var li = document.getElementById('edit'+i);
     li.classList.add('edit-hide');
+    li.classList.remove("edit");
   }
   setTimeout(function(){
     for (var i = 0; i < library.length; i++){
