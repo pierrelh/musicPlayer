@@ -21,7 +21,7 @@
       $name = explode(".", $name);
       if ($value == $val['file_image']) {
         $type = "image";
-        $fileName = $name[0];
+        $fileName = $type . "/" . $name[0];
         deleteCloudinaryAsset($type, $fileName);
       }else {
         $type = "video";
