@@ -67,8 +67,8 @@ function deleteFileConfirm(identifier){
         backgroundHide();
         var del = document.getElementById('delete');
         del.className = '';
-        var li = document.getElementById(identifier);
-        li.parentNode.parentNode.removeChild(li.parentNode);
+        var ul = document.getElementById('ul'+identifier);
+        ul.remove();
       }else {
         alert('Une erreur inatendue s\'est produite, merci de réeassyer plus tard.')
       }
