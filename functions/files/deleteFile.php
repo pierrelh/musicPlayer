@@ -3,7 +3,7 @@
   function deleteCloudinaryAsset($type, $name){
     include_once($_SERVER['DOCUMENT_ROOT']."/functions/getCloudinary.php");
     $result = \Cloudinary\Uploader::destroy($name, array(
-              "resource_type" => 'auto',
+              "resource_type" => $type,
     ));
     error_log(print_r($result, TRUE));
   }
@@ -21,11 +21,13 @@
       $name = explode(".", $name);
       if ($value == $val['file_image']) {
         $type = "image";
+        $fileName = $name[0];
+        deleteCloudinaryAsset($type, $fileName);
       }else {
         $type = "video";
       }
-      $fileName = $type . '/' . $name[0];
-      deleteCloudinaryAsset($type, $fileName);
+      // $fileName = $type . '/' . $name[0];
+      // deleteCloudinaryAsset($type, $fileName);
     }
 
     // $res = pg_delete($db, 'files', $_POST);
