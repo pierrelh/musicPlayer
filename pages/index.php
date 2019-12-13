@@ -23,6 +23,7 @@
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/sidebar.php");
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/background.php");
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/uploadFile.php");
+      include_once($_SERVER['DOCUMENT_ROOT']."/assets/editFile.php");
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/mediaPlayer.php");
     ?>
     <section id="Library" class="library">

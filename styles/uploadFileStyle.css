@@ -1,4 +1,4 @@
-#upload{
+#upload {
   background-color: white;
   position: fixed;
   z-index: 999;
@@ -11,14 +11,14 @@
   top: 25%;
 }
 
-#upload > form{
+#upload > form {
   height: 100%;
   width: 100%;
   text-align: center;
   padding: 5% 0;
 }
 
-#upload > form > ul{
+#upload > form > ul {
   display: flex;
   justify-content: space-around;
   margin: 50px auto;
@@ -27,18 +27,18 @@
   width: 70%;
 }
 
-#upload > form > ul > li > label{
+#upload > form > ul > li > label {
   cursor: pointer;
 }
 
-#upload > form > ul > li > label > img{
+#upload > form > ul > li > label > img {
   box-sizing: content-box;
   width: 25%;
   max-width: 120px;
   min-width: 100px;
 }
 
-#upload > form > input[type="text"]{
+#upload > form > input[type="text"] {
   font-size: 1.3em;
   font-family: "Open-sans", sans-serif;
   width: 50%;
@@ -47,11 +47,11 @@
   margin: 5px;
 }
 
-#upload > form > input[type="file"]{
+#upload > form > input[type="file"] {
   display: none;
 }
 
-#upload > form > input[type="button"]{
+#upload > form > input[type="button"] {
   border: 1px solid black;
   text-align: center;
   background: none;

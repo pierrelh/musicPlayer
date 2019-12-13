@@ -5,7 +5,7 @@
     <li><input onclick="" type="button" name="" value="Mon Compte"></li>
     <li><input onclick="" type="button" name="" value="Créer un Compte"></li>
     <li><input onclick="uploadAppear()" type="button" name="" value="Uploader un Fichier"></li>
-    <li><input onclick="editFiles()" type="button" name="" value="Modifier un Fichier"></li>
+    <li><input id="editFile" onclick="editFiles()" type="button" name="" value="Modifier un Fichier"></li>
     <li><input onclick="deleteFiles()" type="button" name="" value="Supprimer un Fichier"></li>
     <br>
     <li><input id='filter1' onclick="getFiles('file_author', 'ASC', 'filter1');" type="button" name="" value="Trier par Auteur"></li>

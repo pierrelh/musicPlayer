@@ -10,7 +10,28 @@ function editFiles(){
     parent.insertBefore(li, child);
 
     document.getElementById('edit'+i).onclick = function () {
-      alert(i);
+      showEditSection();
     };
   })(i);
+  var filter = document.getElementById('editFile');
+  filter.setAttribute('onclick', 'hideEdit()');
+}
+
+function hideEdit(){
+  var library = document.getElementById('Library').children;
+  for (var i = 0; i < library.length; i++){
+    document.getElementById('edit'+i).remove();
+  }
+}
+
+function showEditSection(){
+  backgroundAppear();
+  var edit = document.getElementById('edit');
+  edit.className = 'appear';
+}
+
+function hideEditSection(){
+  backgroundHide();
+  var edit = document.getElementById('edit');
+  edit.className = '';
 }
