@@ -22,6 +22,8 @@ function hideEdit(){
   for (var i = 0; i < library.length; i++){
     document.getElementById('edit'+i).remove();
   }
+  var filter = document.getElementById('editFile');
+  filter.setAttribute('onclick', 'editFiles()');
 }
 
 function showEditSection(){
