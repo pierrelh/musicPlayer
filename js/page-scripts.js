@@ -9,7 +9,7 @@ function mediaPlayerAppear(identifier){
   nameTxt.innerHTML = author + " - " + name;
   musicPlayer.src = url;
   var audioPlayer = document.getElementById('audio-player');
-  audioPlayer.className = 'show';
+  audioPlayer.classList.add('show');
   document.getElementById('Previous').onclick = function () {
     if (identifier != 0) {
       identifier = identifier - 1;
