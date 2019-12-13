@@ -15,6 +15,8 @@
     <script type="text/javascript" src="<?php echo $link ?>/js/uploadFile.js"></script>
     <script type="text/javascript" src="<?php echo $link ?>/js/musicPlayer.js"></script>
     <script type="text/javascript" src="<?php echo $link ?>/js/playlist.js"></script>
+    <script type="text/javascript" src="<?php echo $link ?>/js/editFiles.js"></script>
+    <script type="text/javascript" src="<?php echo $link ?>/js/deleteFiles.js"></script>
   </head>
   <body>
     <?php
