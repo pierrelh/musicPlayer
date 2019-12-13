@@ -6,7 +6,7 @@
   width: 20%;
   top: 0;
   padding-top: 50px;
-  z-index: 800;
+  z-index: 801;
   transition: 0.8s;
 }
 
@@ -14,8 +14,8 @@
   cursor: pointer;
   position: absolute;
   height: 35px;
-  left: 17%;
-  top: 10%;
+  left: 100%;
+  top: 1%;
   transform: rotate(180deg);
   transition: 0.8s;
 }
@@ -24,9 +24,9 @@
   cursor: pointer;
   position: absolute;
   height: 35px;
-  top: 10%;
+  top: 1%;
   transition: 0.8s;
-  left: 2%;
+  left: 105%;
 }
 
 .sidebar-hide {
