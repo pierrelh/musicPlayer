@@ -58,7 +58,13 @@ function showDeleteSection(identifier){
 }
 
 function deleteFileConfirm(identifier){
-  alert(identifier);
+  $.ajax({
+    url: "../functions/files/deleteFile.php",
+    type: "POST",
+    data: {'id': identifier},
+    success: function(data){
+    }
+  });
 }
 
 function hideDeleteSection(){
