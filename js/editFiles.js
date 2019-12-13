@@ -12,6 +12,7 @@ function editFiles(){
     document.getElementById('edit'+i).onclick = function () {
       showEditSection();
     };
+    li.classList.add('show-edit');
   })(i);
   var filter = document.getElementById('editFile');
   filter.setAttribute('onclick', 'hideEdit()');
@@ -20,7 +21,9 @@ function editFiles(){
 function hideEdit(){
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++){
-    document.getElementById('edit'+i).remove();
+    var li = document.getElementById('edit'+i);
+    li.classList.remove('show-edit');
+    li.remove();
   }
   var filter = document.getElementById('editFile');
   filter.setAttribute('onclick', 'editFiles()');

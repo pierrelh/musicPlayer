@@ -52,6 +52,12 @@
   background-repeat: no-repeat;
   margin-left: -1px;
   cursor: pointer;
+  transition: 0.8s;
+  opacity: 0;
+}
+
+.show-edit {
+  opacity: 1 !important;
 }
 
 .delete {
