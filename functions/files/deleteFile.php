@@ -2,7 +2,6 @@
 
   function deleteCloudinaryAsset($type, $fileName){
     include_once($_SERVER['DOCUMENT_ROOT']."/functions/getCloudinary.php");
-
     $result = \Cloudinary\Uploader::destroy($fileName, array(
               "resource_type" => $type,
     ));

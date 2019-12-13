@@ -26,9 +26,11 @@ function deleteFiles(){
 function hideDelete(){
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++){
-    var li = document.getElementById('delete'+i);
-    li.classList.add('delete-hide');
-    li.classList.remove("delete");
+    if (document.getElementById('delete'+i) != undefined) {
+      var li = document.getElementById('delete'+i);
+      li.classList.add('delete-hide');
+      li.classList.remove("delete");
+    }
   }
 
   setTimeout(function(){
