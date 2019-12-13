@@ -2,6 +2,7 @@
 
   function deleteCloudinaryAsset($type, $name){
     error_log('Type: ' . $type);
+    error_log('Name: ' . $name);
     include_once($_SERVER['DOCUMENT_ROOT']."/functions/getCloudinary.php");
     $result = \Cloudinary\Uploader::destroy($name, array(
               "resource_type" => $type,
@@ -28,8 +29,8 @@
       deleteCloudinaryAsset($type, $name);
     }
 
-    $res = pg_delete($db, 'files', $_POST);
-    print $res;
+    // $res = pg_delete($db, 'files', $_POST);
+    // print $res;
   }else {
     print 'false';
   }
