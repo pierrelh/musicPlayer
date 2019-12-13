@@ -9,9 +9,12 @@ function getFiles(row, type, identifier){
       var library = document.getElementById('Library');
       library.innerHTML = '';
       if (data.length != 0) {
-        var filtre = document.getElementById(identifier);
+        var sidebar = document.getElementById('sidebar');
+        var filtre = sidebar.getElementById(identifier);
         if (row == 'ASC') {
-          row = 'DESC'
+          row = 'DESC';
+        }else {
+          row = 'ASC';
         }
         filtre.setAttribute('onclick', 'getFiles('+row+', '+type+', '+identifier+')')
         for (var i = 0; i < data.length; i++) (function(i) {
