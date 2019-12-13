@@ -58,6 +58,7 @@
 
 .show-edit {
   opacity: 1 !important;
+  transition: 0.8s;
 }
 
 .delete {

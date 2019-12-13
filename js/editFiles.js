@@ -4,6 +4,7 @@ function editFiles(){
     var li = document.createElement('li');
     li.classList.add('edit');
     li.id = 'edit' + i;
+    window.getComputedStyle(li).opacity;
 
     var parent = document.getElementById('ul'+i);
     var child = document.getElementById(i);
@@ -23,6 +24,7 @@ function hideEdit(){
   for (var i = 0; i < library.length; i++){
     var li = document.getElementById('edit'+i);
     li.classList.remove('show-edit');
+    window.getComputedStyle(li).opacity;
     li.remove();
   }
   var filter = document.getElementById('editFile');
