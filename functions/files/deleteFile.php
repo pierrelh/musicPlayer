@@ -7,7 +7,7 @@
     $result = \Cloudinary\Uploader::destroy($name, array(
               "resource_type" => $type,
     ));
-    error_log('Result: ' . $result);
+    error_log(print_r($result, TRUE));
   }
 
   include_once($_SERVER['DOCUMENT_ROOT']."/functions/connexion.php");
