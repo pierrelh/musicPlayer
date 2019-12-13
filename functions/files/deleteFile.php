@@ -22,11 +22,13 @@
       $name = explode(".", $name);
       if ($value == $val['file_image']) {
         $type = 'image';
+        $name = $type . '/' . $name[0];
+        deleteCloudinaryAsset($type, $name);
       }else {
         $type = 'video';
       }
-      $name = $type . '/' . $name[0];
-      deleteCloudinaryAsset($type, $name);
+      // $name = $type . '/' . $name[0];
+      // deleteCloudinaryAsset($type, $name);
     }
 
     // $res = pg_delete($db, 'files', $_POST);
