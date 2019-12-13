@@ -50,7 +50,7 @@ function showDeleteSection(identifier){
   backgroundAppear();
   var del = document.getElementById('delete');
   del.className = 'appear';
-  var element = document.querySelector('#'+identifier);
+  var element = document.getElementById(identifier);
   document.getElementById('deleteTitle').innerHTML = "Voulez-vous vraiment supprimer le fichier: " + element.dataset.title + " de " + element.dataset.artist + " ?";
   document.getElementById('deleteYes').onclick = function () {
     deleteFileConfirm(element.dataset.id);
