@@ -26,8 +26,14 @@ function hideDelete(){
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++){
     var li = document.getElementById('delete'+i);
-    li.remove();
+    li.classList.add('delete-hide');
   }
+  setTimeout(function(){
+    for (var i = 0; i < library.length; i++){
+      var li = document.getElementById('delete'+i);
+      li.remove();
+    }
+  },800);
   var filter = document.getElementById('deleteFile');
   filter.setAttribute('onclick', 'deleteFiles()');
 }

@@ -55,12 +55,26 @@
   animation: show-edit 0.8s ease;
 }
 
+.edit-hide,
+.delete-hide {
+  animation: hide-edit 0.8s ease;
+}
+
 @keyframes show-edit {
     0% {
         opacity: 0;
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes hide-edit {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 

@@ -26,8 +26,15 @@ function hideEdit(){
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++){
     var li = document.getElementById('edit'+i);
-    li.remove();
+    li.classList.add('edit-hide');
   }
+  setTimeout(function(){
+    for (var i = 0; i < library.length; i++){
+      var li = document.getElementById('edit'+i);
+      li.remove();
+    }
+  },800);
+
   var filter = document.getElementById('editFile');
   filter.setAttribute('onclick', 'editFiles()');
 }
