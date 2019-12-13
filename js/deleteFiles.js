@@ -51,7 +51,7 @@ function showDeleteSection(identifier){
   var del = document.getElementById('delete');
   del.className = 'appear';
   var element = document.getElementById(identifier);
-  document.getElementById('deleteTitle').innerHTML = "Voulez-vous vraiment supprimer le fichier: " + element.dataset.title + " de " + element.dataset.artist + " ?";
+  document.getElementById('deleteTitle').innerHTML = "Voulez-vous vraiment supprimer: " + element.dataset.title + " de " + element.dataset.artist + " ?";
   document.getElementById('deleteYes').onclick = function () {
     deleteFileConfirm(element.dataset.id);
   };
@@ -61,7 +61,7 @@ function deleteFileConfirm(identifier){
   $.ajax({
     url: "../functions/files/deleteFile.php",
     type: "POST",
-    data: {'id': identifier},
+    data: {'file_id': identifier},
     success: function(data){
       console.log(data);
     }
