@@ -9,6 +9,6 @@
     <li><input id='filter1' onclick="getFiles('file_author', 'ASC', 'filter1');" type="button" name="" value="Trier par Auteur"></li>
     <li><input id='filter2' onclick="getFiles('file_album', 'ASC', 'filter2');" type="button" name="" value="Trier par Album"></li>
     <li><input id='filter3' onclick="getFiles('file_id', 'DESC', 'filter3');" type="button" name="" value="Trier par Date d'ajout"></li>
-    <li><input id='filter3' onclick="getFiles('file_name', 'ASC', 'filter3');" type="button" name="" value="Trier par Titre"></li>
+    <li><input id='filter4' onclick="getFiles('file_name', 'ASC', 'filter4');" type="button" name="" value="Trier par Titre"></li>
   </ul>
 </section>
