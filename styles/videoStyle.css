@@ -52,13 +52,16 @@
   background-repeat: no-repeat;
   margin-left: -1px;
   cursor: pointer;
-  transition: 0.8s;
-  opacity: 0;
+  animation: show-edit 0.8s ease;
 }
 
-.show-edit {
-  opacity: 1 !important;
-  transition: 0.8s;
+@keyframes show-edit {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .delete {
