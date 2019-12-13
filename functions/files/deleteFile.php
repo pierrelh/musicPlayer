@@ -1,14 +1,11 @@
 <?php
 
-  function deleteCloudinaryAsset($type, $name){
+  function deleteCloudinaryAsset($type, $fileName){
     include_once($_SERVER['DOCUMENT_ROOT']."/functions/getCloudinary.php");
-    error_log('Dynamic: ' . $name);
-    error_log('Static: image/1576178558327991196');
 
-    $result = \Cloudinary\Uploader::destroy('image/1576178558327991196', array(
+    $result = \Cloudinary\Uploader::destroy($fileName, array(
               "resource_type" => $type,
     ));
-    error_log(print_r($result, TRUE));
   }
 
   include_once($_SERVER['DOCUMENT_ROOT']."/functions/connexion.php");
@@ -24,17 +21,15 @@
       $name = explode(".", $name);
       if ($value == $val['file_image']) {
         $type = "image";
-        $fileName = $type . "/" . $name[0];
-        deleteCloudinaryAsset($type, $fileName);
       }else {
         $type = "video";
       }
-      // $fileName = $type . '/' . $name[0];
-      // deleteCloudinaryAsset($type, $fileName);
+      $fileName = $type . '/' . $name[0];
+      deleteCloudinaryAsset($type, $fileName);
     }
 
-    // $res = pg_delete($db, 'files', $_POST);
-    // print $res;
+    $res = pg_delete($db, 'files', $_POST);
+    print $res;
   }else {
     print 'false';
   }
