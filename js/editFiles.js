@@ -1,10 +1,12 @@
 function editFiles(){
   var library = document.getElementById('Library').children;
-  for (var i = 0; i < library.length; i++) (function(i) {
+  for (var i = 0; i < library.length; i++) {
     if (document.getElementById('delete'+i) != undefined) {
       hideDelete();
-      sleep(800);
+      break;
     }
+  }
+  for (var i = 0; i < library.length; i++) (function(i) {
     var li = document.createElement('li');
     li.classList.add('edit');
     li.id = 'edit' + i;
