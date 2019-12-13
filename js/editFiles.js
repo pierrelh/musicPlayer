@@ -1,6 +1,9 @@
 function editFiles(){
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) (function(i) {
+    if (document.getElementById('delete'+i) != undefined) {
+      document.getElementById('delete'+i).remove();
+    }
     var li = document.createElement('li');
     li.classList.add('edit');
     li.id = 'edit' + i;
@@ -38,3 +41,19 @@ function hideEditSection(){
   var edit = document.getElementById('edit');
   edit.className = '';
 }
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('#banner').css('background-image', 'url(' + e.target.result + ')');
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#modifyImage").change(function() {
+  readURL(this);
+});

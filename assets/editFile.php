@@ -3,7 +3,12 @@
   <img class="cross" onclick="hideEditSection()" src="../img/cross.png" alt="">
   <form id="formUpload" enctype="multipart/form-data" method="post">
     <h2 id="error-msg"></h2>
-    <label for="picture"><img src="../img/picture.png" alt=""></label>
+    <div id="banner" class='div-detail'>
+      <ul class='delete-edit'>
+        <li><label class='modify-img' for="modifyImage"><img src='<?php echo $link ?>/img/back_office_logo/edit.png' alt=''></label></li>
+        <li><input id="modifyImage" type="file" name="" value=""></li>
+      </ul>
+    </div>
     <input class="upload-file" id="pictureEdit" type="file" name="picture" value="">
     <input id="fileNameEdit" type="text" placeholder="Nom du Fichier" name="" value="">
     <input id="fileAuthorEdit" type="text" placeholder="Nom de l'Artiste" name="" value="">

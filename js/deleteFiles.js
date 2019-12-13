@@ -1,6 +1,9 @@
 function deleteFiles(){
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) (function(i) {
+    if (document.getElementById('edit'+i) != undefined) {
+      document.getElementById('edit'+i).remove();
+    }
     var li = document.createElement('li');
     li.classList.add('delete');
     li.id = 'delete' + i;
@@ -34,7 +37,7 @@ function showDeleteSection(){
 }
 
 function deleteFileConfirm(){
-  
+
 }
 
 function hideDeleteSection(){
