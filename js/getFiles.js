@@ -9,13 +9,15 @@ function getFiles(row, type, identifier){
       var library = document.getElementById('Library');
       library.innerHTML = '';
       if (data.length != 0) {
-        var filtre = document.getElementById(identifier);
-        if (row == 'ASC') {
-          row = 'DESC';
-        }else {
-          row = 'ASC';
+        if (identifier != undefined) {
+          var filtre = document.getElementById(identifier);
+          if (row == 'ASC') {
+            row = 'DESC';
+          }else {
+            row = 'ASC';
+          }
+          filtre.setAttribute('onclick', 'getFiles('+row+', '+type+', '+identifier+')')
         }
-        filtre.setAttribute('onclick', 'getFiles('+row+', '+type+', '+identifier+')')
         for (var i = 0; i < data.length; i++) (function(i) {
           var ul = document.createElement("ul");
           library.appendChild(ul);
