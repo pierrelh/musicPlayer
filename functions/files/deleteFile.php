@@ -2,8 +2,8 @@
 
   function deleteCloudinaryAsset($type, $name){
     include_once($_SERVER['DOCUMENT_ROOT']."/functions/getCloudinary.php");
-    $result = \Cloudinary\Uploader::destroy($name, array(
-              "resource_type" => 'image',
+    $result = \Cloudinary\Uploader::destroy('1576178558327991196', array(
+              "resource_type" => $type,
     ));
     error_log(print_r($result, TRUE));
   }
