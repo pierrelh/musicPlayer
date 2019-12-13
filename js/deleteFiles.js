@@ -63,7 +63,15 @@ function deleteFileConfirm(identifier){
     type: "POST",
     data: {'file_id': identifier},
     success: function(data){
-      console.log(data);
+      if (data == 1) {
+        backgroundHide();
+        var del = document.getElementById('delete');
+        del.className = '';
+        var li = document.getElementById(identifier);
+        li.parentNode.parentNode.removeChild(li.parentNode);
+      }else {
+        alert('Une erreur inatendue s\'est produite, merci de réeassyer plus tard.')
+      }
     }
   });
 }
