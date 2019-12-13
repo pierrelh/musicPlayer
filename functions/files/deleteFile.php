@@ -4,9 +4,12 @@
     error_log('Type: ' . $type);
     error_log('Name: ' . $name);
     include_once($_SERVER['DOCUMENT_ROOT']."/functions/getCloudinary.php");
-    $result = \Cloudinary\Uploader::destroy($name, array(
-              "resource_type" => $type,
+    $result = \Cloudinary\Uploader::destroy("image/1576178108415956518", array(
+              "resource_type" => "image",
     ));
+    // $result = \Cloudinary\Uploader::destroy($name, array(
+    //           "resource_type" => $type,
+    // ));
     error_log(print_r($result, TRUE));
   }
 
