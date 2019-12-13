@@ -68,7 +68,7 @@ function deleteFileConfirm(identifier){
         var del = document.getElementById('delete');
         del.className = '';
         var library = document.querySelector('#Library');
-        var li = library.querySelectorAll("li[data-id='"+identifiant+"']")[0];
+        var li = library.querySelectorAll("li[data-id='"+identifier+"']")[0];
         var ul = document.getElementById('ul'+li.id);
         ul.remove();
       }else {
