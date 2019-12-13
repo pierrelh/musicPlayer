@@ -63,6 +63,7 @@ function deleteFileConfirm(identifier){
     type: "POST",
     data: {'id': identifier},
     success: function(data){
+      console.log(data);
     }
   });
 }
