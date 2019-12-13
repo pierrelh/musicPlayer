@@ -28,6 +28,10 @@
   transition-duration: 0.8s;
 }
 
+.left{
+  padding-left: 14% !important;  
+}
+
 .show{
   bottom: 0px !important;
   transition-duration: 0.8s;

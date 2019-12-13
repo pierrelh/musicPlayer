@@ -40,6 +40,8 @@ function hideSidebar(){
   var arrow = document.getElementById('arrow');
   var sidebar = document.getElementById('sidebar');
   var library = document.getElementById('Library');
+  var player = document.getElementById('audio-player');
+  player.classList.add("left");
   arrow.className = 'arrow-active';
   sidebar.className = 'sidebar-hide';
   library.className = 'library-show';
@@ -50,6 +52,8 @@ function showSidebar(){
   var arrow = document.getElementById('arrow');
   var sidebar = document.getElementById('sidebar');
   var library = document.getElementById('Library');
+  var player = document.getElementById('audio-player');
+  player.classList.remove("left");
   arrow.className = 'arrow';
   sidebar.className = 'sidebar';
   library.className = 'library';
