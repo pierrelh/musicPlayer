@@ -2,7 +2,8 @@ function editFiles(){
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) (function(i) {
     if (document.getElementById('delete'+i) != undefined) {
-      hideDelete()
+      hideDelete();
+      sleep(800);
     }
     var li = document.createElement('li');
     li.classList.add('edit');
