@@ -16,7 +16,7 @@ function deleteFiles(){
     parent.insertBefore(li, child);
 
     document.getElementById('delete'+i).onclick = function () {
-      showDeleteSection();
+      showDeleteSection(i);
     };
   })(i);
   var filter = document.getElementById('deleteFile');
@@ -46,14 +46,19 @@ function hideDelete(){
   filter.setAttribute('onclick', 'deleteFiles()');
 }
 
-function showDeleteSection(){
+function showDeleteSection(identifier){
   backgroundAppear();
   var del = document.getElementById('delete');
   del.className = 'appear';
+  var element = document.querySelector('#'+identifier);
+  document.getElementById('deleteTitle').innerHTML = "Voulez-vous vraiment supprimer le fichier: " + element.dataset.title + " de " + element.dataset.artist + " ?";
+  document.getElementById('deleteYes').onclick = function () {
+    deleteFileConfirm(element.dataset.id);
+  };
 }
 
-function deleteFileConfirm(){
-
+function deleteFileConfirm(identifier){
+  alert(identifier);
 }
 
 function hideDeleteSection(){
