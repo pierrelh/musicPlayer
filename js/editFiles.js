@@ -2,7 +2,7 @@ function editFiles(){
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) (function(i) {
     if (document.getElementById('delete'+i) != undefined) {
-      document.getElementById('delete'+i).remove();
+      hideDelete()
     }
     var li = document.createElement('li');
     li.classList.add('edit');
@@ -18,8 +18,6 @@ function editFiles(){
   })(i);
   var filter = document.getElementById('editFile');
   filter.setAttribute('onclick', 'hideEdit()');
-  var filter = document.getElementById('deleteFile');
-  filter.setAttribute('onclick', 'deleteFiles()');
 }
 
 function hideEdit(){
