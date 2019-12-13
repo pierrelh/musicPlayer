@@ -10,7 +10,7 @@ function deleteFiles(){
     parent.insertBefore(li, child);
 
     document.getElementById('delete'+i).onclick = function () {
-      showEditSection();
+      showDeleteSection();
     };
   })(i);
   var filter = document.getElementById('deleteFile');
