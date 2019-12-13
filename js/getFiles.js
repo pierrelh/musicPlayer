@@ -9,8 +9,7 @@ function getFiles(row, type, identifier){
       var library = document.getElementById('Library');
       library.innerHTML = '';
       if (data.length != 0) {
-        var sidebar = document.getElementById('sidebar');
-        var filtre = sidebar.getElementById(identifier);
+        var filtre = document.getElementById(identifier);
         if (row == 'ASC') {
           row = 'DESC';
         }else {
