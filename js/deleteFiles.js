@@ -33,6 +33,10 @@ function showDeleteSection(){
   del.className = 'appear';
 }
 
+function deleteFileConfirm(){
+  
+}
+
 function hideDeleteSection(){
   backgroundHide();
   var del = document.getElementById('delete');
