@@ -23,7 +23,7 @@
       }else {
         $type = 'video';
       }
-      $name = $type . '/' . $name;
+      $name = $type . '/' . $name[0];
       deleteCloudinaryAsset($type, $name);
     }
 
