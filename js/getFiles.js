@@ -1,4 +1,4 @@
-function getFiles(row, type){
+function getFiles(row, type, identifier){
   $.ajax({
     url: "../functions/files/ajaxGetAllFiles.php",
     type: "POST",
@@ -9,6 +9,11 @@ function getFiles(row, type){
       var library = document.getElementById('Library');
       library.innerHTML = '';
       if (data.length != 0) {
+        var filtre = document.getElementById(identifier);
+        if (row == 'ASC') {
+          row = 'DESC'
+        }
+        filtre.setAttribute('onclick', 'getFiles('+row+', '+type+', '+identifier+')')
         for (var i = 0; i < data.length; i++) (function(i) {
           var ul = document.createElement("ul");
           library.appendChild(ul);
