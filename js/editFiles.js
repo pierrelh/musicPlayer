@@ -18,6 +18,8 @@ function editFiles(){
   })(i);
   var filter = document.getElementById('editFile');
   filter.setAttribute('onclick', 'hideEdit()');
+  var filter = document.getElementById('deleteFile');
+  filter.setAttribute('onclick', 'deleteFiles()');
 }
 
 function hideEdit(){
