@@ -84,7 +84,6 @@ function readURL(input) {
 }
 
 $("#pictureEdit").change(function() {
-	console.log('changed');
   readURL(this);
 });
 
