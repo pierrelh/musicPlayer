@@ -14,7 +14,7 @@
     foreach ($val as $key => $value) {
       $value = array_map('ut8Decode', $value);
     }
-    print json_encode($result);
+    print json_encode($val);
   }
 
 ?>
