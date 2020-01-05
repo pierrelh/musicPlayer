@@ -1,3 +1,7 @@
+function decode_utf8(s) {
+  return decodeURIComponent(escape(s));
+}
+
 function getFiles(row, type, identifier){
   $.ajax({
     url: "../functions/files/ajaxGetAllFiles.php",
@@ -27,10 +31,10 @@ function getFiles(row, type, identifier){
           ul.appendChild(li);
           li.className = 'view';
           li.id = i;
-          li.dataset.url = data[i]['file_url'];
-          li.dataset.artist = data[i]['file_author'];
-          li.dataset.title = data[i]['file_name'];
-          li.dataset.album = data[i]['file_album'];
+          li.dataset.url = decode_utf8(data[i]['file_url']);
+          li.dataset.artist = decode_utf8(data[i]['file_author']);
+          li.dataset.title = decode_utf8(data[i]['file_name']);
+          li.dataset.album = decode_utf8(data[i]['file_album']);
           li.dataset.id = data[i]['file_id'];
           document.getElementById(i).onclick = function () {
             mediaPlayerAppear(i);
