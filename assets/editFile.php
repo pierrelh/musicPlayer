@@ -6,7 +6,7 @@
     <div id="banner" class='div-detail'>
       <ul class='delete-edit'>
         <li><label class='modify-img' for="pictureEdit"><img src='<?php echo $link ?>/img/edit.png' alt=''></label></li>
-        <li><input id="pictureEdit" type="file" name="picture-edit" value=""></li>
+        <li><input id="pictureEdit" type="file" name="" value=""></li>
       </ul>
     </div>
     <input id="fileNameEdit" type="text" placeholder="Nom du Fichier" name="" value="">
