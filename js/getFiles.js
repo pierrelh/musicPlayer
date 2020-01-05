@@ -16,7 +16,7 @@ function getFiles(row, type, identifier){
           }else {
             type = 'ASC';
           }
-          filtre.setAttribute('onclick', 'getFiles('+row+', '+type+', '+identifier+')')
+          filtre.setAttribute('onclick', "getFiles('"+row+"', '"+type+"', '"+identifier+"')")
         }
         for (var i = 0; i < data.length; i++) (function(i) {
           var ul = document.createElement("ul");
