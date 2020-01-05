@@ -30,6 +30,7 @@ function getFiles(row, type, identifier){
           li.dataset.url = data[i]['file_url'];
           li.dataset.artist = data[i]['file_author'];
           li.dataset.title = data[i]['file_name'];
+          li.dataset.album = data[i]['file_album'];
           li.dataset.id = data[i]['file_id'];
           document.getElementById(i).onclick = function () {
             mediaPlayerAppear(i);

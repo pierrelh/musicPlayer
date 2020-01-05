@@ -47,10 +47,13 @@ function hideEdit(){
 }
 
 function showEditSection(identifier){
+  var element = document.getElementById(identifier);
+  document.getElementById('fileNameEdit').value = element.dataset.title;
+  document.getElementById('fileAuthorEdit').value = element.dataset.artist;
+  document.getElementById('fileAlbumEdit').value = element.dataset.album;
   backgroundAppear();
   var edit = document.getElementById('edit');
   edit.className = 'appear';
-  console.log(identifier);
 }
 
 function hideEditSection(){
