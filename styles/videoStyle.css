@@ -2,6 +2,7 @@
   margin: 50px 5px 0 20%;
   transition: 0.8s;
   min-width: 810px;
+  padding-bottom: 100px;
 }
 
 .library-show {
