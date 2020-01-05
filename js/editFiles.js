@@ -16,7 +16,7 @@ function editFiles(){
     parent.insertBefore(li, child);
 
     document.getElementById('edit'+i).onclick = function () {
-      showEditSection();
+      showEditSection(i);
     };
   })(i);
   var filter = document.getElementById('editFile');
@@ -46,10 +46,11 @@ function hideEdit(){
   filter.setAttribute('onclick', 'editFiles()');
 }
 
-function showEditSection(){
+function showEditSection(identifier){
   backgroundAppear();
   var edit = document.getElementById('edit');
   edit.className = 'appear';
+  console.log(identifier);
 }
 
 function hideEditSection(){
