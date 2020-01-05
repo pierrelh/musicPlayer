@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/uploadFileStyle.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <section id="edit">
   <img class="cross" onclick="hideEditSection()" src="<?php echo $link ?>/img/cross.png" alt="">
   <form id="formEdit" method="post">
@@ -23,3 +22,5 @@
     </div>
   </form>
 </section>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="<?php echo $link ?>/js/editFiles.js"></script>
