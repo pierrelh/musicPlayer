@@ -11,10 +11,10 @@ function getFiles(row, type, identifier){
       if (data.length != 0) {
         if (identifier != undefined) {
           var filtre = document.getElementById(identifier);
-          if (row == 'ASC') {
-            row = 'DESC';
+          if (type == 'ASC') {
+            type = 'DESC';
           }else {
-            row = 'ASC';
+            type = 'ASC';
           }
           filtre.setAttribute('onclick', 'getFiles('+row+', '+type+', '+identifier+')')
         }
