@@ -1,3 +1,9 @@
+var decodeHTML = function (html) {
+	var txt = document.createElement('textarea');
+	txt.innerHTML = html;
+	return txt.value;
+};
+
 function editFiles(){
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) {
