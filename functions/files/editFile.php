@@ -26,7 +26,7 @@
     ));
     $_POST['file_image'] = $result['secure_url'];
   }else {
-    unset($_POST['file_image'])
+    unset($_POST['file_image']);
   }
   $condition = array('file_id' => $_POST['file_id']);
   $res = pg_update($db, 'files', $_POST, $condition);
