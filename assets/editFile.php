@@ -2,7 +2,7 @@
 <section id="edit">
   <img class="cross" onclick="hideEditSection()" src="<?php echo $link ?>/img/cross.png" alt="">
   <form id="formEdit" method="post">
-    <h2 id="error-msg"></h2>
+    <h2 id="error-msg-edit"></h2>
     <div id="banner" class='div-detail'>
       <ul class='delete-edit'>
         <li><label class='modify-img' for="pictureEdit"><img class="editImage" src='<?php echo $link ?>/img/edit.png' alt=''></label></li>
@@ -16,8 +16,8 @@
       <div id="myBarPlusEdit" class="bar positive">
         <span id="editButton">ENVOYER</span>
       </div>
-      <div id="myBarMoinEdits" class="bar negative">
-        <span onclick="uploadFile()" id="barSpan2Edit">ENVOYER</span>
+      <div id="myBarMoinsEdit" class="bar negative">
+        <span id="barSpan2Edit">ENVOYER</span>
       </div>
     </div>
   </form>
