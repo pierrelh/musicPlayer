@@ -21,6 +21,13 @@
   margin: auto;
 }
 
+.editImage {
+  width: 40px;
+  cursor: pointer;
+  margin-left: 70%;
+  margin-top: 5px;
+}
+
 #upload > form,
 #edit > form {
   height: 100%;
@@ -88,7 +95,7 @@
 }
 
 #edit > form > .progress-bar {
-  margin: 3% auto auto auto !important;  
+  margin: 3% auto auto auto !important;
 }
 
 .progress-bar .bar {

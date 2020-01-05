@@ -1,11 +1,12 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/uploadFileStyle.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <section id="edit">
   <img class="cross" onclick="hideEditSection()" src="<?php echo $link ?>/img/cross.png" alt="">
-  <form id="formEdit" enctype="multipart/form-data" method="post">
+  <form id="formEdit" method="post">
     <h2 id="error-msg"></h2>
     <div id="banner" class='div-detail'>
       <ul class='delete-edit'>
-        <li><label class='modify-img' for="pictureEdit"><img src='<?php echo $link ?>/img/edit.png' alt=''></label></li>
+        <li><label class='modify-img' for="pictureEdit"><img class="editImage" src='<?php echo $link ?>/img/edit.png' alt=''></label></li>
         <li><input id="pictureEdit" type="file" name="" value=""></li>
       </ul>
     </div>
