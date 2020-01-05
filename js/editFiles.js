@@ -1,3 +1,7 @@
+function decode_utf8(s) {
+  return decodeURIComponent(escape(s));
+}
+
 function editFiles(){
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) {
@@ -48,9 +52,9 @@ function hideEdit(){
 
 function showEditSection(identifier){
   var element = document.getElementById(identifier);
-  document.getElementById('fileNameEdit').value = element.dataset.title;
-  document.getElementById('fileAuthorEdit').value = element.dataset.artist;
-  document.getElementById('fileAlbumEdit').value = element.dataset.album;
+  document.getElementById('fileNameEdit').value = decode_utf8(element.dataset.title);
+  document.getElementById('fileAuthorEdit').value = decode_utf8(element.dataset.artist);
+  document.getElementById('fileAlbumEdit').value = decode_utf8(element.dataset.album);
   backgroundAppear();
   var edit = document.getElementById('edit');
   edit.className = 'appear';
