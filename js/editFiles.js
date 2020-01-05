@@ -1,5 +1,5 @@
 function decode_utf8(s) {
-  return decodeURIComponent(escape(s));
+  return unescape(encodeURIComponent(s));
 }
 
 function editFiles(){
