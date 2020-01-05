@@ -11,7 +11,9 @@
   $result = pg_query($db, "SELECT * FROM files ORDER BY ".$row." ".$type);
   if (!empty($result)) {
     $val = pg_fetch_all($result);
-    $result = array_map('ut8Decode', $val);
+    foreach ($val as $key => $value) {
+      $value = array_map('ut8Decode', $value);
+    }
     print json_encode($result);
   }
 
