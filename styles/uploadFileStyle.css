@@ -1,4 +1,5 @@
-#upload {
+#upload,
+#edit {
   background-color: white;
   position: fixed;
   z-index: 999;
@@ -11,7 +12,8 @@
   top: 25%;
 }
 
-#upload > form {
+#upload > form,
+#edit > form {
   height: 100%;
   width: 100%;
   text-align: center;
@@ -38,7 +40,8 @@
   min-width: 100px;
 }
 
-#upload > form > input[type="text"] {
+#upload > form > input[type="text"],
+#edit > form > input[type="text"] {
   font-size: 1.3em;
   font-family: "Open-sans", sans-serif;
   width: 50%;
@@ -47,11 +50,13 @@
   margin: 5px;
 }
 
-#upload > form > input[type="file"] {
+#upload > form > input[type="file"],
+#edit > form > input[type="file"] {
   display: none;
 }
 
-#upload > form > input[type="button"] {
+#upload > form > input[type="button"],
+#edit > form > input[type="button"] {
   border: 1px solid black;
   text-align: center;
   background: none;

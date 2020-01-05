@@ -57,6 +57,7 @@ function showEditSection(identifier){
   document.getElementById('fileNameEdit').value = decodeHTML(element.dataset.title);
   document.getElementById('fileAuthorEdit').value = decodeHTML(element.dataset.artist);
   document.getElementById('fileAlbumEdit').value = decodeHTML(element.dataset.album);
+	$('#banner').css('background-image', 'url(' + element.dataset.img + ')');
   backgroundAppear();
   var edit = document.getElementById('edit');
   edit.className = 'appear';
@@ -80,6 +81,6 @@ function readURL(input) {
   }
 }
 
-$("#modifyImage").change(function() {
+$("#pictureEdit").change(function() {
   readURL(this);
 });

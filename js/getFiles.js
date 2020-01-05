@@ -31,6 +31,7 @@ function getFiles(row, type, identifier){
           li.dataset.artist = data[i]['file_author'];
           li.dataset.title = data[i]['file_name'];
           li.dataset.album = data[i]['file_album'];
+          li.dataset.img = data[i]['file_image'];
           li.dataset.id = data[i]['file_id'];
           document.getElementById(i).onclick = function () {
             mediaPlayerAppear(i);
