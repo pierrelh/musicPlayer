@@ -60,12 +60,12 @@
 }
 
 #upload > form > input[type="file"],
-#edit > form > input[type="file"] {
+#edit > form > div > ul > li > input[type="file"] {
   display: none;
 }
 
 #upload > form > input[type="button"],
-#edit > form > div > ul > li > input[type="button"] {
+#edit > form > input[type="button"] {
   border: 1px solid black;
   text-align: center;
   background: none;
