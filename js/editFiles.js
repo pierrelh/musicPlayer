@@ -144,8 +144,12 @@ function uploadEditedFile(identifier){
         span.innerHTML = "0 %";
         elem1.style.width = "100%";
         span1.innerHTML = "ENVOYER";
+				var filter = document.getElementById('editFile');
+				filter.setAttribute('onclick', 'editFiles()');
     }).fail(function (e) {
         alert("upload failed");
+				var filter = document.getElementById('editFile');
+				filter.setAttribute('onclick', 'editFiles()');
     });
   }
 }
