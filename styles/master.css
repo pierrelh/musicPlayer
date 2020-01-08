@@ -186,31 +186,64 @@ html{
   overflow-x: hidden;
 }
 
-.appear{
-  max-height: 500px !important;
-  transition: max-height 0.5s ease-in 0.4s !important;
+@media screen and (max-device-width: 640px) {
+  .appear{
+    max-height: 1200px !important;
+    transition: max-height 0.5s ease-in 0.4s !important;
+  }
+
+  .cross{
+    height: 100px;
+    cursor: pointer;
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    z-index: 999;
+  }
+
+  #error-msg{
+    color: red;
+    font-family: "Open-sans", sans-serif;
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  .error-msg{
+    color: red;
+    font-family: "Open-sans", sans-serif;
+    margin-left: 10px;
+    font-size: 1.5em;
+    margin-top: 70px;
+  }
 }
 
-.cross{
-  height: 35px;
-  cursor: pointer;
-  position: absolute;
-  right: 25px;
-  top: 15px;
-  z-index: 999;
-}
+@media screen and (min-device-width: 641px) {
+  .appear{
+    max-height: 500px !important;
+    transition: max-height 0.5s ease-in 0.4s !important;
+  }
 
-#error-msg{
-  color: red;
-  font-family: "Open-sans", sans-serif;
-  text-align: center;
-  font-size: 1.5em;
-}
+  .cross{
+    height: 35px;
+    cursor: pointer;
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    z-index: 999;
+  }
 
-.error-msg{
-  color: red;
-  font-family: "Open-sans", sans-serif;
-  margin-left: 10px;
-  font-size: 1.5em;
-  margin-top: 70px;
+  #error-msg{
+    color: red;
+    font-family: "Open-sans", sans-serif;
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  .error-msg{
+    color: red;
+    font-family: "Open-sans", sans-serif;
+    margin-left: 10px;
+    font-size: 1.5em;
+    margin-top: 70px;
+  }
 }

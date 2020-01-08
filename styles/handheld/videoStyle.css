@@ -1,13 +1,12 @@
 @media screen and (max-device-width: 640px) {
   .library {
-    margin: 50px 5px 0 20%;
+    margin: 100px 5px 0 5px;
     transition: 0.8s;
-    min-width: 810px;
     padding-bottom: 100px;
   }
 
   .library-show {
-    margin: 50px 5px 0 5px;
+    margin: 100px 5px 0 5px;
     transition: 0.8s;
     padding-bottom: 100px;
   }
@@ -16,16 +15,15 @@
   .library-show > ul {
     list-style: none;
     padding: 0;
-    width: min-content;
+    width: 220px;
     display: inline-block;
-    margin: 10px 0 0 10px;
-    min-width: 150px;
+    margin: 20px 0 0 20px;
   }
 
   .library > ul > .view,
   .library-show > ul > .view {
     width: 100%;
-    height: 150px;
+    height: 220px;
     cursor: pointer;
     background-color: black;
     background-position: center;
@@ -40,7 +38,7 @@
     color: #fff;
     font-family: "Open-sans", sans-serif;
     margin: 5px 0 0 0;
-    font-size: 1.1em;
+    font-size: 3em;
     cursor: pointer;
   }
 
@@ -61,11 +59,12 @@
   .edit-hide,
   .delete-hide {
     background-image: url("../../img/edit.png");
-    height: 150px;
+    height: 220px;
     position: absolute;
     background-color: rgba(0, 0, 0, .5);
-    width: 152px;
+    width: 222px;
     background-position: center;
+    background-size: 40%;
     background-repeat: no-repeat;
     margin-left: -1px;
     cursor: pointer;

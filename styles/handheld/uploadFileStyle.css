@@ -8,22 +8,23 @@
     transition: max-height 0.5s ease-out;
     overflow: hidden;
     position: absolute;
-    left: 25%;
-    width: 50%;
-    top: 25%;
+    left: 5%;
+    width: 90%;
+    top: 15%;
   }
 
   #banner {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 250px;
-    width: 250px;
+    height: 400px;
+    width: 400px;
     margin: auto;
+    margin-bottom: 50px;
   }
 
   .editImage {
-    width: 40px;
+    width: 80px;
     cursor: pointer;
     margin-left: 70%;
     margin-top: 5px;
@@ -53,18 +54,19 @@
   #upload > form > ul > li > label > img {
     box-sizing: content-box;
     width: 25%;
-    max-width: 120px;
-    min-width: 100px;
+    max-width: 200px;
+    min-width: 200px;
   }
 
   #upload > form > input[type="text"],
   #edit > form > input[type="text"] {
-    font-size: 1.3em;
+    font-size: 3em;
     font-family: "Open-sans", sans-serif;
-    width: 50%;
+    width: 80%;
     border: 1px black solid;
     padding: 5px 0;
     margin: 5px;
+    margin-bottom: 50px;
   }
 
   #upload > form > input[type="file"],
@@ -87,10 +89,10 @@
 
   .progress-bar {
     position: relative;
-    border: black solid 2px;
+    border: black solid 5px;
     width: 400px;
-    height: 40px;
-    line-height: 40px;
+    height: 80px;
+    line-height: 80px;
     overflow: hidden;
     margin: 8% auto auto auto;
   }
@@ -109,7 +111,7 @@
   .progress-bar .bar span {
     position: absolute;
     display: block;
-    width: 400px;
+    width: 700px;
     height: 100%;
     text-align: center;
     font-family: "Open-sans", sans-serif;
@@ -121,6 +123,7 @@
     background: black;
     left: 0;
     width: 0%;
+    font-size: 3em;
   }
 
   .progress-bar .bar.positive span {
@@ -132,6 +135,7 @@
     background: white;
     right: 0;
     width: 100%;
+    font-size: 3em;
   }
 
   .progress-bar .bar.negative span {
