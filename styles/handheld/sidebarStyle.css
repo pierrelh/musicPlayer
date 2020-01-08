@@ -15,9 +15,9 @@
   .arrow {
     cursor: pointer;
     position: absolute;
-    height: 35px;
+    height: 80px;
     left: 5%;
-    top: 1%;
+    top: 10px;
     transform: rotate(180deg);
     transition: 0.8s;
   }
@@ -25,8 +25,8 @@
   .arrow-active {
     cursor: pointer;
     position: absolute;
-    height: 35px;
-    top: 1%;
+    height: 80px;
+    top: 10px;
     transition: 0.8s;
     left: 105%;
   }
