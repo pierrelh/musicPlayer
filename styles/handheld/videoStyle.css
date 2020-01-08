@@ -45,12 +45,13 @@
   .edit,
   .delete {
     background-image: url("../../img/edit.png");
-    height: 150px;
+    height: 220px;
     position: absolute;
     background-color: rgba(0, 0, 0, .5);
-    width: 152px;
+    width: 222px;
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 40%;
     margin-left: -1px;
     cursor: pointer;
     animation: show-edit 0.8s ease;
