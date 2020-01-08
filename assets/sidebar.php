@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/sidebarStyle.css">
-<section id="sidebar" class="sidebar">
-  <img id="arrow" onclick="hideSidebar();" class="arrow" src="../img/arrow.png" alt="">
+<section id="sidebar" class="sidebar-hide">
+  <img id="arrow" onclick="showSidebar();" class="arrow-active" src="../img/arrow.png" alt="">
   <ul>
     <li><input onclick="" type="button" name="" value="Mon Compte"></li>
     <li><input onclick="" type="button" name="" value="Créer un Compte"></li>
