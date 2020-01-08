@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/uploadFileStyle.css">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/uploadFileStyle.css">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/uploadFileStyle.css">
 <section id="edit">
   <img class="cross" onclick="hideEditSection()" src="<?php echo $link ?>/img/cross.png" alt="">
   <form id="formEdit" method="post">
