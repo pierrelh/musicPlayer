@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/deleteFileStyle.css">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/deleteFileStyle.css">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/deleteFileStyle.css">
 <section id="delete">
   <h2 id="deleteTitle"></h2>
   <ul>

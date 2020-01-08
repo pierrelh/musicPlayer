@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/readerStyle.css">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/readerStyle.css">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/readerStyle.css">
 <section id="audio-player">
   <ul>
     <li>

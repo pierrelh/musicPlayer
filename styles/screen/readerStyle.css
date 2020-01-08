@@ -1,0 +1,175 @@
+@media screen and (min-device-width: 641px) {
+  #songName{
+    font-family: "Open-sans", sans-serif;
+    font-size: 1.4em;
+    color: white;
+    padding-left: 25px;
+    margin: 0;
+  }
+
+  #audio-player > ul {
+    padding: 0;
+    margin: 20px 0 0 0;
+    list-style: none;
+  }
+
+  #audio-player {
+    backdrop-filter: blur(30px);
+    padding-left: 20%;
+    position: fixed;
+    bottom: -100px;
+    width: 100%;
+    height: 91px;
+    overflow: hidden;
+    /* background: rgba(255, 255, 255, .1); */
+    color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+    transition-duration: 0.8s;
+  }
+
+  .left{
+    padding-left: 14% !important;
+  }
+
+  .show{
+    bottom: 0px !important;
+    transition-duration: 0.8s;
+  }
+
+  #controls {
+    display: flex;
+    padding-left: 25px;
+    height: 50px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .time {
+    font-size: 10px;
+    color: white;
+    position: relative;
+    top: 13px;
+    margin: 5px;
+    margin-top: 3px !important;
+    font-family: "Open-sans", sans-serif;
+    font-size: 1.2em;
+  }
+
+  .ui-progressbar {
+    background: #0B0B0B;
+  }
+
+  .ui-progressbar-value {
+    background: white;
+  }
+
+  #progressbar {
+    height: 14px;
+    display: inline-block;
+    border-radius: 0px;
+    position: relative;
+    top: 16px;
+    border: none;
+  }
+
+  #progressbar {
+    width: 40%;
+  }
+
+  #play,
+  #mute,
+  .player-button {
+    font-size: 16px;
+    width: 16px;
+    position: relative;
+    top: 13px;
+    margin-left: 20px;
+    cursor: pointer;
+    height: 16px;
+  }
+
+  .previous {
+    margin-left: 0 !important;
+    margin-right: 15px !important;
+  }
+
+  .next {
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+  }
+
+  #play {
+    margin-left: 0 !important;
+  }
+
+  #Volume,
+  #progress-bar {
+    -webkit-appearance: none;
+    width: 10%;
+    height: 7px;
+    border-radius: 5px;
+    background: #0B0B0B;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin: 18px 10px 0 10px;
+    background: linear-gradient(to right, #FFF 75%, #0B0B0B 75%)
+  }
+
+  #progress-bar {
+    width: 40% !important;
+    background: linear-gradient(to right, #FFF 0%, #0B0B0B 0%)
+  }
+
+  #Volume:hover,
+  #progress-bar:hover {
+    opacity: 1;
+  }
+
+  #Volume::-webkit-slider-thumb,
+  #progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #FFF;
+    cursor: pointer;
+  }
+
+  #Volume::-moz-range-thumb,
+  #progress-bar::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+  }
+
+  .fa-volume-up,
+  .fa-volume-off,
+  .fa-pause,
+  .fa-play {
+    background-size: cover;
+  }
+
+  .fa-volume-up{
+    background-image: url("../img/audio-on.png");
+  }
+
+  .fa-volume-off{
+    background-image: url("../img/audio-off.png");
+  }
+
+  .fa-pause{
+    background-image: url("../img/play.png");
+  }
+
+  .fa-play{
+    background-image: url("../img/pause.png");
+  }
+}

@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/sidebarStyle.css">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/sidebarStyle.css">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/sidebarStyle.css">
 <section id="sidebar" class="sidebar-hide">
   <img id="arrow" onclick="showSidebar();" class="arrow-active" src="../img/arrow.png" alt="">
   <ul>
