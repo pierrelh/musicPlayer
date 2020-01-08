@@ -1,7 +1,7 @@
 @media screen and (max-device-width: 640px) {
   #songName{
     font-family: "Open-sans", sans-serif;
-    font-size: 1.4em;
+    font-size: 3em;
     color: white;
     padding-left: 25px;
     margin: 0;
@@ -15,11 +15,10 @@
 
   #audio-player {
     backdrop-filter: blur(30px);
-    padding-left: 20%;
     position: fixed;
     bottom: -100px;
     width: 100%;
-    height: 91px;
+    height: 250px;
     overflow: hidden;
     /* background: rgba(255, 255, 255, .1); */
     color: white;
@@ -28,10 +27,6 @@
     -khtml-user-select: none;
     -ms-user-select: none;
     transition-duration: 0.8s;
-  }
-
-  .left{
-    padding-left: 14% !important;
   }
 
   .show{
@@ -47,6 +42,26 @@
     margin: auto;
   }
 
+  #Previous {
+    top: 115px;
+    left: 100px;
+  }
+
+  #play {
+    top: 115px;
+    left: 260px;
+  }
+
+  #Next {
+    top: 115px;
+    left: 420px;
+  }
+
+  #mute {
+    top: 115px;
+    right: 30%;
+  }
+
   .time {
     font-size: 10px;
     color: white;
@@ -55,7 +70,7 @@
     margin: 5px;
     margin-top: 3px !important;
     font-family: "Open-sans", sans-serif;
-    font-size: 1.2em;
+    font-size: 2.7em;
   }
 
   .ui-progressbar {
@@ -76,15 +91,14 @@
   }
 
   #progressbar {
-    width: 40%;
+    width: 75%;
   }
 
   #play,
   #mute,
   .player-button {
-    font-size: 16px;
     width: 16px;
-    position: relative;
+    position: absolute;
     top: 13px;
     margin-left: 20px;
     cursor: pointer;
@@ -109,13 +123,10 @@
   #progress-bar {
     -webkit-appearance: none;
     width: 10%;
-    height: 7px;
-    border-radius: 5px;
+    height: 25px;
+    border-radius: 25px;
     background: #0B0B0B;
     outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
     margin: 18px 10px 0 10px;
     background: linear-gradient(to right, #FFF 75%, #0B0B0B 75%)
   }
@@ -125,17 +136,20 @@
     background: linear-gradient(to right, #FFF 0%, #0B0B0B 0%)
   }
 
-  #Volume:hover,
-  #progress-bar:hover {
-    opacity: 1;
+  #Volume {
+    position: absolute;
+    right: 15px;
+    width: 25%;
+    height: 25px;
+    top: 110px;
   }
 
   #Volume::-webkit-slider-thumb,
   #progress-bar::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 15px;
-    height: 15px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     background: #FFF;
     cursor: pointer;
@@ -143,8 +157,8 @@
 
   #Volume::-moz-range-thumb,
   #progress-bar::-moz-range-thumb {
-    width: 15px;
-    height: 15px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     background: #4CAF50;
     cursor: pointer;
