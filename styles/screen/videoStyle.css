@@ -46,7 +46,7 @@
 
   .edit,
   .delete {
-    background-image: url(../img/edit.png);
+    background-image: url("../../img/edit.png");
     height: 150px;
     position: absolute;
     background-color: rgba(0, 0, 0, .5);
@@ -60,7 +60,7 @@
 
   .edit-hide,
   .delete-hide {
-    background-image: url(../img/edit.png);
+    background-image: url("../../img/edit.png");
     height: 150px;
     position: absolute;
     background-color: rgba(0, 0, 0, .5);
@@ -92,6 +92,6 @@
 
   .delete,
   .delete-hide {
-    background-image: url(../img/delete.png) !important;
+    background-image: url("../../img/delete.png") !important;
   }
 }

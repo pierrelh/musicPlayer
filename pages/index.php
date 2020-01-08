@@ -27,7 +27,7 @@
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/deleteFile.php");
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/mediaPlayer.php");
     ?>
-    <section id="Library" class="library">
+    <section id="Library" class="library-show">
       <script type="text/javascript">
         getFiles('file_id', 'DESC');
       </script>
