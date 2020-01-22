@@ -1,7 +1,7 @@
-function playNextSong(){
+function getMyPlaylists() {
 
 }
 
-function getNextSong(){
+function createPlalist() {
   
 }
