@@ -51,6 +51,9 @@ function hideAdd() {
 
   var filter = document.getElementById('createPlaylist');
   filter.setAttribute('onclick', 'createPlaylist()');
+  if (document.getElementById("buttonCreatePlaylist" != undefined)) {
+    document.getElementById("buttonCreatePlaylist").remove();
+  }
 }
 
 function addToPlaylist(identifier) {
@@ -101,5 +104,12 @@ function sendPlaylist() {
       musicList += document.getElementById(i).dataset.id + "#//#";
     }
   }
-  console.log(musicList);
+  $.ajax({
+    url: "../functions/playlist/createPlaylist.php",
+    type: "POST",
+    data: {'musics': musicList},
+    success: function(data){
+      hideAdd();
+    }
+  });
 }
