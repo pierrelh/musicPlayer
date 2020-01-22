@@ -81,6 +81,15 @@ function removeToPlaylist(identifier) {
   document.getElementById('add'+identifier).onclick = function () {
     addToPlaylist(identifier);
   };
+  var choosed = false;
+  for (var i = 0; i < library.length; i++) {
+    if (document.getElementById("ul"+i).classList.contains("check")) {
+      choosed = true;
+    }
+  }
+  if (choosed == false) {
+    document.getElementById("buttonCreatePlaylist").remove();
+  }
 }
 
 function sendPlaylist() {
@@ -90,5 +99,6 @@ function sendPlaylist() {
     if (document.getElementById("ul"+i).classList.contains("check")) {
       musicList += document.getElementById(i).dataset.id + "#//#";
     }
-  };
+  }
+  console.log(musicList);
 }
