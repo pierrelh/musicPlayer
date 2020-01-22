@@ -51,7 +51,7 @@ function hideAdd() {
 
   var filter = document.getElementById('createPlaylist');
   filter.setAttribute('onclick', 'createPlaylist()');
-  if (document.getElementById("buttonCreatePlaylist" != undefined)) {
+  if (document.getElementById("buttonCreatePlaylist") != undefined) {
     document.getElementById("buttonCreatePlaylist").remove();
   }
 }
