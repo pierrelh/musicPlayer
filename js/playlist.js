@@ -59,6 +59,7 @@ function addToPlaylist(identifier) {
   li.classList.remove("add");
   var sidebarList =  document.getElementById("sidebarList");
   var buttonCreatePlaylist = document.createElement('input');
+  buttonCreatePlaylist.setAttribute("type", "submit");
   buttonCreatePlaylist.classList.add('button-create-playlist');
   buttonCreatePlaylist.innerHTML = "Créer la Playlist";
   sidebarList.appendChild(buttonCreatePlaylist);
