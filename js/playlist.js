@@ -54,5 +54,19 @@ function hideAdd() {
 }
 
 function addToPlaylist(identifier) {
+  var li = document.getElementById('add'+identifier);
+  li.classList.add('check');
+  li.classList.remove("add");
+  document.getElementById('add'+identifier).onclick = function () {
+    removeToPlaylist(identifier);
+  };
+}
 
+function removeToPlaylist(identifier) {
+  var li = document.getElementById('add'+identifier);
+  li.classList.add('add');
+  li.classList.remove("check");
+  document.getElementById('add'+identifier).onclick = function () {
+    addToPlaylist(identifier);
+  };
 }
