@@ -58,11 +58,13 @@ function addToPlaylist(identifier) {
   li.classList.add('check');
   li.classList.remove("add");
   var sidebarList =  document.getElementById("sidebarList");
+  var listElement = document.createElement('li');
+  sidebarList.appendChild(listElement);
   var buttonCreatePlaylist = document.createElement('input');
   buttonCreatePlaylist.setAttribute("type", "submit");
   buttonCreatePlaylist.classList.add('button-create-playlist');
-  buttonCreatePlaylist.innerHTML = "Créer la Playlist";
-  sidebarList.appendChild(buttonCreatePlaylist);
+  buttonCreatePlaylist.value = "Créer la Playlist";
+  listElement.appendChild(buttonCreatePlaylist);
   document.getElementById('add'+identifier).onclick = function () {
     removeToPlaylist(identifier);
   };
