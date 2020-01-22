@@ -53,6 +53,7 @@ function hideAdd() {
   filter.setAttribute('onclick', 'createPlaylist()');
   if (document.getElementById("buttonCreatePlaylist") != undefined) {
     document.getElementById("buttonCreatePlaylist").remove();
+    document.getElementById("playlistName").remove();
   }
 }
 
@@ -62,8 +63,19 @@ function addToPlaylist(identifier) {
   li.classList.remove("add");
   if (document.getElementById("buttonCreatePlaylist") == undefined) {
     var sidebarList =  document.getElementById("sidebarList");
+    var listPlaylistName = document.createElement('li');
+    sidebarList.appendChild(listPlaylistName);
+    var playlistName = document.createElement('input');
+    playlistName.id = "playlistName";
+    playlistName.setAttribute("type", "text");
+    playlistName.setAttribute("placeholder", "Nom de la Playlist");
+    playlistName.classList.add('playlist-name');
+    listPlaylistName.appendChild(playlistName);
+
+
     var listElement = document.createElement('li');
     sidebarList.appendChild(listElement);
+
     var buttonCreatePlaylist = document.createElement('input');
     buttonCreatePlaylist.id = "buttonCreatePlaylist";
     buttonCreatePlaylist.setAttribute("type", "submit");
@@ -93,23 +105,30 @@ function removeToPlaylist(identifier) {
   }
   if (choosed == false) {
     document.getElementById("buttonCreatePlaylist").remove();
+    document.getElementById("playlistName").remove();
   }
 }
 
 function sendPlaylist() {
   var library = document.getElementById('Library').children;
+  var playlistName = document.getElementById('playlistName').value;
   var musicList = "";
   for (var i = 0; i < library.length; i++) {
     if (document.getElementById("add"+i).classList.contains("check")) {
       musicList += document.getElementById(i).dataset.id + "#//#";
     }
   }
-  $.ajax({
-    url: "../functions/playlist/createPlaylist.php",
-    type: "POST",
-    data: {'musics': musicList},
-    success: function(data){
-      hideAdd();
-    }
-  });
+  if (playlistName == "" || musicList == "") {
+    alert("Merci de choisir des morceaux et de remplir le nom de la playlist.")
+  }else {
+    $.ajax({
+      url: "../functions/playlist/createPlaylist.php",
+      type: "POST",
+      data: {'musics': musicList,
+             'playlistName': playlistName},
+      success: function(data){
+        hideAdd();
+      }
+    });
+  }
 }

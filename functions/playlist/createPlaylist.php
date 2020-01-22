@@ -5,7 +5,7 @@
   $filtered = array_map('map_entities', $_POST);
 
   $db = connect();
-  $selectSql = "INSERT INTO playlist (playlist_owner, playlist_music) VALUES ($1, $2)";
-  $result =  pg_query_params($db, $selectSql, array("noname", $filtered['musics']));
+  $selectSql = "INSERT INTO playlists (playlist_owner, playlist_musics, playlist_name) VALUES ($1, $2, $3)";
+  $result =  pg_query_params($db, $selectSql, array("noname", $filtered['musics'], $filtered['playlistName']));
 
 ?>

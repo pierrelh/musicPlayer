@@ -110,7 +110,8 @@
   }
 
   .button-create-playlist {
-    border: 1px solid white;background: none;
+    border: 1px solid white;
+    background: none;
     color: white;
     font-family: "Open sans", sans-serif;
     padding: 11px 15px;
@@ -118,5 +119,14 @@
     margin: 55px auto 0;
     display: block;
     cursor: pointer;
+  }
+
+  .playlist-name {
+    font-family: "Open sans", sans-serif;
+    font-size: 1.5em;
+    color: white;
+    background: none;
+    border: 1px solid white;
+    padding: 1px;
   }
 }
