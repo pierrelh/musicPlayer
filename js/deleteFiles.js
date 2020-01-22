@@ -4,6 +4,9 @@ function deleteFiles(){
     if (document.getElementById('edit'+i) != undefined) {
       hideEdit();
       break;
+    }else if (document.getElementById('add'+i) != undefined) {
+      hideAdd();
+      break;
     }
   }
   for (var i = 0; i < library.length; i++) (function(i) {
