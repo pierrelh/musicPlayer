@@ -57,18 +57,21 @@ function addToPlaylist(identifier) {
   var li = document.getElementById('add'+identifier);
   li.classList.add('check');
   li.classList.remove("add");
-  var sidebarList =  document.getElementById("sidebarList");
-  var listElement = document.createElement('li');
-  sidebarList.appendChild(listElement);
-  var buttonCreatePlaylist = document.createElement('input');
-  buttonCreatePlaylist.setAttribute("type", "submit");
-  buttonCreatePlaylist.setAttribute("onclick", "sendPlaylist()");
-  buttonCreatePlaylist.classList.add('button-create-playlist');
-  buttonCreatePlaylist.value = "Créer la Playlist";
-  listElement.appendChild(buttonCreatePlaylist);
-  document.getElementById('add'+identifier).onclick = function () {
-    removeToPlaylist(identifier);
-  };
+  if (document.getElementById("buttonCreatePlaylist") == undefined) {
+    var sidebarList =  document.getElementById("sidebarList");
+    var listElement = document.createElement('li');
+    sidebarList.appendChild(listElement);
+    var buttonCreatePlaylist = document.createElement('input');
+    buttonCreatePlaylist.id = "buttonCreatePlaylist";
+    buttonCreatePlaylist.setAttribute("type", "submit");
+    buttonCreatePlaylist.setAttribute("onclick", "sendPlaylist()");
+    buttonCreatePlaylist.classList.add('button-create-playlist');
+    buttonCreatePlaylist.value = "Créer la Playlist";
+    listElement.appendChild(buttonCreatePlaylist);
+    document.getElementById('add'+identifier).onclick = function () {
+      removeToPlaylist(identifier);
+    };
+  }
 }
 
 function removeToPlaylist(identifier) {
