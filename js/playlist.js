@@ -62,6 +62,7 @@ function addToPlaylist(identifier) {
   sidebarList.appendChild(listElement);
   var buttonCreatePlaylist = document.createElement('input');
   buttonCreatePlaylist.setAttribute("type", "submit");
+  buttonCreatePlaylist.setAttribute("onclick", "sendPlaylist()");
   buttonCreatePlaylist.classList.add('button-create-playlist');
   buttonCreatePlaylist.value = "Créer la Playlist";
   listElement.appendChild(buttonCreatePlaylist);
@@ -76,5 +77,15 @@ function removeToPlaylist(identifier) {
   li.classList.remove("check");
   document.getElementById('add'+identifier).onclick = function () {
     addToPlaylist(identifier);
+  };
+}
+
+function sendPlaylist() {
+  var library = document.getElementById('Library').children;
+  var musicList = "";
+  for (var i = 0; i < library.length; i++) {
+    if (document.getElementById("ul"+i).classList.contains("check")) {
+      musicList += document.getElementById(i).dataset.id + "#//#";
+    }
   };
 }

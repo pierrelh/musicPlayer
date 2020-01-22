@@ -108,4 +108,15 @@
   .check-hide {
     background-image: url("../../img/check.png") !important;
   }
+
+  .button-create-playlist {
+    border: 1px solid white;background: none;
+    color: white;
+    font-family: "Open sans", sans-serif;
+    padding: 11px 15px;
+    font-size: 1.7em;
+    margin: 55px auto 0;
+    display: block;
+    cursor: pointer;
+  }
 }
