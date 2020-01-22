@@ -82,6 +82,7 @@ function removeToPlaylist(identifier) {
     addToPlaylist(identifier);
   };
   var choosed = false;
+  var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) {
     if (document.getElementById("ul"+i).classList.contains("check")) {
       choosed = true;
