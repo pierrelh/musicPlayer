@@ -54,6 +54,8 @@ function hideAdd() {
   if (document.getElementById("buttonCreatePlaylist") != undefined) {
     document.getElementById("buttonCreatePlaylist").remove();
     document.getElementById("playlistName").remove();
+    document.getElementById("playlistButtonElement").remove();
+    document.getElementById("playlistNameElement").remove();
   }
 }
 
@@ -63,8 +65,11 @@ function addToPlaylist(identifier) {
   li.classList.remove("add");
   if (document.getElementById("buttonCreatePlaylist") == undefined) {
     var sidebarList =  document.getElementById("sidebarList");
+
     var listPlaylistName = document.createElement('li');
+    listPlaylistName.id = "playlistNameElement"
     sidebarList.appendChild(listPlaylistName);
+
     var playlistName = document.createElement('input');
     playlistName.id = "playlistName";
     playlistName.setAttribute("type", "text");
@@ -74,6 +79,7 @@ function addToPlaylist(identifier) {
 
 
     var listElement = document.createElement('li');
+    listElement.id = "playlistButtonElement"
     sidebarList.appendChild(listElement);
 
     var buttonCreatePlaylist = document.createElement('input');
@@ -106,6 +112,8 @@ function removeToPlaylist(identifier) {
   if (choosed == false) {
     document.getElementById("buttonCreatePlaylist").remove();
     document.getElementById("playlistName").remove();
+    document.getElementById("playlistButtonElement").remove();
+    document.getElementById("playlistNameElement").remove();
   }
 }
 
