@@ -45,7 +45,9 @@
   }
 
   .edit,
-  .delete {
+  .delete,
+  .add,
+  .check {
     background-image: url("../../img/edit.png");
     height: 150px;
     position: absolute;
@@ -59,7 +61,9 @@
   }
 
   .edit-hide,
-  .delete-hide {
+  .delete-hide,
+  .add-hide,
+  .check-hide {
     background-image: url("../../img/edit.png");
     height: 150px;
     position: absolute;
@@ -93,5 +97,15 @@
   .delete,
   .delete-hide {
     background-image: url("../../img/delete.png") !important;
+  }
+
+  .add,
+  .add-hide {
+    background-image: url("../../img/add.png") !important;
+  }
+
+  .check,
+  .check-hide {
+    background-image: url("../../img/check.png") !important;
   }
 }
