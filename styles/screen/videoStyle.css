@@ -108,4 +108,8 @@
   .check-hide {
     background-image: url("../../img/check.png") !important;
   }
+
+  .button-create-playlist {
+    border: 1px solid white;
+  }
 }

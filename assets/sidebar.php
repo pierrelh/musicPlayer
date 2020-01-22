@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/sidebarStyle.css">
 <section id="sidebar" class="sidebar-hide">
   <img id="arrow" onclick="showSidebar();" class="arrow-active" src="../img/arrow.png" alt="">
-  <ul>
+  <ul id="sidebarList">
     <li><input onclick="" type="button" name="" value="Mon Compte"></li>
     <li><input onclick="" type="button" name="" value="Créer un Compte"></li>
     <li><input onclick="uploadAppear()" type="button" name="" value="Uploader un Fichier"></li>

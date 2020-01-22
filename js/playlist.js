@@ -57,6 +57,11 @@ function addToPlaylist(identifier) {
   var li = document.getElementById('add'+identifier);
   li.classList.add('check');
   li.classList.remove("add");
+  var sidebarList =  document.getElementById("sidebarList");
+  var buttonCreatePlaylist = document.createElement('input');
+  buttonCreatePlaylist.classList.add('button-create-playlist');
+  buttonCreatePlaylist.innerHTML = "Créer la Playlist";
+  sidebarList.appendChild(buttonCreatePlaylist);
   document.getElementById('add'+identifier).onclick = function () {
     removeToPlaylist(identifier);
   };
