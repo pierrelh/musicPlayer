@@ -1,0 +1,32 @@
+.add,
+.add-hide {
+  background-image: url("../../img/add.png") !important;
+}
+
+.check,
+.check-hide {
+  background-image: url("../../img/check.png") !important;
+}
+
+.button-create-playlist {
+  border: 1px solid white;
+  background: none;
+  color: white;
+  font-family: "Open sans", sans-serif;
+  padding: 11px 15px;
+  font-size: 1.7em;
+  margin: 15px auto 0;
+  display: block;
+  cursor: pointer;
+}
+
+.playlist-name {
+  font-family: "Open sans", sans-serif;
+  font-size: 1.3em;
+  color: white;
+  background: none;
+  border: 1px solid white;
+  padding: 5px;
+  margin: 50px auto 0;
+  display: block;
+}

@@ -10,6 +10,7 @@
     ?>
     <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/loginStyle.css">
     <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/loginStyle.css">
+    <link rel="stylesheet" href="<?php echo $link ?>/styles/playlistStyle.css">
     <?php
 
       if (isset($_POST['log_user'])) {
