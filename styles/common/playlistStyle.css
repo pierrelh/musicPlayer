@@ -38,8 +38,9 @@
   top: 50px;
   margin-left: 20%;
   min-width: 810px;
-  height: 96%;
+  height: -webkit-fill-available;
   background-color: #0F0F0F;
+  padding-bottom: 140px;
   overflow: scroll;
   animation: show-playlist 0.8s ease;
   z-index: 900;

@@ -1,61 +1,28 @@
 @media screen and (max-device-width: 640px) {
   .sidebar,
   .sidebar-hide {
-    position: fixed;
-    height: 100%;
     backdrop-filter: blur(70px);
     width: 100%;
-    top: 0;
     text-align: center;
     padding-top: 300px;
-    z-index: 801;
-    transition: 0.8s;
   }
 
   .arrow {
-    cursor: pointer;
-    position: absolute;
     height: 80px;
-    left: 5%;
     top: 10px;
-    transform: rotate(180deg);
-    transition: 0.8s;
   }
 
   .arrow-active {
-    cursor: pointer;
-    position: absolute;
     height: 80px;
     top: 10px;
-    transition: 0.8s;
-    left: 105%;
   }
 
   .sidebar-hide {
     margin-left: -100%;
   }
 
-  .sidebar > ul,
-  .sidebar-hide > ul {
-    margin: 0;
-    padding: 0;
-  }
-
-  .sidebar > ul > li,
-  .sidebar-hide > ul > li {
-    margin: 10px;
-  }
-
   .sidebar > ul > li > input[type="button"],
   .sidebar-hide > ul > li > input[type="button"] {
-    background: none;
-    border: none;
-    color: #fff;
-    font-family: "Open-sans", sans-serif;
-    cursor: pointer;
-    text-align: left;
     font-size: 4em;
-    margin-bottom: 50px;
-    transition-duration: 0.8s;
   }
 }

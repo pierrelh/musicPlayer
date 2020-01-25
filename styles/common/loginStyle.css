@@ -1,0 +1,15 @@
+.log-form{
+  margin: auto;
+  display: block;
+  color: white;
+  font-family: "Open-sans", sans-serif;
+}
+
+.log-form > input[type="submit"]{
+  margin: auto;
+  display: block;
+  background: none;
+  color: white;
+  font-size: 1.2em;
+  padding: 8px 25px;
+}

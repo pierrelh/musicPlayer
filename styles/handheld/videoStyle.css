@@ -1,7 +1,6 @@
 @media screen and (max-device-width: 640px) {
   .library {
     margin: 100px 5px 0 5px;
-    transition: 0.8s;
     padding-bottom: 270px;
   }
 
@@ -13,89 +12,30 @@
 
   .library > ul,
   .library-show > ul {
-    list-style: none;
-    padding: 0;
     width: 220px;
-    display: inline-block;
     margin: 20px 0 0 20px;
   }
 
   .library > ul > .view,
   .library-show > ul > .view {
-    width: 100%;
     height: 220px;
-    cursor: pointer;
-    background-color: black;
-    background-position: center;
-    background-size: cover;
   }
 
   .library > ul > li > p,
   .library-show > ul > li > p {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-    font-family: "Open-sans", sans-serif;
-    margin: 5px 0 0 0;
     font-size: 3em;
-    cursor: pointer;
   }
 
   .edit,
   .delete,
   .add,
-  .check {
-    background-image: url("../../img/edit.png");
-    height: 220px;
-    position: absolute;
-    background-color: rgba(0, 0, 0, .5);
-    width: 222px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 40%;
-    margin-left: -1px;
-    cursor: pointer;
-    animation: show-edit 0.8s ease;
-  }
-
+  .check,
   .edit-hide,
   .delete-hide,
   .add-hide,
   .check-hide {
-    background-image: url("../../img/edit.png");
     height: 220px;
-    position: absolute;
-    background-color: rgba(0, 0, 0, .5);
     width: 222px;
-    background-position: center;
     background-size: 40%;
-    background-repeat: no-repeat;
-    margin-left: -1px;
-    cursor: pointer;
-    animation: hide-edit 0.8s ease;
-  }
-
-  @keyframes show-edit {
-      0% {
-          opacity: 0;
-      }
-      100% {
-          opacity: 1;
-      }
-  }
-
-  @keyframes hide-edit {
-      0% {
-          opacity: 1;
-      }
-      100% {
-          opacity: 0;
-      }
-  }
-
-  .delete,
-  .delete-hide {
-    background-image: url("../../img/delete.png") !important;
   }
 }

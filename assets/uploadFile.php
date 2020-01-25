@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="<?php echo $link ?>/styles/common/uploadFileStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/uploadFileStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/uploadFileStyle.css">
 <script type="text/javascript" src="<?php echo $link ?>/js/uploadFile.js"></script>

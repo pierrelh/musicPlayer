@@ -1,0 +1,79 @@
+.library,
+.library-show {
+  transition: 0.8s;
+}
+
+.library > ul,
+.library-show > ul {
+  list-style: none;
+  padding: 0;
+  display: inline-block;
+}
+
+.library > ul > .view,
+.library-show > ul > .view {
+  width: 100%;
+  cursor: pointer;
+  background-color: black;
+  background-position: center;
+  background-size: cover;
+}
+
+.library > ul > li > p,
+.library-show > ul > li > p {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  font-family: "Open-sans", sans-serif;
+  margin: 5px 0 0 0;
+  cursor: pointer;
+}
+
+.edit,
+.delete,
+.add,
+.check,
+.edit-hide,
+.delete-hide,
+.add-hide,
+.check-hide {
+  background-image: url("../../img/edit.png");
+  position: absolute;
+  background-color: rgba(0, 0, 0, .5);
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: -1px;
+  cursor: pointer;
+  animation: show-edit 0.8s ease;
+}
+
+.edit-hide,
+.delete-hide,
+.add-hide,
+.check-hide {
+  animation: hide-edit 0.8s ease !important;
+}
+
+.delete,
+.delete-hide {
+  background-image: url("../../img/delete.png") !important;
+}
+
+@keyframes show-edit {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes hide-edit {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="<?php echo $link ?>/styles/common/deleteFileStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/deleteFileStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/deleteFileStyle.css">
 <script type="text/javascript" src="<?php echo $link ?>/js/deleteFiles.js"></script>

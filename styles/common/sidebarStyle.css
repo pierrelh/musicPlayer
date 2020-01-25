@@ -1,0 +1,45 @@
+.sidebar,
+.sidebar-hide {
+  position: fixed;
+  height: 100%;
+  top: 0;
+  z-index: 801;
+  transition: 0.8s;
+}
+
+.arrow {
+  cursor: pointer;
+  position: absolute;
+  left: 5%;
+  transform: rotate(180deg);
+  transition: 0.8s;
+}
+
+.arrow-active {
+  cursor: pointer;
+  position: absolute;
+  transition: 0.8s;
+  left: 105%;
+}
+
+.sidebar > ul,
+.sidebar-hide > ul {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar > ul > li,
+.sidebar-hide > ul > li {
+  margin: 10px;
+}
+
+.sidebar > ul > li > input[type="button"],
+.sidebar-hide > ul > li > input[type="button"] {
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: "Open-sans", sans-serif;
+  cursor: pointer;
+  text-align: left;
+  transition-duration: 0.8s;
+}

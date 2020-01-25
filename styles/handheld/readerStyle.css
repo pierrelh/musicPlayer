@@ -1,45 +1,11 @@
 @media screen and (max-device-width: 640px) {
   #songName{
-    font-family: "Open-sans", sans-serif;
     font-size: 3em;
-    color: white;
-    padding-left: 25px;
-    margin: 0;
-  }
-
-  #audio-player > ul {
-    padding: 0;
-    margin: 20px 0 0 0;
-    list-style: none;
   }
 
   #audio-player {
-    backdrop-filter: blur(30px);
-    position: fixed;
     bottom: -250px;
-    width: 100%;
     height: 250px;
-    overflow: hidden;
-    /* background: rgba(255, 255, 255, .1); */
-    color: white;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -ms-user-select: none;
-    transition-duration: 0.8s;
-  }
-
-  .show{
-    bottom: 0px !important;
-    transition-duration: 0.8s;
-  }
-
-  #controls {
-    display: flex;
-    padding-left: 25px;
-    height: 50px;
-    width: 100%;
-    margin: auto;
   }
 
   #Previous {
@@ -63,31 +29,7 @@
   }
 
   .time {
-    font-size: 10px;
-    color: white;
-    position: relative;
-    top: 13px;
-    margin: 5px;
-    margin-top: 3px !important;
-    font-family: "Open-sans", sans-serif;
     font-size: 2.7em;
-  }
-
-  .ui-progressbar {
-    background: #0B0B0B;
-  }
-
-  .ui-progressbar-value {
-    background: white;
-  }
-
-  #progressbar {
-    height: 14px;
-    display: inline-block;
-    border-radius: 0px;
-    position: relative;
-    top: 16px;
-    border: none;
   }
 
   #progressbar {
@@ -99,29 +41,18 @@
   .player-button {
     width: 50px;
     position: absolute;
-    cursor: pointer;
     height: 50px;
-  }
-
-  #play {
-    margin-left: 0 !important;
   }
 
   #Volume,
   #progress-bar {
-    -webkit-appearance: none;
-    width: 10%;
     height: 25px;
     border-radius: 25px;
-    background: #0B0B0B;
     outline: none;
-    margin: 18px 10px 0 10px;
-    background: linear-gradient(to right, #FFF 75%, #0B0B0B 75%)
   }
 
   #progress-bar {
     width: 77% !important;
-    background: linear-gradient(to right, #FFF 0%, #0B0B0B 0%)
   }
 
   #Volume {
@@ -134,44 +65,13 @@
 
   #Volume::-webkit-slider-thumb,
   #progress-bar::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
     width: 35px;
     height: 35px;
-    border-radius: 50%;
-    background: #FFF;
-    cursor: pointer;
   }
 
   #Volume::-moz-range-thumb,
   #progress-bar::-moz-range-thumb {
     width: 35px;
     height: 35px;
-    border-radius: 50%;
-    background: #4CAF50;
-    cursor: pointer;
-  }
-
-  .fa-volume-up,
-  .fa-volume-off,
-  .fa-pause,
-  .fa-play {
-    background-size: cover;
-  }
-
-  .fa-volume-up{
-    background-image: url("../../img/audio-on.png");
-  }
-
-  .fa-volume-off{
-    background-image: url("../../img/audio-off.png");
-  }
-
-  .fa-pause{
-    background-image: url("../../img/play.png");
-  }
-
-  .fa-play{
-    background-image: url("../../img/pause.png");
   }
 }

@@ -1,0 +1,14 @@
+header{
+  background-color: #0B0B0B;
+  width: 100%;
+  margin: 0;
+  top: 0;
+  position: fixed;
+  z-index: 800;
+}
+
+header > h1{
+  text-align: center;
+  color: #fff;
+  font-family: "Open-sans", sans-serif;
+}

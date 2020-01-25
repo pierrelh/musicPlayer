@@ -8,9 +8,9 @@
       $link = 'https://' . $_SERVER['HTTP_HOST'];
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/header.php");
     ?>
+    <link rel="stylesheet" href="<?php echo $link ?>/styles/common/loginStyle.css">
     <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/loginStyle.css">
     <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/loginStyle.css">
-    <link rel="stylesheet" href="<?php echo $link ?>/styles/playlistStyle.css">
     <?php
 
       if (isset($_POST['log_user'])) {

@@ -1,59 +1,21 @@
 @media screen and (max-device-width: 640px) {
   #upload,
   #edit {
-    background-color: white;
-    position: fixed;
-    z-index: 999;
-    max-height: 0;
-    transition: max-height 0.5s ease-out;
-    overflow: hidden;
-    position: absolute;
     left: 5%;
     width: 90%;
     top: 15%;
   }
 
   #banner {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     height: 400px;
     width: 400px;
-    margin: auto;
-    margin-bottom: 50px;
   }
 
   .editImage {
     width: 80px;
-    cursor: pointer;
-    margin-left: 70%;
-    margin-top: 5px;
-  }
-
-  #upload > form,
-  #edit > form {
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    padding: 5% 0;
-  }
-
-  #upload > form > ul {
-    display: flex;
-    justify-content: space-around;
-    margin: 50px auto;
-    list-style: none;
-    padding: 0;
-    width: 70%;
-  }
-
-  #upload > form > ul > li > label {
-    cursor: pointer;
   }
 
   #upload > form > ul > li > label > img {
-    box-sizing: content-box;
-    width: 25%;
     max-width: 200px;
     min-width: 200px;
   }
@@ -61,86 +23,26 @@
   #upload > form > input[type="text"],
   #edit > form > input[type="text"] {
     font-size: 3em;
-    font-family: "Open-sans", sans-serif;
     width: 80%;
-    border: 1px black solid;
-    padding: 5px 0;
-    margin: 5px;
     margin-bottom: 50px;
   }
 
-  #upload > form > input[type="file"],
-  #edit > form > div > ul > li > input[type="file"] {
-    display: none;
-  }
-
-  #upload > form > input[type="button"],
-  #edit > form > input[type="button"] {
-    border: 1px solid black;
-    text-align: center;
-    background: none;
-    font-family: "Open-sans", sans-serif;
-    font-size: 1.6em;
-    display: block;
-    margin: auto;
-    margin-top: 100px;
-    padding: 2% 10%;
-  }
-
   .progress-bar {
-    position: relative;
     border: black solid 5px;
     width: 700px;
     height: 80px;
     line-height: 80px;
-    overflow: hidden;
-    margin: 8% auto auto auto;
-  }
-
-  #edit > form > .progress-bar {
-    margin: 3% auto auto auto !important;
-  }
-
-  .progress-bar .bar {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    overflow: hidden;
   }
 
   .progress-bar .bar span {
-    position: absolute;
-    display: block;
     width: 700px;
-    height: 100%;
-    text-align: center;
-    font-family: "Open-sans", sans-serif;
-    font-weight: 700;
-    font-size: 1.7em;
   }
 
   .progress-bar .bar.positive {
-    background: black;
-    left: 0;
-    width: 0%;
     font-size: 3em;
-  }
-
-  .progress-bar .bar.positive span {
-    left: 0;
-    color: white;
   }
 
   .progress-bar .bar.negative {
-    background: white;
-    right: 0;
-    width: 100%;
     font-size: 3em;
-  }
-
-  .progress-bar .bar.negative span {
-    right: 0;
-    color: black;
-    cursor: pointer;
   }
 }
