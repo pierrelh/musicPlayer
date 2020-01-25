@@ -4,10 +4,7 @@ var decodeHTML = function (html) {
 	return txt.value;
 };
 
-function editFiles(gettingFiles){
-	if (gettingFiles != undefined) {
-		getFiles('file_id', 'DESC');
-	}
+function editFiles(){
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) {
     if (document.getElementById('delete'+i) != undefined) {

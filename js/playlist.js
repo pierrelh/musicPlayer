@@ -6,13 +6,13 @@ function getAllPlaylists() {
       data = JSON.parse(data);
       if (data.length != 0) {
         var editFilter = document.getElementById("editFile");
-        editFilter.setAttribute("onclick", "editFiles(true)");
+        editFilter.setAttribute("onclick", "getFiles('file_id', 'DESC');editFiles()");
 
         var deleteFilter = document.getElementById("deleteFile");
-        deleteFilter.setAttribute("onclick", "deleteFiles(true)");
+        deleteFilter.setAttribute("onclick", "getFiles('file_id', 'DESC');deleteFiles()");
 
         var playlistFilter = document.getElementById("createPlaylist");
-        playlistFilter.setAttribute("onclick", "createPlaylist(true)");
+        playlistFilter.setAttribute("onclick", "getFiles('file_id', 'DESC');createPlaylist()");
 
         var library = document.getElementById('Library');
         library.innerHTML = "";
@@ -55,10 +55,7 @@ function openPlaylist(identifier) {
   }
 }
 
-function createPlaylist(gettingFiles) {
-	if (gettingFiles != undefined) {
-		getFiles('file_id', 'DESC');
-	}
+function createPlaylist() {
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) {
     if (document.getElementById('delete'+i) != undefined) {

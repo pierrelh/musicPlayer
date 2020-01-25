@@ -1,7 +1,4 @@
-function deleteFiles(gettingFiles){
-	if (gettingFiles != undefined) {
-		getFiles('file_id', 'DESC');
-	}
+function deleteFiles(){
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) {
     if (document.getElementById('edit'+i) != undefined) {
