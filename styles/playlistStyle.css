@@ -39,8 +39,14 @@
 
 .table {
   cursor: pointer;
-  background-color: #0F0F0F !important;
   padding: 15px;
+  transition: 0.8s;
+}
+
+.table:hover {
+  background-color: #0B0B0B !important;
+  padding-left: 30px !important;
+  transition: 0.8s;
 }
 
 .table > p {
@@ -48,8 +54,4 @@
   text-align: left !important;
   justify-content: left !important;
   margin: 0 !important;
-}
-
-.one {
-  background-color: #0B0B0B !important;
 }

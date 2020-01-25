@@ -15,11 +15,7 @@ function getAllPlaylists() {
         for (var i = 0; i < data.length; i++) (function(i) {
           li = document.createElement("li");
           ul.appendChild(li);
-          if (i % 2 == 0) {
-            li.className = 'table';
-          }else {
-            li.className = 'table one';
-          }
+          li.className = 'table';
           li.id = i;
           li.dataset.name = data[i]['playlist_name'];
           li.dataset.musics = data[i]['playlist_musics'];
