@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/common/readerStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/readerStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/readerStyle.css">
-<section id="audio-player">
+<section id="audio-player" class="left">
   <ul>
     <li>
       <p id="songName"></p>

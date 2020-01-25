@@ -9,10 +9,10 @@ function mediaPlayerAppear(identifier){
   nameTxt.innerHTML = author + " - " + name;
   musicPlayer.src = url;
   var audioPlayer = document.getElementById('audio-player');
-  audioPlayer.classList.add('show');
-  if (document.getElementById('sidebar').classList.contains('sidebar-hide')) {
+  if (document.getElementById('sidebar').classList.contains('sidebar-hide') && !audioPlayer.classList.contains('left')) {
     audioPlayer.classList.add('left');
   }
+  audioPlayer.classList.add('show');
   document.getElementById('Previous').onclick = function () {
     if (identifier != 0) {
       identifier = identifier - 1;
