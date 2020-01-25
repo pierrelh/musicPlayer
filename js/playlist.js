@@ -16,9 +16,9 @@ function getAllPlaylists() {
           li = document.createElement("li");
           ul.appendChild(li);
           if (i % 2 == 0) {
-            li.className = 'table one';
-          }else {
             li.className = 'table';
+          }else {
+            li.className = 'table one';
           }
           li.id = i;
           li.dataset.name = data[i]['playlist_name'];
