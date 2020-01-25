@@ -28,7 +28,7 @@ function getAllPlaylists() {
           li.appendChild(p);
           p.innerHTML = data[i]['playlist_name'];
           p.id = 'p'+i;
-          document.getElementById('p'+i).onclick = function () {
+          // document.getElementById('p'+i).onclick = function () {
           //   mediaPlayerAppear(i);
           // };
         })(i);
