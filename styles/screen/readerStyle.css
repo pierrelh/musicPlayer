@@ -4,13 +4,20 @@
   }
 
   #audio-player {
-    padding-left: 20%;
+    margin-left: 20%;
     bottom: -100px;
     height: 91px;
+    width: 80%;
   }
 
-  .left{
-    padding-left: 14% !important;
+  .show{
+    bottom: 0px !important;
+    transition-duration: 0.8s;
+  }
+
+  .left {
+      padding-left: 14% !important;
+      margin-left: 0% !important;
   }
 
   .time {

@@ -15,7 +15,6 @@
   z-index: 950;
   backdrop-filter: blur(30px);
   position: fixed;
-  width: 100%;
   overflow: hidden;
   color: white;
   -webkit-user-select: none;

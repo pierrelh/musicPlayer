@@ -5,6 +5,7 @@
     width: 100%;
     text-align: center;
     padding-top: 200px;
+    z-index: 960;
   }
 
   .sidebar > ul > li,

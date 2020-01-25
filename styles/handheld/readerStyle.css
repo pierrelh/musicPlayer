@@ -6,6 +6,7 @@
   #audio-player {
     bottom: -250px;
     height: 250px;
+    width: 100%;
   }
 
   #Previous {
