@@ -4,12 +4,18 @@
     transition: 0.8s;
     min-width: 810px;
     padding-bottom: 100px;
+    overflow: scroll;
+    position: fixed;
+    height: -webkit-fill-available;
   }
 
   .library-show {
     margin: 50px 5px 0 5px;
     transition: 0.8s;
     padding-bottom: 100px;
+    overflow: scroll;
+    position: fixed;
+    height: -webkit-fill-available;
   }
 
   .library > ul,

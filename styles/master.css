@@ -181,9 +181,8 @@ template {
 
 
 html{
-  scroll-behavior: smooth;
   font-size: 62.5%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .no-scroll {
@@ -201,10 +200,6 @@ html{
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background: #fff;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }
 
 @media screen and (max-device-width: 640px) {
