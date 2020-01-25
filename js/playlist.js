@@ -5,21 +5,14 @@ function getAllPlaylists() {
     success: function(data){
       data = JSON.parse(data);
       if (data.length != 0) {
-        var editFilter = document.getElementById("editFile");
-        editFilter.setAttribute("onclick", "getFiles('file_id', 'DESC', undefined, editFiles());");
-
-        var deleteFilter = document.getElementById("deleteFile");
-        deleteFilter.setAttribute("onclick", "getFiles('file_id', 'DESC', undefined, deleteFiles());");
-
-        var playlistFilter = document.getElementById("createPlaylist");
-        playlistFilter.setAttribute("onclick", "getFiles('file_id', 'DESC', undefined, createPlaylist());");
-
-        var library = document.getElementById('Library');
-        library.innerHTML = "";
+        var div = document.createElement("div");
+        div.classList = "playlist-div";
+        div.id = "divPlaylist";
+        
         var ul = document.createElement("ul");
         ul.id = 'ulPlaylist';
         ul.className = "listPlaylist";
-        library.appendChild(ul);
+        div.appendChild(ul);
 
         for (var i = 0; i < data.length; i++) (function(i) {
           li = document.createElement("li");
