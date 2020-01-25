@@ -7,7 +7,7 @@ function getAllPlaylists() {
       if (data.length != 0) {
         var html = document.getElementById("html");
         html.classList.add('no-scroll')
-        sectionPlaylist.classList = "playlist-div";
+        document.getElementById("divPlaylist").classList = "playlist-div";
 
         var ul = document.createElement("ul");
         ul.id = 'ulPlaylist';
