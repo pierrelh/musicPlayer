@@ -5,6 +5,8 @@ function getAllPlaylists() {
     success: function(data){
       data = JSON.parse(data);
       if (data.length != 0) {
+        var html = document.getElementById("html");
+        html.classList.add('no-scroll')
         var body = document.getElementById("body");
         var sectionPlaylist = document.createElement("section");
         sectionPlaylist.classList = "playlist-div";

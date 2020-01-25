@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html id="html" lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Music Player</title>

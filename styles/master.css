@@ -186,6 +186,10 @@ html{
   overflow-x: hidden;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 @media screen and (max-device-width: 640px) {
   .appear{
     max-height: 1200px !important;
