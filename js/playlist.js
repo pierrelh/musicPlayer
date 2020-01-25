@@ -3,7 +3,36 @@ function getAllPlaylists() {
     url: "../functions/playlist/getAllPlaylists.php",
     type: "POST",
     success: function(data){
-      console.log(data);
+      data = JSON.parse(data);
+      var library = document.getElementById('Library');
+      library.innerHTML = "";
+      if (data.length != 0) {
+        for (var i = 0; i < data.length; i++) (function(i) {
+          var ul = document.createElement("ul");
+          ul.id = 'ul' + i;
+          library.appendChild(ul);
+
+          li = document.createElement("li");
+          ul.appendChild(li);
+          li.className = 'view';
+          li.id = i;
+          li.dataset.name = data[i]['playlist_name'];
+          li.dataset.musics = data[i]['playlist_musics'];
+          li.dataset.owner = data[i]['playlist_owner'];
+          li.dataset.id = data[i]['playlist_id'];
+          // document.getElementById(i).onclick = function () {
+          //   mediaPlayerAppear(i);
+          // };
+
+          var p = document.createElement("p");
+          li.appendChild(p);
+          p.innerHTML = data[i]['playlist_name'];
+          p.id = 'p'+i;
+          document.getElementById('p'+i).onclick = function () {
+          //   mediaPlayerAppear(i);
+          // };
+        })(i);
+      }
     }
   });
 }
