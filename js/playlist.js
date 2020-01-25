@@ -61,8 +61,8 @@ function hideAdd() {
 
 function addToPlaylist(identifier) {
   var li = document.getElementById('add'+identifier);
-  li.classList.add('check');
   li.classList.remove("add");
+  li.classList.add('check');
   if (document.getElementById("buttonCreatePlaylist") == undefined) {
     var sidebarList =  document.getElementById("sidebarList");
 
@@ -89,19 +89,15 @@ function addToPlaylist(identifier) {
     buttonCreatePlaylist.classList.add('button-create-playlist');
     buttonCreatePlaylist.value = "Créer la Playlist";
     listElement.appendChild(buttonCreatePlaylist);
-    document.getElementById('add'+identifier).onclick = function () {
-      removeToPlaylist(identifier);
-    };
+    document.getElementById('add'+identifier).setAttribute('onclick', 'removeToPlaylist('+identifier+')');
   }
 }
 
 function removeToPlaylist(identifier) {
   var li = document.getElementById('add'+identifier);
-  li.classList.add('add');
   li.classList.remove("check");
-  document.getElementById('add'+identifier).onclick = function () {
-    addToPlaylist(identifier);
-  };
+  li.classList.add('add');
+  document.getElementById('add'+identifier).setAttribute('onclick', 'addToPlaylist('+identifier+')');
   var choosed = false;
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) {
