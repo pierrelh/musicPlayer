@@ -63,6 +63,7 @@ function addToPlaylist(identifier) {
   var li = document.getElementById('add'+identifier);
   li.classList.remove("add");
   li.classList.add('check');
+  document.getElementById('add'+identifier).setAttribute('onclick', 'removeToPlaylist('+identifier+')');
   if (document.getElementById("buttonCreatePlaylist") == undefined) {
     var sidebarList =  document.getElementById("sidebarList");
 
@@ -89,7 +90,6 @@ function addToPlaylist(identifier) {
     buttonCreatePlaylist.classList.add('button-create-playlist');
     buttonCreatePlaylist.value = "Créer la Playlist";
     listElement.appendChild(buttonCreatePlaylist);
-    document.getElementById('add'+identifier).setAttribute('onclick', 'removeToPlaylist('+identifier+')');
   }
 }
 
