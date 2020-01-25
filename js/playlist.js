@@ -4,17 +4,18 @@ function getAllPlaylists() {
     type: "POST",
     success: function(data){
       data = JSON.parse(data);
-      var library = document.getElementById('Library');
-      library.innerHTML = "";
       if (data.length != 0) {
-        for (var i = 0; i < data.length; i++) (function(i) {
-          var ul = document.createElement("ul");
-          ul.id = 'ul' + i;
-          library.appendChild(ul);
+        var library = document.getElementById('Library');
+        library.innerHTML = "";
+        var ul = document.createElement("ul");
+        ul.id = 'ulPlaylist';
+        ul.className = "listPlaylist";
+        library.appendChild(ul);
 
+        for (var i = 0; i < data.length; i++) (function(i) {
           li = document.createElement("li");
           ul.appendChild(li);
-          li.className = 'view';
+          li.className = 'table';
           li.id = i;
           li.dataset.name = data[i]['playlist_name'];
           li.dataset.musics = data[i]['playlist_musics'];
