@@ -45,24 +45,29 @@
 }
 
 .playlist-div-hide {
+  z-index: -1;
   opacity: 0;
   animation: hide-playlist 0.8s ease !important;
 }
 
 @keyframes show-playlist {
     0% {
+        z-index: -1;
         opacity: 0;
     }
     100% {
+        z-index: 900;
         opacity: 1;
     }
 }
 
 @keyframes hide-playlist {
     0% {
+        z-index: 900;
         opacity: 1;
     }
     100% {
+        z-index: -1;
         opacity: 0;
     }
 }

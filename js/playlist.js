@@ -18,20 +18,20 @@ function getAllPlaylists() {
           li = document.createElement("li");
           ul.appendChild(li);
           li.className = 'table';
-          li.id = i;
+          li.id = "playlistElement"+i;
           li.dataset.name = data[i]['playlist_name'];
           li.dataset.musics = data[i]['playlist_musics'];
           li.dataset.owner = data[i]['playlist_owner'];
           li.dataset.id = data[i]['playlist_id'];
-          document.getElementById(i).onclick = function () {
+          document.getElementById("playlistElement"+i).onclick = function () {
             openPlaylist(data[i]['playlist_id']);
           };
 
           var p = document.createElement("p");
           li.appendChild(p);
           p.innerHTML = data[i]['playlist_name'];
-          p.id = 'playlist'+i;
-          document.getElementById('playlist'+i).onclick = function () {
+          p.id = 'playlistText'+i;
+          document.getElementById('playlistText'+i).onclick = function () {
             openPlaylist(data[i]['playlist_id']);
           };
         })(i);
