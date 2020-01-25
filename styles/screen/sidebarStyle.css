@@ -6,6 +6,11 @@
     padding-top: 50px;
   }
 
+  .sidebar > ul > li,
+  .sidebar-hide > ul > li {
+    margin: 10px;
+  }
+
   .arrow {
     height: 35px;
     top: 1%;
