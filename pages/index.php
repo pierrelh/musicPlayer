@@ -26,6 +26,7 @@
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/editFile.php");
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/deleteFile.php");
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/mediaPlayer.php");
+      include_once($_SERVER['DOCUMENT_ROOT']."/assets/playlists.php");
     ?>
     <section id="Library" class="library-show">
       <script type="text/javascript">
