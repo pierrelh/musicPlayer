@@ -1,4 +1,4 @@
-function getFiles(row, type, identifier){
+function getFiles(row, type, identifier, callback){
   $.ajax({
     url: "../functions/files/ajaxGetAllFiles.php",
     type: "POST",
@@ -55,4 +55,7 @@ function getFiles(row, type, identifier){
       }
     }
   });
+  if (callback != undefined) {
+    callback();
+  }
 }

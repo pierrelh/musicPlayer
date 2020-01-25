@@ -6,13 +6,13 @@ function getAllPlaylists() {
       data = JSON.parse(data);
       if (data.length != 0) {
         var editFilter = document.getElementById("editFile");
-        editFilter.setAttribute("onclick", "getFiles('file_id', 'DESC');editFiles()");
+        editFilter.setAttribute("onclick", "getFiles('file_id', 'DESC', undefined, editFiles());");
 
         var deleteFilter = document.getElementById("deleteFile");
-        deleteFilter.setAttribute("onclick", "getFiles('file_id', 'DESC');deleteFiles()");
+        deleteFilter.setAttribute("onclick", "getFiles('file_id', 'DESC', undefined, deleteFiles());");
 
         var playlistFilter = document.getElementById("createPlaylist");
-        playlistFilter.setAttribute("onclick", "getFiles('file_id', 'DESC');createPlaylist()");
+        playlistFilter.setAttribute("onclick", "getFiles('file_id', 'DESC', undefined, createPlaylist());");
 
         var library = document.getElementById('Library');
         library.innerHTML = "";
