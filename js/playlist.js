@@ -1,5 +1,11 @@
-function getMyPlaylists() {
-
+function getAllPlaylists() {
+  $.ajax({
+    url: "../functions/files/getAllPlaylists.php",
+    type: "POST",
+    success: function(data){
+      console.log(data);
+    }
+  });
 }
 
 function createPlaylist() {

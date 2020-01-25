@@ -14,7 +14,7 @@
     <li><input id='filter3' onclick="getFiles('file_id', 'DESC', 'filter3');" type="button" name="" value="Trier par Date d'ajout"></li>
     <li><input id='filter4' onclick="getFiles('file_name', 'ASC', 'filter4');" type="button" name="" value="Trier par Titre"></li>
     <br>
-    <li><input id="myPlaylists" onclick="getMyPlaylists()" type="button" name="" value="Mes Playlists"></li>
+    <li><input id="myPlaylists" onclick="getAllPlaylists()" type="button" name="" value="Mes Playlists"></li>
     <li><input id="createPlaylist" onclick="createPlaylist()" type="button" name="" value="Créer une Playlist"></li>
   </ul>
 </section>
