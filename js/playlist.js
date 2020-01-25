@@ -7,11 +7,7 @@ function getAllPlaylists() {
       if (data.length != 0) {
         var html = document.getElementById("html");
         html.classList.add('no-scroll')
-        var body = document.getElementById("body");
-        var sectionPlaylist = document.createElement("section");
         sectionPlaylist.classList = "playlist-div";
-        sectionPlaylist.id = "divPlaylist";
-        body.appendChild(sectionPlaylist);
 
         var ul = document.createElement("ul");
         ul.id = 'ulPlaylist';
@@ -40,24 +36,15 @@ function getAllPlaylists() {
           };
         })(i);
         var filterGetPlaylist = document.getElementById("myPlaylists");
-        filterGetPlaylist.setAttribute("onclick", "hidePlaylists()");
+        filterGetPlaylist.setAttribute("onclick", "checkPlaylistSection()");
       }
     }
   });
 }
 
-function hidePlaylists() {
-  if (document.getElementById("divPlaylist") != undefined) {
-  	document.getElementById("divPlaylist").remove();
-  	document.getElementById("html").classList.remove("no-scroll");
-  }
-  var filterGetPlaylist = document.getElementById("myPlaylists");
-  filterGetPlaylist.setAttribute("onclick", "getAllPlaylists()");
-}
-
 function checkPlaylistSection() {
-  if (document.getElementById("divPlaylist") != undefined) {
-    document.getElementById("divPlaylist").remove();
+  if (document.getElementById("divPlaylist").contains("playlist-div")) {
+    document.getElementById("divPlaylist").classList = "playlist-div-hide";
     document.getElementById("html").classList.remove("no-scroll");
     document.getElementById("myPlaylists").setAttribute("onclick", "getAllPlaylists()");
   }

@@ -31,6 +31,7 @@
   display: block;
 }
 
+.playlist-div-hide,
 .playlist-div {
   position: fixed;
   width: 80%;
@@ -40,6 +41,29 @@
   height: 96%;
   background-color: #0F0F0F;
   overflow: scroll;
+  animation: show-playlist 0.8s ease;
+}
+
+.playlist-div-hide {
+  animation: hide-playlist 0.8s ease !important;
+}
+
+@keyframes show-playlist {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes hide-playlist {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 .listPlaylist {
