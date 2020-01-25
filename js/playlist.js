@@ -43,7 +43,7 @@ function getAllPlaylists() {
 }
 
 function checkPlaylistSection() {
-  if (document.getElementById("divPlaylist").contains("playlist-div")) {
+  if (document.getElementById("divPlaylist").classList.contains("playlist-div")) {
     document.getElementById("divPlaylist").classList = "playlist-div-hide";
     document.getElementById("html").classList.remove("no-scroll");
     document.getElementById("myPlaylists").setAttribute("onclick", "getAllPlaylists()");
