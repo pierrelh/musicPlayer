@@ -31,10 +31,23 @@
   display: block;
 }
 
+.playlist-div {
+  position: absolute;
+  width: 80%;
+  top: 50px;
+  margin-left: 20%;
+  min-width: 810px;
+  height: 100%;
+}
+
 .listPlaylist {
+  list-style: none;
+  font-family: "Open sans", sans-serif;
+  padding: 0;
   width: 100% !important;
   text-align: left;
   margin: 0 !important;
+  color: white;
 }
 
 .table {

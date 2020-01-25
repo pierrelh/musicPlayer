@@ -6,15 +6,15 @@ function getAllPlaylists() {
       data = JSON.parse(data);
       if (data.length != 0) {
         var body = document.getElementById("body");
-        var div = document.createElement("div");
-        div.classList = "playlist-div";
-        div.id = "divPlaylist";
-        body.appendChild(div);
+        var sectionPlaylist = document.createElement("section");
+        sectionPlaylist.classList = "playlist-div";
+        sectionPlaylist.id = "divPlaylist";
+        body.appendChild(sectionPlaylist);
 
         var ul = document.createElement("ul");
         ul.id = 'ulPlaylist';
         ul.className = "listPlaylist";
-        div.appendChild(ul);
+        sectionPlaylist.appendChild(ul);
 
         for (var i = 0; i < data.length; i++) (function(i) {
           li = document.createElement("li");
