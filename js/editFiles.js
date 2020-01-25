@@ -5,11 +5,7 @@ var decodeHTML = function (html) {
 };
 
 function editFiles(){
-	if (document.getElementById("divPlaylist") != undefined) {
-		document.getElementById("divPlaylist").remove();
-		document.getElementById("html").classList.remove("no-scroll");
-    document.getElementById("myPlaylists").setAttribute("onclick", "getAllPlaylists()");
-	}
+  checkPlaylistSection();
 
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) {
@@ -39,11 +35,7 @@ function editFiles(){
 }
 
 function hideEdit(){
-	if (document.getElementById("divPlaylist") != undefined) {
-		document.getElementById("divPlaylist").remove();
-		document.getElementById("html").classList.remove("no-scroll");
-    document.getElementById("myPlaylists").setAttribute("onclick", "getAllPlaylists()");
-	}
+  checkPlaylistSection();
 
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++){

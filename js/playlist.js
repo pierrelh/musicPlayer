@@ -55,6 +55,14 @@ function hidePlaylists() {
   filterGetPlaylist.setAttribute("onclick", "getAllPlaylists()");
 }
 
+function checkPlaylistSection() {
+  if (document.getElementById("divPlaylist") != undefined) {
+    document.getElementById("divPlaylist").remove();
+    document.getElementById("html").classList.remove("no-scroll");
+    document.getElementById("myPlaylists").setAttribute("onclick", "getAllPlaylists()");
+  }
+}
+
 function openPlaylist(identifier) {
   // if (identifier != undefined) {
   //   var library = document.getElementById('Library');
@@ -64,11 +72,7 @@ function openPlaylist(identifier) {
 }
 
 function createPlaylist() {
-	if (document.getElementById("divPlaylist") != undefined) {
-		document.getElementById("divPlaylist").remove();
-		document.getElementById("html").classList.remove("no-scroll");
-	}
-
+  checkPlaylistSection();
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) {
     if (document.getElementById('delete'+i) != undefined) {
@@ -97,11 +101,7 @@ function createPlaylist() {
 }
 
 function hideAdd() {
-	if (document.getElementById("divPlaylist") != undefined) {
-		document.getElementById("divPlaylist").remove();
-		document.getElementById("html").classList.remove("no-scroll");
-	}
-
+  checkPlaylistSection();
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++){
     var li = document.getElementById('add'+i);
