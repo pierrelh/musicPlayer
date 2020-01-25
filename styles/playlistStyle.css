@@ -34,12 +34,22 @@
 .listPlaylist {
   width: 100%;
   text-align: left;
+  margin: 0 !important;
 }
 
 .table {
   cursor: pointer;
+  background-color: #0F0F0F !important;
+  padding: 15px 5px;
 }
 
 .table > p {
-  font-size: 2em;
+  font-size: 2em !important;
+  text-align: left !important;
+  justify-content: left !important;
+  margin: 0 !important;
+}
+
+.one {
+  background-color: #0B0B0B !important;
 }
