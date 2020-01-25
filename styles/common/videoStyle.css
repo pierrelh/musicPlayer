@@ -1,6 +1,9 @@
 .library,
 .library-show {
   transition: 0.8s;
+  overflow: scroll;
+  position: fixed;
+  height: -webkit-fill-available;
 }
 
 .library > ul,

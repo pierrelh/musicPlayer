@@ -1,13 +1,9 @@
 @media screen and (max-device-width: 640px) {
-  .library {
-    margin: 100px 5px 0 5px;
-    padding-bottom: 270px;
-  }
-
+  .library,
   .library-show {
     margin: 100px 5px 0 5px;
     transition: 0.8s;
-    padding-bottom: 100px;
+    padding-bottom: 270px;
   }
 
   .library > ul,
