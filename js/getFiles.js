@@ -1,4 +1,9 @@
 function getFiles(row, type, identifier){
+	if (document.getElementById("divPlaylist") != undefined) {
+		document.getElementById("divPlaylist").remove();
+		document.getElementById("html").classList.remove("no-scroll");
+	}
+
   $.ajax({
     url: "../functions/files/ajaxGetAllFiles.php",
     type: "POST",

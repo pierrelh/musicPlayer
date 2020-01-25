@@ -39,9 +39,20 @@ function getAllPlaylists() {
             openPlaylist(data[i]['playlist_id']);
           };
         })(i);
+        var filterGetPlaylist = document.getElementById("myPlaylists");
+        filterGetPlaylist.setAttribute("onclick", "hidePlaylists()");
       }
     }
   });
+}
+
+function hidePlaylists() {
+  if (document.getElementById("divPlaylist") != undefined) {
+  	document.getElementById("divPlaylist").remove();
+  	document.getElementById("html").classList.remove("no-scroll");
+  }
+  var filterGetPlaylist = document.getElementById("myPlaylists");
+  filterGetPlaylist.setAttribute("onclick", "getAllPlaylists()");
 }
 
 function openPlaylist(identifier) {
@@ -53,6 +64,11 @@ function openPlaylist(identifier) {
 }
 
 function createPlaylist() {
+	if (document.getElementById("divPlaylist") != undefined) {
+		document.getElementById("divPlaylist").remove();
+		document.getElementById("html").classList.remove("no-scroll");
+	}
+
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) {
     if (document.getElementById('delete'+i) != undefined) {
@@ -81,6 +97,11 @@ function createPlaylist() {
 }
 
 function hideAdd() {
+	if (document.getElementById("divPlaylist") != undefined) {
+		document.getElementById("divPlaylist").remove();
+		document.getElementById("html").classList.remove("no-scroll");
+	}
+
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++){
     var li = document.getElementById('add'+i);
