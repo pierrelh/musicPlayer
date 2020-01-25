@@ -55,8 +55,8 @@ function openPlaylist(identifier) {
   }
 }
 
-function createPlaylist(import) {
-	if (import != undefined) {
+function createPlaylist(gettingFiles) {
+	if (gettingFiles != undefined) {
 		getFiles('file_id', 'DESC');
 	}
   var library = document.getElementById('Library').children;

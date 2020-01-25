@@ -1,5 +1,5 @@
-function deleteFiles(import){
-	if (import != undefined) {
+function deleteFiles(gettingFiles){
+	if (gettingFiles != undefined) {
 		getFiles('file_id', 'DESC');
 	}
   var library = document.getElementById('Library').children;

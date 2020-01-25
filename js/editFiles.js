@@ -4,8 +4,8 @@ var decodeHTML = function (html) {
 	return txt.value;
 };
 
-function editFiles(import){
-	if (import != undefined) {
+function editFiles(gettingFiles){
+	if (gettingFiles != undefined) {
 		getFiles('file_id', 'DESC');
 	}
   var library = document.getElementById('Library').children;
