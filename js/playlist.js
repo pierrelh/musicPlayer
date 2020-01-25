@@ -13,7 +13,7 @@ function createPlaylist() {
       break;
     }
   }
-  for (var i = 0; i < library.length; i++) {
+  for (var i = 0; i < library.length; i++) (function(i) {
     var li = document.createElement('li');
     li.classList.add('add');
     li.id = 'add' + i;
@@ -21,8 +21,11 @@ function createPlaylist() {
     var parent = document.getElementById('ul'+i);
     var child = document.getElementById(i);
     parent.insertBefore(li, child);
-    document.getElementById('add'+i).setAttribute("onclick", "addToPlaylist("+i+")");
-  }
+
+    document.getElementById('add'+i).onclick = function () {
+      addToPlaylist(i);
+    };
+  })(i);
   var filter = document.getElementById('createPlaylist');
   filter.setAttribute('onclick', 'hideAdd()');
 }
@@ -35,14 +38,16 @@ function hideAdd() {
     li.classList.remove("add");
   }
 
-  for (var i = 0; i < library.length; i++){
-    var li = document.getElementById('add'+i);
-    if (li != undefined) {
-      li.remove();
-    }else {
-      break;
+  setTimeout(function(){
+    for (var i = 0; i < library.length; i++){
+      var li = document.getElementById('add'+i);
+      if (li != undefined) {
+        li.remove();
+      }else {
+        break;
+      }
     }
-  }
+  }, 800);
 
   var filter = document.getElementById('createPlaylist');
   filter.setAttribute('onclick', 'createPlaylist()');
@@ -56,9 +61,8 @@ function hideAdd() {
 
 function addToPlaylist(identifier) {
   var li = document.getElementById('add'+identifier);
-  li.classList.remove("add");
   li.classList.add('check');
-  document.getElementById('add'+identifier).setAttribute("onclick", "removeToPlaylist("+identifier+")");
+  li.classList.remove("add");
   if (document.getElementById("buttonCreatePlaylist") == undefined) {
     var sidebarList =  document.getElementById("sidebarList");
 
@@ -85,14 +89,19 @@ function addToPlaylist(identifier) {
     buttonCreatePlaylist.classList.add('button-create-playlist');
     buttonCreatePlaylist.value = "Créer la Playlist";
     listElement.appendChild(buttonCreatePlaylist);
+    document.getElementById('add'+identifier).onclick = function () {
+      removeToPlaylist(identifier);
+    };
   }
 }
 
 function removeToPlaylist(identifier) {
   var li = document.getElementById('add'+identifier);
-  li.classList.remove("check");
   li.classList.add('add');
-  document.getElementById('add'+identifier).setAttribute("onclick", "addToPlaylist("+identifier+")");
+  li.classList.remove("check");
+  document.getElementById('add'+identifier).onclick = function () {
+    addToPlaylist(identifier);
+  };
   var choosed = false;
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) {
