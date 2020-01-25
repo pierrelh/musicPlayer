@@ -10,6 +10,9 @@ function mediaPlayerAppear(identifier){
   musicPlayer.src = url;
   var audioPlayer = document.getElementById('audio-player');
   audioPlayer.classList.add('show');
+  if (document.getElementById('sidebar').classList.contains('sidebar-hide')) {
+    audioPlayer.classList.add('left');
+  }
   document.getElementById('Previous').onclick = function () {
     if (identifier != 0) {
       identifier = identifier - 1;
