@@ -19,7 +19,7 @@
     <script type="text/javascript" src="<?php echo $link ?>/js/playlist.js"></script>
     <script type="text/javascript" src="<?php echo $link ?>/js/deleteFiles.js"></script>
   </head>
-  <body>
+  <body id="body">
     <?php
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/sidebar.php");
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/background.php");

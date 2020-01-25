@@ -5,10 +5,12 @@ function getAllPlaylists() {
     success: function(data){
       data = JSON.parse(data);
       if (data.length != 0) {
+        var body = document.getElementById("body");
         var div = document.createElement("div");
         div.classList = "playlist-div";
         div.id = "divPlaylist";
-        
+        body.appendChild(div);
+
         var ul = document.createElement("ul");
         ul.id = 'ulPlaylist';
         ul.className = "listPlaylist";
