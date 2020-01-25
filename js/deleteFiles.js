@@ -1,4 +1,7 @@
-function deleteFiles(){
+function deleteFiles(import){
+	if (import != undefined) {
+		getFiles('file_id', 'DESC');
+	}
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) {
     if (document.getElementById('edit'+i) != undefined) {

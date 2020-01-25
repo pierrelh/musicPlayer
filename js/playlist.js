@@ -5,6 +5,15 @@ function getAllPlaylists() {
     success: function(data){
       data = JSON.parse(data);
       if (data.length != 0) {
+        var editFilter = document.getElementById("editFile");
+        editFilter.setAttribute("onclick", "editFiles(true)");
+
+        var deleteFilter = document.getElementById("deleteFile");
+        deleteFilter.setAttribute("onclick", "deleteFiles(true)");
+
+        var playlistFilter = document.getElementById("createPlaylist");
+        playlistFilter.setAttribute("onclick", "createPlaylist(true)");
+
         var library = document.getElementById('Library');
         library.innerHTML = "";
         var ul = document.createElement("ul");
@@ -21,24 +30,35 @@ function getAllPlaylists() {
           li.dataset.musics = data[i]['playlist_musics'];
           li.dataset.owner = data[i]['playlist_owner'];
           li.dataset.id = data[i]['playlist_id'];
-          // document.getElementById(i).onclick = function () {
-          //   mediaPlayerAppear(i);
-          // };
+          document.getElementById(i).onclick = function () {
+            openPlaylist(data[i]['playlist_id']);
+          };
 
           var p = document.createElement("p");
           li.appendChild(p);
           p.innerHTML = data[i]['playlist_name'];
           p.id = 'playlist'+i;
-          // document.getElementById('p'+i).onclick = function () {
-          //   mediaPlayerAppear(i);
-          // };
+          document.getElementById('playlist'+i).onclick = function () {
+            openPlaylist(data[i]['playlist_id']);
+          };
         })(i);
       }
     }
   });
 }
 
-function createPlaylist() {
+function openPlaylist(identifier) {
+  if (identifier != undefined) {
+    var library = document.getElementById('Library');
+    library.innerHTML = "";
+
+  }
+}
+
+function createPlaylist(import) {
+	if (import != undefined) {
+		getFiles('file_id', 'DESC');
+	}
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) {
     if (document.getElementById('delete'+i) != undefined) {
