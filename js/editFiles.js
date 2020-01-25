@@ -8,6 +8,7 @@ function editFiles(){
 	if (document.getElementById("divPlaylist") != undefined) {
 		document.getElementById("divPlaylist").remove();
 		document.getElementById("html").classList.remove("no-scroll");
+    document.getElementById("myPlaylists").setAttribute("onclick", "getAllPlaylists()");
 	}
 
   var library = document.getElementById('Library').children;
@@ -41,6 +42,7 @@ function hideEdit(){
 	if (document.getElementById("divPlaylist") != undefined) {
 		document.getElementById("divPlaylist").remove();
 		document.getElementById("html").classList.remove("no-scroll");
+    document.getElementById("myPlaylists").setAttribute("onclick", "getAllPlaylists()");
 	}
 
   var library = document.getElementById('Library').children;
