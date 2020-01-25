@@ -5,6 +5,9 @@ var decodeHTML = function (html) {
 };
 
 function editFiles(){
+	if (document.getElementById("divPlaylist") != undefined) {
+		document.getElementById("divPlaylist").remove();
+	}
   var library = document.getElementById('Library').children;
   for (var i = 0; i < library.length; i++) {
     if (document.getElementById('delete'+i) != undefined) {

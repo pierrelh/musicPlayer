@@ -45,11 +45,11 @@ function getAllPlaylists() {
 }
 
 function openPlaylist(identifier) {
-  if (identifier != undefined) {
-    var library = document.getElementById('Library');
-    library.innerHTML = "";
-
-  }
+  // if (identifier != undefined) {
+  //   var library = document.getElementById('Library');
+  //   library.innerHTML = "";
+  //
+  // }
 }
 
 function createPlaylist() {
