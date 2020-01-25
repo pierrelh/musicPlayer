@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/uploadFileStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/uploadFileStyle.css">
+<script type="text/javascript" src="<?php echo $link ?>/js/uploadFile.js"></script>
 <section id="upload">
   <img class="cross" onclick="uploadHide()" src="../img/cross.png" alt="">
   <form id="formUpload" enctype="multipart/form-data" method="post">

@@ -13,10 +13,7 @@
     <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript" src="<?php echo $link ?>/js/getFiles.js"></script>
     <script type="text/javascript" src="<?php echo $link ?>/js/page-scripts.js"></script>
-    <script type="text/javascript" src="<?php echo $link ?>/js/uploadFile.js"></script>
     <script type="text/javascript" src="<?php echo $link ?>/js/musicPlayer.js"></script>
-    <script type="text/javascript" src="<?php echo $link ?>/js/playlist.js"></script>
-    <script type="text/javascript" src="<?php echo $link ?>/js/deleteFiles.js"></script>
   </head>
   <body id="body">
     <?php
