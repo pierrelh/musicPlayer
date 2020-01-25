@@ -190,6 +190,23 @@ html{
   overflow: hidden;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #fff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 @media screen and (max-device-width: 640px) {
   .appear{
     max-height: 1200px !important;
