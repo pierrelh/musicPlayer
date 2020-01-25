@@ -45,6 +45,7 @@
 }
 
 .playlist-div-hide {
+  opacity: 0;
   animation: hide-playlist 0.8s ease !important;
 }
 

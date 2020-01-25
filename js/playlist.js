@@ -12,7 +12,7 @@ function getAllPlaylists() {
         var ul = document.createElement("ul");
         ul.id = 'ulPlaylist';
         ul.className = "listPlaylist";
-        sectionPlaylist.appendChild(ul);
+        document.getElementById("divPlaylist").appendChild(ul);
 
         for (var i = 0; i < data.length; i++) (function(i) {
           li = document.createElement("li");
