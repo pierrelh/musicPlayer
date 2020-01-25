@@ -1,6 +1,6 @@
 function getAllPlaylists() {
   $.ajax({
-    url: "../functions/files/getAllPlaylists.php",
+    url: "../functions/playlist/getAllPlaylists.php",
     type: "POST",
     success: function(data){
       console.log(data);
