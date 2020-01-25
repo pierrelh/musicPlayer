@@ -40,7 +40,7 @@
   min-width: 810px;
   height: -webkit-fill-available;
   background-color: #0F0F0F;
-  padding-bottom: 140px;
+  margin-bottom: 140px;
   overflow: scroll;
   animation: show-playlist 0.8s ease;
   z-index: 900;

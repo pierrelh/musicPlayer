@@ -86,12 +86,12 @@ textarea {
 }
 
 button,
-input { /* 1 */
+input {
   overflow: visible;
 }
 
 button,
-select { /* 1 */
+select {
   text-transform: none;
 }
 
@@ -200,6 +200,14 @@ html{
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background: #fff;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-corner {
+  display: none;
 }
 
 @media screen and (max-device-width: 640px) {
