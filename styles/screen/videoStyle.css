@@ -1,12 +1,16 @@
 @media screen and (min-device-width: 641px) {
   .library,
   .library-show {
-    margin: 50px 5px 100px 20%;
+    margin: 50px 5px 0px 20%;
     min-width: 810px;
   }
 
   .library-show {
     margin: 50px 5px 100px 5px !important;
+  }
+
+  .library-reader-active {
+    margin: 50px 5px 100px 20% !important;
   }
 
   .library > ul,

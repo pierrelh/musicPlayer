@@ -3,6 +3,10 @@ function mediaPlayerAppear(identifier){
   var url = song.getAttribute('data-url');
   var author = song.getAttribute('data-artist');
   var name = song.getAttribute('data-title');
+
+  var library = document.getElementById('Library');
+  library.classList.add("library-reader-active");
+  
   var musicPlayer = document.getElementById('musicPlayer');
   var readerPlayer = document.getElementById('readerPlayer');
   var nameTxt = document.getElementById('songName');
