@@ -6,11 +6,11 @@
   }
 
   .library-show {
-    margin: 50px 5px 100px 5px !important;
+    margin: 50px 5px 0px 5px !important;
   }
 
   .library-reader-active {
-    margin: 50px 5px 100px 20% !important;
+    margin-bottom: 100px !important;
   }
 
   .library > ul,

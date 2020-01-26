@@ -6,7 +6,7 @@ function mediaPlayerAppear(identifier){
 
   var library = document.getElementById('Library');
   library.classList.add("library-reader-active");
-  
+
   var musicPlayer = document.getElementById('musicPlayer');
   var readerPlayer = document.getElementById('readerPlayer');
   var nameTxt = document.getElementById('songName');
@@ -51,7 +51,7 @@ function hideSidebar(){
   player.classList.add("left");
   arrow.className = 'arrow-active';
   sidebar.className = 'sidebar-hide';
-  library.className = 'library-show';
+  library.classList.add('library-show');
   arrow.setAttribute('onclick', 'showSidebar()');
 }
 
@@ -63,6 +63,6 @@ function showSidebar(){
   player.classList.remove("left");
   arrow.className = 'arrow';
   sidebar.className = 'sidebar';
-  library.className = 'library';
+  library.classList.remove('library-show');
   arrow.setAttribute('onclick', 'hideSidebar()');
 }
