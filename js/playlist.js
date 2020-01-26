@@ -8,7 +8,8 @@ function getAllPlaylists() {
         var html = document.getElementById("html");
         html.classList.add('no-scroll')
         document.getElementById("divPlaylist").innerHTML = "";
-        document.getElementById("divPlaylist").classList = "playlist-div";
+        document.getElementById("divPlaylist").classList.remove("playlist-div-hide");
+        document.getElementById("divPlaylist").classList.add("playlist-div");
 
         var ul = document.createElement("ul");
         ul.id = 'ulPlaylist';
@@ -45,7 +46,8 @@ function getAllPlaylists() {
 
 function checkPlaylistSection() {
   if (document.getElementById("divPlaylist").classList.contains("playlist-div")) {
-    document.getElementById("divPlaylist").classList = "playlist-div-hide";
+    document.getElementById("divPlaylist").classList.remove("playlist-div");
+    document.getElementById("divPlaylist").classList.add("playlist-div-hide");
     document.getElementById("html").classList.remove("no-scroll");
     document.getElementById("myPlaylists").setAttribute("onclick", "getAllPlaylists()");
   }
