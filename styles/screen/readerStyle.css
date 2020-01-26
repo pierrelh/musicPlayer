@@ -13,6 +13,7 @@
   .left {
       padding-left: 14% !important;
       margin-left: 0% !important;
+      width: 100% !important;
   }
 
   .time {
@@ -30,7 +31,7 @@
     width: 16px;
     position: relative;
     top: 13px;
-    margin-left: 20px;
+    margin-left: 75px;
     height: 16px;
   }
 
