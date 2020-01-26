@@ -51,7 +51,7 @@
 
 #upload > form > input[type="text"],
 #edit > form > input[type="text"] {
-  font-family: "Open-sans", sans-serif;
+  font-family: "Open sans", sans-serif;
   border: 1px black solid;
   padding: 5px 0;
   margin: 5px;
@@ -67,7 +67,7 @@
   border: 1px solid black;
   text-align: center;
   background: none;
-  font-family: "Open-sans", sans-serif;
+  font-family: "Open sans", sans-serif;
   font-size: 1.6em;
   display: block;
   margin: auto;
@@ -97,7 +97,7 @@
   display: block;
   height: 100%;
   text-align: center;
-  font-family: "Open-sans", sans-serif;
+  font-family: "Open sans", sans-serif;
   font-weight: 700;
   font-size: 1.7em;
 }

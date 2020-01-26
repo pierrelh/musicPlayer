@@ -1,5 +1,5 @@
 #songName{
-  font-family: "Open-sans", sans-serif;
+  font-family: "Open sans", sans-serif;
   color: white;
   padding-left: 25px;
   margin: 0;
@@ -44,7 +44,7 @@
   top: 13px;
   margin: 5px;
   margin-top: 3px !important;
-  font-family: "Open-sans", sans-serif;
+  font-family: "Open sans", sans-serif;
 }
 
 .ui-progressbar {
