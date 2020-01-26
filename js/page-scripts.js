@@ -8,6 +8,7 @@ function mediaPlayerAppear(identifier){
   library.classList.add("library-reader-active");
 
   var playlist = document.getElementById('divPlaylist');
+  console.log(playlist);
   playlist.classList.add('playlist-reader-showed');
 
   var musicPlayer = document.getElementById('musicPlayer');
