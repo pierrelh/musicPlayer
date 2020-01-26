@@ -35,13 +35,13 @@
 .playlist-div {
   position: fixed;
   width: 80%;
-  top: 50px;
+  margin: 50px 5px 100px 20%;
   margin-left: 20%;
   min-width: 810px;
   height: -webkit-fill-available;
   background-color: #0F0F0F;
-  margin-bottom: 140px;
   overflow: scroll;
+  transition: 0.8s;
   animation: show-playlist 0.8s ease;
   z-index: 900;
 }
