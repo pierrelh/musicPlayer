@@ -63,6 +63,7 @@ function showSidebar(){
   player.classList.remove("left");
   arrow.className = 'arrow';
   sidebar.className = 'sidebar';
+  library.classList.add('library');
   library.classList.remove('library-show');
   arrow.setAttribute('onclick', 'hideSidebar()');
 }
