@@ -13,7 +13,7 @@
 
 #audio-player {
   z-index: 950;
-  backdrop-filter: blur(30px);
+  background-color: rgba(255, 255, 255, 0.2);
   position: fixed;
   overflow: hidden;
   color: white;
@@ -77,7 +77,7 @@
 #Volume,
 #progress-bar {
   -webkit-appearance: none;
-  width: 10%;
+  width: 15%;
   background: #0B0B0B;
   outline: none;
   margin: 18px 10px 0 10px;
