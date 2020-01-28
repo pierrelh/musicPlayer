@@ -69,6 +69,7 @@
 .playing,
 .playing-hide {
   background-image: url("../../img/playing.gif") !important;
+  opacity: 0.7;
 }
 
 @keyframes show-edit {

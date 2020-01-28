@@ -1,5 +1,11 @@
 function mediaPlayerAppear(identifier){
   var song = document.getElementById(identifier);
+
+  var playing = document.createElement('li');
+  playing.classList.add("playing");
+  var parent = document.getElementById(identifier).parentNode;
+  parent.insertBefore(playing, song);
+
   var url = song.getAttribute('data-url');
   var author = song.getAttribute('data-artist');
   var name = song.getAttribute('data-title');
