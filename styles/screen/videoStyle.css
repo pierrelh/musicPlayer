@@ -37,7 +37,9 @@
   .edit-hide,
   .delete-hide,
   .add-hide,
-  .check-hide {
+  .check-hide,
+  .playing,
+  .playing-hide {
     height: 150px;
     width: 152px;
   }

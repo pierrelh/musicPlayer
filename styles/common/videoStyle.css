@@ -56,7 +56,8 @@
 .edit-hide,
 .delete-hide,
 .add-hide,
-.check-hide {
+.check-hide,
+.playing-hide {
   animation: hide-edit 0.8s ease !important;
 }
 

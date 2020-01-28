@@ -29,7 +29,9 @@
   .edit-hide,
   .delete-hide,
   .add-hide,
-  .check-hide {
+  .check-hide,
+  .playing,
+  .playing-hide {
     height: 220px;
     width: 222px;
     background-size: 40%;
