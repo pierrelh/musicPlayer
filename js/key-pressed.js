@@ -17,7 +17,7 @@ document.onkeydown = function(event) {
 
       case 80: //p is pressed
         event.preventDefault();
-        var identifier = musicPlayer.dataset.musicPlayed;
+        var identifier = parseInt(musicPlayer.dataset.musicPlayed);
         if (identifier != 0) {
           identifier = identifier - 1;
         }else {
@@ -28,7 +28,7 @@ document.onkeydown = function(event) {
 
       case 78: //n is pressed
         event.preventDefault();
-        var identifier = musicPlayer.dataset.musicPlayed;
+        var identifier = parseInt(musicPlayer.dataset.musicPlayed);
         if (document.getElementById(identifier+1) != undefined) {
           identifier = identifier + 1;
         }else {
