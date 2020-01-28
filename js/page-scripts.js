@@ -1,7 +1,11 @@
 function mediaPlayerAppear(identifier){
   var song = document.getElementById(identifier);
 
+  if (document.getElementById("playedMusic") != undefined) {
+    document.getElementById("playedMusic").remove();
+  }
   var playing = document.createElement('li');
+  playing.id = "playedMusic";
   playing.classList.add("playing");
   var parent = document.getElementById(identifier).parentNode;
   parent.insertBefore(playing, song);

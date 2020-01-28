@@ -69,7 +69,7 @@
 .playing,
 .playing-hide {
   background-image: url("../../img/playing.gif") !important;
-  opacity: 0.7;
+  animation: show-playing 0.8s ease !important;
 }
 
 @keyframes show-edit {
@@ -87,5 +87,14 @@
     }
     100% {
         opacity: 0;
+    }
+}
+
+@keyframes show-playing {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.7;
     }
 }
