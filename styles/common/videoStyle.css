@@ -40,7 +40,9 @@
 .edit-hide,
 .delete-hide,
 .add-hide,
-.check-hide {
+.check-hide,
+.playing,
+.playing-hide {
   background-image: url("../../img/edit.png");
   position: absolute;
   background-color: rgba(0, 0, 0, .5);
@@ -61,6 +63,11 @@
 .delete,
 .delete-hide {
   background-image: url("../../img/delete.png") !important;
+}
+
+.playing,
+.playing-hide {
+  background-image: url("../../img/playing.png") !important;
 }
 
 @keyframes show-edit {
