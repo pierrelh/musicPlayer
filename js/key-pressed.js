@@ -1,9 +1,10 @@
 document.onkeydown = function(event) {
     var player = document.getElementById('musicPlayer');
     var play_button = $('#play');
+    var musicPlayer = document.getElementById('musicPlayer');
     switch (event.keyCode) {
 
-      case 32:
+      case 32: //spacebar is pressed
         event.preventDefault();
         if (player.paused) {
           player.play();
@@ -14,13 +15,26 @@ document.onkeydown = function(event) {
         }
         break;
 
-      case 80:
+      case 80: //p is pressed
         event.preventDefault();
-
+        var identifier = musicPlayer.dataset.musicPlayed;
+        if (identifier != 0) {
+          identifier = identifier - 1;
+        }else {
+          identifier = identifier;
+        }
+        mediaPlayerAppear(identifier);
         break;
 
-      case 78:
+      case 78: //n is pressed
         event.preventDefault();
+        var identifier = musicPlayer.dataset.musicPlayed;
+        if (document.getElementById(identifier+1) != undefined) {
+          identifier = identifier + 1;
+        }else {
+          identifier = 0;
+        }
+        mediaPlayerAppear(identifier);
         break;
     }
 };

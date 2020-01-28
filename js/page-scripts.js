@@ -21,6 +21,7 @@ function mediaPlayerAppear(identifier){
   playlist.classList.add('playlist-reader-showed');
 
   var musicPlayer = document.getElementById('musicPlayer');
+  musicPlayer.dataset.musicPlayed = identifier;
   var readerPlayer = document.getElementById('readerPlayer');
   var nameTxt = document.getElementById('songName');
   nameTxt.innerHTML = author + " - " + name;
