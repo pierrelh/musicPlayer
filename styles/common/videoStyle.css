@@ -67,7 +67,7 @@
 
 .playing,
 .playing-hide {
-  background-image: url("../../img/playing.png") !important;
+  background-image: url("../../img/playing.gif") !important;
 }
 
 @keyframes show-edit {
