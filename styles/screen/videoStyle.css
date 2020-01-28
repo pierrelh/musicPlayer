@@ -38,8 +38,7 @@
   .delete-hide,
   .add-hide,
   .check-hide,
-  .playing,
-  .playing-hide {
+  .playing {
     height: 150px;
     width: 152px;
   }
