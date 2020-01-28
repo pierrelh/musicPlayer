@@ -66,6 +66,7 @@
 
 .playing {
   background-image: url("../../img/playing.gif") !important;
+  opacity: 0.7;
   animation: show-playing 0.8s ease !important;
 }
 
