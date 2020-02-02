@@ -61,7 +61,6 @@ function openPlaylist(identifier) {
       type: "POST",
       data: {'musics': musics},
       success: function(data){
-        console.log(data);
         data = JSON.parse(data);
         var library = document.getElementById('Library');
         library.innerHTML = '';
