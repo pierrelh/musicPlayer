@@ -5,36 +5,42 @@ document.onkeydown = function(event) {
     switch (event.keyCode) {
 
       case 32: //spacebar is pressed
-        event.preventDefault();
-        if (player.paused) {
-          player.play();
-          $(play_button).toggleClass("fa-play");
-        }else {
-          player.pause();
-          $(play_button).toggleClass("fa-pause");
+        if (document.activeElement.tagName != 'INPUT') {
+          event.preventDefault();
+          if (player.paused) {
+            player.play();
+            $(play_button).toggleClass("fa-play");
+          }else {
+            player.pause();
+            $(play_button).toggleClass("fa-pause");
+          }
         }
         break;
 
       case 80: //p is pressed
-        event.preventDefault();
-        var identifier = parseInt(musicPlayer.dataset.musicPlayed);
-        if (identifier != 0) {
-          identifier = identifier - 1;
-        }else {
-          identifier = identifier;
+        if (document.activeElement.tagName != 'INPUT') {
+          event.preventDefault();
+          var identifier = parseInt(musicPlayer.dataset.musicPlayed);
+          if (identifier != 0) {
+            identifier = identifier - 1;
+          }else {
+            identifier = identifier;
+          }
+          mediaPlayerAppear(identifier);
         }
-        mediaPlayerAppear(identifier);
         break;
 
       case 78: //n is pressed
-        event.preventDefault();
-        var identifier = parseInt(musicPlayer.dataset.musicPlayed);
-        if (document.getElementById(identifier+1) != undefined) {
-          identifier = identifier + 1;
-        }else {
-          identifier = 0;
+        if (document.activeElement.tagName != 'INPUT') {
+          event.preventDefault();
+          var identifier = parseInt(musicPlayer.dataset.musicPlayed);
+          if (document.getElementById(identifier+1) != undefined) {
+            identifier = identifier + 1;
+          }else {
+            identifier = 0;
+          }
+          mediaPlayerAppear(identifier);
         }
-        mediaPlayerAppear(identifier);
         break;
     }
 };
