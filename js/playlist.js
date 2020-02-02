@@ -53,7 +53,7 @@ function checkPlaylistSection() {
 
 function openPlaylist(identifier) {
   if (identifier != undefined) {
-    var musics = document.getElementById(identifier).dataset.musics.split("#STOP#");
+    var musics = document.getElementById(identifier).dataset.musics;
     musics.pop();
 
     $.ajax({
