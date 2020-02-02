@@ -4,6 +4,7 @@
   overflow: scroll;
   position: fixed;
   height: -webkit-fill-available;
+  z-index: 500;
 }
 
 .library > ul,

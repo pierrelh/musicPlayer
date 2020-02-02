@@ -2,7 +2,7 @@
   .library,
   .library-show {
     margin: 50px 5px 0px 20%;
-    width: fit-content;
+    width: -webkit-fill-available;
   }
 
   .library-show {
