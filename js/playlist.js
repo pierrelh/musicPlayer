@@ -33,7 +33,7 @@ function getAllPlaylists() {
           li.appendChild(p);
           p.innerHTML = data[i]['playlist_name'];
           p.id = 'playlistText'+i;
-          document.getElementById('playlistText'+i).onclick = function () {
+          document.getElementById('playlistText'+i).onclick = function (i) {
             openPlaylist(data[i]['playlist_id']);
           };
         })(i);
@@ -55,9 +55,7 @@ function checkPlaylistSection() {
 
 function openPlaylist(identifier) {
   if (identifier != undefined) {
-    var playlist = document.getElementById(identifier);
-    var musics = playlist.dataset.musics;
-    musics.split("#STOP#");
+    var musics = document.getElementById(identifier).dataset.musics.split("#STOP#");
     musics.pop();
     console.log(musics);
 
