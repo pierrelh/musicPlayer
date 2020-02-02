@@ -33,10 +33,8 @@ function getAllPlaylists() {
           li.appendChild(p);
           p.innerHTML = data[i]['playlist_name'];
           p.id = 'playlistText'+i;
-          // document.getElementById('playlistText'+i).onclick = function (i) {
-          //   openPlaylist(data[i]['playlist_id']);
-          // };
         })(i);
+
         var filterGetPlaylist = document.getElementById("myPlaylists");
         filterGetPlaylist.setAttribute("onclick", "checkPlaylistSection()");
       }
@@ -57,8 +55,54 @@ function openPlaylist(identifier) {
   if (identifier != undefined) {
     var musics = document.getElementById(identifier).dataset.musics.split("#STOP#");
     musics.pop();
-    console.log(musics);
 
+    $.ajax({
+      url: "../functions/files/getFilesById.php",
+      type: "POST",
+      data: {'ids': musics},
+      success: function(data){
+        data = JSON.parse(data);
+        var library = document.getElementById('Library');
+        library.innerHTML = '';
+        if (data.length != 0) {
+          checkPlaylistSection();
+          for (var i = 0; i < data.length; i++) (function(i) {
+            var ul = document.createElement("ul");
+            ul.id = 'ul' + i;
+            library.appendChild(ul);
+
+            li = document.createElement("li");
+            ul.appendChild(li);
+            li.className = 'view';
+            li.id = i;
+            li.dataset.url = data[i]['file_url'];
+            li.dataset.artist = data[i]['file_author'];
+            li.dataset.title = data[i]['file_name'];
+            li.dataset.album = data[i]['file_album'];
+            li.dataset.img = data[i]['file_image'];
+            li.dataset.id = data[i]['file_id'];
+            document.getElementById(i).onclick = function () {
+              mediaPlayerAppear(i);
+            };
+
+            if (data[i]['file_image'] != "") {
+              li.style.backgroundImage = "url('"+data[i]['file_image']+"')";
+            }
+
+            var lip = document.createElement("li");
+            ul.appendChild(lip);
+
+            var p = document.createElement("p");
+            lip.appendChild(p);
+            p.innerHTML = data[i]['file_author'] + " - " + data[i]['file_name'];
+            p.id = 'p'+i;
+            document.getElementById('p'+i).onclick = function () {
+              mediaPlayerAppear(i);
+            };
+          })(i);
+        }
+      }
+    });
     // var library = document.getElementById('Library');
     // library.innerHTML = "";
 
