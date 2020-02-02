@@ -54,8 +54,7 @@ function checkPlaylistSection() {
 function openPlaylist(identifier) {
   if (identifier != undefined) {
     var musics = document.getElementById(identifier).dataset.musics;
-    musics.pop();
-
+    
     $.ajax({
       url: "../functions/files/getFilesById.php",
       type: "POST",
