@@ -56,8 +56,8 @@ function checkPlaylistSection() {
 function openPlaylist(identifier) {
   if (identifier != undefined) {
     var playlist = document.getElementById(identifier);
-    var musics = playlist.dataset.musics.split('#STOP#');
-    console.log(musics);
+    var musics = playlist.dataset.musics;
+    musics.split("#STOP#");
     musics.pop();
     console.log(musics);
 
