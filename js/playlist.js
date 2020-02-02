@@ -54,11 +54,11 @@ function checkPlaylistSection() {
 function openPlaylist(identifier) {
   if (identifier != undefined) {
     var musics = document.getElementById(identifier).dataset.musics;
-    
+
     $.ajax({
       url: "../functions/files/getFilesById.php",
       type: "POST",
-      data: {'ids': musics},
+      data: {'musics': musics},
       success: function(data){
         data = JSON.parse(data);
         var library = document.getElementById('Library');
