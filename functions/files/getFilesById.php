@@ -9,7 +9,7 @@
   $result = pg_query($db, "SELECT * FROM files WHERE file_id IN (49, 46)");
   if (!empty($result)) {
     $val = pg_fetch_all($result);
-    error_log("result: " . var_dump($val));
+    error_log("result: " . print_r($val, TRUE));
     print json_encode($val);
   }
 
