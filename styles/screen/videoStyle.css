@@ -28,6 +28,12 @@
   .library > ul > li > p,
   .library-show > ul > li > p {
     font-size: 1.1em;
+    max-width: 150px;
+    max-height: 43px;
+    overflow: hidden;
+    word-break: break-word;
+    line-height: 15px;
+    font-weight: 300;
   }
 
   .edit,

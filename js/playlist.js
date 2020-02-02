@@ -26,7 +26,7 @@ function getAllPlaylists() {
           li.dataset.owner = data[i]['playlist_owner'];
           li.dataset.id = data[i]['playlist_id'];
           document.getElementById("playlistElement"+i).onclick = function () {
-            openPlaylist(data[i]['playlist_id']);
+            openPlaylist("playlistElement"+i);
           };
 
           var p = document.createElement("p");
@@ -54,11 +54,17 @@ function checkPlaylistSection() {
 }
 
 function openPlaylist(identifier) {
-  // if (identifier != undefined) {
-  //   var library = document.getElementById('Library');
-  //   library.innerHTML = "";
-  //
-  // }
+  if (identifier != undefined) {
+    var playlist = document.getElementById(identifier);
+    var musics = playlist.dataset.musics.split('#STOP#');
+    console.log(musics);
+    musics.pop();
+    console.log(musics);
+
+    // var library = document.getElementById('Library');
+    // library.innerHTML = "";
+
+  }
 }
 
 function createPlaylist() {
