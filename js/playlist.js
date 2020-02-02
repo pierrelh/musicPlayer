@@ -25,17 +25,17 @@ function getAllPlaylists() {
           li.dataset.musics = data[i]['playlist_musics'];
           li.dataset.owner = data[i]['playlist_owner'];
           li.dataset.id = data[i]['playlist_id'];
-          document.getElementById("playlistElement"+i).onclick = (function (i) {
+          document.getElementById("playlistElement"+i).onclick = function () {
             openPlaylist("playlistElement"+i);
-          })(i);
+          };
 
           var p = document.createElement("p");
           li.appendChild(p);
           p.innerHTML = data[i]['playlist_name'];
           p.id = 'playlistText'+i;
-          // document.getElementById('playlistText'+i).onclick = (function (i) {
+          // document.getElementById('playlistText'+i).onclick = function (i) {
           //   openPlaylist(data[i]['playlist_id']);
-          // })(i);
+          // };
         })(i);
         var filterGetPlaylist = document.getElementById("myPlaylists");
         filterGetPlaylist.setAttribute("onclick", "checkPlaylistSection()");
