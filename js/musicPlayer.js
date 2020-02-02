@@ -63,8 +63,6 @@ $(document).ready(function () {
            identifier = 0;
          }
          mediaPlayerAppear(identifier)
-       }else {
-         break;
        }
   });
 
