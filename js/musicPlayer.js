@@ -108,7 +108,7 @@ $(document).ready(function () {
 });
 
 function mediaPlayerAppear(identifier) {
-  if (identifier != false) {
+  if (identifier != 'stop') {
     var song = document.getElementById(identifier);
 
     if (document.getElementById("playedMusic") != undefined) {
@@ -158,7 +158,7 @@ function mediaPlayerAppear(identifier) {
 function playNextSongAtEnd(identifier) {
   var loopButtonClass = document.getElementById("loop").classList;
   console.log(loopButtonClass);
-  switch (loopButtonClass) {
+  switch (loopButtonClass[0]) {
     case "fa-loop-one":
       identifier = identifier;
       break;
@@ -167,7 +167,7 @@ function playNextSongAtEnd(identifier) {
       if (document.getElementById(identifier+1) != undefined) {
         identifier = identifier + 1;
       }else {
-        identifier = false;
+        identifier = 'stop';
       }
       break;
 
