@@ -26,7 +26,12 @@
 
   #play,
   #mute,
-  .player-button {
+  .player-button,
+  .fa-random,
+  .fa-loop,
+  .fa-no-loop,
+  .fa-loop-one,
+  .fa-no-random {
     font-size: 16px;
     width: 16px;
     position: relative;

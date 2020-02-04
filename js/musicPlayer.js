@@ -111,3 +111,55 @@ $(document).ready(function () {
     $(this).toggleClass("fa-volume-off", player.volume == 0);
   });
 });
+
+function setLoop(parameter) {
+  var loopButton = document.getElementById("loop");
+  switch (parameter) {
+    case "one":
+      loopButton.setAttribute('onclick', 'setLoop("none")');
+      loopButton.classList.add('fa-loop-one');
+      loopButton.classList.remove('fa-loop');
+      break;
+
+    case "all":
+      loopButton.setAttribute('onclick', 'setLoop("one")');
+      loopButton.classList.add('fa-loop');
+      loopButton.classList.remove('fa-no-loop');
+      break;
+
+    case "none":
+      loopButton.setAttribute('onclick', 'setLoop("all")');
+      loopButton.classList.add('fa-no-loop');
+      loopButton.classList.remove('fa-loop-one');
+      break;
+
+    default:
+      loopButton.setAttribute('onclick', 'setLoop("one")');
+      loopButton.classList.add('fa-loop');
+      loopButton.classList.remove('fa-no-loop');
+      break;
+  }
+}
+
+function setRandom(parameter) {
+  var randomButton = document.getElementById("random");
+  switch (parameter) {
+    case true:
+      randomButton.setAttribute('onclick', 'setLoop(false)');
+      randomButton.classList.add('fa-random');
+      randomButton.classList.remove('fa-no-random');
+      break;
+
+    case false:
+      randomButton.setAttribute('onclick', 'setLoop(true)');
+      randomButton.classList.add('fa-no-random');
+      randomButton.classList.remove('fa-random');
+      break;
+      
+    default:
+      randomButton.setAttribute('onclick', 'setLoop(true)');
+      randomButton.classList.add('fa-no-random');
+      randomButton.classList.remove('fa-random');
+      break;
+  }
+}

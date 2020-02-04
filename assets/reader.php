@@ -8,14 +8,14 @@
     </li>
     <li>
       <div id="controls">
+        <i id="loop" onclick="setLoop('one')" class="fa fa-loop"></i>
         <img id="Previous" class='previous player-button' onclick="playPreviousSong()" src="../img/back.png" alt="">
         <i id="play" class="fa fa-pause"></i>
         <img id="Next" class='next player-button' onclick="playNextSong()" src="../img/skip.png" alt="">
         <span id="start" class="time">00:00</span>
         <input type="range" min="0" max="100" value="0" id="progress-bar" name="" value="">
         <span id="time" class="time">00:00</span>
-        <i id="loop" class="fa fa-loop"></i>
-        <i id="random" class="fa fa-random"></i>
+        <i id="random" onclick="setRandom(true)" class="fa fa-no-random"></i>
         <i id="mute" class="fa fa-volume-up"></i>
         <input type="range" min="0" max="100" value="75" id="Volume" name="" value="">
       </div>
