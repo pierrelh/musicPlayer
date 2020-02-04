@@ -153,7 +153,7 @@ function mediaPlayerAppear(identifier) {
       mediaPlayerAppear(identifier);
     };
     document.getElementById('Next').onclick = function () {
-      playNextSong();
+      playNextSong(identifier);
     };
   }
 }
