@@ -145,19 +145,19 @@ function setRandom(parameter) {
   var randomButton = document.getElementById("random");
   switch (parameter) {
     case true:
-      randomButton.setAttribute('onclick', 'setLoop(false)');
+      randomButton.setAttribute('onclick', 'setRandom(false)');
       randomButton.classList.add('fa-random');
       randomButton.classList.remove('fa-no-random');
       break;
 
     case false:
-      randomButton.setAttribute('onclick', 'setLoop(true)');
+      randomButton.setAttribute('onclick', 'setRandom(true)');
       randomButton.classList.add('fa-no-random');
       randomButton.classList.remove('fa-random');
       break;
-      
+
     default:
-      randomButton.setAttribute('onclick', 'setLoop(true)');
+      randomButton.setAttribute('onclick', 'setRandom(true)');
       randomButton.classList.add('fa-no-random');
       randomButton.classList.remove('fa-random');
       break;
