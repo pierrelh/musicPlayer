@@ -150,14 +150,11 @@ function mediaPlayerAppear(identifier) {
     document.getElementById('Next').onclick = function () {
       playNextSong(identifier);
     };
-  } else {
-    alert ('stopped');
   }
 }
 
 function playNextSongAtEnd(identifier) {
   var loopButtonClass = document.getElementById("loop").classList;
-  console.log(loopButtonClass);
   switch (loopButtonClass[0]) {
     case "fa-loop-one":
       identifier = identifier;
