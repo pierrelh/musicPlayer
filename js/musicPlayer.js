@@ -57,12 +57,7 @@ $(document).ready(function () {
        var element = library.querySelectorAll("li[data-url='"+url+"']")[0];
        if (element != undefined) {
          var identifier = parseInt(element.id);
-         if (document.getElementById(identifier+1) != undefined) {
-           var identifier = identifier + 1;
-         }else {
-           identifier = 0;
-         }
-         mediaPlayerAppear(identifier)
+         playNextSongAtEnd(identifier);
        }
   });
 
@@ -158,7 +153,7 @@ function mediaPlayerAppear(identifier) {
   }
 }
 
-function playNextSong(identifier) {
+function playNextSongAtEnd(identifier) {
   var loopButtonClass = document.getElementById("loop").classList;
   switch (loopButtonClass) {
     case "fa-loop-one":
@@ -187,6 +182,15 @@ function playNextSong(identifier) {
       }else {
         identifier = 0;
       }
+  }
+  mediaPlayerAppear(identifier)
+}
+
+function playNextSong(identifier) {
+  if (document.getElementById(identifier+1) != undefined) {
+    identifier = identifier + 1;
+  }else {
+    identifier = 0;
   }
   mediaPlayerAppear(identifier);
 }
