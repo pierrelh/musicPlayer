@@ -173,7 +173,7 @@ function playNextSong(identifier) {
       }
       break;
 
-    case "fa-no-loop":
+    case "fa-loop":
       if (document.getElementById(identifier+1) != undefined) {
         identifier = identifier + 1;
       }else {
