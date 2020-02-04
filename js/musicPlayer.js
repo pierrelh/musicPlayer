@@ -112,6 +112,85 @@ $(document).ready(function () {
   });
 });
 
+function mediaPlayerAppear(identifier) {
+  if (identifier != false) {
+    var song = document.getElementById(identifier);
+
+    if (document.getElementById("playedMusic") != undefined) {
+      document.getElementById("playedMusic").remove();
+    }
+    var playing = document.createElement('li');
+    playing.id = "playedMusic";
+    playing.classList.add("playing");
+    var parent = document.getElementById(identifier).parentNode;
+    parent.insertBefore(playing, song);
+
+    var url = song.getAttribute('data-url');
+    var author = song.getAttribute('data-artist');
+    var name = song.getAttribute('data-title');
+
+    var library = document.getElementById('Library');
+    library.classList.add("library-reader-active");
+
+    var playlist = document.getElementById('divPlaylist');
+    playlist.classList.add('playlist-reader-showed');
+
+    var musicPlayer = document.getElementById('musicPlayer');
+    musicPlayer.dataset.musicPlayed = identifier;
+    var readerPlayer = document.getElementById('readerPlayer');
+    var nameTxt = document.getElementById('songName');
+    nameTxt.innerHTML = author + " - " + name;
+    musicPlayer.src = url;
+    var audioPlayer = document.getElementById('audio-player');
+    if (document.getElementById('sidebar').classList.contains('sidebar-hide') && !audioPlayer.classList.contains('left')) {
+      audioPlayer.classList.add('left');
+    }
+    audioPlayer.classList.add('show');
+    document.getElementById('Previous').onclick = function () {
+      if (identifier != 0) {
+        identifier = identifier - 1;
+      }
+      mediaPlayerAppear(identifier);
+    };
+    document.getElementById('Next').onclick = function () {
+      playNextSong();
+    };
+  }
+}
+
+function playNextSong(identifier) {
+  var loopButtonClass = document.getElementById("loop").classList;
+  switch (loopButtonClass) {
+    case "fa-loop-one":
+      identifier = identifier;
+      break;
+
+    case "fa-no-loop":
+      if (document.getElementById(identifier+1) != undefined) {
+        identifier = identifier + 1;
+      }else {
+        identifier = false;
+      }
+      break;
+
+    case "fa-no-loop":
+      if (document.getElementById(identifier+1) != undefined) {
+        identifier = identifier + 1;
+      }else {
+        identifier = 0;
+      }
+      break;
+
+    default:
+      if (document.getElementById(identifier+1) != undefined) {
+        identifier = identifier + 1;
+      }else {
+        identifier = 0;
+      }
+  }
+  mediaPlayerAppear(identifier);
+}
+
 function setLoop(parameter) {
   var loopButton = document.getElementById("loop");
   switch (parameter) {
