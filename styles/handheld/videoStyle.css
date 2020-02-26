@@ -1,9 +1,13 @@
 @media screen and (max-device-width: 640px) {
   .library,
   .library-show {
-    margin: 100px 5px 250px 5px;
+    margin: 100px 5px 0px 5px;
     transition: 0.8s;
     overflow-x: hidden;
+  }
+
+  .library-reader-active {
+    margin-bottom: 250px !important;
   }
 
   .library > ul,
