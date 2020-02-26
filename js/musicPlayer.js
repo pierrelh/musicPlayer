@@ -67,6 +67,17 @@ $(document).ready(function () {
     $(mute_button).toggleClass("fa-volume-off", player.volume == 0);
   }, false);
 
+  $("#Volume").click(function (e) {
+    var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
+    var percent = val * 100;
+
+    $(this).css('background-image',
+        '-webkit-gradient(linear, left top, right top, ' +
+        'color-stop(' + percent + '%, #FFF), ' +
+        'color-stop(' + percent + '%, #0B0B0B)' +
+        ')');
+  });
+
   $("#Volume").mousemove(function (e) {
     var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
     var percent = val * 100;
@@ -76,7 +87,7 @@ $(document).ready(function () {
         'color-stop(' + percent + '%, #FFF), ' +
         'color-stop(' + percent + '%, #0B0B0B)' +
         ')');
-});
+  });
 
   function getTime(t) {
     var m = ~~(t / 60),
