@@ -31,6 +31,12 @@
   padding: 5% 0;
 }
 
+.delete-edit {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 #upload > form > ul {
   display: flex;
   justify-content: space-around;
