@@ -67,7 +67,7 @@ $(document).ready(function () {
     $(mute_button).toggleClass("fa-volume-off", player.volume == 0);
   }, false);
 
-  $("#Volume").onchange(function (e) {
+  $("#Volume").change(function (e) {
     var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
     var percent = val * 100;
 
