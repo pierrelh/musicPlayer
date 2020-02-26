@@ -1,9 +1,9 @@
 @media screen and (max-device-width: 640px) {
   .library,
   .library-show {
-    margin: 100px 5px 0 5px;
+    margin: 100px 5px 250px 5px;
     transition: 0.8s;
-    padding-bottom: 270px;
+    overflow-x: hidden;
   }
 
   .library > ul,
@@ -34,5 +34,9 @@
     height: 220px;
     width: 222px;
     background-size: 40%;
+  }
+
+  .playing {
+    background-size: 100% !important;
   }
 }
