@@ -47,7 +47,6 @@
   }, {
     multiple: true
   }).bind('cloudinarydone', function(e, data) {
-    console.log(data["result"]["secure_url"]);
     document.getElementById("file").dataset.name = data["result"]["secure_url"];
   }
 
@@ -64,8 +63,6 @@
   }, {
     multiple: true
   }).bind('cloudinarydone', function(e, data) {
-    console.log(data);
-    console.log(data["result"]["secure_url"]);
     document.getElementById("picture").dataset.name = data["result"]["secure_url"];
   }
 
