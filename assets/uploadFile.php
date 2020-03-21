@@ -12,9 +12,9 @@
     <h2 id="error-msg"></h2>
     <ul>
       <li><label for="file"><img src="../img/upload.png" alt=""></label></li>
-      <li><label for="picture"><img src="../img/picture.png" alt=""></label></li>
+      <li><label for="picture"><img class="thumbnails" src="../img/picture.png" alt=""></label></li>
     </ul>
-    <input class="upload-file" id="file" type="file" name="file" value="">
+    <input class="upload_field upload-file" id="file" type="file" name="file" value="">
     <input class="upload-file" id="picture" type="file" name="picture" value="">
     <input id="fileName" type="text" placeholder="Nom du Fichier" name="" value="">
     <input id="fileAuthor" type="text" placeholder="Nom de l'Artiste" name="" value="">
@@ -31,17 +31,32 @@
 </section>
 <script type="text/javascript">
 
-  $('.file').unsigned_cloudinary_upload("unsigned_video",
-  { cloud_name: 'htko7uqqo', tags: 'browser_uploads' },
-  { multiple: true }
-).bind('cloudinarydone', function(e, data) {
-  console.log("done");
-  }
+  var cloud_name = 'htko7uqqo';
 
-).bind('cloudinaryprogress', function(e, data) {
+  $.cloudinary.config({
+    cloud_name: cloud_name
+  })
 
-  $('.myBarPlus').css('width',
-    Math.round((data.loaded * 100.0) / data.total) + '%');
+  $('.upload_field').unsigned_cloudinary_upload('unsigned_image', {
+    cloud_name: cloud_name
+  }, {
+    multiple: true
+  }).bind('cloudinarydone', function(e, data) {
 
-});
+      $('.thumbnails').append($.cloudinary.image(data.result.public_id, {
+        format: 'jpg',
+        width: 150,
+        height: 100,
+        crop: 'thumb',
+        gravity: 'face',
+        effect: 'sharpen:300'
+      }))
+    }
+
+  ).bind('cloudinaryprogress', function(e, data) {
+  	// var percent = Math.round((data.loaded * 100.0) / data.total);
+    // $('.progress_bar').css('width', percent + '%');
+    // $('.progress_wrapper .text').text(percent + '%');
+  });
+
 </script>
