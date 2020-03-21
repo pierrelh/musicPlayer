@@ -47,7 +47,7 @@
   }, {
     multiple: true
   }).bind('cloudinarydone', function(e, data) {
-    document.getElementById("file").dataset.fileName = file_name;
+    document.getElementById("file").dataset.name = file_name;
   }
 
   ).bind('cloudinaryprogress', function(e, data) {
@@ -63,7 +63,7 @@
   }, {
     multiple: true
   }).bind('cloudinarydone', function(e, data) {
-    document.getElementById("picture").dataset.fileName = file_name;
+    document.getElementById("picture").dataset.name = file_name;
   }
 
   ).bind('cloudinaryprogress', function(e, data) {

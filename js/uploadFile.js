@@ -11,8 +11,8 @@ function uploadHide(){
 }
 
 function uploadFile(){
-  var file = document.getElementById("file").dataset.file_name;
-  var picture = document.getElementById("picture").dataset.file_name;
+  var file = document.getElementById("file").dataset.name;
+  var picture = document.getElementById("picture").dataset.name;
   var name = document.getElementById('fileName').value;
   var author = document.getElementById('fileAuthor').value;
   var album = document.getElementById('fileAlbum').value;
