@@ -11,12 +11,12 @@ function uploadHide(){
 }
 
 function uploadFile(){
-  var file = $("#file").prop("files")[0];
-  var picture = $("#picture").prop("files")[0];
+  var file = document.getElementById("file").dataset.file_name;
+  var picture = document.getElementById("picture").dataset.file_name;
   var name = document.getElementById('fileName').value;
   var author = document.getElementById('fileAuthor').value;
   var album = document.getElementById('fileAlbum').value;
-  if (document.getElementById("file").files.length == 0) {
+  if (file == "" || file == undefined) {
     if (document.getElementById('error-msg').innerHTML == "") {
       var errormsg = document.createTextNode("Aucun fichier n'a été choisi.");
       document.getElementById("error-msg").appendChild(errormsg);

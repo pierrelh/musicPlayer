@@ -32,16 +32,22 @@
 <script type="text/javascript">
 
   var cloud_name = 'htko7uqqo';
+  var file_name = new Date().getTime() + getRandomInt(999999999);
 
   $.cloudinary.config({
     cloud_name: cloud_name
   })
 
   $('.upload_video').unsigned_cloudinary_upload('unsigned_video', {
-    cloud_name: cloud_name
+    cloud_name: cloud_name,
+    public_id: file_name
   }, {
     multiple: true
-  }).bind('cloudinaryprogress', function(e, data) {
+  }).bind('cloudinarydone', function(e, data) {
+    document.getElementById("file").dataset.fileName = file_name;
+  }
+
+  ).bind('cloudinaryprogress', function(e, data) {
     console.log("Vidéo Load: " + Math.round((data.loaded * 100.0) / data.total));
   	// var percent = Math.round((data.loaded * 100.0) / data.total);
     // $('.progress_bar').css('width', percent + '%');
@@ -49,10 +55,15 @@
   });
 
   $('.upload_picture').unsigned_cloudinary_upload('unsigned_image', {
-    cloud_name: cloud_name
+    cloud_name: cloud_name,
+    public_id: file_name
   }, {
     multiple: true
-  }).bind('cloudinaryprogress', function(e, data) {
+  }).bind('cloudinarydone', function(e, data) {
+    document.getElementById("picture").dataset.fileName = file_name;
+  }
+
+  ).bind('cloudinaryprogress', function(e, data) {
     console.log("Image Load: " + Math.round((data.loaded * 100.0) / data.total));
     // var percent = Math.round((data.loaded * 100.0) / data.total);
     // $('.progress_bar').css('width', percent + '%');
