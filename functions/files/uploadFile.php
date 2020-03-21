@@ -6,9 +6,9 @@
     $date = date_create();
     $name =  date_timestamp_get($date) . rand(1, 999999999);
     $result = \Cloudinary\Uploader::unsigned_upload($file_path, $presets, array(
-              "cloud_name" => "htko7uqqo",
-              "public_id" => $name,
-              "resource_type" => $type
+              "cloud_name" => "htko7uqqo"
+              // "public_id" => $name,
+              // "resource_type" => $type
     ));
     unlink($file_path);
     return $result['secure_url'];
