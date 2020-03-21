@@ -42,7 +42,7 @@
   }, {
     multiple: true
   }).bind('cloudinaryprogress', function(e, data) {
-    console.log("Vidéo Load: " + data.loaded * 100.0) / data.total));
+    console.log("Vidéo Load: " + Math.round((data.loaded * 100.0) / data.total));
   	// var percent = Math.round((data.loaded * 100.0) / data.total);
     // $('.progress_bar').css('width', percent + '%');
     // $('.progress_wrapper .text').text(percent + '%');
@@ -53,7 +53,7 @@
   }, {
     multiple: true
   }).bind('cloudinaryprogress', function(e, data) {
-    console.log("Image Load: " + data.loaded * 100.0) / data.total));
+    console.log("Image Load: " + Math.round((data.loaded * 100.0) / data.total));
     // var percent = Math.round((data.loaded * 100.0) / data.total);
     // $('.progress_bar').css('width', percent + '%');
     // $('.progress_wrapper .text').text(percent + '%');
