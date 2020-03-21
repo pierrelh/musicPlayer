@@ -48,7 +48,8 @@
     multiple: true
   }).bind('cloudinarydone', function(e, data) {
     console.log(data[result][secure_url]);
-    document.getElementById("file").dataset.name = data[result][secure_url];
+    console.log(data["result"]["secure_url"]);
+    document.getElementById("file").dataset.name = data["result"]["secure_url"];
   }
 
   ).bind('cloudinaryprogress', function(e, data) {
@@ -65,8 +66,8 @@
     multiple: true
   }).bind('cloudinarydone', function(e, data) {
     console.log(data);
-    console.log(data{result});
-    document.getElementById("picture").dataset.name = data[result][secure_url];
+    console.log(data["result"]["secure_url"]);
+    document.getElementById("picture").dataset.name = data["result"]["secure_url"];
   }
 
   ).bind('cloudinaryprogress', function(e, data) {
