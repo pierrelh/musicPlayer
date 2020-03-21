@@ -15,7 +15,7 @@
       <li><label for="picture"><img class="thumbnails" src="../img/picture.png" alt=""></label></li>
     </ul>
     <input class="upload_video upload-file" id="file" type="file" name="file" value="">
-    <input class="upload_picture upload-file" id="picture" type="file" name="picture" value="">
+    <input class="upload_picture upload-file" id="picture" type="file" name="file" value="">
     <input id="fileName" type="text" placeholder="Nom du Fichier" name="" value="">
     <input id="fileAuthor" type="text" placeholder="Nom de l'Artiste" name="" value="">
     <input id="fileAlbum" type="text" placeholder="Nom de l'Album" name="" value="">
