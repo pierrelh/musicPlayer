@@ -14,8 +14,8 @@
       <li><label for="file"><img src="../img/upload.png" alt=""></label></li>
       <li><label for="picture"><img class="thumbnails" src="../img/picture.png" alt=""></label></li>
     </ul>
-    <input class="upload_field upload-file" id="file" type="file" name="file" value="">
-    <input class="upload-file" id="picture" type="file" name="picture" value="">
+    <input class="upload_video upload-file" id="file" type="file" name="file" value="">
+    <input class="upload_picture upload-file" id="picture" type="file" name="picture" value="">
     <input id="fileName" type="text" placeholder="Nom du Fichier" name="" value="">
     <input id="fileAuthor" type="text" placeholder="Nom de l'Artiste" name="" value="">
     <input id="fileAlbum" type="text" placeholder="Nom de l'Album" name="" value="">
@@ -37,24 +37,24 @@
     cloud_name: cloud_name
   })
 
-  $('.upload_field').unsigned_cloudinary_upload('unsigned_image', {
+  $('.upload_video').unsigned_cloudinary_upload('unsigned_video', {
     cloud_name: cloud_name
   }, {
     multiple: true
-  }).bind('cloudinarydone', function(e, data) {
-
-      $('.thumbnails').append($.cloudinary.image(data.result.public_id, {
-        format: 'jpg',
-        width: 150,
-        height: 100,
-        crop: 'thumb',
-        gravity: 'face',
-        effect: 'sharpen:300'
-      }))
-    }
-
-  ).bind('cloudinaryprogress', function(e, data) {
+  }).bind('cloudinaryprogress', function(e, data) {
+    console.log("Vidéo Load: " + data.loaded * 100.0) / data.total));
   	// var percent = Math.round((data.loaded * 100.0) / data.total);
+    // $('.progress_bar').css('width', percent + '%');
+    // $('.progress_wrapper .text').text(percent + '%');
+  });
+
+  $('.upload_picture').unsigned_cloudinary_upload('unsigned_image', {
+    cloud_name: cloud_name
+  }, {
+    multiple: true
+  }).bind('cloudinaryprogress', function(e, data) {
+    console.log("Image Load: " + data.loaded * 100.0) / data.total));
+    // var percent = Math.round((data.loaded * 100.0) / data.total);
     // $('.progress_bar').css('width', percent + '%');
     // $('.progress_wrapper .text').text(percent + '%');
   });
