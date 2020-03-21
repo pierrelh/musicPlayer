@@ -4,7 +4,7 @@
     include_once($_SERVER['DOCUMENT_ROOT']."/functions/getCloudinary.php");
     $date = date_create();
     $name =  date_timestamp_get($date) . rand(1, 999999999);
-    $result = \Cloudinary\Uploader::upload($file_path, array(
+    $result = \Cloudinary\Uploader::unsigned_upload($file_path, "unsigned_1", array(
               "folder" => $type."/",
               "public_id" => $name,
               "resource_type" => $type
