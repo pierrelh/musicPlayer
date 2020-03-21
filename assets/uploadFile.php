@@ -65,7 +65,7 @@
     multiple: true
   }).bind('cloudinarydone', function(e, data) {
     console.log(data);
-    console.log(data[0]);
+    console.log(data{result});
     document.getElementById("picture").dataset.name = data[result][secure_url];
   }
 
