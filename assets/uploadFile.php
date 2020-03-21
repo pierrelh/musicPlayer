@@ -30,6 +30,18 @@
   </form>
 </section>
 <script type="text/javascript">
-  $('.formUpload').append($.cloudinary.unsigned_upload_tag("unsigned_video",
-  { cloud_name: 'htko7uqqo' }));
+
+  $('.file').unsigned_cloudinary_upload("unsigned_video",
+  { cloud_name: 'htko7uqqo', tags: 'browser_uploads' },
+  { multiple: true }
+).bind('cloudinarydone', function(e, data) {
+  console.log("done");
+  }
+
+).bind('cloudinaryprogress', function(e, data) {
+
+  $('.myBarPlus').css('width',
+    Math.round((data.loaded * 100.0) / data.total) + '%');
+
+});
 </script>
