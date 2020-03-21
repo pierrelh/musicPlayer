@@ -48,8 +48,7 @@
     multiple: true
   }).bind('cloudinarydone', function(e, data) {
     document.getElementById("file").dataset.name = file_name;
-    console.log(e);
-    console.log(data);
+    console.log(data[result][secure_url]);
   }
 
   ).bind('cloudinaryprogress', function(e, data) {
@@ -66,8 +65,7 @@
     multiple: true
   }).bind('cloudinarydone', function(e, data) {
     document.getElementById("picture").dataset.name = file_name;
-    console.log(e);
-    console.log(data);
+    console.log(data[result][secure_url]);
   }
 
   ).bind('cloudinaryprogress', function(e, data) {
