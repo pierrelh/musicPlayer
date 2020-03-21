@@ -30,6 +30,9 @@
   </form>
 </section>
 <script type="text/javascript">
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
 
   var cloud_name = 'htko7uqqo';
   var file_name = new Date().getTime() + getRandomInt(999999999);
