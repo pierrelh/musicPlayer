@@ -10,19 +10,19 @@
     margin-bottom: 250px !important;
   }
 
-  .library > ul,
-  .library-show > ul {
+  .library > div > ul,
+  .library-show > div > ul {
     width: 220px;
     margin: 20px 0 0 20px;
   }
 
-  .library > ul > .view,
-  .library-show > ul > .view {
+  .library > div > ul > .view,
+  .library-show > div > ul > .view {
     height: 220px;
   }
 
-  .library > ul > li > p,
-  .library-show > ul > li > p {
+  .library > div > ul > li > p,
+  .library-show > div > ul > li > p {
     font-size: 3em;
   }
 

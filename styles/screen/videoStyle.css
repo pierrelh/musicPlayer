@@ -13,20 +13,20 @@
     margin-bottom: 91px !important;
   }
 
-  .library > ul,
-  .library-show > ul {
+  .library > div > ul,
+  .library-show > div > ul {
     width: min-content;
     margin: 10px 0 0 10px;
     min-width: 150px;
   }
 
-  .library > ul > .view,
-  .library-show > ul > .view {
+  .library > div > ul > .view,
+  .library-show > div > ul > .view {
     height: 150px;
   }
 
-  .library > ul > li > p,
-  .library-show > ul > li > p {
+  .library > div > ul > li > p,
+  .library-show > div > ul > li > p {
     font-size: 1.1em;
     max-width: 150px;
     max-height: 43px;

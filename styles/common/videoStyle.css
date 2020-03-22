@@ -7,15 +7,22 @@
   z-index: 500;
 }
 
-.library > ul,
-.library-show > ul {
+.library > div,
+.library-show > div {
+  display: block;
+  margin: auto;
+  width: 95%;
+}
+
+.library > div > ul,
+.library-show > div > ul {
   list-style: none;
   padding: 0;
   display: inline-block;
 }
 
-.library > ul > .view,
-.library-show > ul > .view {
+.library > div > ul > .view,
+.library-show > div > ul > .view {
   width: 100%;
   cursor: pointer;
   background-color: black;
@@ -23,8 +30,8 @@
   background-size: cover;
 }
 
-.library > ul > li > p,
-.library-show > ul > li > p {
+.library > div > ul > li > p,
+.library-show > div > ul > li > p {
   display: flex;
   justify-content: center;
   text-align: center;

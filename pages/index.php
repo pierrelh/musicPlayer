@@ -28,9 +28,11 @@
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/playlists.php");
     ?>
     <section id="Library" class="library-show">
-      <script type="text/javascript">
-        getFiles('file_id', 'DESC');
-      </script>
+      <div>
+        <script type="text/javascript">
+          getFiles('file_id', 'DESC');
+        </script>
+    </div>
     </section>
     <?php
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/reader.php");
