@@ -42,9 +42,12 @@
     </ul>
     <input class="upload_video upload-file" id="file" type="file" name="file" value="">
     <input class="upload_picture upload-file" id="picture" type="file" name="file" value="">
-    <input id="fileName" type="text" placeholder="Nom du Fichier" name="" value="">
-    <input id="fileAuthor" type="text" placeholder="Nom de l'Artiste" name="" value="">
-    <input id="fileAlbum" type="text" placeholder="Nom de l'Album" name="" value="">
+    <label for="fileName">Nom du Fichier</label>
+    <input id="fileName" type="text" name="" value="">
+    <label for="fileAuthor">Nom de l'Artiste</label>
+    <input id="fileAuthor" type="text" name="" value="">
+    <label for="fileAlbum">Nom de l'Album</label>
+    <input id="fileAlbum" type="text" name="" value="">
     <div class="progress-bar">
       <div id="myBarPlus" class="bar positive">
         <span id="sendButton">ENVOYER</span>
@@ -74,6 +77,7 @@
     multiple: true
   }).bind('cloudinarydone', function(e, data) {
     document.getElementById("file").dataset.name = data["result"]["secure_url"];
+    $('.progress-file .text-file').text('Envoyé !');
   }
 
   ).bind('cloudinaryprogress', function(e, data) {
@@ -91,6 +95,7 @@
     multiple: true
   }).bind('cloudinarydone', function(e, data) {
     document.getElementById("picture").dataset.name = data["result"]["secure_url"];
+    $('.progress-picture .text-picture').text('Envoyé !');
   }
 
   ).bind('cloudinaryprogress', function(e, data) {

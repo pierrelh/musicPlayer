@@ -21,7 +21,7 @@ function uploadFile(){
       var errormsg = document.createTextNode("Aucun fichier n'a été choisi.");
       document.getElementById("error-msg").appendChild(errormsg);
     }
-  }else if (file == "uploading") {
+  }else if (file == "uploading" || picture == "uploading") {
     document.getElementById('error-msg').innerHTML = ""
     var errormsg = document.createTextNode("Veuillez attendre que les fichiers aient fini d'être uploadé.");
     document.getElementById("error-msg").appendChild(errormsg);
