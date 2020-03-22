@@ -17,9 +17,9 @@
             <label for="file"><img src="../img/upload.png" alt=""></label>
           </li>
           <li>
-            <div class="progress_file">
-              <div class="progress_bar_file">
-                <div class="text_file"></div>
+            <div class="progress-file">
+              <div class="progress-bar-file">
+                <div class="text-file"></div>
               </div>
             </div>
           </li>
@@ -31,9 +31,9 @@
             <label for="picture"><img class="thumbnails" src="../img/picture.png" alt=""></label>
           </li>
           <li>
-            <div class="progress_picture">
-              <div class="progress_bar_picture">
-                <div class="text_picture"></div>
+            <div class="progress-picture">
+              <div class="progress-bar-picture">
+                <div class="text-picture"></div>
               </div>
             </div>
           </li>
@@ -80,8 +80,8 @@
     console.log("Vidéo Load: " + Math.round((data.loaded * 100.0) / data.total));
     document.getElementById("file").dataset.name = "uploading";
   	var percent = Math.round((data.loaded * 100.0) / data.total);
-    $('.progress_bar_file').css('width', percent + '%');
-    $('.progress_file .text_file').text(percent + '%');
+    $('.progress-bar-file').css('width', percent + '%');
+    $('.progress-file .text-file').text(percent + '%');
   });
 
   $('.upload_picture').unsigned_cloudinary_upload('unsigned_image', {
@@ -97,8 +97,8 @@
     console.log("Image Load: " + Math.round((data.loaded * 100.0) / data.total));
     document.getElementById("picture").dataset.name = "uploading";
     var percent = Math.round((data.loaded * 100.0) / data.total);
-    $('.progress_bar_picture').css('width', percent + '%');
-    $('.progress_picture .text_picture').text(percent + '%');
+    $('.progress-bar-picture').css('width', percent + '%');
+    $('.progress-picture .text-picture').text(percent + '%');
   });
 
 </script>

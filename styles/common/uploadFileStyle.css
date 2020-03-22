@@ -46,6 +46,11 @@
   width: 70%;
 }
 
+#upload > form > ul > li > ul {
+  padding: 0;
+  list-style: none;
+}
+
 #upload > form > ul > li > ul > li > label {
   cursor: pointer;
 }
@@ -53,6 +58,37 @@
 #upload > form > ul > li > ul > li > label > img {
   box-sizing: content-box;
   width: 25%;
+}
+
+.progress-file,
+.progress-picture {
+  display: block;
+  margin: 5px auto;
+  border: 1px;
+  width: 50%;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.progress-bar-file,
+.progress-bar-picture {
+  width: 128px;
+  height: 10px;
+  background-color: black;
+  text-align: center;
+  line-height: 10px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-family: "Open sans", sans-serif;
+}
+
+.text-file,
+.text-picture {
+  margin: 0 auto;
+  width: 100%;
+  color: white;
 }
 
 #upload > form > input[type="text"],
