@@ -44,8 +44,10 @@
     <input class="upload_picture upload-file" id="picture" type="file" name="file" value="">
     <label for="fileName">Nom du Fichier</label>
     <input id="fileName" type="text" name="" value="">
+    <br>
     <label for="fileAuthor">Nom de l'Artiste</label>
     <input id="fileAuthor" type="text" name="" value="">
+    <br>
     <label for="fileAlbum">Nom de l'Album</label>
     <input id="fileAlbum" type="text" name="" value="">
     <div class="progress-bar">

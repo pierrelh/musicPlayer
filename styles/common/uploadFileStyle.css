@@ -91,6 +91,12 @@
   color: white;
 }
 
+#upload > form > label {
+  font-family: "Open sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
 #upload > form > input[type="text"],
 #edit > form > input[type="text"] {
   font-family: "Open sans", sans-serif;
