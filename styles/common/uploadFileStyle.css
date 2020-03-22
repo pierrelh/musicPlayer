@@ -46,11 +46,11 @@
   width: 70%;
 }
 
-#upload > form > ul > li > label {
+#upload > form > ul > li > ul > li > label {
   cursor: pointer;
 }
 
-#upload > form > ul > li > label > img {
+#upload > form > ul > li > ul > li > label > img {
   box-sizing: content-box;
   width: 25%;
 }
