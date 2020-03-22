@@ -74,7 +74,7 @@
 
 .progress-bar-file,
 .progress-bar-picture {
-  width: 128px;
+  width: 0px;
   height: 10px;
   background-color: black;
   text-align: center;
