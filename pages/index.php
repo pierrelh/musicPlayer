@@ -28,7 +28,7 @@
       include_once($_SERVER['DOCUMENT_ROOT']."/assets/playlists.php");
     ?>
     <section id="Library" class="library-show">
-      <div>
+      <div id="LibraryObjects">
         <script type="text/javascript">
           getFiles('file_id', 'DESC');
         </script>

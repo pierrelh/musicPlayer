@@ -1,7 +1,7 @@
 function deleteFiles(){
   checkPlaylistSection();
 
-  var library = document.getElementById('Library').children;
+  var library = document.getElementById('LibraryObjects').children;
   for (var i = 0; i < library.length; i++) {
     if (document.getElementById('edit'+i) != undefined) {
       hideEdit();
@@ -31,7 +31,7 @@ function deleteFiles(){
 function hideDelete(){
   checkPlaylistSection();
 
-  var library = document.getElementById('Library').children;
+  var library = document.getElementById('LibraryObjects').children;
   for (var i = 0; i < library.length; i++){
     if (document.getElementById('delete'+i) != undefined) {
       var li = document.getElementById('delete'+i);

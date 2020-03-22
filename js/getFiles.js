@@ -8,7 +8,7 @@ function getFiles(row, type, identifier){
            'type': type},
     success: function(data){
       data = JSON.parse(data);
-      var library = document.getElementById('Library');
+      var library = document.getElementById('LibraryObjects');
       library.innerHTML = '';
       if (data.length != 0) {
         if (identifier != undefined) {

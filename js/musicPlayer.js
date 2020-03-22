@@ -135,7 +135,7 @@ function mediaPlayerAppear(identifier) {
     var author = song.getAttribute('data-artist');
     var name = song.getAttribute('data-title');
 
-    var library = document.getElementById('Library');
+    var library = document.getElementById('LibraryObjects');
     library.classList.add("library-reader-active");
 
     var playlist = document.getElementById('divPlaylist');

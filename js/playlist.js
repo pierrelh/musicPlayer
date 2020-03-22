@@ -61,7 +61,7 @@ function openPlaylist(identifier) {
       data: {'musics': musics},
       success: function(data){
         data = JSON.parse(data);
-        var library = document.getElementById('Library');
+        var library = document.getElementById('LibraryObjects');
         library.innerHTML = '';
         if (data.length != 0) {
           checkPlaylistSection();
@@ -102,15 +102,12 @@ function openPlaylist(identifier) {
         }
       }
     });
-    // var library = document.getElementById('Library');
-    // library.innerHTML = "";
-
   }
 }
 
 function createPlaylist() {
   checkPlaylistSection();
-  var library = document.getElementById('Library').children;
+  var library = document.getElementById('LibraryObjects').children;
   for (var i = 0; i < library.length; i++) {
     if (document.getElementById('delete'+i) != undefined) {
       hideDelete();
@@ -139,7 +136,7 @@ function createPlaylist() {
 
 function hideAdd() {
   checkPlaylistSection();
-  var library = document.getElementById('Library').children;
+  var library = document.getElementById('LibraryObjects').children;
   for (var i = 0; i < library.length; i++){
     var li = document.getElementById('add'+i);
     li.classList.add('add-hide');
@@ -207,7 +204,7 @@ function removeToPlaylist(identifier) {
   li.classList.add('add');
   document.getElementById('add'+identifier).setAttribute('onclick', 'addToPlaylist('+identifier+')');
   var choosed = false;
-  var library = document.getElementById('Library').children;
+  var library = document.getElementById('LibraryObjects').children;
   for (var i = 0; i < library.length; i++) {
     if (document.getElementById("add"+i).classList.contains("check")) {
       choosed = true;
@@ -222,7 +219,7 @@ function removeToPlaylist(identifier) {
 }
 
 function sendPlaylist() {
-  var library = document.getElementById('Library').children;
+  var library = document.getElementById('LibraryObjects').children;
   var playlistName = document.getElementById('playlistName').value;
   var musicList = "";
   for (var i = 0; i < library.length; i++) {

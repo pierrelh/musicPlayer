@@ -7,7 +7,7 @@ var decodeHTML = function (html) {
 function editFiles(){
   checkPlaylistSection();
 
-  var library = document.getElementById('Library').children;
+  var library = document.getElementById('LibraryObjects').children;
   for (var i = 0; i < library.length; i++) {
     if (document.getElementById('delete'+i) != undefined) {
       hideDelete();
@@ -37,7 +37,7 @@ function editFiles(){
 function hideEdit(){
   checkPlaylistSection();
 
-  var library = document.getElementById('Library').children;
+  var library = document.getElementById('LibraryObjects').children;
   for (var i = 0; i < library.length; i++){
     var li = document.getElementById('edit'+i);
     li.classList.add('edit-hide');
@@ -141,7 +141,7 @@ function uploadEditedFile(identifier){
     }).done(function (e) {
         alert("upload succeed")
         getFiles('file_id', 'DESC');
-        var library = document.getElementById('Library');
+        var library = document.getElementById('LibraryObjects');
         var elem = document.getElementById("myBarPlusEdit");
         var elem1 = document.getElementById("myBarMoinsEdit");
         var span = document.getElementById("editButton");

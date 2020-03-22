@@ -63,7 +63,7 @@ function uploadFile(){
     }).done(function (e) {
         alert("upload succeed")
         getFiles('file_id', 'DESC');
-        var library = document.getElementById('Library');
+        var library = document.getElementById('LibraryObjects');
         var elem = document.getElementById("myBarPlus");
         var elem1 = document.getElementById("myBarMoins");
         var span = document.getElementById("sendButton");
