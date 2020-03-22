@@ -21,6 +21,10 @@ function uploadFile(){
       var errormsg = document.createTextNode("Aucun fichier n'a été choisi.");
       document.getElementById("error-msg").appendChild(errormsg);
     }
+  }else if (file == "uploading") {
+    document.getElementById('error-msg').innerHTML = ""
+    var errormsg = document.createTextNode("Veuillez attendre que les fichiers aient fini d'être uploadé.");
+    document.getElementById("error-msg").appendChild(errormsg);
   }else if (name == '' || author == '') {
     document.getElementById('error-msg').innerHTML = ""
     var errormsg = document.createTextNode("Merci de remplir tous les champs.");

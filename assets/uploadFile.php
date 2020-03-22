@@ -11,8 +11,34 @@
   <form id="formUpload" enctype="multipart/form-data" method="post">
     <h2 id="error-msg"></h2>
     <ul>
-      <li><label for="file"><img src="../img/upload.png" alt=""></label></li>
-      <li><label for="picture"><img class="thumbnails" src="../img/picture.png" alt=""></label></li>
+      <li>
+        <ul>
+          <li>
+            <label for="file"><img src="../img/upload.png" alt=""></label>
+          </li>
+          <li>
+            <div class="progress_file">
+              <div class="progress_bar_file">
+                <div class="text_file"></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li>
+            <label for="picture"><img class="thumbnails" src="../img/picture.png" alt=""></label>
+          </li>
+          <li>
+            <div class="progress_picture">
+              <div class="progress_bar_picture">
+                <div class="text_picture"></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
     </ul>
     <input class="upload_video upload-file" id="file" type="file" name="file" value="">
     <input class="upload_picture upload-file" id="picture" type="file" name="file" value="">
@@ -52,9 +78,10 @@
 
   ).bind('cloudinaryprogress', function(e, data) {
     console.log("Vidéo Load: " + Math.round((data.loaded * 100.0) / data.total));
-  	// var percent = Math.round((data.loaded * 100.0) / data.total);
-    // $('.progress_bar').css('width', percent + '%');
-    // $('.progress_wrapper .text').text(percent + '%');
+    document.getElementById("file").dataset.name = "uploading";
+  	var percent = Math.round((data.loaded * 100.0) / data.total);
+    $('.progress_bar_file').css('width', percent + '%');
+    $('.progress_file .text_file').text(percent + '%');
   });
 
   $('.upload_picture').unsigned_cloudinary_upload('unsigned_image', {
@@ -68,9 +95,10 @@
 
   ).bind('cloudinaryprogress', function(e, data) {
     console.log("Image Load: " + Math.round((data.loaded * 100.0) / data.total));
-    // var percent = Math.round((data.loaded * 100.0) / data.total);
-    // $('.progress_bar').css('width', percent + '%');
-    // $('.progress_wrapper .text').text(percent + '%');
+    document.getElementById("picture").dataset.name = "uploading";
+    var percent = Math.round((data.loaded * 100.0) / data.total);
+    $('.progress_bar_picture').css('width', percent + '%');
+    $('.progress_picture .text_picture').text(percent + '%');
   });
 
 </script>
