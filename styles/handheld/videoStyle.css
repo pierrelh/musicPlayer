@@ -10,6 +10,11 @@
     margin-bottom: 250px !important;
   }
 
+  .library > div,
+  .library-show > div {
+    padding: 0;
+  }
+
   .library > div > ul,
   .library-show > div > ul {
     width: 220px;
