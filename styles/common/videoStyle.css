@@ -11,7 +11,7 @@
 .library-show > div {
   display: block;
   margin: auto;
-  width: 95%;
+  padding: 0 2.5%;
   height: -webkit-fill-available;
   overflow: scroll;
   position: relative;
