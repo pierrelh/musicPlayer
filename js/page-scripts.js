@@ -9,7 +9,7 @@ function backgroundHide() {
 }
 
 document.getElementById("arrow").addEventListener("click", function(){
-  if (this.dataset.status = 'hidden') {
+  if (this.dataset.status == 'hidden') {
     this.dataset.status = "show";
     this.className = 'arrow';
 
