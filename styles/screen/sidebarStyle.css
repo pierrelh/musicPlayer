@@ -1,14 +1,16 @@
 @media screen and (min-device-width: 641px) {
-  .sidebar,
-  .sidebar-hide {
+  .sidebar {
     background-color: #0B0B0B;
     width: 20%;
     padding-top: 50px;
   }
 
-  .sidebar > ul > li,
-  .sidebar-hide > ul > li {
+  .sidebar > ul > li {
     margin: 10px;
+  }
+
+  .sidebar-hide {
+    margin-left: -20% !important;
   }
 
   .arrow {
@@ -19,10 +21,6 @@
   .arrow-active {
     height: 35px;
     top: 1%;
-  }
-
-  .sidebar-hide {
-    margin-left: -20%;
   }
 
   .sidebar > ul > li > input[type="button"],

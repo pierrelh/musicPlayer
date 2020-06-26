@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/common/sidebarStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/sidebarStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/sidebarStyle.css">
-<section id="sidebar" class="sidebar-hide">
+<section id="sidebar" class="sidebar sidebar-hide">
   <img id="arrow" data-status="hidden" class="arrow-active" src="../img/arrow.png" alt="">
   <ul id="sidebarList">
     <li><input onclick="" type="button" name="" value="Mon Compte"></li>

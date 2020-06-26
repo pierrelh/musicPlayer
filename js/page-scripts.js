@@ -9,22 +9,22 @@ function backgroundHide() {
 }
 
 document.getElementById("arrow").addEventListener("click", function(){
-  if (this.dataset.status == 'hidden') {
+  if (this.dataset.status == 'hidden') { // Show the sidebar and reduce the librarys and the player
     this.dataset.status = "show";
     this.className = 'arrow';
 
-    document.getElementById('sidebar').className = 'sidebar';
+    document.getElementById('sidebar').classList.remove('sidebar-hide');
 
     document.getElementById('Library').classList.add('library');
 
     document.getElementById('divPlaylist').classList.remove('playlist-sidebar-hided');
 
     document.getElementById('audio-player').classList.remove("left");
-  }else {
+  }else { // Hide the sidebar and enlarge the librarys and the player
     this.className = 'arrow-active';
     this.dataset.status = "hidden";
 
-    document.getElementById('sidebar').className = 'sidebar-hide';
+    document.getElementById('sidebar').classList.add('sidebar-hide');
 
     document.getElementById('Library').classList.remove('library');
 
