@@ -17,7 +17,7 @@ function hideSidebar() {
   sidebar.className = 'sidebar-hide';
 
   var library = document.getElementById('Library');
-  library.classList.add('library-show');
+  library.classList.remove('library');
 
   var playlist = document.getElementById('divPlaylist');
   playlist.classList.add('playlist-sidebar-hided');
@@ -36,7 +36,6 @@ function showSidebar() {
 
   var library = document.getElementById('Library');
   library.classList.add('library');
-  library.classList.remove('library-show');
 
   var playlist = document.getElementById('divPlaylist');
   playlist.classList.remove('playlist-sidebar-hided');
