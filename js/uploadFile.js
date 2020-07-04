@@ -36,16 +36,16 @@ document.getElementById("barSpan2").addEventListener("click", function(){
 
     // Update progress
     audioFileXhr.upload.addEventListener("progress", function(e) {
-      var percent = Math.round((data.loaded * 100.0) / data.total);
-      $('.progress-bar-file').css('width', percent + '%');
-      $('.progress-file .text-file').text(percent + '%');
+      var progress = Math.round((e.loaded * 100.0) / e.total);
+      document.getElementById('progressBarVideo').style.width = progress + "%";
+      document.getElementById('textProgressBarVideo').innerHTML = progress + "%";
     });
 
     // Update progress
     pictureFileXhr.upload.addEventListener("progress", function(e) {
-      var percent = Math.round((data.loaded * 100.0) / data.total);
-      $('.progress-bar-picture').css('width', percent + '%');
-      $('.progress-picture .text-picture').text(percent + '%');
+      var progress = Math.round((e.loaded * 100.0) / e.total);
+      document.getElementById('progressBarPicture').style.width = progress + "%";
+      document.getElementById('textProgessBarPicture').innerHTML = progress + "%";
     });
 
     function uploadFile() {

@@ -17,8 +17,8 @@
           </li>
           <li>
             <div class="progress-file">
-              <div class="progress-bar-file">
-                <div class="text-file"></div>
+              <div id="progressBarVideo" class="progress-bar-file">
+                <div id="textProgressBarVideo" class="text-file"></div>
               </div>
             </div>
           </li>
@@ -31,8 +31,8 @@
           </li>
           <li>
             <div class="progress-picture">
-              <div class="progress-bar-picture">
-                <div class="text-picture"></div>
+              <div id="progressBarPicture" class="progress-bar-picture">
+                <div id="textProgessBarPicture" class="text-picture"></div>
               </div>
             </div>
           </li>
