@@ -32,8 +32,7 @@ document.getElementById("barSpan2").addEventListener("click", function(){
 
     // Update progress
     xhr.upload.addEventListener("progress", function(e) {
-      console.log(e);
-      console.log(this);
+      console.log(xhr);
       console.log(Math.round((e.loaded * 100.0) / e.total))
       // var progress = Math.round((e.loaded * 100.0) / e.total);
       // document.getElementById('progressBar').style.width = progress + "%";
@@ -60,26 +59,31 @@ document.getElementById("barSpan2").addEventListener("click", function(){
     audioFile.append('tags', 'browser_upload'); // Optional - add tag for image admin in Cloudinary
     audioFile.append('file', file);
     xhr.send(audioFile);
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      var response = JSON.parse(xhr.responseText);
-      formData.set('file_url', response.secure_url)
-
-      pictureFile.append('upload_preset', 'unsigned_image');
-      pictureFile.append('tags', 'browser_upload'); // Optional - add tag for image admin in Cloudinary
-      pictureFile.append('picture', picture);
-      xhr.send(pictureFile);
+    xhr.onreadystatechange = function(e) {
       if (xhr.readyState == 4 && xhr.status == 200) {
         var response = JSON.parse(xhr.responseText);
-        formData.set('file_image', response.public_id)
-        uploadFile();
+        formData.set('file_url', response.secure_url)
+
+        pictureFile.append('upload_preset', 'unsigned_image');
+        pictureFile.append('tags', 'browser_upload'); // Optional - add tag for image admin in Cloudinary
+        pictureFile.append('picture', picture);
+        xhr.send(pictureFile);
+        xhr.onreadystatechange = function(e) {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var response = JSON.parse(xhr.responseText);
+            formData.set('file_image', response.public_id)
+            uploadFile();
+          }else {
+            console.log("Failed to upload picture");
+            return;
+          }
+        };
+
       }else {
-        console.log("Failed to upload picture");
+        console.log("Failed to upload video.")
         return;
       }
-    }else {
-      console.log("Failed to upload video.")
-      return;
-    }
+    };
   }else {
     document.getElementById('error-msg').innerHTML = "";
     var errormsg = document.createTextNode("Aucun fichier n'a été choisi.");
