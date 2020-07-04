@@ -5,7 +5,6 @@
 <script src='<?php echo $link ?>/js/cloudinary/jquery.iframe-transport.js' type='text/javascript'></script>
 <script src='<?php echo $link ?>/js/cloudinary/jquery.fileupload.js' type='text/javascript'></script>
 <script src='<?php echo $link ?>/js/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
-<script type="text/javascript" src="<?php echo $link ?>/js/uploadFile.js"></script>
 <section id="upload">
   <img class="cross" onclick="uploadHide()" src="../img/cross.png" alt="">
   <form id="formUpload" enctype="multipart/form-data" method="post">
@@ -59,6 +58,7 @@
       </div>
     </div>
   </form>
+  <script type="text/javascript" src="<?php echo $link ?>/js/uploadFile.js"></script>
 </section>
 <script type="text/javascript">
   function getRandomInt(max) {
