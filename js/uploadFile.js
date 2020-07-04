@@ -81,7 +81,7 @@ document.getElementById("barSpan2").addEventListener("click", function(){
         pictureFileXhr.onreadystatechange = function(e) {
           if (pictureFileXhr.readyState == 4 && pictureFileXhr.status == 200) {
             var response = JSON.parse(pictureFileXhr.responseText);
-            formData.set('file_image', response.public_id)
+            formData.set('file_image', response.secure_url)
             document.getElementById('textProgessBarPicture').innerHTML = "Envoyé";
             uploadFile();
           }
