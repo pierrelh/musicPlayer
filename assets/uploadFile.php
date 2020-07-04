@@ -55,7 +55,7 @@
         <span id="sendButton">ENVOYER</span>
       </div>
       <div id="myBarMoins" class="bar negative">
-        <span onclick="uploadFile()" id="barSpan2">ENVOYER</span>
+        <span id="barSpan2">ENVOYER</span>
       </div>
     </div>
   </form>
