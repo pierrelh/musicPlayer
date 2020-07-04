@@ -12,7 +12,8 @@
   display: block;
   margin: auto;
   height: -webkit-fill-available;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   position: relative;
 }
 
