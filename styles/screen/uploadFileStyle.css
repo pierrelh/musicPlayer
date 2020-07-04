@@ -20,6 +20,14 @@
     min-width: 100px;
   }
 
+  #upload > form > ul > li > ul > li > label > img {
+    width: 25%;
+  }
+
+  #upload > form > label {
+    font-size: 1.2em;
+  }
+
   #upload > form > input[type="text"],
   #edit > form > input[type="text"] {
     font-size: 1.3em;
