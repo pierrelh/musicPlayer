@@ -61,51 +61,51 @@
   <script type="text/javascript" src="<?php echo $link ?>/js/uploadFile.js"></script>
 </section>
 <script type="text/javascript">
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-  }
-
-  var cloud_name = 'htko7uqqo';
-  var file_name = new Date().getTime() + getRandomInt(999999999);
-
-  $.cloudinary.config({
-    cloud_name: cloud_name
-  })
-
-  $('.upload_video').unsigned_cloudinary_upload('unsigned_video', {
-    cloud_name: cloud_name,
-    public_id: file_name
-  }, {
-    multiple: true
-  }).bind('cloudinarydone', function(e, data) {
-    document.getElementById("file").dataset.name = data["result"]["secure_url"];
-    $('.progress-file .text-file').text('Envoyé !');
-  }
-
-  ).bind('cloudinaryprogress', function(e, data) {
-    console.log("Vidéo Load: " + Math.round((data.loaded * 100.0) / data.total));
-    document.getElementById("file").dataset.name = "uploading";
-  	var percent = Math.round((data.loaded * 100.0) / data.total);
-    $('.progress-bar-file').css('width', percent + '%');
-    $('.progress-file .text-file').text(percent + '%');
-  });
-
-  $('.upload_picture').unsigned_cloudinary_upload('unsigned_image', {
-    cloud_name: cloud_name,
-    public_id: file_name
-  }, {
-    multiple: true
-  }).bind('cloudinarydone', function(e, data) {
-    document.getElementById("picture").dataset.name = data["result"]["secure_url"];
-    $('.progress-picture .text-picture').text('Envoyé !');
-  }
-
-  ).bind('cloudinaryprogress', function(e, data) {
-    console.log("Image Load: " + Math.round((data.loaded * 100.0) / data.total));
-    document.getElementById("picture").dataset.name = "uploading";
-    var percent = Math.round((data.loaded * 100.0) / data.total);
-    $('.progress-bar-picture').css('width', percent + '%');
-    $('.progress-picture .text-picture').text(percent + '%');
-  });
+  // function getRandomInt(max) {
+  //   return Math.floor(Math.random() * Math.floor(max));
+  // }
+  //
+  // var cloud_name = 'htko7uqqo';
+  // var file_name = new Date().getTime() + getRandomInt(999999999);
+  //
+  // $.cloudinary.config({
+  //   cloud_name: cloud_name
+  // })
+  //
+  // $('.upload_video').unsigned_cloudinary_upload('unsigned_video', {
+  //   cloud_name: cloud_name,
+  //   public_id: file_name
+  // }, {
+  //   multiple: true
+  // }).bind('cloudinarydone', function(e, data) {
+  //   document.getElementById("file").dataset.name = data["result"]["secure_url"];
+  //   $('.progress-file .text-file').text('Envoyé !');
+  // }
+  //
+  // ).bind('cloudinaryprogress', function(e, data) {
+  //   console.log("Vidéo Load: " + Math.round((data.loaded * 100.0) / data.total));
+  //   document.getElementById("file").dataset.name = "uploading";
+  // 	var percent = Math.round((data.loaded * 100.0) / data.total);
+  //   $('.progress-bar-file').css('width', percent + '%');
+  //   $('.progress-file .text-file').text(percent + '%');
+  // });
+  //
+  // $('.upload_picture').unsigned_cloudinary_upload('unsigned_image', {
+  //   cloud_name: cloud_name,
+  //   public_id: file_name
+  // }, {
+  //   multiple: true
+  // }).bind('cloudinarydone', function(e, data) {
+  //   document.getElementById("picture").dataset.name = data["result"]["secure_url"];
+  //   $('.progress-picture .text-picture').text('Envoyé !');
+  // }
+  //
+  // ).bind('cloudinaryprogress', function(e, data) {
+  //   console.log("Image Load: " + Math.round((data.loaded * 100.0) / data.total));
+  //   document.getElementById("picture").dataset.name = "uploading";
+  //   var percent = Math.round((data.loaded * 100.0) / data.total);
+  //   $('.progress-bar-picture').css('width', percent + '%');
+  //   $('.progress-picture .text-picture').text(percent + '%');
+  // });
 
 </script>
