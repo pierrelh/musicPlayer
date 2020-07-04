@@ -27,16 +27,23 @@ document.getElementById("barSpan2").addEventListener("click", function(){
     var xhr = new XMLHttpRequest();
     var audioFile = new FormData();
     var pictureFile = new FormData();
-    xhr.open('POST', url, true);
-    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    audioFilexhr.open('POST', url, true);
+    audioFilexhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    pictureFilexhr.open('POST', url, true);
+    pictureFilexhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
     // Update progress
-    xhr.upload.addEventListener("progress", function(e) {
-      console.log(xhr);
-      console.log(Math.round((e.loaded * 100.0) / e.total))
-      // var progress = Math.round((e.loaded * 100.0) / e.total);
-      // document.getElementById('progressBar').style.width = progress + "%";
-      // document.getElementById('progressBarText').innerHTML = progress + "%";
+    audioFilexhr.upload.addEventListener("progress", function(e) {
+      var percent = Math.round((data.loaded * 100.0) / data.total);
+      $('.progress-bar-file').css('width', percent + '%');
+      $('.progress-file .text-file').text(percent + '%');
+    });
+
+    // Update progress
+    pictureFilexhr.upload.addEventListener("progress", function(e) {
+      var percent = Math.round((data.loaded * 100.0) / data.total);
+      $('.progress-bar-picture').css('width', percent + '%');
+      $('.progress-picture .text-picture').text(percent + '%');
     });
 
     function uploadFile() {
@@ -58,19 +65,19 @@ document.getElementById("barSpan2").addEventListener("click", function(){
     audioFile.append('upload_preset', 'unsigned_video');
     audioFile.append('tags', 'browser_upload'); // Optional - add tag for image admin in Cloudinary
     audioFile.append('file', file);
-    xhr.send(audioFile);
-    xhr.onreadystatechange = function(e) {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        var response = JSON.parse(xhr.responseText);
+    audioFilexhr.send(audioFile);
+    audioFilexhr.onreadystatechange = function(e) {
+      if (audioFilexhr.readyState == 4 && audioFilexhr.status == 200) {
+        var response = JSON.parse(audioFilexhr.responseText);
         formData.set('file_url', response.secure_url)
 
         pictureFile.append('upload_preset', 'unsigned_image');
         pictureFile.append('tags', 'browser_upload'); // Optional - add tag for image admin in Cloudinary
         pictureFile.append('picture', picture);
-        xhr.send(pictureFile);
-        xhr.onreadystatechange = function(e) {
-          if (xhr.readyState == 4 && xhr.status == 200) {
-            var response = JSON.parse(xhr.responseText);
+        pictureFilexhr.send(pictureFile);
+        pictureFilexhr.onreadystatechange = function(e) {
+          if (pictureFilexhr.readyState == 4 && pictureFilexhr.status == 200) {
+            var response = JSON.parse(pictureFilexhr.responseText);
             formData.set('file_image', response.public_id)
             uploadFile();
           }else {
