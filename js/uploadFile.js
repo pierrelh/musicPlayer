@@ -72,15 +72,17 @@ document.getElementById("barSpan2").addEventListener("click", function(){
       if (audioFileXhr.readyState == 4 && audioFileXhr.status == 200) {
         var response = JSON.parse(audioFileXhr.responseText);
         formData.set('file_url', response.secure_url)
+        document.getElementById('textProgressBarVideo').innerHTML = "Envoyé";
 
         pictureFile.append('upload_preset', 'unsigned_image');
         pictureFile.append('tags', 'browser_upload'); // Optional - add tag for image admin in Cloudinary
-        pictureFile.append('picture', picture);
+        pictureFile.append('file', picture);
         pictureFileXhr.send(pictureFile);
         pictureFileXhr.onreadystatechange = function(e) {
           if (pictureFileXhr.readyState == 4 && pictureFileXhr.status == 200) {
             var response = JSON.parse(pictureFileXhr.responseText);
             formData.set('file_image', response.public_id)
+            document.getElementById('textProgessBarPicture').innerHTML = "Envoyé";
             uploadFile();
           }else {
             console.log("Failed to upload picture");
