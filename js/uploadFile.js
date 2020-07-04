@@ -59,7 +59,8 @@ document.getElementById("barSpan2").addEventListener("click", function(){
         processData: false,
         data: formData,
         success: function(data){
-          console.log("success")
+            alert("upload succeed")
+            getFiles('file_id', 'DESC');
         }
       });
     }

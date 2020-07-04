@@ -42,13 +42,13 @@
     <input class="upload_video upload-file" id="file" type="file" name="file" value="">
     <input class="upload_picture upload-file" id="picture" type="file" name="file" value="">
     <label for="fileName">Nom du Fichier</label>
-    <input id="fileName" type="text" name="" value="">
+    <input id="fileName" type="text" name="file_name" value="">
     <br>
     <label for="fileAuthor">Nom de l'Artiste</label>
-    <input id="fileAuthor" type="text" name="" value="">
+    <input id="fileAuthor" type="text" name="file_author" value="">
     <br>
     <label for="fileAlbum">Nom de l'Album</label>
-    <input id="fileAlbum" type="text" name="" value="">
+    <input id="fileAlbum" type="text" name="file_album" value="">
     <div class="progress-bar">
       <div id="myBarPlus" class="bar positive">
         <span id="sendButton">ENVOYER</span>

@@ -14,7 +14,7 @@
   include_once($_SERVER['DOCUMENT_ROOT']."/functions/connexion.php");
   $db = connect();
   $selectSql = "INSERT INTO files (file_name, file_url, file_image, file_author, file_album) VALUES ($1, $2, $3, $4, $5)";
-  $result =  pg_query_params($db, $selectSql, array($filtered['name'], $_POST['file'], $_POST['picture'], $filtered['author'], $filtered['album']));
+  $result =  pg_query_params($db, $selectSql, array($filtered['file_name'], $_POST['file'], $_POST['picture'], $filtered['file_author'], $filtered['file_album']));
 
 
 ?>
