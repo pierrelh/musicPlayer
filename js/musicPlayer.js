@@ -180,6 +180,7 @@ function playNextSongAtEnd(identifier) {
           var lastSongId = lastSong.id;
           console.log("last song id: " + lastSongId)
           identifier = Math.floor(Math.random() * Math.floor(lastSongId+1));
+          console.log("identifier: " + identifier)
           break;
         case 'fa-no-random':
           if (document.getElementById(identifier+1) != undefined) {
@@ -205,6 +206,7 @@ function playNextSongAtEnd(identifier) {
           var lastSongId = lastSong.id;
           console.log("last song id: " + lastSongId)
           identifier = Math.floor(Math.random() * Math.floor(lastSongId+1));
+          console.log("identifier: " + identifier)
           break;
         case 'fa-no-random':
           if (document.getElementById(identifier+1) != undefined) {
