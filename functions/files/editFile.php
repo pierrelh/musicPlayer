@@ -4,7 +4,9 @@
   $db = connect();
 
   if (isset($_FILES['file_image']) && $_FILES['file_image'] != "undefined") {
-    $selectSql = "SELECT file_image FROM files WHERE file_id ='".$_POST['file_id']."'";
+    $selectSql = "SELECT file_image
+                  FROM files
+                  WHERE file_id ='".$_POST['file_id']."'";
     $result =  pg_query($db, $selectSql);
     $val = pg_fetch_all($result);
     foreach ($val as $key => $value) {

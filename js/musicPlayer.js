@@ -166,25 +166,56 @@ function mediaPlayerAppear(identifier) {
 
 function playNextSongAtEnd(identifier) {
   var loopButtonClass = document.getElementById("loop").classList;
+  var randomButtonClass = document.getElementById("random").classList;
   switch (loopButtonClass[0]) {
     case "fa-loop-one":
       identifier = identifier;
       break;
 
     case "fa-no-loop":
-      if (document.getElementById(identifier+1) != undefined) {
-        identifier = identifier + 1;
-      }else {
-        identifier = 'stop';
-      }
+      switch (randomButtonClass[0]) {
+        case 'fa-random':
+          var lastSongList = document.getElementById("LibraryObjects").lastChild;
+          var lastSong = lastSongList.firstChild;
+          identifier = Math.floor(Math.random() * Math.floor(lastSong.id+1));
+          break;
+        case 'fa-no-random':
+          if (document.getElementById(identifier+1) != undefined) {
+            identifier = identifier + 1;
+          }else {
+            identifier = 'stop';
+          }
+          break;
+        default:
+          if (document.getElementById(identifier+1) != undefined) {
+            identifier = identifier + 1;
+          }else {
+            identifier = 'stop';
+          }
+        }
       break;
 
     case "fa-loop":
-      if (document.getElementById(identifier+1) != undefined) {
-        identifier = identifier + 1;
-      }else {
-        identifier = 0;
-      }
+      switch (randomButtonClass[0]) {
+        case 'fa-random':
+          var lastSongList = document.getElementById("LibraryObjects").lastChild;
+          var lastSong = lastSongList.firstChild;
+          identifier = Math.floor(Math.random() * Math.floor(lastSong.id+1));
+          break;
+        case 'fa-no-random':
+          if (document.getElementById(identifier+1) != undefined) {
+            identifier = identifier + 1;
+          }else {
+            identifier = 0;
+          }
+          break;
+        default:
+          if (document.getElementById(identifier+1) != undefined) {
+            identifier = identifier + 1;
+          }else {
+            identifier = 0;
+          }
+        }
       break;
 
     default:

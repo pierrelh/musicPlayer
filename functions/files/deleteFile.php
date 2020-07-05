@@ -9,7 +9,10 @@
 
   include_once($_SERVER['DOCUMENT_ROOT']."/functions/connexion.php");
   $db = connect();
-  $result = pg_query($db, "SELECT * FROM files WHERE file_id= " .$_POST['file_id']);
+  $sqlRequest = "SELECT *
+                 FROM files
+                 WHERE file_id= " .$_POST['file_id'];
+  $result = pg_query($db, $sqlRequest);
   if (!empty($result)) {
     $val = pg_fetch_all($result);
     $val = $val[0];
