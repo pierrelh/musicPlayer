@@ -177,7 +177,7 @@ function playNextSongAtEnd(identifier) {
         case 'fa-random':
           var lastSongList = document.getElementById("LibraryObjects").lastChild;
           var lastSong = lastSongList.firstChild;
-          identifier = Math.floor(Math.random() * Math.floor(lastSong.id+1));
+          identifier = Math.floor(Math.random() * Math.floor((lastSong.id)+1));
           break;
         case 'fa-no-random':
           if (document.getElementById(identifier+1) != undefined) {
@@ -200,7 +200,7 @@ function playNextSongAtEnd(identifier) {
         case 'fa-random':
           var lastSongList = document.getElementById("LibraryObjects").lastChild;
           var lastSong = lastSongList.firstChild;
-          identifier = Math.floor(Math.random() * Math.floor(lastSong.id+1));
+          identifier = Math.floor(Math.random() * Math.floor((lastSong.id)+1));
           break;
         case 'fa-no-random':
           if (document.getElementById(identifier+1) != undefined) {
