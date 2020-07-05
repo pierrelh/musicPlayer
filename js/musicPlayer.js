@@ -177,10 +177,11 @@ function playNextSongAtEnd(identifier) {
         case 'fa-random':
           var lastSongList = document.getElementById("LibraryObjects").lastChild;
           var lastSong = lastSongList.firstChild;
+          if (lastSong.id == "playedMusic") {
+            var lastSong = lastSong.nextElementSibling;
+          }
           var lastSongId = Number(lastSong.id);
-          console.log("last song id: " + lastSongId)
           identifier = Math.floor(Math.random() * Math.floor(lastSongId+1));
-          console.log("identifier: " + identifier)
           break;
         case 'fa-no-random':
           if (document.getElementById(identifier+1) != undefined) {
@@ -203,10 +204,11 @@ function playNextSongAtEnd(identifier) {
         case 'fa-random':
           var lastSongList = document.getElementById("LibraryObjects").lastChild;
           var lastSong = lastSongList.firstChild;
+          if (lastSong.id == "playedMusic") {
+            var lastSong = lastSong.nextElementSibling;
+          }
           var lastSongId = Number(lastSong.id);
-          console.log("last song id: " + lastSongId)
           identifier = Math.floor(Math.random() * Math.floor(lastSongId+1));
-          console.log("identifier: " + identifier)
           break;
         case 'fa-no-random':
           if (document.getElementById(identifier+1) != undefined) {
@@ -235,10 +237,30 @@ function playNextSongAtEnd(identifier) {
 }
 
 function playNextSong(identifier) {
-  if (document.getElementById(identifier+1) != undefined) {
-    identifier = identifier + 1;
-  }else {
-    identifier = 0;
+  var randomButtonClass = document.getElementById("random").classList;
+  switch (randomButtonClass[0]) {
+    case 'fa-random':
+      var lastSongList = document.getElementById("LibraryObjects").lastChild;
+      var lastSong = lastSongList.firstChild;
+      if (lastSong.id == "playedMusic") {
+        var lastSong = lastSong.nextElementSibling;
+      }
+      var lastSongId = Number(lastSong.id);
+      identifier = Math.floor(Math.random() * Math.floor(lastSongId+1));
+      break;
+    case 'fa-no-random':
+      if (document.getElementById(identifier+1) != undefined) {
+        identifier = identifier + 1;
+      }else {
+        identifier = 0;
+      }
+      break;
+    default:
+      if (document.getElementById(identifier+1) != undefined) {
+        identifier = identifier + 1;
+      }else {
+        identifier = 0;
+      }
   }
   mediaPlayerAppear(identifier);
 }
