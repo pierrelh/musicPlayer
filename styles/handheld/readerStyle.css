@@ -11,17 +11,17 @@
 
   #Previous {
     top: 150px;
-    left: 100px;
+    left: 170px;
   }
 
   #play {
     top: 150px;
-    left: 260px;
+    left: 290px;
   }
 
   #Next {
     top: 150px;
-    left: 420px;
+    left: 410px;
   }
 
   #mute {
@@ -37,8 +37,20 @@
     width: 75%;
   }
 
+  #loop {
+    top: 150px;
+    left: 50px;
+  }
+
+  #random {
+    top: 150px;
+    left: 530px;
+  }
+
   #play,
   #mute,
+  #loop,
+  #random,
   .player-button {
     width: 50px;
     position: absolute;
