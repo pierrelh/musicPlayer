@@ -7,21 +7,6 @@
   transition: 0.8s;
 }
 
-.arrow {
-  cursor: pointer;
-  position: absolute;
-  left: 5%;
-  transform: rotate(180deg);
-  transition: 0.8s;
-}
-
-.arrow-active {
-  cursor: pointer;
-  position: absolute;
-  transition: 0.8s;
-  left: 105%;
-}
-
 .sidebar > ul,
 .sidebar-hide > ul {
   margin: 0;
