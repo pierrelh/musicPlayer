@@ -6,14 +6,11 @@
 
   .library-show {
     margin-top: 7vh !important;
-  }
-
-  .library-reader-inactive {
     height: 93vh;
   }
 
   .library-reader-active {
-    height: 81vh;
+    height: 81vh !important;
   }
 
   .library > div,

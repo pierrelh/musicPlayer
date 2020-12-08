@@ -152,6 +152,7 @@ function mediaPlayerAppear(identifier) {
       audioPlayer.classList.add('left');
     }
     audioPlayer.classList.add('show');
+    document.getElementById("Library").classList.add('library-reader-active');
     document.getElementById('Previous').onclick = function () {
       if (identifier != 0) {
         identifier = identifier - 1;
