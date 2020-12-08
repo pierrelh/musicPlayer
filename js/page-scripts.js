@@ -11,7 +11,7 @@ function backgroundHide() {
 document.getElementById("arrow").addEventListener("click", function(){
   if (this.dataset.status == 'hidden') { // Show the sidebar and reduce the librarys and the player
     this.dataset.status = "show";
-    this.classList.remove('arrow-active');
+    this.classList.add('arrow-active');
 
     document.getElementById('sidebar').classList.remove('sidebar-hide');
 
@@ -21,7 +21,7 @@ document.getElementById("arrow").addEventListener("click", function(){
 
     document.getElementById('audio-player').classList.remove("left");
   }else { // Hide the sidebar and enlarge the librarys and the player
-    this.classList.add('arrow-active');
+    this.classList.remove('arrow-active');
     this.dataset.status = "hidden";
 
     document.getElementById('sidebar').classList.add('sidebar-hide');
