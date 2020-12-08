@@ -1,33 +1,32 @@
 @media screen and (min-device-width: 641px) {
-  .library,
-  .library-show {
-    width: 100%;
-    width: -moz-available;
-    width: -webkit-fill-available;
-    width: fill-available;
-  }
 
   .library {
-    margin: 50px 0px 0px 20%;
+    margin-left: 20%;
   }
 
   .library-show {
-    margin-top: 50px!important;
+    margin-top: 7vh !important;
+  }
+
+  .library-reader-inactive {
+    height: 93vh;
   }
 
   .library-reader-active {
-    margin-bottom: 91px !important;
+    height: 81vh;
   }
 
   .library > div,
   .library-show > div {
-    padding: 10px 2.5%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .library > div > ul,
   .library-show > div > ul {
     width: min-content;
-    margin: 10px 0 0 10px;
+    margin: 10px;
     min-width: 150px;
   }
 
