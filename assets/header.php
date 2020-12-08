@@ -6,6 +6,6 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/headerStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/headerStyle.css">
 <header>
-  <img id="arrow" data-status="hidden" class="arrow-active" src="../img/arrow.png" alt="">
+  <img id="arrow" data-status="hidden" class="arrow" src="../img/arrow.png" alt="">
   <h1>Music Player</h1>
 </header>
