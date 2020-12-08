@@ -88,14 +88,11 @@
   }
 
   #Volume::-webkit-slider-thumb,
-  #progress-bar::-webkit-slider-thumb {
-    width: 15px;
-    height: 15px;
-  }
-
+  #progress-bar::-webkit-slider-thumb,
   #Volume::-moz-range-thumb,
   #progress-bar::-moz-range-thumb {
     width: 15px;
     height: 15px;
   }
+
 }

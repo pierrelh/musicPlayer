@@ -89,18 +89,13 @@
 }
 
 #Volume::-webkit-slider-thumb,
-#progress-bar::-webkit-slider-thumb {
+#progress-bar::-webkit-slider-thumb,
+#Volume::-moz-range-thumb,
+#progress-bar::-moz-range-thumb {
   -webkit-appearance: none;
   appearance: none;
   border-radius: 50%;
   background: #FFF;
-  cursor: pointer;
-}
-
-#Volume::-moz-range-thumb,
-#progress-bar::-moz-range-thumb {
-  border-radius: 50%;
-  background: #4CAF50;
   cursor: pointer;
 }
 

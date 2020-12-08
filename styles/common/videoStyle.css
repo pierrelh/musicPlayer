@@ -3,7 +3,10 @@
   transition: 0.8s;
   overflow: hidden;
   position: fixed;
+  height: 100%;
+  height: -moz-available;
   height: -webkit-fill-available;
+  height: fill-available;
   z-index: 500;
 }
 
@@ -11,7 +14,10 @@
 .library-show > div {
   display: block;
   margin: auto;
+  height: 100%;
+  height: -moz-available;
   height: -webkit-fill-available;
+  height: fill-available;
   overflow-y: scroll;
   overflow-x: hidden;
   position: relative;

@@ -1,7 +1,10 @@
 @media screen and (min-device-width: 641px) {
   .library,
   .library-show {
+    width: 100%;
+    width: -moz-available;
     width: -webkit-fill-available;
+    width: fill-available;
   }
 
   .library {

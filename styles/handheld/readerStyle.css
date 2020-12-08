@@ -82,14 +82,11 @@
   }
 
   #Volume::-webkit-slider-thumb,
-  #progress-bar::-webkit-slider-thumb {
+  #progress-bar::-webkit-slider-thumb,
+  #Volume::-moz-range-thumb,
+  #progress-bar::-moz-range-thumb{
     width: 35px;
     height: 35px;
   }
 
-  #Volume::-moz-range-thumb,
-  #progress-bar::-moz-range-thumb {
-    width: 35px;
-    height: 35px;
-  }
 }
