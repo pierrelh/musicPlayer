@@ -6,4 +6,9 @@
   header > h1{
     font-size: 4em;
   }
+
+  .arrow {
+    height: 80px;
+    top: 10px;
+  }
 }

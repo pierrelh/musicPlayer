@@ -11,19 +11,16 @@ header > h1{
   text-align: center;
   color: #fff;
   font-family: "Open sans", sans-serif;
+  margin: 0;
 }
 
 .arrow {
   cursor: pointer;
   position: fixed;
   margin: .5% 1%;
-  transform: rotate(180deg);
   transition: 0.8s;
 }
 
 .arrow-active {
-  cursor: pointer;
-  position: fixed;
-  transition: 0.8s;
-  margin: .5% 1%;
+  transform: rotate(180deg);
 }

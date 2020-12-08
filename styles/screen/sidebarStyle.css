@@ -13,16 +13,6 @@
     margin-left: -20% !important;
   }
 
-  .arrow {
-    height: 35px;
-    top: 1%;
-  }
-
-  .arrow-active {
-    height: 35px;
-    top: 1%;
-  }
-
   .sidebar > ul > li > input[type="button"],
   .sidebar-hide > ul > li > input[type="button"] {
     font-size: 1.5em;
