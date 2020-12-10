@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  var audio_player = $("#audio-player");
   var start = $("#start");
   var play_button = $('#play');
   var time = $("#time");
@@ -8,7 +7,6 @@ $(document).ready(function () {
   var player = document.getElementById('musicPlayer');
   var volumeSlider = document.getElementById('Volume');
   var duration = 0;
-  var volume = 0.75;
 
   player.onloadedmetadata = function() {
     duration = player.duration;
@@ -17,7 +15,7 @@ $(document).ready(function () {
   };
 
   player.load();
-  player.volume = 0.75;
+  player.volume = 1;
 
   player.addEventListener("pause", function() {
     $(play_button).toggleClass("fa-play", !player.paused);
@@ -65,6 +63,7 @@ $(document).ready(function () {
     player.volume = volumeSlider.value / 100;
     $(mute_button).toggleClass("fa-volume-up", player.volume != 0);
     $(mute_button).toggleClass("fa-volume-off", player.volume == 0);
+    mute_button.dataset.volume = player.volume;
   }, false);
 
   $("#Volume").change(function (e) {
@@ -98,24 +97,6 @@ $(document).ready(function () {
   progressBar.addEventListener('input', function(){
     player.currentTime = player.duration / progressBar.max * progressBar.value;
   }, false);
-
-  play_button.click(function() {
-    player[player.paused ? 'play' : 'pause']();
-    $(this).toggleClass("fa-play", !player.paused);
-    $(this).toggleClass("fa-pause", player.paused);
-  });
-
-  mute_button.click(function() {
-    if (player.volume == 0) {
-      player.volume = volume;
-    } else {
-      volume = player.volume;
-      player.volume = 0;
-    }
-
-    $(this).toggleClass("fa-volume-up", player.volume != 0);
-    $(this).toggleClass("fa-volume-off", player.volume == 0);
-  });
 });
 
 function mediaPlayerAppear(identifier) {
@@ -264,56 +245,4 @@ function playNextSong(identifier) {
       }
   }
   mediaPlayerAppear(identifier);
-}
-
-function setLoop(parameter) {
-  var loopButton = document.getElementById("loop");
-  switch (parameter) {
-    case "one":
-      loopButton.setAttribute('onclick', 'setLoop("none")');
-      loopButton.classList.add('fa-loop-one');
-      loopButton.classList.remove('fa-loop');
-      break;
-
-    case "all":
-      loopButton.setAttribute('onclick', 'setLoop("one")');
-      loopButton.classList.add('fa-loop');
-      loopButton.classList.remove('fa-no-loop');
-      break;
-
-    case "none":
-      loopButton.setAttribute('onclick', 'setLoop("all")');
-      loopButton.classList.add('fa-no-loop');
-      loopButton.classList.remove('fa-loop-one');
-      break;
-
-    default:
-      loopButton.setAttribute('onclick', 'setLoop("one")');
-      loopButton.classList.add('fa-loop');
-      loopButton.classList.remove('fa-no-loop');
-      break;
-  }
-}
-
-function setRandom(parameter) {
-  var randomButton = document.getElementById("random");
-  switch (parameter) {
-    case true:
-      randomButton.setAttribute('onclick', 'setRandom(false)');
-      randomButton.classList.add('fa-random');
-      randomButton.classList.remove('fa-no-random');
-      break;
-
-    case false:
-      randomButton.setAttribute('onclick', 'setRandom(true)');
-      randomButton.classList.add('fa-no-random');
-      randomButton.classList.remove('fa-random');
-      break;
-
-    default:
-      randomButton.setAttribute('onclick', 'setRandom(true)');
-      randomButton.classList.add('fa-no-random');
-      randomButton.classList.remove('fa-random');
-      break;
-  }
 }
