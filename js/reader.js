@@ -33,11 +33,11 @@ document.getElementById('Previous').addEventListener("click", function() {
 document.getElementById('PlayPause').addEventListener("click", function() {
     var player = document.getElementById('musicPlayer');
     var isPlaying = this.dataset.isPlaying;
-    if (isPlaying) { // Pause the audio
+    if (isPlaying == "true") { // Pause the audio
         this.src = "../../img/play.png";
         this.dataset.isPlaying = "false";
         player.pause();
-    }else if (!isPlaying) { // Play the audio
+    }else if (isPlaying == "false") { // Play the audio
         this.src = "../../img/pause.png";
         this.dataset.isPlaying = "true";
         player.play();
@@ -57,18 +57,18 @@ document.getElementById('Next').addEventListener("click", function() {
 document.getElementById('Random').addEventListener("click", function() {
     var randomType = this.dataset.random;
     switch (randomType) {
-      case true:
-        this.dataset.random = false;
+      case "true":
+        this.dataset.random = "false";
         this.src = "../../img/no-random.png";
         break;
   
-      case false:
-        this.dataset.random = true;
+      case "false":
+        this.dataset.random = "true";
         this.src = "../../img/random.png";
         break;
   
       default:
-        this.dataset.random = true;
+        this.dataset.random = "true";
         this.src = "../../img/random.png";
         break;
     }
@@ -78,17 +78,17 @@ document.getElementById('Random').addEventListener("click", function() {
 document.getElementById('Mute').addEventListener("click", function() {
     var isMute = this.dataset.mute;
     var player = document.getElementById('musicPlayer');
-    if (isMute) {
+    if (isMute == "true") {
         player.volume = this.dataset.volume;
         this.src = "../../img/audio-on.png";
-        this.dataset.mute = false;
-    }else if (!isMute) {
+        this.dataset.mute = "false";
+    }else if (isMute == "false") {
         player.volume = 0;
         this.src = "../../img/audio-off.png";
-        this.dataset.mute = true;
+        this.dataset.mute = "true";
     }else {
         player.volume = this.dataset.volume;
         this.src = "../../img/audio-on.png";
-        this.dataset.mute = false;
+        this.dataset.mute = "false";
     }
 })
