@@ -1,10 +1,3 @@
-#songName{
-  font-family: "Open sans", sans-serif;
-  color: white;
-  padding-left: 25px;
-  margin: 0;
-}
-
 #audio-player {
   z-index: 950;
   background-color: #3f3f3f;
@@ -23,12 +16,25 @@
   transition-duration: 0.8s;
 }
 
+#songName{
+  font-family: "Open sans", sans-serif;
+  color: white;
+  padding-left: 25px;
+  margin: 0;
+}
+
 #controls {
   padding-left: 25px;
   height: inherit;
   width: 100%;
   margin: auto;
   line-height: 12vh;
+}
+
+.reader-buttons {
+  position: relative;
+  cursor: pointer;
+  vertical-align: middle;
 }
 
 .time {
@@ -53,23 +59,11 @@
   border: none;
 }
 
-#play,
-#mute,
-.player-button {
-  cursor: pointer;
-}
-
-#play {
-  margin-left: 0 !important;
-}
-
 #Volume,
 #progress-bar {
   -webkit-appearance: none;
   width: 13%;
-  background: #0B0B0B;
   outline: none;
-  margin: 20px 10px 0 10px;
   background: linear-gradient(to right, #FFF 100%, #0B0B0B 0%)
 }
 
@@ -83,8 +77,9 @@
 #progress-bar::-moz-range-thumb {
   -webkit-appearance: none;
   appearance: none;
-  border-radius: 50%;
+  border-radius: 100%;
   background: #FFF;
   cursor: pointer;
+  border: 1px solid white;
 }
 
