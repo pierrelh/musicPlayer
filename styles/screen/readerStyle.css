@@ -39,6 +39,7 @@
     width: 25px;
     top: 9px;
     cursor: pointer;
+    display: inline-block;
   }
 
   .random {
