@@ -99,14 +99,3 @@
   cursor: pointer;
 }
 
-.fa-volume-up,
-.fa-volume-off,
-.fa-pause,
-.fa-play,
-.fa-loop,
-.fa-no-loop,
-.fa-loop-one,
-.fa-random,
-.fa-no-random {
-  background-size: cover;
-}

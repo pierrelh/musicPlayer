@@ -63,7 +63,7 @@ $(document).ready(function () {
     player.volume = volumeSlider.value / 100;
     $(mute_button).toggleClass("fa-volume-up", player.volume != 0);
     $(mute_button).toggleClass("fa-volume-off", player.volume == 0);
-    document.getElementsById("Mute").dataset.volume = player.volume;
+    document.getElementById("Mute").dataset.volume = player.volume;
   }, false);
 
   $("#Volume").change(function (e) {
