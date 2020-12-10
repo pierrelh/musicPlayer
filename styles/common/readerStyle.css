@@ -110,39 +110,3 @@
 .fa-no-random {
   background-size: cover;
 }
-
-.fa-volume-up {
-  background-image: url("../../img/audio-on.png");
-}
-
-.fa-volume-off {
-  background-image: url("../../img/audio-off.png");
-}
-
-.fa-pause {
-  background-image: url("../../img/play.png");
-}
-
-.fa-play {
-  background-image: url("../../img/pause.png");
-}
-
-.fa-random {
-  background-image: url("../../img/random.png");
-}
-
-.fa-no-random {
-  background-image: url("../../img/no-random.png");
-}
-
-.fa-loop {
-  background-image: url("../../img/loop.png");
-}
-
-.fa-no-loop {
-  background-image: url("../../img/no-loop.png");
-}
-
-.fa-loop-one {
-  background-image: url("../../img/loop-one.png");
-}
