@@ -1,6 +1,10 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/common/readerStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/readerStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/readerStyle.css">
+<section id="mediaPlayer">
+    <audio autoplay controls id="musicPlayer">
+    </audio>
+</section>
 <section id="audio-player" class="left">
   <p id="songName"></p>
   <section id="controls">

@@ -1,3 +1,7 @@
+#mediaPlayer{
+  display: none;
+}
+
 #audio-player {
   z-index: 950;
   background-color: #3f3f3f;

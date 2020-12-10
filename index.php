@@ -1,38 +1,24 @@
-<!DOCTYPE html>
-<html lang="fr" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Music Player - Login</title>
-    <link rel="shortcut icon" href="./img/favicon.png">
-    <?php
-      $link = 'https://' . $_SERVER['HTTP_HOST'];
-      include_once($_SERVER['DOCUMENT_ROOT']."/assets/header.php");
-    ?>
-    <link rel="stylesheet" href="<?php echo $link ?>/styles/common/loginStyle.css">
-    <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/loginStyle.css">
-    <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/loginStyle.css">
-    <?php
+<?php
+  $link = 'https://' . $_SERVER['HTTP_HOST'];
+  $uri = $_SERVER['REQUEST_URI'];
 
-      if (isset($_POST['log_user'])) {
-        if (!empty($_POST['login']) && !empty($_POST['password'])) {
-          include_once($_SERVER['DOCUMENT_ROOT']."/functions/users/getUsers.php");
-          userConnexion();
-        }else {
-          echo "<p>Veuillez remplir tous les champs.</p>";
-        }
-      }
+  switch ($uri) {
+    // Login page
+    case '':
+    case '/':
+      require __DIR__ . '/pages/login.php';
+      break;
 
-    ?>
-  </head>
-  <body>
-    <form class="log-form" method="post">
-      <label for="login">Login</label>
-      <input id="login" type="email" name="login" value="">
-      <br>
-      <label for="password">Password</label>
-      <input id="password" type="password" name="password" value="">
-      <br>
-      <input type="submit" name="log_user" value="Me Connecter">
-    </form>
-  </body>
-</html>
+    // MusicPlayer page
+    case '/music-player':
+    case '/music-player/':
+      require __DIR__ . '/pages/music-player.php';
+      break;
+    
+    default:
+      require __DIR__ . '/pages/login.php';
+      break;
+  }
+
+  
+?>
