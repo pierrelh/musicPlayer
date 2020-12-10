@@ -35,15 +35,15 @@ document.getElementById('PlayPause').addEventListener("click", function() {
     var isPlaying = this.dataset.isPlaying;
     if (isPlaying) { // Pause the audio
         this.src = "../../img/play.png";
-        this.dataset.isPlaying = false;
+        this.dataset.isPlaying = "false";
         player.pause();
     }else if (!isPlaying) { // Play the audio
         this.src = "../../img/pause.png";
-        this.dataset.isPlaying = true;
+        this.dataset.isPlaying = "true";
         player.play();
     }else {
         this.src = "../../img/play.png";
-        this.dataset.isPlaying = false;
+        this.dataset.isPlaying = "false";
         player.pause();
     }
 })
