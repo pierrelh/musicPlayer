@@ -1,6 +1,7 @@
 @media screen and (min-device-width: 641px) {
   #songName{
     font-size: 1.4em;
+    position: absolute;
   }
 
   #audio-player {
@@ -44,15 +45,11 @@
     margin-left: 15px !important;
   }
 
-  .fa-loop,
-  .fa-no-loop,
-  .fa-loop-one {
-    margin-left: 0 !important;
+  .loop {
     margin-right: 20px !important;
   }
 
   .previous {
-    margin-left: 0 !important;
     margin-right: 15px !important;
   }
 
