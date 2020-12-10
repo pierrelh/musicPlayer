@@ -147,8 +147,8 @@ function mediaPlayerAppear(identifier) {
 }
 
 function playNextSongAtEnd(identifier) {
-  var loopButtonClass = document.getElementById("loop").classList;
-  var randomButtonClass = document.getElementById("random").classList;
+  var loopButtonClass = document.getElementById("Loop").classList;
+  var randomButtonClass = document.getElementById("Random").classList;
   switch (loopButtonClass[0]) {
     case "fa-loop-one":
       identifier = identifier;
@@ -219,7 +219,7 @@ function playNextSongAtEnd(identifier) {
 }
 
 function playNextSong(identifier) {
-  var randomButtonClass = document.getElementById("random").classList;
+  var randomButtonClass = document.getElementById("Random").classList;
   switch (randomButtonClass[0]) {
     case 'fa-random':
       var lastSongList = document.getElementById("LibraryObjects").lastChild;
