@@ -2,7 +2,7 @@ $(document).ready(function () {
   var start = $("#start");
   var play_button = $('#play');
   var time = $("#time");
-  var mute_button = $('#mute');
+  var mute_button = $('#Mute');
   var progressBar = document.getElementById('progress-bar');
   var player = document.getElementById('musicPlayer');
   var volumeSlider = document.getElementById('Volume');

@@ -10,7 +10,7 @@
       <div id="controls">
         <img id="Loop" data-loop="all" class="fa-loop" src="../../img/loop.png" alt="loop">
         <img id="Previous" class='previous player-button' src="../img/back.png" alt="">
-        <img id="PlayPause" data-is-playing="play" class="fa-pause" src="../../img/pause.png" alt="play">
+        <img id="PlayPause" data-is-playing="true" class="fa-pause" src="../../img/pause.png" alt="play">
         <img id="Next" class='next player-button' src="../img/skip.png" alt="">
         <span id="start" class="time">00:00</span>
         <input type="range" min="0" max="100" value="0" id="progress-bar" name="" value="">

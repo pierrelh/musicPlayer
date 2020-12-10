@@ -33,17 +33,17 @@ document.getElementById('Previous').addEventListener("click", function() {
 document.getElementById('PlayPause').addEventListener("click", function() {
     var player = document.getElementById('musicPlayer');
     var isPlaying = this.dataset.isPlaying;
-    if (isPlaying == "play") { // Pause the audio
+    if (isPlaying) { // Pause the audio
         this.src = "../../img/play.png";
-        this.dataset.isPlaying = "pause";
+        this.dataset.isPlaying = false;
         player.pause();
-    }else if (isPlaying == "play") { // Play the audio
+    }else if (!isPlaying) { // Play the audio
         this.src = "../../img/pause.png";
-        this.dataset.isPlaying = "play";
+        this.dataset.isPlaying = true;
         player.play();
     }else {
         this.src = "../../img/play.png";
-        this.dataset.isPlaying = "pause";
+        this.dataset.isPlaying = false;
         player.pause();
     }
 })
