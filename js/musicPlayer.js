@@ -2,10 +2,8 @@ $(document).ready(function () {
   var start = $("#start");
   var play_button = $('#play');
   var time = $("#time");
-  var mute_button = $('#Mute');
   var progressBar = document.getElementById('progress-bar');
   var player = document.getElementById('musicPlayer');
-  var volumeSlider = document.getElementById('Volume');
   var duration = 0;
 
   player.onloadedmetadata = function() {
@@ -58,13 +56,6 @@ $(document).ready(function () {
          playNextSongAtEnd(identifier);
        }
   });
-
-  volumeSlider.addEventListener('input', function(){
-    player.volume = volumeSlider.value / 100;
-    $(mute_button).toggleClass("fa-volume-up", player.volume != 0);
-    $(mute_button).toggleClass("fa-volume-off", player.volume == 0);
-    document.getElementById("Mute").dataset.volume = player.volume;
-  }, false);
 
   $("#Volume").change(function (e) {
     var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
