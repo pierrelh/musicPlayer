@@ -1,8 +1,9 @@
 function getFiles(row, type, identifier){
   checkPlaylistSection();
 
+  var server = "https://" + window.location.hostname;
   $.ajax({
-    url: "../functions/files/ajaxGetAllFiles.php",
+    url: server + "/functions/files/ajaxGetAllFiles.php",
     type: "POST",
     data: {'row': row,
            'type': type},
@@ -11,6 +12,7 @@ function getFiles(row, type, identifier){
       var library = document.getElementById('LibraryObjects');
       library.innerHTML = '';
       if (data.length != 0) {
+        playlist = [];
         if (identifier != undefined) {
           var filtre = document.getElementById(identifier);
           if (type == 'ASC') {
@@ -20,7 +22,7 @@ function getFiles(row, type, identifier){
           }
           filtre.setAttribute('onclick', "getFiles('"+row+"', '"+type+"', '"+identifier+"')")
         }
-        for (var i = 0; i < data.length; i++) (function(i) {
+        for (var i = 0; i < data.length; i++) {
           var ul = document.createElement("ul");
           ul.id = 'ul' + i;
           library.appendChild(ul);
@@ -35,9 +37,6 @@ function getFiles(row, type, identifier){
           li.dataset.album = data[i]['file_album'];
           li.dataset.img = data[i]['file_image'];
           li.dataset.id = data[i]['file_id'];
-          // document.getElementById(i).onclick = function () {
-          //   mediaPlayerAppear(i);
-          // };
 
           if (data[i]['file_image'] != "") {
             li.style.backgroundImage = "url('"+data[i]['file_image']+"')";
@@ -50,10 +49,9 @@ function getFiles(row, type, identifier){
           lip.appendChild(p);
           p.innerHTML = data[i]['file_author'] + " - " + data[i]['file_name'];
           p.id = 'p'+i;
-          // document.getElementById('p'+i).onclick = function () {
-          //   mediaPlayerAppear(i);
-          // };
-        })(i);
+
+          playlist.push(i);
+        }
 
         var musicNumber = document.getElementById("LibraryObjects").children.length;
 

@@ -57,20 +57,23 @@ document.getElementById("Next").addEventListener("click", function() {
 document.getElementById("Random").addEventListener("click", function() {
     var randomType = this.dataset.random;
     switch (randomType) {
-      case "true":
-        this.dataset.random = "false";
-        this.src = "../../img/no-random.png";
-        break;
+        case "true":
+            this.dataset.random = "false";
+            this.src = "../../img/no-random.png";
+            break;
   
-      case "false":
-        this.dataset.random = "true";
-        this.src = "../../img/random.png";
-        break;
+        case "false":
+            randomPlaylist = shuffle(playlist);
+            this.dataset.random = "true";
+            this.src = "../../img/random.png";
+            console.log(playlist);
+            console.log(randomPlaylist);
+            break;
   
-      default:
-        this.dataset.random = "true";
-        this.src = "../../img/random.png";
-        break;
+        default:
+            this.dataset.random = "false";
+            this.src = "../../img/no-random.png";
+            break;
     }
 });
 

@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="<?php echo $link ?>/styles/common/videoStyle.css">
     <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/videoStyle.css">
     <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/videoStyle.css">
+    <script>
+      var playlist = [];
+      var randomPlaylist = [];
+    </script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script type="text/javascript" src="<?php echo $link ?>/js/getFiles.js"></script>
     <script type="text/javascript" src="<?php echo $link ?>/js/musicPlayer.js"></script>
