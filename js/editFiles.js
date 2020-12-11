@@ -22,7 +22,7 @@ function editFiles(){
     li.classList.add("edit");
     li.id = "edit" + i;
 
-    var parent = document.getElementById("ul" + i);
+    var parent = document.getElementById("MusicList" + i);
     var child = document.getElementById("Music" + i);
     parent.insertBefore(li, child);
 
