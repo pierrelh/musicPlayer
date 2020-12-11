@@ -91,6 +91,7 @@ $(document).ready(function () {
 });
 
 function mediaPlayerAppear(identifier) {
+  console.log(identifier);
   if (identifier != 'stop') {
     var song = document.getElementById(identifier);
 
