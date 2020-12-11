@@ -1,13 +1,3 @@
-function backgroundAppear() {
-  var background = document.getElementById('background');
-  background.className = 'background-appear';
-}
-
-function backgroundHide() {
-  var background = document.getElementById('background');
-  background.className = '';
-}
-
 document.getElementById("arrow").addEventListener("click", function(){
   if (this.dataset.status == 'hidden') { // Show the sidebar and reduce the librarys and the player
     this.dataset.status = "show";
