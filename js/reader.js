@@ -1,5 +1,17 @@
+var MusicPlayer = document.getElementById("MusicPlayer");
+var Loop = document.getElementById("Loop");
+var Previous = document.getElementById("Previous");
+var PlayPause = document.getElementById("PlayPause");
+var Next = document.getElementById("Next");
+var Random = document.getElementById("Random");
+var Mute = document.getElementById("Mute");
+var Volume = document.getElementById("Volume");
+var ProgressBar = document.getElementById("ProgressBar");
+var Time = document.getElementById("Time");
+var Start = document.getElementById("Start");
+
 // Handle the loop button click
-document.getElementById("Loop").addEventListener("click", function() {
+Loop.addEventListener("click", function() {
     var loopType = this.dataset.loop;
     switch (loopType) {
         case "one": // Setting loop to none
@@ -25,18 +37,18 @@ document.getElementById("Loop").addEventListener("click", function() {
 });
 
 // Handle the Previous button click
-document.getElementById("Previous").addEventListener("click", function() {
+Previous.addEventListener("click", function() {
     console.log("Previous clicked")
 })
 
 // Handle the PlayPause button click
-document.getElementById("PlayPause").addEventListener("click", playPause, false);
+PlayPause.addEventListener("click", togglePlayPause, false);
 
 // Handle the Next button click
-document.getElementById("Next").addEventListener("click", playNextMusic, false);
+Next.addEventListener("click", playNextMusic, false);
 
 // Handle the Random button click
-document.getElementById("Random").addEventListener("click", function() {
+Random.addEventListener("click", function() {
     var randomType = this.dataset.random;
     switch (randomType) {
         case "true": // Setting random to false
@@ -59,24 +71,23 @@ document.getElementById("Random").addEventListener("click", function() {
 });
 
 // Handle the Mute button click
-document.getElementById("Mute").addEventListener("click", function() {
+Mute.addEventListener("click", function() {
     var isMute = this.dataset.mute;
-    var player = document.getElementById("MusicPlayer");
     switch (isMute) {
         case "true": // Setting the audio on
-            player.volume = this.dataset.volume;
+            MusicPlayer.volume = this.dataset.volume;
             this.src = "../../img/audio-on.png";
             this.dataset.mute = "false";
             break;
     
         case "false": // Setting the audio off
-            player.volume = 0;
+            MusicPlayer.volume = 0;
             this.src = "../../img/audio-off.png";
             this.dataset.mute = "true";
             break;
     
         default: // Default: Setting the audio on
-            player.volume = this.dataset.volume;
+            MusicPlayer.volume = this.dataset.volume;
             this.src = "../../img/audio-on.png";
             this.dataset.mute = "false";
             break;
@@ -84,27 +95,40 @@ document.getElementById("Mute").addEventListener("click", function() {
 })
 
 // Handle the volume slider actions
-document.getElementById("Volume").addEventListener("input", function() {
-    var player = document.getElementById("musicPlayer");
-    player.volume = this.value / 100;
-    if (player.volume != 0) {
-        document.getElementById("Mute").src = "../../img/audio-on.png";
+Volume.addEventListener("input", function() {
+    MusicPlayer.volume = this.value / 100;
+    if (MusicPlayer.volume != 0) {
+        Mute.src = "../../img/audio-on.png";
     }else {
-        document.getElementById("Mute").src = "../../img/audio-off.png";
+        Mute.src = "../../img/audio-off.png";
     }
+    var percent = (this.value / 100) * 100;
+    this.style.backgroundImage = "-webkit-gradient(linear, left top, right top, " +
+                                 "color-stop(" + percent + "%, #FFF), " +
+                                 "color-stop(" + percent + "%, #0B0B0B)" +
+                                 ")";
 })
 
+
+$("#Volume").change(function (e) {
+    var percent = (this.value / 100) * 100;
+
+    $(this).css("background-image",
+        "-webkit-gradient(linear, left top, right top, " +
+        "color-stop(" + percent + "%, #FFF), " +
+        "color-stop(" + percent + "%, #0B0B0B)" +
+        ")");
+  });
 // Handle the load of metadata of the MusicPlayer
-document.getElementById("MusicPlayer").addEventListener("loadedmetadata", function() {
-    document.getElementById("ProgressBar").max = this.duration;
-    document.getElementById("Time").innerHTML = getTime(this.duration);
+MusicPlayer.addEventListener("loadedmetadata", function() {
+    ProgressBar.max = this.duration;
+    Time.innerHTML = getTime(this.duration);
 });
 
 // Handle the on time update of the MusicPlayer
-document.getElementById("MusicPlayer").addEventListener("timeupdate", function() {
-    var ProgressBar = document.getElementById("ProgressBar");
+MusicPlayer.addEventListener("timeupdate", function() {
     ProgressBar.value = this.currentTime;
-    document.getElementById("Start").innerHTML = getTime(this.currentTime);
+    Start.innerHTML = getTime(this.currentTime);
     var percent = (ProgressBar.value / (ProgressBar.max - ProgressBar.min)) * 100;
     document.getElementById("ProgressBar").style.backgroundImage = "-webkit-gradient(linear, left top, right top, " +
                                                               "color-stop(" + percent + "%, #FFF), " +
@@ -113,20 +137,25 @@ document.getElementById("MusicPlayer").addEventListener("timeupdate", function()
 });
 
 // Handle the on pause of the MusicPlayer
-document.getElementById("MusicPlayer").addEventListener("pause", function() {
-    document.getElementById("PlayPause").src = "../../img/play.png";
-    document.getElementById("PlayPause").dataset.isPlaying = "false";
+MusicPlayer.addEventListener("pause", function() {
+    PlayPause.src = "../../img/play.png";
+    PlayPause.dataset.isPlaying = "false";
 });
 
 // Handle the on pause of the MusicPlayer
-document.getElementById("MusicPlayer").addEventListener("play", function() {
-    document.getElementById("PlayPause").src = "../../img/pause.png";
-    document.getElementById("PlayPause").dataset.isPlaying = "true";
+MusicPlayer.addEventListener("play", function() {
+    PlayPause.src = "../../img/pause.png";
+    PlayPause.dataset.isPlaying = "true";
 });
 
 // Handle the on ended of the MusicPlayer
-document.getElementById("MusicPlayer").addEventListener("ended", function() {
+MusicPlayer.addEventListener("ended", function() {
     if (this.src != "") {
         playNextMusic(false);
     }
+});
+
+// Handle the input of the ProgressBar
+ProgressBar.addEventListener("input", function() {
+    MusicPlayer.currentTime = MusicPlayer.duration / this.max * this.value;
 });

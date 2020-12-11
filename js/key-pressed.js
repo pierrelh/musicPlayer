@@ -5,7 +5,7 @@ document.onkeydown = function(event) {
       case " ": // Spacebar is pressed
         if (document.activeElement.tagName != "INPUT") {
           event.preventDefault();
-          playPause();
+          togglePlayPause();
         }
         break;
 
@@ -25,8 +25,12 @@ document.onkeydown = function(event) {
       case "n": // N is pressed
         if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
           event.preventDefault();
-          playNextMusic(true);
+          playNextMusic();
         }
+        break;
+      
+      case "m": // M is pressed
+        // Mute
         break;
     }
 };

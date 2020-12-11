@@ -27,7 +27,7 @@ function backgroundHide() {
 }
 
 // Handle the play/pause actions
-function playPause() {
+function togglePlayPause() {
     var player = document.getElementById("MusicPlayer");
     var isPlaying = document.getElementById("PlayPause").dataset.isPlaying;
     switch (isPlaying) {

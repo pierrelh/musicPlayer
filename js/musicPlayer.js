@@ -5,40 +5,29 @@ $(document).ready(function () {
   player.load();
   player.volume = 1;
 
-  // player.addEventListener("ended", function(){
-  //      player.currentTime = 0;
-  //      var url = player.src;
-  //      var library = document.querySelector("#Library");
-  //      var element = library.querySelectorAll("li[data-url='" + url + "']")[0];
-  //      if (element != undefined) {
-  //        var identifier = parseInt(element.id);
-  //        playNextSongAtEnd(identifier);
-  //      }
+  // $("#Volume").change(function (e) {
+  //   var percent = ($(this).val() / 100) * 100;
+
+  //   $(this).css("background-image",
+  //       "-webkit-gradient(linear, left top, right top, " +
+  //       "color-stop(" + percent + "%, #FFF), " +
+  //       "color-stop(" + percent + "%, #0B0B0B)" +
+  //       ")");
   // });
 
-  $("#Volume").change(function (e) {
-    var percent = ($(this).val() / 100) * 100;
+  // $("#Volume").mousemove(function (e) {
+  //   var percent = ($(this).val() / 100 ) * 100;
 
-    $(this).css("background-image",
-        "-webkit-gradient(linear, left top, right top, " +
-        "color-stop(" + percent + "%, #FFF), " +
-        "color-stop(" + percent + "%, #0B0B0B)" +
-        ")");
-  });
+  //   $(this).css("background-image",
+  //       "-webkit-gradient(linear, left top, right top, " +
+  //       "color-stop(" + percent + "%, #FFF), " +
+  //       "color-stop(" + percent + "%, #0B0B0B)" +
+  //       ")");
+  // });
 
-  $("#Volume").mousemove(function (e) {
-    var percent = ($(this).val() / 100 ) * 100;
-
-    $(this).css("background-image",
-        "-webkit-gradient(linear, left top, right top, " +
-        "color-stop(" + percent + "%, #FFF), " +
-        "color-stop(" + percent + "%, #0B0B0B)" +
-        ")");
-  });
-
-  progressBar.addEventListener("input", function(){
-    player.currentTime = player.duration / progressBar.max * progressBar.value;
-  }, false);
+  // progressBar.addEventListener("input", function(){
+  //   player.currentTime = player.duration / progressBar.max * progressBar.value;
+  // }, false);
 });
 
 function playNextSongAtEnd(identifier) {
