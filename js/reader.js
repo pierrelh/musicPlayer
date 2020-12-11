@@ -105,7 +105,8 @@ document.getElementById("MusicPlayer").addEventListener("timeupdate", function()
     document.getElementById("ProgressBar").value = this.currentTime;
     document.getElementById("Start").innerHTML = getTime(this.currentTime);
     var percent = (this.value / (this.max - this.min)) * 100;
-    document.getElementById("ProgressBar").style.backgroundImage  = "-webkit-gradient(linear, left top, right top, " +
+    console.log(percent);
+    document.getElementById("ProgressBar").style.backgroundImage = "-webkit-gradient(linear, left top, right top, " +
                                                               "color-stop(" + percent + "%, #FFF), " +
                                                               "color-stop(" + percent + "%, #0B0B0B)" +
                                                               ")";
