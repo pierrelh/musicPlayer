@@ -29,15 +29,16 @@ function getFiles(row, type, identifier){
           ul.appendChild(li);
           li.className = 'view';
           li.id = i;
+          li.name = "music";
           li.dataset.url = data[i]['file_url'];
           li.dataset.artist = data[i]['file_author'];
           li.dataset.title = data[i]['file_name'];
           li.dataset.album = data[i]['file_album'];
           li.dataset.img = data[i]['file_image'];
           li.dataset.id = data[i]['file_id'];
-          document.getElementById(i).onclick = function () {
-            mediaPlayerAppear(i);
-          };
+          // document.getElementById(i).onclick = function () {
+          //   mediaPlayerAppear(i);
+          // };
 
           if (data[i]['file_image'] != "") {
             li.style.backgroundImage = "url('"+data[i]['file_image']+"')";
