@@ -29,7 +29,6 @@ function getFiles(row, type, identifier){
           ul.appendChild(li);
           li.className = 'view';
           li.id = i;
-          li.name = "music";
           li.dataset.url = data[i]['file_url'];
           li.dataset.artist = data[i]['file_author'];
           li.dataset.title = data[i]['file_name'];
@@ -51,18 +50,16 @@ function getFiles(row, type, identifier){
           lip.appendChild(p);
           p.innerHTML = data[i]['file_author'] + " - " + data[i]['file_name'];
           p.id = 'p'+i;
-          p.name = "music-name";
           // document.getElementById('p'+i).onclick = function () {
           //   mediaPlayerAppear(i);
           // };
         })(i);
 
-        var musics = document.getElementsByName("music");
-        var musicNames = document.getElementsByName("music-name");
+        var musicNumber = document.getElementById("LibraryObjects").children;
 
-        for (var i = 0; i < musics.length; i++) {
-          musics[i].addEventListener('click', mediaPlayerAppear(i), false);
-          musicNames[i].addEventListener('click', mediaPlayerAppear(i), false);
+        for (var i = 0; i < musicNumber.length; i++) {
+          document.getElementById(i).addEventListener('click', mediaPlayerAppear(i), false);
+          document.getElementById("p"+i).addEventListener('click', mediaPlayerAppear(i), false);
         }
 
       }
