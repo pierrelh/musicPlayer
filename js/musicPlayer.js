@@ -1,30 +1,9 @@
 $(document).ready(function () {
-  // var start = $("#Start");
-  // var time = $("#time");
   var progressBar = document.getElementById("ProgressBar");
   var player = document.getElementById("MusicPlayer");
-  // var duration = 0;
-
-  // player.onloadedmetadata = function() {
-  //   duration = player.duration;
-  //   progressBar.max = duration;
-  //   time.text(getTime(player.duration));
-  // };
 
   player.load();
   player.volume = 1;
-
-  // player.addEventListener("timeupdate", function() {
-  //   progressBar.value = player.currentTime;
-  //   start.text(getTime(player.currentTime));
-  //   var percent = (progressBar.value / 100) * 100;
-
-  //   $("#ProgressBar").css("background-image",
-  //       "-webkit-gradient(linear, left top, right top, " +
-  //       "color-stop(" + percent + "%, #FFF), " +
-  //       "color-stop(" + percent + "%, #0B0B0B)" +
-  //       ")");
-  // }, false);
 
   // player.addEventListener("ended", function(){
   //      player.currentTime = 0;
@@ -56,12 +35,6 @@ $(document).ready(function () {
         "color-stop(" + percent + "%, #0B0B0B)" +
         ")");
   });
-
-  // function getTime(t) {
-  //   var m = ~~(t / 60),
-  //     s = ~~(t % 60);
-  //   return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
-  // }
 
   progressBar.addEventListener("input", function(){
     player.currentTime = player.duration / progressBar.max * progressBar.value;
