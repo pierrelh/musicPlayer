@@ -55,11 +55,11 @@ function getFiles(row, type, identifier){
           // };
         })(i);
 
-        var musicNumber = document.getElementById("LibraryObjects").children;
+        var musicNumber = document.getElementById("LibraryObjects").children.length;
 
-        for (var i = 0; i < musicNumber.length; i++) {
-          document.getElementById(i).addEventListener('click', function(){mediaPlayerAppear(i)}, false);
-          document.getElementById("p"+i).addEventListener('click', function(){mediaPlayerAppear(i)}, false);
+        for (var y = 0; y < musicNumber; y++) {
+          document.getElementById(y).addEventListener('click', function(){mediaPlayerAppear(y)}, false);
+          document.getElementById("p"+y).addEventListener('click', function(){mediaPlayerAppear(y)}, false);
         }
 
       }
