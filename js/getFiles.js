@@ -56,8 +56,8 @@ function getFiles(row, type, identifier){
         var musicNumber = document.getElementById("LibraryObjects").children.length;
 
         for (var i = 0; i < musicNumber; i++) (function(i) {
-          document.getElementById("Music" + i).addEventListener("click", function(){mediaPlayerAppear(i)}, false);
-          document.getElementById("MusicP"+i).addEventListener("click", function(){mediaPlayerAppear(i)}, false);
+          document.getElementById("Music" + i).addEventListener("click", function(){playMusic(i)}, false);
+          document.getElementById("MusicP"+i).addEventListener("click", function(){playMusic(i)}, false);
         })(i);
 
       }
