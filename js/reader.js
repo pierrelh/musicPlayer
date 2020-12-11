@@ -98,14 +98,14 @@ document.getElementById("Volume").addEventListener("input", function() {
 document.getElementById("MusicPlayer").addEventListener("loadedmetadata", function() {
     console.log("meta data loaded");
     document.getElementById("ProgressBar").max = this.duration;
-    document.getElementById("Time").text(getTime(this.duration));
+    document.getElementById("Time").innerHTML = getTime(this.duration);
 });
 
 // Handle the on time update of the MusicPlayer
 document.getElementById("MusicPlayer").addEventListener("timeupdate", function() {
     console.log("time updated");
     document.getElementById("ProgressBar").value = this.currentTime;
-    document.getElementById("Start").text(getTime(player.currentTime));
+    document.getElementById("Start").innerHTML = getTime(this.currentTime);
     var percent = (this.value / (this.max - this.min)) * 100;
     document.getElementById("ProgressBar").style.background = "-webkit-gradient(linear, left top, right top, " +
                                                               "color-stop(" + percent + "%, #FFF), " +
