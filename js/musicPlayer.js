@@ -1,35 +1,3 @@
-$(document).ready(function () {
-  var progressBar = document.getElementById("ProgressBar");
-  var player = document.getElementById("MusicPlayer");
-
-  player.load();
-  player.volume = 1;
-
-  // $("#Volume").change(function (e) {
-  //   var percent = ($(this).val() / 100) * 100;
-
-  //   $(this).css("background-image",
-  //       "-webkit-gradient(linear, left top, right top, " +
-  //       "color-stop(" + percent + "%, #FFF), " +
-  //       "color-stop(" + percent + "%, #0B0B0B)" +
-  //       ")");
-  // });
-
-  // $("#Volume").mousemove(function (e) {
-  //   var percent = ($(this).val() / 100 ) * 100;
-
-  //   $(this).css("background-image",
-  //       "-webkit-gradient(linear, left top, right top, " +
-  //       "color-stop(" + percent + "%, #FFF), " +
-  //       "color-stop(" + percent + "%, #0B0B0B)" +
-  //       ")");
-  // });
-
-  // progressBar.addEventListener("input", function(){
-  //   player.currentTime = player.duration / progressBar.max * progressBar.value;
-  // }, false);
-});
-
 function playNextSongAtEnd(identifier) {
   var loopButtonClass = document.getElementById("Loop").classList;
   var randomButtonClass = document.getElementById("Random").classList;
