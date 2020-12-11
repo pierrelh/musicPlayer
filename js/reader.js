@@ -102,9 +102,10 @@ document.getElementById("MusicPlayer").addEventListener("loadedmetadata", functi
 
 // Handle the on time update of the MusicPlayer
 document.getElementById("MusicPlayer").addEventListener("timeupdate", function() {
-    document.getElementById("ProgressBar").value = this.currentTime;
+    var ProgressBar = document.getElementById("ProgressBar");
+    ProgressBar.value = this.currentTime;
     document.getElementById("Start").innerHTML = getTime(this.currentTime);
-    var percent = (this.value / (this.max - this.min)) * 100;
+    var percent = (ProgressBar.value / (ProgressBar.max - ProgressBar.min)) * 100;
     console.log(percent);
     document.getElementById("ProgressBar").style.backgroundImage = "-webkit-gradient(linear, left top, right top, " +
                                                               "color-stop(" + percent + "%, #FFF), " +
