@@ -9,9 +9,6 @@ var Volume = document.getElementById("Volume");
 var ProgressBar = document.getElementById("ProgressBar");
 var Time = document.getElementById("Time");
 var Start = document.getElementById("Start");
-// MusicPlayer.load();
-// MusicPlayer.volume = 1;
-
 
 // Handle the loop button click
 Loop.addEventListener("click", function() {
@@ -135,7 +132,7 @@ MusicPlayer.addEventListener("pause", function() {
     PlayPause.dataset.isPlaying = "false";
 });
 
-// Handle the on pause of the MusicPlayer
+// Handle the on play of the MusicPlayer
 MusicPlayer.addEventListener("play", function() {
     PlayPause.src = "../../img/pause.png";
     PlayPause.dataset.isPlaying = "true";

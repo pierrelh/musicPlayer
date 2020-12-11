@@ -13,7 +13,6 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script type="text/javascript" src="<?php echo $link ?>/js/getFiles.js"></script>
     <script type="text/javascript" src="<?php echo $link ?>/js/functions.js"></script>
-    <script type="text/javascript" src="<?php echo $link ?>/js/musicPlayer.js"></script>
     <script type="text/javascript" src="<?php echo $link ?>/js/key-pressed.js"></script>
   </head>
   <body id="body">

@@ -1,9 +1,3 @@
-function uploadAppear(){
-  backgroundAppear();
-  var upload = document.getElementById("upload");
-  upload.className = "appear";
-}
-
 function uploadHide(){
   backgroundHide();
   var upload = document.getElementById("upload");
