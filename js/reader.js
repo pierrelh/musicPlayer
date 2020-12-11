@@ -125,4 +125,8 @@ document.getElementById("MusicPlayer").addEventListener("play", function() {
 });
 
 // Handle the on ended of the MusicPlayer
-document.getElementById("MusicPlayer").addEventListener("ended", playNextMusic(false), false);
+document.getElementById("MusicPlayer").addEventListener("ended", function() {
+    if (this.src != "") {
+        playNextMusic(false);
+    }
+});
