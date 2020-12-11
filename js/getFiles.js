@@ -57,10 +57,10 @@ function getFiles(row, type, identifier){
 
         var musicNumber = document.getElementById("LibraryObjects").children.length;
 
-        for (var y = 0; y < musicNumber; y++) {
-          document.getElementById(y).addEventListener('click', function(){mediaPlayerAppear(y)}, false);
-          document.getElementById("p"+y).addEventListener('click', function(){mediaPlayerAppear(y)}, false);
-        }
+        for (var i = 0; i < musicNumber; i++) (function(i) {
+          document.getElementById(i).addEventListener('click', function(){mediaPlayerAppear(i)}, false);
+          document.getElementById("p"+i).addEventListener('click', function(){mediaPlayerAppear(i)}, false);
+        })(i);
 
       }
     }
