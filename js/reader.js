@@ -69,16 +69,19 @@ document.getElementById("Mute").addEventListener("click", function() {
             player.volume = this.dataset.volume;
             this.src = "../../img/audio-on.png";
             this.dataset.mute = "false";
+            break;
     
         case "false": // Setting the audio off
             player.volume = 0;
             this.src = "../../img/audio-off.png";
             this.dataset.mute = "true";
+            break;
     
         default: // Default: Setting the audio on
             player.volume = this.dataset.volume;
             this.src = "../../img/audio-on.png";
             this.dataset.mute = "false";
+            break;
     }
 })
 

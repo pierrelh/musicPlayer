@@ -28,15 +28,18 @@ function playPause() {
             document.getElementById("PlayPause").src = "../../img/play.png";
             document.getElementById("PlayPause").dataset.isPlaying = "false";
             player.pause();
+            break;
     
         case "false": // Play the audio
             document.getElementById("PlayPause").src = "../../img/pause.png";
             document.getElementById("PlayPause").dataset.isPlaying = "true";
             player.play();
+            break;
     
         default: // Default: Pause the audio
             document.getElementById("PlayPause").src = "../../img/play.png";
             document.getElementById("PlayPause").dataset.isPlaying = "false";
             player.pause();
+            break;
     }
 }
