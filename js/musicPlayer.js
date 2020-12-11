@@ -1,9 +1,8 @@
 $(document).ready(function () {
-  var start = $("#start");
-  var play_button = $('#play');
+  var start = $("#Start");
   var time = $("#time");
-  var progressBar = document.getElementById('progress-bar');
-  var player = document.getElementById('musicPlayer');
+  var progressBar = document.getElementById("ProgressBar");
+  var player = document.getElementById("MusicPlayer");
   var duration = 0;
 
   player.onloadedmetadata = function() {
@@ -15,42 +14,23 @@ $(document).ready(function () {
   player.load();
   player.volume = 1;
 
-  player.addEventListener("pause", function() {
-    $(play_button).toggleClass("fa-play", !player.paused);
-    $(play_button).toggleClass("fa-pause", player.paused);
-  }, false);
-
-  player.addEventListener("play", function() {
-    $(play_button).toggleClass("fa-play", !player.paused);
-    $(play_button).toggleClass("fa-pause", player.paused);
-  }, false);
-
-  player.addEventListener("playing", function() {
-    $(play_button).toggleClass("fa-play", !player.paused);
-    $(play_button).toggleClass("fa-pause", player.paused);
-  }, false);
-
-  $(play_button).toggleClass("fa-play", !player.paused);
-  $(play_button).toggleClass("fa-pause", player.paused);
-
   player.addEventListener("timeupdate", function() {
     progressBar.value = player.currentTime;
     start.text(getTime(player.currentTime));
-    var val = ($('#progress-bar').val() - $('#progress-bar').attr('min')) / ($('#progress-bar').attr('max') - $('#progress-bar').attr('min'));
-    var percent = val * 100;
+    var percent = (progressBar.value / 100) * 100;
 
-    $('#progress-bar').css('background-image',
-        '-webkit-gradient(linear, left top, right top, ' +
-        'color-stop(' + percent + '%, #FFF), ' +
-        'color-stop(' + percent + '%, #0B0B0B)' +
-        ')');
+    $("#ProgressBar").css("background-image",
+        "-webkit-gradient(linear, left top, right top, " +
+        "color-stop(" + percent + "%, #FFF), " +
+        "color-stop(" + percent + "%, #0B0B0B)" +
+        ")");
   }, false);
 
   player.addEventListener("ended", function(){
        player.currentTime = 0;
        var url = player.src;
-       var library = document.querySelector('#Library');
-       var element = library.querySelectorAll("li[data-url='"+url+"']")[0];
+       var library = document.querySelector("#Library");
+       var element = library.querySelectorAll("li[data-url='" + url + "']")[0];
        if (element != undefined) {
          var identifier = parseInt(element.id);
          playNextSongAtEnd(identifier);
@@ -58,34 +38,32 @@ $(document).ready(function () {
   });
 
   $("#Volume").change(function (e) {
-    var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
-    var percent = val * 100;
+    var percent = ($(this).val() / 100) * 100;
 
-    $(this).css('background-image',
-        '-webkit-gradient(linear, left top, right top, ' +
-        'color-stop(' + percent + '%, #FFF), ' +
-        'color-stop(' + percent + '%, #0B0B0B)' +
-        ')');
+    $(this).css("background-image",
+        "-webkit-gradient(linear, left top, right top, " +
+        "color-stop(" + percent + "%, #FFF), " +
+        "color-stop(" + percent + "%, #0B0B0B)" +
+        ")");
   });
 
   $("#Volume").mousemove(function (e) {
-    var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
-    var percent = val * 100;
+    var percent = ($(this).val() / 100 ) * 100;
 
-    $(this).css('background-image',
-        '-webkit-gradient(linear, left top, right top, ' +
-        'color-stop(' + percent + '%, #FFF), ' +
-        'color-stop(' + percent + '%, #0B0B0B)' +
-        ')');
+    $(this).css("background-image",
+        "-webkit-gradient(linear, left top, right top, " +
+        "color-stop(" + percent + "%, #FFF), " +
+        "color-stop(" + percent + "%, #0B0B0B)" +
+        ")");
   });
 
   function getTime(t) {
     var m = ~~(t / 60),
       s = ~~(t % 60);
-    return (m < 10 ? "0" + m : m) + ':' + (s < 10 ? "0" + s : s);
+    return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
   }
 
-  progressBar.addEventListener('input', function(){
+  progressBar.addEventListener("input", function(){
     player.currentTime = player.duration / progressBar.max * progressBar.value;
   }, false);
 });
