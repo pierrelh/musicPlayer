@@ -109,16 +109,6 @@ Volume.addEventListener("input", function() {
                                  ")";
 })
 
-
-$("#Volume").change(function (e) {
-    var percent = (this.value / 100) * 100;
-
-    $(this).css("background-image",
-        "-webkit-gradient(linear, left top, right top, " +
-        "color-stop(" + percent + "%, #FFF), " +
-        "color-stop(" + percent + "%, #0B0B0B)" +
-        ")");
-  });
 // Handle the load of metadata of the MusicPlayer
 MusicPlayer.addEventListener("loadedmetadata", function() {
     ProgressBar.max = this.duration;
