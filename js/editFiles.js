@@ -1,5 +1,5 @@
 var decodeHTML = function (html) {
-	var txt = document.createElement('textarea');
+	var txt = document.createElement("textarea");
 	txt.innerHTML = html;
 	return txt.value;
 };
@@ -7,46 +7,46 @@ var decodeHTML = function (html) {
 function editFiles(){
   checkPlaylistSection();
 
-  var library = document.getElementById('LibraryObjects').children;
+  var library = document.getElementById("LibraryObjects").children;
   for (var i = 0; i < library.length; i++) {
-    if (document.getElementById('delete'+i) != undefined) {
+    if (document.getElementById("delete" + i) != undefined) {
       hideDelete();
       break;
-    }else if (document.getElementById('add'+i) != undefined) {
+    }else if (document.getElementById("add" + i) != undefined) {
       hideAdd();
       break;
     }
   }
   for (var i = 0; i < library.length; i++) (function(i) {
-    var li = document.createElement('li');
-    li.classList.add('edit');
-    li.id = 'edit' + i;
+    var li = document.createElement("li");
+    li.classList.add("edit");
+    li.id = "edit" + i;
 
-    var parent = document.getElementById('ul'+i);
+    var parent = document.getElementById("ul" + i);
     var child = document.getElementById(i);
     parent.insertBefore(li, child);
 
-    document.getElementById('edit'+i).onclick = function () {
+    document.getElementById("edit" + i).onclick = function () {
       showEditSection(i);
     };
   })(i);
-  var filter = document.getElementById('editFile');
-  filter.setAttribute('onclick', 'hideEdit()');
+  var filter = document.getElementById("editFile");
+  filter.setAttribute("onclick", "hideEdit()");
 }
 
 function hideEdit(){
   checkPlaylistSection();
 
-  var library = document.getElementById('LibraryObjects').children;
+  var library = document.getElementById("LibraryObjects").children;
   for (var i = 0; i < library.length; i++){
-    var li = document.getElementById('edit'+i);
-    li.classList.add('edit-hide');
+    var li = document.getElementById("edit" + i);
+    li.classList.add("edit-hide");
     li.classList.remove("edit");
   }
 
   setTimeout(function(){
     for (var i = 0; i < library.length; i++){
-      var li = document.getElementById('edit'+i);
+      var li = document.getElementById("edit" + i);
       if (li != undefined) {
         li.remove();
       }else {
@@ -55,27 +55,27 @@ function hideEdit(){
     }
   }, 800);
 
-  var filter = document.getElementById('editFile');
-  filter.setAttribute('onclick', 'editFiles()');
+  var filter = document.getElementById("editFile");
+  filter.setAttribute("onclick", "editFiles()");
 }
 
 function showEditSection(identifier){
   var element = document.getElementById(identifier);
-  document.getElementById('fileNameEdit').value = decodeHTML(element.dataset.title);
-  document.getElementById('fileAuthorEdit').value = decodeHTML(element.dataset.artist);
-  document.getElementById('fileAlbumEdit').value = decodeHTML(element.dataset.album);
-	$('#banner').css('background-image', 'url(' + element.dataset.img + ')');
-	var editButton = document.getElementById('barSpan2Edit');
-	editButton.setAttribute('onclick', 'uploadEditedFile('+element.dataset.id+')');
+  document.getElementById("fileNameEdit").value = decodeHTML(element.dataset.title);
+  document.getElementById("fileAuthorEdit").value = decodeHTML(element.dataset.artist);
+  document.getElementById("fileAlbumEdit").value = decodeHTML(element.dataset.album);
+	$("#banner").css("background-image", "url(" + element.dataset.img + ")");
+	var editButton = document.getElementById("barSpan2Edit");
+	editButton.setAttribute("onclick", "uploadEditedFile("+element.dataset.id+")");
   backgroundAppear();
-  var edit = document.getElementById('edit');
-  edit.className = 'appear';
+  var edit = document.getElementById("edit");
+  edit.className = "appear";
 }
 
 function hideEditSection(){
   backgroundHide();
-  var edit = document.getElementById('edit');
-  edit.className = '';
+  var edit = document.getElementById("edit");
+  edit.className = "";
 }
 
 function readURL(input) {
@@ -83,7 +83,7 @@ function readURL(input) {
     var reader = new FileReader();
 
     reader.onload = function(e) {
-      $('#banner').css('background-image', 'url(' + e.target.result + ')');
+      $("#banner").css("background-image", "url(" + e.target.result + ")");
     }
 
     reader.readAsDataURL(input.files[0]);
@@ -100,24 +100,24 @@ function uploadEditedFile(identifier){
 	}else {
 		var picture = $("#pictureEdit").prop("files")[0];
 	}
-	var name = document.getElementById('fileNameEdit').value;
-	var author = document.getElementById('fileAuthorEdit').value;
-	var album = document.getElementById('fileAlbumEdit').value;
-	if (name == '' || author == '') {
-    document.getElementById('error-msg-edit').innerHTML = "";
+	var name = document.getElementById("fileNameEdit").value;
+	var author = document.getElementById("fileAuthorEdit").value;
+	var album = document.getElementById("fileAlbumEdit").value;
+	if (name == "" || author == "") {
+    document.getElementById("error-msg-edit").innerHTML = "";
     var errormsg = document.createTextNode("Merci de remplir tous les champs.");
     document.getElementById("error-msg-edit").appendChild(errormsg);
   }else{
-    var form_data = new FormData($('formUpload')[0]);
-    form_data.append('file_id', identifier);
-    form_data.append('file_image', picture);
-    form_data.append('file_name', name);
-    form_data.append('file_author', author);
-    form_data.append('file_album', album);
+    var form_data = new FormData($("formUpload")[0]);
+    form_data.append("file_id", identifier);
+    form_data.append("file_image", picture);
+    form_data.append("file_name", name);
+    form_data.append("file_author", author);
+    form_data.append("file_album", album);
     $.ajax({
       url: "../functions/files/editFile.php",
       type: "POST",
-      dataType: 'script',
+      dataType: "script",
       cache: false,
       contentType: false,
       processData: false,
@@ -140,8 +140,7 @@ function uploadEditedFile(identifier){
       }
     }).done(function (e) {
         alert("upload succeed")
-        getFiles('file_id', 'DESC');
-        var library = document.getElementById('LibraryObjects');
+        getFiles("file_id", "DESC");
         var elem = document.getElementById("myBarPlusEdit");
         var elem1 = document.getElementById("myBarMoinsEdit");
         var span = document.getElementById("editButton");
@@ -150,12 +149,12 @@ function uploadEditedFile(identifier){
         span.innerHTML = "0 %";
         elem1.style.width = "100%";
         span1.innerHTML = "ENVOYER";
-				var filter = document.getElementById('editFile');
-				filter.setAttribute('onclick', 'editFiles()');
+				var filter = document.getElementById("editFile");
+				filter.setAttribute("onclick", "editFiles()");
     }).fail(function (e) {
         alert("upload failed");
-				var filter = document.getElementById('editFile');
-				filter.setAttribute('onclick', 'editFiles()');
+				var filter = document.getElementById("editFile");
+				filter.setAttribute("onclick", "editFiles()");
     });
   }
 }

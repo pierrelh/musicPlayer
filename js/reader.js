@@ -30,12 +30,10 @@ document.getElementById("Previous").addEventListener("click", function() {
 })
 
 // Handle the PlayPause button click
-document.getElementById("PlayPause").addEventListener('click', playPause, false);
+document.getElementById("PlayPause").addEventListener("click", playPause, false);
 
 // Handle the Next button click
-document.getElementById("Next").addEventListener("click", function() {
-    console.log("Next clicked")
-})
+document.getElementById("Next").addEventListener("click", playNextMusic, false);
 
 // Handle the Random button click
 document.getElementById("Random").addEventListener("click", function() {
@@ -63,7 +61,7 @@ document.getElementById("Random").addEventListener("click", function() {
 // Handle the Mute button click
 document.getElementById("Mute").addEventListener("click", function() {
     var isMute = this.dataset.mute;
-    var player = document.getElementById('musicPlayer');
+    var player = document.getElementById("MusicPlayer");
     switch (isMute) {
         case "true": // Setting the audio on
             player.volume = this.dataset.volume;
@@ -87,7 +85,7 @@ document.getElementById("Mute").addEventListener("click", function() {
 
 // Handle the volume slider actions
 document.getElementById("Volume").addEventListener("input", function() {
-    var player = document.getElementById('musicPlayer');
+    var player = document.getElementById("musicPlayer");
     player.volume = this.value / 100;
     if (player.volume != 0) {
         document.getElementById("Mute").src = "../../img/audio-on.png";

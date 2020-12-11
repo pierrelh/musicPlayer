@@ -1,16 +1,16 @@
 document.onkeydown = function(event) {
-    var musicPlayer = document.getElementById('musicPlayer');
+    var musicPlayer = document.getElementById("MusicPlayer");
     switch (event.key) {
 
       case " ": // Spacebar is pressed
-        if (document.activeElement.tagName != 'INPUT') {
+        if (document.activeElement.tagName != "INPUT") {
           event.preventDefault();
           playPause();
         }
         break;
 
       case "p": // P is pressed
-        if (document.activeElement.tagName != 'INPUT') { // Check if the input is not on a form
+        if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
           event.preventDefault();
           var identifier = parseInt(musicPlayer.dataset.musicPlayed);
           if (identifier != 0) {
@@ -23,15 +23,9 @@ document.onkeydown = function(event) {
         break;
 
       case "n": // N is pressed
-        if (document.activeElement.tagName != 'INPUT') { // Check if the input is not on a form
+        if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
           event.preventDefault();
-          var identifier = parseInt(musicPlayer.dataset.musicPlayed);
-          if (document.getElementById(identifier+1) != undefined) {
-            identifier = identifier + 1;
-          }else {
-            identifier = 0;
-          }
-          mediaPlayerAppear(identifier);
+          playNextMusic();
         }
         break;
     }

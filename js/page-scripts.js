@@ -1,25 +1,25 @@
-document.getElementById("arrow").addEventListener("click", function(){
-  if (this.dataset.status == 'hidden') { // Show the sidebar and reduce the librarys and the player
+document.getElementById("Arrow").addEventListener("click", function(){
+  if (this.dataset.status == "hidden") { // Show the sidebar and reduce the librarys and the player
     this.dataset.status = "show";
-    this.classList.add('arrow-active');
+    this.classList.add("arrow-active");
 
-    document.getElementById('sidebar').classList.remove('sidebar-hide');
+    document.getElementById("Sidebar").classList.remove("sidebar-hide");
 
-    document.getElementById('Library').classList.add('library');
+    document.getElementById('Library').classList.add("library");
 
-    document.getElementById('divPlaylist').classList.remove('playlist-sidebar-hided');
+    document.getElementById("DivPlaylist").classList.remove("playlist-sidebar-hided");
 
-    document.getElementById('audio-player').classList.remove("left");
+    document.getElementById("AudioPlayer").classList.remove("left");
   }else { // Hide the sidebar and enlarge the librarys and the player
-    this.classList.remove('arrow-active');
+    this.classList.remove("arrow-active");
     this.dataset.status = "hidden";
 
-    document.getElementById('sidebar').classList.add('sidebar-hide');
+    document.getElementById("Sidebar").classList.add("sidebar-hide");
 
-    document.getElementById('Library').classList.remove('library');
+    document.getElementById("Library").classList.remove("library");
 
-    document.getElementById('divPlaylist').classList.add('playlist-sidebar-hided');
+    document.getElementById("DivPlaylist").classList.add("playlist-sidebar-hided");
 
-    document.getElementById('audio-player').classList.add("left");
+    document.getElementById("AudioPlayer").classList.add("left");
   }
 });

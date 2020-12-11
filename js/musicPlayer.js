@@ -90,51 +90,51 @@ $(document).ready(function () {
   }, false);
 });
 
-function mediaPlayerAppear(identifier) {
-  if (identifier != 'stop') {
-    var song = document.getElementById(identifier);
+// function mediaPlayerAppear(identifier) {
+//   if (identifier != 'stop') {
+//     var song = document.getElementById(identifier);
 
-    if (document.getElementById("playedMusic") != undefined) {
-      document.getElementById("playedMusic").remove();
-    }
-    var playing = document.createElement('li');
-    playing.id = "playedMusic";
-    playing.classList.add("playing");
-    var parent = document.getElementById(identifier).parentNode;
-    parent.insertBefore(playing, song);
+//     if (document.getElementById("playedMusic") != undefined) {
+//       document.getElementById("playedMusic").remove();
+//     }
+//     var playing = document.createElement('li');
+//     playing.id = "playedMusic";
+//     playing.classList.add("playing");
+//     var parent = document.getElementById(identifier).parentNode;
+//     parent.insertBefore(playing, song);
 
-    var url = song.getAttribute('data-url');
-    var author = song.getAttribute('data-artist');
-    var name = song.getAttribute('data-title');
+//     var url = song.getAttribute('data-url');
+//     var author = song.getAttribute('data-artist');
+//     var name = song.getAttribute('data-title');
 
-    var library = document.getElementById('LibraryObjects');
-    library.classList.add("library-reader-active");
+//     var library = document.getElementById('LibraryObjects');
+//     library.classList.add("library-reader-active");
 
-    var playlist = document.getElementById('divPlaylist');
-    playlist.classList.add('playlist-reader-showed');
+//     var playlist = document.getElementById('divPlaylist');
+//     playlist.classList.add('playlist-reader-showed');
 
-    var musicPlayer = document.getElementById('musicPlayer');
-    musicPlayer.dataset.musicPlayed = identifier;
-    var nameTxt = document.getElementById('songName');
-    nameTxt.innerHTML = author + " - " + name;
-    musicPlayer.src = url;
-    var audioPlayer = document.getElementById('audio-player');
-    if (document.getElementById('sidebar').classList.contains('sidebar-hide') && !audioPlayer.classList.contains('left')) {
-      audioPlayer.classList.add('left');
-    }
-    audioPlayer.classList.add('show');
-    document.getElementById("Library").classList.add('library-reader-active');
-    document.getElementById('Previous').onclick = function () {
-      if (identifier != 0) {
-        identifier = identifier - 1;
-      }
-      mediaPlayerAppear(identifier);
-    };
-    document.getElementById('Next').onclick = function () {
-      playNextSong(identifier);
-    };
-  }
-}
+//     var musicPlayer = document.getElementById('musicPlayer');
+//     musicPlayer.dataset.musicPlayed = identifier;
+//     var nameTxt = document.getElementById('songName');
+//     nameTxt.innerHTML = author + " - " + name;
+//     musicPlayer.src = url;
+//     var audioPlayer = document.getElementById('audio-player');
+//     if (document.getElementById('sidebar').classList.contains('sidebar-hide') && !audioPlayer.classList.contains('left')) {
+//       audioPlayer.classList.add('left');
+//     }
+//     audioPlayer.classList.add('show');
+//     document.getElementById("Library").classList.add('library-reader-active');
+//     document.getElementById('Previous').onclick = function () {
+//       if (identifier != 0) {
+//         identifier = identifier - 1;
+//       }
+//       mediaPlayerAppear(identifier);
+//     };
+//     document.getElementById('Next').onclick = function () {
+//       playNextSong(identifier);
+//     };
+//   }
+// }
 
 function playNextSongAtEnd(identifier) {
   var loopButtonClass = document.getElementById("Loop").classList;
@@ -206,33 +206,4 @@ function playNextSongAtEnd(identifier) {
       }
   }
   mediaPlayerAppear(identifier)
-}
-
-function playNextSong(identifier) {
-  var randomButtonClass = document.getElementById("Random").classList;
-  switch (randomButtonClass[0]) {
-    case 'fa-random':
-      var lastSongList = document.getElementById("LibraryObjects").lastChild;
-      var lastSong = lastSongList.firstChild;
-      if (lastSong.id == "playedMusic") {
-        var lastSong = lastSong.nextElementSibling;
-      }
-      var lastSongId = Number(lastSong.id);
-      identifier = Math.floor(Math.random() * Math.floor(lastSongId+1));
-      break;
-    case 'fa-no-random':
-      if (document.getElementById(identifier+1) != undefined) {
-        identifier = identifier + 1;
-      }else {
-        identifier = 0;
-      }
-      break;
-    default:
-      if (document.getElementById(identifier+1) != undefined) {
-        identifier = identifier + 1;
-      }else {
-        identifier = 0;
-      }
-  }
-  mediaPlayerAppear(identifier);
 }

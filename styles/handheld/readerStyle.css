@@ -1,9 +1,9 @@
 @media screen and (max-device-width: 640px) {
-  #songName{
+  #SongName{
     font-size: 3em;
   }
 
-  #audio-player {
+  #AudioPlayer {
     bottom: -250px;
     height: 250px;
     width: 100%;
@@ -14,7 +14,7 @@
     left: 170px;
   }
 
-  #play {
+  #Play {
     top: 150px;
     left: 290px;
   }
@@ -24,7 +24,7 @@
     left: 410px;
   }
 
-  #mute {
+  #Mute {
     top: 150px;
     right: 30%;
   }
@@ -33,24 +33,24 @@
     font-size: 2.7em;
   }
 
-  #progressbar {
+  #ProgressBar {
     width: 75%;
   }
 
-  #loop {
+  #Loop {
     top: 150px;
     left: 50px;
   }
 
-  #random {
+  #Random {
     top: 150px;
     left: 530px;
   }
 
-  #play,
-  #mute,
-  #loop,
-  #random,
+  #Play,
+  #Mute,
+  #Loop,
+  #Random,
   .player-button {
     width: 50px;
     position: absolute;
@@ -58,13 +58,13 @@
   }
 
   #Volume,
-  #progress-bar {
+  #ProgressBar {
     height: 10px;
     border-radius: 25px;
     outline: none;
   }
 
-  #progress-bar {
+  #ProgressBar {
     width: 77% !important;
   }
 
@@ -77,14 +77,14 @@
   }
 
   #Volume,
-  #progress-bar {
+  #ProgressBar {
     margin-top: 26px !important;
   }
 
   #Volume::-webkit-slider-thumb,
-  #progress-bar::-webkit-slider-thumb,
+  #ProgressBar::-webkit-slider-thumb,
   #Volume::-moz-range-thumb,
-  #progress-bar::-moz-range-thumb{
+  #ProgressBar::-moz-range-thumb{
     width: 35px;
     height: 35px;
   }

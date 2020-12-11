@@ -1,8 +1,8 @@
-#mediaPlayer{
+#MediaPlayer{
   display: none;
 }
 
-#audio-player {
+#AudioPlayer {
   z-index: 950;
   background-color: #3f3f3f;
   position: fixed;
@@ -20,14 +20,14 @@
   transition-duration: 0.8s;
 }
 
-#songName{
+#SongName{
   font-family: "Open sans", sans-serif;
   color: white;
   padding-left: 25px;
   margin: 0;
 }
 
-#controls {
+#Controls {
   padding-left: 25px;
   height: inherit;
   width: 100%;
@@ -55,31 +55,22 @@
   background: white;
 }
 
-#progressbar {
-  height: 14px;
-  display: inline-block;
-  border-radius: 0px;
-  position: relative;
-  top: 16px;
-  border: none;
-}
-
 #Volume,
-#progress-bar {
+#ProgressBar {
   -webkit-appearance: none;
   width: 13%;
   outline: none;
   background: linear-gradient(to right, #FFF 100%, #0B0B0B 0%)
 }
 
-#progress-bar {
+#ProgressBar {
   background: linear-gradient(to right, #FFF 0%, #0B0B0B 0%)
 }
 
 #Volume::-webkit-slider-thumb,
-#progress-bar::-webkit-slider-thumb,
+#ProgressBar::-webkit-slider-thumb,
 #Volume::-moz-range-thumb,
-#progress-bar::-moz-range-thumb {
+#ProgressBar::-moz-range-thumb {
   -webkit-appearance: none;
   appearance: none;
   border-radius: 100%;
