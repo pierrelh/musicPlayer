@@ -63,7 +63,8 @@ document.getElementById("Random").addEventListener("click", function() {
             break;
   
         case "false":
-            randomPlaylist = shuffle(playlist);
+            randomPlaylist = playlist.slice();
+            shuffle(randomPlaylist);
             this.dataset.random = "true";
             this.src = "../../img/random.png";
             console.log(playlist);
