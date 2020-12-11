@@ -30,7 +30,7 @@ document.getElementById("Previous").addEventListener("click", function() {
 })
 
 // Handle the PlayPause button click
-document.getElementById("PlayPause").addEventListener('click', playPause(), false);
+document.getElementById("PlayPause").addEventListener('click', playPause, false);
 
 // Handle the Next button click
 document.getElementById("Next").addEventListener("click", function() {
