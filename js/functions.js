@@ -91,14 +91,17 @@ function playMusic(musicId) {
 function playNextMusic() {
     var isRandom = document.getElementById("Random").dataset.random; // Getting the random setting
     var playedMusicId = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the played music
+    console.log(playedMusicId);
 
-    if (isRandom == "true") { // Play on random mode
+    // Choose witch playlist to use
+    if (isRandom == "true") {
         var usedPlaylist = randomPlaylist.slice();
-    }else { // Play on normal mode
+    }else {
         var usedPlaylist = playlist.slice();
     }
 
     var indexOfCurrentSong = usedPlaylist.indexOf(playedMusicId); // Getting the position of the current song in the playlist
+    console.log(indexOfCurrentSong);
     if (indexOfCurrentSong == usedPlaylist.length) { // Check if the played music is the last one
         if (document.getElementById("Loop").dataset.loop == "none") { // The player will not restart the playlist
             return;
