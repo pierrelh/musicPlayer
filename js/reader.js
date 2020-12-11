@@ -96,12 +96,14 @@ document.getElementById("Volume").addEventListener("input", function() {
 
 // Handle the load of metadata of the MusicPlayer
 document.getElementById("MusicPlayer").addEventListener("onloadedmetadata", function() {
+    console.log("meta data loaded");
     document.getElementById("ProgressBar").max = this.duration;
     document.getElementById("Time").text(getTime(this.duration));
 });
 
 // Handle the on time update of the MusicPlayer
 document.getElementById("MusicPlayer").addEventListener("ontimeupdate", function() {
+    console.log("time updated");
     document.getElementById("ProgressBar").value = this.currentTime;
     document.getElementById("Start").text(getTime(player.currentTime));
     var percent = (this.value / (this.max - this.min)) * 100;
@@ -113,12 +115,14 @@ document.getElementById("MusicPlayer").addEventListener("ontimeupdate", function
 
 // Handle the on pause of the MusicPlayer
 document.getElementById("MusicPlayer").addEventListener("onpause", function() {
+    console.log("paused");
     document.getElementById("PlayPause").src = "../../img/play.png";
     document.getElementById("PlayPause").dataset.isPlaying = "false";
 });
 
 // Handle the on pause of the MusicPlayer
 document.getElementById("MusicPlayer").addEventListener("onplay", function() {
+    console.log("played");
     document.getElementById("PlayPause").src = "../../img/pause.png";
     document.getElementById("PlayPause").dataset.isPlaying = "true";
 });
