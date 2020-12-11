@@ -33,7 +33,7 @@ document.getElementById("Previous").addEventListener("click", function() {
 document.getElementById("PlayPause").addEventListener("click", playPause, false);
 
 // Handle the Next button click
-document.getElementById("Next").addEventListener("click", playNextMusic(true), false);
+document.getElementById("Next").addEventListener("click", playNextMusic, false);
 
 // Handle the Random button click
 document.getElementById("Random").addEventListener("click", function() {

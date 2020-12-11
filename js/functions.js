@@ -100,6 +100,9 @@ function playNextMusic(isSkiped) {
     var isRandom = document.getElementById("Random").dataset.random; // Getting the random setting
     var playedMusicId = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the played music
     var loop = document.getElementById("Loop").dataset.loop; // Getting the loop setting
+    if (isSkiped === undefined) {
+        isSkiped = true;// Setting a default value if undefined
+    }
 
     // Check if the reader should loop on the same music or not
     if (!isSkiped && loop == "one") {
