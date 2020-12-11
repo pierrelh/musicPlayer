@@ -49,11 +49,11 @@ function playMusic(musicId) {
       document.getElementById("PlayedMusic").remove(); // Remove it if exist
     }
 
-    var music = document.getElementById(musicId); // Getting the element of the new played music
+    var music = document.getElementById("Music" + musicId); // Getting the element of the new played music
     var playing = document.createElement("li"); // Creating a new played music template
     playing.id = "PlayedMusic";
     playing.classList.add("playing");
-    var parent = document.getElementById("Music" + musicId).parentNode;
+    var parent = document.getElementById("MusicList" + musicId);
     parent.insertBefore(playing, music); // Adding the template
     
     // Getting all the new music's attributes
