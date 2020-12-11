@@ -96,28 +96,34 @@ function playMusic(musicId) {
 }
 
 // Handle the play of the next music asked by the user
-function playNextMusic() {
+function playNextMusic(isSkiped) {
     var isRandom = document.getElementById("Random").dataset.random; // Getting the random setting
     var playedMusicId = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the played music
+    var loop = document.getElementById("Loop").dataset.loop; // Getting the loop setting
 
-    // Choose witch playlist to use
-    if (isRandom == "true") {
-        var usedPlaylist = randomPlaylist.slice();
+    // Check if the reader should loop on the same music or not
+    if (!isSkiped && loop == "one") {
+        var indexOfNextSong = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the current music
     }else {
-        var usedPlaylist = playlist.slice();
-    }
-
-    var indexOfCurrentSong = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current song in the playlist
-    if (indexOfCurrentSong == usedPlaylist.length) { // Check if the played music is the last one
-        if (document.getElementById("Loop").dataset.loop == "none") { // The player will not restart the playlist
-            return;
-        }else { // The player will restart the playlist
-            var indexOfNextSong = 0;
+        // Choose witch playlist to use
+        if (isRandom == "true") {
+            var usedPlaylist = randomPlaylist.slice();
+        }else {
+            var usedPlaylist = playlist.slice();
         }
-    }else { // The player continu the playlist
-        var indexOfNextSong = indexOfCurrentSong + 1;
-    }
-    
+
+        var indexOfCurrentSong = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current song in the playlist
+        if (indexOfCurrentSong == usedPlaylist.length) { // Check if the played music is the last one
+            if (document.getElementById("Loop").dataset.loop == "none") { // The player will not restart the playlist
+                return;
+            }else { // The player will restart the playlist
+                var indexOfNextSong = 0;
+            }
+        }else { // The player continu the playlist
+            var indexOfNextSong = indexOfCurrentSong + 1;
+        }
+
+    }    
     // Play the next music
     playMusic(indexOfNextSong);
 }

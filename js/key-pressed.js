@@ -25,7 +25,7 @@ document.onkeydown = function(event) {
       case "n": // N is pressed
         if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
           event.preventDefault();
-          playNextMusic();
+          playNextMusic(true);
         }
         break;
     }

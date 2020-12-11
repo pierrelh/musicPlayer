@@ -33,7 +33,7 @@ document.getElementById("Previous").addEventListener("click", function() {
 document.getElementById("PlayPause").addEventListener("click", playPause, false);
 
 // Handle the Next button click
-document.getElementById("Next").addEventListener("click", playNextMusic, false);
+document.getElementById("Next").addEventListener("click", playNextMusic(true), false);
 
 // Handle the Random button click
 document.getElementById("Random").addEventListener("click", function() {
@@ -106,7 +106,6 @@ document.getElementById("MusicPlayer").addEventListener("timeupdate", function()
     ProgressBar.value = this.currentTime;
     document.getElementById("Start").innerHTML = getTime(this.currentTime);
     var percent = (ProgressBar.value / (ProgressBar.max - ProgressBar.min)) * 100;
-    console.log(percent);
     document.getElementById("ProgressBar").style.backgroundImage = "-webkit-gradient(linear, left top, right top, " +
                                                               "color-stop(" + percent + "%, #FFF), " +
                                                               "color-stop(" + percent + "%, #0B0B0B)" +
@@ -126,6 +125,4 @@ document.getElementById("MusicPlayer").addEventListener("play", function() {
 });
 
 // Handle the on ended of the MusicPlayer
-document.getElementById("MusicPlayer").addEventListener("ended", function() {
-    console.log("Audio finished... Next music incoming.")
-});
+document.getElementById("MusicPlayer").addEventListener("ended", playNextMusic(false), false);
