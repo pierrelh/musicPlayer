@@ -1,41 +1,41 @@
 $(document).ready(function () {
-  var start = $("#Start");
-  var time = $("#time");
+  // var start = $("#Start");
+  // var time = $("#time");
   var progressBar = document.getElementById("ProgressBar");
   var player = document.getElementById("MusicPlayer");
-  var duration = 0;
+  // var duration = 0;
 
-  player.onloadedmetadata = function() {
-    duration = player.duration;
-    progressBar.max = duration;
-    time.text(getTime(player.duration));
-  };
+  // player.onloadedmetadata = function() {
+  //   duration = player.duration;
+  //   progressBar.max = duration;
+  //   time.text(getTime(player.duration));
+  // };
 
   player.load();
   player.volume = 1;
 
-  player.addEventListener("timeupdate", function() {
-    progressBar.value = player.currentTime;
-    start.text(getTime(player.currentTime));
-    var percent = (progressBar.value / 100) * 100;
+  // player.addEventListener("timeupdate", function() {
+  //   progressBar.value = player.currentTime;
+  //   start.text(getTime(player.currentTime));
+  //   var percent = (progressBar.value / 100) * 100;
 
-    $("#ProgressBar").css("background-image",
-        "-webkit-gradient(linear, left top, right top, " +
-        "color-stop(" + percent + "%, #FFF), " +
-        "color-stop(" + percent + "%, #0B0B0B)" +
-        ")");
-  }, false);
+  //   $("#ProgressBar").css("background-image",
+  //       "-webkit-gradient(linear, left top, right top, " +
+  //       "color-stop(" + percent + "%, #FFF), " +
+  //       "color-stop(" + percent + "%, #0B0B0B)" +
+  //       ")");
+  // }, false);
 
-  player.addEventListener("ended", function(){
-       player.currentTime = 0;
-       var url = player.src;
-       var library = document.querySelector("#Library");
-       var element = library.querySelectorAll("li[data-url='" + url + "']")[0];
-       if (element != undefined) {
-         var identifier = parseInt(element.id);
-         playNextSongAtEnd(identifier);
-       }
-  });
+  // player.addEventListener("ended", function(){
+  //      player.currentTime = 0;
+  //      var url = player.src;
+  //      var library = document.querySelector("#Library");
+  //      var element = library.querySelectorAll("li[data-url='" + url + "']")[0];
+  //      if (element != undefined) {
+  //        var identifier = parseInt(element.id);
+  //        playNextSongAtEnd(identifier);
+  //      }
+  // });
 
   $("#Volume").change(function (e) {
     var percent = ($(this).val() / 100) * 100;
@@ -57,62 +57,16 @@ $(document).ready(function () {
         ")");
   });
 
-  function getTime(t) {
-    var m = ~~(t / 60),
-      s = ~~(t % 60);
-    return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
-  }
+  // function getTime(t) {
+  //   var m = ~~(t / 60),
+  //     s = ~~(t % 60);
+  //   return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+  // }
 
   progressBar.addEventListener("input", function(){
     player.currentTime = player.duration / progressBar.max * progressBar.value;
   }, false);
 });
-
-// function mediaPlayerAppear(identifier) {
-//   if (identifier != 'stop') {
-//     var song = document.getElementById(identifier);
-
-//     if (document.getElementById("playedMusic") != undefined) {
-//       document.getElementById("playedMusic").remove();
-//     }
-//     var playing = document.createElement('li');
-//     playing.id = "playedMusic";
-//     playing.classList.add("playing");
-//     var parent = document.getElementById(identifier).parentNode;
-//     parent.insertBefore(playing, song);
-
-//     var url = song.getAttribute('data-url');
-//     var author = song.getAttribute('data-artist');
-//     var name = song.getAttribute('data-title');
-
-//     var library = document.getElementById('LibraryObjects');
-//     library.classList.add("library-reader-active");
-
-//     var playlist = document.getElementById('divPlaylist');
-//     playlist.classList.add('playlist-reader-showed');
-
-//     var musicPlayer = document.getElementById('musicPlayer');
-//     musicPlayer.dataset.musicPlayed = identifier;
-//     var nameTxt = document.getElementById('songName');
-//     nameTxt.innerHTML = author + " - " + name;
-//     musicPlayer.src = url;
-//     var audioPlayer = document.getElementById('audio-player');
-//     if (document.getElementById('sidebar').classList.contains('sidebar-hide') && !audioPlayer.classList.contains('left')) {
-//       audioPlayer.classList.add('left');
-//     }
-//     audioPlayer.classList.add('show');
-//     document.getElementById("Library").classList.add('library-reader-active');
-//     document.getElementById('Previous').onclick = function () {
-//       if (identifier != 0) {
-//         identifier = identifier - 1;
-//       }
-//       mediaPlayerAppear(identifier);
-//     };
-//     document.getElementById('Next').onclick = function () {
-//       playNextSong(identifier);
-//     };
-//   }
-// }
 
 function playNextSongAtEnd(identifier) {
   var loopButtonClass = document.getElementById("Loop").classList;

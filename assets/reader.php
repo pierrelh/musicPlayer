@@ -14,7 +14,7 @@
     --><img id="Next" class='reader-buttons' src="../img/skip.png" alt=""><!-- @whitespace
     --><span id="Start" class="time current-time">00:00</span><!-- @whitespace
     --><input type="range" min="0" max="100" value="0" id="ProgressBar" name="" value=""><!-- @whitespace
-    --><span id="time" class="time total-time">00:00</span><!-- @whitespace
+    --><span id="Time" class="time total-time">00:00</span><!-- @whitespace
     --><img id="Random" data-random="false" class="reader-buttons" src="../../img/no-random.png" alt="random"><!-- @whitespace
     --><img id="Mute" data-mute="false" data-volume="1" class="reader-buttons mute" src="../../img/audio-on.png" alt=""><!-- @whitespace
     --><input type="range" min="0" max="100" value="100" id="Volume" name="" value="">

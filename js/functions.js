@@ -7,6 +7,13 @@ function shuffle(a) {
     return a;
 }
 
+// Set Time to the right format
+function getTime(t) {
+    var m = ~~(t / 60),
+      s = ~~(t % 60);
+    return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+}
+
 // Show the assets Background
 function backgroundAppear() {
     var background = document.getElementById("Background");
@@ -44,6 +51,7 @@ function playPause() {
     }
 }
 
+// Play the passed music
 function playMusic(musicId) {    
     if (document.getElementById("PlayedMusic") != undefined) { // Checking if there is a played music template
       document.getElementById("PlayedMusic").remove(); // Remove it if exist
@@ -91,7 +99,6 @@ function playMusic(musicId) {
 function playNextMusic() {
     var isRandom = document.getElementById("Random").dataset.random; // Getting the random setting
     var playedMusicId = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the played music
-    console.log(playedMusicId);
 
     // Choose witch playlist to use
     if (isRandom == "true") {
@@ -101,7 +108,6 @@ function playNextMusic() {
     }
 
     var indexOfCurrentSong = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current song in the playlist
-    console.log(indexOfCurrentSong);
     if (indexOfCurrentSong == usedPlaylist.length) { // Check if the played music is the last one
         if (document.getElementById("Loop").dataset.loop == "none") { // The player will not restart the playlist
             return;
@@ -111,8 +117,6 @@ function playNextMusic() {
     }else { // The player continu the playlist
         var indexOfNextSong = indexOfCurrentSong + 1;
     }
-
-    console.log(indexOfNextSong);
     
     // Play the next music
     playMusic(indexOfNextSong);

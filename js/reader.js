@@ -93,3 +93,37 @@ document.getElementById("Volume").addEventListener("input", function() {
         document.getElementById("Mute").src = "../../img/audio-off.png";
     }
 })
+
+// Handle the load of metadata of the MusicPlayer
+document.getElementById("MusicPlayer").addEventListener("onloadedmetadata", function() {
+    document.getElementById("ProgressBar").max = this.duration;
+    document.getElementById("Time").text(getTime(this.duration));
+});
+
+// Handle the on time update of the MusicPlayer
+document.getElementById("MusicPlayer").addEventListener("ontimeupdate", function() {
+    document.getElementById("ProgressBar").value = this.currentTime;
+    document.getElementById("Start").text(getTime(player.currentTime));
+    var percent = (this.value / (this.max - this.min)) * 100;
+    document.getElementById("ProgressBar").style.background = "-webkit-gradient(linear, left top, right top, " +
+                                                              "color-stop(" + percent + "%, #FFF), " +
+                                                              "color-stop(" + percent + "%, #0B0B0B)" +
+                                                              ")";
+});
+
+// Handle the on pause of the MusicPlayer
+document.getElementById("MusicPlayer").addEventListener("onpause", function() {
+    document.getElementById("PlayPause").src = "../../img/play.png";
+    document.getElementById("PlayPause").dataset.isPlaying = "false";
+});
+
+// Handle the on pause of the MusicPlayer
+document.getElementById("MusicPlayer").addEventListener("onplay", function() {
+    document.getElementById("PlayPause").src = "../../img/pause.png";
+    document.getElementById("PlayPause").dataset.isPlaying = "true";
+});
+
+// Handle the on ended of the MusicPlayer
+document.getElementById("MusicPlayer").addEventListener("onended", function() {
+    console.log("Audio finished... Next music incoming.")
+});
