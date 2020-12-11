@@ -98,6 +98,9 @@ function playNextMusic() {
         var usedPlaylist = playlist.slice();
     }
 
+    console.log(usedPlaylist);
+    console.log(usedPlaylist.length);
+
     var indexOfCurrentSong = usedPlaylist.indexOf(playedMusicId); // Getting the position of the current song in the playlist
     if (indexOfCurrentSong == usedPlaylist.length) { // Check if the played music is the last one
         if (document.getElementById("Loop").dataset.loop == "none") { // The player will not restart the playlist
