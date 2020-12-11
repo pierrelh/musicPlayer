@@ -53,7 +53,7 @@ function playMusic(musicId) {
     var playing = document.createElement("li"); // Creating a new played music template
     playing.id = "PlayedMusic";
     playing.classList.add("playing");
-    var parent = document.getElementById(musicId).parentNode;
+    var parent = document.getElementById("Music" + musicId).parentNode;
     parent.insertBefore(playing, music); // Adding the template
     
     // Getting all the new music's attributes
