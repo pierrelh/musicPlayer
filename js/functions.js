@@ -75,7 +75,7 @@ function playMusic(musicId) {
     
     // Setting the new attributes in the musicPlayer
     var musicPlayer = document.getElementById("MusicPlayer");
-    musicPlayer.dataset.musicPlayed = identifier;
+    musicPlayer.dataset.musicPlayed = musicId;
     var nameTxt = document.getElementById("SongName");
     nameTxt.innerHTML = author + " - " + name;
     musicPlayer.src = url;
@@ -91,7 +91,6 @@ function playMusic(musicId) {
 function playNextMusic() {
     var isRandom = document.getElementById("Random").dataset.random; // Getting the random setting
     var playedMusicId = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the played music
-    var player = document.getElementById("MusicPlayer");// Getting the player
 
     if (isRandom == "true") { // Play on random mode
         var usedPlaylist = randomPlaylist.slice();
