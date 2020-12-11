@@ -90,10 +90,6 @@ $(document).ready(function () {
   }, false);
 });
 
-document.getElementsByName("music").addEventListener("click", function() {
-  console.log(this.id);
-})
-
 function mediaPlayerAppear(identifier) {
   if (identifier != 'stop') {
     var song = document.getElementById(identifier);

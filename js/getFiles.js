@@ -51,10 +51,20 @@ function getFiles(row, type, identifier){
           lip.appendChild(p);
           p.innerHTML = data[i]['file_author'] + " - " + data[i]['file_name'];
           p.id = 'p'+i;
-          document.getElementById('p'+i).onclick = function () {
-            mediaPlayerAppear(i);
-          };
+          p.name = "music-name";
+          // document.getElementById('p'+i).onclick = function () {
+          //   mediaPlayerAppear(i);
+          // };
         })(i);
+
+        var musics = document.getElementsByName("music");
+        var musicNames = document.getElementsByName("music-name");
+
+        for (var i = 0; i < musics.length; i++) {
+          musics[i].addEventListener('click', mediaPlayerAppear(i), false);
+          musicNames[i].addEventListener('click', mediaPlayerAppear(i), false);
+        }
+
       }
     }
   });
