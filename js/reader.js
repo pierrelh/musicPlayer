@@ -69,28 +69,7 @@ Random.addEventListener("click", function() {
 });
 
 // Handle the Mute button click
-Mute.addEventListener("click", function() {
-    var isMute = this.dataset.mute;
-    switch (isMute) {
-        case "true": // Setting the audio on
-            MusicPlayer.volume = this.dataset.volume;
-            this.src = "../../img/audio-on.png";
-            this.dataset.mute = "false";
-            break;
-    
-        case "false": // Setting the audio off
-            MusicPlayer.volume = 0;
-            this.src = "../../img/audio-off.png";
-            this.dataset.mute = "true";
-            break;
-    
-        default: // Default: Setting the audio on
-            MusicPlayer.volume = this.dataset.volume;
-            this.src = "../../img/audio-on.png";
-            this.dataset.mute = "false";
-            break;
-    }
-})
+Mute.addEventListener("click", toggleMute, false);
 
 // Handle the volume slider actions
 Volume.addEventListener("input", function() {

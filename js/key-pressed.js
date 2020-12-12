@@ -1,5 +1,4 @@
 document.onkeydown = function(event) {
-    var musicPlayer = document.getElementById("MusicPlayer");
     switch (event.key) {
 
       case " ": // Spacebar is pressed
@@ -24,7 +23,10 @@ document.onkeydown = function(event) {
         break;
       
       case "m": // M is pressed
-        // Mute
+        if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
+          event.preventDefault();
+          toggleMute();
+        }
         break;
     }
 };

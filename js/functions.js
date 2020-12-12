@@ -51,6 +51,32 @@ function togglePlayPause() {
     }
 }
 
+// Handle the Mute button actions
+function toggleMute() {
+    var MusicPlayer = document.getElementById("MusicPlayer");
+    var Mute = document.getElementById("Mute");
+    var isMute = Mute.dataset.mute;
+    switch (isMute) {
+        case "true": // Setting the audio on
+            MusicPlayer.volume = Mute.dataset.volume;
+            Mute.src = "../../img/audio-on.png";
+            Mute.dataset.mute = "false";
+            break;
+    
+        case "false": // Setting the audio off
+            MusicPlayer.volume = 0;
+            Mute.src = "../../img/audio-off.png";
+            Mute.dataset.mute = "true";
+            break;
+    
+        default: // Default: Setting the audio on
+            MusicPlayer.volume = Mute.dataset.volume;
+            Mute.src = "../../img/audio-on.png";
+            Mute.dataset.mute = "false";
+            break;
+    }
+}
+
 // Play the passed music
 function playMusic(musicId) {    
     if (document.getElementById("PlayedMusic") != undefined) { // Checking if there is a played music template
