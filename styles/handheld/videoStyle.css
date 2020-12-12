@@ -1,51 +1,51 @@
 @media screen and (max-device-width: 640px) {
-  .library,
-  .library-show {
-    margin: 100px 5px 0px 5px;
-    transition: 0.8s;
-    overflow-x: hidden;
-  }
+	.library,
+	.library-show {
+		margin: 100px 5px 0px 5px;
+		transition: 0.8s;
+		overflow-x: hidden;
+	}
 
-  .library-reader-active {
-    margin-bottom: 250px !important;
-  }
+	.library-reader-active {
+		margin-bottom: 250px !important;
+	}
 
-  .library > div,
-  .library-show > div {
-    padding: 0;
-  }
+	.library > div,
+	.library-show > div {
+		padding: 0;
+	}
 
-  .library > div > ul,
-  .library-show > div > ul {
-    width: 220px;
-    margin: 20px 0 0 20px;
-  }
+	.library > div > ul,
+	.library-show > div > ul {
+		width: 220px;
+		margin: 20px 0 0 20px;
+	}
 
-  .library > div > ul > .view,
-  .library-show > div > ul > .view {
-    height: 220px;
-  }
+	.library > div > ul > .view,
+	.library-show > div > ul > .view {
+		height: 220px;
+	}
 
-  .library > div > ul > li > p,
-  .library-show > div > ul > li > p {
-    font-size: 3em;
-  }
+	.library > div > ul > li > p,
+	.library-show > div > ul > li > p {
+		font-size: 3em;
+	}
 
-  .edit,
-  .delete,
-  .add,
-  .check,
-  .edit-hide,
-  .delete-hide,
-  .add-hide,
-  .check-hide,
-  .playing {
-    height: 220px;
-    width: 222px;
-    background-size: 40%;
-  }
+	.edit,
+	.delete,
+	.add,
+	.check,
+	.edit-hide,
+	.delete-hide,
+	.add-hide,
+	.check-hide,
+	.playing {
+		height: 220px;
+		width: 222px;
+		background-size: 40%;
+	}
 
-  .playing {
-    background-size: 100% !important;
-  }
+	.playing {
+		background-size: 100% !important;
+	}
 }

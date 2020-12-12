@@ -1,26 +1,26 @@
 header{
-  background-color: #0B0B0B;
-  width: 100%;
-  margin: 0;
-  top: 0;
-  position: fixed;
-  z-index: 801;
+	background-color: #0B0B0B;
+	width: 100%;
+	margin: 0;
+	top: 0;
+	position: fixed;
+	z-index: 801;
 }
 
 header > h1{
-  text-align: center;
-  color: #fff;
-  font-family: "Open sans", sans-serif;
-  margin: 0;
+	text-align: center;
+	color: #fff;
+	font-family: "Open sans", sans-serif;
+	margin: 0;
 }
 
 .arrow {
-  cursor: pointer;
-  position: fixed;
-  margin: .5% 1%;
-  transition: 0.8s;
+	cursor: pointer;
+	position: fixed;
+	margin: .5% 1%;
+	transition: 0.8s;
 }
 
 .arrow-active {
-  transform: rotate(180deg);
+	transform: rotate(180deg);
 }

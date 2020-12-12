@@ -1,18 +1,18 @@
 @media screen and (max-device-width: 640px) {
-  #delete {
-    left: 5%;
-    width: 90%;
-    top: 35%;
-  }
+	#delete {
+		left: 5%;
+		width: 90%;
+		top: 35%;
+	}
 
-  #delete > h2 {
-    font-size: 4em;
-  }
+	#delete > h2 {
+		font-size: 4em;
+	}
 
-  #delete > ul > li > input {
-    border: 3px solid black;
-    margin: 15px 65px;
-    padding: 15px 65px;
-    font-size: 4em;
-  }
+	#delete > ul > li > input {
+		border: 3px solid black;
+		margin: 15px 65px;
+		padding: 15px 65px;
+		font-size: 4em;
+	}
 }

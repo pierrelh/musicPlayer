@@ -1,14 +1,14 @@
 @media screen and (max-device-width: 640px) {
-  header{
-    height: 100px;
-  }
+	header{
+		height: 100px;
+	}
 
-  header > h1{
-    font-size: 4em;
-  }
+	header > h1{
+		font-size: 4em;
+	}
 
-  .arrow {
-    height: 80px;
-    top: 10px;
-  }
+	.arrow {
+		height: 80px;
+		top: 10px;
+	}
 }

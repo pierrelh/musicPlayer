@@ -1,26 +1,26 @@
 .sidebar,
 .sidebar-hide {
-  position: fixed;
-  height: 100%;
-  top: 0;
-  z-index: 800;
-  transition: 0.8s;
+	position: fixed;
+	height: 100%;
+	top: 0;
+	z-index: 800;
+	transition: 0.8s;
 }
 
 .sidebar > ul,
 .sidebar-hide > ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
 .sidebar > ul > li > input[type="button"],
 .sidebar-hide > ul > li > input[type="button"] {
-  background: none;
-  border: none;
-  color: #fff;
-  font-family: "Open sans", sans-serif;
-  cursor: pointer;
-  text-align: left;
-  transition-duration: 0.8s;
+	background: none;
+	border: none;
+	color: #fff;
+	font-family: "Open sans", sans-serif;
+	cursor: pointer;
+	text-align: left;
+	transition-duration: 0.8s;
 }

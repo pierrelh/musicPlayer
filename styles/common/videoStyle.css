@@ -1,47 +1,47 @@
 .library,
 .library-show {
-  transition: 0.8s;
-  overflow: hidden;
-  position: fixed;
-  height: 93vh;
-  z-index: 500;
+	transition: 0.8s;
+	overflow: hidden;
+	position: fixed;
+	height: 93vh;
+	z-index: 500;
 }
 
 .library > div,
 .library-show > div {
-  display: block;
-  margin: auto;
-  height: inherit;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  position: relative;
+	display: block;
+	margin: auto;
+	height: inherit;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	position: relative;
 }
 
 .library > div > ul,
 .library-show > div > ul {
-  list-style: none;
-  padding: 0;
-  display: inline-block;
+	list-style: none;
+	padding: 0;
+	display: inline-block;
 }
 
 .library > div > ul > .view,
 .library-show > div > ul > .view {
-  width: 100%;
-  cursor: pointer;
-  background-color: black;
-  background-position: center;
-  background-size: cover;
+	width: 100%;
+	cursor: pointer;
+	background-color: black;
+	background-position: center;
+	background-size: cover;
 }
 
 .library > div > ul > li > p,
 .library-show > div > ul > li > p {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  font-family: "Open sans", sans-serif;
-  margin: 5px 0 0 0;
-  cursor: pointer;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	color: #fff;
+	font-family: "Open sans", sans-serif;
+	margin: 5px 0 0 0;
+	cursor: pointer;
 }
 
 .edit,
@@ -53,57 +53,57 @@
 .add-hide,
 .check-hide,
 .playing {
-  background-image: url("../../img/edit.png");
-  position: absolute;
-  background-color: rgba(0, 0, 0, .5);
-  background-position: center;
-  background-repeat: no-repeat;
-  margin-left: -1px;
-  cursor: pointer;
-  animation: show-edit 0.8s ease;
+	background-image: url("../../img/edit.png");
+	position: absolute;
+	background-color: rgba(0, 0, 0, .5);
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-left: -1px;
+	cursor: pointer;
+	animation: show-edit 0.8s ease;
 }
 
 .edit-hide,
 .delete-hide,
 .add-hide,
 .check-hide {
-  animation: hide-edit 0.8s ease !important;
+	animation: hide-edit 0.8s ease !important;
 }
 
 .delete,
 .delete-hide {
-  background-image: url("../../img/delete.png") !important;
+	background-image: url("../../img/delete.png") !important;
 }
 
 .playing {
-  background-image: url("../../img/playing.gif") !important;
-  opacity: 0.7;
-  animation: show-playing 0.8s ease !important;
+	background-image: url("../../img/playing.gif") !important;
+	opacity: 0.7;
+	animation: show-playing 0.8s ease !important;
 }
 
 @keyframes show-edit {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+		0% {
+				opacity: 0;
+		}
+		100% {
+				opacity: 1;
+		}
 }
 
 @keyframes hide-edit {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+		0% {
+				opacity: 1;
+		}
+		100% {
+				opacity: 0;
+		}
 }
 
 @keyframes show-playing {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0.7;
-    }
+		0% {
+				opacity: 0;
+		}
+		100% {
+				opacity: 0.7;
+		}
 }

@@ -1,172 +1,172 @@
-#upload,
-#edit {
-  background-color: white;
-  position: fixed;
-  z-index: 999;
-  max-height: 0;
-  transition: max-height 0.5s ease-out;
-  overflow: hidden;
-  position: absolute;
+#Upload,
+#Edit {
+	background-color: white;
+	position: fixed;
+	z-index: 999;
+	max-height: 0;
+	transition: max-height 0.5s ease-out;
+	overflow: hidden;
+	position: absolute;
 }
 
-#banner {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: auto;
-  margin-bottom: 50px;
+#Banner {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: auto;
+	margin-bottom: 50px;
 }
 
 .editImage {
-  cursor: pointer;
-  margin-left: 70%;
-  margin-top: 5px;
+	cursor: pointer;
+	margin-left: 70%;
+	margin-top: 5px;
 }
 
-#upload > form,
-#edit > form {
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  padding: 5% 0;
+#Upload > form,
+#Edit > form {
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	padding: 5% 0;
 }
 
 .delete-edit {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+		list-style: none;
+		padding: 0;
+		margin: 0;
 }
 
-#upload > form > ul {
-  display: flex;
-  justify-content: space-around;
-  margin: 50px auto;
-  list-style: none;
-  padding: 0;
-  width: 70%;
+#Upload > form > ul {
+	display: flex;
+	justify-content: space-around;
+	margin: 50px auto;
+	list-style: none;
+	padding: 0;
+	width: 70%;
 }
 
-#upload > form > ul > li > ul {
-  padding: 0;
-  list-style: none;
+#Upload > form > ul > li > ul {
+	padding: 0;
+	list-style: none;
 }
 
-#upload > form > ul > li > ul > li > label {
-  cursor: pointer;
+#Upload > form > ul > li > ul > li > label {
+	cursor: pointer;
 }
 
-#upload > form > ul > li > ul > li > label > img {
-  box-sizing: content-box;
+#Upload > form > ul > li > ul > li > label > img {
+	box-sizing: content-box;
 }
 
 .progress-file,
 .progress-picture {
-  display: block;
-  margin: 5px auto;
-  border: 1px;
-  width: 50%;
-  height: 10px;
-  background-color: #ccc;
-  border-radius: 5px;
-  text-align: center;
+	display: block;
+	margin: 5px auto;
+	border: 1px;
+	width: 50%;
+	height: 10px;
+	background-color: #ccc;
+	border-radius: 5px;
+	text-align: center;
 }
 
 .progress-bar-file,
 .progress-bar-picture {
-  width: 0px;
-  height: 10px;
-  background-color: black;
-  text-align: center;
-  line-height: 10px;
-  border-radius: 5px;
-  font-size: 10px;
-  font-family: "Open sans", sans-serif;
+	width: 0px;
+	height: 10px;
+	background-color: black;
+	text-align: center;
+	line-height: 10px;
+	border-radius: 5px;
+	font-size: 10px;
+	font-family: "Open sans", sans-serif;
 }
 
 .text-file,
 .text-picture {
-  margin: 0 auto;
-  width: 100%;
-  color: white;
+	margin: 0 auto;
+	width: 100%;
+	color: white;
 }
 
-#upload > form > label {
-  font-family: "Open sans", sans-serif;
-  font-weight: 700;
+#Upload > form > label {
+	font-family: "Open sans", sans-serif;
+	font-weight: 700;
 }
 
-#upload > form > input[type="text"],
-#edit > form > input[type="text"] {
-  font-family: "Open sans", sans-serif;
-  border: 1px black solid;
-  padding: 5px;
-  margin: 5px;
+#Upload > form > input[type="text"],
+#Edit > form > input[type="text"] {
+	font-family: "Open sans", sans-serif;
+	border: 1px black solid;
+	padding: 5px;
+	margin: 5px;
 }
 
-#upload > form > input[type="file"],
-#edit > form > div > ul > li > input[type="file"] {
-  display: none;
+#Upload > form > input[type="file"],
+#Edit > form > div > ul > li > input[type="file"] {
+	display: none;
 }
 
-#upload > form > input[type="button"],
-#edit > form > input[type="button"] {
-  border: 1px solid black;
-  text-align: center;
-  background: none;
-  font-family: "Open sans", sans-serif;
-  font-size: 1.6em;
-  display: block;
-  margin: auto;
-  margin-top: 100px;
-  padding: 2% 10%;
+#Upload > form > input[type="button"],
+#Edit > form > input[type="button"] {
+	border: 1px solid black;
+	text-align: center;
+	background: none;
+	font-family: "Open sans", sans-serif;
+	font-size: 1.6em;
+	display: block;
+	margin: auto;
+	margin-top: 100px;
+	padding: 2% 10%;
 }
 
 .progress-bar {
-  position: relative;
-  overflow: hidden;
-  margin: 8% auto auto auto;
+	position: relative;
+	overflow: hidden;
+	margin: 8% auto auto auto;
 }
 
-#edit > form > .progress-bar {
-  margin: 3% auto auto auto !important;
+#Edit > form > .progress-bar {
+	margin: 3% auto auto auto !important;
 }
 
 .progress-bar .bar {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  overflow: hidden;
+	position: absolute;
+	top: 0;
+	height: 100%;
+	overflow: hidden;
 }
 
 .progress-bar .bar span {
-  position: absolute;
-  display: block;
-  height: 100%;
-  text-align: center;
-  font-family: "Open sans", sans-serif;
-  font-weight: 700;
-  font-size: 1.7em;
+	position: absolute;
+	display: block;
+	height: 100%;
+	text-align: center;
+	font-family: "Open sans", sans-serif;
+	font-weight: 700;
+	font-size: 1.7em;
 }
 
 .progress-bar .bar.positive {
-  background: black;
-  left: 0;
-  width: 0%;
+	background: black;
+	left: 0;
+	width: 0%;
 }
 
 .progress-bar .bar.positive span {
-  left: 0;
-  color: white;
+	left: 0;
+	color: white;
 }
 
 .progress-bar .bar.negative {
-  background: white;
-  right: 0;
-  width: 100%;
+	background: white;
+	right: 0;
+	width: 100%;
 }
 
 .progress-bar .bar.negative span {
-  right: 0;
-  color: black;
-  cursor: pointer;
+	right: 0;
+	color: black;
+	cursor: pointer;
 }

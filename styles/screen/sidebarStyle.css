@@ -1,26 +1,26 @@
 @media screen and (min-device-width: 641px) {
-  .sidebar {
-    background-color: #0B0B0B;
-    width: 20%;
-    padding-top: 7vh;
-  }
+	.sidebar {
+		background-color: #0B0B0B;
+		width: 20%;
+		padding-top: 7vh;
+	}
 
-  .sidebar > ul > li {
-    margin: 10px;
-  }
+	.sidebar > ul > li {
+		margin: 10px;
+	}
 
-  .sidebar-hide {
-    margin-left: -20% !important;
-  }
+	.sidebar-hide {
+		margin-left: -20% !important;
+	}
 
-  .sidebar > ul > li > input[type="button"],
-  .sidebar-hide > ul > li > input[type="button"] {
-    font-size: 1.5em;
-  }
+	.sidebar > ul > li > input[type="button"],
+	.sidebar-hide > ul > li > input[type="button"] {
+		font-size: 1.5em;
+	}
 
-  .sidebar > ul > li > input[type="button"]:hover,
-  .sidebar-hide > ul > li > input[type="button"]:hover {
-    padding-left: 15px;
-    transition-duration: 0.8s;
-  }
+	.sidebar > ul > li > input[type="button"]:hover,
+	.sidebar-hide > ul > li > input[type="button"]:hover {
+		padding-left: 15px;
+		transition-duration: 0.8s;
+	}
 }

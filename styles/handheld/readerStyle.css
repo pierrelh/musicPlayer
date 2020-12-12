@@ -1,92 +1,92 @@
 @media screen and (max-device-width: 640px) {
-  #SongName{
-    font-size: 3em;
-  }
+	#SongName{
+		font-size: 3em;
+	}
 
-  #AudioPlayer {
-    bottom: -250px;
-    height: 250px;
-    width: 100%;
-  }
+	#AudioPlayer {
+		bottom: -250px;
+		height: 250px;
+		width: 100%;
+	}
 
-  #Previous {
-    top: 150px;
-    left: 170px;
-  }
+	#Previous {
+		top: 150px;
+		left: 170px;
+	}
 
-  #Play {
-    top: 150px;
-    left: 290px;
-  }
+	#Play {
+		top: 150px;
+		left: 290px;
+	}
 
-  #Next {
-    top: 150px;
-    left: 410px;
-  }
+	#Next {
+		top: 150px;
+		left: 410px;
+	}
 
-  #Mute {
-    top: 150px;
-    right: 30%;
-  }
+	#Mute {
+		top: 150px;
+		right: 30%;
+	}
 
-  .time {
-    font-size: 2.7em;
-  }
+	.time {
+		font-size: 2.7em;
+	}
 
-  #ProgressBar {
-    width: 75%;
-  }
+	#ProgressBar {
+		width: 75%;
+	}
 
-  #Loop {
-    top: 150px;
-    left: 50px;
-  }
+	#Loop {
+		top: 150px;
+		left: 50px;
+	}
 
-  #Random {
-    top: 150px;
-    left: 530px;
-  }
+	#Random {
+		top: 150px;
+		left: 530px;
+	}
 
-  #Play,
-  #Mute,
-  #Loop,
-  #Random,
-  .player-button {
-    width: 50px;
-    position: absolute;
-    height: 50px;
-  }
+	#Play,
+	#Mute,
+	#Loop,
+	#Random,
+	.player-button {
+		width: 50px;
+		position: absolute;
+		height: 50px;
+	}
 
-  #Volume,
-  #ProgressBar {
-    height: 10px;
-    border-radius: 25px;
-    outline: none;
-  }
+	#Volume,
+	#ProgressBar {
+		height: 10px;
+		border-radius: 25px;
+		outline: none;
+	}
 
-  #ProgressBar {
-    width: 77% !important;
-  }
+	#ProgressBar {
+		width: 77% !important;
+	}
 
-  #Volume {
-    position: absolute;
-    right: 15px;
-    width: 25%;
-    height: 10px;
-    top: 145px;
-  }
+	#Volume {
+		position: absolute;
+		right: 15px;
+		width: 25%;
+		height: 10px;
+		top: 145px;
+	}
 
-  #Volume,
-  #ProgressBar {
-    margin-top: 26px !important;
-  }
+	#Volume,
+	#ProgressBar {
+		margin-top: 26px !important;
+	}
 
-  #Volume::-webkit-slider-thumb,
-  #ProgressBar::-webkit-slider-thumb,
-  #Volume::-moz-range-thumb,
-  #ProgressBar::-moz-range-thumb{
-    width: 35px;
-    height: 35px;
-  }
+	#Volume::-webkit-slider-thumb,
+	#ProgressBar::-webkit-slider-thumb,
+	#Volume::-moz-range-thumb,
+	#ProgressBar::-moz-range-thumb{
+		width: 35px;
+		height: 35px;
+	}
 
 }

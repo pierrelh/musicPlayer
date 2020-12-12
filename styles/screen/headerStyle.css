@@ -1,12 +1,12 @@
 @media screen and (min-device-width: 641px) {
-  header{
-    height: 7vh;
-    line-height: 7vh;
-    white-space: nowrap;
-  }
+	header{
+		height: 7vh;
+		line-height: 7vh;
+		white-space: nowrap;
+	}
 
-  .arrow {
-    height: 5vh;
-    margin: 1vh 0 0 2vw;
-  }
+	.arrow {
+		height: 5vh;
+		margin: 1vh 0 0 2vw;
+	}
 }

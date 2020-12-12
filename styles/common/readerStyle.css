@@ -1,81 +1,81 @@
 #MediaPlayer{
-  display: none;
+	display: none;
 }
 
 #AudioPlayer {
-  z-index: 950;
-  background-color: #3f3f3f;
-  position: fixed;
-  overflow: hidden;
-  color: white;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -ms-user-select: none;
-  transition-duration: 0.8s;
+	z-index: 950;
+	background-color: #3f3f3f;
+	position: fixed;
+	overflow: hidden;
+	color: white;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-ms-user-select: none;
+	transition-duration: 0.8s;
 }
 
 .show{
-  bottom: 0px !important;
-  transition-duration: 0.8s;
+	bottom: 0px !important;
+	transition-duration: 0.8s;
 }
 
 #SongName{
-  font-family: "Open sans", sans-serif;
-  color: white;
-  padding-left: 25px;
-  margin: 0;
+	font-family: "Open sans", sans-serif;
+	color: white;
+	padding-left: 25px;
+	margin: 0;
 }
 
 #Controls {
-  padding-left: 25px;
-  height: inherit;
-  width: 100%;
-  margin: auto;
-  line-height: 12vh;
+	padding-left: 25px;
+	height: inherit;
+	width: 100%;
+	margin: auto;
+	line-height: 12vh;
 }
 
 .reader-buttons {
-  position: relative;
-  cursor: pointer;
-  vertical-align: middle;
+	position: relative;
+	cursor: pointer;
+	vertical-align: middle;
 }
 
 .time {
-  color: white;
-  font-family: "Open sans", sans-serif;
-  line-height: initial;
+	color: white;
+	font-family: "Open sans", sans-serif;
+	line-height: initial;
 }
 
 .ui-progressbar {
-  background: #0B0B0B;
+	background: #0B0B0B;
 }
 
 .ui-progressbar-value {
-  background: white;
+	background: white;
 }
 
 #Volume,
 #ProgressBar {
-  -webkit-appearance: none;
-  width: 13%;
-  outline: none;
-  background: linear-gradient(to right, #FFF 100%, #0B0B0B 0%)
+	-webkit-appearance: none;
+	width: 13%;
+	outline: none;
+	background: linear-gradient(to right, #FFF 100%, #0B0B0B 0%)
 }
 
 #ProgressBar {
-  background: linear-gradient(to right, #FFF 0%, #0B0B0B 0%)
+	background: linear-gradient(to right, #FFF 0%, #0B0B0B 0%)
 }
 
 #Volume::-webkit-slider-thumb,
 #ProgressBar::-webkit-slider-thumb,
 #Volume::-moz-range-thumb,
 #ProgressBar::-moz-range-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  border-radius: 100%;
-  background: #FFF;
-  cursor: pointer;
-  border: 1px solid white;
+	-webkit-appearance: none;
+	appearance: none;
+	border-radius: 100%;
+	background: #FFF;
+	cursor: pointer;
+	border: 1px solid white;
 }
 

@@ -7,5 +7,5 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/loginStyle.css">
 <link rel="shortcut icon" href="<?php echo $link ?>/img/favicon.png">
 <header>
-  <h1>Music Player</h1>
+	<h1>Music Player</h1>
 </header>

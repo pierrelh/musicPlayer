@@ -1,14 +1,14 @@
 @media screen and (min-device-width: 641px) {
-  .log-form{
-    width: 22%;
-    margin-top: 15%;
-    text-align: right;
-    font-size: 1.2em;
-    max-width: 216px;
-  }
+	.log-form{
+		width: 22%;
+		margin-top: 15%;
+		text-align: right;
+		font-size: 1.2em;
+		max-width: 216px;
+	}
 
-  .log-form > input[type="submit"]{
-    margin-top: 15px;
-    border: 1px solid white;
-  }
+	.log-form > input[type="submit"]{
+		margin-top: 15px;
+		border: 1px solid white;
+	}
 }

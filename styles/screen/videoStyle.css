@@ -1,59 +1,59 @@
 @media screen and (min-device-width: 641px) {
 
-  .library {
-    margin-left: 20%;
-  }
+	.library {
+		margin-left: 20%;
+	}
 
-  .library-show {
-    margin-top: 7vh !important;
-    height: 93vh;
-  }
+	.library-show {
+		margin-top: 7vh !important;
+		height: 93vh;
+	}
 
-  .library-reader-active {
-    height: 81vh !important;
-    transition: 0.8s;
-  }
+	.library-reader-active {
+		height: 81vh !important;
+		transition: 0.8s;
+	}
 
-  .library > div,
-  .library-show > div {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+	.library > div,
+	.library-show > div {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
 
-  .library > div > ul,
-  .library-show > div > ul {
-    width: min-content;
-    margin: 10px;
-    min-width: 150px;
-  }
+	.library > div > ul,
+	.library-show > div > ul {
+		width: min-content;
+		margin: 10px;
+		min-width: 150px;
+	}
 
-  .library > div > ul > .view,
-  .library-show > div > ul > .view {
-    height: 150px;
-  }
+	.library > div > ul > .view,
+	.library-show > div > ul > .view {
+		height: 150px;
+	}
 
-  .library > div > ul > li > p,
-  .library-show > div > ul > li > p {
-    font-size: 1.1em;
-    max-width: 150px;
-    max-height: 43px;
-    overflow: hidden;
-    word-break: break-word;
-    line-height: 15px;
-    font-weight: 300;
-  }
+	.library > div > ul > li > p,
+	.library-show > div > ul > li > p {
+		font-size: 1.1em;
+		max-width: 150px;
+		max-height: 43px;
+		overflow: hidden;
+		word-break: break-word;
+		line-height: 15px;
+		font-weight: 300;
+	}
 
-  .edit,
-  .delete,
-  .add,
-  .check,
-  .edit-hide,
-  .delete-hide,
-  .add-hide,
-  .check-hide,
-  .playing {
-    height: 150px;
-    width: 152px;
-  }
+	.edit,
+	.delete,
+	.add,
+	.check,
+	.edit-hide,
+	.delete-hide,
+	.add-hide,
+	.check-hide,
+	.playing {
+		height: 150px;
+		width: 152px;
+	}
 }

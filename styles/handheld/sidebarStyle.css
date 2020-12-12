@@ -1,29 +1,29 @@
 @media screen and (max-device-width: 640px) {
-  .sidebar {
-    background-color: #0B0B0B;
-    width: 100%;
-    text-align: center;
-    z-index: 960;
-  }
+	.sidebar {
+		background-color: #0B0B0B;
+		width: 100%;
+		text-align: center;
+		z-index: 960;
+	}
 
-  .sidebar-hide {
-    margin-left: -100% !important;
-  }
+	.sidebar-hide {
+		margin-left: -100% !important;
+	}
 
-  .sidebar > ul {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    height: -moz-available;
-    height: -webkit-fill-available;
-    height: fill-available;
-    padding: 30% 0;
-  }
+	.sidebar > ul {
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+		height: -moz-available;
+		height: -webkit-fill-available;
+		height: fill-available;
+		padding: 30% 0;
+	}
 
-  .sidebar > ul > li > input[type="button"],
-  .sidebar-hide > ul > li > input[type="button"] {
-    font-size: 5em;
-  }
+	.sidebar > ul > li > input[type="button"],
+	.sidebar-hide > ul > li > input[type="button"] {
+		font-size: 5em;
+	}
 }

@@ -1,115 +1,115 @@
 .add,
 .add-hide {
-  background-image: url("../../img/add.png") !important;
+	background-image: url("../../img/add.png") !important;
 }
 
 .check,
 .check-hide {
-  background-image: url("../../img/check.png") !important;
+	background-image: url("../../img/check.png") !important;
 }
 
 .button-create-playlist {
-  border: 1px solid white;
-  background: none;
-  color: white;
-  font-family: "Open sans", sans-serif;
-  padding: 11px 15px;
-  font-size: 1.7em;
-  margin: 15px auto 0;
-  display: block;
-  cursor: pointer;
+	border: 1px solid white;
+	background: none;
+	color: white;
+	font-family: "Open sans", sans-serif;
+	padding: 11px 15px;
+	font-size: 1.7em;
+	margin: 15px auto 0;
+	display: block;
+	cursor: pointer;
 }
 
 .playlist-name {
-  font-family: "Open sans", sans-serif;
-  font-size: 1.3em;
-  color: white;
-  background: none;
-  border: 1px solid white;
-  padding: 5px;
-  margin: 50px auto 0;
-  display: block;
+	font-family: "Open sans", sans-serif;
+	font-size: 1.3em;
+	color: white;
+	background: none;
+	border: 1px solid white;
+	padding: 5px;
+	margin: 50px auto 0;
+	display: block;
 }
 
 .playlist-div-hide,
 .playlist-div,
 .playlist-sidebar-hided,
 .playlist-reader-hided {
-  position: fixed;
-  width: 80%;
-  margin: 50px 5px 0px 20%;
-  min-width: 810px;
-  height: 100%;
-  height: -moz-available;
-  height: -webkit-fill-available;
-  height: fill-available;
-  background-color: #0F0F0F;
-  overflow: scroll;
-  transition: 0.8s;
-  animation: show-playlist 0.8s ease;
-  z-index: 900;
+	position: fixed;
+	width: 80%;
+	margin: 50px 5px 0px 20%;
+	min-width: 810px;
+	height: 100%;
+	height: -moz-available;
+	height: -webkit-fill-available;
+	height: fill-available;
+	background-color: #0F0F0F;
+	overflow: scroll;
+	transition: 0.8s;
+	animation: show-playlist 0.8s ease;
+	z-index: 900;
 }
 
 .playlist-div-hide {
-  z-index: -1;
-  opacity: 0;
-  animation: hide-playlist 0.8s ease !important;
+	z-index: -1;
+	opacity: 0;
+	animation: hide-playlist 0.8s ease !important;
 }
 
 .playlist-sidebar-hided {
-  margin-left: 0% !important;
-  width: 100% !important;
+	margin-left: 0% !important;
+	width: 100% !important;
 }
 
 .playlist-reader-showed {
-  margin-bottom: 91px !important;
+	margin-bottom: 91px !important;
 }
 
 @keyframes show-playlist {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+		0% {
+				opacity: 0;
+		}
+		100% {
+				opacity: 1;
+		}
 }
 
 @keyframes hide-playlist {
-    0% {
-        z-index: 900;
-        opacity: 1;
-    }
-    100% {
-        z-index: -1;
-        opacity: 0;
-    }
+		0% {
+				z-index: 900;
+				opacity: 1;
+		}
+		100% {
+				z-index: -1;
+				opacity: 0;
+		}
 }
 
 .listPlaylist {
-  list-style: none;
-  font-family: "Open sans", sans-serif;
-  padding: 0;
-  width: 100% !important;
-  text-align: left;
-  margin: 0 !important;
-  color: white;
+	list-style: none;
+	font-family: "Open sans", sans-serif;
+	padding: 0;
+	width: 100% !important;
+	text-align: left;
+	margin: 0 !important;
+	color: white;
 }
 
 .table {
-  cursor: pointer;
-  padding: 40px 15px;
-  transition: 0.8s;
+	cursor: pointer;
+	padding: 40px 15px;
+	transition: 0.8s;
 }
 
 .table:hover {
-  background-color: #0B0B0B !important;
-  padding-left: 30px !important;
-  transition: 0.8s;
+	background-color: #0B0B0B !important;
+	padding-left: 30px !important;
+	transition: 0.8s;
 }
 
 .table > p {
-  font-size: 2em !important;
-  text-align: left !important;
-  justify-content: left !important;
-  margin: 0 !important;
+	font-size: 2em !important;
+	text-align: left !important;
+	justify-content: left !important;
+	margin: 0 !important;
 }

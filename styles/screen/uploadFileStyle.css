@@ -1,47 +1,47 @@
 @media screen and (min-device-width: 641px) {
-  #upload,
-  #edit {
-    left: 25%;
-    width: 50%;
-    top: 15%;
-  }
+	#Upload,
+	#Edit {
+		left: 25%;
+		width: 50%;
+		top: 15%;
+	}
 
-  #banner {
-    height: 250px;
-    width: 250px;
-  }
+	#Banner {
+		height: 250px;
+		width: 250px;
+	}
 
-  .editImage {
-    width: 40px;
-  }
+	.editImage {
+		width: 40px;
+	}
 
-  #upload > form > ul > li > label > img {
-    max-width: 120px;
-    min-width: 100px;
-  }
+	#Upload > form > ul > li > label > img {
+		max-width: 120px;
+		min-width: 100px;
+	}
 
-  #upload > form > ul > li > ul > li > label > img {
-    width: 25%;
-  }
+	#Upload > form > ul > li > ul > li > label > img {
+		width: 25%;
+	}
 
-  #upload > form > label {
-    font-size: 1.2em;
-  }
+	#Upload > form > label {
+		font-size: 1.2em;
+	}
 
-  #upload > form > input[type="text"],
-  #edit > form > input[type="text"] {
-    font-size: 1.3em;
-    width: 50%;
-  }
+	#Upload > form > input[type="text"],
+	#Edit > form > input[type="text"] {
+		font-size: 1.3em;
+		width: 50%;
+	}
 
-  .progress-bar {
-    border: black solid 2px;
-    width: 400px;
-    height: 40px;
-    line-height: 40px;
-  }
+	.progress-bar {
+		border: black solid 2px;
+		width: 400px;
+		height: 40px;
+		line-height: 40px;
+	}
 
-  .progress-bar .bar span {
-    width: 400px;
-  }
+	.progress-bar .bar span {
+		width: 400px;
+	}
 }
