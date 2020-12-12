@@ -3,10 +3,10 @@ function deleteFiles(){
 
   var library = document.getElementById("LibraryObjects").children;
   for (var i = 0; i < library.length; i++) {
-    if (document.getElementById("edit" + i) != undefined) {
+    if (document.getElementById("Edit" + i) != undefined) {
       hideEdit();
       break;
-    }else if (document.getElementById("add" + i) != undefined) {
+    }else if (document.getElementById("Add" + i) != undefined) {
       hideAdd();
       break;
     }
@@ -14,17 +14,17 @@ function deleteFiles(){
   for (var i = 0; i < library.length; i++) (function(i) {
     var li = document.createElement("li");
     li.classList.add("delete");
-    li.id = "delete" + i;
+    li.id = "Delete" + i;
 
     var parent = document.getElementById("MusicList" + i);
     var child = document.getElementById("Music" + i);
     parent.insertBefore(li, child);
 
-    document.getElementById("delete" + i).onclick = function () {
+    document.getElementById("Delete" + i).onclick = function () {
       showDeleteSection(i);
     };
   })(i);
-  var filter = document.getElementById("deleteFile");
+  var filter = document.getElementById("DeleteFileSidebar");
   filter.setAttribute("onclick", "hideDelete()");
 }
 

@@ -30,7 +30,29 @@ UploadFileSidebar.addEventListener("click", function() {
 
 // Handle the edit file button click
 EditFileSidebar.addEventListener("click", function() {
+    var library = document.getElementById("LibraryObjects").children;
+    for (var i = 0; i < library.length; i++) (function(i) {
+        if (document.getElementById("Delete" + i) != undefined) {
+            document.getElementById("Delete" + i).remove;
+        }else if (document.getElementById("Add" + i) != undefined) {
+            document.getElementById("Add" + i).remove;
+        }
+
+        var li = document.createElement("li");
+        li.classList.add("edit");
+        li.id = "Edit" + i;
+
+        var parent = document.getElementById("MusicList" + i);
+        var child = document.getElementById("Music" + i);
+        parent.insertBefore(li, child);
+
+        document.getElementById("Edit" + i).onclick = function () {
+            showEditSection(i);
+        };
+    })(i);
     
+    var filter = document.getElementById("EditFileSidebar");
+    filter.setAttribute("onclick", "hideEdit()");
 });
 
 // Handle the delete file button click

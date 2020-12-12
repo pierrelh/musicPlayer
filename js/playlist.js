@@ -46,7 +46,6 @@ function checkPlaylistSection() {
   if (document.getElementById("DivPlaylist").classList.contains("playlist-div")) {
     document.getElementById("DivPlaylist").classList.remove("playlist-div");
     document.getElementById("DivPlaylist").classList.add("playlist-div-hide");
-    document.getElementById("html").classList.remove("no-scroll");
     document.getElementById("myPlaylists").setAttribute("onclick", "getAllPlaylists()");
   }
 }
@@ -109,10 +108,10 @@ function createPlaylist() {
   checkPlaylistSection();
   var library = document.getElementById("LibraryObjects").children;
   for (var i = 0; i < library.length; i++) {
-    if (document.getElementById("delete" + i) != undefined) {
+    if (document.getElementById("Delete" + i) != undefined) {
       hideDelete();
       break;
-    }else if (document.getElementById("edit" + i) != undefined) {
+    }else if (document.getElementById("Edit" + i) != undefined) {
       hideEdit();
       break;
     }
@@ -120,17 +119,17 @@ function createPlaylist() {
   for (var i = 0; i < library.length; i++) (function(i) {
     var li = document.createElement("li");
     li.classList.add("add");
-    li.id = "add" + i;
+    li.id = "Add" + i;
 
-    var parent = document.getElementById("ul" + i);
+    var parent = document.getElementById("MusicList" + i);
     var child = document.getElementById("Music" + i);
     parent.insertBefore(li, child);
 
-    document.getElementById("add" + i).onclick = function () {
+    document.getElementById("Add" + i).onclick = function () {
       addToPlaylist(i);
     };
   })(i);
-  var filter = document.getElementById("createPlaylist");
+  var filter = document.getElementById("CreatePlaylistSidebar");
   filter.setAttribute("onclick", "hideAdd()");
 }
 
