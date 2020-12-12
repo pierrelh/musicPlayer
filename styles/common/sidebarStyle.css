@@ -11,6 +11,7 @@
 .sidebar-hide > ul {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 .sidebar > ul > li > input[type="button"],

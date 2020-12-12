@@ -118,5 +118,31 @@ MyPlaylistsSidebar.addEventListener("click", function() {
 
 // Handle the create playlist button click
 CreatePlaylistSidebar.addEventListener("click", function() {
-    
+    var library = document.getElementById("LibraryObjects").children;
+    for (var i = 0; i < library.length; i++) (function(i) {
+        // Check if library is already in add mode
+        if (document.getElementById("Add" + i) != undefined) {
+            document.getElementById("Add" + i).remove();
+        }else {
+            // Check if library is already on delete or edit mode & remove it if needed
+            if (document.getElementById("Delete" + i) != undefined) {
+                document.getElementById("Delete" + i).remove();
+            }else if (document.getElementById("Edit" + i) != undefined) {
+                document.getElementById("Edit" + i).remove();
+            }
+        
+            // Creating the Add element & add it to the music's parent
+            var li = document.createElement("li");
+            li.classList.add("add");
+            li.id = "Add" + i;  
+            var parent = document.getElementById("MusicList" + i);
+            var child = document.getElementById("Music" + i);
+            parent.insertBefore(li, child);
+          
+            // Add the event on this add's click
+            document.getElementById("Add" + i).onclick = function () {
+                addToPlaylist(i);
+            };
+        }      
+    })(i);
 });

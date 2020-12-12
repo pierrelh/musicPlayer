@@ -15,7 +15,7 @@
     <li><input id='FilterName' onclick="getFiles('file_name', 'ASC', 'filter4');" type="button" value="Trier par Titre"></li>
     <br>
     <li><input id="MyPlaylistsSidebar" onclick="getAllPlaylists()" type="button" value="Mes Playlists"></li>
-    <li><input id="CreatePlaylistSidebar" onclick="createPlaylist()" type="button" value="Créer une Playlist"></li>
+    <li><input id="CreatePlaylistSidebar" type="button" value="Créer une Playlist"></li>
   </ul>
 </section>
 <script type="text/javascript" src="<?php echo $link ?>/js/sidebar.js"></script>
