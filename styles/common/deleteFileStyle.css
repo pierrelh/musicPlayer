@@ -1,4 +1,4 @@
-#delete {
+#Delete {
 	background-color: white;
 	position: fixed;
 	z-index: 999;
@@ -8,20 +8,20 @@
 	position: absolute;
 }
 
-#delete > h2 {
+#Delete > h2 {
 	text-align: center;
 	font-family: "Open sans", sans-serif;
 	margin-top: 25px;
 }
 
-#delete > ul {
+#Delete > ul {
 	display: flex;
 	justify-content: center;
 	padding: 0;
 	list-style: none;
 }
 
-#delete > ul > li > input {
+#Delete > ul > li > input {
 	background: none;
 	font-family: "Open sans", sans-serif;
 	cursor: pointer;
