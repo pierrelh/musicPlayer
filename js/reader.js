@@ -37,9 +37,7 @@ Loop.addEventListener("click", function() {
 });
 
 // Handle the Previous button click
-Previous.addEventListener("click", function() {
-    console.log("Previous clicked")
-})
+Previous.addEventListener("click", playLastMusic, false);
 
 // Handle the PlayPause button click
 PlayPause.addEventListener("click", togglePlayPause, false);
