@@ -10,22 +10,6 @@ function showEditSection(musicId){
 	Edit.className = "appear";
 }
 
-function readURL(input) {
-	if (input.files && input.files[0]) {
-		var reader = new FileReader();
-
-		reader.addEventListener("load", function(e) {
-			document.getElementById("Banner").style.backgroundImage = "url(" + e.target.result + ")"
-		});
-
-		// reader.onload = function(e) {
-		// 	$("#Banner").css("background-image", "url(" + e.target.result + ")");
-		// }
-
-		reader.readAsDataURL(input.files[0]);
-	}
-}
-
 // Handle click on CrossEdit
 document.getElementById("CrossEdit").addEventListener("click", function() {
 	backgroundHide();
@@ -35,7 +19,7 @@ document.getElementById("CrossEdit").addEventListener("click", function() {
 
 // Handle change on PictureEdit
 document.getElementById("PictureEdit").addEventListener("change", function() {
-	readURL(this);
+	readURL(this, "Banner");
 });
 
 // Handle click on BarSpan2Edit

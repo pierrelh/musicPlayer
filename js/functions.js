@@ -21,6 +21,19 @@ function decodeHTML(html) {
 	return txt.value;
 }
 
+// Dynamically read & print a new input's image
+function readURL(input, bannerId) {
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+
+		reader.addEventListener("load", function(e) {
+			document.getElementById(bannerId).style.backgroundImage = "url(" + e.target.result + ")"
+		});
+
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+
 // Show the assets Background
 function backgroundAppear() {
 	var background = document.getElementById("Background");
