@@ -5,13 +5,15 @@ function showDeleteSection(musicId){
 	var Music = document.getElementById("Music" + musicId);
 	document.getElementById("DeleteTitle").innerHTML = "Voulez-vous vraiment supprimer: " + Music.dataset.title + " de " + Music.dataset.artist + " ?";
 	document.getElementById("DeleteYes").dataset.musicId = Music.dataset.id;
+	document.getElementById("DeleteYes").dataset.listId = musicId;
 }
 
 // Handle click on Yes button of Delete section
 document.getElementById("DeleteYes").addEventListener("click", function() {
 	// Getting the id of the music to be deleted
 	var musicId = this.dataset.musicId;
-	if (musicId != "undefined") { // Checking if the id exist
+	var listId = this.dataset.listId;
+	if (musicId != "undefined" && listId != "undefined") { // Checking if the id exist
 		
 		$.ajax({
 			url: server + "/functions/files/deleteFile.php",
@@ -24,10 +26,7 @@ document.getElementById("DeleteYes").addEventListener("click", function() {
 					var Delete = document.getElementById("Delete");
 					Delete.className = "";
 					// Deleting the deleted music from the Library
-					var library = document.querySelector("#LibraryObjects");
-					var li = library.querySelectorAll("li[data-id='"+musicId+"']")[0];
-					var ul = document.getElementById("ul" + li.id);
-					ul.remove();
+					document.getElementById("MusicList" + listId).remove();
 				}else {
 					alert("Une erreur inatendue s'est produite, merci de réessayer plus tard.")
 				}
