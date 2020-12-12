@@ -38,7 +38,7 @@ document.getElementById("BarSpan2").addEventListener("click", function () {
 		// Update progress for picture file
 		pictureFileXhr.upload.addEventListener("progress", function (e) {
 			var progress = Math.round((e.loaded * 100.0) / e.total);
-			document.getElementById("progressBarPicture").style.width = progress + "%";
+			document.getElementById("ProgressBarPicture").style.width = progress + "%";
 			document.getElementById("TextProgessBarPicture").innerHTML = progress + "%";
 		});
 
