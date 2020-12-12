@@ -137,7 +137,51 @@ FilterName.addEventListener("click", function() {
 
 // Handle the my playlists button click
 MyPlaylistsSidebar.addEventListener("click", function() {
+    var DivPlaylist = document.getElementById("DivPlaylist");
     
+    // Check if DivPlaylist is already open to close it if needed
+    if (DivPlaylist.classList.contains("playlist-div")) {
+        DivPlaylist.classList.add("playlist-div-hide");
+        DivPlaylist.classList.remove("playlist-div");
+    }else {
+        // If DivPlaylist is not open then call all the playlists
+        $.ajax({
+            url: server + "/functions/playlist/getAllPlaylists.php",
+            type: "POST",
+            success: function(data){
+              data = JSON.parse(data);
+              if (data.length != 0) {
+                DivPlaylist.innerHTML = "";
+                DivPlaylist.classList.remove("playlist-div-hide");
+                DivPlaylist.classList.add("playlist-div");
+        
+                var ul = document.createElement("ul");
+                ul.id = "ListPlaylist";
+                ul.className = "listPlaylist";
+                DivPlaylist.appendChild(ul);
+        
+                for (var i = 0; i < data.length; i++) (function(i) {
+                  li = document.createElement("li");
+                  ul.appendChild(li);
+                  li.className = "table";
+                  li.id = "PlaylistElement" + i;
+                  li.dataset.name = data[i]["playlist_name"];
+                  li.dataset.musics = data[i]["playlist_musics"];
+                  li.dataset.owner = data[i]["playlist_owner"];
+                  li.dataset.id = data[i]["playlist_id"];
+                  document.getElementById("PlaylistElement" + i).onclick = function () {
+                    openPlaylist("playlistElement" + i);
+                  };
+        
+                  var p = document.createElement("p");
+                  li.appendChild(p);
+                  p.innerHTML = data[i]["playlist_name"];
+                  p.id = "PlaylistText" + i;
+                })(i);
+              }
+            }
+        });
+    }
 });
 
 // Handle the create playlist button click

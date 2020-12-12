@@ -1,5 +1,4 @@
 function getFiles(row, type){
-  var server = "https://" + window.location.hostname;
   $.ajax({
     url: server + "/functions/files/ajaxGetAllFiles.php",
     type: "POST",

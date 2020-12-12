@@ -9,6 +9,7 @@
     <script>
       var playlist = [];
       var randomPlaylist = [];
+      var server = "https://" + window.location.hostname;
     </script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script type="text/javascript" src="<?php echo $link ?>/js/getFiles.js"></script>
