@@ -78,7 +78,7 @@ DeleteFileSidebar.addEventListener("click", function() {
 			// Creating the Delete element & add it to the music's parent
 			var li = document.createElement("li");
 			li.classList.add("delete");
-			li.id = "Delete" + i;        
+			li.id = "Delete" + i;    
 			var parent = document.getElementById("MusicList" + i);
 			var child = document.getElementById("Music" + i);
 			parent.insertBefore(li, child);
