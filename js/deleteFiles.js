@@ -2,9 +2,9 @@ function showDeleteSection(musicId){
 	backgroundAppear();
 	var Delete = document.getElementById("Delete");
 	Delete.className = "appear";
-	var Music = document.getElementById(musicId);
+	var Music = document.getElementById("Music" + musicId);
 	document.getElementById("DeleteTitle").innerHTML = "Voulez-vous vraiment supprimer: " + Music.dataset.title + " de " + Music.dataset.artist + " ?";
-	document.getElementById("DeleteYes").dataset.musicId = musicId;
+	document.getElementById("DeleteYes").dataset.musicId = Music.dataset.musicId;
 }
 
 // Handle click on Yes button of Delete section
