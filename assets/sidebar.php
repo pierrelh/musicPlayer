@@ -7,7 +7,7 @@
     <li><input id="CreateAccountSidebar" type="button" value="Créer un Compte"></li>
     <li><input id="UploadFileSidebar" type="button" value="Uploader un Fichier"></li>
     <li><input id="EditFileSidebar" type="button" value="Modifier un Fichier"></li>
-    <li><input id="DeleteFileSidebar" onclick="deleteFiles()" type="button" value="Supprimer un Fichier"></li>
+    <li><input id="DeleteFileSidebar" type="button" value="Supprimer un Fichier"></li>
     <br>
     <li><input id='FilterAuthor' onclick="getFiles('file_author', 'ASC', 'filter1');" type="button" value="Trier par Auteur"></li>
     <li><input id='FilterAlbum' onclick="getFiles('file_album', 'ASC', 'filter2');" type="button" value="Trier par Album"></li>

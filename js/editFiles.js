@@ -4,31 +4,6 @@ var decodeHTML = function (html) {
 	return txt.value;
 };
 
-function hideEdit(){
-  checkPlaylistSection();
-
-  var library = document.getElementById("LibraryObjects").children;
-  for (var i = 0; i < library.length; i++){
-    var li = document.getElementById("Edit" + i);
-    li.classList.add("edit-hide");
-    li.classList.remove("edit");
-  }
-
-  setTimeout(function(){
-    for (var i = 0; i < library.length; i++){
-      var li = document.getElementById("Edit" + i);
-      if (li != undefined) {
-        li.remove();
-      }else {
-        break;
-      }
-    }
-  }, 800);
-
-  var filter = document.getElementById("EditFileSidebar");
-  filter.setAttribute("onclick", "editFiles()");
-}
-
 function showEditSection(identifier){
   var element = document.getElementById(identifier);
   document.getElementById("fileNameEdit").value = decodeHTML(element.dataset.title);

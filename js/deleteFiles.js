@@ -1,59 +1,29 @@
-function deleteFiles(){
-  checkPlaylistSection();
+// function hideDelete(){
+//   checkPlaylistSection();
 
-  var library = document.getElementById("LibraryObjects").children;
-  for (var i = 0; i < library.length; i++) {
-    if (document.getElementById("Edit" + i) != undefined) {
-      hideEdit();
-      break;
-    }else if (document.getElementById("Add" + i) != undefined) {
-      hideAdd();
-      break;
-    }
-  }
-  for (var i = 0; i < library.length; i++) (function(i) {
-    var li = document.createElement("li");
-    li.classList.add("delete");
-    li.id = "Delete" + i;
+//   var library = document.getElementById("LibraryObjects").children;
+//   for (var i = 0; i < library.length; i++){
+//     if (document.getElementById("delete" + i) != undefined) {
+//       var li = document.getElementById("delete" + i);
+//       li.classList.add("delete-hide");
+//       li.classList.remove("delete");
+//     }
+//   }
 
-    var parent = document.getElementById("MusicList" + i);
-    var child = document.getElementById("Music" + i);
-    parent.insertBefore(li, child);
+//   setTimeout(function(){
+//     for (var i = 0; i < library.length; i++){
+//       var li = document.getElementById("delete" + i);
+//       if (li != undefined) {
+//         li.remove();
+//       }else {
+//         break;
+//       }
+//     }
+//   }, 800);
 
-    document.getElementById("Delete" + i).onclick = function () {
-      showDeleteSection(i);
-    };
-  })(i);
-  var filter = document.getElementById("DeleteFileSidebar");
-  filter.setAttribute("onclick", "hideDelete()");
-}
-
-function hideDelete(){
-  checkPlaylistSection();
-
-  var library = document.getElementById("LibraryObjects").children;
-  for (var i = 0; i < library.length; i++){
-    if (document.getElementById("delete" + i) != undefined) {
-      var li = document.getElementById("delete" + i);
-      li.classList.add("delete-hide");
-      li.classList.remove("delete");
-    }
-  }
-
-  setTimeout(function(){
-    for (var i = 0; i < library.length; i++){
-      var li = document.getElementById("delete" + i);
-      if (li != undefined) {
-        li.remove();
-      }else {
-        break;
-      }
-    }
-  }, 800);
-
-  var filter = document.getElementById("deleteFile");
-  filter.setAttribute("onclick", "deleteFiles()");
-}
+//   var filter = document.getElementById("deleteFile");
+//   filter.setAttribute("onclick", "deleteFiles()");
+// }
 
 function showDeleteSection(identifier){
   backgroundAppear();
