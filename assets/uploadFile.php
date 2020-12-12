@@ -6,7 +6,7 @@
 <script src='<?php echo $link ?>/js/cloudinary/jquery.fileupload.js' type='text/javascript'></script>
 <script src='<?php echo $link ?>/js/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
 <section id="Upload">
-	<img class="CrossUpload" src="../img/cross.png" alt="">
+	<img id="CrossUpload" class="cross" src="../img/cross.png" alt="">
 	<form id="FormUpload" enctype="multipart/form-data" method="post">
 		<h2 id="ErrorMsgUpload"></h2>
 		<ul>
