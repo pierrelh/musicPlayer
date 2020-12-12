@@ -4,14 +4,14 @@ function showDeleteSection(musicId){
 	Delete.className = "appear";
 	var Music = document.getElementById("Music" + musicId);
 	document.getElementById("DeleteTitle").innerHTML = "Voulez-vous vraiment supprimer: " + Music.dataset.title + " de " + Music.dataset.artist + " ?";
-	document.getElementById("DeleteYes").dataset.musicId = Music.dataset.musicId;
+	document.getElementById("DeleteYes").dataset.musicId = Music.dataset.id;
 }
 
 // Handle click on Yes button of Delete section
 document.getElementById("DeleteYes").addEventListener("click", function() {
 	// Getting the id of the music to be deleted
 	var musicId = this.dataset.musicId;
-	if (musicId != undefined) { // Checking if the id exist
+	if (musicId != "undefined") { // Checking if the id exist
 		
 		$.ajax({
 			url: server + "/functions/files/deleteFile.php",
