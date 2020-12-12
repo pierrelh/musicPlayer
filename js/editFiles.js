@@ -9,14 +9,14 @@ function hideEdit(){
 
   var library = document.getElementById("LibraryObjects").children;
   for (var i = 0; i < library.length; i++){
-    var li = document.getElementById("edit" + i);
+    var li = document.getElementById("Edit" + i);
     li.classList.add("edit-hide");
     li.classList.remove("edit");
   }
 
   setTimeout(function(){
     for (var i = 0; i < library.length; i++){
-      var li = document.getElementById("edit" + i);
+      var li = document.getElementById("Edit" + i);
       if (li != undefined) {
         li.remove();
       }else {
@@ -25,7 +25,7 @@ function hideEdit(){
     }
   }, 800);
 
-  var filter = document.getElementById("editFile");
+  var filter = document.getElementById("EditFileSidebar");
   filter.setAttribute("onclick", "editFiles()");
 }
 
