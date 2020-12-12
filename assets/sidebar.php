@@ -10,9 +10,9 @@
     <li><input id="DeleteFileSidebar" type="button" value="Supprimer un Fichier"></li>
     <br>
     <li><input id='FilterAuthor' data-order="ASC" type="button" value="Trier par Auteur"></li>
-    <li><input id='FilterAlbum' onclick="getFiles('file_album', 'ASC', 'filter2');" type="button" value="Trier par Album"></li>
-    <li><input id='FilterId' onclick="getFiles('file_id', 'DESC', 'filter3');" type="button" value="Trier par Date d'ajout"></li>
-    <li><input id='FilterName' onclick="getFiles('file_name', 'ASC', 'filter4');" type="button" value="Trier par Titre"></li>
+    <li><input id='FilterAlbum' data-order="ASC" type="button" value="Trier par Album"></li>
+    <li><input id='FilterId' data-order="DESC" type="button" value="Trier par Date d'ajout"></li>
+    <li><input id='FilterName' data-order="ASC" type="button" value="Trier par Titre"></li>
     <br>
     <li><input id="MyPlaylistsSidebar" onclick="getAllPlaylists()" type="button" value="Mes Playlists"></li>
     <li><input id="CreatePlaylistSidebar" type="button" value="Créer une Playlist"></li>

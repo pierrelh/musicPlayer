@@ -104,17 +104,35 @@ FilterAuthor.addEventListener("click", function() {
 
 // Handle the filter album button click
 FilterAlbum.addEventListener("click", function() {
-    
+    checkPlaylistSection();
+    getFiles("file_album", this.dataset.order);
+    if (this.dataset.order == "ASC") {
+        this.dataset.order = "DESC";
+    }else {
+        this.dataset.order = "ASC";
+    }
 });
 
 // Handle the filter id button click
 FilterId.addEventListener("click", function() {
-    
+    checkPlaylistSection();
+    getFiles("file_id", this.dataset.order);
+    if (this.dataset.order == "ASC") {
+        this.dataset.order = "DESC";
+    }else {
+        this.dataset.order = "ASC";
+    }
 });
 
 // Handle the filter name button click
 FilterName.addEventListener("click", function() {
-    
+    checkPlaylistSection();
+    getFiles("file_name", this.dataset.order);
+    if (this.dataset.order == "ASC") {
+        this.dataset.order = "DESC";
+    }else {
+        this.dataset.order = "ASC";
+    }
 });
 
 // Handle the my playlists button click
