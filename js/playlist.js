@@ -42,14 +42,6 @@ function getAllPlaylists() {
   });
 }
 
-function checkPlaylistSection() {
-  if (document.getElementById("DivPlaylist").classList.contains("playlist-div")) {
-    document.getElementById("DivPlaylist").classList.remove("playlist-div");
-    document.getElementById("DivPlaylist").classList.add("playlist-div-hide");
-    document.getElementById("myPlaylists").setAttribute("onclick", "getAllPlaylists()");
-  }
-}
-
 function openPlaylist(identifier) {
   if (identifier != undefined) {
     var musics = document.getElementById(identifier).dataset.musics;
@@ -135,12 +127,12 @@ function openPlaylist(identifier) {
 // }
 
 function addToPlaylist(identifier) {
-  var li = document.getElementById("add" + identifier);
+  var li = document.getElementById("Add" + identifier);
   li.classList.remove("add");
   li.classList.add("check");
   document.getElementById("add" + identifier).setAttribute("onclick", "removeToPlaylist(" + identifier + ")");
   if (document.getElementById("buttonCreatePlaylist") == undefined) {
-    var sidebarList =  document.getElementById("sidebarList");
+    var sidebarList = document.getElementById("sidebarList");
 
     var listPlaylistName = document.createElement("li");
     listPlaylistName.id = "playlistNameElement"

@@ -1,6 +1,4 @@
-function getFiles(row, type, identifier){
-  checkPlaylistSection();
-
+function getFiles(row, type){
   var server = "https://" + window.location.hostname;
   $.ajax({
     url: server + "/functions/files/ajaxGetAllFiles.php",
@@ -13,15 +11,6 @@ function getFiles(row, type, identifier){
       library.innerHTML = "";
       if (data.length != 0) {
         playlist = [];
-        if (identifier != undefined) {
-          var filtre = document.getElementById(identifier);
-          if (type == "ASC") {
-            type = "DESC";
-          }else {
-            type = "ASC";
-          }
-          filtre.setAttribute("onclick", "getFiles('" + row + "', '" + type + "', '" + identifier + "')")
-        }
         for (var i = 0; i < data.length; i++) {
           var ul = document.createElement("ul");
           ul.id = "MusicList" + i;
@@ -59,7 +48,6 @@ function getFiles(row, type, identifier){
           document.getElementById("Music" + i).addEventListener("click", function(){playMusic(i)}, false);
           document.getElementById("MusicP"+i).addEventListener("click", function(){playMusic(i)}, false);
         })(i);
-
       }
     }
   });

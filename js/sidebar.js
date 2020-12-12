@@ -93,7 +93,13 @@ DeleteFileSidebar.addEventListener("click", function() {
 
 // Handle the filter author button click
 FilterAuthor.addEventListener("click", function() {
-    
+    checkPlaylistSection();
+    getFiles("file_author", this.dataset.order);
+    if (this.dataset.order == "ASC") {
+        this.dataset.order = "DESC";
+    }else {
+        this.dataset.order = "ASC";
+    }
 });
 
 // Handle the filter album button click
