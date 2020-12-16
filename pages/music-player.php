@@ -15,7 +15,7 @@
 	<body id="body">
 		<?php
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/headers/header.php");
-			foreach (glob("classes/*.php") as $filename){
+			foreach (glob($_SERVER['DOCUMENT_ROOT']."assets/*.php") as $filename){
 				include $filename;
 			}
 		?>
