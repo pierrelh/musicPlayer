@@ -2,13 +2,13 @@
 
 	.library {
 		margin-left: 20%;
-		width: 100% !important;
+		width: 80% !important;
 	}
 
 	.library-show {
 		margin-top: 7vh !important;
 		height: 93vh;
-		width: 80%;
+		width: 100%;
 	}
 
 	.library-reader-active {
