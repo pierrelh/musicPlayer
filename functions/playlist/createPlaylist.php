@@ -13,7 +13,7 @@
 		$request,
 		array(
 			$_COOKIE["SESSION_ID"],
-			$filtered['playlistName']
+			$_POST['playlistName']
 		)
 	);
 
