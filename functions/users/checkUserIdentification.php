@@ -17,7 +17,7 @@
                 'samesite' => 'Strict' // None || Lax  || Strict
             );
             setcookie("SESSION_ID", $row['user_session_id'], $arr_cookie_options);
-            if ($_SERVER['REQUEST_URI'] == "/music-player" || $_SERVER['REQUEST_URI'] == "/music-player/") {
+            if ($_SERVER['REQUEST_URI'] != "/music-player" && $_SERVER['REQUEST_URI'] != "/music-player/") {
                 echo "<script type='text/javascript'>window.location.assign('/music-player');</script>";
             }
     }else {
