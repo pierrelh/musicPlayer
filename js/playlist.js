@@ -41,7 +41,7 @@ function openPlaylist(identifier) {
 						var p = document.createElement("p");
 						lip.appendChild(p);
 						p.innerHTML = data[i]["file_author"] + " - " + data[i]["file_name"];
-						p.id = "Musicp" + i;
+						p.id = "MusicP" + i;
 						document.getElementById("MusicP" + i).addEventListener("click", function(){playMusic(i)}, false);
 
 						playlist.push(i);
