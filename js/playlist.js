@@ -52,6 +52,7 @@ function openPlaylist(identifier) {
 	}
 }
 
+// Toggle a music's class to be added to playlist
 function addToPlaylist(identifier) {
 	var li = document.getElementById("Add" + identifier);
 	li.classList.remove("add");
@@ -59,9 +60,9 @@ function addToPlaylist(identifier) {
 	document.getElementById("Add" + identifier).addEventListener("click", function() {
 		removeFromPlaylist(identifier);
 	}, false);
-	// document.getElementById("Add" + identifier).setAttribute("onclick", "removeToPlaylist(" + identifier + ")");
 }
 
+// Toggle a music's class to be remove from a playlist
 function removeFromPlaylist(identifier) {
 	var li = document.getElementById("Add" + identifier);
 	li.classList.remove("check");
@@ -69,9 +70,9 @@ function removeFromPlaylist(identifier) {
 	document.getElementById("Add" + identifier).addEventListener("click", function() {
 		addToPlaylist(identifier);
 	}, false);
-	// document.getElementById("Add" + identifier).setAttribute("onclick", "addToPlaylist(" + identifier + ")");
 }
 
+// Create the playlist with the choosed musics
 function sendPlaylist() {
 	var library = document.getElementById("LibraryObjects").children;
 	var playlistName = document.getElementById("PlaylistName").value;
@@ -79,7 +80,6 @@ function sendPlaylist() {
 	for (var i = 0; i < library.length; i++) {
 		if (document.getElementById("Add" + i).classList.contains("check")) {
 			musicList.push(document.getElementById("Music" + i).dataset.id);
-			// musicList += document.getElementById(i).dataset.id + "#STOP#";
 		}
 	}
 	if (playlistName == "" || musicList == "") {

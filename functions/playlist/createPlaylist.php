@@ -1,19 +1,37 @@
 <?php
 
 	include_once($_SERVER['DOCUMENT_ROOT']."/functions/connexion.php");
-	include_once($_SERVER['DOCUMENT_ROOT']."/functions/filter.php");
-	$filtered = array_map('map_entities', $_POST);
-
 	$db = connect();
-	$selectSql = "INSERT INTO playlists (playlist_owner, playlist_musics, playlist_name)
-				  VALUES ($1, $2, $3)";
+
+	// Create the playlist in the db
+	$request = "INSERT INTO playlists (playlist_owner, playlist_name)
+				VALUES ($1, $2)
+				RETURNING playlist_id";
+	
 	$result =  pg_query_params(
 		$db,
-		$selectSql,
+		$request,
 		array(
-			"noname",
-			$filtered['musics'],
+			$_COOKIE["SESSION_ID"],
 			$filtered['playlistName']
+		)
+	);
+
+	$playlistId = pg_fetch_all($result);
+	error_log( print_r($playlistId, TRUE) );
+	
+	$request = "";
+	foreach ($_POST["musics"] as $value) {
+		$request .= "INSERT INTO playlists_musics (playlist_id, playlist_music_id)
+					 VALUES ($1, " . $value . ");";
+	}
+
+	
+	$result =  pg_query_params(
+		$db,
+		$request,
+		array(
+			$playlistId["SESSION_ID"]
 		)
 	);
 
