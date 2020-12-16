@@ -15,7 +15,7 @@ function showEditSection(musicId){
 document.getElementById("CrossEdit").addEventListener("click", function() {
 	backgroundHide();
 	document.getElementById("Edit").className = "";
-	document.getElementById("PictureEdit").files = new Object();
+	document.getElementById("PictureEdit").value = "";
 });
 
 // Handle change on PictureEdit
@@ -72,6 +72,9 @@ document.getElementById("BarSpan2Edit").addEventListener("click", function() {
 				}
 			}).done(function() {
 				getFiles("file_id", "DESC");
+				backgroundHide();
+				document.getElementById("Edit").className = "";
+				document.getElementById("PictureEdit").value = "";
 				document.getElementById("MyBarPlusEdit").style.width = "0%";
 				document.getElementById("EditButton").innerHTML = "0 %";
 				document.getElementById("MyBarMoinsEdit").style.width = "100%";

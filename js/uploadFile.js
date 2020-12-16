@@ -53,5 +53,12 @@ async function uploadMusic() {
 	}
 }
 
+// Handle click event on CrossUpload
+document.getElementById("CrossUpload").addEventListener("click", function () {
+	backgroundHide();
+	var Upload = document.getElementById("Upload");
+	Upload.className = "";
+});
+
 // Handle click on BarSpan2
 document.getElementById("BarSpan2").addEventListener("click", uploadMusic, false);
