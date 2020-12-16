@@ -49,8 +49,7 @@ async function uploadMusic() {
 		// audioFile.append("file", file);
 		// audioFileXhr.send(audioFile);
 		// audioFileXhr.onreadystatechange = function (e) {
-		let audioFileXhr = await uploadFileCloudinary(file, "unsigned_video", "ProgressBarVideo", "TextProgressBarVideo")
-		console.log(audioFileXhr);
+		await uploadFileCloudinary(file, "unsigned_video", "ProgressBarVideo", "TextProgressBarVideo").then((audioFileXhr) => {
 			if (audioFileXhr.readyState == 4 && audioFileXhr.status == 200) {
 				var response = JSON.parse(audioFileXhr.responseText);
 				formData.set("file_url", response.secure_url)
@@ -60,15 +59,19 @@ async function uploadMusic() {
 				// pictureFile.append("file", picture);
 				// pictureFileXhr.send(pictureFile);
 				// pictureFileXhr.onreadystatechange = function (e) {
-				var pictureFileXhr = await uploadFileCloudinary(picture, "unsigned_image", "ProgressBarPicture", "TextProgessBarPicture")
+				await uploadFileCloudinary(picture, "unsigned_image", "ProgressBarPicture", "TextProgessBarPicture").then((pictureFileXhr) => {
 					if (pictureFileXhr.readyState == 4 && pictureFileXhr.status == 200) {
 						var response = JSON.parse(pictureFileXhr.responseText);
 						formData.set("file_image", response.secure_url)
 						document.getElementById("TextProgessBarPicture").innerHTML = "Envoyé";
 						uploadFile();
 					}
+				})
 				// };
 			}
+		})
+		
+
 		// };
 	} else {
 		document.getElementById("ErrorMsgUpload").innerHTML = "";
