@@ -257,6 +257,7 @@ function uploadFileCloudinary(fileToUpload, preset, barId, textId) {
 		file.append("file", fileToUpload);
 		fileXhr.send(file);
 		fileXhr.onreadystatechange = function (e) {
+			console.log("file send");
 			resolve(fileXhr);
 		}
 	})

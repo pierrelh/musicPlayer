@@ -50,6 +50,7 @@ async function uploadMusic() {
 		// audioFileXhr.send(audioFile);
 		// audioFileXhr.onreadystatechange = function (e) {
 		let audioFileXhr = await uploadFileCloudinary(file, "unsigned_video", "ProgressBarVideo", "TextProgressBarVideo")
+		console.log(audioFileXhr);
 			if (audioFileXhr.readyState == 4 && audioFileXhr.status == 200) {
 				var response = JSON.parse(audioFileXhr.responseText);
 				formData.set("file_url", response.secure_url)
