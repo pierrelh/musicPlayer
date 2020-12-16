@@ -19,12 +19,14 @@
 		 	print "false";
 		}else {
 		  	$row = $rows[0];
-		  	$arr_cookie_options = array (
+		  	$cookieOptions = array (
 				'expires' => time() + 60*60*24*30,
 				'path' => '/',
-				'samesite' => 'Strict' // None || Lax  || Strict
+				'secure' => true,
+				'httponly' => true,
+				'samesite' => 'Strict'
 			);
-			setcookie("SESSION_ID", $row['user_session_id'], $arr_cookie_options);
+			setcookie("SESSION_ID", $row['user_session_id'], $cookieOptions);
 			echo "<script>window.location.assign('https://".$_SERVER['HTTP_HOST']."')</script>";
 		}
 	}
