@@ -3,7 +3,7 @@
 	include_once($_SERVER['DOCUMENT_ROOT']."/functions/connexion.php");
 	function userConnexion(){
 		$db = connect();
-		$selectSql = "SELECT *
+		$selectSql = "SELECT user_session_id
 					  FROM users
 					  WHERE user_login = $1 AND user_password = $2";
 		$result =  pg_query_params(

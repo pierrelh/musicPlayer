@@ -12,6 +12,7 @@
 		// MusicPlayer page
 		case '/music-player':
 		case '/music-player/':
+			include_once($_SERVER['DOCUMENT_ROOT']."/functions/users/checkUserIdentification.php");
 			require __DIR__ . '/pages/music-player.php';
 			break;
 		
