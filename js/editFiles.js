@@ -5,7 +5,7 @@ function showEditSection(musicId){
 	document.getElementById("FileAlbumEdit").value = decodeHTML(Music.dataset.album);
 	document.getElementById("Banner").style.backgroundImage = "url(" + Music.dataset.img + ")";
 	document.getElementById("BarSpan2Edit").dataset.musicId = Music.dataset.id;
-	document.getElementById("BarSpan2Edit").dataset.musicUrl = Music.dataset.url;
+	document.getElementById("BarSpan2Edit").dataset.musicImg = Music.dataset.img;
 	backgroundAppear();
 	var Edit = document.getElementById("Edit");
 	Edit.className = "appear";
@@ -25,7 +25,7 @@ document.getElementById("PictureEdit").addEventListener("change", function() {
 
 async function editMusic() {
 	var picture = document.getElementById("PictureEdit").files[0];
-	var publicId = document.getElementById("BarSpan2Edit").dataset.musicUrl;
+	var publicId = document.getElementById("BarSpan2Edit").dataset.musicImg;
 	publicId = publicId.split("/");
 	publicId = publicId.pop();
 	publicId = publicId.split(".");
