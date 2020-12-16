@@ -56,7 +56,9 @@ function addToPlaylist(identifier) {
 	var li = document.getElementById("Add" + identifier);
 	li.classList.remove("add");
 	li.classList.add("check");
-	document.getElementById("Add" + identifier).addEventListener("click", removeFromPlaylist(identifier), false);
+	document.getElementById("Add" + identifier).addEventListener("click", function() {
+		removeFromPlaylist(identifier);
+	}, false);
 	// document.getElementById("Add" + identifier).setAttribute("onclick", "removeToPlaylist(" + identifier + ")");
 }
 
@@ -64,7 +66,9 @@ function removeFromPlaylist(identifier) {
 	var li = document.getElementById("Add" + identifier);
 	li.classList.remove("check");
 	li.classList.add("add");
-	document.getElementById("Add" + identifier).addEventListener("click", addToPlaylist(identifier), false);
+	document.getElementById("Add" + identifier).addEventListener("click", function() {
+		addToPlaylist(identifier);
+	}, false);
 	// document.getElementById("Add" + identifier).setAttribute("onclick", "addToPlaylist(" + identifier + ")");
 }
 

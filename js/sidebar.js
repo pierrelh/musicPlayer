@@ -192,8 +192,8 @@ CreatePlaylistSidebar.addEventListener("click", function() {
 		for (var i = 0; i < library.length; i++) {
 			document.getElementById("Add" + i).remove();
 		}
-		document.getElementById("PlaylistNameElement").remove;
-		document.getElementById("PlaylistButtonElement").remove;
+		document.getElementById("PlaylistNameElement").remove();
+		document.getElementById("PlaylistButtonElement").remove();
 		this.dataset.isActive = "false";
 		
 	}else {
