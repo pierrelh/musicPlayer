@@ -187,11 +187,18 @@ MyPlaylistsSidebar.addEventListener("click", function() {
 // Handle the create playlist button click
 CreatePlaylistSidebar.addEventListener("click", function() {
 	var library = document.getElementById("LibraryObjects").children;
-	for (var i = 0; i < library.length; i++) (function(i) {
-		// Check if library is already in add mode
-		if (document.getElementById("Add" + i) != undefined) {
+	if (this.dataset.isActive == "true") {
+
+		for (var i = 0; i < library.length; i++) {
 			document.getElementById("Add" + i).remove();
-		}else {
+		}
+		document.getElementById("PlaylistNameElement").remove;
+		document.getElementById("PlaylistButtonElement").remove;
+		this.dataset.isActive = "false";
+		
+	}else {
+
+		for (var i = 0; i < library.length; i++) (function(i) {
 			// Check if library is already on delete or edit mode & remove it if needed
 			if (document.getElementById("Delete" + i) != undefined) {
 				document.getElementById("Delete" + i).remove();
@@ -206,11 +213,43 @@ CreatePlaylistSidebar.addEventListener("click", function() {
 			var parent = document.getElementById("MusicList" + i);
 			var child = document.getElementById("Music" + i);
 			parent.insertBefore(li, child);
-		  
+			
 			// Add the event on this add's click
 			document.getElementById("Add" + i).onclick = function () {
 				addToPlaylist(i);
 			};
-		}      
-	})(i);
+
+		})(i);
+
+		var sidebarList = document.getElementById("SidebarList");
+
+		// Create the li element for input playlist name
+		var listPlaylistName = document.createElement("li");
+		listPlaylistName.id = "PlaylistNameElement"
+		sidebarList.appendChild(listPlaylistName);
+	
+		// Create the input element for playlist name
+		var playlistName = document.createElement("input");
+		playlistName.id = "PlaylistName";
+		playlistName.setAttribute("type", "text");
+		playlistName.setAttribute("placeholder", "Nom de la Playlist");
+		playlistName.classList.add("playlist-name");
+		listPlaylistName.appendChild(playlistName);
+	
+		// Create the li element for the input playlist create 
+		var listElement = document.createElement("li");
+		listElement.id = "PlaylistButtonElement"
+		sidebarList.appendChild(listElement);
+	
+		// Create the input element for playlist create
+		var buttonCreatePlaylist = document.createElement("input");
+		buttonCreatePlaylist.id = "ButtonCreatePlaylist";
+		buttonCreatePlaylist.setAttribute("type", "submit");
+		buttonCreatePlaylist.addEventListener("click", sendPlaylist, false);
+		buttonCreatePlaylist.classList.add("button-create-playlist");
+		buttonCreatePlaylist.value = "Créer la Playlist";
+		listElement.appendChild(buttonCreatePlaylist);
+
+		this.dataset.isActive = "true";
+	}
 });

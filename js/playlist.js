@@ -3,7 +3,7 @@ function openPlaylist(identifier) {
 		var musics = document.getElementById(identifier).dataset.musics;
 
 		$.ajax({
-			url: "../functions/files/getFilesById.php",
+			url: server + "/functions/files/getFilesById.php",
 			type: "POST",
 			data: {"musics": musics},
 			success: function(data){
@@ -56,74 +56,39 @@ function addToPlaylist(identifier) {
 	var li = document.getElementById("Add" + identifier);
 	li.classList.remove("add");
 	li.classList.add("check");
-	document.getElementById("add" + identifier).setAttribute("onclick", "removeToPlaylist(" + identifier + ")");
-	if (document.getElementById("buttonCreatePlaylist") == undefined) {
-		var sidebarList = document.getElementById("sidebarList");
-
-		var listPlaylistName = document.createElement("li");
-		listPlaylistName.id = "playlistNameElement"
-		sidebarList.appendChild(listPlaylistName);
-
-		var playlistName = document.createElement("input");
-		playlistName.id = "playlistName";
-		playlistName.setAttribute("type", "text");
-		playlistName.setAttribute("placeholder", "Nom de la Playlist");
-		playlistName.classList.add("playlist-name");
-		listPlaylistName.appendChild(playlistName);
-
-
-		var listElement = document.createElement("li");
-		listElement.id = "playlistButtonElement"
-		sidebarList.appendChild(listElement);
-
-		var buttonCreatePlaylist = document.createElement("input");
-		buttonCreatePlaylist.id = "buttonCreatePlaylist";
-		buttonCreatePlaylist.setAttribute("type", "submit");
-		buttonCreatePlaylist.setAttribute("onclick", "sendPlaylist()");
-		buttonCreatePlaylist.classList.add("button-create-playlist");
-		buttonCreatePlaylist.value = "Créer la Playlist";
-		listElement.appendChild(buttonCreatePlaylist);
-	}
+	document.getElementById("Add" + identifier).addEventListener("click", removeFromPlaylist(identifier), false);
+	// document.getElementById("Add" + identifier).setAttribute("onclick", "removeToPlaylist(" + identifier + ")");
 }
 
-function removeToPlaylist(identifier) {
-	var li = document.getElementById("add" + identifier);
+function removeFromPlaylist(identifier) {
+	var li = document.getElementById("Add" + identifier);
 	li.classList.remove("check");
 	li.classList.add("add");
-	document.getElementById("add" + identifier).setAttribute("onclick", "addToPlaylist(" + identifier + ")");
-	var choosed = false;
-	var library = document.getElementById("LibraryObjects").children;
-	for (var i = 0; i < library.length; i++) {
-		if (document.getElementById("add" + i).classList.contains("check")) {
-			choosed = true;
-		}
-	}
-	if (choosed == false) {
-		document.getElementById("buttonCreatePlaylist").remove();
-		document.getElementById("playlistName").remove();
-		document.getElementById("playlistButtonElement").remove();
-		document.getElementById("playlistNameElement").remove();
-	}
+	document.getElementById("Add" + identifier).addEventListener("click", addToPlaylist(identifier), false);
+	// document.getElementById("Add" + identifier).setAttribute("onclick", "addToPlaylist(" + identifier + ")");
 }
 
 function sendPlaylist() {
 	var library = document.getElementById("LibraryObjects").children;
-	var playlistName = document.getElementById("playlistName").value;
-	var musicList = "";
+	var playlistName = document.getElementById("PlaylistName").value;
+	var musicList = [];
 	for (var i = 0; i < library.length; i++) {
-		if (document.getElementById("add" + i).classList.contains("check")) {
-			musicList += document.getElementById(i).dataset.id + "#STOP#";
+		if (document.getElementById("Add" + i).classList.contains("check")) {
+			musicList.push(document.getElementById("Music" + i).dataset.id);
+			// musicList += document.getElementById(i).dataset.id + "#STOP#";
 		}
 	}
 	if (playlistName == "" || musicList == "") {
 		alert("Merci de choisir des morceaux et de remplir le nom de la playlist.")
 	}else {
 		$.ajax({
-			url: "../functions/playlist/createPlaylist.php",
+			url: server + "/functions/playlist/createPlaylist.php",
 			type: "POST",
-			data: {"musics": musicList,
-						 "playlistName": playlistName},
-			success: function(data){
+			data: {
+				"musics": musicList,
+				"playlistName": playlistName
+			},
+			success: function(){
 				hideAdd();
 			}
 		});
