@@ -6,6 +6,13 @@
 		<div id="Banner" class='div-detail'>
 			<ul class='delete-edit'>
 				<li><label class='modify-img' for="PictureEdit"><img class="editImage" src='<?php echo $link ?>/img/edit.png' alt=''></label></li>
+				<li>
+					<div class="progress-file">
+						<div id="ProgressBarPictureEdit" class="progress-bar-file">
+							<div id="TextProgressBarPictureEdit" class="text-file"></div>
+						</div>
+					</div>
+				</li>
 				<li><input id="PictureEdit" type="file" name="" value=""></li>
 			</ul>
 		</div>
