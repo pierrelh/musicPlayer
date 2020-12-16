@@ -32,6 +32,7 @@
         $response = get_web_page("https://$key:$secret@api.cloudinary.com/v1_1/$name/usage");
         $resArr = array();
         $resArr = json_decode($response);
+        $resArr = get_object_vars($resArr);
         echo "<p>" . $resArr["plan"] . "</p>";
     ?>
 	<script type="text/javascript" src="<?php echo $link ?>/js/account.js"></script>
