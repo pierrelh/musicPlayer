@@ -219,7 +219,7 @@ function checkPlaylistSection() {
 }
 
 // Upload a file to Cloudinary
-function uploadFileCloudinary(fileToUpload, publicId, preset, barId, textId) {
+function uploadFileCloudinary(fileToUpload, preset, barId, textId) {
 	return new Promise((resolve, reject) => {
 		var url = "https://api.cloudinary.com/v1_1/htko7uqqo/upload";
 		
@@ -234,10 +234,7 @@ function uploadFileCloudinary(fileToUpload, publicId, preset, barId, textId) {
 			document.getElementById(barId).style.width = progress + "%";
 			document.getElementById(textId).innerHTML = progress + "%";
 		});
-
-		if (publicId != false) {
-			file.append("public_id", publicId);
-		}		
+	
 		file.append("upload_preset", preset);
 		file.append("tags", "browser_upload"); // Optional - add tag for image admin in Cloudinary
 		file.append("file", fileToUpload);

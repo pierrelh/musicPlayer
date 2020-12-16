@@ -19,13 +19,13 @@ async function uploadMusic() {
 		}
 
 		// Uploadind the music to cloudinary
-		await uploadFileCloudinary(file, false, "unsigned_video", "ProgressBarVideo", "TextProgressBarVideo").then( async (audioFileXhr) => {
+		await uploadFileCloudinary(file, "unsigned_video", "ProgressBarVideo", "TextProgressBarVideo").then( async (audioFileXhr) => {
 			var response = JSON.parse(audioFileXhr.responseText);
 			formData.set("file_url", response.secure_url)
 			document.getElementById("TextProgressBarVideo").innerHTML = "Envoyé";
 
 			// Uploading the cover to cloudinary
-			await uploadFileCloudinary(picture, false, "unsigned_image", "ProgressBarPicture", "TextProgessBarPicture").then((pictureFileXhr) => {
+			await uploadFileCloudinary(picture, "unsigned_image", "ProgressBarPicture", "TextProgessBarPicture").then((pictureFileXhr) => {
 				var response = JSON.parse(pictureFileXhr.responseText);
 				formData.set("file_image", response.secure_url)
 				document.getElementById("TextProgessBarPicture").innerHTML = "Envoyé";
@@ -52,13 +52,6 @@ async function uploadMusic() {
 		document.getElementById("ErrorMsgUpload").appendChild(errormsg);
 	}
 }
-
-// Handle click event on CrossUpload
-document.getElementById("CrossUpload").addEventListener("click", function () {
-	backgroundHide();
-	var Upload = document.getElementById("Upload");
-	Upload.className = "";
-});
 
 // Handle click on BarSpan2
 document.getElementById("BarSpan2").addEventListener("click", uploadMusic, false);
