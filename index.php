@@ -1,27 +1,20 @@
 <?php
 	$link = 'https://' . $_SERVER['HTTP_HOST'];
-	$uri = $_SERVER['REQUEST_URI'];
 
-	switch ($uri) {
-		// Login page
-		case '':
-		case '/':
-			include_once($_SERVER['DOCUMENT_ROOT']."/functions/users/checkUserIdentification.php");
+	switch (isset($_COOKIE['SESSION_ID'])) {
+		case false:
 			require __DIR__ . '/pages/login.php';
 			break;
 
-		// MusicPlayer page
-		case '/music-player':
-		case '/music-player/':
+		case true:
 			include_once($_SERVER['DOCUMENT_ROOT']."/functions/users/checkUserIdentification.php");
 			require __DIR__ . '/pages/music-player.php';
 			break;
 		
 		default:
-			include_once($_SERVER['DOCUMENT_ROOT']."/functions/users/checkUserIdentification.php");
 			require __DIR__ . '/pages/login.php';
 			break;
-	}
 
-	
+	}
+		
 ?>
