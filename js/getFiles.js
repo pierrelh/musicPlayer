@@ -1,6 +1,6 @@
 function getFiles(row, type){
 	$.ajax({
-		url: server + "/functions/files/getAllFiles.php",
+		url: server + "/functions/playlist/getAllFiles.php",
 		type: "POST",
 		data: {
 			"row": row,
@@ -12,7 +12,7 @@ function getFiles(row, type){
 			library.innerHTML = "";
 			if (data.length != 0) {
 				playlist = [];
-				for (var i = 0; i < data.length; i++) {
+				for (var i = 0; i < data.length; i++) (function(i) {
 					var ul = document.createElement("ul");
 					ul.id = "MusicList" + i;
 					library.appendChild(ul);
@@ -27,6 +27,7 @@ function getFiles(row, type){
 					li.dataset.album = data[i]["file_album"];
 					li.dataset.img = data[i]["file_image"];
 					li.dataset.id = data[i]["file_id"];
+					document.getElementById("Music" + i).addEventListener("click", function(){playMusic(i)}, false);
 
 					if (data[i]["file_image"] != "") {
 						li.style.backgroundImage = "url('" + data[i]["file_image"] + "')";
@@ -39,15 +40,9 @@ function getFiles(row, type){
 					lip.appendChild(p);
 					p.innerHTML = data[i]["file_author"] + " - " + data[i]["file_name"];
 					p.id = "MusicP" + i;
+					document.getElementById("MusicP" + i).addEventListener("click", function(){playMusic(i)}, false);
 
 					playlist.push(i);
-				}
-
-				var musicNumber = document.getElementById("LibraryObjects").children.length;
-
-				for (var i = 0; i < musicNumber; i++) (function(i) {
-					document.getElementById("Music" + i).addEventListener("click", function(){playMusic(i)}, false);
-					document.getElementById("MusicP"+i).addEventListener("click", function(){playMusic(i)}, false);
 				})(i);
 			}
 		}

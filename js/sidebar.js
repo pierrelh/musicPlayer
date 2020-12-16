@@ -146,7 +146,7 @@ MyPlaylistsSidebar.addEventListener("click", function() {
 	}else {
 		// If DivPlaylist is not open then call all the playlists
 		$.ajax({
-			url: server + "/functions/playlist/getAllPlaylists.php",
+			url: server + "/functions/playlists/getAllPlaylists.php",
 			type: "POST",
 			success: function(data){
 			  data = JSON.parse(data);
@@ -166,12 +166,10 @@ MyPlaylistsSidebar.addEventListener("click", function() {
 				  li.className = "table";
 				  li.id = "PlaylistElement" + i;
 				  li.dataset.name = data[i]["playlist_name"];
-				  li.dataset.musics = data[i]["playlist_musics"];
-				  li.dataset.owner = data[i]["playlist_owner"];
 				  li.dataset.id = data[i]["playlist_id"];
-				  document.getElementById("PlaylistElement" + i).onclick = function () {
-					openPlaylist("playlistElement" + i);
-				  };
+				  document.getElementById("PlaylistElement" + i).addEventListener("click", function(){
+					openPlaylist("PlaylistElement" + i);
+				}, false);
 		
 				  var p = document.createElement("p");
 				  li.appendChild(p);
@@ -189,12 +187,7 @@ CreatePlaylistSidebar.addEventListener("click", function() {
 	var library = document.getElementById("LibraryObjects").children;
 	if (this.dataset.isActive == "true") {
 
-		for (var i = 0; i < library.length; i++) {
-			document.getElementById("Add" + i).remove();
-		}
-		document.getElementById("PlaylistNameElement").remove();
-		document.getElementById("PlaylistButtonElement").remove();
-		this.dataset.isActive = "false";
+		hideAdd();
 		
 	}else {
 
@@ -215,9 +208,9 @@ CreatePlaylistSidebar.addEventListener("click", function() {
 			parent.insertBefore(li, child);
 			
 			// Add the event on this add's click
-			document.getElementById("Add" + i).onclick = function () {
-				addToPlaylist(i);
-			};
+			document.getElementById("Add" + i).addEventListener("click", function(){
+				addToPlaylist(i)
+			}, false);
 
 		})(i);
 
