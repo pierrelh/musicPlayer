@@ -29,7 +29,8 @@ async function editMusic() {
 	publicId = publicId.split("/");
 	publicId = publicId.pop();
 	publicId = publicId.split(".");
-	publicId = publicId[0];
+	publicId = publicId.pop();
+	publicId = publicId.join('')
 	// Uploading the cover to cloudinary
 	await uploadFileCloudinary(picture, publicId, "unsigned_overwrite_image", "ProgressBarPictureEdit", "TextProgressBarPictureEdit").then((pictureFileXhr) => {
 		console.log(pictureFileXhr)
