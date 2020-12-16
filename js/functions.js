@@ -218,23 +218,6 @@ function checkPlaylistSection() {
 	}
 }
 
-// Upload a file to the db
-function uploadFile() {
-	$.ajax({
-		url: server + "/functions/files/uploadFile.php",
-		type: "POST",
-		dataType: "script",
-		cache: false,
-		contentType: false,
-		processData: false,
-		data: formData,
-		success: function () {
-			alert("upload succeed")
-			getFiles("file_id", "DESC");
-		}
-	});
-}
-
 // Upload a file to Cloudinary
 function uploadFileCloudinary(fileToUpload, preset, barId, textId) {
 	return new Promise((resolve, reject) => {
@@ -256,9 +239,8 @@ function uploadFileCloudinary(fileToUpload, preset, barId, textId) {
 		file.append("tags", "browser_upload"); // Optional - add tag for image admin in Cloudinary
 		file.append("file", fileToUpload);
 		fileXhr.send(file);
-		fileXhr.onreadystatechange = function (e) {
-			if (fileXhr.readyState == 4) {
-				console.log("file send");
+		fileXhr.onreadystatechange = function () {
+			if (fileXhr.readyState == 4 && fileXhr.status == 200) {
 				resolve(fileXhr);
 			}
 		}
