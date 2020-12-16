@@ -3,18 +3,6 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Music Player - Login</title>
-		<?php
-
-			if (isset($_POST['log_user'])) {
-				if (!empty($_POST['login']) && !empty($_POST['password'])) {
-					include_once($_SERVER['DOCUMENT_ROOT']."/functions/users/getUsers.php");
-					userConnexion();
-				}else {
-					echo "<p>Veuillez remplir tous les champs.</p>";
-				}
-			}
-
-		?>
 	</head>
 	<body>
 		<?php
