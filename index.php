@@ -6,6 +6,7 @@
 		// Login page
 		case '':
 		case '/':
+			include_once($_SERVER['DOCUMENT_ROOT']."/functions/users/checkUserIdentification.php");
 			require __DIR__ . '/pages/login.php';
 			break;
 
@@ -17,6 +18,7 @@
 			break;
 		
 		default:
+			include_once($_SERVER['DOCUMENT_ROOT']."/functions/users/checkUserIdentification.php");
 			require __DIR__ . '/pages/login.php';
 			break;
 	}
