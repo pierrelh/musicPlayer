@@ -37,12 +37,9 @@
 .playlist-reader-hided {
 	position: fixed;
 	width: 80%;
-	margin: 50px 5px 0px 20%;
+	margin: 7vh 5px 0px 20%;
 	min-width: 810px;
-	height: 100%;
-	height: -moz-available;
-	height: -webkit-fill-available;
-	height: fill-available;
+	height: 93vh;
 	background-color: #0F0F0F;
 	overflow: scroll;
 	transition: 0.8s;

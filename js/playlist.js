@@ -60,7 +60,7 @@ function hideAdd() {
 	}
 	document.getElementById("PlaylistNameElement").remove();
 	document.getElementById("PlaylistButtonElement").remove();
-	document.getElementById("MyPlaylistsSidebar").dataset.isActive = "false";
+	document.getElementById("CreatePlaylistSidebar").dataset.isActive = "false";
 }
 
 // Toggle a music's class to be added to playlist
