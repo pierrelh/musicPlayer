@@ -13,7 +13,9 @@ var CreatePlaylistSidebar = document.getElementById("CreatePlaylistSidebar");
 
 // Handle the my account button click
 MyAccountSidebar.addEventListener("click", function() {
-	console.log("Opening: My account settings");
+	backgroundAppear();
+	var Account = document.getElementById("Account");
+	Account.classList.add("appear");
 });
 
 // Handle the create account button click

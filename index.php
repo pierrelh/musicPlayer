@@ -1,4 +1,5 @@
 <?php
+
 	$link = 'https://' . $_SERVER['HTTP_HOST'];
 
 	switch (isset($_COOKIE['SESSION_ID'])) {
