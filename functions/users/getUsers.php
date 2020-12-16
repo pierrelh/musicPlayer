@@ -25,7 +25,7 @@
 				'samesite' => 'Strict' // None || Lax  || Strict
 			);
 			setcookie("SESSION_ID", $row['user_session_id'], $arr_cookie_options);
-		  	print "true";
+			echo "<script type='text/javascript'>window.location.assign('" . $link . "/music-player');</script>";
 		}
 	}
 
