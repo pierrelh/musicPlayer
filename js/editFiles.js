@@ -31,12 +31,9 @@ document.getElementById("BarSpan2Edit").addEventListener("click", function() {
 			var picture = "undefined";
 			var publicId = "undefined";
 		}else {
+			// Formating the publicId of the music's cover to overwrite it
 			var publicId = document.getElementById("BarSpan2Edit").dataset.musicImg;
-			publicId = publicId.split("/");
-			publicId = publicId.pop();
-			publicId = publicId.split(".");
-			publicId.pop();
-			publicId = publicId.join(".")
+			publicId = getPublicIdFromUrl(publicId)
 			var picture = document.getElementById("PictureEdit").files[0];
 		}
 		var name = document.getElementById("FileNameEdit").value;
@@ -72,16 +69,17 @@ document.getElementById("BarSpan2Edit").addEventListener("click", function() {
 				}
 			}).done(function() {
 				getFiles("file_id", "DESC");
-				backgroundHide();
-				document.getElementById("Edit").className = "";
-				document.getElementById("PictureEdit").value = "";
-				document.getElementById("MyBarPlusEdit").style.width = "0%";
-				document.getElementById("EditButton").innerHTML = "0 %";
-				document.getElementById("MyBarMoinsEdit").style.width = "100%";
-				document.getElementById("BarSpan2Edit").innerHTML = "ENVOYER";
 			}).fail(function() {
 				alert("upload failed");
 			});
+
+			backgroundHide();
+			document.getElementById("Edit").className = "";
+			document.getElementById("PictureEdit").value = "";
+			document.getElementById("MyBarPlusEdit").style.width = "0%";
+			document.getElementById("EditButton").innerHTML = "0 %";
+			document.getElementById("MyBarMoinsEdit").style.width = "100%";
+			document.getElementById("BarSpan2Edit").innerHTML = "ENVOYER";
 		}
 	}else {
 		alert("Une erreur s'est produite.")

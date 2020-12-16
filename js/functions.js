@@ -34,6 +34,16 @@ function readURL(input, bannerId) {
 	}
 }
 
+// Get an url & return the public_id. ex: https://exemple/exemple/monfichier.jpg => monfichier
+function getPublicIdFromUrl(url) {
+	url = url.split("/");
+	url = url.pop();
+	url = url.split(".");
+	url.pop();
+	publicId = url.join(".")
+	return publicId
+}
+
 // Show the assets Background
 function backgroundAppear() {
 	var background = document.getElementById("Background");
