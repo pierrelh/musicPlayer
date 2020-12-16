@@ -21,10 +21,9 @@
 	$playlistId = $playlistId[0];
 	error_log( print_r($playlistId, TRUE) );
 	
-	$request = "";
 	foreach ($_POST["musics"] as $value) {
-		$request .= "INSERT INTO playlists_musics (playlist_id, playlist_music_id)
-					 VALUES ($1, $2);";
+		$request = "INSERT INTO playlists_musics (playlist_id, playlist_music_id)
+					 VALUES ($1, $2)";
 
 		$result =  pg_query_params(
 			$db,
@@ -35,8 +34,5 @@
 			)
 		);
 	}
-
-	
-
 
 ?>
