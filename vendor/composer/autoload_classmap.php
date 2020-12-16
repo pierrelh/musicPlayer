@@ -31,4 +31,5 @@ return array(
     'Cloudinary\\SignatureVerifier' => $vendorDir . '/cloudinary/cloudinary_php/src/SignatureVerifier.php',
     'Cloudinary\\Uploader' => $vendorDir . '/cloudinary/cloudinary_php/src/Uploader.php',
     'Cloudinary\\Utils\\Singleton' => $vendorDir . '/cloudinary/cloudinary_php/src/Utils/Singleton.php',
+    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );

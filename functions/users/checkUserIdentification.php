@@ -12,11 +12,11 @@
         setcookie('SESSION_ID', null, -1, '/');
 
         $cookieOptions = array (
-            'expires' => time() + 60*60*24*30,
-            'path' => '/',
-            'secure' => true,
-            'httponly' => true,
-            'samesite' => 'Strict'
+            $expires => time() + 60*60*24*30,
+            $path => '/',
+            $secure => true,
+            $httponly => true,
+            $samesite => 'Strict'
         );
         setcookie("SESSION_ID", $row['user_session_id'], $cookieOptions);
     }else {
