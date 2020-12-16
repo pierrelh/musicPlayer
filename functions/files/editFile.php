@@ -26,6 +26,7 @@
 				"public_id" => $_POST["public_id"],
 				"resource_type" => "auto",
 				"folder" => "image",
+				"overwrite" => true,
 				"invalidate" => true
 			)
 		);
@@ -33,6 +34,8 @@
 	}else {
 		unset($_POST['file_image']);
 	}
+	
+	unset($_POST['public_id']);
 	$condition = array('file_id' => $_POST['file_id']);
 	$res = pg_update($db, 'files', $_POST, $condition);
 
