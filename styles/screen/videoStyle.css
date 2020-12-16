@@ -7,12 +7,12 @@
 
 	.library-show {
 		margin-top: 7vh !important;
-		height: 93vh;
+		max-height: 93vh;
 		width: 100%;
 	}
 
 	.library-reader-active {
-		height: 81vh !important;
+		max-height: 81vh !important;
 		transition: 0.8s;
 	}
 

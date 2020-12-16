@@ -9,7 +9,7 @@
 
 .library > div,
 .library-show > div {
-	display: block;
+	display: flex;
 	margin: auto;
 	max-height: 93vh;
 	overflow-y: scroll;
