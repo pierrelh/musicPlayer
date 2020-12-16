@@ -26,7 +26,7 @@
 				"public_id" => $_POST["public_id"],
 				"resource_type" => "auto",
 				"folder" => "image",
-				"chunk_size" => 5000000
+				"invalidate" => true
 			)
 		);
 		$_POST['file_image'] = $result['secure_url'];

@@ -15,7 +15,7 @@ function showEditSection(musicId){
 document.getElementById("CrossEdit").addEventListener("click", function() {
 	backgroundHide();
 	document.getElementById("Edit").className = "";
-	document.getElementById("PictureEdit").files = "";
+	document.getElementById("PictureEdit").files = [];
 });
 
 // Handle change on PictureEdit
