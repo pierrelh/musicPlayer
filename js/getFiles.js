@@ -1,6 +1,6 @@
 function getFiles(row, type){
 	$.ajax({
-		url: server + "/functions/files/ajaxGetAllFiles.php",
+		url: server + "/functions/files/getAllFiles.php",
 		type: "POST",
 		data: {
 			"row": row,
