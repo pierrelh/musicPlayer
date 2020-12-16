@@ -3,7 +3,7 @@ document.getElementById("Arrow").addEventListener("click", function(){
 		this.dataset.status = "show";
 		this.classList.add("arrow-active");
 		document.getElementById("Sidebar").classList.remove("sidebar-hide");
-		document.getElementById('Library').classList.add("library");
+		document.getElementById("Library").classList.add("library");
 		document.getElementById("DivPlaylist").classList.remove("playlist-sidebar-hided");
 		document.getElementById("AudioPlayer").classList.remove("left");
 

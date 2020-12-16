@@ -19,7 +19,7 @@
 			echo "<p class='error-msg'>Ce compte n'a pas été trouvé.</p>";
 		}else {
 			setcookie("SESSION_ID", $row, time()+3600);
-			echo "<script type='text/javascript'>window.location.assign('./pages/');</script>";
+			echo "<script type='text/javascript'>window.location.assign('./music-player');</script>";
 		}
 	}
 

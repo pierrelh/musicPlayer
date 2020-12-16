@@ -217,3 +217,45 @@ function checkPlaylistSection() {
 	//   document.getElementById("myPlaylists").setAttribute("onclick", "getAllPlaylists()");
 	}
 }
+
+// Upload a file to the db
+function uploadFile() {
+	$.ajax({
+		url: server + "/functions/files/uploadFile.php",
+		type: "POST",
+		dataType: "script",
+		cache: false,
+		contentType: false,
+		processData: false,
+		data: formData,
+		success: function () {
+			alert("upload succeed")
+			getFiles("file_id", "DESC");
+		}
+	});
+}
+
+// Upload a file to Cloudinary
+async function uploadFileCloudinary(fileToUpload, preset, barId, textId) {
+	var url = "https://api.cloudinary.com/v1_1/htko7uqqo/upload";
+		
+	var file = new FormData();
+	var fileXhr = new XMLHttpRequest();
+	fileXhr.open("POST", url, true);
+	fileXhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+
+	// Update progress for audio file
+	fileXhr.upload.addEventListener("progress", function (e) {
+		var progress = Math.round((e.loaded * 100.0) / e.total);
+		document.getElementById(barId).style.width = progress + "%";
+		document.getElementById(textId).innerHTML = progress + "%";
+	});
+
+	file.append("upload_preset", preset);
+	file.append("tags", "browser_upload"); // Optional - add tag for image admin in Cloudinary
+	file.append("file", fileToUpload);
+	fileXhr.send(file);
+	fileXhr.onreadystatechange = function (e) {
+		return fileXhr;
+	}
+}
