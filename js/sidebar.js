@@ -41,7 +41,7 @@ MyAccountSidebar.addEventListener("click", function() {
 		document.getElementById("AccountBandwidthUsage").innerHTML = response["bandwidth"]["usage"];
 		// document.getElementById("AccountBandwidthUsage").innerHTML = response["bandwidth"]["used_percent"];
 		document.getElementById("AccountBandwidthLimit").innerHTML = response["bandwidth"]["limit"];
-		
+
 		document.getElementById("AccountStorageUsage").innerHTML = response["storage"]["usage"];
 		// document.getElementById("AccountStorageUsage").innerHTML = response["storage"]["used_percent"];
 		document.getElementById("AccountStorageLimit").innerHTML = response["storage"]["limit"];
@@ -195,7 +195,7 @@ MyPlaylistsSidebar.addEventListener("click", function() {
 			  ul.className = "listPlaylist";
 			  DivPlaylist.appendChild(ul);
   
-			  for (var i = 0; i < data.length; i++) (function(i) {
+			  for (var i = 0; i < response.length; i++) (function(i) {
 				  li = document.createElement("li");
 				  ul.appendChild(li);
 				  li.className = "table";
