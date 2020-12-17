@@ -50,7 +50,7 @@
             <li class="account-progress-bar-element">
                 <div>
 					<div id="AccountTransformationProgressBar">
-						<p id="Percent">[user_percent]</p>
+						<p id="AccountTransformationPercent">[user_percent]</p>
 					</div>
 				</div>
             </li>
