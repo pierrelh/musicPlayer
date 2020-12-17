@@ -5,7 +5,7 @@
 
     $response = getWebPage("https://$key:$secret@api.cloudinary.com/v1_1/$name/usage");
     
-    print json_encode($response);
+    print $response;
     // $result = json_decode($response);
     // $result = get_object_vars($result);
     
