@@ -17,7 +17,6 @@ MyAccountSidebar.addEventListener("click", function() {
 	.then((response) => response.json())
 	.then(function (response) {
 
-		console.log(response);
 		document.getElementById("AccountPlan").innerHTML = response["plan"];
 		document.getElementById("AccountLastUpdate").innerHTML = response["last_updated"];
 		document.getElementById("AccountRequests").innerHTML = response["requests"];

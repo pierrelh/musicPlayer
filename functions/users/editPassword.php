@@ -16,4 +16,10 @@
 		)
 	);
 
+	if (is_resource($result)) {
+		print "true";
+	}else {
+		print "false";
+	}
+
 ?>

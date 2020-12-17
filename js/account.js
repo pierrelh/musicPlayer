@@ -23,16 +23,17 @@ document.getElementById("UpdatePassword").addEventListener("click", function(e) 
 		$.ajax({
 			url: server + "/functions/users/editPassword.php",
 			type: "POST",
-			dataType: "script",
-			cache: false,
-			contentType: false,
-			processData: false,
 			data: {
 				"user_password": passwordOne
 			},
-			success: function () {
-				errorMsg.style.color = "green";
-				errorMsg.innerHTML = "Votre mot de passe à bien été mis à jour";
+			success: function (response) {
+				if (response == "true") {
+					errorMsg.style.color = "green";
+					errorMsg.innerHTML = "Votre mot de passe à bien été mis à jour";					
+				}else {
+					errorMsg.style.color = "red";
+					errorMsg.innerHTML = "Une erreur s'est produite lors la mise à jour";	
+				}
 			}
 		});
 	}
