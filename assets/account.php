@@ -49,8 +49,8 @@
             <li><p id="AccountTransformationUsage"></p></li>
             <li class="account-progress-bar-element">
                 <div>
-					<div>
-						<div>[user_percent]</div>
+					<div id="AccountTransformationProgressBar">
+						<p id="Percent">[user_percent]</p>
 					</div>
 				</div>
             </li>
@@ -61,8 +61,8 @@
             <li><p id="AccountObjectsUsage"></p></li>
             <li class="account-progress-bar-element">
                 <div>
-					<div>
-						<div>[user_percent]</div>
+					<div id="AccountObjectsProgressBar">
+						<p id="AccountObjectsPercent">[user_percent]</p>
 					</div>
 				</div>
             </li>
@@ -73,8 +73,8 @@
             <li><p id="AccountBandwidthUsage"></p></li>
             <li class="account-progress-bar-element">
                 <div>
-					<div>
-						<div>[user_percent]</div>
+					<div id="AccountBandwidthProgressBar">
+						<p id="AccountBandwidthPercent">[user_percent]</p>
 					</div>
 				</div>
             </li>
@@ -85,8 +85,8 @@
             <li><p id="AccountStorageUsage"></p></li>
             <li class="account-progress-bar-element">
                 <div>
-					<div>
-						<div>[user_percent]</div>
+					<div id="AccountStorageProgressBar">
+						<p id="AccountStoragePercent">[user_percent]</p>
 					</div>
 				</div>
             </li>

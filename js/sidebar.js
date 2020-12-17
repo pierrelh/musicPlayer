@@ -31,19 +31,23 @@ MyAccountSidebar.addEventListener("click", function() {
 		document.getElementById("AccountAssetMaxTotalPx").innerHTML = response["media_limits"]["asset_max_total_px"];
 
 		document.getElementById("AccountTransformationUsage").innerHTML = response["transformations"]["usage"];
-		// document.getElementById("AccountTransformationLimit").innerHTML = response["transformations"]["used_percent"];
+		document.getElementById("AccountTransformationPercent").innerHTML = response["transformations"]["used_percent"];
+		document.getElementById("AccountTransformationProgressBar").style.width = response["transformations"]["used_percent"] + "%";
 		document.getElementById("AccountTransformationLimit").innerHTML = response["transformations"]["limit"];
 
 		document.getElementById("AccountObjectsUsage").innerHTML = response["objects"]["usage"];
-		// document.getElementById("AccountObjectsUsage").innerHTML = response["objects"]["used_percent"];
+		document.getElementById("AccountObjectsPercent").innerHTML = response["objects"]["used_percent"];
+		document.getElementById("AccountObjectsProgressBar").style.width = response["objects"]["used_percent"] + "%";
 		document.getElementById("AccountObjectsUsageLimit").innerHTML = response["objects"]["limit"];
 
 		document.getElementById("AccountBandwidthUsage").innerHTML = response["bandwidth"]["usage"];
-		// document.getElementById("AccountBandwidthUsage").innerHTML = response["bandwidth"]["used_percent"];
+		document.getElementById("AccountBandwidthPercent").innerHTML = response["bandwidth"]["used_percent"];
+		document.getElementById("AccountBandwidthProgressBar").style.width = response["bandwidth"]["used_percent"] + "%";
 		document.getElementById("AccountBandwidthLimit").innerHTML = response["bandwidth"]["limit"];
 
 		document.getElementById("AccountStorageUsage").innerHTML = response["storage"]["usage"];
-		// document.getElementById("AccountStorageUsage").innerHTML = response["storage"]["used_percent"];
+		document.getElementById("AccountStoragePercent").innerHTML = response["storage"]["used_percent"];
+		document.getElementById("AccountStorageProgressBar").style.width = innerHTML = response["storage"]["used_percent"] + "%";
 		document.getElementById("AccountStorageLimit").innerHTML = response["storage"]["limit"];
 
 		backgroundAppear();
