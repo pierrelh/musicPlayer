@@ -34,15 +34,15 @@ MyAccountSidebar.addEventListener("click", function() {
 		document.getElementById("AccountObjectsProgressBar").style.width = response["objects"]["used_percent"] + "%";
 		document.getElementById("AccountObjectsUsageLimit").innerHTML = response["objects"]["limit"];
 
-		document.getElementById("AccountBandwidthUsage").innerHTML = response["bandwidth"]["usage"];
+		document.getElementById("AccountBandwidthUsage").innerHTML = (response["bandwidth"]["usage"] / 1000000000).toFixed(2) + " GB";
 		document.getElementById("AccountBandwidthPercent").innerHTML = response["bandwidth"]["used_percent"];
 		document.getElementById("AccountBandwidthProgressBar").style.width = response["bandwidth"]["used_percent"] + "%";
-		document.getElementById("AccountBandwidthLimit").innerHTML = response["bandwidth"]["limit"];
+		document.getElementById("AccountBandwidthLimit").innerHTML = (response["bandwidth"]["limit"] / 1000000000).toFixed(2) + " GB";
 
-		document.getElementById("AccountStorageUsage").innerHTML = response["storage"]["usage"];
+		document.getElementById("AccountStorageUsage").innerHTML = (response["storage"]["usage"] / 1000000000).toFixed(2) + " GB";
 		document.getElementById("AccountStoragePercent").innerHTML = response["storage"]["used_percent"];
 		document.getElementById("AccountStorageProgressBar").style.width = innerHTML = response["storage"]["used_percent"] + "%";
-		document.getElementById("AccountStorageLimit").innerHTML = response["storage"]["limit"];
+		document.getElementById("AccountStorageLimit").innerHTML = (response["storage"]["limit"] / 1000000000).toFixed(2) + " GB";
 
 		document.getElementById("AccountImageMaxSize").innerHTML = response["media_limits"]["image_max_size_bytes"];
 		document.getElementById("AccountVideoMaxSize").innerHTML = response["media_limits"]["video_max_size_bytes"];
