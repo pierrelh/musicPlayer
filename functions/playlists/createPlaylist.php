@@ -23,7 +23,7 @@
 	// Create each playlists_musics row in the db
 	foreach ($_POST["musics"] as $value) {
 		$request = "INSERT INTO playlists_musics (playlist_id, playlist_music_id)
-					 VALUES ($1, $2)";
+					VALUES ($1, $2)";
 
 		$result =  pg_query_params(
 			$db,

@@ -30,7 +30,7 @@
             <li class="account-progress-bar-element">
                 <div>
 					<div id="AccountTransformationProgressBar">
-						<p id="AccountTransformationPercent">[user_percent]</p>
+						<p id="AccountTransformationPercent"></p>
 					</div>
 				</div>
             </li>
@@ -42,7 +42,7 @@
             <li class="account-progress-bar-element">
                 <div>
 					<div id="AccountObjectsProgressBar">
-						<p id="AccountObjectsPercent">[user_percent]</p>
+						<p id="AccountObjectsPercent"></p>
 					</div>
 				</div>
             </li>
@@ -54,7 +54,7 @@
             <li class="account-progress-bar-element">
                 <div>
 					<div id="AccountBandwidthProgressBar">
-						<p id="AccountBandwidthPercent">[user_percent]</p>
+						<p id="AccountBandwidthPercent"></p>
 					</div>
 				</div>
             </li>
@@ -66,7 +66,7 @@
             <li class="account-progress-bar-element">
                 <div>
 					<div id="AccountStorageProgressBar">
-						<p id="AccountStoragePercent">[user_percent]</p>
+						<p id="AccountStoragePercent"></p>
 					</div>
 				</div>
             </li>
@@ -93,18 +93,18 @@
             <li><p id="AccountAssetMaxTotalPx"></p></li>
         </ul>
 
-        <form action="">
+        <form>
             <h2>Modifier mon mot de passe</h2>
             <h3 id="errorMsgEditPassword"></h3>
             <ul>
                 <li>
-                    <input placeholder="Nouveau mot de passe" type="password">
+                    <input id="NewPasswordOne" autocomplete="new-password" placeholder="Nouveau mot de passe" type="password">
                 </li>
                 <li>
-                    <input placeholder="Répétez le mot de passe" type="password">
+                    <input id="NewPasswordTwo" autocomplete="new-password" placeholder="Répétez le mot de passe" type="password">
                 </li>
             </ul>
-            <input type="submit" value="Mettre à jour">
+            <input id="UpdatePassword" type="submit" value="Mettre à jour">
         </form>
 
     </div>

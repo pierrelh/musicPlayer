@@ -5,10 +5,11 @@
 	$row = $_POST['row'];
 	$type = $_POST['type'];
 
-	$sqlRequest = "SELECT *
-				   FROM files
-				   ORDER BY " . $row . " " . $type;
-	$result = pg_query($db, $sqlRequest);
+	$request = "SELECT *
+				FROM files
+				ORDER BY " . $row . " " . $type;
+
+	$result = pg_query($db, $request);
 	if (!empty($result)) {
 		$val = pg_fetch_all($result);
 		print json_encode($val);
