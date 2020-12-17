@@ -5,7 +5,6 @@
         $options = array(
             CURLOPT_RETURNTRANSFER => true,   // return web page
             CURLOPT_HEADER         => false,  // don't return headers
-            CURLOPT_NOBODY         => true,   // don't return body
             CURLOPT_FOLLOWLOCATION => false,  // don't follow redirects
             CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
             CURLOPT_ENCODING       => "",     // handle compressed
