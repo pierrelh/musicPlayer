@@ -11,7 +11,7 @@
 		$db,
 		$request,
 		array(
-            $_POST['user_password'],
+            hash("sha256", $_POST['user_password']),
             $_COOKIE['SESSION_ID']
 		)
 	);
