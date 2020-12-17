@@ -12,3 +12,47 @@
     top: 15%;
     height: 70%;
 }
+
+.div-account {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-size: 1.5em;
+}
+
+.div-account > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.account-element-title > p {
+    font-weight: 800;
+    margin-right: 7px;
+}
+
+.account-progress-bar-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20%;
+    margin: 0 15px;
+}
+
+.account-progress-bar-element > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.account-progress-bar-element > div > div {
+    width: 0;
+    height: 10px;
+    background-color: black;
+    text-align: center;
+    line-height: 10px;
+    font-size: 10px;
+    font-family: "Open sans", sans-serif;
+}

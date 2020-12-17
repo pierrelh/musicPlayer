@@ -19,7 +19,7 @@ MyAccountSidebar.addEventListener("click", function() {
 
 		console.log(response);
 		document.getElementById("AccountPlan").innerHTML = response["plan"];
-		document.getElementById("AccountLastUpdate").innerHTML = response["last_update"];
+		document.getElementById("AccountLastUpdate").innerHTML = response["last_updated"];
 		document.getElementById("AccountRequests").innerHTML = response["requests"];
 		document.getElementById("AccountResources").innerHTML = response["resources"];
 		document.getElementById("AccountDerivedResources").innerHTML = response["derived_resources"];
