@@ -1,17 +1,8 @@
 #Account {
-    font-family: "Open-sans", sans-serif;
-    background-color: white;
-    position: fixed;
-    z-index: 999;
-    max-height: 0;
-    transition: max-height 0.5s ease-out;
-    overflow: hidden;
-    position: absolute;
     left: 15%;
     width: 70%;
     top: 15%;
     height: 70%;
-    border-radius: 10px;
 }
 
 .div-account {
@@ -59,7 +50,6 @@
     background-color: black;
     text-align: center;
     line-height: 15px;
-    font-family: "Open sans", sans-serif;
 }
 
 .account-progress-bar-element > div > div > p {

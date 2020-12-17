@@ -1,3 +1,7 @@
+* {	
+    font-family: "Open-sans", sans-serif;
+}
+
 html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
@@ -210,6 +214,19 @@ html{
 	display: none;
 }
 
+#Delete,
+#Upload,
+#Edit,
+#Account {
+	background-color: white;
+	position: fixed;
+	z-index: 999;
+	max-height: 0;
+	transition: max-height 0.5s ease-out;
+	overflow: hidden;
+	border-radius: 10px;
+}
+
 @media screen and (max-device-width: 640px) {
 	.appear{
 		max-height: 1200px !important;
@@ -227,14 +244,12 @@ html{
 
 	#error-msg{
 		color: red;
-		font-family: "Open sans", sans-serif;
 		text-align: center;
 		font-size: 1.5em;
 	}
 
 	.error-msg{
 		color: red;
-		font-family: "Open sans", sans-serif;
 		margin-left: 10px;
 		font-size: 1.5em;
 		margin-top: 70px;
@@ -258,14 +273,12 @@ html{
 
 	#error-msg{
 		color: red;
-		font-family: "Open sans", sans-serif;
 		text-align: center;
 		font-size: 1.5em;
 	}
 
 	.error-msg{
 		color: red;
-		font-family: "Open sans", sans-serif;
 		margin-left: 10px;
 		font-size: 1.5em;
 		margin-top: 70px;

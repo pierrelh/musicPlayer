@@ -21,7 +21,6 @@
 }
 
 #SongName{
-	font-family: "Open sans", sans-serif;
 	color: white;
 	padding-left: 25px;
 	margin: 0;
@@ -43,7 +42,6 @@
 
 .time {
 	color: white;
-	font-family: "Open sans", sans-serif;
 	line-height: initial;
 }
 

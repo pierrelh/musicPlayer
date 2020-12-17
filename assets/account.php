@@ -92,6 +92,21 @@
             <li class="account-element-title"><p>Asset Max Total Px:</p></li>
             <li><p id="AccountAssetMaxTotalPx"></p></li>
         </ul>
+
+        <form action="">
+            <h2>Modifier mon mot de passe</h2>
+            <h3 id="errorMsgEditPassword"></h3>
+            <ul>
+                <li>
+                    <input placeholder="Nouveau mot de passe" type="password">
+                </li>
+                <li>
+                    <input placeholder="Répétez le mot de passe" type="password">
+                </li>
+            </ul>
+            <input type="submit" value="Mettre à jour">
+        </form>
+
     </div>
 	<script type="text/javascript" src="<?php echo $link ?>/js/account.js"></script>
 </section>

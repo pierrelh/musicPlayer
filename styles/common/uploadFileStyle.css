@@ -1,14 +1,3 @@
-#Upload,
-#Edit {
-	background-color: white;
-	position: fixed;
-	z-index: 999;
-	max-height: 0;
-	transition: max-height 0.5s ease-out;
-	overflow: hidden;
-	position: absolute;
-}
-
 #Banner {
 	background-position: center;
 	background-repeat: no-repeat;
@@ -80,7 +69,6 @@
 	line-height: 10px;
 	border-radius: 5px;
 	font-size: 10px;
-	font-family: "Open sans", sans-serif;
 }
 
 .text-file,
@@ -91,13 +79,11 @@
 }
 
 #Upload > form > label {
-	font-family: "Open sans", sans-serif;
 	font-weight: 700;
 }
 
 #Upload > form > input[type="text"],
 #Edit > form > input[type="text"] {
-	font-family: "Open sans", sans-serif;
 	border: 1px black solid;
 	padding: 5px;
 	margin: 5px;
@@ -113,7 +99,6 @@
 	border: 1px solid black;
 	text-align: center;
 	background: none;
-	font-family: "Open sans", sans-serif;
 	font-size: 1.6em;
 	display: block;
 	margin: auto;
@@ -143,7 +128,6 @@
 	display: block;
 	height: 100%;
 	text-align: center;
-	font-family: "Open sans", sans-serif;
 	font-weight: 700;
 	font-size: 1.7em;
 }

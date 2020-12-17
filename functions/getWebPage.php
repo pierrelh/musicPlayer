@@ -10,8 +10,8 @@
             CURLOPT_ENCODING       => "",     // handle compressed
             CURLOPT_USERAGENT      => "test", // name of client
             CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
-            CURLOPT_CONNECTTIMEOUT => 10,    // time-out on connect
-            CURLOPT_TIMEOUT        => 10,    // time-out on response
+            CURLOPT_CONNECTTIMEOUT => 120,    // time-out on connect
+            CURLOPT_TIMEOUT        => 120,    // time-out on response
         ); 
 
         $ch = curl_init($url);
