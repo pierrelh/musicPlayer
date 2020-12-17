@@ -13,16 +13,43 @@ var CreatePlaylistSidebar = document.getElementById("CreatePlaylistSidebar");
 
 // Handle the my account button click
 MyAccountSidebar.addEventListener("click", function() {
-	// fetch(server + "/functions/account/getCloudinaryAdmin.php")
-	// .then((response) => response.json())
-	// .then(function (response) {
-		// backgroundAppear();
-		// var Account = document.getElementById("Account");
-		// Account.classList.add("appear");
-	// });
-	backgroundAppear();
-	var Account = document.getElementById("Account");
-	Account.classList.add("appear");
+	fetch(server + "/functions/account/getCloudinaryAdmin.php")
+	.then((response) => response.json())
+	.then(function (response) {
+
+		console.log(response);
+		document.getElementById("AccountPlan").innerHTML = response["plan"];
+		document.getElementById("AccountLastUpdate").innerHTML = response["last_update"];
+		document.getElementById("AccountRequests").innerHTML = response["requests"];
+		document.getElementById("AccountResources").innerHTML = response["resources"];
+		document.getElementById("AccountDerivedResources").innerHTML = response["derived_resources"];
+
+		document.getElementById("AccountImageMaxSize").innerHTML = response["media_limits"]["image_max_size_bytes"];
+		document.getElementById("AccountVideoMaxSize").innerHTML = response["media_limits"]["video_max_size_bytes"];
+		document.getElementById("AccountRawMaxSize").innerHTML = response["media_limits"]["raw_max_size_bytes"];
+		document.getElementById("AccountImageMaxPx").innerHTML = response["media_limits"]["image_max_px"];
+		document.getElementById("AccountAssetMaxTotalPx").innerHTML = response["media_limits"]["asset_max_total_px"];
+
+		document.getElementById("AccountTransformationUsage").innerHTML = response["transformations"]["usage"];
+		// document.getElementById("AccountTransformationLimit").innerHTML = response["transformations"]["used_percent"];
+		document.getElementById("AccountTransformationLimit").innerHTML = response["transformations"]["limit"];
+
+		document.getElementById("AccountObjectsUsage").innerHTML = response["objects"]["usage"];
+		// document.getElementById("AccountObjectsUsage").innerHTML = response["objects"]["used_percent"];
+		document.getElementById("AccountObjectsUsageLimit").innerHTML = response["objects"]["limit"];
+
+		document.getElementById("AccountBandwidthUsage").innerHTML = response["bandwidth"]["usage"];
+		// document.getElementById("AccountBandwidthUsage").innerHTML = response["bandwidth"]["used_percent"];
+		document.getElementById("AccountBandwidthLimit").innerHTML = response["bandwidth"]["limit"];
+		
+		document.getElementById("AccountStorageUsage").innerHTML = response["storage"]["usage"];
+		// document.getElementById("AccountStorageUsage").innerHTML = response["storage"]["used_percent"];
+		document.getElementById("AccountStorageLimit").innerHTML = response["storage"]["limit"];
+
+		backgroundAppear();
+		var Account = document.getElementById("Account");
+		Account.classList.add("appear");
+	});
 });
 
 // Handle the create account button click
@@ -157,7 +184,7 @@ MyPlaylistsSidebar.addEventListener("click", function() {
 		fetch(server + "/functions/playlists/getAllPlaylists.php")
 		.then((response) => response.json())
 		.then(function (response) {
-			response = JSON.parse(response);
+			
 			if (response.length != 0) {
 			  DivPlaylist.innerHTML = "";
 			  DivPlaylist.classList.remove("playlist-div-hide");
