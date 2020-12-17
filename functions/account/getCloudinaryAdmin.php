@@ -1,8 +1,13 @@
 <?php
+
     include_once($_SERVER['DOCUMENT_ROOT']."/functions/getCloudinary.php");
-    $result = $api->resources();
-    var_dump($result->rate_limit_allowed);
-    var_dump($result->rate_limit_remaining);
-    var_dump($result->rate_limit_reset_at);
-    var_dump($result);
+    include_once($_SERVER['DOCUMENT_ROOT']."/functions/getWebPage.php");
+
+    $response = getWebPage("https://$key:$secret@api.cloudinary.com/v1_1/$name/usage");
+    $resArr = array();
+    $resArr = json_decode($response);
+    $resArr = get_object_vars($resArr);
+    print_r($resArr);
+    echo "<pre>" . $resArr . "</pre>";
+
 ?>

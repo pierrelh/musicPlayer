@@ -13,6 +13,13 @@ var CreatePlaylistSidebar = document.getElementById("CreatePlaylistSidebar");
 
 // Handle the my account button click
 MyAccountSidebar.addEventListener("click", function() {
+	// fetch(server + "/functions/account/getCloudinaryAdmin.php")
+	// .then((response) => response.json())
+	// .then(function (response) {
+		// backgroundAppear();
+		// var Account = document.getElementById("Account");
+		// Account.classList.add("appear");
+	// });
 	backgroundAppear();
 	var Account = document.getElementById("Account");
 	Account.classList.add("appear");
@@ -147,38 +154,36 @@ MyPlaylistsSidebar.addEventListener("click", function() {
 		DivPlaylist.classList.remove("playlist-div");
 	}else {
 		// If DivPlaylist is not open then call all the playlists
-		$.ajax({
-			url: server + "/functions/playlists/getAllPlaylists.php",
-			type: "POST",
-			success: function(data){
-			  data = JSON.parse(data);
-			  if (data.length != 0) {
-				DivPlaylist.innerHTML = "";
-				DivPlaylist.classList.remove("playlist-div-hide");
-				DivPlaylist.classList.add("playlist-div");
-		
-				var ul = document.createElement("ul");
-				ul.id = "ListPlaylist";
-				ul.className = "listPlaylist";
-				DivPlaylist.appendChild(ul);
-		
-				for (var i = 0; i < data.length; i++) (function(i) {
+		fetch(server + "/functions/playlists/getAllPlaylists.php")
+		.then((response) => response.json())
+		.then(function (response) {
+			response = JSON.parse(response);
+			if (response.length != 0) {
+			  DivPlaylist.innerHTML = "";
+			  DivPlaylist.classList.remove("playlist-div-hide");
+			  DivPlaylist.classList.add("playlist-div");
+  
+			  var ul = document.createElement("ul");
+			  ul.id = "ListPlaylist";
+			  ul.className = "listPlaylist";
+			  DivPlaylist.appendChild(ul);
+  
+			  for (var i = 0; i < data.length; i++) (function(i) {
 				  li = document.createElement("li");
 				  ul.appendChild(li);
 				  li.className = "table";
 				  li.id = "PlaylistElement" + i;
-				  li.dataset.name = data[i]["playlist_name"];
-				  li.dataset.id = data[i]["playlist_id"];
+				  li.dataset.name = response[i]["playlist_name"];
+				  li.dataset.id = response[i]["playlist_id"];
 				  document.getElementById("PlaylistElement" + i).addEventListener("click", function(){
-					openPlaylist("PlaylistElement" + i);
-				}, false);
-		
+					  openPlaylist("PlaylistElement" + i);
+				  }, false);
+		  
 				  var p = document.createElement("p");
 				  li.appendChild(p);
-				  p.innerHTML = data[i]["playlist_name"];
+				  p.innerHTML = response[i]["playlist_name"];
 				  p.id = "PlaylistText" + i;
-				})(i);
-			  }
+			  })(i);
 			}
 		});
 	}

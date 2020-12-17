@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/accountStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/accountStyle.css">
 <section id="Account">
-    <img id="CrossAccount" class="cross" src="../img/cross.png" alt="">
+    <img id="CrossAccount" class="cross" src="../img/cross.png" alt="">    
     <?php
         include_once($_SERVER['DOCUMENT_ROOT']."/functions/getCloudinary.php");
 
@@ -33,7 +33,7 @@
         $resArr = array();
         $resArr = json_decode($response);
         $resArr = get_object_vars($resArr);
-        echo "<p>" . $resArr["plan"] . "</p>";
+        echo "<pre>" . print_r($resArr) . "</pre>";
     ?>
 	<script type="text/javascript" src="<?php echo $link ?>/js/account.js"></script>
 </section>
