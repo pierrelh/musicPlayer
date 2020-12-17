@@ -8,7 +8,7 @@
 		$files = is_array($files) ? $files : array( $files );
 
 		// Uploading on overwriting the new cover
-		include_once($_SERVER['DOCUMENT_ROOT']."/functions/getCloudinary.php");
+		include_once($_SERVER['DOCUMENT_ROOT']."/functions/setCloudinary.php");
 		$result = \Cloudinary\Uploader::upload(
 			$files["tmp_name"],
 			array(

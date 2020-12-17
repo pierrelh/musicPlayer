@@ -24,12 +24,6 @@ MyAccountSidebar.addEventListener("click", function() {
 		document.getElementById("AccountResources").innerHTML = response["resources"];
 		document.getElementById("AccountDerivedResources").innerHTML = response["derived_resources"];
 
-		document.getElementById("AccountImageMaxSize").innerHTML = response["media_limits"]["image_max_size_bytes"];
-		document.getElementById("AccountVideoMaxSize").innerHTML = response["media_limits"]["video_max_size_bytes"];
-		document.getElementById("AccountRawMaxSize").innerHTML = response["media_limits"]["raw_max_size_bytes"];
-		document.getElementById("AccountImageMaxPx").innerHTML = response["media_limits"]["image_max_px"];
-		document.getElementById("AccountAssetMaxTotalPx").innerHTML = response["media_limits"]["asset_max_total_px"];
-
 		document.getElementById("AccountTransformationUsage").innerHTML = response["transformations"]["usage"];
 		document.getElementById("AccountTransformationPercent").innerHTML = response["transformations"]["used_percent"];
 		document.getElementById("AccountTransformationProgressBar").style.width = response["transformations"]["used_percent"] + "%";
@@ -49,6 +43,12 @@ MyAccountSidebar.addEventListener("click", function() {
 		document.getElementById("AccountStoragePercent").innerHTML = response["storage"]["used_percent"];
 		document.getElementById("AccountStorageProgressBar").style.width = innerHTML = response["storage"]["used_percent"] + "%";
 		document.getElementById("AccountStorageLimit").innerHTML = response["storage"]["limit"];
+
+		document.getElementById("AccountImageMaxSize").innerHTML = response["media_limits"]["image_max_size_bytes"];
+		document.getElementById("AccountVideoMaxSize").innerHTML = response["media_limits"]["video_max_size_bytes"];
+		document.getElementById("AccountRawMaxSize").innerHTML = response["media_limits"]["raw_max_size_bytes"];
+		document.getElementById("AccountImageMaxPx").innerHTML = response["media_limits"]["image_max_px"];
+		document.getElementById("AccountAssetMaxTotalPx").innerHTML = response["media_limits"]["asset_max_total_px"];
 
 		backgroundAppear();
 		var Account = document.getElementById("Account");

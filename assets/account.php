@@ -25,26 +25,6 @@
             <li><p id="AccountDerivedResources"></p></li>
         </ul>
         <ul>
-            <li class="account-element-title"><p>Image Max Size Bytes:</p></li>
-            <li><p id="AccountImageMaxSize"></p></li>
-        </ul>
-        <ul>
-            <li class="account-element-title"><p>Video Max Size Bytes:</p></li>
-            <li><p id="AccountVideoMaxSize"></p></li>
-        </ul>
-        <ul>
-            <li class="account-element-title"><p>Raw Max Size Bytes:</p></li>
-            <li><p id="AccountRawMaxSize"></p></li>
-        </ul>
-        <ul>
-            <li class="account-element-title"><p>Image Max Px:</p></li>
-            <li><p id="AccountImageMaxPx"></p></li>
-        </ul>
-        <ul>
-            <li class="account-element-title"><p>Asset Max Total Px:</p></li>
-            <li><p id="AccountAssetMaxTotalPx"></p></li>
-        </ul>
-        <ul>
             <li class="account-element-title"><p>Transformations:</p></li>
             <li><p id="AccountTransformationUsage"></p></li>
             <li class="account-progress-bar-element">
@@ -91,6 +71,26 @@
 				</div>
             </li>
             <li><p id="AccountStorageLimit"></p></li>
+        </ul>
+        <ul>
+            <li class="account-element-title"><p>Image Max Size Bytes:</p></li>
+            <li><p id="AccountImageMaxSize"></p></li>
+        </ul>
+        <ul>
+            <li class="account-element-title"><p>Video Max Size Bytes:</p></li>
+            <li><p id="AccountVideoMaxSize"></p></li>
+        </ul>
+        <ul>
+            <li class="account-element-title"><p>Raw Max Size Bytes:</p></li>
+            <li><p id="AccountRawMaxSize"></p></li>
+        </ul>
+        <ul>
+            <li class="account-element-title"><p>Image Max Px:</p></li>
+            <li><p id="AccountImageMaxPx"></p></li>
+        </ul>
+        <ul>
+            <li class="account-element-title"><p>Asset Max Total Px:</p></li>
+            <li><p id="AccountAssetMaxTotalPx"></p></li>
         </ul>
     </div>
 	<script type="text/javascript" src="<?php echo $link ?>/js/account.js"></script>

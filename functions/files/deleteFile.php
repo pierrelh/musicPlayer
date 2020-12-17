@@ -3,7 +3,7 @@
 	// Function to delete a cloudinary asset
 	function deleteCloudinaryAsset($type, $fileName){
 		$file = $type . "/" . $fileName;
-		include_once($_SERVER['DOCUMENT_ROOT']."/functions/getCloudinary.php");
+		include_once($_SERVER['DOCUMENT_ROOT']."/functions/setCloudinary.php");
 		$result = \Cloudinary\Uploader::destroy(
 			$file, 
 			array(
