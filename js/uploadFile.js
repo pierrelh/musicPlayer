@@ -9,6 +9,8 @@ function uploadMusic() {
 		// Delete default from data values for file & picture
 		formData.delete("file");
 		formData.delete("picture");
+		var formDataMusic = new FormData();
+		formDataMusic.append("music", file);
 
 		// Check if the music has a name & an author
 		if (document.getElementById("FileName").value == "" || document.getElementById("FileAuthor").value == "") {
@@ -21,9 +23,11 @@ function uploadMusic() {
 			$.ajax({
 				url: server + "/functions/files/uploadMusic.php",
 				type: "POST",
-				data: {
-					"music": file
-				},
+				dataType: "script",
+				cache: false,
+				contentType: false,
+				processData: false,
+				data: formDataMusic,
 				xhr: function () {
 					var xhr = $.ajaxSettings.xhr();
 					xhr.upload.onprogress = function(e) {
