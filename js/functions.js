@@ -279,7 +279,7 @@ function uploadMusic(formDataMusic, barId, txtId) {
 			if (fileXhr.readyState == 4 && fileXhr.status == 200) {
 				resolve(true);
 			}else {
-				reject();
+				reject(false);
 			}
 		}
 	});
