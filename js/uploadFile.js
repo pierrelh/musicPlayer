@@ -21,10 +21,6 @@ function uploadMusic() {
 			$.ajax({
 				url: server + "/functions/files/uploadMusic.php",
 				type: "POST",
-				dataType: "script",
-				cache: false,
-				contentType: false,
-				processData: false,
 				data: {
 					"music": file
 				},
