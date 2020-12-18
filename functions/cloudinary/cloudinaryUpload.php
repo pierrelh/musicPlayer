@@ -11,11 +11,9 @@
                 "resource_type" => "auto",
                 "folder" => "image",
                 "overwrite" => $overwrite,
-                "eager" => array(
-                    "width" => 150,
-                    "height"=> 150,
-                    "crop" => "scale" 
-                ),
+                "width" => 150,
+                "height"=> 150,
+                "crop" => "scale",
                 "quality" => "auto"
             )
         );
