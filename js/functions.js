@@ -263,25 +263,26 @@ function uploadMusicCloudinary(formDataMusic, barId, txtId) {
 	return new Promise((resolve, reject) => {
 		var url = server + "/functions/files/uploadMusic.php";
 		
-		var fileXhr = new XMLHttpRequest();
-		fileXhr.open("POST", url, true);
-		fileXhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+		var xhr = new XMLHttpRequest();
 	
 		// Update progress for audio file
-		fileXhr.upload.addEventListener("progress", function (e) {
+		xhr.upload.addEventListener("progress", function (e) {
 			var progress = Math.round((e.loaded * 100.0) / e.total);
 			document.getElementById(barId).style.width = progress + "%";
 			document.getElementById(txtId).innerHTML = progress + "%";
 		});
 
-		fileXhr.send(formDataMusic);
-		fileXhr.onreadystatechange = function () {
-			if (fileXhr.readyState == 4 && fileXhr.status == 200) {
-				resolve(true);
+		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+		xhr.onerror = () => reject(xhr.statusText);
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				resolve(xmlhttp.responseText);
 			}else {
-				reject(false);
+				reject(xhr.statusText);
 			}
 		}
+		xhr.open("POST", url, true);
+		xhr.send(formDataMusic);
 	});
 }
 

@@ -21,18 +21,20 @@ async function uploadMusic() {
 			document.getElementById("ErrorMsgUpload").appendChild(errormsg);
 			return;
 		} else {
-			await uploadMusicCloudinary(formDataMusic, "ProgressBarVideo", "TextProgressBarVideo").then( response => {
+			await uploadMusicCloudinary(formDataMusic, "ProgressBarVideo", "TextProgressBarVideo")
+			.then( async (response) => {
 				console.log(response)
 				if (response) {
 
-					// await uploadCover(formDataCover, "ProgressBarPicture", "TextProgessBarPicture").then( async (response) => {
-					// 	if (response) {
-					// 		alert("Upload Done")
-					// 	}else {
-					// 		alert("Une erreur s'est produite lors de l'envoi de la cover");
-					// 		return;
-					// 	}
-					// });
+					await uploadCover(formDataCover, "ProgressBarPicture", "TextProgessBarPicture")
+					.then( async (response) => {
+						if (response) {
+							alert("Upload Done")
+						}else {
+							alert("Une erreur s'est produite lors de l'envoi de la cover");
+							return;
+						}
+					});
 					
 				}else {
 					alert("Une erreur s'est produite lors de l'envoi de la musique");
