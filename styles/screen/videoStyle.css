@@ -26,8 +26,9 @@
 	.library > div > ul,
 	.library-show > div > ul {
 		width: min-content;
-		margin: 10px;
+		padding: 10px;
 		min-width: 150px;
+		margin: 0;
 	}
 
 	.library > div > ul > .view,
