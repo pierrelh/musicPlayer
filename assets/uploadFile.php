@@ -6,14 +6,14 @@
 <script src='<?php echo $link ?>/js/cloudinary/jquery.fileupload.js' type='text/javascript'></script>
 <script src='<?php echo $link ?>/js/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
 <section id="Upload">
-	<img id="CrossUpload" class="cross" src="../img/cross.png" alt="">
+	<img id="CrossUpload" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
 	<form id="FormUpload" enctype="multipart/form-data" method="post">
 		<h2 id="ErrorMsgUpload"></h2>
 		<ul>
 			<li>
 				<ul>
 					<li>
-						<label for="File"><img src="../img/upload.png" alt=""></label>
+						<label for="File"><img src="<?php echo $link ?>/img/upload.png" alt=""></label>
 					</li>
 					<li>
 						<div class="progress-file">
@@ -27,7 +27,7 @@
 			<li>
 				<ul>
 					<li>
-						<label for="Picture"><img class="thumbnails" src="../img/picture.png" alt=""></label>
+						<label for="Picture"><img class="thumbnails" src="<?php echo $link ?>/img/picture.png" alt=""></label>
 					</li>
 					<li>
 						<div class="progress-picture">
@@ -39,8 +39,8 @@
 				</ul>
 			</li>
 		</ul>
-		<input class="upload_video upload-file" id="File" type="file" name="file" value="">
-		<input class="upload_picture upload-file" id="Picture" type="file" name="file" value="">
+		<input class="upload_video upload-file" id="File" type="file" name="file" value="" accept="audio/*">
+		<input class="upload_picture upload-file" id="Picture" type="file" name="file" value="" accept="image/*">>
 		<label for="FileName">Nom du Fichier</label>
 		<input id="FileName" type="text" name="file_name" value="">
 		<br>
