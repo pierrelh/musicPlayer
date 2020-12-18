@@ -277,7 +277,7 @@ function uploadMusic(formDataMusic, barId, txtId) {
 						document.getElementById(txtId).innerHTML = progress + "%";
 					}
 				};
-				return xhr;
+				// return xhr;
 			}
 		}).done(function() {
 			document.getElementById(txtId).innerHTML = "Envoyé";
@@ -307,7 +307,7 @@ function uploadCover(formDataCover, barId, txtId) {
 						document.getElementById(txtId).innerHTML = progress + "%";
 					}
 				};
-				return xhr;
+				// return xhr;
 			}
 		}).done(function() {
 			document.getElementById(txtId).innerHTML = "Envoyé";
