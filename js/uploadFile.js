@@ -2,6 +2,7 @@
 function uploadMusic() {
 	var file = document.getElementById("File").files[0];
 	var picture = document.getElementById("Picture").files[0];
+	console.log(picture);
 
 	// Check if file & picture exist
 	if (file != undefined && picture != undefined) {
