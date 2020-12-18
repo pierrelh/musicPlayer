@@ -21,23 +21,40 @@ async function uploadMusic() {
 			document.getElementById("ErrorMsgUpload").appendChild(errormsg);
 			return;
 		} else {
-			await uploadMusicCloudinary(formDataMusic, "ProgressBarVideo", "TextProgressBarVideo")
+			await uploadFileCloudinary(formDataMusic, "ProgressBarVideo", "TextProgressBarVideo", "uploadMusic.php")
 			.then( async (response) => {
-				console.log(response)
-				if (response) {
+				if (response != "false") {
 
-					// await uploadCover(formDataCover, "ProgressBarPicture", "TextProgessBarPicture")
-					// .then( async (response) => {
-					// 	if (response) {
-					// 		alert("Upload Done")
-					// 	}else {
-					// 		alert("Une erreur s'est produite lors de l'envoi de la cover");
-					// 		return;
-					// 	}
-					// });
+					formData.append("file_url", response);
+
+					await uploadFileCloudinary(formDataCover, "ProgressBarPicture", "TextProgessBarPicture", "uploadCover.php")
+					.then( async (response) => {
+						if (response != "false") {
+
+							formData.append("file_image", response);
+
+							$.ajax({
+								url: server + "/functions/files/uploadFile.php",
+								type: "POST",
+								dataType: "script",
+								cache: false,
+								contentType: false,
+								processData: false,
+								data: formData,
+								success: function () {
+									getFiles("file_id", "DESC");
+								}
+							});
+
+						}else {
+							alert("Une erreur s'est produite lors de l'envoi de la cover");
+							return;
+						}
+					});
 					
 				}else {
 					alert("Une erreur s'est produite lors de l'envoi de la musique");
+					return;
 				}
 			});
 		}

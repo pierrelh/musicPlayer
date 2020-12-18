@@ -1,13 +1,5 @@
 <?php
 
-	if (!isset($_POST['album']) || $_POST['album'] == "") {
-		$_POST['album'] = "indéfini";
-	}
-
-	if (!isset($_POST['picture']) || $_POST['picture'] == undefined) {
-			$_POST['picture'] = "";
-	}
-
 	include_once($_SERVER['DOCUMENT_ROOT']."/functions/filter.php");
 	$filtered = array_map('map_entities', $_POST);
 
