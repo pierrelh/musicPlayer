@@ -21,7 +21,7 @@ async function uploadMusic() {
 			document.getElementById("ErrorMsgUpload").appendChild(errormsg);
 			return;
 		} else {
-			await uploadMusic(formDataMusic, "ProgressBarVideo", "TextProgressBarVideo").then( response => {
+			await uploadMusicCloudinary(formDataMusic, "ProgressBarVideo", "TextProgressBarVideo").then( response => {
 				console.log(response)
 				if (response) {
 
