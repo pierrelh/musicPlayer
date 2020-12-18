@@ -38,7 +38,7 @@ function readURL(input, bannerId) {
 function getPublicIdFromUrl(url) {
 	url = url.split("/");
 	url = url.pop();
-	return publicId
+	return url;
 }
 
 // Show the assets Background
