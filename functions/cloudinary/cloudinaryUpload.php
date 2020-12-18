@@ -19,13 +19,15 @@ function uploadCover($file_path, $overwrite){
     return $result['secure_url'];
 }
 
-function uploadMusic($file_path){
+function uploadMusic($fileName){
     include_once($_SERVER['DOCUMENT_ROOT']."/functions/cloudinary/setCloudinary.php");
     $result = \Cloudinary\Uploader::upload(
-        $file_path,
+        $fileName,
         array(
+            "public_id" => $fileName,
             "resource_type" => "auto",
-            "folder" => "video"
+            "folder" => "video",
+            "overwrite" => false
         )
     );
     return $result['secure_url'];
