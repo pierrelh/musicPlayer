@@ -20,12 +20,14 @@
     }
 
     function uploadMusic($filePath, $fileName){
+        include_once($_SERVER['DOCUMENT_ROOT']."/functions/createSlug.php");
+        $fileName = createSlug($fileName);
+
         include_once($_SERVER['DOCUMENT_ROOT']."/functions/cloudinary/setCloudinary.php");
         $result = \Cloudinary\Uploader::upload(
             $filePath,
             array(
                 "public_id" => $fileName,
-                "unique_filename" => true,
                 "resource_type" => "auto",
                 "folder" => "video",
                 "overwrite" => false
