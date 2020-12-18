@@ -272,7 +272,6 @@ function uploadMusicCloudinary(formDataMusic, barId, txtId) {
 			document.getElementById(txtId).innerHTML = progress + "%";
 		});
 
-		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 		xhr.onerror = () => reject(xhr.statusText);
 		xhr.onreadystatechange = function () {
 			if (xhr.readyState == 4 && xhr.status == 200) {
@@ -282,6 +281,7 @@ function uploadMusicCloudinary(formDataMusic, barId, txtId) {
 			}
 		}
 		xhr.open("POST", url, true);
+		xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 		xhr.send(formDataMusic);
 	});
 }
