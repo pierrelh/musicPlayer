@@ -283,7 +283,7 @@ function uploadMusic(formDataMusic, barId, txtId) {
 	// 			reject(false);
 	// 		}
 	// 	}
-	// });
+	});
 }
 
 function uploadCover(formDataCover, barId, txtId) {
