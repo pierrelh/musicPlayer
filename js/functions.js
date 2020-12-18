@@ -252,39 +252,36 @@ function uploadFileCloudinary(fileToUpload, preset, barId, textId) {
 		fileXhr.onreadystatechange = function () {
 			if (fileXhr.readyState == 4 && fileXhr.status == 200) {
 				resolve(fileXhr);
+			}else {
+				reject();
 			}
 		}
-	})
-
+	});
 }
 
 function uploadMusic(formDataMusic, barId, txtId) {
 	return new Promise((resolve, reject) => {
-		$.ajax({
-			url: server + "/functions/files/uploadMusic.php",
-			type: "POST",
-			dataType: "script",
-			cache: false,
-			contentType: false,
-			processData: false,
-			data: formDataMusic,
-			xhr: function () {
-				var xhr = $.ajaxSettings.xhr();
-				xhr.upload.onprogress = function(e) {
-					if (e.lengthComputable) {
-						var progress = Math.round((e.loaded * 100.0) / e.total);
-						document.getElementById(barId).style.width = progress + "%";
-						document.getElementById(txtId).innerHTML = progress + "%";
-					}
-				};
-				// return xhr;
-			}
-		}).done(function() {
-			document.getElementById(txtId).innerHTML = "Envoyé";
-			resolve(true);
-		}).fail(function() {
-			reject(false);
+		var url = server + "/functions/files/uploadMusic.php";
+		
+		var fileXhr = new XMLHttpRequest();
+		fileXhr.open("POST", url, true);
+		fileXhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+	
+		// Update progress for audio file
+		fileXhr.upload.addEventListener("progress", function (e) {
+			var progress = Math.round((e.loaded * 100.0) / e.total);
+			document.getElementById(barId).style.width = progress + "%";
+			document.getElementById(txtId).innerHTML = progress + "%";
 		});
+
+		fileXhr.send(formDataMusic);
+		fileXhr.onreadystatechange = function () {
+			if (fileXhr.readyState == 4 && fileXhr.status == 200) {
+				resolve(fileXhr);
+			}else {
+				reject();
+			}
+		}
 	});
 }
 
