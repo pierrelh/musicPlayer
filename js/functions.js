@@ -38,9 +38,6 @@ function readURL(input, bannerId) {
 function getPublicIdFromUrl(url) {
 	url = url.split("/");
 	url = url.pop();
-	url = url.split(".");
-	url.pop();
-	publicId = url.join(".")
 	return publicId
 }
 
@@ -229,36 +226,6 @@ function checkPlaylistSection() {
 }
 
 // Upload a file to Cloudinary
-// function uploadFileCloudinary(fileToUpload, preset, barId, textId) {
-// 	return new Promise((resolve, reject) => {
-// 		var url = "https://api.cloudinary.com/v1_1/htko7uqqo/upload";
-		
-// 		var file = new FormData();
-// 		var fileXhr = new XMLHttpRequest();
-// 		fileXhr.open("POST", url, true);
-// 		fileXhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-	
-// 		// Update progress for audio file
-// 		fileXhr.upload.addEventListener("progress", function (e) {
-// 			var progress = Math.round((e.loaded * 100.0) / e.total);
-// 			document.getElementById(barId).style.width = progress + "%";
-// 			document.getElementById(textId).innerHTML = progress + "%";
-// 		});
-	
-// 		file.append("upload_preset", preset);
-// 		file.append("tags", "browser_upload"); // Optional - add tag for image admin in Cloudinary
-// 		file.append("file", fileToUpload);
-// 		fileXhr.send(file);
-// 		fileXhr.onreadystatechange = function () {
-// 			if (fileXhr.readyState == 4 && fileXhr.status == 200) {
-// 				resolve(fileXhr);
-// 			}else {
-// 				reject();
-// 			}
-// 		}
-// 	});
-// }
-
 function uploadFileCloudinary(formDataMusic, barId, txtId, link) {
 	return new Promise((resolve, reject) => {
 		var url = server + "/functions/files/" + link;

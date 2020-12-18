@@ -8,20 +8,11 @@
 		$files = is_array($files) ? $files : array( $files );
 
 		// Uploading on overwriting the new cover
-		include_once($_SERVER['DOCUMENT_ROOT']."/functions/cloudinary/setCloudinary.php");
-		$result = \Cloudinary\Uploader::upload(
-			$files["tmp_name"],
-			array(
-				"public_id" => $_POST["public_id"],
-				"resource_type" => "auto",
-				"folder" => "image",
-				"overwrite" => true,
-				"invalidate" => true
-			)
-		);
-
+		include_once($_SERVER['DOCUMENT_ROOT']."/functions/cloudinary/cloudinaryUpload.php");
+    
+		$url = uploadCover($files["tmp_name"], $_POST['public_id'], true);
 		// Getting the new url version
-		$_POST['file_image'] = $result['secure_url'];
+		$_POST['file_image'] = $url;
 	}else {
 		unset($_POST['file_image']);
 	}
