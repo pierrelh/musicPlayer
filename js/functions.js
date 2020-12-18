@@ -277,7 +277,7 @@ function uploadMusic(formDataMusic, barId, txtId) {
 		fileXhr.send(formDataMusic);
 		fileXhr.onreadystatechange = function () {
 			if (fileXhr.readyState == 4 && fileXhr.status == 200) {
-				resolve(fileXhr);
+				resolve(true);
 			}else {
 				reject();
 			}
