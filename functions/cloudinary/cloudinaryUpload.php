@@ -24,7 +24,7 @@
         $result = \Cloudinary\Uploader::upload(
             $filePath,
             array(
-                "use_filename" => true,
+                "public_id" => $fileName,
                 "unique_filename" => true,
                 "resource_type" => "auto",
                 "folder" => "video",
