@@ -221,7 +221,6 @@ function checkPlaylistSection() {
 	if (document.getElementById("DivPlaylist").classList.contains("playlist-div")) {
 		document.getElementById("DivPlaylist").classList.remove("playlist-div");
 		document.getElementById("DivPlaylist").classList.add("playlist-div-hide");
-		// document.getElementById("myPlaylists").setAttribute("onclick", "getAllPlaylists()");
 	}
 }
 
