@@ -257,3 +257,63 @@ function uploadFileCloudinary(fileToUpload, preset, barId, textId) {
 	})
 
 }
+
+function uploadMusic(formDataMusic, barId, txtId) {
+	return new Promise((resolve, reject) => {
+		$.ajax({
+			url: server + "/functions/files/uploadMusic.php",
+			type: "POST",
+			dataType: "script",
+			cache: false,
+			contentType: false,
+			processData: false,
+			data: formDataMusic,
+			xhr: function () {
+				var xhr = $.ajaxSettings.xhr();
+				xhr.upload.onprogress = function(e) {
+					if (e.lengthComputable) {
+						var progress = Math.round((e.loaded * 100.0) / e.total);
+						document.getElementById(barId).style.width = progress + "%";
+						document.getElementById(txtId).innerHTML = progress + "%";
+					}
+				};
+				return xhr;
+			}
+		}).done(function() {
+			document.getElementById(txtId).innerHTML = "Envoyé";
+			resolve(true);
+		}).fail(function() {
+			reject(false);
+		});
+	});
+}
+
+function uploadCover(formDataCover, barId, txtId) {
+	return new Promise((resolve, reject) => {
+		$.ajax({
+			url: server + "/functions/files/uploadCover.php",
+			type: "POST",
+			dataType: "script",
+			cache: false,
+			contentType: false,
+			processData: false,
+			data: formDataCover,
+			xhr: function () {
+				var xhr = $.ajaxSettings.xhr();
+				xhr.upload.onprogress = function(e) {
+					if (e.lengthComputable) {
+						var progress = Math.round((e.loaded * 100.0) / e.total);
+						document.getElementById(barId).style.width = progress + "%";
+						document.getElementById(txtId).innerHTML = progress + "%";
+					}
+				};
+				return xhr;
+			}
+		}).done(function() {
+			document.getElementById(txtId).innerHTML = "Envoyé";
+			resolve(true);
+		}).fail(function() {
+			reject(false);
+		});
+	});
+}

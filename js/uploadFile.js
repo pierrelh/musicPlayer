@@ -1,5 +1,5 @@
 // Function to upload a music
-function uploadMusic() {
+async function uploadMusic() {
 	var file = document.getElementById("File").files[0];
 	var picture = document.getElementById("Picture").files[0];
 
@@ -11,6 +11,8 @@ function uploadMusic() {
 		formData.delete("picture");
 		var formDataMusic = new FormData();
 		formDataMusic.append("music", file);
+		var formDataCover = new FormData();
+		formDataCover.append("cover", picture);
 
 		// Check if the music has a name & an author
 		if (document.getElementById("FileName").value == "" || document.getElementById("FileAuthor").value == "") {
@@ -19,32 +21,22 @@ function uploadMusic() {
 			document.getElementById("ErrorMsgUpload").appendChild(errormsg);
 			return;
 		} else {
-			// Sending the datas to the db
-			$.ajax({
-				url: server + "/functions/files/uploadMusic.php",
-				type: "POST",
-				dataType: "script",
-				cache: false,
-				contentType: false,
-				processData: false,
-				data: formDataMusic,
-				xhr: function () {
-					var xhr = $.ajaxSettings.xhr();
-					xhr.upload.onprogress = function(e) {
-						if (e.lengthComputable) {
-							var progress = Math.round((e.loaded * 100.0) / e.total);
-							document.getElementById("ProgressBarVideo").style.width = progress + "%";
-							document.getElementById("TextProgressBarVideo").innerHTML = progress + "%";
+			await uploadMusic(formDataMusic, "ProgressBarVideo", "TextProgressBarVideo").then( async (response) => {
+				if (response) {
+
+					await uploadCover(formDataCover, "ProgressBarPicture", "TextProgessBarPicture").then( async (response) => {
+						if (response) {
+							alert("Upload Done")
+						}else {
+							alert("Une erreur s'est produite lors de l'envoi de la cover");
+							return;
 						}
-					};
-					return xhr;
+					});
+					
+				}else {
+					alert("Une erreur s'est produite lors de l'envoi de la musique");
+					return;
 				}
-			}).done(function() {
-				alert("video uploaded");
-				return;
-			}).fail(function() {
-				alert("upload failed");
-				return;
 			});
 		}
 	} else {

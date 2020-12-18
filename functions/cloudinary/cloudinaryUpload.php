@@ -1,9 +1,12 @@
 <?php
 
-    function uploadCover($file_path, $overwrite){
+    function uploadCover($filePath, $fileName, $overwrite){
+        include_once($_SERVER['DOCUMENT_ROOT']."/functions/createSlug.php");
+        $fileName = createSlug($fileName);
+
         include_once($_SERVER['DOCUMENT_ROOT']."/functions/cloudinary/setCloudinary.php");
         $result = \Cloudinary\Uploader::upload(
-            $file_path,
+            $filePath,
             array(
                 "resource_type" => "auto",
                 "folder" => "image",
