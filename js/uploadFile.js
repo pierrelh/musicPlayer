@@ -26,15 +26,15 @@ async function uploadMusic() {
 				console.log(response)
 				if (response) {
 
-					await uploadCover(formDataCover, "ProgressBarPicture", "TextProgessBarPicture")
-					.then( async (response) => {
-						if (response) {
-							alert("Upload Done")
-						}else {
-							alert("Une erreur s'est produite lors de l'envoi de la cover");
-							return;
-						}
-					});
+					// await uploadCover(formDataCover, "ProgressBarPicture", "TextProgessBarPicture")
+					// .then( async (response) => {
+					// 	if (response) {
+					// 		alert("Upload Done")
+					// 	}else {
+					// 		alert("Une erreur s'est produite lors de l'envoi de la cover");
+					// 		return;
+					// 	}
+					// });
 					
 				}else {
 					alert("Une erreur s'est produite lors de l'envoi de la musique");

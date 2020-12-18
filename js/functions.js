@@ -272,12 +272,12 @@ function uploadMusicCloudinary(formDataMusic, barId, txtId) {
 			document.getElementById(txtId).innerHTML = progress + "%";
 		});
 
-		xhr.onerror = () => reject(xhr.statusText);
+		xhr.onerror = () => reject("false");
 		xhr.onreadystatechange = function () {
 			if (xhr.readyState == 4 && xhr.status == 200) {
-				resolve(xmlhttp.responseText);
+				resolve(xhr.responseText);
 			}else {
-				reject(xhr.statusText);
+				reject("false");
 			}
 		}
 		xhr.open("POST", url, true);
