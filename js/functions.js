@@ -274,10 +274,8 @@ function uploadMusicCloudinary(formDataMusic, barId, txtId) {
 
 		xhr.onerror = () => reject("false");
 		xhr.onreadystatechange = function () {
-			if (xhr.readyState == 4 && xhr.status == 200) {
-				resolve(xhr.responseText);
-			}else {
-				reject("false");
+			if (this.readyState == 4 && this.status == 200) {
+				resolve(this.responseText);
 			}
 		}
 		xhr.open("POST", url, true);
