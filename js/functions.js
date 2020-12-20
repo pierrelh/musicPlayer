@@ -59,23 +59,19 @@ function backgroundHide() {
 // Handle the play/pause actions
 function togglePlayPause() {
 	var player = document.getElementById("MusicPlayer");
-	var isPlaying = document.getElementById("PlayPause").dataset.isPlaying;
-	switch (isPlaying) {
-		case "true": // Pause the audio
-			document.getElementById("PlayPause").src = "../../img/play.png";
-			document.getElementById("PlayPause").dataset.isPlaying = "false";
-			player.pause();
+	switch (player.paused) {
+		case true: // Play the audio
+			document.getElementById("PlayPause").src = "../../img/pause.png";
+			player.play();
 			break;
 	
-		case "false": // Play the audio
-			document.getElementById("PlayPause").src = "../../img/pause.png";
-			document.getElementById("PlayPause").dataset.isPlaying = "true";
-			player.play();
+		case false: // Pause the audio
+			document.getElementById("PlayPause").src = "../../img/play.png";
+			player.pause();
 			break;
 	
 		default: // Default: Pause the audio
 			document.getElementById("PlayPause").src = "../../img/play.png";
-			document.getElementById("PlayPause").dataset.isPlaying = "false";
 			player.pause();
 			break;
 	}
