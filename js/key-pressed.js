@@ -46,12 +46,14 @@ document.onkeydown = function(event) {
 		case "ArrowUp": // ArrowUp is pressed
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
+				increaseVolume();
 			}
 			break;
 
 		case "ArrowDown": // ArrowDown is pressed
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
+				dicreaseVolume();
 			}
 			break;
 	}

@@ -247,7 +247,7 @@ function dicreaseVolume() {
 }
 
 // Add 10% to the player's volume
-function increaseVolume () {
+function increaseVolume() {
 	document.getElementById("MusicPlayer").volume += 0.1
 }
 
