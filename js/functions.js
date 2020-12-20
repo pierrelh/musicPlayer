@@ -124,6 +124,8 @@ function playMusic(musicId) {
 	var url = music.getAttribute("data-url");
 	var author = music.getAttribute("data-artist");
 	var name = music.getAttribute("data-title");
+	var album = music.getAttribute("data-album");
+	var cover = music.getAttribute("data-img");
 
 	// Adding the class to LibraryObjects if needed
 	var library = document.getElementById("LibraryObjects");
@@ -149,6 +151,16 @@ function playMusic(musicId) {
 	if (!audioPlayer.classList.contains("show")) {
 		audioPlayer.classList.add("show");
 	}
+
+	// Setting the mediaSession metadatas
+	navigator.mediaSession.title = name;
+	navigator.mediaSession.artist = author;
+	navigator.mediaSession.album = album;
+	navigator.mediaSession.artwork = {
+		src: cover,
+		sizes: "150x150",
+		type: 'image/png'
+	};
 }
 
 // Handle the play of the previous music asked by the user
