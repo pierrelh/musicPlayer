@@ -32,14 +32,14 @@ document.onkeydown = function(event) {
 		case "ArrowLeft": // ArrowLeft is pressed
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
-				seekForward();
+				seekBackward();
 			}
 			break;
 
 		case "ArrowRight": // ArrowRight is pressed
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
-				seekBackward();
+				seekForward();
 			}
 			break;
 
