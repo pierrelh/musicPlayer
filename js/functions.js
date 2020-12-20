@@ -158,11 +158,10 @@ function playMusic(musicId) {
 			title: name,
 			artist: author,
 			album: album,
-			artwork: {
-				src: cover,
-				sizes: '150x150',
-				type: 'image/png' 
-			}			
+			artwork: [
+				{src: cover, sizes: '150x150', type: 'image/png'}	
+			]
+		
 		});
 	}
 }
