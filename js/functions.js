@@ -243,12 +243,24 @@ function seekBackward() {
 
 // Remove 10% to the player's volume
 function dicreaseVolume() {
-	document.getElementById("MusicPlayer").volume -= 0.1
+	if (document.getElementById("MusicPlayer").volume < 0.1) {
+		document.getElementById("Volume").value = 0;
+		document.getElementById("MusicPlayer").volume = 0;		
+	}else {
+		document.getElementById("Volume").value -= 10;
+		document.getElementById("MusicPlayer").volume -= 0.1
+	}
 }
 
 // Add 10% to the player's volume
 function increaseVolume() {
-	document.getElementById("MusicPlayer").volume += 0.1
+	if (document.getElementById("MusicPlayer").volume > 0.9) {
+		document.getElementById("Volume").value = 100;
+		document.getElementById("MusicPlayer").volume = 1;		
+	}else {
+		document.getElementById("Volume").value += 10;
+		document.getElementById("MusicPlayer").volume += 0.1
+	}
 }
 
 function checkPlaylistSection() {
