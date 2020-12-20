@@ -50,14 +50,14 @@ MyAccountSidebar.addEventListener("click", function() {
 		document.getElementById("AccountAssetMaxTotalPx").innerHTML = response["media_limits"]["asset_max_total_px"];
 
 		backgroundAppear();
-		var Account = document.getElementById("Account");
-		Account.classList.add("appear");
+		document.getElementById("Account").classList.add("appear");
 	});
 });
 
 // Handle the create account button click
 CreateAccountSidebar.addEventListener("click", function() {
-	console.log("Opening: Create account");
+	backgroundAppear();
+	document.getElementById("CreateAccount").classList.add("appear");
 });
 
 // Handle the upload file button click

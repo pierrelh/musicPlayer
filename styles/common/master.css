@@ -216,7 +216,8 @@ html{
 #Delete,
 #Upload,
 #Edit,
-#Account {
+#Account,
+#CreateAccount {
 	background-color: white;
 	position: fixed;
 	z-index: 999;

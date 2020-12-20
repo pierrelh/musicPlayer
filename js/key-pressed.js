@@ -28,5 +28,21 @@ document.onkeydown = function(event) {
 					toggleMute();
 				}
 				break;
+
+			case "ArrowLeft": // ArrowLeft is pressed
+				// Progress +10 secondes
+				break;
+
+			case "ArrowRight": // ArrowRight is pressed
+				// Progress -10 secondes
+				break;
+
+			case "ArrowUp": // ArrowUp is pressed
+				// Volume +10%
+				break;
+
+			case "ArrowDown": // ArrowDown is pressed
+				// Volume -10%
+				break;
 		}
 };
