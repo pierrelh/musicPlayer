@@ -40,7 +40,7 @@
 			</li>
 		</ul>
 		<input class="upload_video upload-file" id="File" type="file" name="file" value="" accept="audio/*">
-		<input class="upload_picture upload-file" id="Picture" type="file" name="file" value="" accept="image/*">>
+		<input class="upload_picture upload-file" id="Picture" type="file" name="file" value="" accept="image/*">
 		<label for="FileName">Nom du Fichier</label>
 		<input id="FileName" type="text" name="file_name" value="">
 		<br>

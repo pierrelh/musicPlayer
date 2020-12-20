@@ -38,6 +38,9 @@ function readURL(input, bannerId) {
 function getPublicIdFromUrl(url) {
 	url = url.split("/");
 	url = url.pop();
+	url = url.split(".");
+	url.pop();
+	url = url.join("");
 	return url;
 }
 
