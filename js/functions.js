@@ -233,26 +233,22 @@ function playNextMusic(isSkiped) {
 
 // Progress +10 secondes to the played music
 function seekForward() {
-	var playerCurrentTime = document.getElementById("MusicPlayer").currentTime;
-	playerCurrentTime += 10;
+	document.getElementById("MusicPlayer").currentTime += 10;
 }
 
 // Progress -10 secondes to the played music
 function seekBackward() {
-	var playerCurrentTime = document.getElementById("MusicPlayer").currentTime;
-	playerCurrentTime -= 10;
+	document.getElementById("MusicPlayer").currentTime -= 10;
 }
 
 // Remove 10% to the player's volume
 function dicreaseVolume() {
-	var playerCurrentVolume = document.getElementById("MusicPlayer").volume;
-	playerCurrentVolume -= 0.1
+	document.getElementById("MusicPlayer").volume -= 0.1
 }
 
 // Add 10% to the player's volume
 function increaseVolume () {
-	var playerCurrentVolume = document.getElementById("MusicPlayer").volume;
-	playerCurrentVolume += 0.1
+	document.getElementById("MusicPlayer").volume += 0.1
 }
 
 function checkPlaylistSection() {
