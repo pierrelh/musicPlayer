@@ -17,12 +17,12 @@ if ('mediaSession' in navigator) {
 
     // Handle the seekbackward action on mediaSession
     navigator.mediaSession.setActionHandler('seekbackward', function() {
-        console.log("SeekBackward");
+        seekBackward();
     });
 
     // Handle the seekforward action on mediaSession
     navigator.mediaSession.setActionHandler('seekforward', function() {
-        console.log("SeekForward");
+        seekForward();
     });
 
     // Handle the seekto action on mediaSession

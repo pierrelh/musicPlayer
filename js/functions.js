@@ -231,6 +231,18 @@ function playNextMusic(isSkiped) {
 	playMusic(indexOfNextSong);
 }
 
+// Progress +10 secondes to the played music
+function seekForward() {
+	var playerCurrentTime = document.getElementById("MusicPlayer").currentTime;
+	document.getElementById("MusicPlayer").currentTime = playerCurrentTime + 10;
+}
+
+// Progress -10 secondes to the played music
+function seekBackward() {
+	var playerCurrentTime = document.getElementById("MusicPlayer").currentTime;
+	document.getElementById("MusicPlayer").currentTime = playerCurrentTime - 10;
+}
+
 function checkPlaylistSection() {
 	if (document.getElementById("DivPlaylist").classList.contains("playlist-div")) {
 		document.getElementById("DivPlaylist").classList.remove("playlist-div");
