@@ -4,8 +4,8 @@ function showEditSection(musicId){
 	document.getElementById("FileAuthorEdit").value = decodeHTML(Music.dataset.artist);
 	document.getElementById("FileAlbumEdit").value = decodeHTML(Music.dataset.album);
 	document.getElementById("Banner").style.backgroundImage = "url(" + Music.dataset.img + ")";
-	document.getElementById("BarSpan2Edit").dataset.musicId = Music.dataset.id;
-	document.getElementById("BarSpan2Edit").dataset.musicImg = Music.dataset.img;
+	document.getElementById("EditButton").dataset.musicId = Music.dataset.id;
+	document.getElementById("EditButton").dataset.musicImg = Music.dataset.img;
 	backgroundAppear();
 	var Edit = document.getElementById("Edit");
 	Edit.className = "appear";
@@ -32,7 +32,7 @@ document.getElementById("EditButton").addEventListener("click", function() {
 			var publicId = "undefined";
 		}else {
 			// Formating the publicId of the music's cover to overwrite it
-			var publicId = document.getElementById("BarSpan2Edit").dataset.musicImg;
+			var publicId = document.getElementById("EditButton").dataset.musicImg;
 			publicId = getPublicIdFromUrl(publicId)
 			var picture = document.getElementById("PictureEdit").files[0];
 		}
