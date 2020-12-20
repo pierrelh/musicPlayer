@@ -69,17 +69,17 @@ document.getElementById("BarSpan2Edit").addEventListener("click", function() {
 				}
 			}).done(function() {
 				getFiles("file_id", "DESC");
+				document.getElementById("MyBarPlusEdit").style.width = "0%";
+				document.getElementById("EditButton").innerHTML = "0 %";
+				document.getElementById("MyBarMoinsEdit").style.width = "100%";
+				document.getElementById("BarSpan2Edit").innerHTML = "ENVOYER";
 			}).fail(function() {
-				alert("upload failed");
+				alert("Edit failed");
 			});
 
 			backgroundHide();
 			document.getElementById("Edit").className = "";
 			document.getElementById("PictureEdit").value = "";
-			document.getElementById("MyBarPlusEdit").style.width = "0%";
-			document.getElementById("EditButton").innerHTML = "0 %";
-			document.getElementById("MyBarMoinsEdit").style.width = "100%";
-			document.getElementById("BarSpan2Edit").innerHTML = "ENVOYER";
 		}
 	}else {
 		alert("Une erreur s'est produite.")
