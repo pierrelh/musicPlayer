@@ -1,25 +1,47 @@
 if ('mediaSession' in navigator) {
-    navigator.mediaSession.metadata = new MediaMetadata({
-      title: '',
-      artist: '',
-      album: '',
-      artwork: [
-        { src: '',   sizes: '',   type: '' }
-        // { src: 'https://dummyimage.com/128x128', sizes: '128x128', type: 'image/png' },
-        // { src: 'https://dummyimage.com/192x192', sizes: '192x192', type: 'image/png' },
-        // { src: 'https://dummyimage.com/256x256', sizes: '256x256', type: 'image/png' },
-        // { src: 'https://dummyimage.com/384x384', sizes: '384x384', type: 'image/png' },
-        // { src: 'https://dummyimage.com/512x512', sizes: '512x512', type: 'image/png' },
-      ]
+    
+    // Handle the play action on mediaSession
+    navigator.mediaSession.setActionHandler('play', function() {
+        togglePlayPause();
     });
-  
-    navigator.mediaSession.setActionHandler('play', function() { console.log("Play")});
-    navigator.mediaSession.setActionHandler('pause', function() { console.log("Pause") });
-    navigator.mediaSession.setActionHandler('stop', function() { console.log("Stop") });
-    navigator.mediaSession.setActionHandler('seekbackward', function() { console.log("SeekBackward") });
-    navigator.mediaSession.setActionHandler('seekforward', function() { console.log("SeekForward") });
-    navigator.mediaSession.setActionHandler('seekto', function() { console.log("SeekTo") });
-    navigator.mediaSession.setActionHandler('previoustrack', function() { console.log("PreviousTrack") });
-    navigator.mediaSession.setActionHandler('nexttrack', function() { console.log("NextTrack") });
-    navigator.mediaSession.setActionHandler('skipad', function() { console.log("SkipPad") });
+
+    // Handle the pause action on mediaSession
+    navigator.mediaSession.setActionHandler('pause', function() {
+        togglePlayPause();
+    });
+
+    // Handle the stop action on mediaSession
+    navigator.mediaSession.setActionHandler('stop', function() {
+        console.log("Stop");
+    });
+
+    // Handle the seekbackward action on mediaSession
+    navigator.mediaSession.setActionHandler('seekbackward', function() {
+        console.log("SeekBackward");
+    });
+
+    // Handle the seekforward action on mediaSession
+    navigator.mediaSession.setActionHandler('seekforward', function() {
+        console.log("SeekForward");
+    });
+
+    // Handle the seekto action on mediaSession
+    navigator.mediaSession.setActionHandler('seekto', function() {
+        console.log("SeekTo");
+    });
+
+    // Handle the previoustrack action on mediaSession
+    navigator.mediaSession.setActionHandler('previoustrack', function() { 
+        playLastMusic();
+    });
+
+    // Handle the nexttrack action on mediaSession
+    navigator.mediaSession.setActionHandler('nexttrack', function() {
+        playNextMusic();
+    });
+
+    // Handle the skipad action on mediaSession
+    navigator.mediaSession.setActionHandler('skipad', function() {
+        console.log("SkipPad");
+    });
 }
