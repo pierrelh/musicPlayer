@@ -103,6 +103,11 @@ function toggleMute() {
 	}
 }
 
+// Handle the change of the reader's volume
+function volumeChange() {
+
+}
+
 // Play the passed music
 function playMusic(musicId) {    
 	if (document.getElementById("PlayedMusic") != undefined) { // Checking if there is a played music template
