@@ -153,14 +153,18 @@ function playMusic(musicId) {
 	}
 
 	// Setting the mediaSession metadatas
-	navigator.mediaSession.title = name;
-	navigator.mediaSession.artist = author;
-	navigator.mediaSession.album = album;
-	navigator.mediaSession.artwork = {
-		src: cover,
-		sizes: "150x150",
-		type: 'image/png'
-	};
+	if ('mediaSession' in navigator) {
+		navigator.mediaSession.metadata = new MediaMetadata({
+			title: name,
+			artist: author,
+			album: album,
+			artwork: {
+				src: cover,
+				sizes: '150x150',
+				type: 'image/png' 
+			}			
+		});
+	}
 }
 
 // Handle the play of the previous music asked by the user
