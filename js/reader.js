@@ -105,13 +105,14 @@ MusicPlayer.addEventListener("play", function() {
 
 // Handle the volume change of the MusicPlayer
 MusicPlayer.addEventListener("volumechange", function() {
-	var percent = this.volume;
-	if (percent != 0) {
+	var playerVolume = this.volume;
+	if (playerVolume != 0) {
 		Mute.src = "../../img/audio-on.png";
 	}else {
 		Mute.src = "../../img/audio-off.png";
 	}
-	document.getElementById("Volume").value = percent * 100;
+	var percent = playerVolume * 100;
+	document.getElementById("Volume").value = percent;
 	document.getElementById("Volume").style.backgroundImage = "-webkit-gradient(linear, left top, right top, " +
 								 							  "color-stop(" + percent + "%, #FFF), " +
 								 							  "color-stop(" + percent + "%, #0B0B0B)" +
