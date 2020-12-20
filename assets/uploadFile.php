@@ -49,13 +49,8 @@
 		<br>
 		<label for="FileAlbum">Nom de l'Album</label>
 		<input id="FileAlbum" type="text" name="file_album" value="">
-		<div class="progress-bar">
-			<div id="MyBarPlus" class="bar positive">
-				<span id="SendButton">ENVOYER</span>
-			</div>
-			<div id="MyBarMoins" class="bar negative">
-				<span id="BarSpan2">ENVOYER</span>
-			</div>
+		<div class="upload-button">
+			<span id="UploadButton">ENVOYER</span>
 		</div>
 	</form>
 	<script type="text/javascript" src="<?php echo $link ?>/js/uploadFile.js"></script>

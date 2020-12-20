@@ -76,5 +76,5 @@ document.getElementById("CrossUpload").addEventListener("click", function () {
 	Upload.className = "";
 });
 
-// Handle click on BarSpan2
-document.getElementById("BarSpan2").addEventListener("click", uploadMusic, false);
+// Handle click on UploadButton
+document.getElementById("UploadButton").addEventListener("click", uploadMusic, false);

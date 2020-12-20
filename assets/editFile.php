@@ -9,16 +9,17 @@
 				<li><input id="PictureEdit" type="file" name="" value="" accept="image/*"></li>
 			</ul>
 		</div>
+		<div class="progress-file">
+			<div id="ProgressBarEditCover" class="progress-bar-file">
+				<div id="TextProgressBarEditCover" class="text-file"></div>
+			</div>
+		</div>
 		<input id="FileNameEdit" type="text" placeholder="Nom du Fichier" name="file_name" value="">
 		<input id="FileAuthorEdit" type="text" placeholder="Nom de l'Artiste" name="file_author" value="">
 		<input id="FileAlbumEdit" type="text" placeholder="Nom de l'Album" name="file_album" value="">
-		<div class="progress-bar">
-			<div id="MyBarPlusEdit" class="bar positive">
-				<span id="EditButton">ENVOYER</span>
-			</div>
-			<div id="MyBarMoinsEdit" class="bar negative">
-				<span id="BarSpan2Edit">ENVOYER</span>
-			</div>
+		<div class="upload-button">
+			<span id="EditButton">ENVOYER</span>
+		</div>
 		</div>
 	</form>
 </section>

@@ -23,8 +23,8 @@ document.getElementById("PictureEdit").addEventListener("change", function() {
 	readURL(this, "Banner");
 });
 
-// Handle click on BarSpan2Edit
-document.getElementById("BarSpan2Edit").addEventListener("click", function() {
+// Handle click on EditButton
+document.getElementById("EditButton").addEventListener("click", function() {
 	var musicId = this.dataset.musicId;
 	if (musicId != "undefined") {
 		if (document.getElementById("PictureEdit").files.length == 0) {
@@ -59,20 +59,14 @@ document.getElementById("BarSpan2Edit").addEventListener("click", function() {
 					var xhr = $.ajaxSettings.xhr();
 					xhr.upload.onprogress = function(e) {
 						if (e.lengthComputable) {
-							document.getElementById("MyBarPlusEdit").style.width = Math.round((e.loaded / e.total)*100) + "%";
-							document.getElementById("EditButton").innerHTML = Math.round((e.loaded / e.total)*100) + " %";
-							document.getElementById("MyBarMoinsEdit").style.width = Math.round(100-(e.loaded / e.total)*100) + "%";
-							document.getElementById("BarSpan2Edit").innerHTML = Math.round((e.loaded / e.total)*100) + " %";
+							document.getElementById("ProgressBarEditCover").style.width = Math.round((e.loaded / e.total)*100) + "%";
+							document.getElementById("TextProgressBarEditCover").innerHTML = Math.round((e.loaded / e.total)*100) + " %";
 						}
 					};
 					return xhr;
 				}
 			}).done(function() {
 				getFiles("file_id", "DESC");
-				document.getElementById("MyBarPlusEdit").style.width = "0%";
-				document.getElementById("EditButton").innerHTML = "0 %";
-				document.getElementById("MyBarMoinsEdit").style.width = "100%";
-				document.getElementById("BarSpan2Edit").innerHTML = "ENVOYER";
 			}).fail(function() {
 				alert("Edit failed");
 			});

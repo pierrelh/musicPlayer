@@ -36,23 +36,4 @@
 		width: 80%;
 		margin-bottom: 50px;
 	}
-
-	.progress-bar {
-		border: black solid 5px;
-		width: 700px;
-		height: 80px;
-		line-height: 80px;
-	}
-
-	.progress-bar .bar span {
-		width: 700px;
-	}
-
-	.progress-bar .bar.positive {
-		font-size: 3em;
-	}
-
-	.progress-bar .bar.negative {
-		font-size: 3em;
-	}
 }
