@@ -103,11 +103,6 @@ function toggleMute() {
 	}
 }
 
-// Handle the change of the reader's volume
-function volumeChange() {
-
-}
-
 // Play the passed music
 function playMusic(musicId) {    
 	if (document.getElementById("PlayedMusic") != undefined) { // Checking if there is a played music template
@@ -249,10 +244,8 @@ function seekBackward() {
 // Remove 10% to the player's volume
 function dicreaseVolume() {
 	if (document.getElementById("MusicPlayer").volume < 0.1) {
-		document.getElementById("Volume").value = 0;
 		document.getElementById("MusicPlayer").volume = 0;		
 	}else {
-		document.getElementById("Volume").value -= 10;
 		document.getElementById("MusicPlayer").volume -= 0.1
 	}
 }
@@ -260,10 +253,8 @@ function dicreaseVolume() {
 // Add 10% to the player's volume
 function increaseVolume() {
 	if (document.getElementById("MusicPlayer").volume > 0.9) {
-		document.getElementById("Volume").value = 100;
 		document.getElementById("MusicPlayer").volume = 1;		
 	}else {
-		document.getElementById("Volume").value += 10;
 		document.getElementById("MusicPlayer").volume += 0.1
 	}
 }

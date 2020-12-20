@@ -9,7 +9,6 @@ var Volume = document.getElementById("Volume");
 var ProgressBar = document.getElementById("ProgressBar");
 var Time = document.getElementById("Time");
 var Start = document.getElementById("Start");
-console.log(MusicPlayer.volume);
 
 // Handle the loop button click
 Loop.addEventListener("click", function() {
@@ -75,16 +74,6 @@ Mute.addEventListener("click", toggleMute, false);
 // Handle the volume slider actions
 Volume.addEventListener("input", function() {
 	MusicPlayer.volume = this.value / 100;
-	if (MusicPlayer.volume != 0) {
-		Mute.src = "../../img/audio-on.png";
-	}else {
-		Mute.src = "../../img/audio-off.png";
-	}
-	var percent = (this.value / 100) * 100;
-	this.style.backgroundImage = "-webkit-gradient(linear, left top, right top, " +
-								 "color-stop(" + percent + "%, #FFF), " +
-								 "color-stop(" + percent + "%, #0B0B0B)" +
-								 ")";
 })
 
 // Handle the load of metadata of the MusicPlayer
@@ -115,7 +104,19 @@ MusicPlayer.addEventListener("play", function() {
 });
 
 // Handle the volume change of the MusicPlayer
-MusicPlayer.addEventListener("volumechange", volumeChange, false);
+MusicPlayer.addEventListener("volumechange", function() {
+	var percent = this.volume;
+	if (percent != 0) {
+		Mute.src = "../../img/audio-on.png";
+	}else {
+		Mute.src = "../../img/audio-off.png";
+	}
+	document.getElementById("Volume").value = percent * 100;
+	document.getElementById("Volume").style.backgroundImage = "-webkit-gradient(linear, left top, right top, " +
+								 							  "color-stop(" + percent + "%, #FFF), " +
+								 							  "color-stop(" + percent + "%, #0B0B0B)" +
+								 							  ")";
+});
 
 // Handle the on ended of the MusicPlayer
 MusicPlayer.addEventListener("ended", function() {
