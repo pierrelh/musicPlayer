@@ -3,15 +3,17 @@
 	<img id="CrossEdit" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
 	<form id="FormEdit" method="post">
 		<h2 id="ErrorMsgEdit"></h2>
-		<div id="Banner" class='div-detail'>
-			<ul class='delete-edit'>
-				<li><label class='modify-img' for="PictureEdit"><img class="editImage" src='<?php echo $link ?>/img/edit.png' alt=''></label></li>
-				<li><input id="PictureEdit" type="file" name="" value="" accept="image/*"></li>
-			</ul>
-		</div>
-		<div class="progress-file">
-			<div id="ProgressBarEditCover" class="progress-bar-file">
-				<div id="TextProgressBarEditCover" class="text-file"></div>
+		<div id="BannerContainer">
+			<div id="Banner" class='div-detail'>
+				<ul class='delete-edit'>
+					<li><label class='modify-img' for="PictureEdit"><img class="editImage" src='<?php echo $link ?>/img/edit.png' alt=''></label></li>
+					<li><input id="PictureEdit" type="file" name="" value="" accept="image/*"></li>
+				</ul>
+			</div>
+			<div class="progress-file">
+				<div id="ProgressBarEditCover" class="progress-bar-file">
+					<div id="TextProgressBarEditCover" class="text-file"></div>
+				</div>
 			</div>
 		</div>
 		<input id="FileNameEdit" type="text" placeholder="Nom du Fichier" name="file_name" value="">

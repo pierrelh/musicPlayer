@@ -82,8 +82,7 @@ EditFileSidebar.addEventListener("click", function() {
 		if (deleteElements.length != 0) {
 			deleteElements.forEach(element => element.remove());
 		}else if (addElements.length != 0 || checkElements.length != 0) {
-			addElements.forEach(element => element.remove());
-			checkElements.forEach(element => element.remove());
+			hideAdd();
 		}
 
 		// Create the edit elements
@@ -120,8 +119,7 @@ DeleteFileSidebar.addEventListener("click", function() {
 		if (editElements.length != 0) {
 			editElements.forEach(element => element.remove());
 		}else if (addElements.length != 0 || checkElements.length != 0) {
-			addElements.forEach(element => element.remove());
-			checkElements.forEach(element => element.remove());
+			hideAdd();
 		}
 
 		// Create the Delete elements & add it to the music's parent

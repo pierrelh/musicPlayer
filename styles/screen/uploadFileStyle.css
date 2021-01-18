@@ -6,9 +6,10 @@
 		top: 15%;
 	}
 
-	#Banner {
-		height: 250px;
+	#BannerContainer {
+		height: 270px;
 		width: 250px;
+		margin: auto;
 	}
 
 	.editImage {
