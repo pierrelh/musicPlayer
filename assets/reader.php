@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/readerStyle.css">
 <section id="MediaPlayer">
 	<audio autoplay controls id="MusicPlayer">
+		<source id="PlayerMPEG" src="" type="audio/mpeg">
 	</audio>
 </section>
 <section id="AudioPlayer" class="left">
