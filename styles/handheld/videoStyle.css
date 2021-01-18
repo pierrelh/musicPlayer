@@ -1,4 +1,4 @@
-/* @media screen and (max-device-width: 640px) {
+@media screen and (max-device-width: 640px) {
 	.library-reader-active {
 		margin-bottom: 250px !important;
 	}
@@ -47,4 +47,4 @@
 	.playing {
 		background-size: 100% !important;
 	}
-} */
+}
