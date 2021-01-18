@@ -1,13 +1,12 @@
-@media screen and (max-device-width: 640px) {
-	.library,
-	.library-show {
-		margin: 100px 5px 0px 5px;
-		transition: 0.8s;
-		overflow-x: hidden;
-	}
-
+/* @media screen and (max-device-width: 640px) {
 	.library-reader-active {
 		margin-bottom: 250px !important;
+	}
+
+	.library {
+		margin-top: 7vh !important;
+		max-height: 93vh;
+		width: 100%;
 	}
 
 	.library > div,
@@ -48,4 +47,4 @@
 	.playing {
 		background-size: 100% !important;
 	}
-}
+} */

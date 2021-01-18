@@ -4,7 +4,10 @@ header{
 	margin: 0;
 	top: 0;
 	position: fixed;
-	z-index: 801;
+	height: 7vh;
+	line-height: 7vh;
+	white-space: nowrap;
+	z-index: 1000;
 }
 
 header > h1{
@@ -16,7 +19,8 @@ header > h1{
 .arrow {
 	cursor: pointer;
 	position: fixed;
-	margin: .5% 1%;
+	height: 5vh;
+	margin: 1vh 0 0 2vw;
 	transition: 0.8s;
 }
 

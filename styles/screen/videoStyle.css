@@ -5,12 +5,6 @@
 		width: 80% !important;
 	}
 
-	.library-show {
-		margin-top: 7vh !important;
-		max-height: 93vh;
-		width: 100%;
-	}
-
 	.library-reader-active {
 		max-height: 81vh !important;
 		transition: 0.8s;
