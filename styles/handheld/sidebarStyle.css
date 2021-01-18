@@ -4,6 +4,9 @@
 		width: 100%;
 		text-align: center;
 		z-index: 960;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 
 	.sidebar-hide {
@@ -15,11 +18,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		height: 100%;
-		height: -moz-available;
-		height: -webkit-fill-available;
-		height: fill-available;
-		padding: 30% 0;
+		height: 65vh;
 	}
 
 	.sidebar > ul > li > input[type="button"],
