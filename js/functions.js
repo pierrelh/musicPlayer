@@ -140,7 +140,7 @@ function playMusic(musicId) {
 	musicPlayer.dataset.musicPlayed = musicId;
 	var nameTxt = document.getElementById("SongName");
 	nameTxt.innerHTML = author + " - " + name;
-	document.getElementById("PlayerMPEG").src = url;
+	musicPlayer.src = url;
 
 	// Adding the class to audioPlayer if needed
 	var audioPlayer = document.getElementById("AudioPlayer");
