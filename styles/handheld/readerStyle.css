@@ -1,4 +1,4 @@
-/* @media screen and (max-device-width: 640px) {
+@media screen and (max-device-width: 640px) {
 	#SongName{
 		font-size: 3em;
 	}
@@ -24,9 +24,9 @@
 		left: 410px;
 	}
 
-	#Mute {
-		top: 150px;
-		right: 30%;
+	#Mute,
+	#Volume {
+		display: none;
 	}
 
 	.time {
@@ -48,7 +48,6 @@
 	}
 
 	#Play,
-	#Mute,
 	#Loop,
 	#Random,
 	.player-button {
@@ -57,7 +56,6 @@
 		height: 50px;
 	}
 
-	#Volume,
 	#ProgressBar {
 		height: 10px;
 		border-radius: 25px;
@@ -68,25 +66,14 @@
 		width: 77% !important;
 	}
 
-	#Volume {
-		position: absolute;
-		right: 15px;
-		width: 25%;
-		height: 10px;
-		top: 145px;
-	}
-
-	#Volume,
 	#ProgressBar {
 		margin-top: 26px !important;
 	}
 
-	#Volume::-webkit-slider-thumb,
 	#ProgressBar::-webkit-slider-thumb,
-	#Volume::-moz-range-thumb,
 	#ProgressBar::-moz-range-thumb{
 		width: 35px;
 		height: 35px;
 	}
 
-} */
+}
