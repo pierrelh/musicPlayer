@@ -213,7 +213,7 @@ function playNextMusic(isSkiped) {
 		}
 
 		var indexOfCurrentSong = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current song in the playlist
-		if (indexOfCurrentSong == usedPlaylist.length) { // Check if the played music is the last one
+		if (indexOfCurrentSong == (usedPlaylist.length) - 1) { // Check if the played music is the last one
 			if (document.getElementById("Loop").dataset.loop == "none") { // The player will not restart the playlist
 				return;
 			}else { // The player will restart the playlist
