@@ -179,7 +179,7 @@ function playLastMusic() {
 		}else {
 			var usedPlaylist = playlist.slice();
 		}
-
+		console.log(usedPlaylist);
 		var indexOfCurrentSong = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current song in the playlist
 		if (indexOfCurrentSong == 0) { // Check if the played music is the first one
 			
