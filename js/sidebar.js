@@ -70,26 +70,20 @@ UploadFileSidebar.addEventListener("click", function() {
 // Handle the edit file button click
 EditFileSidebar.addEventListener("click", function() {
 	// If elements with edit's class exists then delete them & quit
-	var editElements = document.getElementsByClassName("edit");
+	var editElements = Object.values(document.getElementsByClassName("edit"));
 	if (editElements.length != 0) {
-		for (var index = 0; index < editElements.length; index++) {
-			editElements[index].remove();			
-		}
+		editElements.forEach(element => element.remove());
 		return;
 	}else {
 		// If elements with delete's class exists then delete them
-		var deleteElements = document.getElementsByClassName("delete");
+		var deleteElements = Object.values(document.getElementsByClassName("delete"));
 		if (deleteElements.length != 0) {
-			for (var index = 0; index < deleteElements.length; index++) {
-				deleteElements[index].remove();			
-			}
+			deleteElements.forEach(element => element.remove());
 		}else {
 			// If elements with add's class exists then delete them
-			var addElements = document.getElementsByClassName("add");
+			var addElements = Object.values(document.getElementsByClassName("add"));
 			if (addElements.length != 0) {
-				for (var index = 0; index < addElements.length; index++) {
-					addElements[index].remove();			
-				}
+				addElements.forEach(element => element.remove());
 			}		
 		}
 
@@ -115,26 +109,20 @@ EditFileSidebar.addEventListener("click", function() {
 // Handle the delete file button click
 DeleteFileSidebar.addEventListener("click", function() {
 	// If elements with edit's class exists then delete them & quit
-	var deleteElements = document.getElementsByClassName("delete");
+	var deleteElements = Object.values(document.getElementsByClassName("delete"));
 	if (deleteElements.length != 0) {
-		for (var index = 0; index < deleteElements.length; index++) {
-			deleteElements[index].remove();			
-		}
+		deleteElements.forEach(element => element.remove());
 		return;
 	}else {
 		// If elements with delete's class exists then delete them
-		var editElements = document.getElementsByClassName("edit");
+		var editElements = Object.values(document.getElementsByClassName("edit"));
 		if (editElements.length != 0) {
-			for (var index = 0; index < editElements.length; index++) {
-				editElements[index].remove();			
-			}
+			editElements.forEach(element => element.remove());
 		}else {
 			// If elements with add's class exists then delete them
-			var addElements = document.getElementsByClassName("add");
+			var addElements = Object.values(document.getElementsByClassName("add"));
 			if (addElements.length != 0) {
-				for (var index = 0; index < addElements.length; index++) {
-					addElements[index].remove();			
-				}
+				addElements.forEach(element => element.remove());
 			}		
 		}
 
@@ -144,8 +132,8 @@ DeleteFileSidebar.addEventListener("click", function() {
 			var li = document.createElement("li");
 			li.classList.add("delete");
 			li.id = "Delete" + i;    
-			var parent = document.getElementById("MusicList" + i);
-			var child = document.getElementById("Music" + i);
+			var parent = libraryChildren[i];
+			var child = parent.children[0];
 			parent.insertBefore(li, child);
 		
 			// Add the event on this delete's click
@@ -255,41 +243,38 @@ CreatePlaylistSidebar.addEventListener("click", function() {
 	}else {
 
 		// If elements with edit's class exists then delete them & quit
-		var addElements = document.getElementsByClassName("add");
+		var addElements = Object.values(document.getElementsByClassName("add"));
 		if (addElements.length != 0) {
-			for (var index = 0; index < addElements.length; index++) {
-				addElements[index].remove();			
-			}
+			addElements.forEach(element => element.remove());
 			return;
 		}else {
 			// If elements with delete's class exists then delete them
-			var editElements = document.getElementsByClassName("edit");
+			var editElements = Object.values(document.getElementsByClassName("edit"));
 			if (editElements.length != 0) {
-				for (var index = 0; index < editElements.length; index++) {
-					editElements[index].remove();			
-				}
+				editElements.forEach(element => element.remove());
 			}else {
 				// If elements with add's class exists then delete them
-				var deleteElements = document.getElementsByClassName("delete");
+				var deleteElements = Object.values(document.getElementsByClassName("delete"));
 				if (deleteElements.length != 0) {
-					for (var index = 0; index < deleteElements.length; index++) {
-						deleteElements[index].remove();			
-					}
+					deleteElements.forEach(element => element.remove());
 				}		
 			}
 
 			// Creating the Add element & add it to the music's parent
-			var li = document.createElement("li");
-			li.classList.add("add");
-			li.id = "Add" + i;  
-			var parent = document.getElementById("MusicList" + i);
-			var child = document.getElementById("Music" + i);
-			parent.insertBefore(li, child);
-			
-			// Add the event on this add's click
-			document.getElementById("Add" + i).addEventListener("click", function(){
-				addToPlaylist(i)
-			}, false);
+			var libraryChildren = document.getElementById("LibraryObjects").children;
+			for (var i = 0; i < libraryChildren.length; i++) (function(i){
+				var li = document.createElement("li");
+				li.classList.add("add");
+				li.id = "Add" + i;  
+				var parent = libraryChildren[i];
+				var child = parent.children[0];
+				parent.insertBefore(li, child);
+				
+				// Add the event on this add's click
+				document.getElementById("Add" + i).addEventListener("click", function(){
+					addToPlaylist(i)
+				}, false);
+			})(i)
 		}
 	}
 });
