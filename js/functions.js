@@ -190,7 +190,8 @@ function playLastMusic() {
 		}
 	}
 
-
+	console.log("indexOfNextSong" + indexOfNextSong);
+	console.log("ValueOfNextSong" + usedPlaylist[indexOfNextSong]);
 	// Play the previous music
 	playMusic(usedPlaylist[indexOfNextSong]);
 }
