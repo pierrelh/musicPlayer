@@ -5,6 +5,8 @@
 #AudioPlayer {
 	z-index: 950;
 	background-color: #3f3f3f;
+	height: 12vh;
+	bottom: -12vh;
 	position: fixed;
 	overflow: hidden;
 	color: white;
