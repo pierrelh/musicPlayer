@@ -63,15 +63,6 @@
 		left: auto;
 	}
 
-	#Play,
-	#Loop,
-	#Random,
-	.player-button {
-		width: 50px;
-		position: absolute;
-		height: 50px;
-	}
-
 	#ProgressBar {
 		border-radius: 25px;
 		outline: none;
