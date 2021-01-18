@@ -229,7 +229,7 @@ function playNextMusic(isSkiped) {
 
 	}    
 	// Play the next music
-	playMusic(indexOfNextSong);
+	playMusic(usedPlaylist[indexOfNextSong]);
 }
 
 // Progress +10 secondes to the played music
