@@ -12,6 +12,13 @@ RewriteCond %{HTTPS} !=on
 
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+AddType audio/aac .aac    
+AddType audio/mp4 .mp4 .m4a  
+AddType audio/mpeg .mp1 .mp2 .mp3 .mpg .mpeg  
+AddType audio/ogg .oga .ogg
+AddType audio/wav .wav
+AddType audio/webm .webm
+
 <IfModule mod_expires.c>
 	ExpiresActive on
 	ExpiresDefault                          "access plus 1 month"
