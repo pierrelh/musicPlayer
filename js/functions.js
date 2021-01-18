@@ -192,7 +192,7 @@ function playLastMusic() {
 
 
 	// Play the previous music
-	playMusic(indexOfNextSong);
+	playMusic(usedPlaylist[indexOfNextSong]);
 }
 
 // Handle the play of the next music asked by the user
