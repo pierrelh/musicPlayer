@@ -54,10 +54,13 @@ function openPlaylist(identifier) {
 
 // Hide the playlist addition
 function hideAdd() {
-	var library = document.getElementById("LibraryObjects").children;
-	for (var i = 0; i < library.length; i++) {
-		document.getElementById("Add" + i).remove();
+	var addElements = Object.values(document.getElementsByClassName("add"));
+	var checkElements = Object.values(document.getElementsByClassName("check"));
+	if (addElements.length != 0 || checkElements.length != 0) {
+		addElements.forEach(element => element.remove());
+		checkElements.forEach(element => element.remove());
 	}
+
 	document.getElementById("PlaylistNameElement").remove();
 	document.getElementById("PlaylistButtonElement").remove();
 	document.getElementById("CreatePlaylistSidebar").dataset.isActive = "false";
