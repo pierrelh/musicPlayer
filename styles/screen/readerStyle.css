@@ -8,6 +8,8 @@
 	#AudioPlayer {
 		margin-left: 20%;
 		width: 80%;
+		height: 12vh;
+		bottom: -12vh;
 	}
 
 	.left {
