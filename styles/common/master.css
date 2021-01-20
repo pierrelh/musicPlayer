@@ -249,6 +249,21 @@ html{
 	margin-top: 70px;
 }
 
+.edit,
+.delete,
+.add,
+.check,
+.edit-hide,
+.delete-hide,
+.add-hide,
+.check-hide,
+.playing {
+	position: absolute;
+	cursor: pointer;
+	animation: show-edit 0.8s ease;
+	z-index: 2;
+}
+
 /* open-sans-300 - latin */
 @font-face {
 	font-family: 'Open Sans';

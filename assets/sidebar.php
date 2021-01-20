@@ -5,6 +5,8 @@
 	<ul id="SidebarList">
 		<li><input id="MyAccountSidebar" type="button" value="Mon Compte"></li>
 		<li><input id="CreateAccountSidebar" type="button" value="Créer un Compte"></li>
+		<li><input id="HelpSidebar" type="button" value="Aide"></li>
+		<br>
 		<li><input id="UploadFileSidebar" type="button" value="Uploader un Fichier"></li>
 		<li><input id="EditFileSidebar" type="button" value="Modifier un Fichier"></li>
 		<li><input id="DeleteFileSidebar" type="button" value="Supprimer un Fichier"></li>
@@ -16,8 +18,6 @@
 		<br>
 		<li><input id="MyPlaylistsSidebar" type="button" value="Mes Playlists"></li>
 		<li><input data-is-active="false" id="CreatePlaylistSidebar" type="button" value="Créer une Playlist"></li>
-		<br>
-		<li><input id="HelpSidebar" type="button" value="Aide"></li>
 	</ul>
 </section>
 <script type="text/javascript" src="<?php echo $link ?>/js/sidebar.js"></script>

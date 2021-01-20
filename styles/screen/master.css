@@ -8,23 +8,4 @@
 	.error-msg {
         font-size: 1.5em;
 	}
-
-	.edit,
-	.delete,
-	.add,
-	.check,
-	.edit-hide,
-	.delete-hide,
-	.add-hide,
-	.check-hide,
-	.playing {
-		position: absolute;
-		background-color: rgba(0, 0, 0, .5);
-		background-position: center;
-		background-repeat: no-repeat;
-		margin-left: -1px;
-		cursor: pointer;
-		animation: show-edit 0.8s ease;
-		z-index: 2;
-	}
 }
