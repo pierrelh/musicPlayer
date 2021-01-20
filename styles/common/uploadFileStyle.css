@@ -18,7 +18,7 @@
 	height: 100%;
 	width: 100%;
 	text-align: center;
-	padding: 5% 0;
+	padding: 3vh 0 0;
 }
 
 .delete-edit {
@@ -108,9 +108,10 @@
 }
 
 .upload-button {
-	border: 2px solid black;
-	width: 70%;
-	margin: 5% auto 0;
+	border-top: 2px solid black;
+	width: 100%;
+	position: absolute;
+	bottom: 0%;
 }
 
 .upload-button > span {
@@ -118,7 +119,9 @@
 	display: block;
 	cursor: pointer;
 	font-weight: 700;
-	padding: 10px 0;
+	padding: 20px 0;
 	text-align: center;
 	font-size: 1.4em;
+	color: white;
+	background: black;
 }

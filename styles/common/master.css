@@ -266,9 +266,12 @@ html{
 		height: 35px;
 		cursor: pointer;
 		position: absolute;
-		right: 25px;
-		top: 15px;
+		right: 0;
 		z-index: 999;
+		border-left: 2px solid black;
+		padding: 15px;
+		border-bottom-left-radius: 10px;
+		border-bottom: 2px solid black;
 	}
 
 	#error-msg{
