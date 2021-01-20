@@ -7,6 +7,12 @@ function shuffle(a) {
 	return a;
 }
 
+// Decode html txt
+function htmlDecode(input) {
+	var doc = new DOMParser().parseFromString(input, "text/html");
+	return doc.documentElement.textContent;
+  }
+
 // Set Time to the right format
 function getTime(t) {
 	var m = ~~(t / 60),
@@ -151,9 +157,9 @@ function playMusic(musicId) {
 	// Setting the mediaSession metadatas
 	if ('mediaSession' in navigator) {
 		navigator.mediaSession.metadata = new MediaMetadata({
-			title: unescape(encodeURIComponent(name)),
-			artist: unescape(encodeURIComponent(author)),
-			album: unescape(encodeURIComponent(album)),
+			title: htmlDecode(name),
+			artist: htmlDecode(author),
+			album: htmlDecode(album),
 			artwork: [
 				{src: cover, sizes: '150x150', type: 'image/png'}	
 			]
