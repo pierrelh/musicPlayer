@@ -227,6 +227,26 @@ html{
 	border-radius: 10px;
 }
 
+.appear {
+	transition: max-height 0.8s ease-in !important;
+}
+
+.cross {
+	cursor: pointer;
+	position: absolute;
+	z-index: 999;
+	top: 0;
+	right: 0;
+	background-color: black;
+	border-bottom-left-radius: 10px;
+}
+
+.error-msg {
+	color: red;
+	margin-left: 10px;
+	margin-top: 70px;
+}
+
 /* open-sans-300 - latin */
 @font-face {
 	font-family: 'Open Sans';

@@ -4,7 +4,7 @@
 
 #AudioPlayer {
 	z-index: 950;
-	background-color: #3f3f3f;
+	background-color: #0B0B0B;
 	position: fixed;
 	overflow: hidden;
 	color: white;
@@ -15,13 +15,12 @@
 	transition-duration: 0.8s;
 }
 
-.show{
+.show {
 	bottom: 0px !important;
 	transition-duration: 0.8s;
 }
 
-#SongName{
-	color: white;
+#SongName {
 	padding-left: 25px;
 	margin: 0;
 }
@@ -41,16 +40,7 @@
 }
 
 .time {
-	color: white;
 	line-height: initial;
-}
-
-.ui-progressbar {
-	background: #0B0B0B;
-}
-
-.ui-progressbar-value {
-	background: white;
 }
 
 #Volume,
@@ -58,11 +48,14 @@
 	-webkit-appearance: none;
 	width: 13%;
 	outline: none;
-	background: linear-gradient(to right, #FFF 100%, #0B0B0B 0%)
+}
+
+#Volume {
+	background: linear-gradient(to right, rgb(255, 255, 255) 100%, rgb(50, 50, 50) 0%);
 }
 
 #ProgressBar {
-	background: linear-gradient(to right, #FFF 0%, #0B0B0B 0%)
+	background: linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(50, 50, 50) 100%);
 }
 
 #Volume::-webkit-slider-thumb,
@@ -76,4 +69,3 @@
 	cursor: pointer;
 	border: 1px solid white;
 }
-
