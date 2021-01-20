@@ -73,7 +73,9 @@ async function uploadMusic() {
 document.getElementById("CrossUpload").addEventListener("click", function () {
 	backgroundHide();
 	var Upload = document.getElementById("Upload");
-	Upload.className = "";
+	setTimeout(function() {
+		Upload.className = "";
+	}, 800);
 });
 
 // Handle click on UploadButton

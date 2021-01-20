@@ -1,8 +1,4 @@
 @media screen and (max-device-width: 640px) {
-	.appear {
-		/* max-height: 1200px !important; */
-	}
-
 	.cross {
 		height: 70px;
 	}
