@@ -42,6 +42,34 @@ document.onkeydown = function(event) {
 				toggleLoop();
 			}
 			break;
+		
+		case "a": // A is pressed -> open account
+			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
+				event.preventDefault();
+				openAccountSection();
+			}
+			break;
+
+		case "u": // U is pressed -> open upload
+			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
+				event.preventDefault();
+				openUploadSection();
+			}
+			break;
+
+		case "e": // E is pressed -> open edit
+			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
+				event.preventDefault();
+				toggleEdit();
+			}
+			break;
+
+		case "d": // D is pressed -> open delete
+			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
+				event.preventDefault();
+				toggleDelete();
+			}
+			break;
 
 		case "ArrowLeft": // ArrowLeft is pressed -> -10s on audio
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form

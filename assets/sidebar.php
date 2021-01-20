@@ -16,6 +16,8 @@
 		<br>
 		<li><input id="MyPlaylistsSidebar" type="button" value="Mes Playlists"></li>
 		<li><input data-is-active="false" id="CreatePlaylistSidebar" type="button" value="Créer une Playlist"></li>
+		<br>
+		<li><input id="HelpSidebar" type="button" value="Aide"></li>
 	</ul>
 </section>
 <script type="text/javascript" src="<?php echo $link ?>/js/sidebar.js"></script>
