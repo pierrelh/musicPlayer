@@ -45,6 +45,11 @@
 	transition: 0.8s;
 }
 
+
+.playlist-reader-showed {
+	height: 81vh !important;
+}
+
 .playlist-div-hide {
 	height: 0 !important;
 	transition: 0.8s;
@@ -53,10 +58,6 @@
 .playlist-sidebar-hided {
 	margin-left: 0% !important;
 	width: 100% !important;
-}
-
-.playlist-reader-showed {
-	height: 81vh !important;
 }
 
 .listPlaylist {
