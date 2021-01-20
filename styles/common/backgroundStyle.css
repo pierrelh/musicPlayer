@@ -1,5 +1,6 @@
-#Background{
+#Background {
 	position: fixed;
+	overflow: hidden;
 	z-index: 998;
 	background-color: #000;
 	opacity: .9;
@@ -9,7 +10,7 @@
 	transition-duration: 0.8s;
 }
 
-.background-appear{
+.background-appear {
 	height: 100% !important;
 	transition-duration: 0.8s;
 }

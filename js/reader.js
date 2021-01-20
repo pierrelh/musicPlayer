@@ -46,7 +46,7 @@ MusicPlayer.addEventListener("timeupdate", function() {
 	var percent = (ProgressBar.value / (ProgressBar.max - ProgressBar.min)) * 100;
 	document.getElementById("ProgressBar").style.backgroundImage = "-webkit-gradient(linear, left top, right top, " +
 															  "color-stop(" + percent + "%, #FFF), " +
-															  "color-stop(" + percent + "%, #0B0B0B)" +
+															  "color-stop(" + percent + "%, rgb(50, 50, 50))" +
 															  ")";
 });
 

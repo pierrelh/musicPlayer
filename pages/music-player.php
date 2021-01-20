@@ -18,9 +18,10 @@
 	<body id="body">
 		<?php
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/headers/header.php");
-			foreach (glob($_SERVER['DOCUMENT_ROOT']."assets/*.php") as $filename){
-				include $filename;
-			}
+			include_once($_SERVER['DOCUMENT_ROOT']."/assets/background.php");
+			include_once($_SERVER['DOCUMENT_ROOT']."/assets/playlists.php");
+			include_once($_SERVER['DOCUMENT_ROOT']."/assets/reader.php");
+			include_once($_SERVER['DOCUMENT_ROOT']."/assets/sidebar.php");
 		?>
 		<section id="Library" class="library-show">
 			<div id="LibraryObjects">

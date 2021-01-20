@@ -1,14 +1,12 @@
 @media screen and (min-device-width: 641px) {
 	.appear {
-		max-height: 550px !important;
+		/* max-height: 550px !important; */
 	}
 
 	.cross {
-		height: 35px;
-		border-left: 2px solid black;
-		padding: 15px;
+		height: 20px;
+		padding: 20px;
 		border-bottom-left-radius: 10px;
-		border-bottom: 2px solid black;
 	}
 
 	.error-msg {
