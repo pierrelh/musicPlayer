@@ -219,15 +219,17 @@ html{
 #Account,
 #CreateAccount {
 	background-color: white;
-	position: relative;
+	position: absolute;
 	z-index: 999;
-	display: none;
+	visibility: collapse;
 	overflow: hidden;
 	border-radius: 10px;
+	transition-delay: .8s;
 }
 
 .appear {
-	display: block;
+	visibility: visible !important;
+	transition-delay: 0s !important;
 }
 
 .cross {

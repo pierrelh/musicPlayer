@@ -1,11 +1,11 @@
 .add,
 .add-hide {
-	background-image: url("../../img/add.png") !important;
+	background-image: url("../../img/add.png");
 }
 
 .check,
 .check-hide {
-	background-image: url("../../img/check.png") !important;
+	background-image: url("../../img/check.png");
 }
 
 .button-create-playlist {
@@ -39,7 +39,8 @@
 	min-width: 810px;
 	height: 93vh;
 	background-color: #0F0F0F;
-	overflow: scroll;
+	overflow-y: scroll;
+	overflow-x: hidden;
 	transition: 0.8s;
 	animation: show-playlist 0.8s ease;
 	z-index: 900;
@@ -57,7 +58,7 @@
 }
 
 .playlist-reader-showed {
-	margin-bottom: 91px !important;
+	height: 81vh !important;
 }
 
 @keyframes show-playlist {
@@ -75,7 +76,7 @@
 			opacity: 1;
 		}
 		100% {
-			z-index: -1;
+			visibility: hidden;
 			opacity: 0;
 		}
 }

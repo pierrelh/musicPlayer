@@ -50,24 +50,8 @@
 	cursor: pointer;
 }
 
-.edit,
-.delete,
-.add,
-.check,
-.edit-hide,
-.delete-hide,
-.add-hide,
-.check-hide,
-.playing {
+.edit {
 	background-image: url("../../img/edit.png");
-	position: absolute;
-	background-color: rgba(0, 0, 0, .5);
-	background-position: center;
-	background-repeat: no-repeat;
-	margin-left: -1px;
-	cursor: pointer;
-	animation: show-edit 0.8s ease;
-	z-index: 2;
 }
 
 .edit-hide,
@@ -79,11 +63,11 @@
 
 .delete,
 .delete-hide {
-	background-image: url("../../img/delete.png") !important;
+	background-image: url("../../img/delete.png");
 }
 
 .playing {
-	background-image: url("../../img/playing.gif") !important;
+	background-image: url("../../img/playing.gif");
 	opacity: 0.7;
 	animation: show-playing 0.8s ease !important;
 	z-index: 1 !important;
