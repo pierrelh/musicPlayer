@@ -3,8 +3,9 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/helpStyle.css">
 <section id="Help">
     <img id="CrossHelp" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
+    <h2>Voici la liste des commandes disponibles :</h2>
     <ul>
-        <li><p>Espace -> Play / Pause the audio</p></li>
+        <li><p>Espace -> Play / Pause the music</p></li>
         <li><p>P -> Play last music</p></li>
         <li><p>N -> Play next music</p></li>
         <li><p>R -> Toggle random mode</p></li>

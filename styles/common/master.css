@@ -217,7 +217,8 @@ html{
 #Upload,
 #Edit,
 #Account,
-#CreateAccount {
+#CreateAccount,
+#Help {
 	background-color: white;
 	position: absolute;
 	z-index: 999;
