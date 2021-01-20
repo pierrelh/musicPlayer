@@ -15,8 +15,9 @@
 
 .library > div,
 .library-show > div {
-	display: flex;
-	margin: auto;
+	display: grid;
+	grid-gap: 20px;
+	justify-content: center;
 	max-height: 93vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -28,7 +29,6 @@
 .library-show > div > ul {
 	list-style: none;
 	padding: 0;
-	display: inline-block;
 }
 
 .library > div > ul > .view,
@@ -42,8 +42,6 @@
 
 .library > div > ul > li > p,
 .library-show > div > ul > li > p {
-	display: flex;
-	justify-content: center;
 	text-align: center;
 	color: #fff;
 	margin: 5px 0 0 0;
@@ -74,12 +72,12 @@
 }
 
 @keyframes show-edit {
-		0% {
-				opacity: 0;
-		}
-		100% {
-				opacity: 1;
-		}
+	0% {
+			opacity: 0;
+	}
+	100% {
+			opacity: 1;
+	}
 }
 
 @keyframes hide-edit {

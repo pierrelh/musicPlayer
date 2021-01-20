@@ -11,15 +11,7 @@
 
 	.library > div,
 	.library-show > div {
-		padding: 0;
-		display: flex;
-		justify-content: space-evenly;
-		flex-wrap: wrap;
-	}
-
-	.library > div > ul,
-	.library-show > div > ul {
-		width: 220px;
+		grid-template-columns: repeat(auto-fill, 220px);
 	}
 
 	.library > div > ul > .view,

@@ -264,6 +264,19 @@ html{
 	z-index: 2;
 }
 
+.edit,
+.delete,
+.add,
+.check,
+.edit-hide,
+.delete-hide,
+.add-hide,
+.check-hide {
+	background-color: rgba(0, 0, 0, .5);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
 /* open-sans-300 - latin */
 @font-face {
 	font-family: 'Open Sans';
