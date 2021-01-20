@@ -1,0 +1,31 @@
+@media screen and (min-device-width: 641px) {
+	.appear{
+		max-height: 550px !important;
+		transition: max-height 0.8s ease-in !important;
+	}
+
+	.cross{
+		height: 35px;
+		cursor: pointer;
+		position: absolute;
+		right: 0;
+		z-index: 999;
+		border-left: 2px solid black;
+		padding: 15px;
+		border-bottom-left-radius: 10px;
+		border-bottom: 2px solid black;
+	}
+
+	#error-msg{
+		color: red;
+		text-align: center;
+		font-size: 1.5em;
+	}
+
+	.error-msg{
+		color: red;
+		margin-left: 10px;
+		font-size: 1.5em;
+		margin-top: 70px;
+	}
+}

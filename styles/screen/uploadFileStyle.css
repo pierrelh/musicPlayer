@@ -1,9 +1,10 @@
 @media screen and (min-device-width: 641px) {
 	#Upload,
 	#Edit {
-		left: 25%;
-		width: 50%;
-		top: 15%;
+		left: 30vw;
+		width: 40vw;
+		top: 24vh;
+		height: 42vh;
 	}
 
 	#BannerContainer {

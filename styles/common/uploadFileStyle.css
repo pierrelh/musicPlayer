@@ -110,8 +110,7 @@
 .upload-button {
 	border-top: 2px solid black;
 	width: 100%;
-	position: absolute;
-	bottom: 0%;
+	margin-top: 3vh;
 }
 
 .upload-button > span {
