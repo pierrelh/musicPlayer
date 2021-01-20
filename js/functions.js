@@ -151,9 +151,9 @@ function playMusic(musicId) {
 	// Setting the mediaSession metadatas
 	if ('mediaSession' in navigator) {
 		navigator.mediaSession.metadata = new MediaMetadata({
-			title: name,
-			artist: author,
-			album: album,
+			title: unescape(encodeURIComponent(name)),
+			artist: unescape(encodeURIComponent(author)),
+			album: unescape(encodeURIComponent(album)),
 			artwork: [
 				{src: cover, sizes: '150x150', type: 'image/png'}	
 			]
