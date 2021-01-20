@@ -6,5 +6,6 @@
 		include_once($_SERVER['DOCUMENT_ROOT']."/assets/createAccount.php");
 		include_once($_SERVER['DOCUMENT_ROOT']."/assets/deleteFile.php");
 		include_once($_SERVER['DOCUMENT_ROOT']."/assets/editFile.php");
+		include_once($_SERVER['DOCUMENT_ROOT']."/assets/help.php");
     ?>
 </section>
