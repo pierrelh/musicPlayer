@@ -109,6 +109,57 @@ function toggleMute() {
 	}
 }
 
+// Handle the Random button actions
+function toggleRandom() {
+	var random = document.getElementById("Random");
+	var randomType = random.dataset.random;
+	switch (randomType) {
+		case "true": // Setting random to false
+			random.dataset.random = "false";
+			random.src = "../../img/no-random.png";
+			break;
+  
+		case "false": // Setting random to true
+			randomPlaylist = playlist.slice();
+			shuffle(randomPlaylist); // Creating the random playlist
+			random.dataset.random = "true";
+			random.src = "../../img/random.png";
+			break;
+  
+		default: // Default: Setting random to false
+			random.dataset.random = "false";
+			random.src = "../../img/no-random.png";
+			break;
+	}
+}
+
+// Handle the Loop button actions
+function toggleLoop() {
+	var loop = document.getElementById("Loop");
+	var loopType = loop.dataset.loop;
+	switch (loopType) {
+		case "one": // Setting loop to none
+			loop.dataset.loop = "none";
+			loop.src = "../../img/no-loop.png";
+			break;
+	
+		case "all": // Setting loop to one
+			loop.dataset.loop = "one";
+			loop.src = "../../img/loop-one.png";
+			break;
+	
+		case "none": // Setting loop to all
+			loop.dataset.loop = "all";
+			loop.src = "../../img/loop.png";
+			break;
+	
+		default: // Default: Setting loop to all
+			loop.dataset.loop = "all";
+			loop.src = "../../img/loop.png";
+			break;
+	}
+}
+
 // Play the passed music
 function playMusic(musicId) {    
 	if (document.getElementById("PlayedMusic") != undefined) { // Checking if there is a played music template
@@ -246,7 +297,7 @@ function seekBackward() {
 
 // Remove 10% to the player's volume
 function dicreaseVolume() {
-	if (document.getElementById("MusicPlayer").volume < 0.1) {
+	if (document.getElementById("MusicPlayer").volume <= 0.1) {
 		document.getElementById("MusicPlayer").volume = 0;		
 	}else {
 		document.getElementById("MusicPlayer").volume -= 0.1
@@ -255,13 +306,14 @@ function dicreaseVolume() {
 
 // Add 10% to the player's volume
 function increaseVolume() {
-	if (document.getElementById("MusicPlayer").volume > 0.9) {
+	if (document.getElementById("MusicPlayer").volume >= 0.9) {
 		document.getElementById("MusicPlayer").volume = 1;		
 	}else {
 		document.getElementById("MusicPlayer").volume += 0.1
 	}
 }
 
+// Check if PlaylistSection is visible & hide it if so
 function checkPlaylistSection() {
 	if (document.getElementById("DivPlaylist").classList.contains("playlist-div")) {
 		document.getElementById("DivPlaylist").classList.remove("playlist-div");

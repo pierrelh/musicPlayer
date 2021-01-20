@@ -11,30 +11,7 @@ var Time = document.getElementById("Time");
 var Start = document.getElementById("Start");
 
 // Handle the loop button click
-Loop.addEventListener("click", function() {
-	var loopType = this.dataset.loop;
-	switch (loopType) {
-		case "one": // Setting loop to none
-			this.dataset.loop = "none";
-			this.src = "../../img/no-loop.png";
-			break;
-	
-		case "all": // Setting loop to one
-			this.dataset.loop = "one";
-			this.src = "../../img/loop-one.png";
-			break;
-	
-		case "none": // Setting loop to all
-			this.dataset.loop = "all";
-			this.src = "../../img/loop.png";
-			break;
-	
-		default: // Default: Setting loop to all
-			this.dataset.loop = "all";
-			this.src = "../../img/loop.png";
-			break;
-	}
-});
+Loop.addEventListener("click", toggleLoop, false);
 
 // Handle the Previous button click
 Previous.addEventListener("click", playLastMusic, false);
@@ -46,27 +23,7 @@ PlayPause.addEventListener("click", togglePlayPause, false);
 Next.addEventListener("click", playNextMusic, false);
 
 // Handle the Random button click
-Random.addEventListener("click", function() {
-	var randomType = this.dataset.random;
-	switch (randomType) {
-		case "true": // Setting random to false
-			this.dataset.random = "false";
-			this.src = "../../img/no-random.png";
-			break;
-  
-		case "false": // Setting random to true
-			randomPlaylist = playlist.slice();
-			shuffle(randomPlaylist); // Creating the random playlist
-			this.dataset.random = "true";
-			this.src = "../../img/random.png";
-			break;
-  
-		default: // Default: Setting random to false
-			this.dataset.random = "false";
-			this.src = "../../img/no-random.png";
-			break;
-	}
-});
+Random.addEventListener("click", toggleRandom, false);
 
 // Handle the Mute button click
 Mute.addEventListener("click", toggleMute, false);
