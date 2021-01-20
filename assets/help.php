@@ -15,6 +15,7 @@
         <li><p>U -> Open upload</p></li>
         <li><p>E -> Edit a file</p></li>
         <li><p>D -> Delete a file</p></li>
+        <li><p>H -> Open help</p></li>
         <li><p>Arrow left -> -10s on the played music</p></li>
         <li><p>Arrow right -> +10s on the played music</p></li>
         <li><p>Arrow up -> +10% on volume slider</p></li>

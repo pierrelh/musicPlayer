@@ -187,7 +187,4 @@ CreatePlaylistSidebar.addEventListener("click", function() {
 });
 
 // Handle the help button click
-Help.addEventListener("click", function() {
-	backgroundAppear();
-	document.getElementById("Help").classList.add("appear");
-});
+Help.addEventListener("click", openHelpSection, false);

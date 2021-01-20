@@ -70,6 +70,13 @@ document.onkeydown = function(event) {
 				toggleDelete();
 			}
 			break;
+		
+		case "h": // D is pressed -> open help
+			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
+				event.preventDefault();
+				openHelpSection();
+			}
+			break;
 
 		case "ArrowLeft": // ArrowLeft is pressed -> -10s on audio
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form

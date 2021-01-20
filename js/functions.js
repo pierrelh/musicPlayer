@@ -471,3 +471,9 @@ function toggleDelete() {
 		})(i)
 	}
 }
+
+// Open help section
+function openHelpSection() {
+	backgroundAppear();
+	document.getElementById("Help").classList.add("appear");
+}
