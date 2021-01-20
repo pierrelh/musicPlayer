@@ -41,15 +41,13 @@
 	background-color: #0F0F0F;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	transition: 0.8s;
-	animation: show-playlist 0.8s ease;
 	z-index: 900;
+	transition: 0.8s;
 }
 
 .playlist-div-hide {
-	z-index: -1;
-	opacity: 0;
-	animation: hide-playlist 0.8s ease !important;
+	height: 0 !important;
+	transition: 0.8s;
 }
 
 .playlist-sidebar-hided {
@@ -59,26 +57,6 @@
 
 .playlist-reader-showed {
 	height: 81vh !important;
-}
-
-@keyframes show-playlist {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			z-index: 800;
-			opacity: 1;
-		}
-}
-
-@keyframes hide-playlist {
-		0% {
-			opacity: 1;
-		}
-		100% {
-			visibility: hidden;
-			opacity: 0;
-		}
 }
 
 .listPlaylist {
