@@ -46,7 +46,7 @@
 }
 
 .send-form {
-    margin-top: 3vh;
+    margin: 3vh auto 0;
     width: 100%;
     display: block;
     cursor: pointer;

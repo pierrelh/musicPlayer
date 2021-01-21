@@ -1,9 +1,9 @@
 @media screen and (min-device-width: 641px) {
-	.log-form{
-		width: 22%;
+	.log-form {
 		margin-top: 15%;
-		text-align: right;
-		font-size: 1.2em;
-		max-width: 216px;
+	}
+
+	.send-form {
+		width: 25% !important;
 	}
 }
