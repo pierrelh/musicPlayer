@@ -3,8 +3,8 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/createAccountStyle.css">
 <section id="CreateAccount">
     <img id="CrossCreateAccount" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
+    <h2>Créer un nouveau compte</h2>
     <form>
-        <h2>Créer un nouveau compte</h2>
         <h3 id="errorMsgCreateAccount"></h3>
         <ul>
             <li>
