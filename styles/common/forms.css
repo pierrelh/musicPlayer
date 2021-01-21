@@ -33,11 +33,12 @@
     margin-right: 15px;
     text-align: left;
     cursor: pointer;
+    text-decoration: underline;
 }
 
 .fields > input {
     padding: 10px;
-    border: 1px solid black;
+    border: 2px solid black;
     font-size: 1.4em;
     font-weight: 300;
     width: 100%;
@@ -50,7 +51,7 @@
     display: block;
     cursor: pointer;
     font-weight: 700;
-    padding: 20px 0;
+    padding: 25px 0;
     text-align: center;
     font-size: 1.4em;
     color: white;

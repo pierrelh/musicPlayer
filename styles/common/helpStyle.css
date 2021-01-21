@@ -1,9 +1,3 @@
-#Help {
-    left: 25vw;
-    width: 50vw;
-    top: 25vh;
-}
-
 #Help > h2 {
     text-align: center;
     margin: 2vh 0;

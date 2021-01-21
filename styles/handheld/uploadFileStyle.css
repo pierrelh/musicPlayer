@@ -1,9 +1,9 @@
 @media screen and (max-device-width: 640px) {
 	#Upload,
 	#Edit {
-		left: 5%;
-		width: 90%;
-		top: 15%;
+		left: 5vw;
+		width: 90vw;
+		top: 15vh;
 	}
 
 	#BannerContainer {

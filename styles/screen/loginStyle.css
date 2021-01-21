@@ -6,9 +6,4 @@
 		font-size: 1.2em;
 		max-width: 216px;
 	}
-
-	.log-form > input[type="submit"]{
-		margin-top: 15px;
-		border: 1px solid white;
-	}
 }
