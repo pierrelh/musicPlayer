@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/uploadFileStyle.css">
 <section id="Edit">
 	<img id="CrossEdit" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
 	<form id="FormEdit" method="post">
@@ -16,12 +15,27 @@
 				</div>
 			</div>
 		</div>
-		<input id="FileNameEdit" type="text" placeholder="Nom du Fichier" name="file_name" value="">
-		<input id="FileAuthorEdit" type="text" placeholder="Nom de l'Artiste" name="file_author" value="">
-		<input id="FileAlbumEdit" type="text" placeholder="Nom de l'Album" name="file_album" value="">
-		<div class="upload-button">
-			<span id="EditButton">ENVOYER</span>
-		</div>
+		<ul class="form-list">
+			<li>
+				<div class="fields">
+					<label for="FileNameEdit">Nom du Fichier</label>
+					<input id="FileNameEdit" type="text" name="file_name" value="">
+				</div>
+			</li>
+			<li>
+				<div class="fields">
+					<label for="FileAuthorEdit">Nom de l'Artiste</label>
+					<input id="FileAuthorEdit" type="text" name="file_author" value="">
+				</div>
+			</li>
+			<li>
+				<div class="fields">
+					<label for="FileAlbumEdit">Nom de l'Album</label>
+					<input id="FileAlbumEdit" type="text" name="file_album" value="">
+				</div>
+			</li>
+		</ul>
+		<input class="send-form" id="EditButton" type="submit" value="ENVOYER">
 		</div>
 	</form>
 </section>

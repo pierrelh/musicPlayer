@@ -77,4 +77,7 @@ document.getElementById("CrossUpload").addEventListener("click", function () {
 });
 
 // Handle click on UploadButton
-document.getElementById("UploadButton").addEventListener("click", uploadMusic, false);
+document.getElementById("UploadButton").addEventListener("click", function(e) {
+	e.preventDefault();
+	uploadMusic();
+});

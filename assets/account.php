@@ -96,7 +96,7 @@
         <h2 class="form-title">Modifier mon mot de passe</h2>
         <form>
             <h3 class="error-msg" id="errorMsgEditPassword"></h3>
-            <ul>
+            <ul class="form-list">
                 <li>
                     <div class="fields">
                         <label for="NewPasswordOne">Nouveau mot de passe</label>

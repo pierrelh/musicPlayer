@@ -24,14 +24,4 @@
 	#Upload > form > ul > li > ul > li > label > img {
 		width: 100%;
 	}
-
-	#Upload > form > label {
-		font-size: 1.2em;
-	}
-
-	#Upload > form > input[type="text"],
-	#Edit > form > input[type="text"] {
-		font-size: 1.3em;
-		width: 50%;
-	}
 }

@@ -79,48 +79,7 @@
 	color: white;
 }
 
-#Upload > form > label {
-	font-weight: 700;
-}
-
-#Upload > form > input[type="text"],
-#Edit > form > input[type="text"] {
-	border: 1px black solid;
-	padding: 5px;
-	margin: 5px;
-}
-
 #Upload > form > input[type="file"],
 #PictureEdit {
 	display: none;
-}
-
-#Upload > form > input[type="button"],
-#Edit > form > input[type="button"] {
-	border: 1px solid black;
-	text-align: center;
-	background: none;
-	font-size: 1.6em;
-	display: block;
-	margin: auto;
-	margin-top: 100px;
-	padding: 2% 10%;
-}
-
-.upload-button {
-	border-top: 2px solid black;
-	width: 100%;
-	margin-top: 3vh;
-}
-
-.upload-button > span {
-	width: 100%;
-	display: block;
-	cursor: pointer;
-	font-weight: 700;
-	padding: 20px 0;
-	text-align: center;
-	font-size: 1.4em;
-	color: white;
-	background: black;
 }

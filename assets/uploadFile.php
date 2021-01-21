@@ -41,17 +41,27 @@
 		</ul>
 		<input class="upload_video upload-file" id="File" type="file" name="file" value="" accept="audio/*">
 		<input class="upload_picture upload-file" id="Picture" type="file" name="file" value="" accept="image/*">
-		<label for="FileName">Nom du Fichier</label>
-		<input id="FileName" type="text" name="file_name" value="">
-		<br>
-		<label for="FileAuthor">Nom de l'Artiste</label>
-		<input id="FileAuthor" type="text" name="file_author" value="">
-		<br>
-		<label for="FileAlbum">Nom de l'Album</label>
-		<input id="FileAlbum" type="text" name="file_album" value="">
-		<div class="upload-button">
-			<span id="UploadButton">ENVOYER</span>
-		</div>
+		<ul class="form-list">
+			<li>
+                <div class="fields">
+					<label for="FileName">Nom du Fichier</label>
+					<input id="FileName" type="text" name="file_name" value="">
+                </div>
+			</li>
+			<li>
+                <div class="fields">
+					<label for="FileAuthor">Nom de l'Artiste</label>
+					<input id="FileAuthor" type="text" name="file_author" value="">
+                </div>
+			</li>
+			<li>
+                <div class="fields">
+					<label for="FileAlbum">Nom de l'Album</label>
+					<input id="FileAlbum" type="text" name="file_album" value="">
+                </div>
+            </li>
+		</ul>
+		<input class="send-form" id="UploadButton" type="submit" value="ENVOYER">
 	</form>
 	<script type="text/javascript" src="<?php echo $link ?>/js/uploadFile.js"></script>
 </section>

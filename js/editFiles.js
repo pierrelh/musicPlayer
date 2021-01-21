@@ -24,7 +24,8 @@ document.getElementById("PictureEdit").addEventListener("change", function() {
 });
 
 // Handle click on EditButton
-document.getElementById("EditButton").addEventListener("click", function() {
+document.getElementById("EditButton").addEventListener("click", function(e) {
+	e.preventDefault();
 	var musicId = this.dataset.musicId;
 	if (musicId != "undefined") {
 		if (document.getElementById("PictureEdit").files.length == 0) {
