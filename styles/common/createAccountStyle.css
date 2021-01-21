@@ -3,3 +3,47 @@
     width: 50vw;
     top: 15vh; 
 }
+
+#CreateAccount > form > ul,
+.fields-create-account {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fields-create-account{
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    margin: auto;
+}
+
+.labels-create-account {
+    width: 50%;
+    font-weight: 600;
+    font-size: 1.4em;
+    height: auto;
+    padding: 5px;
+}
+
+.labels-create-account > label {
+    vertical-align: middle;
+}
+
+.inputs-create-account > input {
+    padding: 5px;
+    border: 1px solid black;
+    font-size: 1.3em;
+}
+
+#CreateAccountButton {
+    width: 100%;
+    border: none;
+    background: black;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    margin-top: 2vh;
+    font-weight: 600;
+    font-size: 2em;
+}
