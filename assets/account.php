@@ -93,18 +93,24 @@
             <li><p id="AccountAssetMaxTotalPx"></p></li>
         </ul>
 
+        <h2 class="form-title">Modifier mon mot de passe</h2>
         <form>
-            <h2>Modifier mon mot de passe</h2>
-            <h3 id="errorMsgEditPassword"></h3>
+            <h3 class="error-msg" id="errorMsgEditPassword"></h3>
             <ul>
                 <li>
-                    <input id="NewPasswordOne" autocomplete="new-password" placeholder="Nouveau mot de passe" type="password">
+                    <div class="fields">
+                        <label for="NewPasswordOne">Nouveau mot de passe</label>
+                        <input id="NewPasswordOne" autocomplete="new-password" type="password">
+                    </div>
                 </li>
                 <li>
-                    <input id="NewPasswordTwo" autocomplete="new-password" placeholder="Répétez le mot de passe" type="password">
+                    <div class="fields">
+                        <label for="NewPasswordTwo">Répétez le mot de passe</label>
+                        <input id="NewPasswordTwo" autocomplete="new-password" type="password">
+                    </div>
                 </li>
             </ul>
-            <input id="UpdatePassword" type="submit" value="Mettre à jour">
+            <input class="send-form" id="UpdatePassword" type="submit" value="Mettre à jour">
         </form>
 
     </div>
