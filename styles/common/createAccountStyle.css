@@ -4,6 +4,13 @@
     top: 15vh; 
 }
 
+#CreateAccount > h2 {
+    text-align: center;
+    margin: 3vh 0;
+    font-weight: 700;
+    font-size: 2em;    
+}
+
 #CreateAccount > form > ul,
 .fields-create-account {
     list-style: none;
@@ -11,26 +18,25 @@
     margin: 0;
 }
 
-.fields-create-account{
+#CreateAccount > form > ul {
     display: flex;
-    justify-content: space-evenly;
-    width: 50%;
-    margin: auto;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 20vh;
 }
 
-.labels-create-account {
-    width: 50%;
+.fields-create-account {
+    display: table-cell;
+    vertical-align: middle;
+    height: 50px;
+}
+
+.fields-create-account > label {
     font-weight: 600;
     font-size: 1.4em;
-    height: auto;
-    padding: 5px;
 }
 
-.labels-create-account > label {
-    vertical-align: middle;
-}
-
-.inputs-create-account > input {
+.fields-create-account > input {
     padding: 5px;
     border: 1px solid black;
     font-size: 1.3em;

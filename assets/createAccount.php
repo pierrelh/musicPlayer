@@ -8,34 +8,22 @@
         <h3 id="errorMsgCreateAccount"></h3>
         <ul>
             <li>
-                <ul class="fields-create-account">
-                    <li class="labels-create-account">
-                        <label for="NewAccountEmail">Email :</label>
-                    </li>
-                    <li>
-                        <input id="NewAccountEmail" type="email">
-                    </li>
-                </ul>
+                <div class="fields-create-account">
+                    <label for="NewAccountEmail">Email :</label>
+                    <input id="NewAccountEmail" type="email">
+                </div>
             </li>
             <li>
-                <ul class="fields-create-account">
-                    <li class="labels-create-account">
-                        <label for="NewAccountPasswordOne">Mot de passe :</label>
-                    </li>
-                    <li>
-                        <input id="NewAccountPasswordOne" autocomplete="new-password" type="password">
-                    </li>
-                </ul>
+                <div class="fields-create-account">
+                    <label for="NewAccountPasswordOne">Mot de passe :</label>
+                    <input id="NewAccountPasswordOne" autocomplete="new-password" type="password">
+                </div>
             </li>
             <li>
-                <ul class="fields-create-account">
-                    <li class="labels-create-account">
-                        <label for="NewAccountPasswordTwo">Répétez le mot de passe :</label>
-                    </li>
-                    <li class="inputs-create-account">
-                        <input id="NewAccountPasswordTwo" autocomplete="new-password" type="password">
-                    </li>
-                </ul>
+                <div class="fields-create-account">
+                    <label for="NewAccountPasswordTwo">Répétez le mot de passe :</label>
+                    <input id="NewAccountPasswordTwo" autocomplete="new-password" type="password">
+                </div>
             </li>
         </ul>
         <input id="CreateAccountButton" type="submit" value="Créer le compte">
