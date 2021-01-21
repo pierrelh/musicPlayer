@@ -52,14 +52,27 @@ function getPublicIdFromUrl(url) {
 
 // Show the assets Background
 function backgroundAppear() {
-	var background = document.getElementById("Background");
-	background.className = "background-appear";
+	if (!document.getElementById("Background").classList.contains("background-appear")) {
+		document.getElementById("Background").classList.add("background-appear");		
+	}
 }
 
 // Hide the assets Background
 function backgroundHide() {
-	var background = document.getElementById("Background");
-	background.className = "";
+	if (document.getElementById("Background").classList.contains("background-appear")) {
+		document.getElementById("Background").classList.remove("background-appear");		
+	}
+}
+
+// Check if PlaylistSection is visible & hide it if so
+function checkPlaylistSection() {
+	if (document.getElementById("DivPlaylist").classList.contains("playlist-div")) {
+		document.getElementById("DivPlaylist").classList.remove("playlist-div");
+		document.getElementById("DivPlaylist").classList.add("playlist-div-hide");
+		return true;
+	} else {
+		return false;
+	}
 }
 
 // Handle the play/pause actions
@@ -313,17 +326,6 @@ function increaseVolume() {
 	}
 }
 
-// Check if PlaylistSection is visible & hide it if so
-function checkPlaylistSection() {
-	if (document.getElementById("DivPlaylist").classList.contains("playlist-div")) {
-		document.getElementById("DivPlaylist").classList.remove("playlist-div");
-		document.getElementById("DivPlaylist").classList.add("playlist-div-hide");
-		return true;
-	} else {
-		return false;
-	}
-}
-
 // Upload a file to Cloudinary
 function uploadFileCloudinary(formDataMusic, barId, txtId, link) {
 	return new Promise((resolve, reject) => {
@@ -351,54 +353,131 @@ function uploadFileCloudinary(formDataMusic, barId, txtId, link) {
 	});
 }
 
-// Get account data & open the section 
-function openAccountSection() {
-	fetch(server + "/functions/account/getCloudinaryAdmin.php")
-	.then((response) => response.json())
-	.then(function (response) {
-
-		document.getElementById("AccountPlan").innerHTML = response["plan"];
-		document.getElementById("AccountLastUpdate").innerHTML = response["last_updated"];
-		document.getElementById("AccountRequests").innerHTML = response["requests"];
-		document.getElementById("AccountResources").innerHTML = response["resources"];
-		document.getElementById("AccountDerivedResources").innerHTML = response["derived_resources"];
-
-		document.getElementById("AccountTransformationUsage").innerHTML = response["transformations"]["usage"];
-		document.getElementById("AccountTransformationPercent").innerHTML = response["transformations"]["used_percent"] + "%";
-		document.getElementById("AccountTransformationProgressBar").style.width = response["transformations"]["used_percent"] + "%";
-		document.getElementById("AccountTransformationLimit").innerHTML = response["transformations"]["limit"];
-
-		document.getElementById("AccountObjectsUsage").innerHTML = response["objects"]["usage"];
-		document.getElementById("AccountObjectsPercent").innerHTML = response["objects"]["used_percent"] + "%";
-		document.getElementById("AccountObjectsProgressBar").style.width = response["objects"]["used_percent"] + "%";
-		document.getElementById("AccountObjectsUsageLimit").innerHTML = response["objects"]["limit"];
-
-		document.getElementById("AccountBandwidthUsage").innerHTML = (response["bandwidth"]["usage"] / 1000000000).toFixed(2) + " GB";
-		document.getElementById("AccountBandwidthPercent").innerHTML = response["bandwidth"]["used_percent"] + "%";
-		document.getElementById("AccountBandwidthProgressBar").style.width = response["bandwidth"]["used_percent"] + "%";
-		document.getElementById("AccountBandwidthLimit").innerHTML = (response["bandwidth"]["limit"] / 1000000000).toFixed(2) + " GB";
-
-		document.getElementById("AccountStorageUsage").innerHTML = (response["storage"]["usage"] / 1000000000).toFixed(2) + " GB";
-		document.getElementById("AccountStoragePercent").innerHTML = response["storage"]["used_percent"] + "%";
-		document.getElementById("AccountStorageProgressBar").style.width = innerHTML = response["storage"]["used_percent"] + "%";
-		document.getElementById("AccountStorageLimit").innerHTML = (response["storage"]["limit"] / 1000000000).toFixed(2) + " GB";
-
-		document.getElementById("AccountImageMaxSize").innerHTML = response["media_limits"]["image_max_size_bytes"];
-		document.getElementById("AccountVideoMaxSize").innerHTML = response["media_limits"]["video_max_size_bytes"];
-		document.getElementById("AccountRawMaxSize").innerHTML = response["media_limits"]["raw_max_size_bytes"];
-		document.getElementById("AccountImageMaxPx").innerHTML = response["media_limits"]["image_max_px"];
-		document.getElementById("AccountAssetMaxTotalPx").innerHTML = response["media_limits"]["asset_max_total_px"];
-
-		backgroundAppear();
-		document.getElementById("Account").classList.add("appear");
-	});
+// Toggle account section 
+function toggleAccountSection() {
+	if (document.getElementById("Account").classList.contains("appear")) {
+		backgroundHide();
+		document.getElementById("Account").classList.remove("appear");		
+	}else {
+		fetch(server + "/functions/account/getCloudinaryAdmin.php")
+		.then((response) => response.json())
+		.then(function (response) {
+	
+			document.getElementById("AccountPlan").innerHTML = response["plan"];
+			document.getElementById("AccountLastUpdate").innerHTML = response["last_updated"];
+			document.getElementById("AccountRequests").innerHTML = response["requests"];
+			document.getElementById("AccountResources").innerHTML = response["resources"];
+			document.getElementById("AccountDerivedResources").innerHTML = response["derived_resources"];
+	
+			document.getElementById("AccountTransformationUsage").innerHTML = response["transformations"]["usage"];
+			document.getElementById("AccountTransformationPercent").innerHTML = response["transformations"]["used_percent"] + "%";
+			document.getElementById("AccountTransformationProgressBar").style.width = response["transformations"]["used_percent"] + "%";
+			document.getElementById("AccountTransformationLimit").innerHTML = response["transformations"]["limit"];
+	
+			document.getElementById("AccountObjectsUsage").innerHTML = response["objects"]["usage"];
+			document.getElementById("AccountObjectsPercent").innerHTML = response["objects"]["used_percent"] + "%";
+			document.getElementById("AccountObjectsProgressBar").style.width = response["objects"]["used_percent"] + "%";
+			document.getElementById("AccountObjectsUsageLimit").innerHTML = response["objects"]["limit"];
+	
+			document.getElementById("AccountBandwidthUsage").innerHTML = (response["bandwidth"]["usage"] / 1000000000).toFixed(2) + " GB";
+			document.getElementById("AccountBandwidthPercent").innerHTML = response["bandwidth"]["used_percent"] + "%";
+			document.getElementById("AccountBandwidthProgressBar").style.width = response["bandwidth"]["used_percent"] + "%";
+			document.getElementById("AccountBandwidthLimit").innerHTML = (response["bandwidth"]["limit"] / 1000000000).toFixed(2) + " GB";
+	
+			document.getElementById("AccountStorageUsage").innerHTML = (response["storage"]["usage"] / 1000000000).toFixed(2) + " GB";
+			document.getElementById("AccountStoragePercent").innerHTML = response["storage"]["used_percent"] + "%";
+			document.getElementById("AccountStorageProgressBar").style.width = innerHTML = response["storage"]["used_percent"] + "%";
+			document.getElementById("AccountStorageLimit").innerHTML = (response["storage"]["limit"] / 1000000000).toFixed(2) + " GB";
+	
+			document.getElementById("AccountImageMaxSize").innerHTML = response["media_limits"]["image_max_size_bytes"];
+			document.getElementById("AccountVideoMaxSize").innerHTML = response["media_limits"]["video_max_size_bytes"];
+			document.getElementById("AccountRawMaxSize").innerHTML = response["media_limits"]["raw_max_size_bytes"];
+			document.getElementById("AccountImageMaxPx").innerHTML = response["media_limits"]["image_max_px"];
+			document.getElementById("AccountAssetMaxTotalPx").innerHTML = response["media_limits"]["asset_max_total_px"];
+	
+			backgroundAppear();
+			document.getElementById("Account").classList.add("appear");
+		});
+	}
 }
 
-// Open upload section
-function openUploadSection() {
-	backgroundAppear();
-	var Upload = document.getElementById("Upload");
-	Upload.classList.add("appear");
+// Toggle upload section
+function toggleUploadSection() {
+	if (document.getElementById("Upload").classList.contains("appear")) {
+		backgroundHide();
+		document.getElementById("Upload").classList.remove("appear");		
+	}else {
+		backgroundAppear();
+		document.getElementById("Upload").classList.add("appear");
+	}
+}
+
+// Toggle create a playlist
+function toggleCreatePlaylist() {
+	var CreatePlaylistSidebar = document.getElementById("CreatePlaylistSidebar");
+	if (CreatePlaylistSidebar.dataset.isActive == "true") {
+
+		hideAdd();
+		return;
+
+	}else {
+		// If elements with edit or delete's class exists then delete them
+		var editElements = Object.values(document.getElementsByClassName("edit"));
+		var deleteElements = Object.values(document.getElementsByClassName("delete"));
+		if (editElements.length != 0) {
+			editElements.forEach(element => element.remove());
+		}else if (deleteElements.length != 0){
+			deleteElements.forEach(element => element.remove());
+		}
+
+		// Creating the Add element & add it to the music's parent
+		var libraryChildren = document.getElementById("LibraryObjects").children;
+		for (var i = 0; i < libraryChildren.length; i++) (function(i){
+			var li = document.createElement("li");
+			li.classList.add("add");
+			li.id = "Add" + i;  
+			var parent = libraryChildren[i];
+			var child = parent.children[0];
+			parent.insertBefore(li, child);
+			
+			// Add the event on this add's click
+			document.getElementById("Add" + i).addEventListener("click", function(){
+				addToPlaylist(i)
+			}, false);
+		})(i)
+
+		var sidebarList = document.getElementById("SidebarList");
+
+		// Create the li element for input playlist name
+		var listPlaylistName = document.createElement("li");
+		listPlaylistName.id = "PlaylistNameElement"
+		sidebarList.appendChild(listPlaylistName);
+		
+		// Create the input element for playlist name
+		var playlistName = document.createElement("input");
+		playlistName.id = "PlaylistName";
+		playlistName.setAttribute("type", "text");
+		playlistName.setAttribute("placeholder", "Nom de la Playlist");
+		playlistName.classList.add("playlist-name");
+		listPlaylistName.appendChild(playlistName);
+		
+		// Create the li element for the input playlist create 
+		var listElement = document.createElement("li");
+		listElement.id = "PlaylistButtonElement"
+		sidebarList.appendChild(listElement);
+		
+		// Create the input element for playlist create
+		var buttonCreatePlaylist = document.createElement("input");
+		buttonCreatePlaylist.id = "ButtonCreatePlaylist";
+		buttonCreatePlaylist.setAttribute("type", "submit");
+		buttonCreatePlaylist.addEventListener("click", sendPlaylist, false);
+		buttonCreatePlaylist.classList.add("button-create-playlist");
+		buttonCreatePlaylist.value = "Créer la Playlist";
+		listElement.appendChild(buttonCreatePlaylist);
+
+		CreatePlaylistSidebar.dataset.isActive = "true";
+		
+	}
 }
 
 // Toggle edit on musics
@@ -475,10 +554,15 @@ function toggleDelete() {
 	}
 }
 
-// Open help section
-function openHelpSection() {
-	backgroundAppear();
-	document.getElementById("Help").classList.add("appear");
+// Toggle help section
+function toggleHelpSection() {
+	if (document.getElementById("Help").classList.contains("appear")) {
+		backgroundHide();
+		document.getElementById("Help").classList.remove("appear");		
+	}else {
+		backgroundAppear();
+		document.getElementById("Help").classList.add("appear");
+	}
 }
 
 // Toggle playlist section

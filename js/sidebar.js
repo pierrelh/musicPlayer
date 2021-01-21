@@ -13,7 +13,7 @@ var CreatePlaylistSidebar = document.getElementById("CreatePlaylistSidebar");
 var Help = document.getElementById("HelpSidebar");
 
 // Handle the my account button click
-MyAccountSidebar.addEventListener("click", openAccountSection, false);
+MyAccountSidebar.addEventListener("click", toggleAccountSection, false);
 
 // Handle the create account button click
 CreateAccountSidebar.addEventListener("click", function() {
@@ -22,7 +22,7 @@ CreateAccountSidebar.addEventListener("click", function() {
 });
 
 // Handle the upload file button click
-UploadFileSidebar.addEventListener("click", openUploadSection, false);
+UploadFileSidebar.addEventListener("click", toggleUploadSection, false);
 
 // Handle the edit file button click
 EditFileSidebar.addEventListener("click", toggleEdit, false);
@@ -78,71 +78,7 @@ FilterName.addEventListener("click", function() {
 MyPlaylistsSidebar.addEventListener("click", togglePlaylistSection, false);
 
 // Handle the create playlist button click
-CreatePlaylistSidebar.addEventListener("click", function() {
-	if (this.dataset.isActive == "true") {
-
-		hideAdd();
-		return;
-
-	}else {
-		// If elements with edit or delete's class exists then delete them
-		var editElements = Object.values(document.getElementsByClassName("edit"));
-		var deleteElements = Object.values(document.getElementsByClassName("delete"));
-		if (editElements.length != 0) {
-			editElements.forEach(element => element.remove());
-		}else if (deleteElements.length != 0){
-			deleteElements.forEach(element => element.remove());
-		}
-
-		// Creating the Add element & add it to the music's parent
-		var libraryChildren = document.getElementById("LibraryObjects").children;
-		for (var i = 0; i < libraryChildren.length; i++) (function(i){
-			var li = document.createElement("li");
-			li.classList.add("add");
-			li.id = "Add" + i;  
-			var parent = libraryChildren[i];
-			var child = parent.children[0];
-			parent.insertBefore(li, child);
-			
-			// Add the event on this add's click
-			document.getElementById("Add" + i).addEventListener("click", function(){
-				addToPlaylist(i)
-			}, false);
-		})(i)
-
-		var sidebarList = document.getElementById("SidebarList");
-
-		// Create the li element for input playlist name
-		var listPlaylistName = document.createElement("li");
-		listPlaylistName.id = "PlaylistNameElement"
-		sidebarList.appendChild(listPlaylistName);
-		
-		// Create the input element for playlist name
-		var playlistName = document.createElement("input");
-		playlistName.id = "PlaylistName";
-		playlistName.setAttribute("type", "text");
-		playlistName.setAttribute("placeholder", "Nom de la Playlist");
-		playlistName.classList.add("playlist-name");
-		listPlaylistName.appendChild(playlistName);
-		
-		// Create the li element for the input playlist create 
-		var listElement = document.createElement("li");
-		listElement.id = "PlaylistButtonElement"
-		sidebarList.appendChild(listElement);
-		
-		// Create the input element for playlist create
-		var buttonCreatePlaylist = document.createElement("input");
-		buttonCreatePlaylist.id = "ButtonCreatePlaylist";
-		buttonCreatePlaylist.setAttribute("type", "submit");
-		buttonCreatePlaylist.addEventListener("click", sendPlaylist, false);
-		buttonCreatePlaylist.classList.add("button-create-playlist");
-		buttonCreatePlaylist.value = "Créer la Playlist";
-		listElement.appendChild(buttonCreatePlaylist);
-
-		this.dataset.isActive = "true";
-		
-	}
-});
+CreatePlaylistSidebar.addEventListener("click", toggleCreatePlaylist, false);
 
 // Handle the help button click
-Help.addEventListener("click", togglePlaylistSection, false);
+Help.addEventListener("click", toggleHelpSection, false);

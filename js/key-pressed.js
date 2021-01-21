@@ -43,45 +43,52 @@ document.onkeydown = function(event) {
 			}
 			break;
 		
-		case "a": // A is pressed -> open account
+		case "a": // A is pressed -> toggle account section
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
-				openAccountSection();
+				toggleAccountSection();
 			}
 			break;
 
-		case "u": // U is pressed -> open upload
+		case "u": // U is pressed -> toggle upload section
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
-				openUploadSection();
+				toggleUploadSection();
 			}
 			break;
 
-		case "e": // E is pressed -> open edit
+		case "e": // E is pressed -> toggle edit
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
 				toggleEdit();
 			}
 			break;
 
-		case "d": // D is pressed -> open delete
+		case "d": // D is pressed -> toggle delete
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
 				toggleDelete();
 			}
 			break;
 		
-		case "h": // H is pressed -> open help
+		case "h": // H is pressed -> toggle help section
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
-				openHelpSection();
+				toggleHelpSection();
 			}
 			break;
 
-		case "z": // Z is pressed -> toggle Playlists section
+		case "z": // Z is pressed -> toggle playlists section
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
 				togglePlaylistSection();
+			}
+			break;
+		
+		case "c": // C is pressed -> toggle create playlist
+			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
+				event.preventDefault();
+				toggleCreatePlaylist();
 			}
 			break;
 

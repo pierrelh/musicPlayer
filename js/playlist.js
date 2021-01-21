@@ -52,7 +52,7 @@ function openPlaylist(identifier) {
 	}
 }
 
-// Hide the playlist addition
+// Hide the playlist additions or checks
 function hideAdd() {
 	var addElements = Object.values(document.getElementsByClassName("add"));
 	var checkElements = Object.values(document.getElementsByClassName("check"));
