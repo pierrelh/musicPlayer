@@ -5,7 +5,7 @@
     <img id="CrossCreateAccount" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
     <h2 class="form-title">Créer un nouveau compte</h2>
     <form>
-        <h3 id="errorMsgCreateAccount"></h3>
+        <h3 class="error-msg" id="errorMsgCreateAccount"></h3>
         <ul class="form-list">
             <li>
                 <div class="fields">

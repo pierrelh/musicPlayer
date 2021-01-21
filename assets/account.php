@@ -99,13 +99,13 @@
             <ul class="form-list">
                 <li>
                     <div class="fields">
-                        <label for="NewPasswordOne">Nouveau mot de passe</label>
+                        <label for="NewPasswordOne">Nouveau mot de passe :</label>
                         <input id="NewPasswordOne" autocomplete="new-password" type="password">
                     </div>
                 </li>
                 <li>
                     <div class="fields">
-                        <label for="NewPasswordTwo">Répétez le mot de passe</label>
+                        <label for="NewPasswordTwo">Répétez le mot de passe :</label>
                         <input id="NewPasswordTwo" autocomplete="new-password" type="password">
                     </div>
                 </li>

@@ -1,7 +1,7 @@
 <section id="Edit">
 	<img id="CrossEdit" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
 	<form id="FormEdit" method="post">
-		<h2 id="ErrorMsgEdit"></h2>
+		<h3 class="error-msg" id="ErrorMsgEdit"></h3>
 		<div id="BannerContainer">
 			<div id="Banner" class='div-detail'>
 				<ul class='delete-edit'>
@@ -18,19 +18,19 @@
 		<ul class="form-list">
 			<li>
 				<div class="fields">
-					<label for="FileNameEdit">Nom du Fichier</label>
+					<label for="FileNameEdit">Nom du Fichier :</label>
 					<input id="FileNameEdit" type="text" name="file_name" value="">
 				</div>
 			</li>
 			<li>
 				<div class="fields">
-					<label for="FileAuthorEdit">Nom de l'Artiste</label>
+					<label for="FileAuthorEdit">Nom de l'Artiste :</label>
 					<input id="FileAuthorEdit" type="text" name="file_author" value="">
 				</div>
 			</li>
 			<li>
 				<div class="fields">
-					<label for="FileAlbumEdit">Nom de l'Album</label>
+					<label for="FileAlbumEdit">Nom de l'Album :</label>
 					<input id="FileAlbumEdit" type="text" name="file_album" value="">
 				</div>
 			</li>

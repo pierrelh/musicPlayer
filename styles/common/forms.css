@@ -31,12 +31,15 @@
     display: table-cell;
     vertical-align: middle;
     margin-right: 15px;
+    text-align: left;
+    cursor: pointer;
 }
 
 .fields > input {
-    padding: 5px;
+    padding: 10px;
     border: 1px solid black;
-    font-size: 1.3em;
+    font-size: 1.4em;
+    font-weight: 300;
     width: 100%;
     display: table-cell;
 }
