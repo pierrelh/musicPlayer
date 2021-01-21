@@ -71,10 +71,17 @@ document.onkeydown = function(event) {
 			}
 			break;
 		
-		case "h": // D is pressed -> open help
+		case "h": // H is pressed -> open help
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
 				openHelpSection();
+			}
+			break;
+
+		case "z": // Z is pressed -> toggle Playlists section
+			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
+				event.preventDefault();
+				togglePlaylistSection();
 			}
 			break;
 

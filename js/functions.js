@@ -318,6 +318,9 @@ function checkPlaylistSection() {
 	if (document.getElementById("DivPlaylist").classList.contains("playlist-div")) {
 		document.getElementById("DivPlaylist").classList.remove("playlist-div");
 		document.getElementById("DivPlaylist").classList.add("playlist-div-hide");
+		return true;
+	} else {
+		return false;
 	}
 }
 
@@ -476,4 +479,48 @@ function toggleDelete() {
 function openHelpSection() {
 	backgroundAppear();
 	document.getElementById("Help").classList.add("appear");
+}
+
+// Toggle playlist section
+function togglePlaylistSection() {
+	var DivPlaylist = document.getElementById("DivPlaylist");
+	
+	// Check if DivPlaylist is already open to close it if needed
+	if (checkPlaylistSection()) {
+		return;
+	}else {
+		// If DivPlaylist is not open then call all the playlists
+		fetch(server + "/functions/playlists/getAllPlaylists.php")
+		.then((response) => response.json())
+		.then(function (response) {
+			
+			if (response.length != 0) {
+			  DivPlaylist.innerHTML = "";
+			  DivPlaylist.classList.remove("playlist-div-hide");
+			  DivPlaylist.classList.add("playlist-div");
+  
+			  var ul = document.createElement("ul");
+			  ul.id = "ListPlaylist";
+			  ul.className = "listPlaylist";
+			  DivPlaylist.appendChild(ul);
+  
+			  for (var i = 0; i < response.length; i++) (function(i) {
+				  li = document.createElement("li");
+				  ul.appendChild(li);
+				  li.className = "table";
+				  li.id = "PlaylistElement" + i;
+				  li.dataset.name = response[i]["playlist_name"];
+				  li.dataset.id = response[i]["playlist_id"];
+				  document.getElementById("PlaylistElement" + i).addEventListener("click", function(){
+					  openPlaylist("PlaylistElement" + i);
+				  }, false);
+		  
+				  var p = document.createElement("p");
+				  li.appendChild(p);
+				  p.innerHTML = response[i]["playlist_name"];
+				  p.id = "PlaylistText" + i;
+			  })(i);
+			}
+		});
+	}
 }

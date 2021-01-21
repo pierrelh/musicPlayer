@@ -75,49 +75,7 @@ FilterName.addEventListener("click", function() {
 });
 
 // Handle the my playlists button click
-MyPlaylistsSidebar.addEventListener("click", function() {
-	var DivPlaylist = document.getElementById("DivPlaylist");
-	
-	// Check if DivPlaylist is already open to close it if needed
-	if (DivPlaylist.classList.contains("playlist-div")) {
-		DivPlaylist.classList.add("playlist-div-hide");
-		DivPlaylist.classList.remove("playlist-div");
-	}else {
-		// If DivPlaylist is not open then call all the playlists
-		fetch(server + "/functions/playlists/getAllPlaylists.php")
-		.then((response) => response.json())
-		.then(function (response) {
-			
-			if (response.length != 0) {
-			  DivPlaylist.innerHTML = "";
-			  DivPlaylist.classList.remove("playlist-div-hide");
-			  DivPlaylist.classList.add("playlist-div");
-  
-			  var ul = document.createElement("ul");
-			  ul.id = "ListPlaylist";
-			  ul.className = "listPlaylist";
-			  DivPlaylist.appendChild(ul);
-  
-			  for (var i = 0; i < response.length; i++) (function(i) {
-				  li = document.createElement("li");
-				  ul.appendChild(li);
-				  li.className = "table";
-				  li.id = "PlaylistElement" + i;
-				  li.dataset.name = response[i]["playlist_name"];
-				  li.dataset.id = response[i]["playlist_id"];
-				  document.getElementById("PlaylistElement" + i).addEventListener("click", function(){
-					  openPlaylist("PlaylistElement" + i);
-				  }, false);
-		  
-				  var p = document.createElement("p");
-				  li.appendChild(p);
-				  p.innerHTML = response[i]["playlist_name"];
-				  p.id = "PlaylistText" + i;
-			  })(i);
-			}
-		});
-	}
-});
+MyPlaylistsSidebar.addEventListener("click", togglePlaylistSection, false);
 
 // Handle the create playlist button click
 CreatePlaylistSidebar.addEventListener("click", function() {
@@ -187,4 +145,4 @@ CreatePlaylistSidebar.addEventListener("click", function() {
 });
 
 // Handle the help button click
-Help.addEventListener("click", openHelpSection, false);
+Help.addEventListener("click", togglePlaylistSection, false);

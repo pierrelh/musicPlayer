@@ -12,6 +12,7 @@
         <li><p>M -> Toggle mute mode</p></li>
         <li><p>L -> Toggle loop mode</p></li>
         <li><p>A -> Open account</p></li>
+        <li><p>Z -> Open / Close playlists</p></li>
         <li><p>U -> Open upload</p></li>
         <li><p>E -> Edit a file</p></li>
         <li><p>D -> Delete a file</p></li>
