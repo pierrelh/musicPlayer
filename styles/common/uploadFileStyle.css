@@ -27,7 +27,7 @@
 	margin: 0;
 }
 
-#Upload > form > ul {
+.medias-upload-list {
 	display: flex;
 	justify-content: space-around;
 	margin: 35px auto;
@@ -36,16 +36,16 @@
 	width: 50%;
 }
 
-#Upload > form > ul > li > ul {
+.medias-upload-list > li > ul {
 	padding: 0;
 	list-style: none;
 }
 
-#Upload > form > ul > li > ul > li > label {
+.medias-upload-list > li > ul > li > label {
 	cursor: pointer;
 }
 
-#Upload > form > ul > li > ul > li > label > img {
+.medias-upload-list > li > ul > li > label > img {
 	box-sizing: content-box;
 }
 

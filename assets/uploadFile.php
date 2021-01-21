@@ -9,7 +9,7 @@
 	<img id="CrossUpload" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
 	<form id="FormUpload" enctype="multipart/form-data" method="post">
 		<h2 id="ErrorMsgUpload"></h2>
-		<ul>
+		<ul class="medias-upload-list">
 			<li>
 				<ul>
 					<li>
