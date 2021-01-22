@@ -1,0 +1,9 @@
+@media screen and (max-device-width: 640px) {
+    #Help > h3 {
+        font-size: 3.4em;
+    }
+
+    #Help > ul > li > p {
+        font-size: 2.8em;
+    }
+}

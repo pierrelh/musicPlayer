@@ -7,7 +7,6 @@
     text-align: center;
     text-decoration: underline;
     margin-top: 2vh;
-    font-size: 1.7em;
 }
 
 #Help > ul {
@@ -22,7 +21,6 @@
 #Help > ul > li > p {
     font-weight: 400;
     font-style: italic;
-    font-size: 1.4em;
 }
 
 #Help > ul > li > p > strong {

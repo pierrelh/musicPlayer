@@ -8,25 +8,19 @@
 	background-image: url("../../img/check.png");
 }
 
+.playlist-name {
+	color: white;
+	background: none;
+	margin: 50px auto 0;
+	display: block;
+}
+
 .button-create-playlist {
-	border: 1px solid white;
 	background: none;
 	color: white;
-	padding: 11px 15px;
-	font-size: 1.7em;
 	margin: 15px auto 0;
 	display: block;
 	cursor: pointer;
-}
-
-.playlist-name {
-	font-size: 1.3em;
-	color: white;
-	background: none;
-	border: 1px solid white;
-	padding: 5px;
-	margin: 50px auto 0;
-	display: block;
 }
 
 .playlist-div-hide,
@@ -34,8 +28,6 @@
 .playlist-sidebar-hided,
 .playlist-reader-hided {
 	position: fixed;
-	width: 80%;
-	margin: 7vh 5px 0px 20%;
 	min-width: 810px;
 	height: 93vh;
 	background-color: #0F0F0F;
@@ -45,19 +37,9 @@
 	transition: 0.8s;
 }
 
-
-.playlist-reader-showed {
-	height: 81vh !important;
-}
-
 .playlist-div-hide {
 	height: 0 !important;
 	transition: 0.8s;
-}
-
-.playlist-sidebar-hided {
-	margin-left: 0% !important;
-	width: 100% !important;
 }
 
 .listPlaylist {
@@ -75,15 +57,7 @@
 	transition: 0.8s;
 }
 
-.table:hover {
-	background-color: #0B0B0B !important;
-	padding-left: 30px !important;
-	transition: 0.8s;
-}
-
 .table > p {
-	font-size: 2em !important;
-	text-align: left !important;
-	justify-content: left !important;
-	margin: 0 !important;
+	text-align: left;
+	margin: 0;
 }
