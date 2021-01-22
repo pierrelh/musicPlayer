@@ -21,7 +21,7 @@
 	.reader-buttons {
 		height: 2.5vh;
 		margin-top: 4px;
-		font-size: 0;
+		float: left;
 	}
 
 	#Loop {
