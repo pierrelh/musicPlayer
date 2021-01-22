@@ -92,6 +92,13 @@ document.onkeydown = function(event) {
 			}
 			break;
 
+		case "s": // S is pressed -> toggle sidebar
+			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
+				event.preventDefault();
+				toggleSidebar();
+			}
+			break;
+
 		case "ArrowLeft": // ArrowLeft is pressed -> -10s on audio
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();

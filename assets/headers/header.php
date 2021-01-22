@@ -24,6 +24,6 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 <header>
-	<img id="Arrow" data-status="hidden" class="arrow" src="<?php echo $link ?>/img/arrow.png" alt="">
+	<img id="Arrow" class="arrow" src="<?php echo $link ?>/img/arrow.png" alt="">
 	<h1>Music Player</h1>
 </header>
