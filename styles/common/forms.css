@@ -38,6 +38,7 @@
     font-weight: 300;
     width: 100%;
     display: table-cell;
+    margin-left: 15px;
 }
 
 .send-form {
