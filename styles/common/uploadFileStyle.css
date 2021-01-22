@@ -10,7 +10,6 @@
 	margin: 35px auto;
 	list-style: none;
 	padding: 0;
-	width: 50%;
 }
 
 .medias-upload-list > li > ul {
@@ -24,6 +23,7 @@
 
 .medias-upload-list > li > ul > li > label > img {
 	box-sizing: content-box;
+	width: 100%;
 }
 
 #Upload > form > input[type="file"],

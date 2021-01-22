@@ -4,7 +4,8 @@
     #Edit,
     #Delete,
     #Account,
-    #CreateAccount {
+    #CreateAccount,
+    #Help {
 		left: 5vw;
 		width: 90vw;
     }

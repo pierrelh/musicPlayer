@@ -13,7 +13,6 @@
 	height: inherit;
 	background-color: black;
 	text-align: center;
-	line-height: 50%;
 	border-radius: 50px;
 }
 
@@ -24,5 +23,5 @@
 	display: inline-block;
 	height: inherit;
 	vertical-align: middle;
-	font-size: 0.7em;
+	font-size: 80%;
 }

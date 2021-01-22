@@ -2,4 +2,8 @@
     .progress {
         height: 10px;
     }
+
+    .progress-bar{
+        line-height: 50%;
+    }
 }
