@@ -12,6 +12,10 @@
 		bottom: -12vh;
 	}
 
+	#Controls {
+		font-size: 0;
+	}
+
 	.left {
 		padding-left: 10% !important;
 		margin-left: 0% !important;
@@ -21,7 +25,6 @@
 	.reader-buttons {
 		height: 2.5vh;
 		margin-top: 4px;
-		float: left;
 	}
 
 	#Loop {
@@ -34,7 +37,7 @@
 	}
 
 	.time {
-		font-size: 1.2em;
+		font-size: 11px;
 		vertical-align: middle;
 		display: inline-block;
 		margin-top: 4px;
