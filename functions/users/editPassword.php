@@ -7,7 +7,7 @@
                 SET user_password = $1
                 WHERE user_session_id = $2";
 
-	$result =  pg_query_params(
+	$result = pg_query_params(
 		$db,
 		$request,
 		array(

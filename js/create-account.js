@@ -6,5 +6,5 @@ document.getElementById("CrossCreateAccount").addEventListener("click", function
 
 // Handle click on CrossAccount button of Account section
 document.getElementById("CreateAccountButton").addEventListener("click", function(e) {
-    // Create a new account
+    e.preventDefault();
 });

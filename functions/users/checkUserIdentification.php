@@ -5,7 +5,7 @@
     $request = "SELECT user_session_id
                 FROM users
                 WHERE user_session_id = $1";
-    $result =  pg_query_params(
+    $result = pg_query_params(
         $db,
         $request,
         array(

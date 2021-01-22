@@ -25,7 +25,7 @@
 		$request = "INSERT INTO playlists_musics (playlist_id, playlist_music_id)
 					VALUES ($1, $2)";
 
-		$result =  pg_query_params(
+		$result = pg_query_params(
 			$db,
 			$request,
 			array(

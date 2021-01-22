@@ -7,7 +7,7 @@
 	$db = connect();
 	$request = "INSERT INTO files (file_name, file_url, file_image, file_author, file_album)
 				VALUES ($1, $2, $3, $4, $5)";
-	$result =  pg_query_params(
+	$result = pg_query_params(
 		$db,
 		$request,
 		array(

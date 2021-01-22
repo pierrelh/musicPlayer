@@ -2,8 +2,6 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/master.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/master.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/common/headerStyle.css">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/headerStyle.css">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/headerStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/common/forms.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/forms.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/forms.css">

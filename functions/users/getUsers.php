@@ -6,7 +6,7 @@
 		$request = "SELECT user_session_id
 					FROM users
 					WHERE user_login = $1 AND user_password = $2";
-		$result =  pg_query_params(
+		$result = pg_query_params(
 			$db,
 			$request,
 			array(

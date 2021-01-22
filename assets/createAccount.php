@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/createAccountStyle.css">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/createAccountStyle.css">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/createAccountStyle.css">
 <section id="CreateAccount">
     <img id="CrossCreateAccount" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
     <h2 class="form-title">Créer un nouveau compte</h2>
