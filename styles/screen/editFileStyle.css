@@ -1,0 +1,11 @@
+@media screen and (min-device-width: 641px) {
+	#BannerContainer {
+		height: 270px;
+		width: 250px;
+		margin: auto;
+	}
+
+	.editImage {
+		width: 40px;
+	}
+}

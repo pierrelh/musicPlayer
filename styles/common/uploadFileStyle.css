@@ -1,25 +1,3 @@
-#Banner {
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	margin: auto;
-	height: 250px;
-	width: 250px;
-}
-
-.editImage {
-	cursor: pointer;
-	margin-left: 70%;
-	margin-top: 5px;
-}
-
-#Upload > form,
-#Edit > form {
-	height: 100%;
-	width: 100%;
-	padding: 3vh 0 0;
-}
-
 .delete-edit {
 	list-style: none;
 	padding: 0;
@@ -46,36 +24,6 @@
 
 .medias-upload-list > li > ul > li > label > img {
 	box-sizing: content-box;
-}
-
-.progress-file,
-.progress-picture {
-	display: block;
-	margin: 5px auto;
-	border: 1px;
-	width: 100%;
-	height: 10px;
-	background-color: #ccc;
-	border-radius: 5px;
-	text-align: center;
-}
-
-.progress-bar-file,
-.progress-bar-picture {
-	width: 0px;
-	height: 10px;
-	background-color: black;
-	text-align: center;
-	line-height: 10px;
-	border-radius: 5px;
-	font-size: 10px;
-}
-
-.text-file,
-.text-picture {
-	margin: 0 auto;
-	width: 100%;
-	color: white;
 }
 
 #Upload > form > input[type="file"],

@@ -1,0 +1,9 @@
+#Upload,
+#Edit,
+#Delete,
+#Help,
+#Account,
+#CreateAccount {
+    margin-top: 50vh;
+    transform: translateY(-50%);
+}

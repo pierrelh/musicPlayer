@@ -1,0 +1,28 @@
+@media screen and (min-device-width: 641px) {
+    #CreateAccount {
+        left: 25vw;
+        width: 50vw;
+    }
+
+    #Account {
+        left: 25vw;
+        width: 50vw;
+        height: 70vh;
+    }
+
+    #Help {
+        left: 25vw;
+        width: 50vw;
+    }
+
+	#Upload,
+	#Edit {
+		left: 30vw;
+		width: 40vw;
+    }
+    
+	#Delete {
+		left: 20vw;
+		width: 60vw;
+	}
+}

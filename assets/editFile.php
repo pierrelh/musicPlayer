@@ -1,5 +1,9 @@
+<link rel="stylesheet" href="<?php echo $link ?>/styles/common/editFileStyle.css">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/editFileStyle.css">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/editFileStyle.css">
 <section id="Edit">
 	<img id="CrossEdit" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
+	<h2 class="form-title">Modifier un fichier</h2>
 	<form id="FormEdit" method="post">
 		<h3 class="error-msg" id="ErrorMsgEdit"></h3>
 		<div id="BannerContainer">
@@ -9,9 +13,9 @@
 					<li><input id="PictureEdit" type="file" name="" value="" accept="image/*"></li>
 				</ul>
 			</div>
-			<div class="progress-file">
-				<div id="ProgressBarEditCover" class="progress-bar-file">
-					<div id="TextProgressBarEditCover" class="text-file"></div>
+			<div class="progress">
+				<div id="ProgressBarEditCover" class="progress-bar">
+					<div id="TextProgressBarEditCover" class="progress-bar-text"></div>
 				</div>
 			</div>
 		</div>

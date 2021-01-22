@@ -1,9 +1,4 @@
 @media screen and (max-device-width: 640px) {
-	#Delete {
-		left: 5%;
-		width: 90%;
-		top: 35%;
-	}
 
 	#Delete > h2 {
 		font-size: 4em;

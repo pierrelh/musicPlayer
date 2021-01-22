@@ -1,0 +1,10 @@
+@media screen and (max-device-width: 640px) {
+	#BannerContainer {
+		height: 400px;
+		width: 400px;
+	}
+
+	.editImage {
+		width: 80px;
+	}
+}

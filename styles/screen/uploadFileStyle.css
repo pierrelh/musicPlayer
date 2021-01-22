@@ -1,21 +1,4 @@
 @media screen and (min-device-width: 641px) {
-	#Upload,
-	#Edit {
-		left: 30vw;
-		width: 40vw;
-		top: 24vh;
-	}
-
-	#BannerContainer {
-		height: 270px;
-		width: 250px;
-		margin: auto;
-	}
-
-	.editImage {
-		width: 40px;
-	}
-
 	#Upload > form > ul > li > label > img {
 		max-width: 120px;
 		min-width: 100px;

@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/uploadFileStyle.css">
 <section id="Upload">
 	<img id="CrossUpload" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
+	<h2 class="form-title">Uploader un fichier</h2>
 	<form id="FormUpload" enctype="multipart/form-data" method="post">
 		<h3 class="error-msg" id="ErrorMsgUpload"></h3>
 		<ul class="medias-upload-list">
@@ -12,9 +13,9 @@
 						<label for="File"><img src="<?php echo $link ?>/img/upload.png" alt=""></label>
 					</li>
 					<li>
-						<div class="progress-file">
-							<div id="ProgressBarVideo" class="progress-bar-file">
-								<div id="TextProgressBarVideo" class="text-file"></div>
+						<div class="progress">
+							<div id="ProgressBarVideo" class="progress-bar">
+								<div id="TextProgressBarVideo" class="progress-bar-text"></div>
 							</div>
 						</div>
 					</li>
@@ -26,9 +27,9 @@
 						<label for="Picture"><img class="thumbnails" src="<?php echo $link ?>/img/picture.png" alt=""></label>
 					</li>
 					<li>
-						<div class="progress-picture">
-							<div id="ProgressBarPicture" class="progress-bar-picture">
-								<div id="TextProgessBarPicture" class="text-picture"></div>
+						<div class="progress">
+							<div id="ProgressBarPicture" class="progress-bar">
+								<div id="TextProgessBarPicture" class="progress-bar-text"></div>
 							</div>
 						</div>
 					</li>

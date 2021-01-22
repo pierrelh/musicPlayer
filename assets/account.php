@@ -28,9 +28,9 @@
             <li class="account-element-title"><p>Transformations:</p></li>
             <li><p id="AccountTransformationUsage"></p></li>
             <li class="account-progress-bar-element">
-                <div>
-					<div id="AccountTransformationProgressBar">
-						<p id="AccountTransformationPercent"></p>
+                <div class="progress">
+					<div id="AccountTransformationProgressBar" class="progress-bar">
+						<div id="AccountTransformationPercent" class="progress-bar-text"></div>
 					</div>
 				</div>
             </li>
@@ -40,9 +40,9 @@
             <li class="account-element-title"><p>Objects:</p></li>
             <li><p id="AccountObjectsUsage"></p></li>
             <li class="account-progress-bar-element">
-                <div>
-					<div id="AccountObjectsProgressBar">
-						<p id="AccountObjectsPercent"></p>
+                <div class="progress">
+					<div id="AccountObjectsProgressBar" class="progress-bar">
+						<div id="AccountObjectsPercent" class="progress-bar-text"></div>
 					</div>
 				</div>
             </li>
@@ -52,9 +52,9 @@
             <li class="account-element-title"><p>Bandwidth:</p></li>
             <li><p id="AccountBandwidthUsage"></p></li>
             <li class="account-progress-bar-element">
-                <div>
-					<div id="AccountBandwidthProgressBar">
-						<p id="AccountBandwidthPercent"></p>
+                <div class="progress">
+					<div id="AccountBandwidthProgressBar" class="progress-bar">
+						<div id="AccountBandwidthPercent" class="progress-bar-text"></div>
 					</div>
 				</div>
             </li>
@@ -64,9 +64,9 @@
             <li class="account-element-title"><p>Storage:</p></li>
             <li><p id="AccountStorageUsage"></p></li>
             <li class="account-progress-bar-element">
-                <div>
-					<div id="AccountStorageProgressBar">
-						<p id="AccountStoragePercent"></p>
+                <div class="progress">
+					<div id="AccountStorageProgressBar" class="progress-bar">
+						<div id="TextProgessBarPicture" class="progress-bar-text"></div>
 					</div>
 				</div>
             </li>

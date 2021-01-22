@@ -1,0 +1,14 @@
+#Banner {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: auto;
+	height: 250px;
+	width: 250px;
+}
+
+.editImage {
+	cursor: pointer;
+	margin-left: 70%;
+	margin-top: 5px;
+}
