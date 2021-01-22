@@ -20,7 +20,7 @@
     }
 
     .playlist-reader-showed {
-        height: 81vh !important;
+        height: 81vh;
     }
 
     .playlist-sidebar-hided {

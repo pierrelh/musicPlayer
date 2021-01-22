@@ -20,7 +20,7 @@
     }
 
     .playlist-reader-showed {
-        height: 75vh !important;
+        height: 75vh;
     }
 
     .table {
