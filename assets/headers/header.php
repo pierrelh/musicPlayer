@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/videoStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/videoStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/common/forms.css">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/forms.css">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/forms.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/common/sectionsSizes.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/sectionsSizes.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/sectionsSizes.css">

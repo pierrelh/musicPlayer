@@ -1,0 +1,23 @@
+@media screen and (max-device-width: 640px) {
+    .form-title {
+        font-size: 4em;
+        margin: 5vh 0;
+    }
+
+    .fields {
+        width: 65vw;
+    }
+
+    .fields > label {
+        font-size: 3.2em;
+    }
+
+    .fields > input {
+        font-size: 3.2em;
+    }
+
+    .send-form {
+        padding: 50px 0;
+        font-size: 3.5em;
+    }
+}

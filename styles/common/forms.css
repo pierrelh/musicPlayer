@@ -1,8 +1,6 @@
 .form-title {
     text-align: center;
-    margin: 3vh 0;
     font-weight: 700;
-    font-size: 2em;    
 }
 
 .form-list,
@@ -20,13 +18,11 @@
 
 .fields {
     display: table;
-    width: 30vw;
     margin: 1.5vh auto;
 }
 
 .fields > label {
     font-weight: 600;
-    font-size: 1.4em;
     width: 40%;
     display: table-cell;
     vertical-align: middle;
@@ -39,7 +35,6 @@
 .fields > input {
     padding: 10px;
     border: 2px solid black;
-    font-size: 1.4em;
     font-weight: 300;
     width: 100%;
     display: table-cell;
@@ -51,9 +46,7 @@
     display: block;
     cursor: pointer;
     font-weight: 700;
-    padding: 25px 0;
     text-align: center;
-    font-size: 1.4em;
     color: white;
     background: black;
     border: 1px solid black;

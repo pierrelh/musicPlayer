@@ -2,7 +2,8 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/accountStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/accountStyle.css">
 <section id="Account">
-    <img id="CrossAccount" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">    
+    <img id="CrossAccount" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
+    <h2 class="form-title">Informations générales du compte</h2>
     <div class="div-account">
         <ul>
             <li class="account-element-title"><p>Plan:</p></li>

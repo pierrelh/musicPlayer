@@ -1,7 +1,10 @@
+#Account {
+    overflow-x: hidden !important;
+    overflow-y: scroll !important;
+}
+
 .div-account {
     height: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
 }
 
 .div-account > ul {
@@ -10,7 +13,6 @@
     margin: 0;
     display: flex;
     justify-content: center;
-    font-size: 1.5em;
 }
 
 .account-element-title > p {
