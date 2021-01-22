@@ -1,10 +1,2 @@
 @media screen and (min-device-width: 641px) {
-	#Upload > form > ul > li > label > img {
-		max-width: 120px;
-		min-width: 100px;
-	}
-
-	#Upload > form > ul > li > ul > li > label > img {
-		width: 100%;
-	}
 }

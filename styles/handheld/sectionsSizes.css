@@ -1,7 +1,10 @@
 @media screen and (max-device-width: 640px) {
     #Delete,
     #Upload,
-	#Edit {
+    #Edit,
+    #Delete,
+    #Account,
+    #CreateAccount {
 		left: 5vw;
 		width: 90vw;
     }
