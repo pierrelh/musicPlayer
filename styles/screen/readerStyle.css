@@ -24,7 +24,6 @@
 
 	.reader-buttons {
 		height: 2.5vh;
-		margin-top: 4px;
 	}
 
 	#Loop {
@@ -37,10 +36,9 @@
 	}
 
 	.time {
-		font-size: 11px;
+		font-size: 13px;
 		vertical-align: middle;
 		display: inline-block;
-		margin-top: 4px;
 	}
 
 	.current-time {
