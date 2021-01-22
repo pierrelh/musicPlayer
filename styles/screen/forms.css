@@ -1,7 +1,11 @@
 @media screen and (min-device-width: 641px) {
     .form-title {
         font-size: 2em;
-        margin: 3vh auto;
+        margin: 3vh auto 0;
+    }
+
+    .form-list {
+        margin-top: 3vh;
     }
 
     .fields {

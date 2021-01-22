@@ -1,8 +1,12 @@
 @media screen and (max-device-width: 640px) {
     .form-title {
         font-size: 4em;
-        margin: 5vh auto;
+        margin: 5vh auto 0;
         max-width: 55vw;
+    }
+
+    .form-list {
+        margin-top: 5vh;
     }
 
     .fields {

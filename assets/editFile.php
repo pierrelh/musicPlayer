@@ -8,10 +8,10 @@
 		<h3 class="error-msg" id="ErrorMsgEdit"></h3>
 		<div id="BannerContainer">
 			<div id="Banner" class='div-detail'>
-				<ul class='delete-edit'>
-					<li><label class='modify-img' for="PictureEdit"><img class="editImage" src='<?php echo $link ?>/img/edit.png' alt=''></label></li>
-					<li><input id="PictureEdit" type="file" name="" value="" accept="image/*"></li>
-				</ul>
+				<label class='modify-img' for="PictureEdit">
+					<img class="editImage" src='<?php echo $link ?>/img/edit.png' alt=''>
+					<input id="PictureEdit" type="file" name="" value="" accept="image/*">
+				</label>
 			</div>
 			<div class="progress">
 				<div id="ProgressBarEditCover" class="progress-bar">
