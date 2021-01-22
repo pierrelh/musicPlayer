@@ -66,7 +66,7 @@
             <li class="account-progress-bar-element">
                 <div class="progress">
 					<div id="AccountStorageProgressBar" class="progress-bar">
-						<div id="TextProgessBarPicture" class="progress-bar-text"></div>
+						<div id="AccountStoragePercent" class="progress-bar-text"></div>
 					</div>
 				</div>
             </li>
