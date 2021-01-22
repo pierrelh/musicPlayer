@@ -14,6 +14,9 @@
 		<script type="text/javascript" src="<?php echo $link ?>/js/getFiles.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/js/functions.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/js/key-pressed.js"></script>
+		<link rel="stylesheet" href="<?php echo $link ?>/styles/common/videoStyle.css">
+		<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/videoStyle.css">
+		<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/videoStyle.css">
 	</head>
 	<body id="body">
 		<?php

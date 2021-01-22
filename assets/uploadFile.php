@@ -10,7 +10,9 @@
 			<li>
 				<ul>
 					<li>
-						<label for="File"><img src="<?php echo $link ?>/img/upload.png" alt=""></label>
+						<label for="File">
+							<img src="<?php echo $link ?>/img/upload.png" alt="">
+						</label>
 					</li>
 					<li>
 						<div class="progress">
@@ -24,7 +26,9 @@
 			<li>
 				<ul>
 					<li>
-						<label for="Picture"><img class="thumbnails" src="<?php echo $link ?>/img/picture.png" alt=""></label>
+						<label for="Picture">
+							<img class="thumbnails" src="<?php echo $link ?>/img/picture.png" alt="">
+						</label>
 					</li>
 					<li>
 						<div class="progress">
