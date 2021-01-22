@@ -1,11 +1,10 @@
 @media screen and (max-device-width: 640px) {
-	#Delete > h2 {
-		font-size: 4em;
+	#Delete > ul {
+		margin: 3vh auto 5vh;
 	}
 
 	#Delete > ul > li > input {
 		border: 3px solid black;
-		margin: 15px 65px;
 		padding: 15px 65px;
 		font-size: 4em;
 	}

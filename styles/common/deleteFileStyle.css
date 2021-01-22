@@ -1,11 +1,7 @@
-#Delete > h2 {
-	text-align: center;
-	margin-top: 25px;
-}
-
 #Delete > ul {
+	width: 80%;
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
 	padding: 0;
 	list-style: none;
 }
