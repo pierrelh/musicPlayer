@@ -1,8 +1,4 @@
 @media screen and (min-device-width: 641px) {
-	.log-form {
-		margin-top: 15%;
-	}
-
 	.send-form {
 		width: 25% !important;
 	}
