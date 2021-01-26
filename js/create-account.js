@@ -28,7 +28,7 @@ document.getElementById("CreateAccountButton").addEventListener("click", functio
 			url: server + "/functions/users/createAccount.php",
 			type: "POST",
 			data: {
-				"user_email": email,
+				"user_login": email,
 				"user_password": passwordOne
 			},
 			success: function (response) {
