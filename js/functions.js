@@ -173,6 +173,23 @@ function toggleLoop() {
 	}
 }
 
+// Stop the music player
+function stopMusic() {
+	var musicPlayer = document.getElementById("MusicPlayer");
+	musicPlayer.pause();
+	musicPlayer.currentTime = 0;
+}
+
+// Seek the music player to the wanted second
+function seekTo(data) {
+    if (data.fastSeek) {
+    	startSeeking();
+    } else {
+      	stopSeeking();
+      	musicPlayer.currentTime = data.seekTime;
+    }
+}
+
 // Play the passed music
 function playMusic(musicId) {    
 	if (document.getElementById("PlayedMusic") != undefined) { // Checking if there is a played music template
