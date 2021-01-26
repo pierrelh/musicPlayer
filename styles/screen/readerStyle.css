@@ -74,10 +74,18 @@
 	}
 
 	#Volume::-ms-thumb,
+	#ProgressBar::-ms-thumb {
+		width: 15px;
+		height: 15px;
+	}
+
 	#Volume::-webkit-slider-thumb,
+	#ProgressBar::-webkit-slider-thumb {
+		width: 15px;
+		height: 15px;
+	}
+
 	#Volume::-moz-range-thumb,
-	#ProgressBar::-ms-thumb,
-	#ProgressBar::-webkit-slider-thumb,
 	#ProgressBar::-moz-range-thumb {
 		width: 15px;
 		height: 15px;

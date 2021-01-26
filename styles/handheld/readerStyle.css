@@ -67,9 +67,17 @@
 		height: 13px;
 	}
 
-	#ProgressBar::-ms-thumb,
-	#ProgressBar::-webkit-slider-thumb,
-	#ProgressBar::-moz-range-thumb{
+	#ProgressBar::-ms-thumb {
+		width: 35px;
+		height: 35px;
+	}
+	
+	#ProgressBar::-webkit-slider-thumb {
+		width: 35px;
+		height: 35px;
+	}
+
+	#ProgressBar::-moz-range-thumb {
 		width: 35px;
 		height: 35px;
 	}
