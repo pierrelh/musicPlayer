@@ -5,7 +5,7 @@
 	$request = "INSERT INTO users (user_login, user_password, user_session_id)
                 VALUES ($1, $2, $3)";
     
-    include_once($_SERVER['DOCUMENT_ROOT']."/functions/createSessionId.php");
+	include_once($_SERVER['DOCUMENT_ROOT']."/functions/createSessionId.php");
 	$result = pg_query_params(
 		$db,
 		$request,
@@ -15,5 +15,11 @@
 			createSessionId()
 		)
 	);
+
+	if (is_resource($result)) {
+		print "true";
+	}else {
+		print "false";
+	}
 
 ?>
