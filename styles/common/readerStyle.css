@@ -57,15 +57,3 @@
 #ProgressBar {
 	background: linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(50, 50, 50) 100%);
 }
-
-#Volume::-webkit-slider-thumb,
-#ProgressBar::-webkit-slider-thumb,
-#Volume::-moz-range-thumb,
-#ProgressBar::-moz-range-thumb {
-	-webkit-appearance: none;
-	appearance: none;
-	border-radius: 100%;
-	background: #FFF;
-	cursor: pointer;
-	border: 1px solid white;
-}

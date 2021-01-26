@@ -39,9 +39,4 @@ if ('mediaSession' in navigator) {
     navigator.mediaSession.setActionHandler('nexttrack', function() {
         playNextMusic();
     });
-
-    // Handle the skipad action on mediaSession
-    navigator.mediaSession.setActionHandler('skipad', function() {
-        console.log("SkipPad");
-    });
 }

@@ -77,8 +77,13 @@
 	#ProgressBar::-webkit-slider-thumb,
 	#Volume::-moz-range-thumb,
 	#ProgressBar::-moz-range-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		border-radius: 100%;
+		background: #FFF;
+		cursor: pointer;
+		border: 1px solid white;
 		width: 15px;
 		height: 15px;
 	}
-
 }
