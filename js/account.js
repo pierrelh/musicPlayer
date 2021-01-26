@@ -13,10 +13,12 @@ document.getElementById("UpdatePassword").addEventListener("click", function(e) 
 	if (passwordOne == "" || passwordTwo == "") {
 		errorMsg.style.color = "red";
 		errorMsg.innerHTML = "Veuillez remplir les champs";
+		errorMsg.style.display = "block";
 		return;
 	}else if (passwordOne != passwordTwo) {
 		errorMsg.style.color = "red";
 		errorMsg.innerHTML = "Les deux mots de passe ne correspondent pas";
+		errorMsg.style.display = "block";
 		return;
 	}else {
 		$.ajax({
@@ -28,10 +30,11 @@ document.getElementById("UpdatePassword").addEventListener("click", function(e) 
 			success: function (response) {
 				if (response == "true") {
 					errorMsg.style.color = "green";
-					errorMsg.innerHTML = "Votre mot de passe à bien été mis à jour";					
+					errorMsg.innerHTML = "Votre mot de passe à bien été mis à jour";	
+					errorMsg.style.display = "block";				
 				}else {
-					errorMsg.style.color = "red";
-					errorMsg.innerHTML = "Une erreur s'est produite lors la mise à jour";	
+					errorMsg.innerHTML = "Une erreur s'est produite lors de la mise à jour";	
+					errorMsg.style.display = "block";
 				}
 			}
 		});

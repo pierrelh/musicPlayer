@@ -40,9 +40,8 @@ document.getElementById("EditButton").addEventListener("click", function(e) {
 		var name = document.getElementById("FileNameEdit").value;
 		var author = document.getElementById("FileAuthorEdit").value;
 		if (name == "" || author == "") {
-			document.getElementById("ErrorMsgEdit").innerHTML = "";
-			var errormsg = document.createTextNode("Merci de remplir tous les champs.");
-			document.getElementById("ErrorMsgEdit").appendChild(errormsg);
+			document.getElementById("ErrorMsgEdit").innerHTML = "Merci de remplir tous les champs.";
+			document.getElementById("ErrorMsgEdit").style.display = "block";
 		}else{
 			var form_data = new FormData(document.getElementById("FormEdit"));
 			form_data.append("file_id", musicId);

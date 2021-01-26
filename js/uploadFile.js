@@ -16,9 +16,8 @@ async function uploadMusic() {
 
 		// Check if the music has a name & an author
 		if (document.getElementById("FileName").value == "" || document.getElementById("FileAuthor").value == "") {
-			document.getElementById("ErrorMsgUpload").innerHTML = ""
-			var errormsg = document.createTextNode("Merci de remplir tous les champs.");
-			document.getElementById("ErrorMsgUpload").appendChild(errormsg);
+			document.getElementById("ErrorMsgUpload").innerHTML = "Merci de remplir tous les champs.";
+			document.getElementById("ErrorMsgUpload").style.display = "block";
 			return;
 		} else {
 			// Uploading the music
@@ -62,9 +61,8 @@ async function uploadMusic() {
 			});
 		}
 	} else {
-		document.getElementById("ErrorMsgUpload").innerHTML = "";
-		var errormsg = document.createTextNode("Aucun fichier n'a été choisi.");
-		document.getElementById("ErrorMsgUpload").appendChild(errormsg);
+		document.getElementById("ErrorMsgUpload").innerHTML = "Aucun fichier n'a été choisi.";
+		document.getElementById("ErrorMsgUpload").style.display = "block";
 		return;
 	}
 }
