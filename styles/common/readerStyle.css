@@ -57,3 +57,20 @@
 #ProgressBar {
 	background: linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(50, 50, 50) 100%);
 }
+
+#Volume::-webkit-slider-thumb,
+#ProgressBar::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+#Volume::-webkit-slider-thumb,
+#ProgressBar::-webkit-slider-thumb,
+#Volume::-moz-range-thumb,
+#ProgressBar::-moz-range-thumb,
+#Volume::-ms-thumb,
+#ProgressBar::-ms-thumb {
+	border-radius: 100%;
+	background: #ffffff;
+	cursor: pointer;
+}

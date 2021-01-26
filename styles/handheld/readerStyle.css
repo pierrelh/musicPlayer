@@ -67,6 +67,7 @@
 		height: 13px;
 	}
 
+	#ProgressBar::-ms-thumb,
 	#ProgressBar::-webkit-slider-thumb,
 	#ProgressBar::-moz-range-thumb{
 		width: 35px;
