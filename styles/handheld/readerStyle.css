@@ -68,6 +68,7 @@
 		width: 75%;
 		top: 7.6vh;
 		left: 12.5%;
+		height: 13px;
 	}
 
 	#ProgressBar::-webkit-slider-thumb,
