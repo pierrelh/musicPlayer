@@ -1,5 +1,4 @@
 # Version 2.0
-- Allow user to create an account
 
 # Version 3.0
 - Add a new vue to the played music
