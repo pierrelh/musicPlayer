@@ -25,7 +25,7 @@ A future Update will allow you to set your cloudinary's credentials directly in 
 
 Then create a new row in "users" table with your login, your password (hash: sha256), & a random varchar for user_session_id.
 
-Finally, push this local db to heroku's db.
+Finally, push this local db your heroku app's db.
 ```
 heroku pg:push your_local_db_name DATABASE_URL -a your_heroku_app_name
 ```
