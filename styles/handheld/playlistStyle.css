@@ -1,16 +1,4 @@
 @media screen and (max-device-width: 640px) {
-    .playlist-name {
-        font-size: 2.6em;
-        border: 3px solid white;
-        padding: 10px;
-    }
-
-    .button-create-playlist {
-        border: 3px solid white;
-        padding: 20px 40px;
-        font-size: 3.4em;
-    }
-
     .playlist-div-hide,
     .playlist-div,
     .playlist-sidebar-hided,
@@ -21,13 +9,5 @@
 
     .playlist-reader-showed {
         height: 75vh;
-    }
-
-    .table {
-        padding: 80px 30px;
-    }
-
-    .table > p {
-        font-size: 4em;
     }
 }

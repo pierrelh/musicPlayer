@@ -241,6 +241,8 @@ html{
 	top: 0;
 	right: 0;
 	background-color: black;
+	height: 20px;
+	padding: 20px;
 	border-bottom-left-radius: 10px;
 }
 
@@ -250,6 +252,7 @@ html{
 	margin-top: 70px;
 	display: none;
 	text-align: center;
+	font-size: 1.5em;
 }
 
 .edit,

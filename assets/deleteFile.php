@@ -1,6 +1,4 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/common/deleteFileStyle.css">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/deleteFileStyle.css">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/deleteFileStyle.css">
 <section id="Delete">
 	<h2 class="form-title" id="DeleteTitle"></h2>
 	<ul>

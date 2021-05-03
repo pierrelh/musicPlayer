@@ -1,9 +1,0 @@
-@media screen and (min-device-width: 641px) {
-    .progress {
-        height: 10px;
-    }
-
-    .progress-bar{
-        line-height: 50%;
-    }
-}

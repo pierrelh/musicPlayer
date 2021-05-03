@@ -21,6 +21,7 @@
 }
 
 #SongName {
+	font-size: 1.4em;
 	padding-left: 25px;
 	margin: 0;
 }
@@ -40,6 +41,7 @@
 }
 
 .time {
+	font-size: 13px;
 	line-height: initial;
 }
 
@@ -64,6 +66,8 @@
 	border-radius: 100%;
 	background: #ffffff;
 	cursor: pointer;
+	width: 15px;
+	height: 15px;
 }
 
 #Volume::-moz-range-thumb,
@@ -71,6 +75,8 @@
 	border-radius: 100%;
 	background: #ffffff;
 	cursor: pointer;
+	width: 15px;
+	height: 15px;
 }
 
 #Volume::-ms-thumb,
@@ -78,4 +84,6 @@
 	border-radius: 100%;
 	background: #ffffff;
 	cursor: pointer;
+	width: 15px;
+	height: 15px;
 }

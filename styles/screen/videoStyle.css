@@ -21,7 +21,6 @@
 
 	.library > div > ul > li > p,
 	.library-show > div > ul > li > p {
-		font-size: 1.1em;
 		max-width: 150px;
 		max-height: 43px;
 		overflow: hidden;

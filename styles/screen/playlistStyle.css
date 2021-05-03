@@ -1,16 +1,4 @@
 @media screen and (min-device-width: 641px) {
-    .playlist-name {
-        font-size: 1.3em;
-        border: 1px solid white;
-        padding: 5px;
-    }
-
-    .button-create-playlist {
-        border: 1px solid white;
-        padding: 10px 20px;
-        font-size: 1.7em;
-    }
-
     .playlist-div-hide,
     .playlist-div,
     .playlist-sidebar-hided,
@@ -28,17 +16,9 @@
         width: 100% !important;
     }
 
-    .table {
-        padding: 40px 15px;
-    }
-
     .table:hover {
         background-color: #0B0B0B !important;
         padding-left: 30px !important;
         transition: 0.8s;
-    }
-
-    .table > p {
-        font-size: 2em;
     }
 }

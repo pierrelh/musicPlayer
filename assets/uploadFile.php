@@ -1,6 +1,4 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/common/uploadFileStyle.css">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/uploadFileStyle.css">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/uploadFileStyle.css">
 <section id="Upload">
 	<img id="CrossUpload" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
 	<h2 class="form-title">Uploader un fichier</h2>

@@ -1,6 +1,5 @@
 @media screen and (max-device-width: 640px) {
 	.sidebar {
-		background-color: #0B0B0B;
 		width: 100%;
 		text-align: center;
 		z-index: 960;
@@ -19,10 +18,5 @@
 		flex-direction: column;
 		justify-content: space-between;
 		height: 65vh;
-	}
-
-	.sidebar > ul > li > input[type="button"],
-	.sidebar-hide > ul > li > input[type="button"] {
-		font-size: 5em;
 	}
 }

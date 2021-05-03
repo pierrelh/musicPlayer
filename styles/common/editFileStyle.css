@@ -1,5 +1,8 @@
 #BannerContainer {
 	margin: auto;
+	margin-top: 3vh;
+	height: 250px;
+	width: 250px;
 }
 
 #Banner {
@@ -10,6 +13,10 @@
 	height: 100%;
 	width: 100%;
 	position: relative;
+}
+
+.editImage {
+	width: 40px;
 }
 
 .modify-img {

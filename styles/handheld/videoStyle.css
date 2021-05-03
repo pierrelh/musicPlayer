@@ -11,17 +11,12 @@
 
 	.library > div,
 	.library-show > div {
-		grid-template-columns: repeat(auto-fill, 220px);
+		grid-template-columns: repeat(auto-fill, 100px);
 	}
 
 	.library > div > ul > .view,
 	.library-show > div > ul > .view {
-		height: 220px;
-	}
-
-	.library > div > ul > li > p,
-	.library-show > div > ul > li > p {
-		font-size: 3em;
+		height: 100px;
 	}
 
 	.edit,
@@ -33,8 +28,8 @@
 	.add-hide,
 	.check-hide,
 	.playing {
-		height: 220px;
-		width: 220px;
+		height: 100px;
+		width: 100px;
 		background-size: 40%;
 	}
 

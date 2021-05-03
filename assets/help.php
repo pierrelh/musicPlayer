@@ -1,6 +1,4 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/common/helpStyle.css">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/helpStyle.css">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/helpStyle.css">
 <section id="Help">
     <img id="CrossHelp" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
     <h2 class="form-title">Voici la liste des commandes disponibles :</h2>

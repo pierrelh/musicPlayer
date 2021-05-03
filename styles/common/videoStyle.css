@@ -43,6 +43,7 @@
 
 .library > div > ul > li > p,
 .library-show > div > ul > li > p {
+	font-size: 1.1em;
 	text-align: center;
 	color: #fff;
 	margin: 5px 0 0 0;

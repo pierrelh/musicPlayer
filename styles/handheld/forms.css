@@ -1,28 +1,5 @@
 @media screen and (max-device-width: 640px) {
-    .form-title {
-        font-size: 4em;
-        margin: 5vh auto 0;
-        max-width: 55%;
-    }
-
-    .form-list {
-        margin-top: 5vh;
-    }
-
     .fields {
         width: 65vw;
-    }
-
-    .fields > label {
-        font-size: 3.2em;
-    }
-
-    .fields > input {
-        font-size: 3.2em;
-    }
-
-    .send-form {
-        padding: 50px 0;
-        font-size: 3.5em;
     }
 }

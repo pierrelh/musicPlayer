@@ -1,6 +1,4 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/common/editFileStyle.css">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/editFileStyle.css">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/editFileStyle.css">
 <section id="Edit">
 	<img id="CrossEdit" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
 	<h2 class="form-title">Modifier un fichier</h2>
