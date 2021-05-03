@@ -15,7 +15,6 @@
 		default:
 			require __DIR__ . '/pages/login.php';
 			break;
-
 	}
 		
 ?>
