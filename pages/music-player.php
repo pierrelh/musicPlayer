@@ -11,10 +11,10 @@
 			var server = "https://" + window.location.hostname;
 		</script>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-		<script type="text/javascript" src="<?php echo $link ?>/js/media-session.js"></script>
-		<script type="text/javascript" src="<?php echo $link ?>/js/getFiles.js"></script>
-		<script type="text/javascript" src="<?php echo $link ?>/js/functions.js"></script>
-		<script type="text/javascript" src="<?php echo $link ?>/js/key-pressed.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/media-session.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/getFiles.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/functions.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/key-pressed.js"></script>
 		<link rel="stylesheet" href="<?php echo $link ?>/styles/common/videoStyle.css">
 		<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/videoStyle.css">
 		<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/videoStyle.css">
@@ -25,6 +25,7 @@
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/background.php");
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/playlists.php");
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/reader.php");
+			include_once($_SERVER['DOCUMENT_ROOT']."/assets/reader-playlist.php");
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/sidebar.php");
 		?>
 		<section id="Library" class="library-show">
@@ -34,6 +35,6 @@
 				</script>
 			</div>
 		</section>
-		<script type="text/javascript" src="<?php echo $link ?>/js/page-scripts.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/page-scripts.js"></script>
 	</body>
 </html>

@@ -25,5 +25,5 @@
         </ul>
         <input class="send-form" id="CreateAccountButton" type="submit" value="Créer le compte">
     </form>
-	<script type="text/javascript" src="<?php echo $link ?>/js/create-account.js"></script>
+	<script type="text/javascript" src="<?php echo $link ?>/scripts/create-account.js"></script>
 </section>

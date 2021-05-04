@@ -1,0 +1,13 @@
+#PlaylistReader {
+	z-index: 949;
+	background-color: #0B0B0B;
+	position: fixed;
+    top: 100vh;
+	overflow-y: scroll;
+	color: white;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-ms-user-select: none;
+	transition-duration: 0.8s;
+}

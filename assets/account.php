@@ -177,5 +177,5 @@
         </form>
 
     </div>
-	<script type="text/javascript" src="<?php echo $link ?>/js/account.js"></script>
+	<script type="text/javascript" src="<?php echo $link ?>/scripts/account.js"></script>
 </section>
