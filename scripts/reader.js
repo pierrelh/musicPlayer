@@ -9,6 +9,7 @@ var Volume = document.getElementById("Volume");
 var ProgressBar = document.getElementById("ProgressBar");
 var Time = document.getElementById("Time");
 var Start = document.getElementById("Start");
+var PlaylistReader = document.getElementById("PlaylistReader");
 
 // Handle the loop button click
 Loop.addEventListener("click", toggleLoop, false);
@@ -87,3 +88,6 @@ MusicPlayer.addEventListener("ended", function() {
 ProgressBar.addEventListener("input", function() {
 	MusicPlayer.currentTime = MusicPlayer.duration / this.max * this.value;
 });
+
+// Handle the Playlist Reader button click
+PlaylistReader.addEventListener("click", togglePlaylistReaderSection, false);

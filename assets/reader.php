@@ -17,7 +17,7 @@
 		<img id="Random" data-random="false" class="reader-buttons" src="<?php echo $link ?>/img/no-random.png" alt="random">
 		<img id="Mute" data-mute="false" data-volume="1" class="reader-buttons mute" src="<?php echo $link ?>/img/audio-on.png" alt="">
 		<input type="range" min="0" max="100" value="100" id="Volume" name="" value="">
-		<img id="PlaylistBtn" data-status="close" class="reader-buttons" src="<?php echo $link ?>/img/playlist.png" alt="playlist">
+		<img id="PlaylistBtn" class="reader-buttons playlist-button" src="<?php echo $link ?>/img/playlist.png" alt="playlist">
 	</section>
 </section>
 <script type="text/javascript" src="<?php echo $link ?>/scripts/reader.js"></script>

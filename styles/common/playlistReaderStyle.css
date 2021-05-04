@@ -3,6 +3,10 @@
 	background-color: #0B0B0B;
 	position: fixed;
     top: 100vh;
+    width: 15vw;
+    right: 0;
+    left: auto;
+    height: 20vh;
 	overflow-y: scroll;
 	color: white;
 	-webkit-user-select: none;
@@ -10,4 +14,8 @@
 	-khtml-user-select: none;
 	-ms-user-select: none;
 	transition-duration: 0.8s;
+}
+
+.show-playlist-reader {
+    top: 68vh !important;
 }

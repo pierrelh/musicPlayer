@@ -221,19 +221,6 @@ function playMusic(musicId) {
 	if (!playlist.classList.contains("playlist-reader-showed")) {
 		playlist.classList.add("playlist-reader-showed");
 	}
-	
-	// Setting the new attributes in the musicPlayer
-	var musicPlayer = document.getElementById("MusicPlayer");
-	musicPlayer.dataset.musicPlayed = musicId;
-	var nameTxt = document.getElementById("SongName");
-	nameTxt.innerHTML = author + " - " + name;
-	musicPlayer.src = url;
-
-	// Adding the class to audioPlayer if needed
-	var audioPlayer = document.getElementById("AudioPlayer");
-	if (!audioPlayer.classList.contains("show")) {
-		audioPlayer.classList.add("show");
-	}
 
 	// Setting the mediaSession metadatas
 	if ('mediaSession' in navigator) {
@@ -246,6 +233,19 @@ function playMusic(musicId) {
 			]
 		
 		});
+	}
+	
+	// Setting the new attributes in the musicPlayer
+	var musicPlayer = document.getElementById("MusicPlayer");
+	musicPlayer.dataset.musicPlayed = musicId;
+	var nameTxt = document.getElementById("SongName");
+	nameTxt.innerHTML = author + " - " + name;
+	musicPlayer.src = url;
+
+	// Adding the class to audioPlayer if needed
+	var audioPlayer = document.getElementById("AudioPlayer");
+	if (!audioPlayer.classList.contains("show")) {
+		audioPlayer.classList.add("show");
 	}
 }
 
@@ -441,6 +441,15 @@ function toggleUploadSection() {
 	}else {
 		backgroundAppear();
 		document.getElementById("Upload").classList.add("appear");
+	}
+}
+
+// Toggle playlist reader section
+function togglePlaylistReaderSection() {
+	if (document.getElementById("PlaylistReader").classList.contains("show-playlist-reader")) {
+		document.getElementById("PlaylistReader").classList.remove("show-playlist-reader");		
+	}else {
+		document.getElementById("PlaylistReader").classList.add("show-playlist-reader");
 	}
 }
 
