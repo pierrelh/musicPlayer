@@ -9,7 +9,7 @@ var Volume = document.getElementById("Volume");
 var ProgressBar = document.getElementById("ProgressBar");
 var Time = document.getElementById("Time");
 var Start = document.getElementById("Start");
-var PlaylistReader = document.getElementById("PlaylistReader");
+var PlaylistBtn = document.getElementById("PlaylistBtn");
 
 // Handle the loop button click
 Loop.addEventListener("click", toggleLoop, false);
@@ -90,4 +90,4 @@ ProgressBar.addEventListener("input", function() {
 });
 
 // Handle the Playlist Reader button click
-PlaylistReader.addEventListener("click", togglePlaylistReaderSection, false);
+PlaylistBtn.addEventListener("click", togglePlaylistReaderSection, false);
