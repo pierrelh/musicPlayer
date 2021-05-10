@@ -269,6 +269,8 @@ function playLastMusic() {
 			var indexOfNextSong = indexOfCurrentSong - 1;
 		}	
 	}
+	console.log(indexOfCurrentSong)
+	console.log(usedPlaylist[indexOfNextSong])
 	// Play the previous music
 	playMusic(usedPlaylist[indexOfNextSong]);
 }
