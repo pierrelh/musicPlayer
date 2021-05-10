@@ -261,15 +261,13 @@ function playLastMusic() {
 		var usedPlaylist = playlist.slice();
 	}
 
-	if (player.currentTime > 5) {
-		var indexOfNextSong = playedMusicId;		
-	}else {
-		var indexOfCurrentSong = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current song in the playlist
+	var indexOfCurrentSong = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current song in the playlist
+	if (player.currentTime < 5) {
 		if (indexOfCurrentSong == 0) { // Check if the played music is the first one
 			var indexOfNextSong = 0;
 		}else { // The player rollback the playlist
 			var indexOfNextSong = indexOfCurrentSong - 1;
-		}
+		}	
 	}
 	// Play the previous music
 	playMusic(usedPlaylist[indexOfNextSong]);
