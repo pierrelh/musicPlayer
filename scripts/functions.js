@@ -268,11 +268,12 @@ function playLastMusic() {
 		}else { // The player rollback the playlist
 			var indexOfNextSong = indexOfCurrentSong - 1;
 		}	
+		// Play the previous music
+		playMusic(usedPlaylist[indexOfNextSong]);
+	} else {
+		// Rollback the current music
+		playMusic(usedPlaylist[indexOfCurrentSong]);
 	}
-	console.log(indexOfCurrentSong)
-	console.log(usedPlaylist[indexOfNextSong])
-	// Play the previous music
-	playMusic(usedPlaylist[indexOfNextSong]);
 }
 
 // Handle the play of the next music asked by the user
