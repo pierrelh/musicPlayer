@@ -3,15 +3,18 @@ class Reader {
 		this.Time			= document.getElementById("Time");
 		this.Start			= document.getElementById("Start");
 		this.Player 		= document.getElementById("MusicPlayer");
-		this.PlaylistBtn	= new ReaderProgressBar();
-		this.Loop			= new ReaderLoop();
-		this.PlayPause		= new ReaderPlayPause();
-		this.Random			= new ReaderRandom();
-		this.Mute			= new ReaderMute();		
-		this.Next			= new ReaderNext();
-		this.Volume			= new ReaderVolume();
-		this.Previous		= new ReaderPrevious();
-		this.ProgressBar	= new ReaderProgressBar();
+		this.PlaylistBtn	= document.getElementById("PlaylistBtn");
+		this.Loop			= document.getElementById("Loop");
+		this.LoopType		= "all"
+		this.PlayPause		= document.getElementById("PlayPause");
+		this.Random			= document.getElementById("Random");
+		this.IsRandom 		= false;
+		this.Mute			= document.getElementById("Mute");
+		this.IsMute 		= false;	
+		this.Next			= document.getElementById("Next");
+		this.Volume			= document.getElementById("Volume");
+		this.Previous		= document.getElementById("Previous");
+		this.ProgressBar	= document.getElementById("ProgressBar");
 		
 		// Handle the load of metadata of the MusicPlayer
 		this.Player.addEventListener("loadedmetadata", evt => this.Load());
@@ -30,91 +33,33 @@ class Reader {
 		
 		// Handle the on ended of the MusicPlayer
 		this.Player.addEventListener("ended", evt => this.Ended());
-	}
-
-	Ended() {
-		if (this.src != "") {
-			this.Next.Element.PlayNext(false);
-		}
-	}
-
-	Load() {
-		this.ProgressBar.Element.max = this.duration;
-		this.Time.innerHTML = getTime(this.duration);
-	}
-
-	TimeUpdate() {
-		this.ProgressBar.Element.value = this.currentTime;
-		this.Start.innerHTML = getTime(this.currentTime);
-		var percent = (this.ProgressBar.Element.value / (this.ProgressBar.Element.max - this.ProgressBar.Element.min)) * 100;
-		document.getElementById("ProgressBar").style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
-																		"color-stop(" + percent + "%, #FFF), " +
-																		"color-stop(" + percent + "%, rgb(50, 50, 50))" +
-																		")";
-	}
-
-	TogglePlayPause() {
-		this.PlayPause.Toggle();
-	}
-
-	VolumeChange() {
-		if (this.Player.volume != 0) {
-			this.Mute.src = "../../img/audio-on.png";
-		}else {
-			this.Mute.src = "../../img/audio-off.png";
-		}
-		var percent = playerVolume * 100;
-		this.Volume.value = percent;
-		this.Volume.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
-												"color-stop(" + percent + "%, #FFF), " +
-												"color-stop(" + percent + "%, #0B0B0B)" +
-												")";
-	}
-}
-
-class ReaderLoop {
-	constructor() {
-		this.Element 	= document.getElementById("Loop");
-		this.Type 		= "all";
 
 		// Handle the loop button click
-		this.Element.addEventListener("click", evt => this.Toggle());
-		return this;
-	}
-
-	Toggle() {
-		switch (this.Type) {
-			case "one": // Setting loop to none
-				this.Type = "none";
-				this.Element.src = "../../img/no-loop.png";
-				break;
-		
-			case "all": // Setting loop to one
-				this.Type = "one";
-				this.Element.src = "../../img/loop-one.png";
-				break;
-		
-			case "none": // Setting loop to all
-				this.Type = "all";
-				this.Element.src = "../../img/loop.png";
-				break;
-		
-			default: // Default: Setting loop to all
-				this.Type = "all";
-				this.Element.src = "../../img/loop.png";
-				break;
-		}
-	}
-}
-
-class ReaderPrevious {
-	constructor() {
-		this.Element 	= document.getElementById("Previous");
-		this.Type 		= "all";
+		this.Loop.addEventListener("click", evt => this.ToggleLoop());
 
 		// Handle the Previous button click
-		this.Element.addEventListener("click", evt => this.PlayLastMusic());
-		return this;
+		this.Previous.addEventListener("click", evt => this.PlayLastMusic());
+
+		// Handle the Previous button click
+		this.PlayPause.addEventListener("click", evt => this.TogglePlayPauseButton());
+		
+		// Handle the Random button click
+		this.Random.addEventListener("click", evt => this.ToggleRandom());
+
+		// Handle the Next button click
+		this.Next.addEventListener("click", evt => this.PlayNext(true));
+		
+		// Handle the Mute button click
+		this.Mute.addEventListener("click", evt => this.ToggleMute());
+
+		// Handle the volume slider actions
+		this.Volume.addEventListener("input", VolumeSliderChange())
+		
+		// Handle the input of the ProgressBar
+		this.ProgressBar.addEventListener("input", this.ChangeTime());
+		
+		// Handle the Playlist Reader button click
+		this.PlaylistBtn.addEventListener("click", this.TogglePlaylist());
 	}
 
 	// Handle the play of the previous music asked by the user
@@ -122,7 +67,7 @@ class ReaderPrevious {
 		var playedMusicId = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the played music
 		var player = document.getElementById("MusicPlayer");
 		// Choose witch playlist to use
-		if (reader.Random.IsRandom) {
+		if (this.IsRandom) {
 			var usedPlaylist = randomPlaylist.slice();
 		}else {
 			var usedPlaylist = playlist.slice();
@@ -142,69 +87,50 @@ class ReaderPrevious {
 			playMusic(usedPlaylist[indexOfCurrentSong]);
 		}
 	}
-}
 
-class ReaderPlayPause {
-	constructor() {
-		this.Element 	= document.getElementById("PlayPause");
-		this.Type 		= "all";
-
-		// Handle the Previous button click
-		this.Element.addEventListener("click", evt => this.Toggle());
-		return this;
+	Ended() {
+		if (this.src != "") {
+			this.Next.PlayNext(false);
+		}
 	}
 
-	Toggle() {
-		switch (reader.Player.paused) {
-			case true: // Play the audio
-				this.Element.src = "../../img/pause.png";
-				reader.Player.play();
+	ToggleLoop() {
+		switch (this.LoopType) {
+			case "one": // Setting loop to none
+				this.Type = "none";
+				this.Loop.src = "../../img/no-loop.png";
 				break;
 		
-			case false: // Pause the audio
-				this.Element.src = "../../img/play.png";
-				reader.Player.pause();
+			case "all": // Setting loop to one
+				this.LoopType = "one";
+				this.Loop.src = "../../img/loop-one.png";
 				break;
 		
-			default: // Default: Pause the audio
-				this.Element.src = "../../img/play.png";
-				reader.Player.pause();
+			case "none": // Setting loop to all
+				this.LoopType = "all";
+				this.Loop.src = "../../img/loop.png";
+				break;
+		
+			default: // Default: Setting loop to all
+				this.LoopType = "all";
+				this.Loop.src = "../../img/loop.png";
 				break;
 		}
 	}
-}
 
-class ReaderRandom {
-	constructor() {
-		this.Element 	= document.getElementById("Random");
-		this.IsRandom 		= false;
-		
-		// Handle the Random button click
-		this.Element.addEventListener("click", evt => this.Toggle());
-		return this;
+	Load() {
+		this.ProgressBar.max = this.duration;
+		this.Time.innerHTML = getTime(this.duration);
 	}
 
-	// Handle the Random button actions
-	Toggle() {
-		if (this.IsRandom) {
-			this.IsRandom = false;
-			this.Element.src = "../../img/no-random.png";			
-		} else {
-			randomPlaylist = playlist.slice();
-			shuffle(randomPlaylist); // Creating the random playlist
-			this.IsRandom = true;
-			this.Element.src = "../../img/random.png";
-		}
-	}
-}
-
-class ReaderNext {
-	constructor() {
-		this.Element = document.getElementById("Next");
-				
-		// Handle the Next button click
-		this.Element.addEventListener("click", evt => this.PlayNext(true));
-		return this;
+	TimeUpdate() {
+		this.ProgressBar.value = this.currentTime;
+		this.Start.innerHTML = getTime(this.currentTime);
+		var percent = (this.ProgressBar.value / (this.ProgressBar.max - this.ProgressBar.min)) * 100;
+		this.ProgressBar.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
+													"color-stop(" + percent + "%, #FFF), " +
+													"color-stop(" + percent + "%, rgb(50, 50, 50))" +
+													")";
 	}
 
 	// Handle the play of the next music asked by the user
@@ -242,72 +168,80 @@ class ReaderNext {
 		// Play the next music
 		playMusic(usedPlaylist[indexOfNextSong]);
 	}
-}
 
-class ReaderMute {
-	constructor() {
-		this.Element = document.getElementById("Mute")
-		this.IsMute = false;
-		this.Volume = 0;
+	TogglePlayPauseButton() {
+		switch (this.Player.paused) {
+			case true: // Play the audio
+				this.PlayPause.src = "../../img/pause.png";
+				this.Player.play();
+				break;
 		
-		// Handle the Mute button click
-		this.Element.addEventListener("click", evt => this.Toggle());
-		return this;
+			case false: // Pause the audio
+				this.PlayPause.src = "../../img/play.png";
+				this.Player.pause();
+				break;
+		
+			default: // Default: Pause the audio
+				this.PlayPause.src = "../../img/play.png";
+				this.Player.pause();
+				break;
+		}
+	}
+
+	TogglePlayPause() {
+		this.TogglePlayPauseButton();
 	}
 
 	// Handle the Mute button actions
-	Toggle() {
+	ToggleMute() {
 		if (this.IsMute) {
-			reader.Player.volume = this.Volume;
-			this.Element.src = "../../img/audio-on.png";
+			this.Player.volume = this.Volume;
+			this.Mute.src = "../../img/audio-on.png";
 			this.IsMute = false;		
 		} else {
-			reader.Player.volume = 0;
-			this.Element.src = "../../img/audio-off.png";
+			this.Player.volume = 0;
+			this.Mute.src = "../../img/audio-off.png";
 			this.IsMute = true;		
 		}
 	}
-}
 
-class ReaderVolume {
-	constructor() {
-		this.Element = document.getElementById("Volume")
-
-		// Handle the volume slider actions
-		this.Element.addEventListener("input", Change())
-		return this;
+	// Handle the Random button actions
+	ToggleRandom() {
+		if (this.IsRandom) {
+			this.IsRandom = false;
+			this.Random.src = "../../img/no-random.png";			
+		} else {
+			randomPlaylist = playlist.slice();
+			shuffle(randomPlaylist); // Creating the random playlist
+			this.IsRandom = true;
+			this.Random.src = "../../img/random.png";
+		}
 	}
 
-	Change() {
-		reader.Player.volume = this.value / 100;
+	VolumeSliderChange() {
+		this.Player.volume = this.Volume.value / 100;
 	}
-}
 
-class ReaderProgressBar {
-	constructor() {
-		this.Element = document.getElementById("ProgressBar")
-		
-		// Handle the input of the ProgressBar
-		this.Element.addEventListener("input", this.ChangeTime());
-		return this;
+	VolumeChange() {
+		if (this.Player.volume != 0) {
+			this.Mute.src = "../../img/audio-on.png";
+		}else {
+			this.Mute.src = "../../img/audio-off.png";
+		}
+		var percent = playerVolume * 100;
+		this.Volume.value = percent;
+		this.Volume.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
+												"color-stop(" + percent + "%, #FFF), " +
+												"color-stop(" + percent + "%, #0B0B0B)" +
+												")";
 	}
 
 	ChangeTime() {
-		reader.Player.currentTime = reader.Player.duration / this.max * this.value;
-	}
-}
-
-class ReaderPlaylist {
-	constructor() {
-		this.Element = document.getElementById("PlaylistBtn")
-		
-		// Handle the Playlist Reader button click
-		this.Element.addEventListener("click", this.Toggle());
-		return this;
+		this.Player.currentTime = this.Player.duration / this.ProgressBar.max * this.ProgressBar.value;
 	}
 
 	// Toggle playlist reader section
-	Toggle() {
+	TogglePlaylist() {
 		if (this.classList.contains("show-playlist-reader")) {
 			this.classList.remove("show-playlist-reader");		
 		}else {
