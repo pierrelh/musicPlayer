@@ -144,7 +144,9 @@ class Reader {
 				var usedPlaylist = MusicsPlaylist.slice();
 			}
 	
+			console.log(this.PlayedMusic)
 			var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(this.PlayedMusic)); // Getting the position of the current music in the playlist
+			console.log(indexOfCurrentMusic)
 			if (indexOfCurrentMusic == (usedPlaylist.length) - 1) { // Check if the played music is the last one
 				if (this.LoopType == "none") { // The player will not restart the playlist
 					return;
@@ -175,10 +177,10 @@ class Reader {
 				var indexOfNextMusic = indexOfCurrentMusic - 1;
 			}	
 			// Play the previous music
-			playMusic(usedPlaylist[indexOfNextMusic]);
+			this.PlayMusic(usedPlaylist[indexOfNextMusic]);
 		} else {
 			// Rollback the current music
-			playMusic(usedPlaylist[indexOfCurrentMusic]);
+			this.PlayMusic(usedPlaylist[indexOfCurrentMusic]);
 		}
 	}
 
