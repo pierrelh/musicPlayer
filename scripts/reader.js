@@ -100,6 +100,7 @@ class Reader {
 
 	// Play the passed music
 	PlayMusic(id) {
+		console.log(id)
 		console.log(MusicsPlaylist[id])
 		var music = MusicsPlaylist[id];
 	
