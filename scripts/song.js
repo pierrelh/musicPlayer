@@ -1,5 +1,19 @@
 var playedMusic = -1;
 
+class PlayingLayout {
+	constructor() {
+		this.Element	= document.createElement("li");
+		this.Element.id	= "PlayedMusic";
+		this.Element.classList.add("playing");
+	}
+
+	Change(parent) {
+		this.Element.remove();
+		parent.appendChild(this.Element)
+	}
+}
+var playingLayout = new PlayingLayout();
+
 class Song {
 	constructor(data, id) {
 		this.Element	= document.createElement("ul");
@@ -54,19 +68,4 @@ class SongTitle {
 		return this.Element;
 	}
 }
-
-class PlayingLayout {
-	constructor() {
-		this.Element	= document.createElement("li");
-		this.Element.id	= "PlayedMusic";
-		this.Element.classList.add("playing");
-	}
-
-	Change(parent) {
-		this.Element.remove();
-		parent.appendChild(this.Element)
-	}
-}
-
-var playingLayout = new PlayingLayout();
 

@@ -236,6 +236,7 @@ function playMusic(song) {
 	var nameTxt = document.getElementById("SongName");
 	nameTxt.innerHTML = song.Artist + " - " + song.Title;
 	musicPlayer.src = song.URL;
+	song.SetPlayed()
 
 	// Adding the class to audioPlayer if needed
 	var audioPlayer = document.getElementById("AudioPlayer");
