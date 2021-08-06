@@ -9,14 +9,14 @@ class Song {
 		this.Cover		= data["file_image"];
 		this.ID			= id;
 		this.Element.addEventListener("click", evt => playMusic(this));
-		console.log(data)
 	}
 
 	Create() {
+		console.log(this)
 		var cover = new SongCover().Create(this.Cover)
 		this.Element.appendChild(cover)
 		
-		var title = new SongTitle().Create(this.Artist, this.Name)
+		var title = new SongTitle().Create(this.Artist, this.Title)
 		this.Element.appendChild(title)
 
 		return this.Element;
