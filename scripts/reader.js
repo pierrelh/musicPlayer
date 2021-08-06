@@ -17,7 +17,7 @@ class Reader {
 		this.Previous		= document.getElementById("Previous");
 		this.ProgressBar	= document.getElementById("ProgressBar");
 		this.MusicName		= document.getElementById("MusicName");
-		this.PlayedMusic	= undefined;
+		this.PlayedMusicID	= -1;
 		
 		// Handle the load of metadata of the MusicPlayer
 		this.Player.addEventListener("loadedmetadata", evt => this.Load());
@@ -99,8 +99,9 @@ class Reader {
 	}
 
 	// Play the passed music
-	PlayMusic(music) {
-		console.log(MusicsPlaylist)
+	PlayMusic(id) {
+		console.log(MusicsPlaylist[id])
+		var music = MusicsPlaylist[id];
 	
 		// Adding the class to LibraryObjects if needed
 		var library = document.getElementById("LibraryObjects");
@@ -119,7 +120,7 @@ class Reader {
 			mediaSessionSetData(music)
 		}
 
-		this.PlayedMusic = music;
+		this.PlayedMusicID = music.ID;
 		this.MusicName.innerHTML = music.Artist + " - " + music.Title;
 		this.Player.src = music.URL;
 		music.SetPlayed()
@@ -135,7 +136,7 @@ class Reader {
 	PlayNextMusic(isSkiped) {	
 		// Check if the reader should loop on the same music or not
 		if (!isSkiped && this.LoopType == "one") {
-			var indexOfNextMusic = this.PlayedMusic; // Getting the id of the current music
+			var indexOfNextMusic = this.PlayedMusicID; // Getting the id of the current music
 		}else {
 			// Choose witch playlist to use
 			if (this.isRandom) {
@@ -144,8 +145,8 @@ class Reader {
 				var usedPlaylist = MusicsPlaylist.slice();
 			}
 	
-			console.log(this.PlayedMusic)
-			var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(this.PlayedMusic)); // Getting the position of the current music in the playlist
+			console.log(this.PlayedMusicID)
+			var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(this.PlayedMusicID)); // Getting the position of the current music in the playlist
 			console.log(indexOfCurrentMusic)
 			if (indexOfCurrentMusic == (usedPlaylist.length) - 1) { // Check if the played music is the last one
 				if (this.LoopType == "none") { // The player will not restart the playlist
@@ -169,7 +170,7 @@ class Reader {
 			var usedPlaylist = MusicsPlaylist.slice();
 		}
 		
-		var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(this.PlayedMusic)); // Getting the position of the current music in the playlist
+		var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(this.PlayedMusicID)); // Getting the position of the current music in the playlist
 		if (this.Player.currentTime < 5) {
 			if (indexOfCurrentMusic == 0) { // Check if the played music is the first one
 				var indexOfNextMusic = 0;
