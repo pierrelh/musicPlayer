@@ -191,24 +191,19 @@ function seekTo(data) {
 }
 
 // Play the passed music
-function playMusic(musicId) {    
-	if (document.getElementById("PlayedMusic") != undefined) { // Checking if there is a played music template
-	  document.getElementById("PlayedMusic").remove(); // Remove it if exist
-	}
+function playMusic(song) {
+	console.log(song)
+	// if (document.getElementById("PlayedMusic") != undefined) { // Checking if there is a played music template
+	//   document.getElementById("PlayedMusic").remove(); // Remove it if exist
+	// }
 
-	var music = document.getElementById("Music" + musicId); // Getting the element of the new played music
-	var playing = document.createElement("li"); // Creating a new played music template
-	playing.id = "PlayedMusic";
-	playing.classList.add("playing");
-	var parent = document.getElementById("MusicList" + musicId);
-	parent.insertBefore(playing, music); // Adding the template
-	
-	// Getting all the new music's attributes
-	var url = music.getAttribute("data-url");
-	var author = music.getAttribute("data-artist");
-	var name = music.getAttribute("data-title");
-	var album = music.getAttribute("data-album");
-	var cover = music.getAttribute("data-img");
+
+	// var music = document.getElementById("Music" + musicId); // Getting the element of the new played music
+	// var playing = document.createElement("li"); // Creating a new played music template
+	// playing.id = "PlayedMusic";
+	// playing.classList.add("playing");
+	// var parent = document.getElementById("MusicList" + musicId);
+	// parent.insertBefore(playing, music); // Adding the template
 
 	// Adding the class to LibraryObjects if needed
 	var library = document.getElementById("LibraryObjects");
@@ -225,11 +220,11 @@ function playMusic(musicId) {
 	// Setting the mediaSession metadatas
 	if ('mediaSession' in navigator) {
 		navigator.mediaSession.metadata = new MediaMetadata({
-			title: htmlDecode(name),
-			artist: htmlDecode(author),
-			album: htmlDecode(album),
+			title: htmlDecode(song.Title),
+			artist: htmlDecode(song.Artist),
+			album: htmlDecode(song.Album),
 			artwork: [
-				{src: cover, sizes: '150x150', type: 'image/png'}	
+				{src: song.Cover, sizes: '150x150', type: 'image/png'}	
 			]
 		
 		});
@@ -237,10 +232,10 @@ function playMusic(musicId) {
 	
 	// Setting the new attributes in the musicPlayer
 	var musicPlayer = document.getElementById("MusicPlayer");
-	musicPlayer.dataset.musicPlayed = musicId;
+	// musicPlayer.dataset.musicPlayed = musicId;
 	var nameTxt = document.getElementById("SongName");
-	nameTxt.innerHTML = author + " - " + name;
-	musicPlayer.src = url;
+	nameTxt.innerHTML = song.Artist + " - " + song.Title;
+	musicPlayer.src = song.URL;
 
 	// Adding the class to audioPlayer if needed
 	var audioPlayer = document.getElementById("AudioPlayer");
