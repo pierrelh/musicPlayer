@@ -15,8 +15,8 @@ function openPlaylist(identifier) {
 					checkPlaylistSection();
 					playlist = [];
 					for (var i = 0; i < data.length; i++) {
-						var song = new Song(data[i], i).Create();
-						library.appendChild(song);
+						var music = new Music(data[i], i).Create();
+						library.appendChild(music);
 					};
 				}
 			}

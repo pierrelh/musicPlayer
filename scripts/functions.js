@@ -92,33 +92,6 @@ function seekTo(data) {
     }
 }
 
-// Handle the play of the previous music asked by the user
-// function playLastMusic() {
-// 	var playedMusicId = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the played music
-// 	var isRandom = document.getElementById("Random").dataset.random; // Getting the random setting
-// 	var player = document.getElementById("MusicPlayer");
-// 	// Choose witch playlist to use
-// 	if (isRandom == "true") {
-// 		var usedPlaylist = randomPlaylist.slice();
-// 	}else {
-// 		var usedPlaylist = playlist.slice();
-// 	}
-
-// 	var indexOfCurrentSong = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current song in the playlist
-// 	if (player.currentTime < 5) {
-// 		if (indexOfCurrentSong == 0) { // Check if the played music is the first one
-// 			var indexOfNextSong = 0;
-// 		}else { // The player rollback the playlist
-// 			var indexOfNextSong = indexOfCurrentSong - 1;
-// 		}	
-// 		// Play the previous music
-// 		playMusic(usedPlaylist[indexOfNextSong]);
-// 	} else {
-// 		// Rollback the current music
-// 		playMusic(usedPlaylist[indexOfCurrentSong]);
-// 	}
-// }
-
 // Progress +10 secondes to the played music
 function seekForward() {
 	document.getElementById("MusicPlayer").currentTime += 10;

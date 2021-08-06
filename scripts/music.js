@@ -14,14 +14,14 @@ class PlayingLayout {
 }
 var playingLayout = new PlayingLayout();
 
-class Song {
+class Music {
 	constructor(data, id) {
 		this.Element	= document.createElement("ul");
 		this.Artist		= data["file_author"];
 		this.Title		= data["file_name"];
 		this.Album		= data["file_album"];
 		this.URL		= data["file_url"];
-		this.SongID		= data["file_id"];
+		this.MusicID		= data["file_id"];
 		this.Cover		= data["file_image"];
 		this.ID			= id;
 		this.Played		= false;
@@ -30,10 +30,10 @@ class Song {
 	}
 
 	Create() {
-		var cover = new SongCover().Create(this.Cover)
+		var cover = new MusicCover().Create(this.Cover)
 		this.Element.appendChild(cover)
 		
-		var title = new SongTitle().Create(this.Artist, this.Title)
+		var title = new MusicTitle().Create(this.Artist, this.Title)
 		this.Element.appendChild(title)
 
 		return this.Element;
@@ -45,7 +45,7 @@ class Song {
 	}
 }
 
-class SongCover {
+class MusicCover {
 	constructor() {
 		this.Element = document.createElement("li");
 	}
@@ -58,7 +58,7 @@ class SongCover {
 	}
 }
 
-class SongTitle {
+class MusicTitle {
 	constructor() {
 		this.Element = document.createElement("li");
 		this.Title = document.createElement("p");

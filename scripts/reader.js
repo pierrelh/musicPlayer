@@ -16,8 +16,8 @@ class Reader {
 		this.Volume			= 0;
 		this.Previous		= document.getElementById("Previous");
 		this.ProgressBar	= document.getElementById("ProgressBar");
-		this.SongName		= document.getElementById("SongName");
-		this.PlayedSongID	= undefined;
+		this.MusicName		= document.getElementById("MusicName");
+		this.PlayedMusicID	= undefined;
 		
 		// Handle the load of metadata of the MusicPlayer
 		this.Player.addEventListener("loadedmetadata", evt => this.Load());
@@ -81,8 +81,8 @@ class Reader {
 	}
 
 	// Play the passed music
-	PlayMusic(song) {
-		console.log(song)
+	PlayMusic(music) {
+		console.log(music)
 	
 		// Adding the class to LibraryObjects if needed
 		var library = document.getElementById("LibraryObjects");
@@ -99,20 +99,20 @@ class Reader {
 		// Setting the mediaSession metadatas
 		if ('mediaSession' in navigator) {
 			navigator.mediaSession.metadata = new MediaMetadata({
-				title: htmlDecode(song.Title),
-				artist: htmlDecode(song.Artist),
-				album: htmlDecode(song.Album),
+				title: htmlDecode(music.Title),
+				artist: htmlDecode(music.Artist),
+				album: htmlDecode(music.Album),
 				artwork: [
-					{src: song.Cover, sizes: '150x150', type: 'image/png'}	
+					{src: music.Cover, sizes: '150x150', type: 'image/png'}	
 				]
 			
 			});
 		}
 
-		this.PlayedSongID = sond.ID;
-		this.SongName.innerHTML = song.Artist + " - " + song.Title;
-		this.Player.src = song.URL;
-		song.SetPlayed()
+		this.PlayedMusicID = music.ID;
+		this.MusicName.innerHTML = music.Artist + " - " + music.Title;
+		this.Player.src = music.URL;
+		music.SetPlayed()
 	
 		// Adding the class to audioPlayer if needed
 		var audioPlayer = document.getElementById("AudioPlayer");
@@ -130,7 +130,7 @@ class Reader {
 	
 		// Check if the reader should loop on the same music or not
 		if (!isSkiped && this.LoopType == "one") {
-			var indexOfNextSong = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the current music
+			var indexOfNextMusic = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the current music
 		}else {
 			// Choose witch playlist to use
 			if (this.isRandom) {
@@ -139,20 +139,20 @@ class Reader {
 				var usedPlaylist = playlist.slice();
 			}
 	
-			var indexOfCurrentSong = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current song in the playlist
-			if (indexOfCurrentSong == (usedPlaylist.length) - 1) { // Check if the played music is the last one
+			var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current music in the playlist
+			if (indexOfCurrentMusic == (usedPlaylist.length) - 1) { // Check if the played music is the last one
 				if (document.getElementById("Loop").dataset.loop == "none") { // The player will not restart the playlist
 					return;
 				}else { // The player will restart the playlist
-					var indexOfNextSong = 0;
+					var indexOfNextMusic = 0;
 				}
 			}else { // The player continu the playlist
-				var indexOfNextSong = indexOfCurrentSong + 1;
+				var indexOfNextMusic = indexOfCurrentMusic + 1;
 			}
 	
 		}    
 		// Play the next music
-		playMusic(usedPlaylist[indexOfNextSong]);
+		playMusic(usedPlaylist[indexOfNextMusic]);
 	}
 
 	// Handle the play of the previous music asked by the user
@@ -166,18 +166,18 @@ class Reader {
 			var usedPlaylist = playlist.slice();
 		}
 		
-		var indexOfCurrentSong = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current song in the playlist
+		var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current music in the playlist
 		if (player.currentTime < 5) {
-			if (indexOfCurrentSong == 0) { // Check if the played music is the first one
-				var indexOfNextSong = 0;
+			if (indexOfCurrentMusic == 0) { // Check if the played music is the first one
+				var indexOfNextMusic = 0;
 			}else { // The player rollback the playlist
-				var indexOfNextSong = indexOfCurrentSong - 1;
+				var indexOfNextMusic = indexOfCurrentMusic - 1;
 			}	
 			// Play the previous music
-			playMusic(usedPlaylist[indexOfNextSong]);
+			playMusic(usedPlaylist[indexOfNextMusic]);
 		} else {
 			// Rollback the current music
-			playMusic(usedPlaylist[indexOfCurrentSong]);
+			playMusic(usedPlaylist[indexOfCurrentMusic]);
 		}
 	}
 
