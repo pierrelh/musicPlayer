@@ -12,8 +12,6 @@ class Song {
 	}
 
 	Create() {
-		this.CoverElement.className = "view";
-
 		var cover = new SongCover().Create(this.Cover)
 		this.Element.appendChild(cover)
 		
