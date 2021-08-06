@@ -92,50 +92,6 @@ function seekTo(data) {
     }
 }
 
-// Play the passed music
-function playMusic(song) {
-	console.log(song)
-
-	// Adding the class to LibraryObjects if needed
-	var library = document.getElementById("LibraryObjects");
-	if (!library.classList.contains("library-reader-active")) {
-		library.classList.add("library-reader-active");
-	}
-	
-	// Adding the class to divPlaylist if needed
-	var playlist = document.getElementById("DivPlaylist");
-	if (!playlist.classList.contains("playlist-reader-showed")) {
-		playlist.classList.add("playlist-reader-showed");
-	}
-
-	// Setting the mediaSession metadatas
-	if ('mediaSession' in navigator) {
-		navigator.mediaSession.metadata = new MediaMetadata({
-			title: htmlDecode(song.Title),
-			artist: htmlDecode(song.Artist),
-			album: htmlDecode(song.Album),
-			artwork: [
-				{src: song.Cover, sizes: '150x150', type: 'image/png'}	
-			]
-		
-		});
-	}
-	
-	// Setting the new attributes in the musicPlayer
-	var musicPlayer = document.getElementById("MusicPlayer");
-	// musicPlayer.dataset.musicPlayed = musicId;
-	var nameTxt = document.getElementById("SongName");
-	nameTxt.innerHTML = song.Artist + " - " + song.Title;
-	musicPlayer.src = song.URL;
-	song.SetPlayed()
-
-	// Adding the class to audioPlayer if needed
-	var audioPlayer = document.getElementById("AudioPlayer");
-	if (!audioPlayer.classList.contains("show")) {
-		audioPlayer.classList.add("show");
-	}
-}
-
 // Handle the play of the previous music asked by the user
 // function playLastMusic() {
 // 	var playedMusicId = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the played music

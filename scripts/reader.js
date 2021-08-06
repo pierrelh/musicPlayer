@@ -16,6 +16,8 @@ class Reader {
 		this.Volume			= 0;
 		this.Previous		= document.getElementById("Previous");
 		this.ProgressBar	= document.getElementById("ProgressBar");
+		this.SongName		= document.getElementById("SongName");
+		this.PlayedSongID	= undefined;
 		
 		// Handle the load of metadata of the MusicPlayer
 		this.Player.addEventListener("loadedmetadata", evt => this.Load());
@@ -63,6 +65,96 @@ class Reader {
 		this.PlaylistBtn.addEventListener("click", evt => this.TogglePlaylist());
 	}
 
+	ChangeTime() {
+		this.Player.currentTime = this.Player.duration / this.ProgressBar.max * this.ProgressBar.value;
+	}
+
+	Ended() {
+		if (this.src != "") {
+			this.Next.PlayNext(false);
+		}
+	}
+
+	Load() {
+		this.ProgressBar.max = this.Player.duration;
+		this.Time.innerHTML = getTime(this.Player.duration);
+	}
+
+	// Play the passed music
+	PlayMusic(song) {
+		console.log(song)
+	
+		// Adding the class to LibraryObjects if needed
+		var library = document.getElementById("LibraryObjects");
+		if (!library.classList.contains("library-reader-active")) {
+			library.classList.add("library-reader-active");
+		}
+		
+		// Adding the class to divPlaylist if needed
+		var playlist = document.getElementById("DivPlaylist");
+		if (!playlist.classList.contains("playlist-reader-showed")) {
+			playlist.classList.add("playlist-reader-showed");
+		}
+	
+		// Setting the mediaSession metadatas
+		if ('mediaSession' in navigator) {
+			navigator.mediaSession.metadata = new MediaMetadata({
+				title: htmlDecode(song.Title),
+				artist: htmlDecode(song.Artist),
+				album: htmlDecode(song.Album),
+				artwork: [
+					{src: song.Cover, sizes: '150x150', type: 'image/png'}	
+				]
+			
+			});
+		}
+
+		this.PlayedSongID = sond.ID;
+		this.SongName.innerHTML = song.Artist + " - " + song.Title;
+		this.Player.src = song.URL;
+		song.SetPlayed()
+	
+		// Adding the class to audioPlayer if needed
+		var audioPlayer = document.getElementById("AudioPlayer");
+		if (!audioPlayer.classList.contains("show")) {
+			audioPlayer.classList.add("show");
+		}
+	}
+
+	// Handle the play of the next music asked by the user
+	PlayNextMusic(isSkiped) {
+		var playedMusicId = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the played music
+		if (isSkiped === undefined) {
+			isSkiped = true;// Setting a default value if undefined
+		}
+	
+		// Check if the reader should loop on the same music or not
+		if (!isSkiped && this.LoopType == "one") {
+			var indexOfNextSong = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the current music
+		}else {
+			// Choose witch playlist to use
+			if (this.isRandom) {
+				var usedPlaylist = randomPlaylist.slice();
+			}else {
+				var usedPlaylist = playlist.slice();
+			}
+	
+			var indexOfCurrentSong = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current song in the playlist
+			if (indexOfCurrentSong == (usedPlaylist.length) - 1) { // Check if the played music is the last one
+				if (document.getElementById("Loop").dataset.loop == "none") { // The player will not restart the playlist
+					return;
+				}else { // The player will restart the playlist
+					var indexOfNextSong = 0;
+				}
+			}else { // The player continu the playlist
+				var indexOfNextSong = indexOfCurrentSong + 1;
+			}
+	
+		}    
+		// Play the next music
+		playMusic(usedPlaylist[indexOfNextSong]);
+	}
+
 	// Handle the play of the previous music asked by the user
 	PlayLastMusic() {
 		var playedMusicId = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the played music
@@ -89,10 +181,14 @@ class Reader {
 		}
 	}
 
-	Ended() {
-		if (this.src != "") {
-			this.Next.PlayNext(false);
-		}
+	TimeUpdate() {
+		this.ProgressBar.value = this.Player.currentTime;
+		this.Start.innerHTML = getTime(this.Player.currentTime);
+		var percent = (this.ProgressBar.value / (this.ProgressBar.max - this.ProgressBar.min)) * 100;
+		this.ProgressBar.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
+													"color-stop(" + percent + "%, #FFF), " +
+													"color-stop(" + percent + "%, rgb(50, 50, 50))" +
+													")";
 	}
 
 	ToggleLoop() {
@@ -119,66 +215,26 @@ class Reader {
 		}
 	}
 
-	Load() {
-		this.ProgressBar.max = this.Player.duration;
-		this.Time.innerHTML = getTime(this.Player.duration);
-	}
-
-	TimeUpdate() {
-		this.ProgressBar.value = this.Player.currentTime;
-		this.Start.innerHTML = getTime(this.Player.currentTime);
-		var percent = (this.ProgressBar.value / (this.ProgressBar.max - this.ProgressBar.min)) * 100;
-		this.ProgressBar.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
-													"color-stop(" + percent + "%, #FFF), " +
-													"color-stop(" + percent + "%, rgb(50, 50, 50))" +
-													")";
-	}
-
-	// Handle the play of the next music asked by the user
-	PlayNextMusic(isSkiped) {
-		var isRandom = document.getElementById("Random").dataset.random; // Getting the random setting
-		var playedMusicId = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the played music
-		var loop = document.getElementById("Loop").dataset.loop; // Getting the loop setting
-		if (isSkiped === undefined) {
-			isSkiped = true;// Setting a default value if undefined
+	// Handle the Mute button actions
+	ToggleMute() {
+		if (this.IsMute) {
+			this.Player.volume = this.Volume;
+			this.Mute.src = "../../img/audio-on.png";
+			this.IsMute = false;		
+		} else {
+			this.Volume = this.Player.volume;
+			this.Player.volume = 0;
+			this.Mute.src = "../../img/audio-off.png";
+			this.IsMute = true;		
 		}
-	
-		// Check if the reader should loop on the same music or not
-		if (!isSkiped && loop == "one") {
-			var indexOfNextSong = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the current music
-		}else {
-			// Choose witch playlist to use
-			if (isRandom == "true") {
-				var usedPlaylist = randomPlaylist.slice();
-			}else {
-				var usedPlaylist = playlist.slice();
-			}
-	
-			var indexOfCurrentSong = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current song in the playlist
-			if (indexOfCurrentSong == (usedPlaylist.length) - 1) { // Check if the played music is the last one
-				if (document.getElementById("Loop").dataset.loop == "none") { // The player will not restart the playlist
-					return;
-				}else { // The player will restart the playlist
-					var indexOfNextSong = 0;
-				}
-			}else { // The player continu the playlist
-				var indexOfNextSong = indexOfCurrentSong + 1;
-			}
-	
-		}    
-		// Play the next music
-		playMusic(usedPlaylist[indexOfNextSong]);
 	}
 
-	TogglePlayPauseButton() {
-		switch (this.Player.paused) {
-			case true: // Play the audio
-				this.Player.play();
-				break;
-		
-			case false: // Pause the audio
-				this.Player.pause();
-				break;
+	// Toggle playlist reader section
+	TogglePlaylist() {
+		if (this.PlaylistBtn.classList.contains("show-playlist-reader")) {
+			this.PlaylistBtn.classList.remove("show-playlist-reader");		
+		}else {
+			this.PlaylistBtn.classList.add("show-playlist-reader");
 		}
 	}
 
@@ -194,17 +250,15 @@ class Reader {
 		}
 	}
 
-	// Handle the Mute button actions
-	ToggleMute() {
-		if (this.IsMute) {
-			this.Player.volume = this.Volume;
-			this.Mute.src = "../../img/audio-on.png";
-			this.IsMute = false;		
-		} else {
-			this.Volume = this.Player.volume;
-			this.Player.volume = 0;
-			this.Mute.src = "../../img/audio-off.png";
-			this.IsMute = true;		
+	TogglePlayPauseButton() {
+		switch (this.Player.paused) {
+			case true: // Play the audio
+				this.Player.play();
+				break;
+		
+			case false: // Pause the audio
+				this.Player.pause();
+				break;
 		}
 	}
 
@@ -237,19 +291,6 @@ class Reader {
 												"color-stop(" + percent + "%, #FFF), " +
 												"color-stop(" + percent + "%, #0B0B0B)" +
 												")";
-	}
-
-	ChangeTime() {
-		this.Player.currentTime = this.Player.duration / this.ProgressBar.max * this.ProgressBar.value;
-	}
-
-	// Toggle playlist reader section
-	TogglePlaylist() {
-		if (this.PlaylistBtn.classList.contains("show-playlist-reader")) {
-			this.PlaylistBtn.classList.remove("show-playlist-reader");		
-		}else {
-			this.PlaylistBtn.classList.add("show-playlist-reader");
-		}
 	}
 }
 
