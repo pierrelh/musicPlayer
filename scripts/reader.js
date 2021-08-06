@@ -1,3 +1,39 @@
+class Loop {
+	constructor() {
+		this.Element 	= document.getElementById("Loop");
+		this.Type 		= "all";
+
+		// Handle the loop button click
+		this.Element.addEventListener("click", evt => this.Toggle());
+		return this;
+	}
+
+	Toggle() {
+		console.log("toggle")
+		switch (this.Type) {
+			case "one": // Setting loop to none
+				this.Type = "none";
+				this.Element.src = "../../img/no-loop.png";
+				break;
+		
+			case "all": // Setting loop to one
+				this.Type = "one";
+				this.Element.src = "../../img/loop-one.png";
+				break;
+		
+			case "none": // Setting loop to all
+				this.Type = "all";
+				this.Element.src = "../../img/loop.png";
+				break;
+		
+			default: // Default: Setting loop to all
+				this.Type = "all";
+				this.Element.src = "../../img/loop.png";
+				break;
+		}
+	}
+}
+
 class Reader {
 	constructor() {
 		this.MusicPlayer	= document.getElementById("MusicPlayer");
@@ -92,42 +128,6 @@ class Reader {
 
 	ChangeTime() {
 		this.MusicPlayer.currentTime = this.MusicPlayer.duration / this.ProgressBar.max * this.ProgressBar.value;
-	}
-}
-
-class Loop {
-	constructor() {
-		this.Element 	= document.getElementById("Loop");
-		this.Type 		= "all";
-
-		// Handle the loop button click
-		this.Element.addEventListener("click", this.Toggle());
-		return this;
-	}
-
-	Toggle() {
-		console.log("toggle")
-		switch (this.Type) {
-			case "one": // Setting loop to none
-				this.Type = "none";
-				this.Element.src = "../../img/no-loop.png";
-				break;
-		
-			case "all": // Setting loop to one
-				this.Type = "one";
-				this.Element.src = "../../img/loop-one.png";
-				break;
-		
-			case "none": // Setting loop to all
-				this.Type = "all";
-				this.Element.src = "../../img/loop.png";
-				break;
-		
-			default: // Default: Setting loop to all
-				this.Type = "all";
-				this.Element.src = "../../img/loop.png";
-				break;
-		}
 	}
 }
 
