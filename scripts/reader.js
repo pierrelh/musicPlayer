@@ -1,17 +1,17 @@
 class Reader {
 	constructor() {
-		this.Loop
-		this.Previous
-		this.PlayPause
-		this.Next
-		this.Random
-		this.Mute
-		this.Volume
-		this.ProgressBar
-		this.PlaylistBtn
 		this.Time			= document.getElementById("Time");
 		this.Start			= document.getElementById("Start");
-		this.Player = document.getElementById("MusicPlayer");
+		this.Player 		= document.getElementById("MusicPlayer");
+		this.PlaylistBtn	= new ReaderProgressBar();
+		this.Loop			= new ReaderLoop();
+		this.PlayPause		= new ReaderPlayPause();
+		this.Random			= new ReaderRandom();
+		this.Mute			= new ReaderMute();		
+		this.Next			= new ReaderNext();
+		this.Volume			= new ReaderVolume();
+		this.Previous		= new ReaderPrevious();
+		this.ProgressBar	= new ReaderProgressBar();
 		
 		// Handle the load of metadata of the MusicPlayer
 		this.Player.addEventListener("loadedmetadata", evt => this.Load());
@@ -30,19 +30,6 @@ class Reader {
 		
 		// Handle the on ended of the MusicPlayer
 		this.Player.addEventListener("ended", evt => this.Ended());
-	}
-
-	Hydrate() {
-		this.PlaylistBtn	= new ReaderProgressBar();
-		this.Loop			= new ReaderLoop();
-		this.PlayPause		= new ReaderPlayPause();
-		this.Random			= new ReaderRandom();
-		this.Mute			= new ReaderMute();
-		
-		this.Next			= new ReaderNext();
-		this.Volume			= new ReaderVolume();
-		this.Previous		= new ReaderPrevious();
-		this.ProgressBar	= new ReaderProgressBar();
 	}
 
 	Ended() {
@@ -84,8 +71,6 @@ class Reader {
 												")";
 	}
 }
-
-var reader = new Reader();
 
 class ReaderLoop {
 	constructor() {
@@ -331,4 +316,4 @@ class ReaderPlaylist {
 	}
 }
 
-reader.Hydrate()
+var reader = new Reader();
