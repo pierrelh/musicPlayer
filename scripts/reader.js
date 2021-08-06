@@ -102,6 +102,7 @@ class Loop {
 
 		// Handle the loop button click
 		this.Element.addEventListener("click", this.Toggle());
+		return this;
 	}
 
 	Toggle() {
