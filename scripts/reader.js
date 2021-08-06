@@ -97,7 +97,7 @@ class Reader {
 	ToggleLoop() {
 		switch (this.LoopType) {
 			case "one": // Setting loop to none
-				this.Type = "none";
+				this.LoopType = "none";
 				this.Loop.src = "../../img/no-loop.png";
 				break;
 		
