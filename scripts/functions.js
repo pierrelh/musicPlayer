@@ -193,17 +193,6 @@ function seekTo(data) {
 // Play the passed music
 function playMusic(song) {
 	console.log(song)
-	// if (document.getElementById("PlayedMusic") != undefined) { // Checking if there is a played music template
-	//   document.getElementById("PlayedMusic").remove(); // Remove it if exist
-	// }
-
-
-	// var music = document.getElementById("Music" + musicId); // Getting the element of the new played music
-	// var playing = document.createElement("li"); // Creating a new played music template
-	// playing.id = "PlayedMusic";
-	// playing.classList.add("playing");
-	// var parent = document.getElementById("MusicList" + musicId);
-	// parent.insertBefore(playing, music); // Adding the template
 
 	// Adding the class to LibraryObjects if needed
 	var library = document.getElementById("LibraryObjects");

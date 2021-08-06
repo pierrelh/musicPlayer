@@ -9,7 +9,7 @@ class PlayingLayout {
 
 	Change(parent) {
 		this.Element.remove();
-		parent.appendChild(this.Element)
+		parent.insertBefore(this.Element, parent.children[0])
 	}
 }
 var playingLayout = new PlayingLayout();
