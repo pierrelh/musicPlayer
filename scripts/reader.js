@@ -1,6 +1,5 @@
 class Reader {
 	constructor() {
-		this.MusicPlayer
 		this.Loop
 		this.Previous
 		this.PlayPause
@@ -12,6 +11,25 @@ class Reader {
 		this.PlaylistBtn
 		this.Time			= document.getElementById("Time");
 		this.Start			= document.getElementById("Start");
+		this.Player = document.getElementById("MusicPlayer");
+		
+		// Handle the load of metadata of the MusicPlayer
+		this.Player.addEventListener("loadedmetadata", this.Load());
+		
+		// Handle the on time update of the MusicPlayer
+		this.Player.addEventListener("timeupdate", this.TimeUpdate());
+		
+		// Handle the on pause of the MusicPlayer
+		this.Player.addEventListener("pause", this.TogglePlayPause());
+		
+		// Handle the on play of the MusicPlayer
+		this.Player.addEventListener("play", this.TogglePlayPause());
+		
+		// Handle the volume change of the MusicPlayer
+		this.Player.addEventListener("volumechange", this.VolumeChange());
+		
+		// Handle the on ended of the MusicPlayer
+		this.Player.addEventListener("ended", this.Ended());
 	}
 
 	Hydrate() {
@@ -24,8 +42,46 @@ class Reader {
 		this.Next			= new ReaderNext();
 		this.Volume			= new ReaderVolume();
 		this.Previous		= new ReaderPrevious();
-		this.MusicPlayer	= new ReaderPlayer();
 		this.ProgressBar	= new ReaderProgressBar();
+	}
+
+	Ended() {
+		if (this.src != "") {
+			reader.Next.Element.PlayNext(false);
+		}
+	}
+
+	Load() {
+		reader.ProgressBar.Element.max = this.duration;
+		reader.Time.innerHTML = getTime(this.duration);
+	}
+
+	TimeUpdate() {
+		reader.ProgressBar.Element.value = this.currentTime;
+		reader.Start.innerHTML = getTime(this.currentTime);
+		var percent = (reader.ProgressBar.Element.value / (reader.ProgressBar.Element.max - reader.ProgressBar.Element.min)) * 100;
+		document.getElementById("ProgressBar").style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
+																		"color-stop(" + percent + "%, #FFF), " +
+																		"color-stop(" + percent + "%, rgb(50, 50, 50))" +
+																		")";
+	}
+
+	TogglePlayPause() {
+		reader.PlayPause.Toggle();
+	}
+
+	VolumeChange() {
+		if (this.volume != 0) {
+			reader.Mute.src = "../../img/audio-on.png";
+		}else {
+			reader.Mute.src = "../../img/audio-off.png";
+		}
+		var percent = playerVolume * 100;
+		reader.Volume.value = percent;
+		reader.Volume.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
+												"color-stop(" + percent + "%, #FFF), " +
+												"color-stop(" + percent + "%, #0B0B0B)" +
+												")";
 	}
 }
 
@@ -114,20 +170,20 @@ class ReaderPlayPause {
 	}
 
 	Toggle() {
-		switch (reader.MusicPlayer.Element.paused) {
+		switch (reader.Player.paused) {
 			case true: // Play the audio
 				this.Element.src = "../../img/pause.png";
-				reader.MusicPlayer.Element.play();
+				reader.Player.play();
 				break;
 		
 			case false: // Pause the audio
 				this.Element.src = "../../img/play.png";
-				reader.MusicPlayer.Element.pause();
+				reader.Player.pause();
 				break;
 		
 			default: // Default: Pause the audio
 				this.Element.src = "../../img/play.png";
-				reader.MusicPlayer.Element.pause();
+				reader.Player.pause();
 				break;
 		}
 	}
@@ -203,70 +259,6 @@ class ReaderNext {
 	}
 }
 
-class ReaderPlayer {
-	constructor() {
-		this.Element = document.getElementById("MusicPlayer");
-		
-		// Handle the load of metadata of the MusicPlayer
-		this.Element.addEventListener("loadedmetadata", this.Load());
-		
-		// Handle the on time update of the MusicPlayer
-		this.Element.addEventListener("timeupdate", this.TimeUpdate());
-		
-		// Handle the on pause of the MusicPlayer
-		this.Element.addEventListener("pause", this.TogglePlayPause());
-		
-		// Handle the on play of the MusicPlayer
-		this.Element.addEventListener("play", this.TogglePlayPause());
-		
-		// Handle the volume change of the MusicPlayer
-		this.Element.addEventListener("volumechange", this.VolumeChange());
-		
-		// Handle the on ended of the MusicPlayer
-		this.Element.addEventListener("ended", this.Ended());
-		return this;
-	}
-
-	Ended() {
-		if (this.src != "") {
-			reader.Next.Element.PlayNext(false);
-		}
-	}
-
-	Load() {
-		reader.ProgressBar.Element.max = this.duration;
-		reader.Time.innerHTML = getTime(this.duration);
-	}
-
-	TimeUpdate() {
-		reader.ProgressBar.Element.value = this.currentTime;
-		reader.Start.innerHTML = getTime(this.currentTime);
-		var percent = (reader.ProgressBar.Element.value / (reader.ProgressBar.Element.max - reader.ProgressBar.Element.min)) * 100;
-		document.getElementById("ProgressBar").style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
-																		"color-stop(" + percent + "%, #FFF), " +
-																		"color-stop(" + percent + "%, rgb(50, 50, 50))" +
-																		")";
-	}
-
-	TogglePlayPause() {
-		reader.PlayPause.Toggle();
-	}
-
-	VolumeChange() {
-		if (this.volume != 0) {
-			reader.Mute.src = "../../img/audio-on.png";
-		}else {
-			reader.Mute.src = "../../img/audio-off.png";
-		}
-		var percent = playerVolume * 100;
-		reader.Volume.value = percent;
-		reader.Volume.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
-												"color-stop(" + percent + "%, #FFF), " +
-												"color-stop(" + percent + "%, #0B0B0B)" +
-												")";
-	}
-}
-
 class ReaderMute {
 	constructor() {
 		this.Element = document.getElementById("Mute")
@@ -281,11 +273,11 @@ class ReaderMute {
 	// Handle the Mute button actions
 	Toggle() {
 		if (this.IsMute) {
-			reader.MusicPlayer.volume = this.Volume;
+			reader.Player.volume = this.Volume;
 			this.Element.src = "../../img/audio-on.png";
 			this.IsMute = false;		
 		} else {
-			reader.MusicPlayer.volume = 0;
+			reader.Player.volume = 0;
 			this.Element.src = "../../img/audio-off.png";
 			this.IsMute = true;		
 		}
@@ -302,7 +294,7 @@ class ReaderVolume {
 	}
 
 	Change() {
-		reader.MusicPlayer.volume = this.value / 100;
+		reader.Player.volume = this.value / 100;
 	}
 }
 
@@ -316,7 +308,7 @@ class ReaderProgressBar {
 	}
 
 	ChangeTime() {
-		reader.MusicPlayer.Element.currentTime = reader.MusicPlayer.Element.duration / this.max * this.value;
+		reader.Player.currentTime = reader.Player.duration / this.max * this.value;
 	}
 }
 
