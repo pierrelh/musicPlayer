@@ -13,7 +13,7 @@ function getFiles(row, type){
 			if (data.length != 0) {
 				playlist = [];
 				for (var i = 0; i < data.length; i++) {
-					var song = new Song(data, i).Create();
+					var song = new Song(data[i], i).Create();
 					library.appendChild(song);
 					// var ul = document.createElement("ul");
 					// ul.id = "MusicList" + i;
