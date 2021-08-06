@@ -105,6 +105,7 @@ class Loop {
 	}
 
 	Toggle() {
+		console.log("toggle")
 		switch (this.Type) {
 			case "one": // Setting loop to none
 				this.Type = "none";
