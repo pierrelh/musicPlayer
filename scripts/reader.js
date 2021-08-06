@@ -119,13 +119,13 @@ class Reader {
 	}
 
 	Load() {
-		this.ProgressBar.max = this.duration;
-		this.Time.innerHTML = getTime(this.duration);
+		this.ProgressBar.max = this.Player.duration;
+		this.Time.innerHTML = getTime(this.Player.duration);
 	}
 
 	TimeUpdate() {
-		this.ProgressBar.value = this.currentTime;
-		this.Start.innerHTML = getTime(this.currentTime);
+		this.ProgressBar.value = this.Player.currentTime;
+		this.Start.innerHTML = getTime(this.Player.currentTime);
 		var percent = (this.ProgressBar.value / (this.ProgressBar.max - this.ProgressBar.min)) * 100;
 		this.ProgressBar.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
 													"color-stop(" + percent + "%, #FFF), " +
