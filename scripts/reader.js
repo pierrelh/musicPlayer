@@ -95,3 +95,5 @@ class Reader {
 		this.PlaylistBtn.addEventListener("click", togglePlaylistReaderSection, false);
 	}
 }
+
+var reader = new Reader();
