@@ -12,38 +12,39 @@ function getFiles(row, type){
 			library.innerHTML = "";
 			if (data.length != 0) {
 				playlist = [];
-				for (var i = 0; i < data.length; i++) (function(i) {
-					var ul = document.createElement("ul");
-					ul.id = "MusicList" + i;
-					library.appendChild(ul);
+				for (var i = 0; i < data.length; i++) {
+					var song = new Song(data, i).Create();
+					library.appendChild(song);
+					// var ul = document.createElement("ul");
+					// ul.id = "MusicList" + i;
 
-					li = document.createElement("li");
-					ul.appendChild(li);
-					li.className = "view";
-					li.id = "Music" + i;
-					li.dataset.url = data[i]["file_url"];
-					li.dataset.artist = data[i]["file_author"];
-					li.dataset.title = data[i]["file_name"];
-					li.dataset.album = data[i]["file_album"];
-					li.dataset.img = data[i]["file_image"];
-					li.dataset.id = data[i]["file_id"];
-					document.getElementById("Music" + i).addEventListener("click", function(){playMusic(i)}, false);
+					// li = document.createElement("li");
+					// ul.appendChild(li);
+					// li.className = "view";
+					// li.id = "Music" + i;
+					// li.dataset.url = data[i]["file_url"];
+					// li.dataset.artist = data[i]["file_author"];
+					// li.dataset.title = data[i]["file_name"];
+					// li.dataset.album = data[i]["file_album"];
+					// li.dataset.img = data[i]["file_image"];
+					// li.dataset.id = data[i]["file_id"];
+					// document.getElementById("Music" + i).addEventListener("click", function(){playMusic(i)}, false);
 
-					if (data[i]["file_image"] != "") {
-						li.style.backgroundImage = "url('" + data[i]["file_image"] + "')";
-					}
+					// if (data[i]["file_image"] != "") {
+					// 	li.style.backgroundImage = "url('" + data[i]["file_image"] + "')";
+					// }
 
-					var lip = document.createElement("li");
-					ul.appendChild(lip);
+					// var lip = document.createElement("li");
+					// ul.appendChild(lip);
 
-					var p = document.createElement("p");
-					lip.appendChild(p);
-					p.innerHTML = data[i]["file_author"] + " - " + data[i]["file_name"];
-					p.id = "MusicP" + i;
-					document.getElementById("MusicP" + i).addEventListener("click", function(){playMusic(i)}, false);
+					// var p = document.createElement("p");
+					// lip.appendChild(p);
+					// p.innerHTML = data[i]["file_author"] + " - " + data[i]["file_name"];
+					// p.id = "MusicP" + i;
+					// document.getElementById("MusicP" + i).addEventListener("click", function(){playMusic(i)}, false);
 
 					playlist.push(i);
-				})(i);
+				};
 			}
 		}
 	});

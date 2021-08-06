@@ -35,6 +35,7 @@
 				</script>
 			</div>
 		</section>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/song.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/page-scripts.js"></script>
 	</body>
 </html>
