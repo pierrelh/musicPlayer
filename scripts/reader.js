@@ -12,7 +12,8 @@ class Reader {
 		this.Mute			= document.getElementById("Mute");
 		this.IsMute 		= false;	
 		this.Next			= document.getElementById("Next");
-		this.Volume			= document.getElementById("Volume");
+		this.VolumeBar		= document.getElementById("Volume");
+		this.Volume			= 0;
 		this.Previous		= document.getElementById("Previous");
 		this.ProgressBar	= document.getElementById("ProgressBar");
 		
@@ -53,7 +54,7 @@ class Reader {
 		this.Mute.addEventListener("click", evt => this.ToggleMute());
 
 		// Handle the volume slider actions
-		this.Volume.addEventListener("input", evt => this.VolumeSliderChange())
+		this.VolumeBar.addEventListener("input", evt => this.VolumeBarChange())
 		
 		// Handle the input of the ProgressBar
 		this.ProgressBar.addEventListener("input", evt => this.ChangeTime());
@@ -196,10 +197,11 @@ class Reader {
 	// Handle the Mute button actions
 	ToggleMute() {
 		if (this.IsMute) {
-			this.Player.volume = this.Volume.value;
+			this.Player.volume = this.Volume;
 			this.Mute.src = "../../img/audio-on.png";
 			this.IsMute = false;		
 		} else {
+			this.Volume = this.Player.volume;
 			this.Player.volume = 0;
 			this.Mute.src = "../../img/audio-off.png";
 			this.IsMute = true;		
@@ -219,8 +221,8 @@ class Reader {
 		}
 	}
 
-	VolumeSliderChange() {
-		this.Player.volume = this.Volume.value / 100;
+	VolumeBarChange() {
+		this.Player.volume = this.VolumeBar.value / 100;
 	}
 
 	VolumeChange() {
@@ -230,8 +232,8 @@ class Reader {
 			this.Mute.src = "../../img/audio-off.png";
 		}
 		var percent = this.Player.volume * 100;
-		this.Volume.value = percent;
-		this.Volume.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
+		this.VolumeBar.value = percent;
+		this.VolumeBar.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
 												"color-stop(" + percent + "%, #FFF), " +
 												"color-stop(" + percent + "%, #0B0B0B)" +
 												")";
