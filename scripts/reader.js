@@ -108,22 +108,22 @@ class Loop {
 		switch (this.Type) {
 			case "one": // Setting loop to none
 				this.Type = "none";
-				this.Loop.src = "../../img/no-loop.png";
+				this.Element.src = "../../img/no-loop.png";
 				break;
 		
 			case "all": // Setting loop to one
 				this.Type = "one";
-				this.Loop.src = "../../img/loop-one.png";
+				this.Element.src = "../../img/loop-one.png";
 				break;
 		
 			case "none": // Setting loop to all
 				this.Type = "all";
-				this.Loop.src = "../../img/loop.png";
+				this.Element.src = "../../img/loop.png";
 				break;
 		
 			default: // Default: Setting loop to all
 				this.Type = "all";
-				this.Loop.src = "../../img/loop.png";
+				this.Element.src = "../../img/loop.png";
 				break;
 		}
 	}

@@ -147,31 +147,31 @@ function toggleRandom() {
 }
 
 // Handle the Loop button actions
-function toggleLoop() {
-	var loop = document.getElementById("Loop");
-	var loopType = loop.dataset.loop;
-	switch (loopType) {
-		case "one": // Setting loop to none
-			loop.dataset.loop = "none";
-			loop.src = "../../img/no-loop.png";
-			break;
+// function toggleLoop() {
+// 	var loop = document.getElementById("Loop");
+// 	var loopType = loop.dataset.loop;
+// 	switch (loopType) {
+// 		case "one": // Setting loop to none
+// 			loop.dataset.loop = "none";
+// 			loop.src = "../../img/no-loop.png";
+// 			break;
 	
-		case "all": // Setting loop to one
-			loop.dataset.loop = "one";
-			loop.src = "../../img/loop-one.png";
-			break;
+// 		case "all": // Setting loop to one
+// 			loop.dataset.loop = "one";
+// 			loop.src = "../../img/loop-one.png";
+// 			break;
 	
-		case "none": // Setting loop to all
-			loop.dataset.loop = "all";
-			loop.src = "../../img/loop.png";
-			break;
+// 		case "none": // Setting loop to all
+// 			loop.dataset.loop = "all";
+// 			loop.src = "../../img/loop.png";
+// 			break;
 	
-		default: // Default: Setting loop to all
-			loop.dataset.loop = "all";
-			loop.src = "../../img/loop.png";
-			break;
-	}
-}
+// 		default: // Default: Setting loop to all
+// 			loop.dataset.loop = "all";
+// 			loop.src = "../../img/loop.png";
+// 			break;
+// 	}
+// }
 
 // Stop the music player
 function stopMusic() {
