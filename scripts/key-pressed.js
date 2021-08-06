@@ -4,42 +4,42 @@ document.onkeydown = function(event) {
 		case " ": // Spacebar is pressed -> play/pause audio
 			if (document.activeElement.tagName != "INPUT") {
 				event.preventDefault();
-				togglePlayPause();
+				reader.TogglePlayPauseButton()
 			}
 			break;
 
 		case "p": // P is pressed -> play last music
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
-				playLastMusic();
+				reader.PlayLastMusic()
 			}
 			break;
 
 		case "n": // N is pressed -> play next music
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
-				playNextMusic();
+				reader.PlayNextMusic()
 			}
 			break;
 			
 		case "r": // R is pressed -> toggle random
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
-				toggleRandom();
+				reader.ToggleRandom()
 			}
 			break;
 			
 		case "m": // M is pressed -> toggle mute
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
-				toggleMute();
+				reader.ToggleMute()
 			}
 			break;
 
 		case "l": // L is pressed -> toggle loop
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
-				reader.Loop.Toggle()
+				reader.ToggleLoop()
 			}
 			break;
 		

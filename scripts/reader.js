@@ -47,7 +47,7 @@ class Reader {
 		this.Random.addEventListener("click", evt => this.ToggleRandom());
 
 		// Handle the Next button click
-		this.Next.addEventListener("click", evt => this.PlayNext(true));
+		this.Next.addEventListener("click", evt => this.PlayNextMusic(true));
 		
 		// Handle the Mute button click
 		this.Mute.addEventListener("click", evt => this.ToggleMute());
@@ -59,7 +59,7 @@ class Reader {
 		this.ProgressBar.addEventListener("input", evt => this.ChangeTime());
 		
 		// Handle the Playlist Reader button click
-		this.PlaylistBtn.addEventListener("click", this.TogglePlaylist());
+		this.PlaylistBtn.addEventListener("click", evt => this.TogglePlaylist());
 	}
 
 	// Handle the play of the previous music asked by the user
@@ -134,7 +134,7 @@ class Reader {
 	}
 
 	// Handle the play of the next music asked by the user
-	PlayNext(isSkiped) {
+	PlayNextMusic(isSkiped) {
 		var isRandom = document.getElementById("Random").dataset.random; // Getting the random setting
 		var playedMusicId = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the played music
 		var loop = document.getElementById("Loop").dataset.loop; // Getting the loop setting
@@ -243,10 +243,10 @@ class Reader {
 
 	// Toggle playlist reader section
 	TogglePlaylist() {
-		if (this.classList.contains("show-playlist-reader")) {
-			this.classList.remove("show-playlist-reader");		
+		if (this.PlaylistBtn.classList.contains("show-playlist-reader")) {
+			this.PlaylistBtn.classList.remove("show-playlist-reader");		
 		}else {
-			this.classList.add("show-playlist-reader");
+			this.PlaylistBtn.classList.add("show-playlist-reader");
 		}
 	}
 }
