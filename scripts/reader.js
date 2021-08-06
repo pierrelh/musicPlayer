@@ -195,7 +195,7 @@ class Reader {
 	// Handle the Mute button actions
 	ToggleMute() {
 		if (this.IsMute) {
-			this.Player.volume = this.Volume;
+			this.Player.volume = this.Volume.value;
 			this.Mute.src = "../../img/audio-on.png";
 			this.IsMute = false;		
 		} else {
@@ -228,7 +228,7 @@ class Reader {
 		}else {
 			this.Mute.src = "../../img/audio-off.png";
 		}
-		var percent = playerVolume * 100;
+		var percent = this.Player.volume * 100;
 		this.Volume.value = percent;
 		this.Volume.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
 												"color-stop(" + percent + "%, #FFF), " +
