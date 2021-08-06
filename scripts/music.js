@@ -19,12 +19,13 @@ class Music {
 		this.Title		= data["file_name"];
 		this.Album		= data["file_album"];
 		this.URL		= data["file_url"];
-		this.MusicID		= data["file_id"];
+		this.MusicID	= data["file_id"];
 		this.Cover		= data["file_image"];
 		this.ID			= id;
 		this.Played		= false;
 		this.Element.addEventListener("click", evt => reader.PlayMusic(this));
 		playlist.push(this);
+		console.log(playlist)
 	}
 
 	Create() {
