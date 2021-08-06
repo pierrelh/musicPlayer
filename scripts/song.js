@@ -12,9 +12,7 @@ class Song {
 	}
 
 	Create() {
-		this.Element.id = "MusicList" + i;
 		this.CoverElement.className = "view";
-		this.CoverElement.id = "Music" + i;
 
 		var cover = new SongCover().Create(this.Cover)
 		this.Element.appendChild(cover)
@@ -33,7 +31,6 @@ class SongCover {
 	}
 	Create(cover) {		
 		this.Element.className = "view";
-		this.Element.id = "Music" + i;
 
 		if (cover != "") {
 			this.Element.backgroundImage = "url('" + cover + "')";
@@ -50,7 +47,6 @@ class SongTitle {
 	}
 	Create(author, name) {
 		this.Title.innerHTML = author + " - " + name;
-		this.Title.id = "MusicP" + i;
 		return this.Element;
 	}
 }
