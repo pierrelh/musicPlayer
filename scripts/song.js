@@ -1,4 +1,3 @@
-var playingLayout = new PlayingLayout();
 var playedMusic = -1;
 
 class Song {
@@ -68,4 +67,6 @@ class PlayingLayout {
 		parent.appendChild(this.Element)
 	}
 }
+
+var playingLayout = new PlayingLayout();
 
