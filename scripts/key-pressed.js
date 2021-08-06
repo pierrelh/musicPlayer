@@ -40,7 +40,6 @@ document.onkeydown = function(event) {
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
 				reader.Loop.Toggle()
-				// toggleLoop();
 			}
 			break;
 		

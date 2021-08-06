@@ -26,6 +26,7 @@ class Song {
 		this.ID			= id;
 		this.Played		= false;
 		this.Element.addEventListener("click", evt => playMusic(this));
+		playlist.push(this);
 	}
 
 	Create() {

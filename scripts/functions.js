@@ -75,104 +75,6 @@ function checkPlaylistSection() {
 	}
 }
 
-// Handle the play/pause actions
-// function togglePlayPause() {
-// 	var player = document.getElementById("MusicPlayer");
-// 	switch (player.paused) {
-// 		case true: // Play the audio
-// 			document.getElementById("PlayPause").src = "../../img/pause.png";
-// 			player.play();
-// 			break;
-	
-// 		case false: // Pause the audio
-// 			document.getElementById("PlayPause").src = "../../img/play.png";
-// 			player.pause();
-// 			break;
-	
-// 		default: // Default: Pause the audio
-// 			document.getElementById("PlayPause").src = "../../img/play.png";
-// 			player.pause();
-// 			break;
-// 	}
-// }
-
-// Handle the Mute button actions
-function toggleMute() {
-	var MusicPlayer = document.getElementById("MusicPlayer");
-	var Mute = document.getElementById("Mute");
-	var isMute = Mute.dataset.mute;
-	switch (isMute) {
-		case "true": // Setting the audio on
-			MusicPlayer.volume = Mute.dataset.volume;
-			Mute.src = "../../img/audio-on.png";
-			Mute.dataset.mute = "false";
-			break;
-	
-		case "false": // Setting the audio off
-			MusicPlayer.volume = 0;
-			Mute.src = "../../img/audio-off.png";
-			Mute.dataset.mute = "true";
-			break;
-	
-		default: // Default: Setting the audio on
-			MusicPlayer.volume = Mute.dataset.volume;
-			Mute.src = "../../img/audio-on.png";
-			Mute.dataset.mute = "false";
-			break;
-	}
-}
-
-// Handle the Random button actions
-function toggleRandom() {
-	var random = document.getElementById("Random");
-	var randomType = random.dataset.random;
-	switch (randomType) {
-		case "true": // Setting random to false
-			random.dataset.random = "false";
-			random.src = "../../img/no-random.png";
-			break;
-  
-		case "false": // Setting random to true
-			randomPlaylist = playlist.slice();
-			shuffle(randomPlaylist); // Creating the random playlist
-			random.dataset.random = "true";
-			random.src = "../../img/random.png";
-			break;
-  
-		default: // Default: Setting random to false
-			random.dataset.random = "false";
-			random.src = "../../img/no-random.png";
-			break;
-	}
-}
-
-// Handle the Loop button actions
-// function toggleLoop() {
-// 	var loop = document.getElementById("Loop");
-// 	var loopType = loop.dataset.loop;
-// 	switch (loopType) {
-// 		case "one": // Setting loop to none
-// 			loop.dataset.loop = "none";
-// 			loop.src = "../../img/no-loop.png";
-// 			break;
-	
-// 		case "all": // Setting loop to one
-// 			loop.dataset.loop = "one";
-// 			loop.src = "../../img/loop-one.png";
-// 			break;
-	
-// 		case "none": // Setting loop to all
-// 			loop.dataset.loop = "all";
-// 			loop.src = "../../img/loop.png";
-// 			break;
-	
-// 		default: // Default: Setting loop to all
-// 			loop.dataset.loop = "all";
-// 			loop.src = "../../img/loop.png";
-// 			break;
-// 	}
-// }
-
 // Stop the music player
 function stopMusic() {
 	var musicPlayer = document.getElementById("MusicPlayer");
@@ -260,42 +162,6 @@ function playMusic(song) {
 // 		playMusic(usedPlaylist[indexOfCurrentSong]);
 // 	}
 // }
-
-// Handle the play of the next music asked by the user
-function playNextMusic(isSkiped) {
-	var isRandom = document.getElementById("Random").dataset.random; // Getting the random setting
-	var playedMusicId = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the played music
-	var loop = document.getElementById("Loop").dataset.loop; // Getting the loop setting
-	if (isSkiped === undefined) {
-		isSkiped = true;// Setting a default value if undefined
-	}
-
-	// Check if the reader should loop on the same music or not
-	if (!isSkiped && loop == "one") {
-		var indexOfNextSong = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the current music
-	}else {
-		// Choose witch playlist to use
-		if (isRandom == "true") {
-			var usedPlaylist = randomPlaylist.slice();
-		}else {
-			var usedPlaylist = playlist.slice();
-		}
-
-		var indexOfCurrentSong = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current song in the playlist
-		if (indexOfCurrentSong == (usedPlaylist.length) - 1) { // Check if the played music is the last one
-			if (document.getElementById("Loop").dataset.loop == "none") { // The player will not restart the playlist
-				return;
-			}else { // The player will restart the playlist
-				var indexOfNextSong = 0;
-			}
-		}else { // The player continu the playlist
-			var indexOfNextSong = indexOfCurrentSong + 1;
-		}
-
-	}    
-	// Play the next music
-	playMusic(usedPlaylist[indexOfNextSong]);
-}
 
 // Progress +10 secondes to the played music
 function seekForward() {
@@ -427,15 +293,6 @@ function toggleUploadSection() {
 	}else {
 		backgroundAppear();
 		document.getElementById("Upload").classList.add("appear");
-	}
-}
-
-// Toggle playlist reader section
-function togglePlaylistReaderSection() {
-	if (document.getElementById("PlaylistReader").classList.contains("show-playlist-reader")) {
-		document.getElementById("PlaylistReader").classList.remove("show-playlist-reader");		
-	}else {
-		document.getElementById("PlaylistReader").classList.add("show-playlist-reader");
 	}
 }
 

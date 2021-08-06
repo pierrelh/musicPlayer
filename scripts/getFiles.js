@@ -15,7 +15,6 @@ function getFiles(row, type){
 				for (var i = 0; i < data.length; i++) {
 					var song = new Song(data[i], i).Create();
 					library.appendChild(song);
-					playlist.push(i);
 				};
 			}
 		}
