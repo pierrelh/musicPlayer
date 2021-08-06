@@ -13,7 +13,7 @@ function openPlaylist(identifier) {
 				library.innerHTML = "";
 				if (data.length != 0) {
 					checkPlaylistSection();
-					playlist = [];
+					MusicsPlaylist = [];
 					for (var i = 0; i < data.length; i++) {
 						var music = new Music(data[i], i).Create();
 						library.appendChild(music);

@@ -100,7 +100,7 @@ class Reader {
 
 	// Play the passed music
 	PlayMusic(music) {
-		console.log(playlist)
+		console.log(MusicsPlaylist)
 	
 		// Adding the class to LibraryObjects if needed
 		var library = document.getElementById("LibraryObjects");
@@ -139,9 +139,9 @@ class Reader {
 		}else {
 			// Choose witch playlist to use
 			if (this.isRandom) {
-				var usedPlaylist = randomPlaylist.slice();
+				var usedPlaylist = MusicsRandomPlaylist.slice();
 			}else {
-				var usedPlaylist = playlist.slice();
+				var usedPlaylist = MusicsPlaylist.slice();
 			}
 	
 			var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(this.PlayedMusic)); // Getting the position of the current music in the playlist
@@ -162,9 +162,9 @@ class Reader {
 	PlayPreviousMusic() {
 		// Choose witch playlist to use
 		if (this.IsRandom) {
-			var usedPlaylist = randomPlaylist.slice();
+			var usedPlaylist = MusicsRandomPlaylist.slice();
 		}else {
-			var usedPlaylist = playlist.slice();
+			var usedPlaylist = MusicsPlaylist.slice();
 		}
 		
 		var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(this.PlayedMusic)); // Getting the position of the current music in the playlist
@@ -295,8 +295,8 @@ class Reader {
 			this.IsRandom = false;
 			this.Random.src = "../../img/no-random.png";			
 		} else {
-			randomPlaylist = playlist.slice();
-			shuffle(randomPlaylist); // Creating the random playlist
+			MusicsRandomPlaylist = MusicsPlaylist.slice();
+			shuffle(MusicsRandomPlaylist); // Creating the random playlist
 			this.IsRandom = true;
 			this.Random.src = "../../img/random.png";
 		}

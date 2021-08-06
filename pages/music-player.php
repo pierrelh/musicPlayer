@@ -6,8 +6,8 @@
 		<title>Music Player</title>
 		<script>
 			// Setting globales variables
-			var playlist = [];
-			var randomPlaylist = [];
+			var MusicsPlaylist = [];
+			var MusicsRandomPlaylist = [];
 			var server = "https://" + window.location.hostname;
 		</script>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>

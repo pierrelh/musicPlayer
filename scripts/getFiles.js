@@ -11,7 +11,7 @@ function getFiles(row, type){
 			var library = document.getElementById("LibraryObjects");
 			library.innerHTML = "";
 			if (data.length != 0) {
-				playlist = [];
+				MusicsPlaylist = [];
 				for (var i = 0; i < data.length; i++) {
 					var music = new Music(data[i], i).Create();
 					library.appendChild(music);

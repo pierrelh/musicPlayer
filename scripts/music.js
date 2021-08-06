@@ -24,8 +24,7 @@ class Music {
 		this.ID			= id;
 		this.Played		= false;
 		this.Element.addEventListener("click", evt => reader.PlayMusic(this));
-		playlist.push(this);
-		console.log(playlist)
+		MusicsPlaylist.push(this);
 	}
 
 	Create() {
