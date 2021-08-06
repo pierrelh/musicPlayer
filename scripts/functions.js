@@ -76,25 +76,25 @@ function checkPlaylistSection() {
 }
 
 // Handle the play/pause actions
-function togglePlayPause() {
-	var player = document.getElementById("MusicPlayer");
-	switch (player.paused) {
-		case true: // Play the audio
-			document.getElementById("PlayPause").src = "../../img/pause.png";
-			player.play();
-			break;
+// function togglePlayPause() {
+// 	var player = document.getElementById("MusicPlayer");
+// 	switch (player.paused) {
+// 		case true: // Play the audio
+// 			document.getElementById("PlayPause").src = "../../img/pause.png";
+// 			player.play();
+// 			break;
 	
-		case false: // Pause the audio
-			document.getElementById("PlayPause").src = "../../img/play.png";
-			player.pause();
-			break;
+// 		case false: // Pause the audio
+// 			document.getElementById("PlayPause").src = "../../img/play.png";
+// 			player.pause();
+// 			break;
 	
-		default: // Default: Pause the audio
-			document.getElementById("PlayPause").src = "../../img/play.png";
-			player.pause();
-			break;
-	}
-}
+// 		default: // Default: Pause the audio
+// 			document.getElementById("PlayPause").src = "../../img/play.png";
+// 			player.pause();
+// 			break;
+// 	}
+// }
 
 // Handle the Mute button actions
 function toggleMute() {
@@ -235,31 +235,31 @@ function playMusic(song) {
 }
 
 // Handle the play of the previous music asked by the user
-function playLastMusic() {
-	var playedMusicId = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the played music
-	var isRandom = document.getElementById("Random").dataset.random; // Getting the random setting
-	var player = document.getElementById("MusicPlayer");
-	// Choose witch playlist to use
-	if (isRandom == "true") {
-		var usedPlaylist = randomPlaylist.slice();
-	}else {
-		var usedPlaylist = playlist.slice();
-	}
+// function playLastMusic() {
+// 	var playedMusicId = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the played music
+// 	var isRandom = document.getElementById("Random").dataset.random; // Getting the random setting
+// 	var player = document.getElementById("MusicPlayer");
+// 	// Choose witch playlist to use
+// 	if (isRandom == "true") {
+// 		var usedPlaylist = randomPlaylist.slice();
+// 	}else {
+// 		var usedPlaylist = playlist.slice();
+// 	}
 
-	var indexOfCurrentSong = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current song in the playlist
-	if (player.currentTime < 5) {
-		if (indexOfCurrentSong == 0) { // Check if the played music is the first one
-			var indexOfNextSong = 0;
-		}else { // The player rollback the playlist
-			var indexOfNextSong = indexOfCurrentSong - 1;
-		}	
-		// Play the previous music
-		playMusic(usedPlaylist[indexOfNextSong]);
-	} else {
-		// Rollback the current music
-		playMusic(usedPlaylist[indexOfCurrentSong]);
-	}
-}
+// 	var indexOfCurrentSong = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current song in the playlist
+// 	if (player.currentTime < 5) {
+// 		if (indexOfCurrentSong == 0) { // Check if the played music is the first one
+// 			var indexOfNextSong = 0;
+// 		}else { // The player rollback the playlist
+// 			var indexOfNextSong = indexOfCurrentSong - 1;
+// 		}	
+// 		// Play the previous music
+// 		playMusic(usedPlaylist[indexOfNextSong]);
+// 	} else {
+// 		// Rollback the current music
+// 		playMusic(usedPlaylist[indexOfCurrentSong]);
+// 	}
+// }
 
 // Handle the play of the next music asked by the user
 function playNextMusic(isSkiped) {

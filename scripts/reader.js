@@ -1,4 +1,4 @@
-class Loop {
+class ReaderLoop {
 	constructor() {
 		this.Element 	= document.getElementById("Loop");
 		this.Type 		= "all";
@@ -9,7 +9,6 @@ class Loop {
 	}
 
 	Toggle() {
-		console.log("toggle")
 		switch (this.Type) {
 			case "one": // Setting loop to none
 				this.Type = "none";
@@ -34,12 +33,58 @@ class Loop {
 	}
 }
 
+class ReaderPrevious {
+	constructor() {
+		this.Element 	= document.getElementById("Previous");
+		this.Type 		= "all";
+
+		// Handle the Previous button click
+		this.Element.addEventListener("click", evt => this.PlayLastMusic());
+		return this;
+	}
+
+	PlayLastMusic() {
+		console.log("Playing last music")
+	}
+}
+
+class ReaderPlayPause {
+	constructor() {
+		this.Element 	= document.getElementById("PlayPause");
+		this.Type 		= "all";
+
+		// Handle the Previous button click
+		this.Element.addEventListener("click", evt => this.Toggle());
+		return this;
+	}
+
+	Toggle() {
+		console.log("Playing / Pausing")
+		switch (reader.MusicPlayer.paused) {
+			case true: // Play the audio
+				this.Element.src = "../../img/pause.png";
+				reader.MusicPlayer.play();
+				break;
+		
+			case false: // Pause the audio
+				this.Element.src = "../../img/play.png";
+				reader.MusicPlayer.pause();
+				break;
+		
+			default: // Default: Pause the audio
+				this.Element.src = "../../img/play.png";
+				reader.MusicPlayer.pause();
+				break;
+		}
+	}
+}
+
 class Reader {
 	constructor() {
 		this.MusicPlayer	= document.getElementById("MusicPlayer");
-		this.Loop			= new Loop();
-		this.Previous		= document.getElementById("Previous");
-		this.PlayPause		= document.getElementById("PlayPause");
+		this.Loop			= new ReaderLoop();
+		this.Previous		= new ReaderPrevious();
+		this.PlayPause		= new ReaderPlayPause();
 		this.Next			= document.getElementById("Next");
 		this.Random			= document.getElementById("Random");
 		this.Mute			= document.getElementById("Mute");
@@ -48,13 +93,7 @@ class Reader {
 		this.Time			= document.getElementById("Time");
 		this.Start			= document.getElementById("Start");
 		this.PlaylistBtn	= document.getElementById("PlaylistBtn");
-		
-		// Handle the Previous button click
-		this.Previous.addEventListener("click", playLastMusic, false);
-		
-		// Handle the PlayPause button click
-		this.PlayPause.addEventListener("click", togglePlayPause, false);
-		
+				
 		// Handle the Next button click
 		this.Next.addEventListener("click", playNextMusic, false);
 		

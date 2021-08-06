@@ -39,7 +39,7 @@ document.onkeydown = function(event) {
 		case "l": // L is pressed -> toggle loop
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
-				Reader.Loop.Toggle()
+				reader.Loop.Toggle()
 				// toggleLoop();
 			}
 			break;
