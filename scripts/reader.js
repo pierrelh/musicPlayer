@@ -37,7 +37,7 @@ class Reader {
 		})
 		
 		// Handle the load of metadata of the MusicPlayer
-		this.MusicPlayer.addEventListener("loadedmetadata", function() {
+		this.MusicPlayer.addEventListener("loadedmetadata", evt => function() {
 			this.ProgressBar.max = this.MusicPlayer.duration;
 			this.Time.innerHTML = getTime(this.MusicPlayer.duration);
 		});
