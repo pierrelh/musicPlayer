@@ -172,24 +172,25 @@ class Reader {
 	TogglePlayPauseButton() {
 		switch (this.Player.paused) {
 			case true: // Play the audio
-				this.PlayPause.src = "../../img/pause.png";
 				this.Player.play();
 				break;
 		
 			case false: // Pause the audio
-				this.PlayPause.src = "../../img/play.png";
-				this.Player.pause();
-				break;
-		
-			default: // Default: Pause the audio
-				this.PlayPause.src = "../../img/play.png";
 				this.Player.pause();
 				break;
 		}
 	}
 
 	TogglePlayPause() {
-		this.TogglePlayPauseButton();
+		switch (this.Player.paused) {
+			case true: // Play the audio
+				this.PlayPause.src = "../../img/pause.png";
+				break;
+		
+			case false: // Pause the audio
+				this.PlayPause.src = "../../img/play.png";
+				break;
+		}
 	}
 
 	// Handle the Mute button actions
