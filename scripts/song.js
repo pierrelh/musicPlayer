@@ -32,7 +32,7 @@ class SongCover {
 		this.Element.className = "view";
 		console.log(cover)
 		if (cover != "") {
-			this.Element.backgroundImage = "url('" + cover + "')";
+			this.Element.style.backgroundImage = "url('" + cover + "')";
 		}
 		return this.Element;
 	}
