@@ -14,22 +14,22 @@ class Reader {
 		this.Player = document.getElementById("MusicPlayer");
 		
 		// Handle the load of metadata of the MusicPlayer
-		this.Player.addEventListener("loadedmetadata", this.Load());
+		this.Player.addEventListener("loadedmetadata", evt => this.Load());
 		
 		// Handle the on time update of the MusicPlayer
-		this.Player.addEventListener("timeupdate", this.TimeUpdate());
+		this.Player.addEventListener("timeupdate", evt => this.TimeUpdate());
 		
 		// Handle the on pause of the MusicPlayer
-		this.Player.addEventListener("pause", this.TogglePlayPause());
+		this.Player.addEventListener("pause", evt => this.TogglePlayPause());
 		
 		// Handle the on play of the MusicPlayer
-		this.Player.addEventListener("play", this.TogglePlayPause());
+		this.Player.addEventListener("play", evt => this.TogglePlayPause());
 		
 		// Handle the volume change of the MusicPlayer
-		this.Player.addEventListener("volumechange", this.VolumeChange());
+		this.Player.addEventListener("volumechange", evt => this.VolumeChange());
 		
 		// Handle the on ended of the MusicPlayer
-		this.Player.addEventListener("ended", this.Ended());
+		this.Player.addEventListener("ended", evt => this.Ended());
 	}
 
 	Hydrate() {
@@ -47,19 +47,19 @@ class Reader {
 
 	Ended() {
 		if (this.src != "") {
-			reader.Next.Element.PlayNext(false);
+			this.Next.Element.PlayNext(false);
 		}
 	}
 
 	Load() {
-		reader.ProgressBar.Element.max = this.duration;
-		reader.Time.innerHTML = getTime(this.duration);
+		this.ProgressBar.Element.max = this.duration;
+		this.Time.innerHTML = getTime(this.duration);
 	}
 
 	TimeUpdate() {
-		reader.ProgressBar.Element.value = this.currentTime;
-		reader.Start.innerHTML = getTime(this.currentTime);
-		var percent = (reader.ProgressBar.Element.value / (reader.ProgressBar.Element.max - reader.ProgressBar.Element.min)) * 100;
+		this.ProgressBar.Element.value = this.currentTime;
+		this.Start.innerHTML = getTime(this.currentTime);
+		var percent = (this.ProgressBar.Element.value / (this.ProgressBar.Element.max - this.ProgressBar.Element.min)) * 100;
 		document.getElementById("ProgressBar").style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
 																		"color-stop(" + percent + "%, #FFF), " +
 																		"color-stop(" + percent + "%, rgb(50, 50, 50))" +
@@ -67,18 +67,18 @@ class Reader {
 	}
 
 	TogglePlayPause() {
-		reader.PlayPause.Toggle();
+		this.PlayPause.Toggle();
 	}
 
 	VolumeChange() {
-		if (this.volume != 0) {
-			reader.Mute.src = "../../img/audio-on.png";
+		if (this.Player.volume != 0) {
+			this.Mute.src = "../../img/audio-on.png";
 		}else {
-			reader.Mute.src = "../../img/audio-off.png";
+			this.Mute.src = "../../img/audio-off.png";
 		}
 		var percent = playerVolume * 100;
-		reader.Volume.value = percent;
-		reader.Volume.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
+		this.Volume.value = percent;
+		this.Volume.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
 												"color-stop(" + percent + "%, #FFF), " +
 												"color-stop(" + percent + "%, #0B0B0B)" +
 												")";
