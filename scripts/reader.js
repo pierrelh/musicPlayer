@@ -1,6 +1,6 @@
 class Reader {
 	constructor() {
-		this.MediaPlayer	= document.getElementById("MusicPlayer");
+		this.MusicPlayer	= document.getElementById("MusicPlayer");
 		this.Loop			= document.getElementById("Loop");
 		this.Previous		= document.getElementById("Previous");
 		this.PlayPause		= document.getElementById("PlayPause");
