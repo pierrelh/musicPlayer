@@ -100,7 +100,7 @@ class Reader {
 
 	// Play the passed music
 	PlayMusic(music) {
-		console.log(music)
+		console.log(playlist)
 	
 		// Adding the class to LibraryObjects if needed
 		var library = document.getElementById("LibraryObjects");
@@ -268,11 +268,11 @@ class Reader {
 	TogglePlayPause() {
 		switch (this.Player.paused) {
 			case true: // Play the audio
-				this.PlayPause.src = "../../img/pause.png";
+				this.PlayPause.src = "../../img/play.png";
 				break;
 		
 			case false: // Pause the audio
-				this.PlayPause.src = "../../img/play.png";
+				this.PlayPause.src = "../../img/pause.png";
 				break;
 		}
 	}

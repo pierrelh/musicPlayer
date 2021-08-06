@@ -1,5 +1,3 @@
-var playedMusic = -1;
-
 class PlayingLayout {
 	constructor() {
 		this.Element	= document.createElement("li");
