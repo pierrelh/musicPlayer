@@ -17,7 +17,7 @@ class Reader {
 		this.Previous		= document.getElementById("Previous");
 		this.ProgressBar	= document.getElementById("ProgressBar");
 		this.MusicName		= document.getElementById("MusicName");
-		this.PlayedMusicID	= undefined;
+		this.PlayedMusic	= undefined;
 		
 		// Handle the load of metadata of the MusicPlayer
 		this.Player.addEventListener("loadedmetadata", evt => this.Load());
@@ -41,7 +41,7 @@ class Reader {
 		this.Loop.addEventListener("click", evt => this.ToggleLoop());
 
 		// Handle the Previous button click
-		this.Previous.addEventListener("click", evt => this.PlayLastMusic());
+		this.Previous.addEventListener("click", evt => this.PlayPreviousMusic());
 
 		// Handle the Previous button click
 		this.PlayPause.addEventListener("click", evt => this.TogglePlayPauseButton());
@@ -69,9 +69,27 @@ class Reader {
 		this.Player.currentTime = this.Player.duration / this.ProgressBar.max * this.ProgressBar.value;
 	}
 
+	// Remove 10% to the player's volume
+	DicreaseVolume() {
+		if (this.Player.volume <= 0.1) {
+			this.Player.volume = 0;		
+		}else {
+			this.Player.volume -= 0.1
+		}
+	}
+
 	Ended() {
 		if (this.src != "") {
-			this.Next.PlayNext(false);
+			this.PlayNextMusic(false);
+		}
+	}
+
+	// Add 10% to the player's volume
+	IncreaseVolume() {
+		if (this.Player.volume >= 0.9) {
+			this.Player.volume = 1;		
+		}else {
+			this.Player.volume += 0.1
 		}
 	}
 
@@ -98,18 +116,10 @@ class Reader {
 	
 		// Setting the mediaSession metadatas
 		if ('mediaSession' in navigator) {
-			navigator.mediaSession.metadata = new MediaMetadata({
-				title: htmlDecode(music.Title),
-				artist: htmlDecode(music.Artist),
-				album: htmlDecode(music.Album),
-				artwork: [
-					{src: music.Cover, sizes: '150x150', type: 'image/png'}	
-				]
-			
-			});
+			mediaSessionSetData(music)
 		}
 
-		this.PlayedMusicID = music.ID;
+		this.PlayedMusic = music;
 		this.MusicName.innerHTML = music.Artist + " - " + music.Title;
 		this.Player.src = music.URL;
 		music.SetPlayed()
@@ -122,15 +132,10 @@ class Reader {
 	}
 
 	// Handle the play of the next music asked by the user
-	PlayNextMusic(isSkiped) {
-		var playedMusicId = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the played music
-		if (isSkiped === undefined) {
-			isSkiped = true;// Setting a default value if undefined
-		}
-	
+	PlayNextMusic(isSkiped) {	
 		// Check if the reader should loop on the same music or not
 		if (!isSkiped && this.LoopType == "one") {
-			var indexOfNextMusic = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the current music
+			var indexOfNextMusic = this.PlayedMusic; // Getting the id of the current music
 		}else {
 			// Choose witch playlist to use
 			if (this.isRandom) {
@@ -139,26 +144,22 @@ class Reader {
 				var usedPlaylist = playlist.slice();
 			}
 	
-			var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current music in the playlist
+			var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(this.PlayedMusic)); // Getting the position of the current music in the playlist
 			if (indexOfCurrentMusic == (usedPlaylist.length) - 1) { // Check if the played music is the last one
-				if (document.getElementById("Loop").dataset.loop == "none") { // The player will not restart the playlist
+				if (this.LoopType == "none") { // The player will not restart the playlist
 					return;
 				}else { // The player will restart the playlist
 					var indexOfNextMusic = 0;
 				}
 			}else { // The player continu the playlist
 				var indexOfNextMusic = indexOfCurrentMusic + 1;
-			}
-	
-		}    
-		// Play the next music
-		playMusic(usedPlaylist[indexOfNextMusic]);
+			}	
+		}
+		this.PlayMusic(usedPlaylist[indexOfNextMusic]);
 	}
 
 	// Handle the play of the previous music asked by the user
-	PlayLastMusic() {
-		var playedMusicId = document.getElementById("MusicPlayer").dataset.musicPlayed; // Getting the id of the played music
-		var player = document.getElementById("MusicPlayer");
+	PlayPreviousMusic() {
 		// Choose witch playlist to use
 		if (this.IsRandom) {
 			var usedPlaylist = randomPlaylist.slice();
@@ -166,8 +167,8 @@ class Reader {
 			var usedPlaylist = playlist.slice();
 		}
 		
-		var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(playedMusicId)); // Getting the position of the current music in the playlist
-		if (player.currentTime < 5) {
+		var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(this.PlayedMusic)); // Getting the position of the current music in the playlist
+		if (this.Player.currentTime < 5) {
 			if (indexOfCurrentMusic == 0) { // Check if the played music is the first one
 				var indexOfNextMusic = 0;
 			}else { // The player rollback the playlist
@@ -179,6 +180,32 @@ class Reader {
 			// Rollback the current music
 			playMusic(usedPlaylist[indexOfCurrentMusic]);
 		}
+	}
+
+	// Progress -10 secondes to the played music
+	SeekBackward() {
+		this.Player.currentTime -= 10;
+	}
+
+	// Progress +10 secondes to the played music
+	SeekForward() {
+		this.Player.currentTime += 10;
+	}
+
+	// Seek the music player to the wanted second
+	SeekTo(data) {
+		if (data.fastSeek) {
+			startSeeking();
+		} else {
+			stopSeeking();
+			this.Player.currentTime = data.seekTime;
+		}
+	}
+
+	// Stop the music player
+	StopMusic() {
+		this.Player.pause();
+		this.Player.currentTime = 0;
 	}
 
 	TimeUpdate() {

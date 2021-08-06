@@ -11,14 +11,14 @@ document.onkeydown = function(event) {
 		case "p": // P is pressed -> play last music
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
-				reader.PlayLastMusic()
+				reader.PlayPreviousMusic()
 			}
 			break;
 
 		case "n": // N is pressed -> play next music
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
-				reader.PlayNextMusic()
+				reader.PlayNextMusic(true)
 			}
 			break;
 			
@@ -102,28 +102,28 @@ document.onkeydown = function(event) {
 		case "ArrowLeft": // ArrowLeft is pressed -> -10s on audio
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
-				seekBackward();
+				reader.SeekBackward();
 			}
 			break;
 
 		case "ArrowRight": // ArrowRight is pressed -> +10s on audio
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
-				seekForward();
+				reader.SeekForward();
 			}
 			break;
 
 		case "ArrowUp": // ArrowUp is pressed -> +10% on volume
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
-				increaseVolume();
+				reader.IncreaseVolume();
 			}
 			break;
 
 		case "ArrowDown": // ArrowDown is pressed -> -10% on volume
 			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
 				event.preventDefault();
-				dicreaseVolume();
+				reader.DicreaseVolume();
 			}
 			break;
 	}

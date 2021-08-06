@@ -11,12 +11,12 @@ function shuffle(a) {
 function htmlDecode(input) {
 	var doc = new DOMParser().parseFromString(input, "text/html");
 	return doc.documentElement.textContent;
-  }
+}
 
 // Set Time to the right format
 function getTime(t) {
 	var m = ~~(t / 60),
-	  s = ~~(t % 60);
+	s = ~~(t % 60);
 	return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
 }
 
@@ -72,51 +72,6 @@ function checkPlaylistSection() {
 		return true;
 	} else {
 		return false;
-	}
-}
-
-// Stop the music player
-function stopMusic() {
-	var musicPlayer = document.getElementById("MusicPlayer");
-	musicPlayer.pause();
-	musicPlayer.currentTime = 0;
-}
-
-// Seek the music player to the wanted second
-function seekTo(data) {
-    if (data.fastSeek) {
-    	startSeeking();
-    } else {
-      	stopSeeking();
-      	musicPlayer.currentTime = data.seekTime;
-    }
-}
-
-// Progress +10 secondes to the played music
-function seekForward() {
-	document.getElementById("MusicPlayer").currentTime += 10;
-}
-
-// Progress -10 secondes to the played music
-function seekBackward() {
-	document.getElementById("MusicPlayer").currentTime -= 10;
-}
-
-// Remove 10% to the player's volume
-function dicreaseVolume() {
-	if (document.getElementById("MusicPlayer").volume <= 0.1) {
-		document.getElementById("MusicPlayer").volume = 0;		
-	}else {
-		document.getElementById("MusicPlayer").volume -= 0.1
-	}
-}
-
-// Add 10% to the player's volume
-function increaseVolume() {
-	if (document.getElementById("MusicPlayer").volume >= 0.9) {
-		document.getElementById("MusicPlayer").volume = 1;		
-	}else {
-		document.getElementById("MusicPlayer").volume += 0.1
 	}
 }
 
@@ -248,7 +203,7 @@ function toggleCreatePlaylist() {
 		for (var i = 0; i < libraryChildren.length; i++) (function(i){
 			var li = document.createElement("li");
 			li.classList.add("add");
-			li.id = "Add" + i;  
+			li.id = "Add" + i;
 			var parent = libraryChildren[i];
 			var child = parent.children[0];
 			parent.insertBefore(li, child);
@@ -353,14 +308,14 @@ function toggleDelete() {
 		for (var i = 0; i < libraryChildren.length; i++) (function(i){
 			var li = document.createElement("li");
 			li.classList.add("delete");
-			li.id = "Delete" + i;    
+			li.id = "Delete" + i;
 			var parent = libraryChildren[i];
 			var child = parent.children[0];
 			parent.insertBefore(li, child);
 		
 			// Add the event on this delete's click
 			document.getElementById("Delete" + i).onclick = function () {
-			  showDeleteSection(i);
+				showDeleteSection(i);
 			};
 			
 		})(i)
@@ -392,31 +347,31 @@ function togglePlaylistSection() {
 		.then(function (response) {
 			
 			if (response.length != 0) {
-			  DivPlaylist.innerHTML = "";
-			  DivPlaylist.classList.remove("playlist-div-hide");
-			  DivPlaylist.classList.add("playlist-div");
-  
-			  var ul = document.createElement("ul");
-			  ul.id = "ListPlaylist";
-			  ul.className = "listPlaylist";
-			  DivPlaylist.appendChild(ul);
-  
-			  for (var i = 0; i < response.length; i++) (function(i) {
-				  li = document.createElement("li");
-				  ul.appendChild(li);
-				  li.className = "table";
-				  li.id = "PlaylistElement" + i;
-				  li.dataset.name = response[i]["playlist_name"];
-				  li.dataset.id = response[i]["playlist_id"];
-				  document.getElementById("PlaylistElement" + i).addEventListener("click", function(){
-					  openPlaylist("PlaylistElement" + i);
-				  }, false);
-		  
-				  var p = document.createElement("p");
-				  li.appendChild(p);
-				  p.innerHTML = response[i]["playlist_name"];
-				  p.id = "PlaylistText" + i;
-			  })(i);
+				DivPlaylist.innerHTML = "";
+				DivPlaylist.classList.remove("playlist-div-hide");
+				DivPlaylist.classList.add("playlist-div");
+
+				var ul = document.createElement("ul");
+				ul.id = "ListPlaylist";
+				ul.className = "listPlaylist";
+				DivPlaylist.appendChild(ul);
+
+				for (var i = 0; i < response.length; i++) (function(i) {
+					li = document.createElement("li");
+					ul.appendChild(li);
+					li.className = "table";
+					li.id = "PlaylistElement" + i;
+					li.dataset.name = response[i]["playlist_name"];
+					li.dataset.id = response[i]["playlist_id"];
+					document.getElementById("PlaylistElement" + i).addEventListener("click", function(){
+						openPlaylist("PlaylistElement" + i);
+					}, false);
+
+					var p = document.createElement("p");
+					li.appendChild(p);
+					p.innerHTML = response[i]["playlist_name"];
+					p.id = "PlaylistText" + i;
+				})(i);
 			}
 		});
 	}
