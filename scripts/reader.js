@@ -56,7 +56,7 @@ class Reader {
 		this.Volume.addEventListener("input", evt => this.VolumeSliderChange())
 		
 		// Handle the input of the ProgressBar
-		this.ProgressBar.addEventListener("input", this.ChangeTime());
+		this.ProgressBar.addEventListener("input", evt => this.ChangeTime());
 		
 		// Handle the Playlist Reader button click
 		this.PlaylistBtn.addEventListener("click", this.TogglePlaylist());
