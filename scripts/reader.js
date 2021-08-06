@@ -1,4 +1,34 @@
-var reader
+class Reader {
+	constructor() {
+		this.MusicPlayer
+		this.Loop
+		this.Previous
+		this.PlayPause
+		this.Next
+		this.Random
+		this.Mute
+		this.Volume
+		this.ProgressBar
+		this.PlaylistBtn
+		this.Time			= document.getElementById("Time");
+		this.Start			= document.getElementById("Start");
+	}
+
+	Hydrate() {
+		this.MusicPlayer	= new ReaderPlayer();
+		this.Loop			= new ReaderLoop();
+		this.Previous		= new ReaderPrevious();
+		this.PlayPause		= new ReaderPlayPause();
+		this.Next			= new ReaderNext();
+		this.Random			= new ReaderRandom();
+		this.Mute			= new ReaderMute();
+		this.Volume			= new ReaderVolume();
+		this.ProgressBar	= new ReaderProgressBar();
+		this.PlaylistBtn	= new ReaderProgressBar();
+	}
+}
+
+var reader = new Reader();
 
 class ReaderLoop {
 	constructor() {
@@ -308,21 +338,4 @@ class ReaderPlaylist {
 	}
 }
 
-class Reader {
-	constructor() {
-		this.MusicPlayer	= new ReaderPlayer();
-		this.Loop			= new ReaderLoop();
-		this.Previous		= new ReaderPrevious();
-		this.PlayPause		= new ReaderPlayPause();
-		this.Next			= new ReaderNext();
-		this.Random			= new ReaderRandom();
-		this.Mute			= new ReaderMute();
-		this.Volume			= new ReaderVolume();
-		this.ProgressBar	= new ReaderProgressBar();
-		this.Time			= document.getElementById("Time");
-		this.Start			= document.getElementById("Start");
-		this.PlaylistBtn	= new ReaderProgressBar();
-	}
-}
-
-reader = new Reader();
+reader.Hydrate()
