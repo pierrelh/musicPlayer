@@ -53,7 +53,7 @@ class Reader {
 		this.Mute.addEventListener("click", evt => this.ToggleMute());
 
 		// Handle the volume slider actions
-		this.Volume.addEventListener("input", VolumeSliderChange())
+		this.Volume.addEventListener("input", evt => this.VolumeSliderChange())
 		
 		// Handle the input of the ProgressBar
 		this.ProgressBar.addEventListener("input", this.ChangeTime());
