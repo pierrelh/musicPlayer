@@ -15,16 +15,17 @@ class Reader {
 	}
 
 	Hydrate() {
-		this.MusicPlayer	= new ReaderPlayer();
+		this.PlaylistBtn	= new ReaderProgressBar();
 		this.Loop			= new ReaderLoop();
-		this.Previous		= new ReaderPrevious();
 		this.PlayPause		= new ReaderPlayPause();
-		this.Next			= new ReaderNext();
 		this.Random			= new ReaderRandom();
 		this.Mute			= new ReaderMute();
+		
+		this.Next			= new ReaderNext();
 		this.Volume			= new ReaderVolume();
+		this.Previous		= new ReaderPrevious();
+		this.MusicPlayer	= new ReaderPlayer();
 		this.ProgressBar	= new ReaderProgressBar();
-		this.PlaylistBtn	= new ReaderProgressBar();
 	}
 }
 
@@ -113,20 +114,20 @@ class ReaderPlayPause {
 	}
 
 	Toggle() {
-		switch (reader.MusicPlayer.paused) {
+		switch (reader.MusicPlayer.Element.paused) {
 			case true: // Play the audio
 				this.Element.src = "../../img/pause.png";
-				reader.MusicPlayer.play();
+				reader.MusicPlayer.Element.play();
 				break;
 		
 			case false: // Pause the audio
 				this.Element.src = "../../img/play.png";
-				reader.MusicPlayer.pause();
+				reader.MusicPlayer.Element.pause();
 				break;
 		
 			default: // Default: Pause the audio
 				this.Element.src = "../../img/play.png";
-				reader.MusicPlayer.pause();
+				reader.MusicPlayer.Element.pause();
 				break;
 		}
 	}
@@ -228,19 +229,19 @@ class ReaderPlayer {
 
 	Ended() {
 		if (this.src != "") {
-			reader.Next.PlayNext(false);
+			reader.Next.Element.PlayNext(false);
 		}
 	}
 
 	Load() {
-		reader.ProgressBar.max = this.duration;
+		reader.ProgressBar.Element.max = this.duration;
 		reader.Time.innerHTML = getTime(this.duration);
 	}
 
 	TimeUpdate() {
-		reader.ProgressBar.value = this.currentTime;
+		reader.ProgressBar.Element.value = this.currentTime;
 		reader.Start.innerHTML = getTime(this.currentTime);
-		var percent = (reader.ProgressBar.value / (reader.ProgressBar.max - reader.ProgressBar.min)) * 100;
+		var percent = (reader.ProgressBar.Element.value / (reader.ProgressBar.Element.max - reader.ProgressBar.Element.min)) * 100;
 		document.getElementById("ProgressBar").style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
 																		"color-stop(" + percent + "%, #FFF), " +
 																		"color-stop(" + percent + "%, rgb(50, 50, 50))" +
