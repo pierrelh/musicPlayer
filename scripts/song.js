@@ -9,6 +9,7 @@ class Song {
 		this.Cover		= data["file_image"];
 		this.ID			= id;
 		this.Element.addEventListener("click", evt => playMusic(this));
+		console.log(data)
 	}
 
 	Create() {
