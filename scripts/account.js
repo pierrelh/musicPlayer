@@ -47,7 +47,7 @@ class Account {
 		
 				document.getElementById("AccountStorageUsage").innerHTML = (response["storage"]["usage"] / 1000000000).toFixed(2) + " GB";
 				document.getElementById("AccountStoragePercent").innerHTML = response["storage"]["used_percent"] + "%";
-				document.getElementById("AccountStorageProgressBar").style.width = innerHTML = response["storage"]["used_percent"] + "%";
+				document.getElementById("AccountStorageProgressBar").style.width = response["storage"]["used_percent"] + "%";
 				document.getElementById("AccountStorageLimit").innerHTML = (response["storage"]["limit"] / 1000000000).toFixed(2) + " GB";
 		
 				document.getElementById("AccountImageMaxSize").innerHTML = response["media_limits"]["image_max_size_bytes"];
