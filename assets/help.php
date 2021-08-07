@@ -62,5 +62,4 @@
             <p><strong>H</strong> - Open help</p>
         </li>        
     </ul>
-	<script type="text/javascript" src="<?php echo $link ?>/scripts/help.js"></script>
 </section>

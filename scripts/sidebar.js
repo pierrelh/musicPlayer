@@ -142,20 +142,13 @@ class Sidebar {
 
 			// Create the Delete elements & add it to the music's parent
 			var libraryChildren = document.getElementById("LibraryObjects").children;
-			for (var i = 0; i < libraryChildren.length; i++) (function(i){
-				var li = document.createElement("li");
-				li.classList.add("delete");
-				li.id = "Delete" + i;
+			for (var i = 0; i < libraryChildren.length; i++) {
+				var deleteLayout = new DeleteLayout(i);
 				var parent = libraryChildren[i];
 				var child = parent.children[0];
-				parent.insertBefore(li, child);
-			
-				// Add the event on this delete's click
-				document.getElementById("Delete" + i).onclick = function () {
-					showDeleteSection(i);
-				};
+				parent.insertBefore(deleteLayout, child);
 				
-			})(i)
+			}
 		}
 	}
 }

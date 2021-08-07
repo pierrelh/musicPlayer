@@ -1,3 +1,14 @@
+class DeleteLayout {
+	constructor(id) {
+		this.Element = document.createElement("li");
+		this.Element.classList.add("delete");
+	
+		// Add the event on this delete's click
+		this.Element.addEventListener("click", evt => deleteSection.Show(MusicsPlaylist[id]))
+		return this.Element;
+	}
+}
+
 class PlayingLayout {
 	constructor() {
 		this.Element	= document.createElement("li");

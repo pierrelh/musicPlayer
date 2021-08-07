@@ -10,4 +10,3 @@
 		</li>
 	</ul>
 </section>
-<script type="text/javascript" src="<?php echo $link ?>/scripts/deleteFiles.js"></script>

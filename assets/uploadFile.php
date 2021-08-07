@@ -62,5 +62,4 @@
 		</ul>
 		<input class="send-form" id="UploadButton" type="submit" value="ENVOYER">
 	</form>
-	<script type="text/javascript" src="<?php echo $link ?>/scripts/uploadFile.js"></script>
 </section>

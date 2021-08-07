@@ -41,4 +41,3 @@
 		</div>
 	</form>
 </section>
-<script type="text/javascript" src="<?php echo $link ?>/scripts/editFiles.js"></script>

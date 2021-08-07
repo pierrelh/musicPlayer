@@ -39,5 +39,13 @@
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/account.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/sidebar.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/music.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/create-account.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/deleteFiles.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/editFiles.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/help.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/playlist.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/playlist-reader.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/uploadFile.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/reader.js"></script>
 	</body>
 </html>
