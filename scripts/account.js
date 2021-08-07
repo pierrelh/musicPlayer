@@ -16,6 +16,7 @@ class Account {
 
 	// Toggle account section's visibility 
 	Toggle() {
+		console.log("Show / hide account")
 		if (this.Element.classList.contains("appear")) {
 			backgroundHide();
 			this.Element.className = "";
