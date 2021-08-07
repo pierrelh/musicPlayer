@@ -137,7 +137,7 @@ class Reader {
 			this.PlayMusic(this.PlayedMusic); // Replay the current music
 		}else {
 			// Choose witch playlist to use
-			if (this.isRandom) {
+			if (this.IsRandom) {
 				var usedPlaylist = MusicsRandomPlaylist.slice();
 			}else {
 				var usedPlaylist = MusicsPlaylist.slice();
