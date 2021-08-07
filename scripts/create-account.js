@@ -15,7 +15,7 @@ class CreateAccount {
 		this.CreataAccountBTN.addEventListener("click", evt => this.CreateAccount(evt));
 	}
 
-	CreateAccount() {
+	CreateAccount(e) {
 		e.preventDefault();
 	
 		if (this.Email.value == "" || this.PasswordOne.value == "" || this.PasswordTwo.value == "") {

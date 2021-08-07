@@ -79,10 +79,10 @@ class Sidebar {
 		this.Arrow.addEventListener("click", evt => this.Toggle());
 
 		// Handle the my account button click
-		this.MyAccountSidebar.addEventListener("click", account.Toggle(), false);
+		this.MyAccountSidebar.addEventListener("click", account.Toggle());
 
 		// Handle the create account button click
-		this.CreateAccountSidebar.addEventListener("click", createAccount.Show(), false);
+		this.CreateAccountSidebar.addEventListener("click", createAccount.Show());
 
 		// Handle the upload file button click
 		this.UploadFileSidebar.addEventListener("click", toggleUploadSection, false);
