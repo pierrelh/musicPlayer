@@ -16,7 +16,7 @@ class EditLayout {
 
 		// Add the event on this edit's click
 		this.Element.addEventListener("click", evt => editSection.Show(MusicsPlaylist[id]))
-		return [this.Element, MusicsPlaylist[id]];
+		return this.Element;
 	}
 }
 
@@ -59,15 +59,14 @@ class Music {
 		this.Cover		= data["file_image"];
 		this.ID			= id;
 		this.Played		= false;
-		this.Element.addEventListener("click", evt => reader.PlayMusic(this));
 		MusicsPlaylist.push(this);
 	}
 
 	Create() {
-		var cover = new MusicCover().Create(this.Cover)
+		var cover = new MusicCover(this).Create(this.Cover)
 		this.Element.appendChild(cover)
 		
-		var title = new MusicTitle().Create(this.Artist, this.Title)
+		var title = new MusicTitle(this).Create(this.Artist, this.Title)
 		this.Element.appendChild(title)
 
 		return this.Element;
@@ -80,8 +79,9 @@ class Music {
 }
 
 class MusicCover {
-	constructor() {
+	constructor(datas) {
 		this.Element = document.createElement("li");
+		this.Element.addEventListener("click", evt => reader.PlayMusic(datas));
 	}
 	Create(cover) {
 		this.Element.className = "view";
@@ -93,10 +93,11 @@ class MusicCover {
 }
 
 class MusicTitle {
-	constructor() {
+	constructor(datas) {
 		this.Element = document.createElement("li");
 		this.Title = document.createElement("p");
 		this.Element.appendChild(this.Title)
+		this.Element.addEventListener("click", evt => reader.PlayMusic(datas));
 	}
 	Create(author, name) {
 		this.Title.innerHTML = author + " - " + name;

@@ -29,7 +29,7 @@ class DeleteSection {
 						// Closing Delete section
 						deleteSection.Hide()
 						// Deleting the deleted music from the Library
-						// document.getElementById("MusicList" + this.Music.ID).remove();
+						deleteSection.Music.Element.remove();
 					}else {
 						alert("Une erreur inatendue s'est produite, merci de réessayer plus tard.")
 					}
