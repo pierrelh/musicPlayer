@@ -233,11 +233,11 @@ class Sidebar {
 			// Create the edit elements
 			var libraryChildren = document.getElementById("LibraryObjects").children;
 			for (var i = 0; i < libraryChildren.length; i++) {
-				var editLayout = new EditLayout(i);
+				var {editLayout, music} = new EditLayout(i);
 				var parent = libraryChildren[i];
 				var child = parent.children[0];
-				parent.removeEventListener("click", evt => reader.PlayMusic(editLayout[1]))
-				parent.insertBefore(editLayout[0], child);
+				parent.removeEventListener("click", evt => reader.PlayMusic(music))
+				parent.insertBefore(editLayout, child);
 			}
 		}
 	}
