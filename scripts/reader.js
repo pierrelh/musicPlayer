@@ -294,10 +294,8 @@ class Reader {
 			this.IsRandom = false;
 			this.Random.src = "../../img/no-random.png";			
 		} else {
-			console.log("random")
 			MusicsRandomPlaylist = MusicsPlaylist.slice();
 			shuffle(MusicsRandomPlaylist); // Creating the random playlist
-			console.log(MusicsRandomPlaylist)
 			this.IsRandom = true;
 			this.Random.src = "../../img/random.png";
 		}

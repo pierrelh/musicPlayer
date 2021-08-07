@@ -2,12 +2,12 @@ if ('mediaSession' in navigator) {
 	
 	// Handle the play action on mediaSession
 	navigator.mediaSession.setActionHandler('play', function() {
-		reader.TogglePlayPause();
+		reader.TogglePlayPauseButton();
 	});
 
 	// Handle the pause action on mediaSession
 	navigator.mediaSession.setActionHandler('pause', function() {
-		reader.TogglePlayPause();
+		reader.TogglePlayPauseButton();
 	});
 
 	// Handle the stop action on mediaSession
