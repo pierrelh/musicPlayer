@@ -1,84 +1,129 @@
-var MyAccountSidebar = document.getElementById("MyAccountSidebar");
-var CreateAccountSidebar = document.getElementById("CreateAccountSidebar");
-var UploadFileSidebar = document.getElementById("UploadFileSidebar");
-var EditFileSidebar = document.getElementById("EditFileSidebar");
-var DeleteFileSidebar = document.getElementById("DeleteFileSidebar");
-var UploadFileSidebar = document.getElementById("UploadFileSidebar");
-var FilterAuthor = document.getElementById("FilterAuthor");
-var FilterAlbum = document.getElementById("FilterAlbum");
-var FilterId = document.getElementById("FilterId");
-var FilterName = document.getElementById("FilterName");
-var MyPlaylistsSidebar = document.getElementById("MyPlaylistsSidebar");
-var CreatePlaylistSidebar = document.getElementById("CreatePlaylistSidebar");
-var Help = document.getElementById("HelpSidebar");
+class Filters {
+	constructor() {
+		this.FilterArtist	= document.getElementById("FilterAuthor");
+		this.FilterAlbum	= document.getElementById("FilterAlbum");
+		this.FilterId		= document.getElementById("FilterId");
+		this.FilterName		= document.getElementById("FilterName");
+		this.Order			= "ASC";
 
-// Handle the my account button click
-MyAccountSidebar.addEventListener("click", toggleAccountSection, false);
+		// Handle the filter author button click
+		this.FilterArtist.addEventListener("click", evt => this.ByArtist());
 
-// Handle the create account button click
-CreateAccountSidebar.addEventListener("click", function() {
-	backgroundAppear();
-	document.getElementById("CreateAccount").classList.add("appear");
-});
+		// Handle the filter album button click
+		this.FilterAlbum.addEventListener("click", evt => this.ByAlbum());
 
-// Handle the upload file button click
-UploadFileSidebar.addEventListener("click", toggleUploadSection, false);
+		// Handle the filter id button click
+		this.FilterId.addEventListener("click", evt => this.ByID());
 
-// Handle the edit file button click
-EditFileSidebar.addEventListener("click", toggleEdit, false);
+		// Handle the filter name button click
+		this.FilterName.addEventListener("click", evt => this.ByName());
 
-// Handle the delete file button click
-DeleteFileSidebar.addEventListener("click", toggleDelete, false);
-
-// Handle the filter author button click
-FilterAuthor.addEventListener("click", function() {
-	checkPlaylistSection();
-	getFiles("file_author", this.dataset.order);
-	if (this.dataset.order == "ASC") {
-		this.dataset.order = "DESC";
-	}else {
-		this.dataset.order = "ASC";
 	}
-});
 
-// Handle the filter album button click
-FilterAlbum.addEventListener("click", function() {
-	checkPlaylistSection();
-	getFiles("file_album", this.dataset.order);
-	if (this.dataset.order == "ASC") {
-		this.dataset.order = "DESC";
-	}else {
-		this.dataset.order = "ASC";
+	ByAlbum() {
+		checkPlaylistSection();
+		getFiles("file_album", this.Order);
+		if (this.Order == "ASC") {
+			this.Order = "DESC";
+		}else {
+			this.Order = "ASC";
+		}
 	}
-});
 
-// Handle the filter id button click
-FilterId.addEventListener("click", function() {
-	checkPlaylistSection();
-	getFiles("file_id", this.dataset.order);
-	if (this.dataset.order == "ASC") {
-		this.dataset.order = "DESC";
-	}else {
-		this.dataset.order = "ASC";
+	ByArtist() {
+		checkPlaylistSection();
+		getFiles("file_author", this.Order);
+		if (this.Order == "ASC") {
+			this.Order = "DESC";
+		}else {
+			this.Order = "ASC";
+		}
 	}
-});
 
-// Handle the filter name button click
-FilterName.addEventListener("click", function() {
-	checkPlaylistSection();
-	getFiles("file_name", this.dataset.order);
-	if (this.dataset.order == "ASC") {
-		this.dataset.order = "DESC";
-	}else {
-		this.dataset.order = "ASC";
+	ByID() {
+		checkPlaylistSection();
+		getFiles("file_id", this.Order);
+		if (this.Order == "ASC") {
+			this.Order = "DESC";
+		}else {
+			this.Order = "ASC";
+		}
 	}
-});
 
-// Handle the my playlists button click
-MyPlaylistsSidebar.addEventListener("click", togglePlaylistSection, false);
+	ByName() {
+		checkPlaylistSection();
+		getFiles("file_name", this.Order);
+		if (this.Order == "ASC") {
+			this.Order = "DESC";
+		}else {
+			this.Order = "ASC";
+		}
+	}
+}
 
-// Handle the create playlist button click
-CreatePlaylistSidebar.addEventListener("click", toggleCreatePlaylist, false);
+class Sidebar {
+	constructor() {
+		this.Element				= document.getElementById("Sidebar")
+		this.MyAccountSidebar		= document.getElementById("MyAccountSidebar");
+		this.CreateAccountSidebar	= document.getElementById("CreateAccountSidebar");
+		this.UploadFileSidebar		= document.getElementById("UploadFileSidebar");
+		this.EditFileSidebar		= document.getElementById("EditFileSidebar");
+		this.DeleteFileSidebar		= document.getElementById("DeleteFileSidebar");
+		this.UploadFileSidebar		= document.getElementById("UploadFileSidebar");
+		this.MyPlaylistsSidebar		= document.getElementById("MyPlaylistsSidebar");
+		this.CreatePlaylistSidebar	= document.getElementById("CreatePlaylistSidebar");
+		this.Filters				= new Filters();
+		this.Help					= document.getElementById("HelpSidebar");
+		this.Arrow					= document.getElementById("Arrow");
 
-// Handle the help button click
-Help.addEventListener("click", toggleHelpSection, false);
+		this.Arrow.addEventListener("click", evt => this.ShowSidebar());
+
+		// Handle the my account button click
+		this.MyAccountSidebar.addEventListener("click", toggleAccountSection, false);
+
+		// Handle the create account button click
+		this.CreateAccountSidebar.addEventListener("click", function() {
+			backgroundAppear();
+			document.getElementById("CreateAccount").classList.add("appear");
+		});
+
+		// Handle the upload file button click
+		this.UploadFileSidebar.addEventListener("click", toggleUploadSection, false);
+
+		// Handle the edit file button click
+		this.EditFileSidebar.addEventListener("click", toggleEdit, false);
+
+		// Handle the delete file button click
+		this.DeleteFileSidebar.addEventListener("click", toggleDelete, false);
+
+		// Handle the my playlists button click
+		this.MyPlaylistsSidebar.addEventListener("click", togglePlaylistSection, false);
+
+		// Handle the create playlist button click
+		this.CreatePlaylistSidebar.addEventListener("click", toggleCreatePlaylist, false);
+
+		// Handle the help button click
+		this.Help.addEventListener("click", toggleHelpSection, false);
+	}
+
+	// Toggle sidebar section 
+	ShowSidebar() {
+		if (document.getElementById("Library").classList.contains("library")) {
+			// Hide the sidebar and enlarge the librarys and the player
+			this.Arrow.classList.remove("arrow-active");
+			this.Element.classList.add("sidebar-hide");
+			document.getElementById("Library").classList.remove("library");
+			document.getElementById("DivPlaylist").classList.add("playlist-sidebar-hided");
+			document.getElementById("AudioPlayer").classList.add("left");
+		}else {
+			// Show the sidebar and reduce the librarys and the player
+			this.Arrow.classList.add("arrow-active");
+			this.Element.classList.remove("sidebar-hide");
+			document.getElementById("Library").classList.add("library");
+			document.getElementById("DivPlaylist").classList.remove("playlist-sidebar-hided");
+			document.getElementById("AudioPlayer").classList.remove("left");
+		}
+	}
+}
+
+var sidebar = new Sidebar();

@@ -102,25 +102,6 @@ function uploadFileCloudinary(formDataMusic, barId, txtId, link) {
 	});
 }
 
-// Toggle sidebar section 
-function toggleSidebar() {
-	if (document.getElementById("Library").classList.contains("library")) {
-		// Hide the sidebar and enlarge the librarys and the player
-		document.getElementById("Arrow").classList.remove("arrow-active");
-		document.getElementById("Sidebar").classList.add("sidebar-hide");
-		document.getElementById("Library").classList.remove("library");
-		document.getElementById("DivPlaylist").classList.add("playlist-sidebar-hided");
-		document.getElementById("AudioPlayer").classList.add("left");
-	}else {
-		// Show the sidebar and reduce the librarys and the player
-		document.getElementById("Arrow").classList.add("arrow-active");
-		document.getElementById("Sidebar").classList.remove("sidebar-hide");
-		document.getElementById("Library").classList.add("library");
-		document.getElementById("DivPlaylist").classList.remove("playlist-sidebar-hided");
-		document.getElementById("AudioPlayer").classList.remove("left");
-	}
-}
-
 // Toggle account section 
 function toggleAccountSection() {
 	if (document.getElementById("Account").classList.contains("appear")) {
