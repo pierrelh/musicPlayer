@@ -1,3 +1,34 @@
+class UploadSection {
+	constructor() {
+		this.Element = document.getElementById("Upload");
+		this.Cross = document.getElementById("CrossUpload");
+		this.UploadBTN = document.getElementById("UploadButton")
+
+		// Handle click event on CrossUpload
+		this.Cross.addEventListener("click", evt => this.Toggle());
+		
+		// Handle click on UploadButton
+		this.UploadBTN.addEventListener("click", evt => this.UploadFiles(e));
+
+	}
+
+	// Toggle upload section
+	Toggle() {
+		if (this.Element.classList.contains("appear")) {
+			background.Hide();
+			this.Element.classList.remove("appear");		
+		}else {
+			background.Show();
+			this.Element.classList.add("appear");
+		}
+	}
+
+	UploadFiles() {
+		e.preventDefault();
+		uploadMusic();
+	}
+}
+
 // Function to upload a music
 async function uploadMusic() {
 	var file = document.getElementById("File").files[0];
@@ -67,15 +98,4 @@ async function uploadMusic() {
 	}
 }
 
-// Handle click event on CrossUpload
-document.getElementById("CrossUpload").addEventListener("click", function () {
-	background.Hide();
-	var Upload = document.getElementById("Upload");
-	Upload.className = "";
-});
-
-// Handle click on UploadButton
-document.getElementById("UploadButton").addEventListener("click", function(e) {
-	e.preventDefault();
-	uploadMusic();
-});
+var uploadSection = new UploadSection()

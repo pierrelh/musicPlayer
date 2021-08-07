@@ -32,7 +32,7 @@ document.onkeydown = function(event) {
 				break;
 
 			case "u": // U is pressed -> toggle upload section
-				toggleUploadSection();
+				uploadSection.Toggle();
 				break;
 
 			case "e": // E is pressed -> toggle edit

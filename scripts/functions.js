@@ -88,17 +88,6 @@ function uploadFileCloudinary(formDataMusic, barId, txtId, link) {
 	});
 }
 
-// Toggle upload section
-function toggleUploadSection() {
-	if (document.getElementById("Upload").classList.contains("appear")) {
-		background.Hide();
-		document.getElementById("Upload").classList.remove("appear");		
-	}else {
-		background.Show();
-		document.getElementById("Upload").classList.add("appear");
-	}
-}
-
 // Toggle create a playlist
 function toggleCreatePlaylist() {
 	var CreatePlaylistSidebar = document.getElementById("CreatePlaylistSidebar");

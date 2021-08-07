@@ -85,13 +85,13 @@ class Sidebar {
 		this.CreateAccountSidebar.addEventListener("click", evt => createAccount.Show());
 
 		// Handle the upload file button click
-		this.UploadFileSidebar.addEventListener("click", toggleUploadSection, false);
+		this.UploadFileSidebar.addEventListener("click", evt => uploadSection.Toggle());
 
 		// Handle the edit file button click
 		this.EditFileSidebar.addEventListener("click", toggleEdit, false);
 
 		// Handle the delete file button click
-		this.DeleteFileSidebar.addEventListener("click", this.ToggleDelete());
+		this.DeleteFileSidebar.addEventListener("click", evt => this.ToggleDelete());
 
 		// Handle the my playlists button click
 		this.MyPlaylistsSidebar.addEventListener("click", togglePlaylistSection, false);
