@@ -100,3 +100,5 @@ class EditSection {
 		this.Element.className = "appear";
 	}
 }
+
+var editSection = new EditSection()
