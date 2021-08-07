@@ -148,6 +148,8 @@ class Reader {
 	
 			console.log(this.PlayedMusicID)
 			console.log(usedPlaylist)
+			var index = Object.keys(usedPlaylist).indexOf(this.PlayedMusicID);
+			console.log(index)
 			var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(this.PlayedMusicID)); // Getting the position of the current music in the playlist
 			console.log(indexOfCurrentMusic)
 			if (indexOfCurrentMusic == (usedPlaylist.length) - 1) { // Check if the played music is the last one
