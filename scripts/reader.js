@@ -142,15 +142,11 @@ class Reader {
 			}else {
 				var usedPlaylist = MusicsPlaylist.slice();
 			}
-	
-			console.log(this.PlayedMusic)
-			console.log(usedPlaylist)
-			const currentMusic = (element) => element == this.PlayedMusic;
 
-			console.log(usedPlaylist.findIndex(currentMusic));
-			var index = Object.keys(usedPlaylist).indexOf(this.PlayedMusic);
-			console.log(index)
-			var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(this.PlayedMusic)); // Getting the position of the current music in the playlist
+			var indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === this.PlayedMusic.ID);
+			// console.log(index)
+
+			// var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(this.PlayedMusic)); // Getting the position of the current music in the playlist
 			console.log(indexOfCurrentMusic)
 			if (indexOfCurrentMusic == (usedPlaylist.length) - 1) { // Check if the played music is the last one
 				if (this.LoopType == "none") { // The player will not restart the playlist
