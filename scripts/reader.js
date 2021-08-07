@@ -99,10 +99,7 @@ class Reader {
 	}
 
 	// Play the passed music
-	PlayMusic(id) {
-		console.log(id)
-		console.log(MusicsPlaylist[id])
-		var music = MusicsPlaylist[id];
+	PlayMusic(music) {
 	
 		// Adding the class to LibraryObjects if needed
 		var library = document.getElementById("LibraryObjects");
