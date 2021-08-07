@@ -24,13 +24,13 @@ class DeleteSection {
 					"file_url": this.Music.URL,
 					"file_cover": this.Music.Cover
 				},
-				success: function(data, this){
+				success: function(data){
 					if (data == 1) {
 						// Closing Delete section
 						background.Hide();
-						this.Element.className = "";
+						document.getElementById("Delete").className = "";
 						// Deleting the deleted music from the Library
-						document.getElementById("MusicList" + this.Music.ID).remove();
+						// document.getElementById("MusicList" + this.Music.ID).remove();
 					}else {
 						alert("Une erreur inatendue s'est produite, merci de réessayer plus tard.")
 					}
