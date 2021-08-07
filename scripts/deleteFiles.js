@@ -24,7 +24,7 @@ class DeleteSection {
 					"file_url": this.Music.URL,
 					"file_cover": this.Music.Cover
 				},
-				success: evt => function(data, this){
+				success: function(data, this){
 					if (data == 1) {
 						// Closing Delete section
 						background.Hide();
