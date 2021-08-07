@@ -23,7 +23,7 @@ class Music {
 		this.Cover		= data["file_image"];
 		this.ID			= id;
 		this.Played		= false;
-		this.Element.addEventListener("click", reader.PlayMusic(this.ID));
+		this.Element.addEventListener("click", evt => reader.PlayMusic(this.ID));
 		MusicsPlaylist.push(this);
 	}
 
