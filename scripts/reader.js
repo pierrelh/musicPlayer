@@ -143,11 +143,7 @@ class Reader {
 				var usedPlaylist = MusicsPlaylist.slice();
 			}
 
-			var indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === this.PlayedMusic.ID);
-			// console.log(index)
-
-			// var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(this.PlayedMusic)); // Getting the position of the current music in the playlist
-			console.log(indexOfCurrentMusic)
+			var indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === this.PlayedMusic.ID); // Getting the position of the current music in the playlist
 			if (indexOfCurrentMusic == (usedPlaylist.length) - 1) { // Check if the played music is the last one
 				if (this.LoopType == "none") { // The player will not restart the playlist
 					return;
@@ -298,8 +294,10 @@ class Reader {
 			this.IsRandom = false;
 			this.Random.src = "../../img/no-random.png";			
 		} else {
+			console.log("random")
 			MusicsRandomPlaylist = MusicsPlaylist.slice();
 			shuffle(MusicsRandomPlaylist); // Creating the random playlist
+			console.log(MusicsRandomPlaylist)
 			this.IsRandom = true;
 			this.Random.src = "../../img/random.png";
 		}
