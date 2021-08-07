@@ -9,10 +9,10 @@ class Help {
 
 	Toggle() {
 		if (this.Element.classList.contains("appear")) {
-			backgroundHide();
+			background.Hide();
 			this.Element.classList.remove("appear");		
 		}else {
-			backgroundAppear();
+			background.Show();
 			this.Element.classList.add("appear");
 		}
 	}

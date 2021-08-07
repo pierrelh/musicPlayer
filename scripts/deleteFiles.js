@@ -1,5 +1,5 @@
 function showDeleteSection(musicId){
-	backgroundAppear();
+	background.Show();
 	var Delete = document.getElementById("Delete");
 	Delete.className = "appear";
 	var Music = document.getElementById("Music" + musicId);
@@ -35,7 +35,7 @@ document.getElementById("DeleteYes").addEventListener("click", function() {
 			success: function(data){
 				if (data == 1) {
 					// Closing Delete section
-					backgroundHide();
+					background.Hide();
 					var Delete = document.getElementById("Delete");
 					Delete.className = "";
 					// Deleting the deleted music from the Library
@@ -53,7 +53,7 @@ document.getElementById("DeleteYes").addEventListener("click", function() {
 
 // Handle click on No button of Delete section
 document.getElementById("DeleteNo").addEventListener("click", function() {
-	backgroundHide();
+	background.Hide();
 	var Delete = document.getElementById("Delete");
 	Delete.className = "";
 });

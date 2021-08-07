@@ -50,20 +50,6 @@ function getPublicIdFromUrl(url) {
 	return url;
 }
 
-// Show the assets Background
-function backgroundAppear() {
-	if (!document.getElementById("Background").classList.contains("background-appear")) {
-		document.getElementById("Background").classList.add("background-appear");		
-	}
-}
-
-// Hide the assets Background
-function backgroundHide() {
-	if (document.getElementById("Background").classList.contains("background-appear")) {
-		document.getElementById("Background").classList.remove("background-appear");		
-	}
-}
-
 // Check if PlaylistSection is visible & hide it if so
 function checkPlaylistSection() {
 	if (document.getElementById("DivPlaylist").classList.contains("playlist-div")) {
@@ -105,10 +91,10 @@ function uploadFileCloudinary(formDataMusic, barId, txtId, link) {
 // Toggle upload section
 function toggleUploadSection() {
 	if (document.getElementById("Upload").classList.contains("appear")) {
-		backgroundHide();
+		background.Hide();
 		document.getElementById("Upload").classList.remove("appear");		
 	}else {
-		backgroundAppear();
+		background.Show();
 		document.getElementById("Upload").classList.add("appear");
 	}
 }

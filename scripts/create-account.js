@@ -53,14 +53,12 @@ class CreateAccount {
 	}
 
 	Hide() {
-		console.log("Hide CA")
-		backgroundHide();
+		background.Hide();
 		this.Element.className = "";
 	}
 
 	Show() {
-		console.log("Show CA")
-		backgroundAppear();
+		background.Show();
 		document.getElementById("CreateAccount").classList.add("appear");
 	}
 }

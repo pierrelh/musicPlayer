@@ -6,14 +6,14 @@ function showEditSection(musicId){
 	document.getElementById("Banner").style.backgroundImage = "url(" + Music.dataset.img + ")";
 	document.getElementById("EditButton").dataset.musicId = Music.dataset.id;
 	document.getElementById("EditButton").dataset.musicImg = Music.dataset.img;
-	backgroundAppear();
+	background.Show();
 	var Edit = document.getElementById("Edit");
 	Edit.className = "appear";
 }
 
 // Handle click on CrossEdit
 document.getElementById("CrossEdit").addEventListener("click", function() {
-	backgroundHide();
+	background.Hide();
 	document.getElementById("Edit").className = "";
 	document.getElementById("PictureEdit").value = "";
 });
@@ -71,7 +71,7 @@ document.getElementById("EditButton").addEventListener("click", function(e) {
 				alert("Edit failed");
 			});
 
-			backgroundHide();
+			background.Hide();
 			document.getElementById("Edit").className = "";
 			document.getElementById("PictureEdit").value = "";
 		}

@@ -16,9 +16,8 @@ class Account {
 
 	// Toggle account section's visibility 
 	Toggle() {
-		console.log("Show / hide account")
 		if (this.Element.classList.contains("appear")) {
-			backgroundHide();
+			background.Hide();
 			this.Element.className = "";
 		}else {
 			fetch(server + "/functions/account/getCloudinaryAdmin.php")
@@ -57,8 +56,8 @@ class Account {
 				document.getElementById("AccountImageMaxPx").innerHTML = response["media_limits"]["image_max_px"];
 				document.getElementById("AccountAssetMaxTotalPx").innerHTML = response["media_limits"]["asset_max_total_px"];
 		
-				backgroundAppear();
-				document.getElementById("Account").Element.classList.add("appear");
+				background.Show();
+				document.getElementById("Account").classList.add("appear");
 			});
 		}
 	}

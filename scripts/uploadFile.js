@@ -69,7 +69,7 @@ async function uploadMusic() {
 
 // Handle click event on CrossUpload
 document.getElementById("CrossUpload").addEventListener("click", function () {
-	backgroundHide();
+	background.Hide();
 	var Upload = document.getElementById("Upload");
 	Upload.className = "";
 });
