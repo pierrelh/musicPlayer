@@ -143,6 +143,7 @@ class Sidebar {
 			// Create the Delete elements & add it to the music's parent
 			var libraryChildren = document.getElementById("LibraryObjects").children;
 			for (var i = 0; i < libraryChildren.length; i++) {
+				console.log("Creating delete layout")
 				var deleteLayout = new DeleteLayout(i);
 				var parent = libraryChildren[i];
 				var child = parent.children[0];
