@@ -41,13 +41,13 @@ if ('mediaSession' in navigator) {
 	});
 }
 
-function mediaSessionSetData(data) {
-	navigator.mediaSession.metadata = new MediaMetadata({
-		title: htmlDecode(data.Title),
-		artist: htmlDecode(data.Artist),
-		album: htmlDecode(data.Album),
-		artwork: [
-			{src: data.Cover, sizes: '150x150', type: 'image/png'}	
-		]
-	});
-}
+// function mediaSessionSetData(data) {
+// 	navigator.mediaSession.metadata = new MediaMetadata({
+// 		title: htmlDecode(data.Title),
+// 		artist: htmlDecode(data.Artist),
+// 		album: htmlDecode(data.Album),
+// 		artwork: [
+// 			{src: data.Cover, sizes: '150x150', type: 'image/png'}	
+// 		]
+// 	});
+// }
