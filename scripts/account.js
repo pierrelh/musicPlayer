@@ -58,7 +58,7 @@ class Account {
 				document.getElementById("AccountAssetMaxTotalPx").innerHTML = response["media_limits"]["asset_max_total_px"];
 		
 				backgroundAppear();
-				this.Element.classList.add("appear");
+				document.getElementById("Account").Element.classList.add("appear");
 			});
 		}
 	}

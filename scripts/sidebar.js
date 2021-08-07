@@ -100,7 +100,7 @@ class Sidebar {
 		this.CreatePlaylistSidebar.addEventListener("click", toggleCreatePlaylist, false);
 
 		// Handle the help button click
-		this.Help.addEventListener("click", help.Toggle());
+		this.Help.addEventListener("click", evt => help.Toggle());
 	}
 
 	// Toggle sidebar section 
