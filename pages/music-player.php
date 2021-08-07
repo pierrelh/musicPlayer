@@ -35,6 +35,8 @@
 				</script>
 			</div>
 		</section>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/account.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/sidebar.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/music.js"></script>
 	</body>
 </html>

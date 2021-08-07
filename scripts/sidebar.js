@@ -76,7 +76,7 @@ class Sidebar {
 		this.Help					= document.getElementById("HelpSidebar");
 		this.Arrow					= document.getElementById("Arrow");
 
-		this.Arrow.addEventListener("click", evt => this.ShowSidebar());
+		this.Arrow.addEventListener("click", evt => this.Toggle());
 
 		// Handle the my account button click
 		this.MyAccountSidebar.addEventListener("click", account.Toggle(), false);
@@ -104,7 +104,7 @@ class Sidebar {
 	}
 
 	// Toggle sidebar section 
-	ShowSidebar() {
+	Toggle() {
 		if (document.getElementById("Library").classList.contains("library")) {
 			// Hide the sidebar and enlarge the librarys and the player
 			this.Arrow.classList.remove("arrow-active");

@@ -56,7 +56,7 @@ document.onkeydown = function(event) {
 				break;
 
 			case "s": // S is pressed -> toggle sidebar
-				sidebar.ShowSidebar();
+				sidebar.Toggle();
 				break;
 
 			case "ArrowLeft": // ArrowLeft is pressed -> -10s on audio

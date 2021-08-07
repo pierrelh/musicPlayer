@@ -44,4 +44,3 @@
 		</li>
 	</ul>
 </section>
-<script type="text/javascript" src="<?php echo $link ?>/scripts/sidebar.js"></script>

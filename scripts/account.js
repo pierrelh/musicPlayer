@@ -8,21 +8,17 @@ class Account {
 		this.ErrorMSG			= document.getElementById("errorMsgEditPassword");
 
 		// Handle click on CrossAccount button of Account section
-		this.Cross.addEventListener("click", evt => this.Hide());
+		this.Cross.addEventListener("click", evt => this.Toggle());
 
 		// Handle click on CrossAccount button of Account section
 		this.UpdatePasswordBtn.addEventListener("click", evt => this.UpdatePassword(evt));
 	}
 
-	Hide() {
-		backgroundHide();
-		this.Element.className = "";
-	}	
-
-	// Toggle account section 
+	// Toggle account section's visibility 
 	Toggle() {
 		if (this.Element.classList.contains("appear")) {
-			this.Hide()	
+			backgroundHide();
+			this.Element.className = "";
 		}else {
 			fetch(server + "/functions/account/getCloudinaryAdmin.php")
 			.then((response) => response.json())
