@@ -88,7 +88,7 @@ class Sidebar {
 		this.UploadFileSidebar.addEventListener("click", evt => uploadSection.Toggle());
 
 		// Handle the edit file button click
-		this.EditFileSidebar.addEventListener("click", toggleEdit, false);
+		this.EditFileSidebar.addEventListener("click", evt => this.ToggleEdit());
 
 		// Handle the delete file button click
 		this.DeleteFileSidebar.addEventListener("click", evt => this.ToggleDelete());
@@ -143,12 +143,40 @@ class Sidebar {
 			// Create the Delete elements & add it to the music's parent
 			var libraryChildren = document.getElementById("LibraryObjects").children;
 			for (var i = 0; i < libraryChildren.length; i++) {
-				console.log("Creating delete layout")
 				var deleteLayout = new DeleteLayout(i);
 				var parent = libraryChildren[i];
 				var child = parent.children[0];
 				parent.insertBefore(deleteLayout, child);
 				
+			}
+		}
+	}
+
+	// Toggle edit on musics
+	ToggleEdit() {
+		// If elements with edit's class exists then delete them & quit
+		var editElements = Object.values(document.getElementsByClassName("edit"));
+		if (editElements.length != 0) {
+			editElements.forEach(element => element.remove());
+			return;
+		}else {
+			// If elements with delete, add or check class exists then delete them
+			var deleteElements = Object.values(document.getElementsByClassName("delete"));
+			var addElements = Object.values(document.getElementsByClassName("add"));
+			var checkElements = Object.values(document.getElementsByClassName("check"));
+			if (deleteElements.length != 0) {
+				deleteElements.forEach(element => element.remove());
+			}else if (addElements.length != 0 || checkElements.length != 0) {
+				hideAdd();
+			}
+	
+			// Create the edit elements
+			var libraryChildren = document.getElementById("LibraryObjects").children;
+			for (var i = 0; i < libraryChildren.length; i++) {
+				var editLayout = new EditLayout(i);
+				var parent = libraryChildren[i];
+				var child = parent.children[0];
+				parent.insertBefore(editLayout, child);				
 			}
 		}
 	}

@@ -27,19 +27,6 @@ function decodeHTML(html) {
 	return txt.value;
 }
 
-// Dynamically read & print a new input's image
-function readURL(input, bannerId) {
-	if (input.files && input.files[0]) {
-		var reader = new FileReader();
-
-		reader.addEventListener("load", function(e) {
-			document.getElementById(bannerId).style.backgroundImage = "url(" + e.target.result + ")"
-		});
-
-		reader.readAsDataURL(input.files[0]);
-	}
-}
-
 // Get an url & return the public_id. ex: https://exemple/exemple/monfichier.jpg => monfichier
 function getPublicIdFromUrl(url) {
 	url = url.split("/");
@@ -153,43 +140,6 @@ function toggleCreatePlaylist() {
 
 		CreatePlaylistSidebar.dataset.isActive = "true";
 		
-	}
-}
-
-// Toggle edit on musics
-function toggleEdit() {
-	// If elements with edit's class exists then delete them & quit
-	var editElements = Object.values(document.getElementsByClassName("edit"));
-	if (editElements.length != 0) {
-		editElements.forEach(element => element.remove());
-		return;
-	}else {
-		// If elements with delete, add or check class exists then delete them
-		var deleteElements = Object.values(document.getElementsByClassName("delete"));
-		var addElements = Object.values(document.getElementsByClassName("add"));
-		var checkElements = Object.values(document.getElementsByClassName("check"));
-		if (deleteElements.length != 0) {
-			deleteElements.forEach(element => element.remove());
-		}else if (addElements.length != 0 || checkElements.length != 0) {
-			hideAdd();
-		}
-
-		// Create the edit elements
-		var libraryChildren = document.getElementById("LibraryObjects").children;
-		for (var i = 0; i < libraryChildren.length; i++) (function(i){
-			var li = document.createElement("li");
-			li.classList.add("edit");
-			li.id = "Edit" + i;
-			var parent = libraryChildren[i];
-			var child = parent.children[0];
-			parent.insertBefore(li, child);
-
-			// Add the event on this delete's click
-			document.getElementById("Edit" + i).onclick = function () {
-				showEditSection(i);
-			};
-			
-		})(i)
 	}
 }
 

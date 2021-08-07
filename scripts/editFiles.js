@@ -1,82 +1,102 @@
-function showEditSection(musicId){
-	var Music = document.getElementById("Music" + musicId);
-	document.getElementById("FileNameEdit").value = decodeHTML(Music.dataset.title);
-	document.getElementById("FileAuthorEdit").value = decodeHTML(Music.dataset.artist);
-	document.getElementById("FileAlbumEdit").value = decodeHTML(Music.dataset.album);
-	document.getElementById("Banner").style.backgroundImage = "url(" + Music.dataset.img + ")";
-	document.getElementById("EditButton").dataset.musicId = Music.dataset.id;
-	document.getElementById("EditButton").dataset.musicImg = Music.dataset.img;
-	background.Show();
-	var Edit = document.getElementById("Edit");
-	Edit.className = "appear";
-}
+class EditSection {
+	constructor() {
+		this.Element = document.getElementById("Edit");
+		this.Cross = document.getElementById("CrossEdit");
+		this.CoverEdit = document.getElementById("PictureEdit")
+		this.Music = undefined;
+		this.EditBTN = document.getElementById("EditButton");
 
-// Handle click on CrossEdit
-document.getElementById("CrossEdit").addEventListener("click", function() {
-	background.Hide();
-	document.getElementById("Edit").className = "";
-	document.getElementById("PictureEdit").value = "";
-});
+		// Handle click on CrossEdit
+		this.Cross.addEventListener("click", evt => this.Hide());
 
-// Handle change on PictureEdit
-document.getElementById("PictureEdit").addEventListener("change", function() {
-	readURL(this, "Banner");
-});
+		this.EditBTN.addEventListener("click", evt => this.Edit(evt));
 
-// Handle click on EditButton
-document.getElementById("EditButton").addEventListener("click", function(e) {
-	e.preventDefault();
-	var musicId = this.dataset.musicId;
-	if (musicId != "undefined") {
-		if (document.getElementById("PictureEdit").files.length == 0) {
-			var picture = "undefined";
-			var publicId = "undefined";
-		}else {
-			// Formating the publicId of the music's cover to overwrite it
-			var publicId = document.getElementById("EditButton").dataset.musicImg;
-			publicId = getPublicIdFromUrl(publicId)
-			var picture = document.getElementById("PictureEdit").files[0];
-		}
-		var name = document.getElementById("FileNameEdit").value;
-		var author = document.getElementById("FileAuthorEdit").value;
-		if (name == "" || author == "") {
-			document.getElementById("ErrorMsgEdit").innerHTML = "Merci de remplir tous les champs.";
-			document.getElementById("ErrorMsgEdit").style.display = "block";
-		}else{
-			var form_data = new FormData(document.getElementById("FormEdit"));
-			form_data.append("file_id", musicId);
-			form_data.append("file_image", picture);
-			form_data.append("public_id", publicId);
-			$.ajax({
-				url: server + "/functions/files/editFile.php",
-				type: "POST",
-				dataType: "script",
-				cache: false,
-				contentType: false,
-				processData: false,
-				data: form_data,
-				xhr: function () {
-					var xhr = $.ajaxSettings.xhr();
-					xhr.upload.onprogress = function(e) {
-						if (e.lengthComputable) {
-							document.getElementById("ProgressBarEditCover").style.width = Math.round((e.loaded / e.total)*100) + "%";
-							document.getElementById("TextProgressBarEditCover").innerHTML = Math.round((e.loaded / e.total)*100) + " %";
-						}
-					};
-					return xhr;
-				}
-			}).done(function() {
-				getFiles("file_id", "DESC");
-			}).fail(function() {
-				alert("Edit failed");
-			});
-
-			background.Hide();
-			document.getElementById("Edit").className = "";
-			document.getElementById("PictureEdit").value = "";
-		}
-	}else {
-		alert("Une erreur s'est produite.")
+		// Handle change on PictureEdit
+		this.CoverEdit.addEventListener("change", evt => this.ReadURL());
 	}
 
-});
+	// Dynamically read & print a new input's image
+	ReadURL() {
+		if (this.CoverEdit.files && this.CoverEdit.files[0]) {
+			var fileReader = new FileReader();
+	
+			fileReader.addEventListener("load", function(e) {
+				document.getElementById("Banner").style.backgroundImage = "url(" + e.target.result + ")"
+			});
+	
+			fileReader.readAsDataURL(this.CoverEdit.files[0]);
+		}
+	}
+
+	// Handle click on EditButton
+	Edit(e) {
+		e.preventDefault();
+		if (this.Music.MusicID != "undefined") {
+			if (this.CoverEdit.files.length == 0) {
+				var picture = "undefined";
+				var publicId = "undefined";
+			}else {
+				// Formating the publicId of the music's cover to overwrite it
+				var publicId = this.Music.Cover;
+				var picture = this.CoverEdit.files[0];
+			}
+			var name = document.getElementById("FileNameEdit").value;
+			var author = document.getElementById("FileAuthorEdit").value;
+			if (name == "" || author == "") {
+				document.getElementById("ErrorMsgEdit").innerHTML = "Merci de remplir tous les champs.";
+				document.getElementById("ErrorMsgEdit").style.display = "block";
+			}else{
+				var form_data = new FormData(document.getElementById("FormEdit"));
+				form_data.append("file_id", this.Music.MusicID);
+				form_data.append("file_image", picture);
+				form_data.append("public_id", publicId);
+				$.ajax({
+					url: server + "/functions/files/editFile.php",
+					type: "POST",
+					dataType: "script",
+					cache: false,
+					contentType: false,
+					processData: false,
+					data: form_data,
+					xhr: function () {
+						var xhr = $.ajaxSettings.xhr();
+						xhr.upload.onprogress = function(e) {
+							if (e.lengthComputable) {
+								document.getElementById("ProgressBarEditCover").style.width = Math.round((e.loaded / e.total)*100) + "%";
+								document.getElementById("TextProgressBarEditCover").innerHTML = Math.round((e.loaded / e.total)*100) + " %";
+							}
+						};
+						return xhr;
+					}
+				}).done(function() {
+					getFiles("file_id", "DESC");
+				}).fail(function() {
+					alert("Edit failed");
+				});
+	
+				background.Hide();
+				this.Element.className = "";
+				this.CoverEdit.value = "";
+			}
+		}else {
+			alert("Une erreur s'est produite.")
+		}
+	
+	}
+
+	Hide() {
+		background.Hide();
+		this.Element.className = "";
+		this.CoverEdit.value = "";
+	}
+
+	Show(music){
+		this.Music = music;
+		document.getElementById("FileNameEdit").value = music.Title;
+		document.getElementById("FileAuthorEdit").value = music.Artist;
+		document.getElementById("FileAlbumEdit").value = music.Album;
+		document.getElementById("Banner").style.backgroundImage = "url(" + music.Cover + ")";
+		background.Show();
+		this.Element.className = "appear";
+	}
+}

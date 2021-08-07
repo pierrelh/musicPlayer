@@ -36,7 +36,7 @@ document.onkeydown = function(event) {
 				break;
 
 			case "e": // E is pressed -> toggle edit
-				toggleEdit();
+				sidebar.ToggleEdit();
 				break;
 
 			case "d": // D is pressed -> toggle delete
