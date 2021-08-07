@@ -166,7 +166,7 @@ class Reader {
 			var usedPlaylist = MusicsPlaylist.slice();
 		}
 		
-		var indexOfCurrentMusic = usedPlaylist.indexOf(parseInt(this.PlayedMusic)); // Getting the position of the current music in the playlist
+		var indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === this.PlayedMusic.ID); // Getting the position of the current music in the playlist
 		if (this.Player.currentTime < 5) {
 			if (indexOfCurrentMusic == 0) { // Check if the played music is the first one
 				var indexOfNextMusic = 0;
