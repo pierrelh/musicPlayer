@@ -1,130 +1,79 @@
 document.onkeydown = function(event) {
-	switch (event.key) {
+	if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
+		event.preventDefault();
+		switch (event.key) {
 
-		case " ": // Spacebar is pressed -> play/pause audio
-			if (document.activeElement.tagName != "INPUT") {
-				event.preventDefault();
+			case " ": // Spacebar is pressed -> play/pause audio
 				reader.TogglePlayPauseButton()
-			}
-			break;
+				break;
 
-		case "p": // P is pressed -> play last music
-			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
-				event.preventDefault();
+			case "p": // P is pressed -> play last music
 				reader.PlayPreviousMusic()
-			}
-			break;
+				break;
 
-		case "n": // N is pressed -> play next music
-			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
-				event.preventDefault();
+			case "n": // N is pressed -> play next music
 				reader.PlayNextMusic(true)
-			}
-			break;
-			
-		case "r": // R is pressed -> toggle random
-			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
-				event.preventDefault();
+				break;
+				
+			case "r": // R is pressed -> toggle random
 				reader.ToggleRandom()
-			}
-			break;
-			
-		case "m": // M is pressed -> toggle mute
-			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
-				event.preventDefault();
+				break;
+				
+			case "m": // M is pressed -> toggle mute
 				reader.ToggleMute()
-			}
-			break;
+				break;
 
-		case "l": // L is pressed -> toggle loop
-			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
-				event.preventDefault();
+			case "l": // L is pressed -> toggle loop
 				reader.ToggleLoop()
-			}
-			break;
-		
-		case "a": // A is pressed -> toggle account section
-			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
-				event.preventDefault();
-				toggleAccountSection();
-			}
-			break;
+				break;
+			
+			case "a": // A is pressed -> toggle account section
+				account.Toggle();
+				break;
 
-		case "u": // U is pressed -> toggle upload section
-			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
-				event.preventDefault();
+			case "u": // U is pressed -> toggle upload section
 				toggleUploadSection();
-			}
-			break;
+				break;
 
-		case "e": // E is pressed -> toggle edit
-			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
-				event.preventDefault();
+			case "e": // E is pressed -> toggle edit
 				toggleEdit();
-			}
-			break;
+				break;
 
-		case "d": // D is pressed -> toggle delete
-			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
-				event.preventDefault();
-				toggleDelete();
-			}
-			break;
-		
-		case "h": // H is pressed -> toggle help section
-			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
-				event.preventDefault();
-				toggleHelpSection();
-			}
-			break;
+			case "d": // D is pressed -> toggle delete
+				sidebar.ToggleDelete();
+				break;
+			
+			case "h": // H is pressed -> toggle help section
+				help.Toggle();
+				break;
 
-		case "z": // Z is pressed -> toggle playlists section
-			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
-				event.preventDefault();
+			case "z": // Z is pressed -> toggle playlists section
 				togglePlaylistSection();
-			}
-			break;
-		
-		case "c": // C is pressed -> toggle create playlist
-			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
-				event.preventDefault();
+				break;
+			
+			case "c": // C is pressed -> toggle create playlist
 				toggleCreatePlaylist();
-			}
-			break;
+				break;
 
-		case "s": // S is pressed -> toggle sidebar
-			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
-				event.preventDefault();
+			case "s": // S is pressed -> toggle sidebar
 				sidebar.ShowSidebar();
-			}
-			break;
+				break;
 
-		case "ArrowLeft": // ArrowLeft is pressed -> -10s on audio
-			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
-				event.preventDefault();
+			case "ArrowLeft": // ArrowLeft is pressed -> -10s on audio
 				reader.SeekBackward();
-			}
-			break;
+				break;
 
-		case "ArrowRight": // ArrowRight is pressed -> +10s on audio
-			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
-				event.preventDefault();
+			case "ArrowRight": // ArrowRight is pressed -> +10s on audio
 				reader.SeekForward();
-			}
-			break;
+				break;
 
-		case "ArrowUp": // ArrowUp is pressed -> +10% on volume
-			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
-				event.preventDefault();
+			case "ArrowUp": // ArrowUp is pressed -> +10% on volume
 				reader.IncreaseVolume();
-			}
-			break;
+				break;
 
-		case "ArrowDown": // ArrowDown is pressed -> -10% on volume
-			if (document.activeElement.tagName != "INPUT") { // Check if the input is not on a form
-				event.preventDefault();
+			case "ArrowDown": // ArrowDown is pressed -> -10% on volume
 				reader.DicreaseVolume();
-			}
-			break;
+				break;
+		}
 	}
 };

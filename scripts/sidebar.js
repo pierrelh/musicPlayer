@@ -79,13 +79,10 @@ class Sidebar {
 		this.Arrow.addEventListener("click", evt => this.ShowSidebar());
 
 		// Handle the my account button click
-		this.MyAccountSidebar.addEventListener("click", toggleAccountSection, false);
+		this.MyAccountSidebar.addEventListener("click", account.Toggle(), false);
 
 		// Handle the create account button click
-		this.CreateAccountSidebar.addEventListener("click", function() {
-			backgroundAppear();
-			document.getElementById("CreateAccount").classList.add("appear");
-		});
+		this.CreateAccountSidebar.addEventListener("click", createAccount.Show(), false);
 
 		// Handle the upload file button click
 		this.UploadFileSidebar.addEventListener("click", toggleUploadSection, false);
@@ -94,7 +91,7 @@ class Sidebar {
 		this.EditFileSidebar.addEventListener("click", toggleEdit, false);
 
 		// Handle the delete file button click
-		this.DeleteFileSidebar.addEventListener("click", toggleDelete, false);
+		this.DeleteFileSidebar.addEventListener("click", this.ToggleDelete());
 
 		// Handle the my playlists button click
 		this.MyPlaylistsSidebar.addEventListener("click", togglePlaylistSection, false);
@@ -103,7 +100,7 @@ class Sidebar {
 		this.CreatePlaylistSidebar.addEventListener("click", toggleCreatePlaylist, false);
 
 		// Handle the help button click
-		this.Help.addEventListener("click", toggleHelpSection, false);
+		this.Help.addEventListener("click", help.Toggle());
 	}
 
 	// Toggle sidebar section 
@@ -122,6 +119,43 @@ class Sidebar {
 			document.getElementById("Library").classList.add("library");
 			document.getElementById("DivPlaylist").classList.remove("playlist-sidebar-hided");
 			document.getElementById("AudioPlayer").classList.remove("left");
+		}
+	}	
+
+	// Toggle delete on musics
+	ToggleDelete() {
+		// If elements with edit's class exists then delete them & quit
+		var deleteElements = Object.values(document.getElementsByClassName("delete"));
+		if (deleteElements.length != 0) {
+			deleteElements.forEach(element => element.remove());
+			return;
+		}else {
+			// If elements with delete, add or check class exists then delete them
+			var editElements = Object.values(document.getElementsByClassName("edit"));
+			var addElements = Object.values(document.getElementsByClassName("add"));
+			var checkElements = Object.values(document.getElementsByClassName("check"));
+			if (editElements.length != 0) {
+				editElements.forEach(element => element.remove());
+			}else if (addElements.length != 0 || checkElements.length != 0) {
+				hideAdd();
+			}
+
+			// Create the Delete elements & add it to the music's parent
+			var libraryChildren = document.getElementById("LibraryObjects").children;
+			for (var i = 0; i < libraryChildren.length; i++) (function(i){
+				var li = document.createElement("li");
+				li.classList.add("delete");
+				li.id = "Delete" + i;
+				var parent = libraryChildren[i];
+				var child = parent.children[0];
+				parent.insertBefore(li, child);
+			
+				// Add the event on this delete's click
+				document.getElementById("Delete" + i).onclick = function () {
+					showDeleteSection(i);
+				};
+				
+			})(i)
 		}
 	}
 }

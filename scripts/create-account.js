@@ -1,47 +1,66 @@
-// Handle click on CrossAccount button of Account section
-document.getElementById("CrossCreateAccount").addEventListener("click", function() {
-	backgroundHide();
-	document.getElementById("CreateAccount").className = "";
-});
+class CreateAccount {
+	constructor() {
+		this.Element = document.getElementById("CreateAccount")
+		this.Cross = document.getElementById("CrossCreateAccount")
+		this.CreataAccountBTN = document.getElementById("CreateAccountButton")
+		this.Email = document.getElementById("NewAccountEmail")
+		this.PasswordOne = document.getElementById("NewAccountPasswordOne")
+		this.PasswordTwo = document.getElementById("NewAccountPasswordTwo")
+		this.ErrorMSG = document.getElementById("errorMsgCreateAccount");
 
-// Handle click on CrossAccount button of Account section
-document.getElementById("CreateAccountButton").addEventListener("click", function(e) {
-	e.preventDefault();
-	var errorMsg = document.getElementById("errorMsgCreateAccount");
-	var email = document.getElementById("NewAccountEmail").value;
-	var passwordOne = document.getElementById("NewAccountPasswordOne").value;
-	var passwordTwo = document.getElementById("NewAccountPasswordTwo").value;
+		// Handle click on CrossAccount button of Account section
+		this.Cross.addEventListener("click", evt => this.Hide());
 
-	if (email == "" || passwordOne == "" || passwordTwo == "") {
-		// Check if all the fiels have been sets
-		errorMsg.innerHTML = "Veuillez remplir tous les champs";
-		errorMsg.style.display = "block";
-		return;
-	} else if (passwordOne != passwordTwo) {
-		// Check if the 2 password match
-		errorMsg.innerHTML = "Les 2 mots de passes ne correspondent pas";
-		errorMsg.style.display = "block";
-		return;
-	} else {
-		// Create the new account
-		$.ajax({
-			url: server + "/functions/users/createAccount.php",
-			type: "POST",
-			data: {
-				"user_login": email,
-				"user_password": passwordOne
-			},
-			success: function (response) {
-				if (response == "true") {
-					errorMsg.style.color = "green";
-					errorMsg.innerHTML = "Votre compte à bien été créé";
-					errorMsg.style.display = "block";
-				}else {
-					errorMsg.style.color = "red";
-					errorMsg.innerHTML = "Une erreur s'est produite lors de la création du compte";
-					errorMsg.style.display = "block";
+		// Handle click on CrossAccount button of Account section
+		this.CreataAccountBTN.addEventListener("click", evt => this.CreateAccount(evt));
+	}
+
+	CreateAccount() {
+		e.preventDefault();
+	
+		if (this.Email.value == "" || this.PasswordOne.value == "" || this.PasswordTwo.value == "") {
+			// Check if all the fiels have been sets
+			this.ErrorMSG.innerHTML = "Veuillez remplir tous les champs";
+			this.ErrorMSG.style.display = "block";
+			return;
+		} else if (this.PasswordOne.value != this.PasswordTwo.value) {
+			// Check if the 2 password match
+			this.ErrorMSG.innerHTML = "Les 2 mots de passes ne correspondent pas";
+			this.ErrorMSG.style.display = "block";
+			return;
+		} else {
+			// Create the new account
+			$.ajax({
+				url: server + "/functions/users/createAccount.php",
+				type: "POST",
+				data: {
+					"user_login": this.Email.value,
+					"user_password": this.PasswordOne.value
+				},
+				success: function (response) {
+					if (response == "true") {
+						this.ErrorMSG.style.color = "green";
+						this.ErrorMSG.innerHTML = "Votre compte à bien été créé";
+						this.ErrorMSG.style.display = "block";
+					}else {
+						this.ErrorMSG.style.color = "red";
+						this.ErrorMSG.innerHTML = "Une erreur s'est produite lors de la création du compte";
+						this.ErrorMSG.style.display = "block";
+					}
 				}
-			}
-		});
-	}	
-});
+			});
+		}	
+	}
+
+	Hide() {
+		backgroundHide();
+		this.Element.className = "";
+	}
+
+	Show() {
+		backgroundAppear();
+		document.getElementById("CreateAccount").classList.add("appear");
+	}
+}
+
+var createAccount = new CreateAccount()
