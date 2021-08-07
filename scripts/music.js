@@ -20,6 +20,20 @@ class EditLayout {
 	}
 }
 
+var addLayouts = []
+
+class AddLayout {
+	constructor(id) {
+		this.Element = document.createElement("li");
+		this.Element.classList.add("add");
+	
+		// Add the event on this edit's click
+		this.Element.addEventListener("click", playlistSection.AddToPlaylist(this.Element, MusicsPlaylist[id]))
+		addLayouts.push(this);
+		return this.Element;
+	}
+}
+
 class PlayingLayout {
 	constructor() {
 		this.Element	= document.createElement("li");

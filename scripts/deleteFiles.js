@@ -27,8 +27,7 @@ class DeleteSection {
 				success: function(data){
 					if (data == 1) {
 						// Closing Delete section
-						background.Hide();
-						document.getElementById("Delete").className = "";
+						deleteSection.Hide()
 						// Deleting the deleted music from the Library
 						// document.getElementById("MusicList" + this.Music.ID).remove();
 					}else {

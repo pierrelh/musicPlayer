@@ -1,3 +1,42 @@
+var addToPlaylist = [];
+
+class PlaylistSection {
+	constructor() {
+
+	}
+
+	AddToPlaylist(element, music) {
+		addToPlaylist.push(music)
+		element.classList.remove("add");
+		element.classList.add("check");
+		element.addEventListener("click", evt => this.RemoveFromPlaylist(element, music));
+	}
+
+	// Toggle a music's class to be remove from a playlist
+	RemoveFromPlaylist(element, music) {
+		var index = addToPlaylist.findIndex(x => x.ID === music.ID);
+		if (index > -1) {
+			addToPlaylist.splice(index, 1);
+		}
+		element.classList.remove("check");
+		element.classList.add("add");
+		element.addEventListener("click", evt => this.AddToPlaylist(element, music));
+	}
+
+	// Hide the playlist additions or checks
+	HideAdd() {
+		for (let index = 0; index < addLayouts.length; index++) {
+			delete array[index];			
+		}
+	
+		document.getElementById("PlaylistNameElement").remove();
+		document.getElementById("PlaylistButtonElement").remove();
+		sidebar.IsCreatingPlaylist = false;
+	}
+}
+
+var playlistSection = new PlaylistSection()
+
 // Get all musics of a playlist & print them
 function openPlaylist(identifier) {
 	if (identifier != undefined) {
@@ -24,40 +63,6 @@ function openPlaylist(identifier) {
 	}
 }
 
-// Hide the playlist additions or checks
-function hideAdd() {
-	var addElements = Object.values(document.getElementsByClassName("add"));
-	var checkElements = Object.values(document.getElementsByClassName("check"));
-	if (addElements.length != 0 || checkElements.length != 0) {
-		addElements.forEach(element => element.remove());
-		checkElements.forEach(element => element.remove());
-	}
-
-	document.getElementById("PlaylistNameElement").remove();
-	document.getElementById("PlaylistButtonElement").remove();
-	document.getElementById("CreatePlaylistSidebar").dataset.isActive = "false";
-}
-
-// Toggle a music's class to be added to playlist
-function addToPlaylist(identifier) {
-	var li = document.getElementById("Add" + identifier);
-	li.classList.remove("add");
-	li.classList.add("check");
-	document.getElementById("Add" + identifier).addEventListener("click", function() {
-		removeFromPlaylist(identifier);
-	}, false);
-}
-
-// Toggle a music's class to be remove from a playlist
-function removeFromPlaylist(identifier) {
-	var li = document.getElementById("Add" + identifier);
-	li.classList.remove("check");
-	li.classList.add("add");
-	document.getElementById("Add" + identifier).addEventListener("click", function() {
-		addToPlaylist(identifier);
-	}, false);
-}
-
 // Create the playlist with the choosed musics
 function sendPlaylist() {
 	var library = document.getElementById("LibraryObjects").children;
@@ -79,7 +84,7 @@ function sendPlaylist() {
 				"playlistName": playlistName
 			},
 			success: function(){
-				hideAdd();
+				playlistSection.HideAdd();
 			}
 		});
 	}
