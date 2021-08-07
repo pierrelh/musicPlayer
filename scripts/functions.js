@@ -37,24 +37,13 @@ function getPublicIdFromUrl(url) {
 	return url;
 }
 
-// Check if PlaylistSection is visible & hide it if so
-function checkPlaylistSection() {
-	if (document.getElementById("DivPlaylist").classList.contains("playlist-div")) {
-		document.getElementById("DivPlaylist").classList.remove("playlist-div");
-		document.getElementById("DivPlaylist").classList.add("playlist-div-hide");
-		return true;
-	} else {
-		return false;
-	}
-}
-
 // Upload a file to Cloudinary
 function uploadFileCloudinary(formDataMusic, barId, txtId, link) {
 	return new Promise((resolve, reject) => {
 		var url = server + "/functions/files/" + link;
 		
 		var xhr = new XMLHttpRequest();
-	
+
 		// Update progress for audio file
 		xhr.upload.addEventListener("progress", function (e) {
 			var progress = Math.round((e.loaded * 100.0) / e.total);
@@ -78,16 +67,16 @@ function uploadFileCloudinary(formDataMusic, barId, txtId, link) {
 // Toggle playlist section
 function togglePlaylistSection() {
 	var DivPlaylist = document.getElementById("DivPlaylist");
-	
+
 	// Check if DivPlaylist is already open to close it if needed
-	if (checkPlaylistSection()) {
+	if (playlistSection.Check()) {
 		return;
 	}else {
 		// If DivPlaylist is not open then call all the playlists
 		fetch(server + "/functions/playlists/getAllPlaylists.php")
 		.then((response) => response.json())
 		.then(function (response) {
-			
+
 			if (response.length != 0) {
 				DivPlaylist.innerHTML = "";
 				DivPlaylist.classList.remove("playlist-div-hide");
@@ -106,7 +95,7 @@ function togglePlaylistSection() {
 					li.dataset.name = response[i]["playlist_name"];
 					li.dataset.id = response[i]["playlist_id"];
 					document.getElementById("PlaylistElement" + i).addEventListener("click", function(){
-						openPlaylist("PlaylistElement" + i);
+						playlistSection.OpenPlaylist("PlaylistElement" + i);
 					}, false);
 
 					var p = document.createElement("p");

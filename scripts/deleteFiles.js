@@ -35,7 +35,7 @@ class DeleteSection {
 					}
 				}
 			});
-	
+
 		}else {
 			alert("Une erreur s'est produite.");
 		}

@@ -16,10 +16,10 @@
 		);
 		$rows = pg_fetch_all($result);
 		if (empty($rows)) {
-		 	print "false";
+			print "false";
 		}else {
-		  	$row = $rows[0];
-		  	$cookieOptions = array (
+			$row = $rows[0];
+			$cookieOptions = array (
 				'expires' => time() + 60*60*24*30,
 				'path' => '/',
 				'secure' => true,

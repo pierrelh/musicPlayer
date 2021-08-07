@@ -4,15 +4,15 @@
 	$db = connect();
 
 	$request = "UPDATE users
-                SET user_password = $1
-                WHERE user_session_id = $2";
+				SET user_password = $1
+				WHERE user_session_id = $2";
 
 	$result = pg_query_params(
 		$db,
 		$request,
 		array(
-            hash("sha256", $_POST['user_password']),
-            $_COOKIE['SESSION_ID']
+			hash("sha256", $_POST['user_password']),
+			$_COOKIE['SESSION_ID']
 		)
 	);
 

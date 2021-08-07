@@ -24,23 +24,23 @@
 		</li>
 		<br>
 		<li>
-			<input id='FilterAuthor' data-order="ASC" type="button" value="Trier par Auteur">
+			<input id='FilterAuthor' type="button" value="Trier par Auteur">
 		</li>
 		<li>
-			<input id='FilterAlbum' data-order="ASC" type="button" value="Trier par Album">
+			<input id='FilterAlbum' type="button" value="Trier par Album">
 		</li>
 		<li>
-			<input id='FilterId' data-order="ASC" type="button" value="Trier par Date d'ajout">
+			<input id='FilterId' type="button" value="Trier par Date d'ajout">
 		</li>
 		<li>
-			<input id='FilterName' data-order="ASC" type="button" value="Trier par Titre">
+			<input id='FilterName' type="button" value="Trier par Titre">
 		</li>
 		<br>
 		<li>
 			<input id="MyPlaylistsSidebar" type="button" value="Mes Playlists">
 		</li>
 		<li>
-			<input data-is-active="false" id="CreatePlaylistSidebar" type="button" value="Créer une Playlist">
+			<input id="CreatePlaylistSidebar" type="button" value="Créer une Playlist">
 		</li>
 	</ul>
 </section>

@@ -19,11 +19,11 @@ class EditSection {
 	ReadURL() {
 		if (this.CoverEdit.files && this.CoverEdit.files[0]) {
 			var fileReader = new FileReader();
-	
+
 			fileReader.addEventListener("load", function(e) {
 				document.getElementById("Banner").style.backgroundImage = "url(" + e.target.result + ")"
 			});
-	
+
 			fileReader.readAsDataURL(this.CoverEdit.files[0]);
 		}
 	}
@@ -73,7 +73,7 @@ class EditSection {
 				}).fail(function() {
 					alert("Edit failed");
 				});
-	
+
 				background.Hide();
 				this.Element.className = "";
 				this.CoverEdit.value = "";
@@ -81,7 +81,7 @@ class EditSection {
 		}else {
 			alert("Une erreur s'est produite.")
 		}
-	
+
 	}
 
 	Hide() {

@@ -2,7 +2,7 @@ class DeleteLayout {
 	constructor(id) {
 		this.Element = document.createElement("li");
 		this.Element.classList.add("delete");
-	
+
 		// Add the event on this delete's click
 		this.Element.addEventListener("click", evt => deleteSection.Show(MusicsPlaylist[id]))
 		return this.Element;
@@ -13,7 +13,7 @@ class EditLayout {
 	constructor(id) {
 		this.Element = document.createElement("li");
 		this.Element.classList.add("edit");
-	
+
 		// Add the event on this edit's click
 		this.Element.addEventListener("click", evt => editSection.Show(MusicsPlaylist[id]))
 		return this.Element;
@@ -26,7 +26,7 @@ class AddLayout {
 	constructor(id) {
 		this.Element = document.createElement("li");
 		this.Element.classList.add("add");
-	
+
 		// Add the event on this edit's click
 		this.Element.addEventListener("click", playlistSection.AddToPlaylist(this.Element, MusicsPlaylist[id]))
 		addLayouts.push(this);
@@ -83,7 +83,7 @@ class MusicCover {
 	constructor() {
 		this.Element = document.createElement("li");
 	}
-	Create(cover) {		
+	Create(cover) {
 		this.Element.className = "view";
 		if (cover != "") {
 			this.Element.style.backgroundImage = "url('" + cover + "')";

@@ -42,23 +42,23 @@
 		<input class="upload_picture upload-file" id="Picture" type="file" name="file" value="" accept="image/*">
 		<ul class="form-list">
 			<li>
-                <div class="fields">
+				<div class="fields">
 					<label for="FileName">Nom du Fichier :</label>
 					<input id="FileName" type="text" name="file_name" value="">
-                </div>
+				</div>
 			</li>
 			<li>
-                <div class="fields">
+				<div class="fields">
 					<label for="FileAuthor">Nom de l'Artiste :</label>
 					<input id="FileAuthor" type="text" name="file_author" value="">
-                </div>
+				</div>
 			</li>
 			<li>
-                <div class="fields">
+				<div class="fields">
 					<label for="FileAlbum">Nom de l'Album :</label>
 					<input id="FileAlbum" type="text" name="file_album" value="">
-                </div>
-            </li>
+				</div>
+			</li>
 		</ul>
 		<input class="send-form" id="UploadButton" type="submit" value="ENVOYER">
 	</form>

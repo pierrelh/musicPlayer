@@ -1,5 +1,5 @@
 if ('mediaSession' in navigator) {
-	
+
 	// Handle the play action on mediaSession
 	navigator.mediaSession.setActionHandler('play', function() {
 		reader.TogglePlayPauseButton();
@@ -47,7 +47,7 @@ function mediaSessionSetData(data) {
 		artist: htmlDecode(data.Artist),
 		album: htmlDecode(data.Album),
 		artwork: [
-			{src: data.Cover, sizes: '150x150', type: 'image/png'}	
+			{src: data.Cover, sizes: '150x150', type: 'image/png'}
 		]
 	});
 }

@@ -14,11 +14,11 @@ document.onkeydown = function(event) {
 			case "n": // N is pressed -> play next music
 				reader.PlayNextMusic(true)
 				break;
-				
+
 			case "r": // R is pressed -> toggle random
 				reader.ToggleRandom()
 				break;
-				
+
 			case "m": // M is pressed -> toggle mute
 				reader.ToggleMute()
 				break;
@@ -26,7 +26,7 @@ document.onkeydown = function(event) {
 			case "l": // L is pressed -> toggle loop
 				reader.ToggleLoop()
 				break;
-			
+
 			case "a": // A is pressed -> toggle account section
 				account.Toggle();
 				break;
@@ -42,7 +42,7 @@ document.onkeydown = function(event) {
 			case "d": // D is pressed -> toggle delete
 				sidebar.ToggleDelete();
 				break;
-			
+
 			case "h": // H is pressed -> toggle help section
 				help.Toggle();
 				break;
@@ -50,7 +50,7 @@ document.onkeydown = function(event) {
 			case "z": // Z is pressed -> toggle playlists section
 				togglePlaylistSection();
 				break;
-			
+
 			case "c": // C is pressed -> toggle create playlist
 				toggleCreatePlaylist();
 				break;

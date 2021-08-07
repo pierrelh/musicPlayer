@@ -21,7 +21,7 @@ class Filters {
 	}
 
 	ByAlbum() {
-		checkPlaylistSection();
+		playlistSection.Check();
 		getFiles("file_album", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
@@ -31,7 +31,7 @@ class Filters {
 	}
 
 	ByArtist() {
-		checkPlaylistSection();
+		playlistSection.Check();
 		getFiles("file_author", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
@@ -41,7 +41,7 @@ class Filters {
 	}
 
 	ByID() {
-		checkPlaylistSection();
+		playlistSection.Check();
 		getFiles("file_id", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
@@ -51,7 +51,7 @@ class Filters {
 	}
 
 	ByName() {
-		checkPlaylistSection();
+		playlistSection.Check();
 		getFiles("file_name", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
@@ -128,7 +128,7 @@ class Sidebar {
 		if (this.IsCreatingPlaylist) {
 			playlistSection.HideAdd();
 			return;
-	
+
 		}else {
 			// If elements with edit or delete's class exists then delete them
 			var editElements = Object.values(document.getElementsByClassName("edit"));
@@ -138,7 +138,7 @@ class Sidebar {
 			}else if (deleteElements.length != 0){
 				deleteElements.forEach(element => element.remove());
 			}
-	
+
 			// Creating the Add element & add it to the music's parent
 			var libraryChildren = document.getElementById("LibraryObjects").children;
 			for (var i = 0; i < libraryChildren.length; i++) {
@@ -147,14 +147,14 @@ class Sidebar {
 				var child = parent.children[0];
 				parent.insertBefore(addLayout, child);
 			}
-	
+
 			var sidebarList = document.getElementById("SidebarList");
-	
+
 			// Create the li element for input playlist name
 			var listPlaylistName = document.createElement("li");
 			listPlaylistName.id = "PlaylistNameElement"
 			sidebarList.appendChild(listPlaylistName);
-			
+
 			// Create the input element for playlist name
 			var playlistName = document.createElement("input");
 			playlistName.id = "PlaylistName";
@@ -162,21 +162,21 @@ class Sidebar {
 			playlistName.setAttribute("placeholder", "Nom de la Playlist");
 			playlistName.classList.add("playlist-name");
 			listPlaylistName.appendChild(playlistName);
-			
+
 			// Create the li element for the input playlist create 
 			var listElement = document.createElement("li");
 			listElement.id = "PlaylistButtonElement"
 			sidebarList.appendChild(listElement);
-			
+
 			// Create the input element for playlist create
 			var buttonCreatePlaylist = document.createElement("input");
 			buttonCreatePlaylist.id = "ButtonCreatePlaylist";
 			buttonCreatePlaylist.setAttribute("type", "submit");
-			buttonCreatePlaylist.addEventListener("click", sendPlaylist, false);
+			buttonCreatePlaylist.addEventListener("click", playlistSection.SendPlaylist());
 			buttonCreatePlaylist.classList.add("button-create-playlist");
 			buttonCreatePlaylist.value = "Créer la Playlist";
 			listElement.appendChild(buttonCreatePlaylist);
-	
+
 			this.IsCreatingPlaylist = true;
 			
 		}
@@ -229,14 +229,14 @@ class Sidebar {
 			}else if (addElements.length != 0 || checkElements.length != 0) {
 				playlistSection.HideAdd();
 			}
-	
+
 			// Create the edit elements
 			var libraryChildren = document.getElementById("LibraryObjects").children;
 			for (var i = 0; i < libraryChildren.length; i++) {
 				var editLayout = new EditLayout(i);
 				var parent = libraryChildren[i];
 				var child = parent.children[0];
-				parent.insertBefore(editLayout, child);				
+				parent.insertBefore(editLayout, child);
 			}
 		}
 	}
