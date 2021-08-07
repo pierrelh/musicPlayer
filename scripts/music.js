@@ -16,7 +16,7 @@ class EditLayout {
 
 		// Add the event on this edit's click
 		this.Element.addEventListener("click", evt => editSection.Show(MusicsPlaylist[id]))
-		return this.Element;
+		return this.Element, MusicsPlaylist[id];
 	}
 }
 

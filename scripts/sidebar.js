@@ -236,7 +236,8 @@ class Sidebar {
 				var editLayout = new EditLayout(i);
 				var parent = libraryChildren[i];
 				var child = parent.children[0];
-				parent.insertBefore(editLayout, child);
+				parent.removeEventListener("click", evt => reader.PlayMusic(editLayout[1]))
+				parent.insertBefore(editLayout[0], child);
 			}
 		}
 	}
