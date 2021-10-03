@@ -10,8 +10,6 @@ class Music {
 		this.ID			= id;
 		this.Played		= false;
 		this.Layout		= false;
-
-		this.Element.addEventListener("click", evt => reader.PlayMusic(this));
 	}
 
 	Create() {
@@ -27,6 +25,9 @@ class Music {
 		liTitle.appendChild(pTitile)
 		pTitile.innerHTML = this.Artist + " - " + this.Title;
 		this.Element.appendChild(liTitle);
+
+		cover.addEventListener("click", evt => reader.PlayMusic(this));
+		liTitle.addEventListener("click", evt => reader.PlayMusic(this));
 
 		return this.Element;
 	}

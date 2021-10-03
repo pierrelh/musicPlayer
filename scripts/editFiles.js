@@ -16,7 +16,7 @@ class EditLayouts {
 		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
 			let editLayout = new Layout({
 				class: "edit",
-				event: evt => editSection.Show(library.MusicsPlaylist[i])
+				event: evt => editSection.Show(library.MusicsPlaylist[index])
 			});
 			this.Elements.push(editLayout);
 			library.MusicsPlaylist[index].Element.prepend(editLayout);
