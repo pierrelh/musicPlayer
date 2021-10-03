@@ -69,8 +69,10 @@ class PlaylistSection {
 
 	// Get all musics of a playlist & print them
 	OpenPlaylist(identifier) {
+		console.log(identifier)
 		if (identifier) {
 			let playlistId = this.Playlists[identifier].id;
+			console.log(playlistId)
 
 			$.ajax({
 				url: server + "/functions/playlists/getPlaylistsMusics.php",
@@ -78,15 +80,16 @@ class PlaylistSection {
 				data: {"playlist_id": playlistId},
 				success: function(data) {
 					data = JSON.parse(data);
-					var library = document.getElementById("LibraryObjects");
+					console.log(data);
+					let library = document.getElementById("LibraryObjects");
 					library.innerHTML = "";
 					if (data.length != 0) {
-						playlistSection.Check();
+						playlistSection.Hide();
 						MusicsPlaylist = [];
-						for (var i = 0; i < data.length; i++) {
-							var music = new Music(data[i], i).Create();
+						for (let index = 0; index < array.length; index++) {
+							let music = new Music(data[index], index).Create();
 							library.appendChild(music);
-						};
+						}
 					}
 				}
 			});
@@ -127,7 +130,7 @@ class PlaylistSection {
 		}
 		if (playlistName == "" || musicList == "") {
 			alert("Merci de choisir des morceaux et de remplir le nom de la playlist.");
-		}else {
+		} else {
 			$.ajax({
 				url: server + "/functions/playlists/createPlaylist.php",
 				type: "POST",
