@@ -136,7 +136,7 @@ class PlaylistSection {
 					p.innerHTML = response[index]["playlist_name"];
 				})(index);
 				self.Element.classList.add("playlist-div-show");
-				this.IsVisible = true;
+				self.IsVisible = true;
 			}
 		});
 	}

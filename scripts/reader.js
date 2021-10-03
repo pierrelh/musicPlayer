@@ -273,7 +273,7 @@ class Reader {
 		this.VolumeBar.value = percent;
 		this.VolumeBar.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
 												"color-stop(" + percent + "%, #FFF), " +
-												"color-stop(" + percent + "%, #0B0B0B)" +
+												"color-stop(" + percent + "%, rgb(50, 50, 50))" +
 												")";
 	}
 }
