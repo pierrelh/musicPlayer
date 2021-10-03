@@ -13,26 +13,26 @@ class AddLayouts {
 		}
 	}
 
-	AddToPlaylist(element, music) {
+	AddToPlaylist(music) {
 		this.MusicsToAdd[music.ID] = music;
-		element.classList.remove("add");
-		element.classList.add("check");
-		element.addEventListener("click", evt => this.RemoveFromPlaylist(element, music), false);
+		music.Element.children[0].classList.remove("add");
+		music.Element.children[0].classList.add("check");
+		music.Element.children[0].addEventListener("click", evt => this.RemoveFromPlaylist(music), false);
 	}
 
 	// Toggle a music's class to be remove from a playlist
-	RemoveFromPlaylist(element, music) {
+	RemoveFromPlaylist(music) {
 		delete this.MusicsToAdd[music.ID];
-		element.classList.remove("check");
-		element.classList.add("add");
-		element.addEventListener("click", evt => this.AddToPlaylist(element, music));
+		music.Element.children[0].classList.remove("check");
+		music.Element.children[0].classList.add("add");
+		music.Element.children[0].addEventListener("click", evt => this.AddToPlaylist(music));
 	}
 
 	CreateAll() {
 		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
 			let editLayout = new Layout({
 				class: "add",
-				event: evt => this.AddToPlaylist(this.Element, library.MusicsPlaylist[index])
+				event: evt => this.AddToPlaylist(library.MusicsPlaylist[index])
 			});
 			this.Elements.push(editLayout);
 			library.MusicsPlaylist[index].Element.prepend(editLayout);

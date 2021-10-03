@@ -16,7 +16,7 @@ class DeleteLayouts {
 		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
 			let deleteLayout = new Layout({
 				class: "delete",
-				event: deleteSection.Show(library.MusicsPlaylist[index])
+				event: evt => deleteSection.Show(library.MusicsPlaylist[index])
 			});
 			this.Elements.push(deleteLayout);
 			library.MusicsPlaylist[index].Element.prepend(deleteLayout);
