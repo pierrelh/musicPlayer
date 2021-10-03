@@ -7,6 +7,7 @@ class PlaylistSection {
 		this.Playlists	= [];
 	}
 
+	// Toggle the playlist section's visibility
 	ToggleVisibility() {
 		if (this.IsVisible) {
 			this.Hide();
@@ -17,7 +18,7 @@ class PlaylistSection {
 		}
 	}
 
-	// Check if PlaylistSection is visible & hide it if so
+	// Hide the playlist section
 	Hide() {
 		if (this.Element.classList.contains("playlist-div")) {
 			this.Element.classList.remove("playlist-div");
@@ -25,7 +26,7 @@ class PlaylistSection {
 		}
 	}
 
-	// Toggle playlist section
+	// Show the playlist section
 	Show() {
 		let self = this;
 		fetch(server + "/functions/playlists/getAllPlaylists.php")

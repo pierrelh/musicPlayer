@@ -21,7 +21,7 @@ class Filters {
 	}
 
 	ByAlbum() {
-		playlistSection.Check();
+		playlistSection.Hide();
 		getFiles("file_album", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
@@ -31,7 +31,7 @@ class Filters {
 	}
 
 	ByArtist() {
-		playlistSection.Check();
+		playlistSection.Hide();
 		getFiles("file_author", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
@@ -41,7 +41,7 @@ class Filters {
 	}
 
 	ByID() {
-		playlistSection.Check();
+		playlistSection.Hide();
 		getFiles("file_id", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
@@ -51,7 +51,7 @@ class Filters {
 	}
 
 	ByName() {
-		playlistSection.Check();
+		playlistSection.Hide();
 		getFiles("file_name", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
@@ -63,45 +63,45 @@ class Filters {
 
 class Sidebar {
 	constructor() {
-		this.Element				= document.getElementById("Sidebar")
-		this.MyAccountSidebar		= document.getElementById("MyAccountSidebar");
-		this.CreateAccountSidebar	= document.getElementById("CreateAccountSidebar");
-		this.UploadFileSidebar		= document.getElementById("UploadFileSidebar");
-		this.EditFileSidebar		= document.getElementById("EditFileSidebar");
-		this.DeleteFileSidebar		= document.getElementById("DeleteFileSidebar");
-		this.UploadFileSidebar		= document.getElementById("UploadFileSidebar");
-		this.MyPlaylistsSidebar		= document.getElementById("MyPlaylistsSidebar");
-		this.CreatePlaylistSidebar	= document.getElementById("CreatePlaylistSidebar");
-		this.IsCreatingPlaylist		= false;
-		this.Filters				= new Filters();
-		this.Help					= document.getElementById("HelpSidebar");
-		this.Arrow					= document.getElementById("Arrow");
+		this.Element			= document.getElementById("Sidebar");
+		this.MyAccount			= document.getElementById("MyAccountSidebar");
+		this.CreateAccount		= document.getElementById("CreateAccountSidebar");
+		this.UploadFile			= document.getElementById("UploadFileSidebar");
+		this.EditFile			= document.getElementById("EditFileSidebar");
+		this.DeleteFile			= document.getElementById("DeleteFileSidebar");
+		this.UploadFile			= document.getElementById("UploadFileSidebar");
+		this.MyPlaylists		= document.getElementById("MyPlaylistsSidebar");
+		this.CreatePlaylist		= document.getElementById("CreatePlaylistSidebar");
+		this.IsCreatingPlaylist	= false;
+		this.Filters			= new Filters();
+		this.Help				= document.getElementById("HelpSidebar");
+		this.Arrow				= document.getElementById("Arrow");
 
 		this.Arrow.addEventListener("click", evt => this.Toggle());
 
 		// Handle the my account button click
-		this.MyAccountSidebar.addEventListener("click", evt => account.Toggle());
+		this.MyAccount.addEventListener("click", evt => account.Toggle(), false);
 
 		// Handle the create account button click
-		this.CreateAccountSidebar.addEventListener("click", evt => createAccount.Show());
+		this.CreateAccount.addEventListener("click", evt => createAccount.Show(), false);
 
 		// Handle the upload file button click
-		this.UploadFileSidebar.addEventListener("click", evt => uploadSection.Toggle());
+		this.UploadFile.addEventListener("click", evt => uploadSection.Toggle(), false);
 
 		// Handle the edit file button click
-		this.EditFileSidebar.addEventListener("click", evt => this.ToggleEdit());
+		this.EditFile.addEventListener("click", evt => this.ToggleEdit(), false);
 
 		// Handle the delete file button click
-		this.DeleteFileSidebar.addEventListener("click", evt => this.ToggleDelete());
+		this.DeleteFile.addEventListener("click", evt => this.ToggleDelete(), false);
 
 		// Handle the my playlists button click
-		this.MyPlaylistsSidebar.addEventListener("click", playlistSection.ToggleVisibility());
+		this.MyPlaylists.addEventListener("click", evt => playlistSection.ToggleVisibility(), false);
 
 		// Handle the create playlist button click
-		this.CreatePlaylistSidebar.addEventListener("click", evt => this.ToggleCreatePlaylist());
+		this.CreatePlaylist.addEventListener("click", evt => this.ToggleCreatePlaylist(), false);
 
 		// Handle the help button click
-		this.Help.addEventListener("click", evt => help.Toggle());
+		this.Help.addEventListener("click", evt => help.Toggle(), false);
 	}
 
 	// Toggle sidebar section 
