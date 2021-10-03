@@ -19,4 +19,4 @@ class Background {
 	}
 }
 
-const background = new Background()
+const background = new Background();
