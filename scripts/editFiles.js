@@ -6,10 +6,10 @@ class EditLayouts {
 
 	ToggleVisibility() {
 		if (this.IsActive) {
-			RemoveAll();
+			this.RemoveAll();
 			this.IsActive = false;
 		} else {
-			CreateAll();
+			this.CreateAll();
 			this.IsActive = true;
 		}
 	}
