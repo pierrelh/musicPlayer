@@ -4,7 +4,7 @@ class DeleteLayout {
 		this.Element.classList.add("delete");
 
 		// Add the event on this delete's click
-		this.Element.addEventListener("click", evt => deleteSection.Show(MusicsPlaylist[id]));
+		this.Element.addEventListener("click", evt => deleteSection.Show(library.MusicsPlaylist[id]));
 		return this.Element;
 	}
 }
@@ -15,7 +15,7 @@ class EditLayout {
 		this.Element.classList.add("edit");
 
 		// Add the event on this edit's click
-		this.Element.addEventListener("click", evt => editSection.Show(MusicsPlaylist[id]));
+		this.Element.addEventListener("click", evt => editSection.Show(library.MusicsPlaylist[id]));
 		return this.Element;
 	}
 }
@@ -28,7 +28,7 @@ class AddLayout {
 		this.Element.classList.add("add");
 
 		// Add the event on this edit's click
-		this.Element.addEventListener("click", playlistSection.AddToPlaylist(this.Element, MusicsPlaylist[id]));
+		this.Element.addEventListener("click", playlistSection.AddToPlaylist(this.Element, library.MusicsPlaylist[id]));
 		addLayouts.push(this);
 		return this.Element;
 	}

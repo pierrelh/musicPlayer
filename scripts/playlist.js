@@ -80,11 +80,10 @@ class PlaylistSection {
 				success: function(data) {
 					data = JSON.parse(data);
 					console.log(data);
-					let library = document.getElementById("LibraryObjects");
-					library.innerHTML = "";
+					library.Element.innerHTML = "";
 					if (data.length != 0) {
 						playlistSection.Hide();
-						MusicsPlaylist = [];
+						library.MusicsPlaylist = [];
 						for (let index = 0; index < data.length; index++) {
 							let music = new Music(data[index], index).Create();
 							library.appendChild(music);

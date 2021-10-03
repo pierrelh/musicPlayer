@@ -70,7 +70,7 @@ class UploadSection {
 									processData: false,
 									data: formData,
 									success: function () {
-										getFiles("file_id", "DESC");
+										library.getFiles("file_id", "DESC");
 									}
 								});
 

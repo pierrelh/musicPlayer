@@ -138,9 +138,9 @@ class Reader {
 		} else {
 			// Choose witch playlist to use
 			if (this.IsRandom) {
-				var usedPlaylist = MusicsRandomPlaylist.slice();
+				var usedPlaylist = library.MusicsRandomPlaylist.slice();
 			} else {
-				var usedPlaylist = MusicsPlaylist.slice();
+				var usedPlaylist = library.MusicsPlaylist.slice();
 			}
 
 			var indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === this.PlayedMusic.ID); // Getting the position of the current music in the playlist
@@ -161,9 +161,9 @@ class Reader {
 	PlayPreviousMusic() {
 		// Choose witch playlist to use
 		if (this.IsRandom) {
-			var usedPlaylist = MusicsRandomPlaylist.slice();
+			var usedPlaylist = library.MusicsRandomPlaylist.slice();
 		} else {
-			var usedPlaylist = MusicsPlaylist.slice();
+			var usedPlaylist = library.MusicsPlaylist.slice();
 		}
 		
 		var indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === this.PlayedMusic.ID); // Getting the position of the current music in the playlist
@@ -286,8 +286,8 @@ class Reader {
 			this.IsRandom = false;
 			this.Random.src = "../../img/no-random.png";			
 		} else {
-			MusicsRandomPlaylist = MusicsPlaylist.slice();
-			shuffle(MusicsRandomPlaylist); // Creating the random playlist
+			library.MusicsRandomPlaylist = library.MusicsPlaylist.slice();
+			shuffle(library.MusicsRandomPlaylist); // Creating the random playlist
 			this.IsRandom = true;
 			this.Random.src = "../../img/random.png";
 		}

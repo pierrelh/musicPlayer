@@ -22,7 +22,7 @@ class Filters {
 
 	ByAlbum() {
 		playlistSection.Hide();
-		getFiles("file_album", this.Order);
+		library.getFiles("file_album", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
 		} else {
@@ -32,7 +32,7 @@ class Filters {
 
 	ByArtist() {
 		playlistSection.Hide();
-		getFiles("file_author", this.Order);
+		library.getFiles("file_author", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
 		} else {
@@ -42,7 +42,7 @@ class Filters {
 
 	ByID() {
 		playlistSection.Hide();
-		getFiles("file_id", this.Order);
+		library.getFiles("file_id", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
 		} else {
@@ -52,7 +52,7 @@ class Filters {
 
 	ByName() {
 		playlistSection.Hide();
-		getFiles("file_name", this.Order);
+		library.getFiles("file_name", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
 		} else {
@@ -70,6 +70,7 @@ class Sidebar {
 		this.EditFile			= document.getElementById("EditFileSidebar");
 		this.DeleteFile			= document.getElementById("DeleteFileSidebar");
 		this.UploadFile			= document.getElementById("UploadFileSidebar");
+		this.MyMusics			= document.getElementById("MyMusicsSidebar");
 		this.MyPlaylists		= document.getElementById("MyPlaylistsSidebar");
 		this.CreatePlaylist		= document.getElementById("CreatePlaylistSidebar");
 		this.IsCreatingPlaylist	= false;

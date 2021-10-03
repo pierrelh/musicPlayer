@@ -37,6 +37,9 @@
 		</li>
 		<br>
 		<li>
+			<input id="MyMusicsSidebar" type="button" value="Toutes mes Musiques">
+		</li>
+		<li>
 			<input id="MyPlaylistsSidebar" type="button" value="Mes Playlists">
 		</li>
 		<li>

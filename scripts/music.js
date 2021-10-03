@@ -10,7 +10,7 @@ class Music {
 		this.ID			= id;
 		this.Played		= false;
 		this.Layout		= false;
-		MusicsPlaylist.push(this);
+		library.MusicsPlaylist.push(this);
 
 		this.Element.addEventListener("click", evt => reader.PlayMusic(this));
 	}

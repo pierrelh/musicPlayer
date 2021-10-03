@@ -6,13 +6,11 @@
 		<title>Music Player</title>
 		<script>
 			// Setting globales variables
-			let MusicsPlaylist = [];
-			let MusicsRandomPlaylist = [];
 			const server = "https://" + window.location.hostname;
 		</script>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/media-session.js"></script>
-		<script type="text/javascript" src="<?php echo $link ?>/scripts/getFiles.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/library.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/functions.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/key-pressed.js"></script>
 		<link rel="stylesheet" href="<?php echo $link ?>/styles/common/videoStyle.css">
@@ -29,11 +27,7 @@
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/sidebar.php");
 		?>
 		<section id="Library" class="library-show">
-			<div id="LibraryObjects">
-				<script type="text/javascript">
-					getFiles('file_id', 'DESC');
-				</script>
-			</div>
+			<div id="LibraryObjects"></div>
 		</section>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/background.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/layouts.js"></script>
