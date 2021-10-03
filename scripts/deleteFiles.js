@@ -27,7 +27,7 @@ class DeleteLayouts {
 	}
 }
 
-const editLayouts = new EditLayouts();
+const deleteLayouts = new DeleteLayouts();
 
 class DeleteLayout {
 	constructor(id) {
