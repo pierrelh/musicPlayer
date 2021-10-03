@@ -94,6 +94,9 @@ class Sidebar {
 
 		// Handle the delete file button click
 		this.DeleteFile.addEventListener("click", evt => this.ToggleDelete(), false);
+		
+		// Handle the my musics button click
+		this.MyMusics.addEventListener("click", evt => playlistSection.ToggleVisibility(), false);
 
 		// Handle the my playlists button click
 		this.MyPlaylists.addEventListener("click", evt => playlistSection.ToggleVisibility(), false);

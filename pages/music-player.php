@@ -9,9 +9,6 @@
 			const server = "https://" + window.location.hostname;
 		</script>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-		<script type="text/javascript" src="<?php echo $link ?>/scripts/media-session.js"></script>
-		<script type="text/javascript" src="<?php echo $link ?>/scripts/functions.js"></script>
-		<script type="text/javascript" src="<?php echo $link ?>/scripts/key-pressed.js"></script>
 		<link rel="stylesheet" href="<?php echo $link ?>/styles/common/videoStyle.css">
 		<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/videoStyle.css">
 		<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/videoStyle.css">
@@ -28,6 +25,9 @@
 		<section id="Library" class="library-show">
 			<div id="LibraryObjects"></div>
 		</section>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/media-session.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/functions.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/key-pressed.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/library.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/background.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/layouts.js"></script>

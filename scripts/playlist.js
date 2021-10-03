@@ -86,7 +86,7 @@ class PlaylistSection {
 						library.MusicsPlaylist = [];
 						for (let index = 0; index < data.length; index++) {
 							let music = new Music(data[index], index).Create();
-							library.appendChild(music);
+							library.Element.appendChild(music);
 						}
 					}
 				}
