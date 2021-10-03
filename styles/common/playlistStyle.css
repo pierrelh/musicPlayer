@@ -29,13 +29,13 @@
 	font-size: 1.7em;
 }
 
-.playlist-div-hide,
 .playlist-div,
+.playlist-div-show,
 .playlist-sidebar-hided,
 .playlist-reader-hided {
 	position: fixed;
 	min-width: 810px;
-	height: 93vh;
+	height: 0;
 	background-color: #0F0F0F;
 	overflow-y: scroll;
 	overflow-x: hidden;
@@ -43,9 +43,8 @@
 	transition: 0.8s;
 }
 
-.playlist-div-hide {
-	height: 0 !important;
-	transition: 0.8s;
+.playlist-div-show {
+	height: 93vh !important;
 }
 
 .listPlaylist {

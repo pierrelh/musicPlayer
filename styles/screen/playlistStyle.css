@@ -1,6 +1,6 @@
 @media screen and (min-device-width: 641px) {
-    .playlist-div-hide,
     .playlist-div,
+    .playlist-div-show,
     .playlist-sidebar-hided,
     .playlist-reader-hided {
         width: 80%;

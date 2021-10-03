@@ -3,10 +3,11 @@ class Library {
 		this.Element				= document.getElementById("LibraryObjects");
 		this.MusicsPlaylist			= [];
 		this.MusicsRandomPlaylist	= [];
-		this.getFiles();
+		this.GetFiles();
 	}
 
-	getFiles(row = "file_id", type = "ASC") {
+	GetFiles(row = "file_id", type = "DESC") {
+		playlistSection.Hide();
 		let self = this;
 		$.ajax({
 			url: server + "/functions/files/getAllFiles.php",

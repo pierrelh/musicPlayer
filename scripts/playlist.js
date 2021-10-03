@@ -20,9 +20,8 @@ class PlaylistSection {
 
 	// Hide the playlist section
 	Hide() {
-		if (this.Element.classList.contains("playlist-div")) {
-			this.Element.classList.remove("playlist-div");
-			this.Element.classList.add("playlist-div-hide");
+		if (this.Element.classList.contains("playlist-div-show")) {
+			this.Element.classList.remove("playlist-div-show");
 		}
 	}
 
@@ -55,8 +54,7 @@ class PlaylistSection {
 					li.appendChild(p);
 					p.innerHTML = response[index]["playlist_name"];
 				})(index);
-				self.Element.classList.remove("playlist-div-hide");
-				self.Element.classList.add("playlist-div");
+				self.Element.classList.add("playlist-div-show");
 			}
 		});
 	}
@@ -79,7 +77,6 @@ class PlaylistSection {
 				data: {"playlist_id": playlistId},
 				success: function(data) {
 					data = JSON.parse(data);
-					console.log(data);
 					library.Element.innerHTML = "";
 					if (data.length != 0) {
 						playlistSection.Hide();

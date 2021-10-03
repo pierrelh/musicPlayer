@@ -21,8 +21,7 @@ class Filters {
 	}
 
 	ByAlbum() {
-		playlistSection.Hide();
-		library.getFiles("file_album", this.Order);
+		library.GetFiles("file_album", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
 		} else {
@@ -31,8 +30,7 @@ class Filters {
 	}
 
 	ByArtist() {
-		playlistSection.Hide();
-		library.getFiles("file_author", this.Order);
+		library.GetFiles("file_author", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
 		} else {
@@ -41,8 +39,7 @@ class Filters {
 	}
 
 	ByID() {
-		playlistSection.Hide();
-		library.getFiles("file_id", this.Order);
+		library.GetFiles("file_id", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
 		} else {
@@ -51,8 +48,7 @@ class Filters {
 	}
 
 	ByName() {
-		playlistSection.Hide();
-		library.getFiles("file_name", this.Order);
+		library.GetFiles("file_name", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
 		} else {
@@ -94,9 +90,9 @@ class Sidebar {
 
 		// Handle the delete file button click
 		this.DeleteFile.addEventListener("click", evt => this.ToggleDelete(), false);
-		
+
 		// Handle the my musics button click
-		this.MyMusics.addEventListener("click", evt => playlistSection.ToggleVisibility(), false);
+		this.MyMusics.addEventListener("click", evt => library.GetFiles(), false);
 
 		// Handle the my playlists button click
 		this.MyPlaylists.addEventListener("click", evt => playlistSection.ToggleVisibility(), false);
@@ -117,7 +113,7 @@ class Sidebar {
 			document.getElementById("Library").classList.remove("library");
 			document.getElementById("DivPlaylist").classList.add("playlist-sidebar-hided");
 			document.getElementById("AudioPlayer").classList.add("left");
-		}else {
+		} else {
 			// Show the sidebar and reduce the librarys and the player
 			this.Arrow.classList.add("arrow-active");
 			this.Element.classList.remove("sidebar-hide");
@@ -182,7 +178,6 @@ class Sidebar {
 			listElement.appendChild(buttonCreatePlaylist);
 
 			this.IsCreatingPlaylist = true;
-			
 		}
 	}
 
@@ -210,7 +205,7 @@ class Sidebar {
 				var deleteLayout = new DeleteLayout(i);
 				var parent = libraryChildren[i];
 				var child = parent.children[0];
-				parent.insertBefore(deleteLayout, child);				
+				parent.insertBefore(deleteLayout, child);
 			}
 		}
 	}

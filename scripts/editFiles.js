@@ -69,7 +69,7 @@ class EditSection {
 						return xhr;
 					}
 				}).done(function() {
-					library.getFiles("file_id", "DESC");
+					library.GetFiles();
 				}).fail(function() {
 					alert("Edit failed");
 				});
