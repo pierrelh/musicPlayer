@@ -70,7 +70,7 @@ class PlaylistSection {
 	// Get all musics of a playlist & print them
 	OpenPlaylist(identifier) {
 		console.log(identifier)
-		if (identifier) {
+		if (identifier != "") {
 			let playlistId = this.Playlists[identifier].id;
 			console.log(playlistId)
 
