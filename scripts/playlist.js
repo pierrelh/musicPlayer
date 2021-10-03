@@ -4,6 +4,7 @@ class PlaylistSection {
 	constructor() {
 		this.Element	= document.getElementById("DivPlaylist");
 		this.IsVisible	= false;
+		this.Playlists	= [];
 	}
 
 	ToggleVisibility() {
@@ -26,7 +27,7 @@ class PlaylistSection {
 
 	// Toggle playlist section
 	Show() {
-		var self = this;
+		let self = this;
 		fetch(server + "/functions/playlists/getAllPlaylists.php")
 		.then((response) => response.json())
 		.then(function (response) {
@@ -34,27 +35,25 @@ class PlaylistSection {
 			if (response.length != 0) {
 				self.Element.innerHTML = "";
 
-				var ul = document.createElement("ul");
+				let ul = document.createElement("ul");
 				ul.id = "ListPlaylist";
 				ul.className = "listPlaylist";
 				self.Element.appendChild(ul);
 
-				for (var i = 0; i < response.length; i++) (function(i) {
-					li = document.createElement("li");
+				for (let index = 0; index < response.length; index++) (function(index) {
+					self.Playlists[index] = {
+						id: response[index]["playlist_id"],
+						name: response[index]["playlist_name"]
+					}
+					let li = document.createElement("li");
 					ul.appendChild(li);
 					li.className = "table";
-					li.id = "PlaylistElement" + i;
-					li.dataset.name = response[i]["playlist_name"];
-					li.dataset.id = response[i]["playlist_id"];
-					document.getElementById("PlaylistElement" + i).addEventListener("click", function(){
-						playlistSection.OpenPlaylist("PlaylistElement" + i);
-					}, false);
+					li.addEventListener("click", evt => self.OpenPlaylist(index), false);
 
-					var p = document.createElement("p");
+					let  p = document.createElement("p");
 					li.appendChild(p);
-					p.innerHTML = response[i]["playlist_name"];
-					p.id = "PlaylistText" + i;
-				})(i);
+					p.innerHTML = response[index]["playlist_name"];
+				})(index);
 				self.Element.classList.remove("playlist-div-hide");
 				self.Element.classList.add("playlist-div");
 			}
@@ -65,13 +64,13 @@ class PlaylistSection {
 		addToPlaylist.push(music);
 		element.classList.remove("add");
 		element.classList.add("check");
-		element.addEventListener("click", evt => this.RemoveFromPlaylist(element, music));
+		element.addEventListener("click", evt => this.RemoveFromPlaylist(element, music), false);
 	}
 
 	// Get all musics of a playlist & print them
 	OpenPlaylist(identifier) {
 		if (identifier) {
-			var playlistId = document.getElementById(identifier).dataset.id;
+			let playlistId = this.Playlists[identifier].id;
 
 			$.ajax({
 				url: server + "/functions/playlists/getPlaylistsMusics.php",
