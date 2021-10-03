@@ -108,8 +108,8 @@ class Reader {
 	// Play the passed music
 	PlayMusic(music) {
 	
-		// Adding the class to LibraryObjects if needed
-		var library = document.getElementById("LibraryObjects");
+		// Adding the class to Library if needed
+		var library = document.getElementById("Library");
 		if (!library.classList.contains("library-reader-active")) {
 			library.classList.add("library-reader-active");
 		}

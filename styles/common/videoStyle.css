@@ -15,10 +15,11 @@
 
 .library > div,
 .library-show > div {
+	padding: 1vh 0;
 	display: grid;
 	grid-gap: 20px;
 	justify-content: center;
-	max-height: 93vh;
+	max-height: 91vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
 	position: relative;
@@ -39,6 +40,7 @@
 	background-color: black;
 	background-position: center;
 	background-size: cover;
+	border-radius: 10px;
 }
 
 .library > div > ul > li > p,
@@ -48,6 +50,11 @@
 	color: #fff;
 	margin: 5px 0 0 0;
 	cursor: pointer;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2; /* number of lines to show */
+	-webkit-box-orient: vertical;
 }
 
 .edit {
