@@ -19,6 +19,7 @@ class Library {
 			success: function(data){
 				data = JSON.parse(data);
 				if (data.length != 0) {
+					console.log(self);
 					self.Element.innerHTML = "";
 					self.MusicsPlaylist = [];
 					for (var i = 0; i < data.length; i++) {
