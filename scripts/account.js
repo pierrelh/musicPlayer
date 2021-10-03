@@ -96,4 +96,4 @@ class Account {
 	}
 }
 
-const account = new Account()
+const account = new Account();

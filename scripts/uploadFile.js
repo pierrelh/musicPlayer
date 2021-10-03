@@ -47,14 +47,14 @@ class UploadSection {
 				return;
 			} else {
 				// Uploading the music
-				await uploadFileCloudinary(formDataMusic, "ProgressBarVideo", "TextProgressBarVideo", "uploadMusic.php")
+				await this.uploadFileCloudinary(formDataMusic, "ProgressBarVideo", "TextProgressBarVideo", "uploadMusic.php")
 				.then( async (response) => {
 					if (response != "false") {
 
 						formData.append("file_url", response);
 						
 						// Uploading the cover
-						await uploadFileCloudinary(formDataCover, "ProgressBarPicture", "TextProgessBarPicture", "uploadCover.php")
+						await this.uploadFileCloudinary(formDataCover, "ProgressBarPicture", "TextProgessBarPicture", "uploadCover.php")
 						.then( async (response) => {
 							if (response != "false") {
 
@@ -91,6 +91,33 @@ class UploadSection {
 			this.ErrorMSG.style.display = "block";
 			return;
 		}
+	}	
+
+	// Upload a file to Cloudinary
+	UploadFileCloudinary(formDataMusic, barId, txtId, link) {
+		return new Promise((resolve, reject) => {
+			var url = server + "/functions/files/" + link;
+			
+			var xhr = new XMLHttpRequest();
+
+			// Update progress for audio file
+			xhr.upload.addEventListener("progress", function (e) {
+				var progress = Math.round((e.loaded * 100.0) / e.total);
+				document.getElementById(barId).style.width = progress + "%";
+				document.getElementById(txtId).innerHTML = progress + "%";
+			});
+
+			xhr.onerror = () => reject("false");
+			xhr.onreadystatechange = function () {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById(txtId).innerHTML = "Envoyé";
+					resolve(this.responseText);
+				}
+			}
+			xhr.open("POST", url, true);
+			xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+			xhr.send(formDataMusic);
+		});
 	}
 }
 

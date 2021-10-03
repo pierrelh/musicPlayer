@@ -26,7 +26,6 @@
 			<div id="LibraryObjects"></div>
 		</section>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/media-session.js"></script>
-		<script type="text/javascript" src="<?php echo $link ?>/scripts/functions.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/key-pressed.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/library.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/background.js"></script>

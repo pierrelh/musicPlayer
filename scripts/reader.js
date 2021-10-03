@@ -84,6 +84,13 @@ class Reader {
 		}
 	}
 
+	// Set Time to the right format
+	FormatTime(t) {
+		var m = ~~(t / 60),
+		s = ~~(t % 60);
+		return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+	}
+
 	// Add 10% to the player's volume
 	IncreaseVolume() {
 		if (this.Player.volume >= 0.9) {
@@ -95,7 +102,7 @@ class Reader {
 
 	Load() {
 		this.ProgressBar.max = this.Player.duration;
-		this.Time.innerHTML = getTime(this.Player.duration);
+		this.Time.innerHTML = this.FormatTime(this.Player.duration);
 	}
 
 	// Play the passed music
@@ -209,7 +216,7 @@ class Reader {
 
 	TimeUpdate() {
 		this.ProgressBar.value = this.Player.currentTime;
-		this.Start.innerHTML = getTime(this.Player.currentTime);
+		this.Start.innerHTML = this.FormatTime(this.Player.currentTime);
 		var percent = (this.ProgressBar.value / (this.ProgressBar.max - this.ProgressBar.min)) * 100;
 		this.ProgressBar.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
 													"color-stop(" + percent + "%, #FFF), " +
