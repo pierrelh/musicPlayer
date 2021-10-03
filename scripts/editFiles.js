@@ -7,10 +7,8 @@ class EditLayouts {
 	ToggleVisibility() {
 		if (this.IsActive) {
 			this.RemoveAll();
-			this.IsActive = false;
 		} else {
 			this.CreateAll();
-			this.IsActive = true;
 		}
 	}
 
@@ -18,24 +16,26 @@ class EditLayouts {
 		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
 			let editLayout = new EditLayout(library.MusicsPlaylist[index]);
 			this.Elements.push(editLayout);
-			parent.insertBefore(editLayout, library.MusicsPlaylist[index].Element);		
+			library.MusicsPlaylist[index].Element.prepend(editLayout);
 		}
+		this.IsActive = true;
 	}
 
 	RemoveAll() {
 		this.Elements.forEach(element => element.remove());
+		this.IsActive = false;
 	}
 }
 
 const editLayouts = new EditLayouts();
 
 class EditLayout {
-	constructor(id) {
+	constructor(music) {
 		this.Element = document.createElement("li");
 		this.Element.classList.add("edit");
 
 		// Add the event on this edit's click
-		this.Element.addEventListener("click", evt => editSection.Show(library.MusicsPlaylist[id]));
+		this.Element.addEventListener("click", evt => editSection.Show(music));
 		return this.Element;
 	}
 }
