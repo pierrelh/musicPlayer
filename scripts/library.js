@@ -10,7 +10,7 @@ class Library {
 	ShuffleMusics() {
 		for (let i = this.MusicsPlaylist.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
-			[this.MusicsPlaylist[i], this.MusicsPlaylista[j]] = [this.MusicsPlaylist[j], this.MusicsPlaylist[i]];
+			[this.MusicsPlaylist[i], this.MusicsPlaylist[j]] = [this.MusicsPlaylist[j], this.MusicsPlaylist[i]];
 		}
 	}
 
