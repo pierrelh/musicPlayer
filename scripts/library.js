@@ -7,6 +7,8 @@ class Library {
 
 	getFiles(row, type){
 		let self = this;
+		console.log(this.Element);
+		console.log(self.Element);
 		$.ajax({
 			url: server + "/functions/files/getAllFiles.php",
 			type: "POST",
