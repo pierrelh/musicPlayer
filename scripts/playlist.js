@@ -26,17 +26,18 @@ class PlaylistSection {
 
 	// Toggle playlist section
 	Show() {
+		var self = this;
 		fetch(server + "/functions/playlists/getAllPlaylists.php")
 		.then((response) => response.json())
 		.then(function (response) {
 
 			if (response.length != 0) {
-				this.Element.innerHTML = "";
+				self.Element.innerHTML = "";
 
 				var ul = document.createElement("ul");
 				ul.id = "ListPlaylist";
 				ul.className = "listPlaylist";
-				this.Element.appendChild(ul);
+				self.Element.appendChild(ul);
 
 				for (var i = 0; i < response.length; i++) (function(i) {
 					li = document.createElement("li");
@@ -54,8 +55,8 @@ class PlaylistSection {
 					p.innerHTML = response[i]["playlist_name"];
 					p.id = "PlaylistText" + i;
 				})(i);
-				this.Element.classList.remove("playlist-div-hide");
-				this.Element.classList.add("playlist-div");
+				self.Element.classList.remove("playlist-div-hide");
+				self.Element.classList.add("playlist-div");
 			}
 		});
 	}
