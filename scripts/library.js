@@ -29,4 +29,3 @@ class Library {
 }
 
 const library = new Library();
-library.getFiles('file_id', 'DESC');
