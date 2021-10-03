@@ -178,10 +178,10 @@ class PlaylistSection {
 					url: server + "/functions/playlists/createPlaylist.php",
 					type: "POST",
 					data: {
-						"musics": addLayouts.MusicsToAdd,
+						"musics": addLayouts.MusicsToAdd.reverse(),
 						"playlistName": playlistName
 					},
-					success: function(){
+					success: function() {
 						addLayouts.RemoveAll();
 					}
 				});
