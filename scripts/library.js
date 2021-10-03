@@ -8,8 +8,6 @@ class Library {
 
 	getFiles(row, type){
 		let self = this;
-		console.log(this.Element);
-		console.log(self.Element);
 		$.ajax({
 			url: server + "/functions/files/getAllFiles.php",
 			type: "POST",
@@ -20,11 +18,10 @@ class Library {
 			success: function(data){
 				data = JSON.parse(data);
 				if (data.length != 0) {
-					console.log(self);
 					self.Element.innerHTML = "";
 					self.MusicsPlaylist = [];
 					for (var i = 0; i < data.length; i++) {
-						library.appendChild(new Music(data[i], i).Create());
+						self.appendChild(new Music(data[i], i).Create());
 					};
 				}
 			}
