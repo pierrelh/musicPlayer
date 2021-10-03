@@ -48,7 +48,7 @@ document.onkeydown = function(event) {
 				break;
 
 			case "z": // Z is pressed -> toggle playlists section
-				togglePlaylistSection();
+				playlistSection.ToggleVisibility();
 				break;
 
 			case "c": // C is pressed -> toggle create playlist

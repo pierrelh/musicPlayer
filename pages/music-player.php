@@ -36,6 +36,7 @@
 			</div>
 		</section>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/background.js"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/layouts.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/account.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/music.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/create-account.js"></script>

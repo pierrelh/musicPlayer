@@ -2,18 +2,62 @@ var addToPlaylist = [];
 
 class PlaylistSection {
 	constructor() {
-		this.Element = document.getElementById("DivPlaylist");
+		this.Element	= document.getElementById("DivPlaylist");
+		this.IsVisible	= false;
+	}
+
+	ToggleVisibility() {
+		if (this.IsVisible) {
+			this.Hide();
+			this.IsVisible = false;
+		} else {
+			this.Show();
+			this.IsVisible = true;
+		}
 	}
 
 	// Check if PlaylistSection is visible & hide it if so
-	Check() {
+	Hide() {
 		if (this.Element.classList.contains("playlist-div")) {
 			this.Element.classList.remove("playlist-div");
 			this.Element.classList.add("playlist-div-hide");
-			return true;
-		} else {
-			return false;
 		}
+	}
+
+	// Toggle playlist section
+	Show() {
+		fetch(server + "/functions/playlists/getAllPlaylists.php")
+		.then((response) => response.json())
+		.then(function (response) {
+
+			if (response.length != 0) {
+				this.Element.innerHTML = "";
+
+				var ul = document.createElement("ul");
+				ul.id = "ListPlaylist";
+				ul.className = "listPlaylist";
+				this.Element.appendChild(ul);
+
+				for (var i = 0; i < response.length; i++) (function(i) {
+					li = document.createElement("li");
+					ul.appendChild(li);
+					li.className = "table";
+					li.id = "PlaylistElement" + i;
+					li.dataset.name = response[i]["playlist_name"];
+					li.dataset.id = response[i]["playlist_id"];
+					document.getElementById("PlaylistElement" + i).addEventListener("click", function(){
+						playlistSection.OpenPlaylist("PlaylistElement" + i);
+					}, false);
+
+					var p = document.createElement("p");
+					li.appendChild(p);
+					p.innerHTML = response[i]["playlist_name"];
+					p.id = "PlaylistText" + i;
+				})(i);
+				this.Element.classList.remove("playlist-div-hide");
+				this.Element.classList.add("playlist-div");
+			}
+		});
 	}
 
 	AddToPlaylist(element, music) {
@@ -32,7 +76,7 @@ class PlaylistSection {
 				url: server + "/functions/playlists/getPlaylistsMusics.php",
 				type: "POST",
 				data: {"playlist_id": playlistId},
-				success: function(data){
+				success: function(data) {
 					data = JSON.parse(data);
 					var library = document.getElementById("LibraryObjects");
 					library.innerHTML = "";

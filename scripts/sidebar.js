@@ -95,7 +95,7 @@ class Sidebar {
 		this.DeleteFileSidebar.addEventListener("click", evt => this.ToggleDelete());
 
 		// Handle the my playlists button click
-		this.MyPlaylistsSidebar.addEventListener("click", togglePlaylistSection, false);
+		this.MyPlaylistsSidebar.addEventListener("click", playlistSection.ToggleVisibility(), false);
 
 		// Handle the create playlist button click
 		this.CreatePlaylistSidebar.addEventListener("click", evt => this.ToggleCreatePlaylist());

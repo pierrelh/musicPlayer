@@ -1,53 +1,3 @@
-class DeleteLayout {
-	constructor(id) {
-		this.Element = document.createElement("li");
-		this.Element.classList.add("delete");
-
-		// Add the event on this delete's click
-		this.Element.addEventListener("click", evt => deleteSection.Show(MusicsPlaylist[id]));
-		return this.Element;
-	}
-}
-
-class EditLayout {
-	constructor(id) {
-		this.Element = document.createElement("li");
-		this.Element.classList.add("edit");
-
-		// Add the event on this edit's click
-		this.Element.addEventListener("click", evt => editSection.Show(MusicsPlaylist[id]));
-		return this.Element;
-	}
-}
-
-var addLayouts = [];
-
-class AddLayout {
-	constructor(id) {
-		this.Element = document.createElement("li");
-		this.Element.classList.add("add");
-
-		// Add the event on this edit's click
-		this.Element.addEventListener("click", playlistSection.AddToPlaylist(this.Element, MusicsPlaylist[id]));
-		addLayouts.push(this);
-		return this.Element;
-	}
-}
-
-class PlayingLayout {
-	constructor() {
-		this.Element	= document.createElement("li");
-		this.Element.id	= "PlayedMusic";
-		this.Element.classList.add("playing");
-	}
-
-	Change(parent) {
-		this.Element.remove();
-		parent.insertBefore(this.Element, parent.children[0]);
-	}
-}
-var playingLayout = new PlayingLayout();
-
 class Music {
 	constructor(data, id) {
 		this.Element	= document.createElement("ul");
@@ -59,15 +9,25 @@ class Music {
 		this.Cover		= data["file_image"];
 		this.ID			= id;
 		this.Played		= false;
+		this.Layout		= false;
 		MusicsPlaylist.push(this);
+
+		this.Element.addEventListener("click", evt => reader.PlayMusic(this));
 	}
 
 	Create() {
-		var cover = new MusicCover(this).Create(this.Cover);
+		let cover = document.createElement("li");
+		cover.className = "view";
+		if (this.Cover) {
+			cover.style.backgroundImage = "url('" + cover + "')";
+		}
 		this.Element.appendChild(cover);
-		
-		var title = new MusicTitle(this).Create(this.Artist, this.Title);
-		this.Element.appendChild(title);
+
+		let liTitle = document.createElement("li");
+		let pTitile = document.createElement("p");
+		liTitle.appendChild(pTitile)
+		pTitile.innerHTML = this.Artist + " - " + this.Title;
+		this.Element.appendChild(liTitle);
 
 		return this.Element;
 	}
@@ -77,34 +37,3 @@ class Music {
 		playingLayout.Change(this.Element);
 	}
 }
-
-class MusicCover {
-	constructor(datas) {
-		this.Element = document.createElement("li");
-		this.Element.addEventListener("click", evt => reader.PlayMusic(datas));
-	}
-
-	Create(cover) {
-		this.Element.className = "view";
-		if (cover) {
-			this.Element.style.backgroundImage = "url('" + cover + "')";
-		}
-		return this.Element;
-	}
-}
-
-class MusicTitle {
-	constructor(datas) {
-		this.Element	= document.createElement("li");
-		this.Title		= document.createElement("p");
-		
-		this.Element.appendChild(this.Title)
-		this.Element.addEventListener("click", evt => reader.PlayMusic(datas));
-	}
-
-	Create(author, name) {
-		this.Title.innerHTML = author + " - " + name;
-		return this.Element;
-	}
-}
-
