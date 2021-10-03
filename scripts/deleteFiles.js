@@ -1,3 +1,45 @@
+class DeleteLayouts {
+	constructor() {
+		this.IsActive	= false;
+		this.Elements	= [];
+	}
+
+	ToggleVisibility() {
+		if (this.IsActive) {
+			this.RemoveAll();
+		} else {
+			this.CreateAll();
+		}
+	}
+
+	CreateAll() {
+		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
+			let deleteLayout = new DeleteLayout(library.MusicsPlaylist[index]);
+			this.Elements.push(deleteLayout);
+			library.MusicsPlaylist[index].Element.prepend(deleteLayout);
+		}
+		this.IsActive = true;
+	}
+
+	RemoveAll() {
+		this.Elements.forEach(element => element.remove());
+		this.IsActive = false;
+	}
+}
+
+const editLayouts = new EditLayouts();
+
+class DeleteLayout {
+	constructor(id) {
+		this.Element = document.createElement("li");
+		this.Element.classList.add("delete");
+
+		// Add the event on this delete's click
+		this.Element.addEventListener("click", evt => deleteSection.Show(library.MusicsPlaylist[id]));
+		return this.Element;
+	}
+}
+
 class DeleteSection {
 	constructor() {
 		this.Element	= document.getElementById("Delete");

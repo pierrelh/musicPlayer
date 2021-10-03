@@ -1,10 +1,11 @@
-class DeleteLayout {
-	constructor(id) {
+class Layout {
+	constructor(data) {
 		this.Element = document.createElement("li");
-		this.Element.classList.add("delete");
+		this.Element.classList.add(data.class);
 
-		// Add the event on this delete's click
-		this.Element.addEventListener("click", evt => deleteSection.Show(library.MusicsPlaylist[id]));
+		// Add the event on this edit's click
+		this.Element.addEventListener(data.event);
+		addLayouts.push(this);
 		return this.Element;
 	}
 }

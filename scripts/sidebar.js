@@ -183,35 +183,6 @@ class Sidebar {
 			this.IsCreatingPlaylist = true;
 		}
 	}
-
-	// Toggle delete on musics
-	ToggleDelete() {
-		// If elements with edit's class exists then delete them & quit
-		var deleteElements = Object.values(document.getElementsByClassName("delete"));
-		if (deleteElements.length != 0) {
-			deleteElements.forEach(element => element.remove());
-			return;
-		} else {
-			// If elements with delete, add or check class exists then delete them
-			var editElements = Object.values(document.getElementsByClassName("edit"));
-			var addElements = Object.values(document.getElementsByClassName("add"));
-			var checkElements = Object.values(document.getElementsByClassName("check"));
-			if (editElements.length != 0) {
-				editElements.forEach(element => element.remove());
-			} else if (addElements.length != 0 || checkElements.length != 0) {
-				playlistSection.HideAdd();
-			}
-
-			// Create the Delete elements & add it to the music's parent
-			var libraryChildren = document.getElementById("LibraryObjects").children;
-			for (var i = 0; i < libraryChildren.length; i++) {
-				var deleteLayout = new DeleteLayout(i);
-				var parent = libraryChildren[i];
-				var child = parent.children[0];
-				parent.insertBefore(deleteLayout, child);
-			}
-		}
-	}
 }
 
 const sidebar = new Sidebar();

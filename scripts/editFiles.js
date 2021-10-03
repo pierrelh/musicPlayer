@@ -14,7 +14,14 @@ class EditLayouts {
 
 	CreateAll() {
 		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
-			let editLayout = new EditLayout(library.MusicsPlaylist[index]);
+			let editLayout = new Layout({
+				class: "edit",
+				event: {
+					type: "click",
+					listener: evt => editSection.Show(music),
+					options: false
+				}
+			});
 			this.Elements.push(editLayout);
 			library.MusicsPlaylist[index].Element.prepend(editLayout);
 		}
@@ -28,17 +35,6 @@ class EditLayouts {
 }
 
 const editLayouts = new EditLayouts();
-
-class EditLayout {
-	constructor(music) {
-		this.Element = document.createElement("li");
-		this.Element.classList.add("edit");
-
-		// Add the event on this edit's click
-		this.Element.addEventListener("click", evt => editSection.Show(music));
-		return this.Element;
-	}
-}
 
 class EditSection {
 	constructor() {
