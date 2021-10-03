@@ -1,3 +1,37 @@
+class AddLayouts {
+	constructor() {
+		this.IsActive	= false;
+		this.Elements	= [];
+	}
+
+	ToggleVisibility() {
+		if (this.IsActive) {
+			this.RemoveAll();
+		} else {
+			this.CreateAll();
+		}
+	}
+
+	CreateAll() {
+		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
+			let editLayout = new Layout({
+				class: "add",
+				event: playlistSection.AddToPlaylist(this.Element, library.MusicsPlaylist[id])
+			});
+			this.Elements.push(editLayout);
+			library.MusicsPlaylist[index].Element.prepend(editLayout);
+		}
+		this.IsActive = true;
+	}
+
+	RemoveAll() {
+		this.Elements.forEach(element => element.remove());
+		this.IsActive = false;
+	}
+}
+
+let addLayouts = new AddLayouts();
+
 var addToPlaylist = [];
 
 class PlaylistSection {

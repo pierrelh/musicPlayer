@@ -40,7 +40,7 @@ document.onkeydown = function(event) {
 				break;
 
 			case "d": // D is pressed -> toggle delete
-				sidebar.ToggleDelete();
+				deleteLayouts.ToggleVisibility();
 				break;
 
 			case "h": // H is pressed -> toggle help section

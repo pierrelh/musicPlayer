@@ -14,7 +14,10 @@ class DeleteLayouts {
 
 	CreateAll() {
 		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
-			let deleteLayout = new DeleteLayout(library.MusicsPlaylist[index]);
+			let deleteLayout = new Layout({
+				class: "delete",
+				event: deleteSection.Show(library.MusicsPlaylist[id])
+			});
 			this.Elements.push(deleteLayout);
 			library.MusicsPlaylist[index].Element.prepend(deleteLayout);
 		}
@@ -28,17 +31,6 @@ class DeleteLayouts {
 }
 
 const deleteLayouts = new DeleteLayouts();
-
-class DeleteLayout {
-	constructor(id) {
-		this.Element = document.createElement("li");
-		this.Element.classList.add("delete");
-
-		// Add the event on this delete's click
-		this.Element.addEventListener("click", evt => deleteSection.Show(library.MusicsPlaylist[id]));
-		return this.Element;
-	}
-}
 
 class DeleteSection {
 	constructor() {
