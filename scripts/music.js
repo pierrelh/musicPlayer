@@ -4,7 +4,7 @@ class DeleteLayout {
 		this.Element.classList.add("delete");
 
 		// Add the event on this delete's click
-		this.Element.addEventListener("click", evt => deleteSection.Show(MusicsPlaylist[id]))
+		this.Element.addEventListener("click", evt => deleteSection.Show(MusicsPlaylist[id]));
 		return this.Element;
 	}
 }
@@ -15,12 +15,12 @@ class EditLayout {
 		this.Element.classList.add("edit");
 
 		// Add the event on this edit's click
-		this.Element.addEventListener("click", evt => editSection.Show(MusicsPlaylist[id]))
+		this.Element.addEventListener("click", evt => editSection.Show(MusicsPlaylist[id]));
 		return this.Element;
 	}
 }
 
-var addLayouts = []
+var addLayouts = [];
 
 class AddLayout {
 	constructor(id) {
@@ -28,7 +28,7 @@ class AddLayout {
 		this.Element.classList.add("add");
 
 		// Add the event on this edit's click
-		this.Element.addEventListener("click", playlistSection.AddToPlaylist(this.Element, MusicsPlaylist[id]))
+		this.Element.addEventListener("click", playlistSection.AddToPlaylist(this.Element, MusicsPlaylist[id]));
 		addLayouts.push(this);
 		return this.Element;
 	}
@@ -43,7 +43,7 @@ class PlayingLayout {
 
 	Change(parent) {
 		this.Element.remove();
-		parent.insertBefore(this.Element, parent.children[0])
+		parent.insertBefore(this.Element, parent.children[0]);
 	}
 }
 var playingLayout = new PlayingLayout();
@@ -63,11 +63,11 @@ class Music {
 	}
 
 	Create() {
-		var cover = new MusicCover(this).Create(this.Cover)
-		this.Element.appendChild(cover)
+		var cover = new MusicCover(this).Create(this.Cover);
+		this.Element.appendChild(cover);
 		
-		var title = new MusicTitle(this).Create(this.Artist, this.Title)
-		this.Element.appendChild(title)
+		var title = new MusicTitle(this).Create(this.Artist, this.Title);
+		this.Element.appendChild(title);
 
 		return this.Element;
 	}
@@ -83,9 +83,10 @@ class MusicCover {
 		this.Element = document.createElement("li");
 		this.Element.addEventListener("click", evt => reader.PlayMusic(datas));
 	}
+
 	Create(cover) {
 		this.Element.className = "view";
-		if (cover != "") {
+		if (cover) {
 			this.Element.style.backgroundImage = "url('" + cover + "')";
 		}
 		return this.Element;
@@ -94,11 +95,13 @@ class MusicCover {
 
 class MusicTitle {
 	constructor(datas) {
-		this.Element = document.createElement("li");
-		this.Title = document.createElement("p");
+		this.Element	= document.createElement("li");
+		this.Title		= document.createElement("p");
+		
 		this.Element.appendChild(this.Title)
 		this.Element.addEventListener("click", evt => reader.PlayMusic(datas));
 	}
+
 	Create(author, name) {
 		this.Title.innerHTML = author + " - " + name;
 		return this.Element;

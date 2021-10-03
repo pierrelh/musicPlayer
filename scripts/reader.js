@@ -73,13 +73,13 @@ class Reader {
 	DicreaseVolume() {
 		if (this.Player.volume <= 0.1) {
 			this.Player.volume = 0;		
-		}else {
-			this.Player.volume -= 0.1
+		} else {
+			this.Player.volume -= 0.1;
 		}
 	}
 
 	Ended() {
-		if (this.src != "") {
+		if (this.src) {
 			this.PlayNextMusic(false);
 		}
 	}
@@ -88,8 +88,8 @@ class Reader {
 	IncreaseVolume() {
 		if (this.Player.volume >= 0.9) {
 			this.Player.volume = 1;		
-		}else {
-			this.Player.volume += 0.1
+		} else {
+			this.Player.volume += 0.1;
 		}
 	}
 
@@ -115,13 +115,13 @@ class Reader {
 	
 		// Setting the mediaSession metadatas
 		if ('mediaSession' in navigator) {
-			mediaSessionSetData(music)
+			mediaSessionSetData(music);
 		}
 
 		this.PlayedMusic = music;
 		this.MusicName.innerHTML = music.Artist + " - " + music.Title;
 		this.Player.src = music.URL;
-		music.SetPlayed()
+		music.SetPlayed();
 	
 		// Adding the class to audioPlayer if needed
 		var audioPlayer = document.getElementById("AudioPlayer");
@@ -135,11 +135,11 @@ class Reader {
 		// Check if the reader should loop on the same music or not
 		if (!isSkiped && this.LoopType == "one") {
 			this.PlayMusic(this.PlayedMusic); // Replay the current music
-		}else {
+		} else {
 			// Choose witch playlist to use
 			if (this.IsRandom) {
 				var usedPlaylist = MusicsRandomPlaylist.slice();
-			}else {
+			} else {
 				var usedPlaylist = MusicsPlaylist.slice();
 			}
 
@@ -147,10 +147,10 @@ class Reader {
 			if (indexOfCurrentMusic == (usedPlaylist.length) - 1) { // Check if the played music is the last one
 				if (this.LoopType == "none") { // The player will not restart the playlist
 					return;
-				}else { // The player will restart the playlist
+				} else { // The player will restart the playlist
 					var indexOfNextMusic = 0;
 				}
-			}else { // The player continu the playlist
+			} else { // The player continu the playlist
 				var indexOfNextMusic = indexOfCurrentMusic + 1;
 			}
 			this.PlayMusic(usedPlaylist[indexOfNextMusic]);
@@ -162,7 +162,7 @@ class Reader {
 		// Choose witch playlist to use
 		if (this.IsRandom) {
 			var usedPlaylist = MusicsRandomPlaylist.slice();
-		}else {
+		} else {
 			var usedPlaylist = MusicsPlaylist.slice();
 		}
 		
@@ -170,7 +170,7 @@ class Reader {
 		if (this.Player.currentTime < 5) {
 			if (indexOfCurrentMusic == 0) { // Check if the played music is the first one
 				var indexOfNextMusic = 0;
-			}else { // The player rollback the playlist
+			} else { // The player rollback the playlist
 				var indexOfNextMusic = indexOfCurrentMusic - 1;
 			}	
 			// Play the previous music
@@ -259,32 +259,24 @@ class Reader {
 	TogglePlaylist() {
 		if (this.PlaylistBtn.classList.contains("show-playlist-reader")) {
 			this.PlaylistBtn.classList.remove("show-playlist-reader");		
-		}else {
+		} else {
 			this.PlaylistBtn.classList.add("show-playlist-reader");
 		}
 	}
 
 	TogglePlayPause() {
-		switch (this.Player.paused) {
-			case true: // Play the audio
-				this.PlayPause.src = "../../img/play.png";
-				break;
-		
-			case false: // Pause the audio
-				this.PlayPause.src = "../../img/pause.png";
-				break;
+		if (this.Player.paused) {
+			this.PlayPause.src = "../../img/play.png";
+		} else {
+			this.PlayPause.src = "../../img/pause.png";
 		}
 	}
 
 	TogglePlayPauseButton() {
-		switch (this.Player.paused) {
-			case true: // Play the audio
-				this.Player.play();
-				break;
-		
-			case false: // Pause the audio
-				this.Player.pause();
-				break;
+		if (this.Player.paused) {
+			this.Player.play();
+		} else {
+			this.Player.pause();
 		}
 	}
 
@@ -308,7 +300,7 @@ class Reader {
 	VolumeChange() {
 		if (this.Player.volume != 0) {
 			this.Mute.src = "../../img/audio-on.png";
-		}else {
+		} else {
 			this.Mute.src = "../../img/audio-off.png";
 		}
 		var percent = this.Player.volume * 100;
@@ -320,4 +312,4 @@ class Reader {
 	}
 }
 
-var reader = new Reader();
+const reader = new Reader();

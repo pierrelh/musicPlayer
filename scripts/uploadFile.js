@@ -18,7 +18,7 @@ class UploadSection {
 		if (this.Element.classList.contains("appear")) {
 			background.Hide();
 			this.Element.classList.remove("appear");
-		}else {
+		} else {
 			background.Show();
 			this.Element.classList.add("appear");
 		}
@@ -30,7 +30,7 @@ class UploadSection {
 		var picture = document.getElementById("Picture").files[0];
 
 		// Check if file & picture exist
-		if (file != undefined && picture != undefined) {
+		if (file && picture) {
 			var formData = new FormData(document.getElementById("FormUpload"));
 			// Delete default from data values for file & picture
 			formData.delete("file");
@@ -94,4 +94,4 @@ class UploadSection {
 	}
 }
 
-var uploadSection = new UploadSection()
+const uploadSection = new UploadSection()

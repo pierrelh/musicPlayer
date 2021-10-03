@@ -25,7 +25,7 @@ class Filters {
 		getFiles("file_album", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
-		}else {
+		} else {
 			this.Order = "ASC";
 		}
 	}
@@ -35,7 +35,7 @@ class Filters {
 		getFiles("file_author", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
-		}else {
+		} else {
 			this.Order = "ASC";
 		}
 	}
@@ -45,7 +45,7 @@ class Filters {
 		getFiles("file_id", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
-		}else {
+		} else {
 			this.Order = "ASC";
 		}
 	}
@@ -55,7 +55,7 @@ class Filters {
 		getFiles("file_name", this.Order);
 		if (this.Order == "ASC") {
 			this.Order = "DESC";
-		}else {
+		} else {
 			this.Order = "ASC";
 		}
 	}
@@ -129,13 +129,13 @@ class Sidebar {
 			playlistSection.HideAdd();
 			return;
 
-		}else {
+		} else {
 			// If elements with edit or delete's class exists then delete them
 			var editElements = Object.values(document.getElementsByClassName("edit"));
 			var deleteElements = Object.values(document.getElementsByClassName("delete"));
 			if (editElements.length != 0) {
 				editElements.forEach(element => element.remove());
-			}else if (deleteElements.length != 0){
+			} else if (deleteElements.length != 0){
 				deleteElements.forEach(element => element.remove());
 			}
 
@@ -189,14 +189,14 @@ class Sidebar {
 		if (deleteElements.length != 0) {
 			deleteElements.forEach(element => element.remove());
 			return;
-		}else {
+		} else {
 			// If elements with delete, add or check class exists then delete them
 			var editElements = Object.values(document.getElementsByClassName("edit"));
 			var addElements = Object.values(document.getElementsByClassName("add"));
 			var checkElements = Object.values(document.getElementsByClassName("check"));
 			if (editElements.length != 0) {
 				editElements.forEach(element => element.remove());
-			}else if (addElements.length != 0 || checkElements.length != 0) {
+			} else if (addElements.length != 0 || checkElements.length != 0) {
 				playlistSection.HideAdd();
 			}
 
@@ -206,8 +206,7 @@ class Sidebar {
 				var deleteLayout = new DeleteLayout(i);
 				var parent = libraryChildren[i];
 				var child = parent.children[0];
-				parent.insertBefore(deleteLayout, child);
-				
+				parent.insertBefore(deleteLayout, child);				
 			}
 		}
 	}
@@ -219,14 +218,14 @@ class Sidebar {
 		if (editElements.length != 0) {
 			editElements.forEach(element => element.remove());
 			return;
-		}else {
+		} else {
 			// If elements with delete, add or check class exists then delete them
 			var deleteElements = Object.values(document.getElementsByClassName("delete"));
 			var addElements = Object.values(document.getElementsByClassName("add"));
 			var checkElements = Object.values(document.getElementsByClassName("check"));
 			if (deleteElements.length != 0) {
 				deleteElements.forEach(element => element.remove());
-			}else if (addElements.length != 0 || checkElements.length != 0) {
+			} else if (addElements.length != 0 || checkElements.length != 0) {
 				playlistSection.HideAdd();
 			}
 
@@ -242,4 +241,4 @@ class Sidebar {
 	}
 }
 
-var sidebar = new Sidebar();
+const sidebar = new Sidebar();

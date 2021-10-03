@@ -1,10 +1,10 @@
 class EditSection {
 	constructor() {
-		this.Element = document.getElementById("Edit");
-		this.Cross = document.getElementById("CrossEdit");
-		this.CoverEdit = document.getElementById("PictureEdit")
-		this.Music = undefined;
-		this.EditBTN = document.getElementById("EditButton");
+		this.Element	= document.getElementById("Edit");
+		this.Cross		= document.getElementById("CrossEdit");
+		this.CoverEdit	= document.getElementById("PictureEdit")
+		this.Music		= undefined;
+		this.EditBTN	= document.getElementById("EditButton");
 
 		// Handle click on CrossEdit
 		this.Cross.addEventListener("click", evt => this.Hide());
@@ -35,7 +35,7 @@ class EditSection {
 			if (this.CoverEdit.files.length == 0) {
 				var picture = "undefined";
 				var publicId = "undefined";
-			}else {
+			} else {
 				// Formating the publicId of the music's cover to overwrite it
 				var publicId = this.Music.Cover;
 				var picture = this.CoverEdit.files[0];
@@ -45,7 +45,7 @@ class EditSection {
 			if (name == "" || author == "") {
 				document.getElementById("ErrorMsgEdit").innerHTML = "Merci de remplir tous les champs.";
 				document.getElementById("ErrorMsgEdit").style.display = "block";
-			}else{
+			} else{
 				var form_data = new FormData(document.getElementById("FormEdit"));
 				form_data.append("file_id", this.Music.MusicID);
 				form_data.append("file_image", picture);
@@ -78,8 +78,8 @@ class EditSection {
 				this.Element.className = "";
 				this.CoverEdit.value = "";
 			}
-		}else {
-			alert("Une erreur s'est produite.")
+		} else {
+			alert("Une erreur s'est produite.");
 		}
 
 	}
@@ -101,4 +101,4 @@ class EditSection {
 	}
 }
 
-var editSection = new EditSection()
+const editSection = new EditSection();

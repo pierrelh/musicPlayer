@@ -18,4 +18,4 @@ class Help {
 	}
 }
 
-var help = new Help();
+const help = new Help();

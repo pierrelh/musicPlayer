@@ -4,27 +4,27 @@ document.onkeydown = function(event) {
 		switch (event.key) {
 
 			case " ": // Spacebar is pressed -> play/pause audio
-				reader.TogglePlayPauseButton()
+				reader.TogglePlayPauseButton();
 				break;
 
 			case "p": // P is pressed -> play last music
-				reader.PlayPreviousMusic()
+				reader.PlayPreviousMusic();
 				break;
 
 			case "n": // N is pressed -> play next music
-				reader.PlayNextMusic(true)
+				reader.PlayNextMusic(true);
 				break;
 
 			case "r": // R is pressed -> toggle random
-				reader.ToggleRandom()
+				reader.ToggleRandom();
 				break;
 
 			case "m": // M is pressed -> toggle mute
-				reader.ToggleMute()
+				reader.ToggleMute();
 				break;
 
 			case "l": // L is pressed -> toggle loop
-				reader.ToggleLoop()
+				reader.ToggleLoop();
 				break;
 
 			case "a": // A is pressed -> toggle account section

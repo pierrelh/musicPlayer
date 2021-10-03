@@ -1,10 +1,10 @@
 class DeleteSection {
 	constructor() {
-		this.Element = document.getElementById("Delete");
-		this.Title = document.getElementById("DeleteTitle")
-		this.Yes = document.getElementById("DeleteYes");
-		this.No = document.getElementById("DeleteNo");
-		this.Music = undefined;
+		this.Element	= document.getElementById("Delete");
+		this.Title		= document.getElementById("DeleteTitle")
+		this.Yes		= document.getElementById("DeleteYes");
+		this.No			= document.getElementById("DeleteNo");
+		this.Music		= undefined;
 
 		// Handle click on No button of Delete section
 		this.No.addEventListener("click", evt => this.Hide());
@@ -20,23 +20,23 @@ class DeleteSection {
 				url: server + "/functions/files/deleteFile.php",
 				type: "POST",
 				data: {
-					"file_id": this.Music.MusicID,
-					"file_url": this.Music.URL,
-					"file_cover": this.Music.Cover
+					"file_id":		this.Music.MusicID,
+					"file_url":		this.Music.URL,
+					"file_cover":	this.Music.Cover
 				},
-				success: function(data){
+				success: function(data) {
 					if (data == 1) {
 						// Closing Delete section
-						deleteSection.Hide()
+						deleteSection.Hide();
 						// Deleting the deleted music from the Library
 						deleteSection.Music.Element.remove();
-					}else {
-						alert("Une erreur inatendue s'est produite, merci de réessayer plus tard.")
+					} else {
+						alert("Une erreur inatendue s'est produite, merci de réessayer plus tard.");
 					}
 				}
 			});
 
-		}else {
+		} else {
 			alert("Une erreur s'est produite.");
 		}
 	}
@@ -55,4 +55,4 @@ class DeleteSection {
 	}
 }
 
-var deleteSection = new DeleteSection()
+const deleteSection = new DeleteSection();

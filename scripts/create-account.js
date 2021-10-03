@@ -1,11 +1,11 @@
 class CreateAccount {
 	constructor() {
-		this.Element = document.getElementById("CreateAccount")
-		this.Cross = document.getElementById("CrossCreateAccount")
-		this.CreataAccountBTN = document.getElementById("CreateAccountButton")
-		this.Email = document.getElementById("NewAccountEmail")
-		this.PasswordOne = document.getElementById("NewAccountPasswordOne")
-		this.PasswordTwo = document.getElementById("NewAccountPasswordTwo")
+		this.Element = document.getElementById("CreateAccount");
+		this.Cross = document.getElementById("CrossCreateAccount");
+		this.CreataAccountBTN = document.getElementById("CreateAccountButton");
+		this.Email = document.getElementById("NewAccountEmail");
+		this.PasswordOne = document.getElementById("NewAccountPasswordOne");
+		this.PasswordTwo = document.getElementById("NewAccountPasswordTwo");
 		this.ErrorMSG = document.getElementById("errorMsgCreateAccount");
 
 		// Handle click on CrossAccount button of Account section
@@ -42,7 +42,7 @@ class CreateAccount {
 						this.ErrorMSG.style.color = "green";
 						this.ErrorMSG.innerHTML = "Votre compte à bien été créé";
 						this.ErrorMSG.style.display = "block";
-					}else {
+					} else {
 						this.ErrorMSG.style.color = "red";
 						this.ErrorMSG.innerHTML = "Une erreur s'est produite lors de la création du compte";
 						this.ErrorMSG.style.display = "block";
@@ -63,4 +63,4 @@ class CreateAccount {
 	}
 }
 
-var createAccount = new CreateAccount()
+const createAccount = new CreateAccount();

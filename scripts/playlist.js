@@ -17,7 +17,7 @@ class PlaylistSection {
 	}
 
 	AddToPlaylist(element, music) {
-		addToPlaylist.push(music)
+		addToPlaylist.push(music);
 		element.classList.remove("add");
 		element.classList.add("check");
 		element.addEventListener("click", evt => this.RemoveFromPlaylist(element, music));
@@ -25,7 +25,7 @@ class PlaylistSection {
 
 	// Get all musics of a playlist & print them
 	OpenPlaylist(identifier) {
-		if (identifier != undefined) {
+		if (identifier) {
 			var playlistId = document.getElementById(identifier).dataset.id;
 
 			$.ajax({
@@ -82,7 +82,7 @@ class PlaylistSection {
 			}
 		}
 		if (playlistName == "" || musicList == "") {
-			alert("Merci de choisir des morceaux et de remplir le nom de la playlist.")
+			alert("Merci de choisir des morceaux et de remplir le nom de la playlist.");
 		}else {
 			$.ajax({
 				url: server + "/functions/playlists/createPlaylist.php",
@@ -99,4 +99,4 @@ class PlaylistSection {
 	}
 }
 
-var playlistSection = new PlaylistSection()
+const playlistSection = new PlaylistSection();
