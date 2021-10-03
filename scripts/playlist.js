@@ -1,7 +1,8 @@
 class AddLayouts {
 	constructor() {
-		this.IsActive	= false;
-		this.Elements	= [];
+		this.IsActive		= false;
+		this.Elements		= [];
+		this.MusicsToAdd	= {};
 	}
 
 	ToggleVisibility() {
@@ -12,15 +13,59 @@ class AddLayouts {
 		}
 	}
 
+	AddToPlaylist(element, music) {
+		this.MusicsToAdd[music.ID] = music;
+		element.classList.remove("add");
+		element.classList.add("check");
+		element.addEventListener("click", evt => this.RemoveFromPlaylist(element, music), false);
+	}
+
+	// Toggle a music's class to be remove from a playlist
+	RemoveFromPlaylist(element, music) {
+		delete this.MusicsToAdd[music.ID];
+		element.classList.remove("check");
+		element.classList.add("add");
+		element.addEventListener("click", evt => this.AddToPlaylist(element, music));
+	}
+
 	CreateAll() {
 		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
 			let editLayout = new Layout({
 				class: "add",
-				event: playlistSection.AddToPlaylist(this.Element, library.MusicsPlaylist[id])
+				event: evt => this.AddToPlaylist(this.Element, library.MusicsPlaylist[index])
 			});
 			this.Elements.push(editLayout);
 			library.MusicsPlaylist[index].Element.prepend(editLayout);
 		}
+
+		var sidebarList = document.getElementById("SidebarList");
+
+		// Create the li element for input playlist name
+		var listPlaylistName = document.createElement("li");
+		listPlaylistName.id = "PlaylistNameElement"
+		sidebarList.appendChild(listPlaylistName);
+
+		// Create the input element for playlist name
+		var playlistName = document.createElement("input");
+		playlistName.id = "PlaylistName";
+		playlistName.setAttribute("type", "text");
+		playlistName.setAttribute("placeholder", "Nom de la Playlist");
+		playlistName.classList.add("playlist-name");
+		listPlaylistName.appendChild(playlistName);
+
+		// Create the li element for the input playlist create 
+		var listElement = document.createElement("li");
+		listElement.id = "PlaylistButtonElement"
+		sidebarList.appendChild(listElement);
+
+		// Create the input element for playlist create
+		var buttonCreatePlaylist = document.createElement("input");
+		buttonCreatePlaylist.id = "ButtonCreatePlaylist";
+		buttonCreatePlaylist.setAttribute("type", "submit");
+		buttonCreatePlaylist.addEventListener("click", playlistSection.SendPlaylist());
+		buttonCreatePlaylist.classList.add("button-create-playlist");
+		buttonCreatePlaylist.value = "Créer la Playlist";
+		listElement.appendChild(buttonCreatePlaylist);
 		this.IsActive = true;
 	}
 
@@ -30,9 +75,7 @@ class AddLayouts {
 	}
 }
 
-let addLayouts = new AddLayouts();
-
-var addToPlaylist = [];
+const addLayouts = new AddLayouts();
 
 class PlaylistSection {
 	constructor() {
@@ -93,13 +136,6 @@ class PlaylistSection {
 		});
 	}
 
-	AddToPlaylist(element, music) {
-		addToPlaylist.push(music);
-		element.classList.remove("add");
-		element.classList.add("check");
-		element.addEventListener("click", evt => this.RemoveFromPlaylist(element, music), false);
-	}
-
 	// Get all musics of a playlist & print them
 	OpenPlaylist(identifier) {
 		if (Number.isInteger(identifier)) {
@@ -123,28 +159,6 @@ class PlaylistSection {
 				}
 			});
 		}
-	}
-
-	// Toggle a music's class to be remove from a playlist
-	RemoveFromPlaylist(element, music) {
-		var index = addToPlaylist.findIndex(x => x.ID === music.ID);
-		if (index > -1) {
-			addToPlaylist.splice(index, 1);
-		}
-		element.classList.remove("check");
-		element.classList.add("add");
-		element.addEventListener("click", evt => this.AddToPlaylist(element, music));
-	}
-
-	// Hide the playlist additions or checks
-	HideAdd() {
-		for (let index = 0; index < addLayouts.length; index++) {
-			delete array[index];
-		}
-
-		document.getElementById("PlaylistNameElement").remove();
-		document.getElementById("PlaylistButtonElement").remove();
-		sidebar.IsCreatingPlaylist = false;
 	}
 
 	// Create the playlist with the choosed musics

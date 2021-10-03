@@ -21,36 +21,6 @@ class EditLayouts {
 			this.Elements.push(editLayout);
 			library.MusicsPlaylist[index].Element.prepend(editLayout);
 		}
-
-		var sidebarList = document.getElementById("SidebarList");
-
-		// Create the li element for input playlist name
-		var listPlaylistName = document.createElement("li");
-		listPlaylistName.id = "PlaylistNameElement"
-		sidebarList.appendChild(listPlaylistName);
-
-		// Create the input element for playlist name
-		var playlistName = document.createElement("input");
-		playlistName.id = "PlaylistName";
-		playlistName.setAttribute("type", "text");
-		playlistName.setAttribute("placeholder", "Nom de la Playlist");
-		playlistName.classList.add("playlist-name");
-		listPlaylistName.appendChild(playlistName);
-
-		// Create the li element for the input playlist create 
-		var listElement = document.createElement("li");
-		listElement.id = "PlaylistButtonElement"
-		sidebarList.appendChild(listElement);
-
-		// Create the input element for playlist create
-		var buttonCreatePlaylist = document.createElement("input");
-		buttonCreatePlaylist.id = "ButtonCreatePlaylist";
-		buttonCreatePlaylist.setAttribute("type", "submit");
-		buttonCreatePlaylist.addEventListener("click", playlistSection.SendPlaylist());
-		buttonCreatePlaylist.classList.add("button-create-playlist");
-		buttonCreatePlaylist.value = "Créer la Playlist";
-		listElement.appendChild(buttonCreatePlaylist);
-		
 		this.IsActive = true;
 	}
 

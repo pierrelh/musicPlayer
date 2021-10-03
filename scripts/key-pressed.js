@@ -52,7 +52,7 @@ document.onkeydown = function(event) {
 				break;
 
 			case "c": // C is pressed -> toggle create playlist
-				toggleCreatePlaylist();
+				addLayouts.ToggleVisibility();
 				break;
 
 			case "s": // S is pressed -> toggle sidebar

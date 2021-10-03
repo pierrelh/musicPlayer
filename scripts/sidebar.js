@@ -60,18 +60,17 @@ class Filters {
 class Sidebar {
 	constructor() {
 		this.Element			= document.getElementById("Sidebar");
+		this.Arrow				= document.getElementById("Arrow");
 		this.MyAccount			= document.getElementById("MyAccountSidebar");
 		this.CreateAccount		= document.getElementById("CreateAccountSidebar");
+		this.Help				= document.getElementById("HelpSidebar");
 		this.UploadFile			= document.getElementById("UploadFileSidebar");
 		this.EditFile			= document.getElementById("EditFileSidebar");
 		this.DeleteFile			= document.getElementById("DeleteFileSidebar");
-		this.UploadFile			= document.getElementById("UploadFileSidebar");
+		this.Filters			= new Filters();
 		this.MyMusics			= document.getElementById("MyMusicsSidebar");
 		this.MyPlaylists		= document.getElementById("MyPlaylistsSidebar");
 		this.CreatePlaylist		= document.getElementById("CreatePlaylistSidebar");
-		this.Filters			= new Filters();
-		this.Help				= document.getElementById("HelpSidebar");
-		this.Arrow				= document.getElementById("Arrow");
 		this.IsVisible			= false;
 
 		this.Arrow.addEventListener("click", evt => this.ToggleVisibility());
@@ -98,7 +97,7 @@ class Sidebar {
 		this.MyPlaylists.addEventListener("click", evt => playlistSection.ToggleVisibility(), false);
 
 		// Handle the create playlist button click
-		this.CreatePlaylist.addEventListener("click", evt => this.ToggleCreatePlaylist(), false);
+		this.CreatePlaylist.addEventListener("click", evt => addLayouts.ToggleVisibility(), false);
 
 		// Handle the help button click
 		this.Help.addEventListener("click", evt => help.Toggle(), false);

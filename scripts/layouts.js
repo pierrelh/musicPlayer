@@ -7,8 +7,6 @@ class Layout {
 	}
 }
 
-var addLayouts = [];
-
 class PlayingLayout {
 	constructor() {
 		this.Element	= document.createElement("li");
