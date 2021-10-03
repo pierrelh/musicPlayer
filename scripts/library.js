@@ -7,7 +7,7 @@ class Library {
 	}
 
 	GetFiles(row = "file_id", type = "DESC") {
-		if (playlistSection != null) {
+		if (playlistSection != undefined) {
 			playlistSection.Hide();
 		}
 		let self = this;
