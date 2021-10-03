@@ -71,12 +71,14 @@ class AddLayouts {
 		buttonCreatePlaylist.classList.add("button-create-playlist");
 		buttonCreatePlaylist.value = "Créer la Playlist";
 		listElement.appendChild(buttonCreatePlaylist);
-		buttonCreatePlaylist.addEventListener("click", playlistSection.SendPlaylist(), false);
+		buttonCreatePlaylist.addEventListener("click", evt => playlistSection.SendPlaylist(), false);
 		this.IsActive = true;
 	}
 
 	RemoveAll() {
 		this.Elements.forEach(element => element.remove());
+		document.getElementById("PlaylistNameElement").remove();
+		document.getElementById("PlaylistButtonElement").remove();
 		this.IsActive = false;
 	}
 }
