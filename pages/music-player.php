@@ -10,7 +10,6 @@
 		</script>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/media-session.js"></script>
-		<script type="text/javascript" src="<?php echo $link ?>/scripts/library.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/functions.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/key-pressed.js"></script>
 		<link rel="stylesheet" href="<?php echo $link ?>/styles/common/videoStyle.css">
@@ -33,6 +32,7 @@
 				</script>
 			</div>
 		</section>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/library.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/background.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/layouts.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/account.js"></script>
