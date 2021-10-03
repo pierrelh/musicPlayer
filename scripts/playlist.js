@@ -70,11 +70,8 @@ class PlaylistSection {
 
 	// Get all musics of a playlist & print them
 	OpenPlaylist(identifier) {
-		console.log(this.Playlists);
-		console.log(identifier)
 		if (Number.isInteger(identifier)) {
 			let playlistId = this.Playlists[identifier].id;
-			console.log(playlistId)
 
 			$.ajax({
 				url: server + "/functions/playlists/getPlaylistsMusics.php",
@@ -88,7 +85,7 @@ class PlaylistSection {
 					if (data.length != 0) {
 						playlistSection.Hide();
 						MusicsPlaylist = [];
-						for (let index = 0; index < array.length; index++) {
+						for (let index = 0; index < data.length; index++) {
 							let music = new Music(data[index], index).Create();
 							library.appendChild(music);
 						}
