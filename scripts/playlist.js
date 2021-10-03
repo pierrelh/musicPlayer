@@ -2,7 +2,7 @@ class AddLayouts {
 	constructor() {
 		this.IsActive		= false;
 		this.Elements		= [];
-		this.MusicsToAdd	= {};
+		this.MusicsToAdd	= [];
 	}
 
 	ToggleVisibility() {
@@ -14,7 +14,7 @@ class AddLayouts {
 	}
 
 	AddToPlaylist(music) {
-		this.MusicsToAdd[music.ID] = music;
+		this.MusicsToAdd.push(music.MusicID);
 		music.Element.children[0].classList.remove("add");
 		music.Element.children[0].classList.add("check");
 		music.Element.children[0].addEventListener("click", evt => this.RemoveFromPlaylist(music), false);
@@ -22,7 +22,7 @@ class AddLayouts {
 
 	// Toggle a music's class to be remove from a playlist
 	RemoveFromPlaylist(music) {
-		delete this.MusicsToAdd[music.ID];
+		delete this.MusicsToAdd[music.MusicID];
 		music.Element.children[0].classList.remove("check");
 		music.Element.children[0].classList.add("add");
 		music.Element.children[0].addEventListener("click", evt => this.AddToPlaylist(music));
@@ -171,31 +171,27 @@ class PlaylistSection {
 
 	// Create the playlist with the choosed musics
 	SendPlaylist() {
-		let musicList = [];
-		if (Object.keys(addLayouts.MusicsToAdd).length) {
-			for (let key in addLayouts.MusicsToAdd) {
-				musicList.push(addLayouts.MusicsToAdd[key].ID);
+		if (addLayouts.MusicsToAdd.length) {
+			let playlistName = document.getElementById("PlaylistName").value;
+			if (playlistName) {
+				$.ajax({
+					url: server + "/functions/playlists/createPlaylist.php",
+					type: "POST",
+					data: {
+						"musics": addLayouts.MusicsToAdd,
+						"playlistName": playlistName
+					},
+					success: function(){
+						addLayouts.RemoveAll();
+					}
+				});
+			} else {
+				alert("Merci de choisir des morceaux et de remplir le nom de la playlist.");
+				return;
 			}
 		} else {
 			alert("Veuillez choisir des morceaux.")
 			return;
-		}
-		let playlistName = document.getElementById("PlaylistName").value;
-		if (playlistName == "" || musicList == "") {
-			alert("Merci de choisir des morceaux et de remplir le nom de la playlist.");
-			return;
-		} else {
-			$.ajax({
-				url: server + "/functions/playlists/createPlaylist.php",
-				type: "POST",
-				data: {
-					"musics": musicList,
-					"playlistName": playlistName
-				},
-				success: function(){
-					playlistSection.HideAdd();
-				}
-			});
 		}
 	}
 }
