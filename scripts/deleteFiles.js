@@ -13,6 +13,12 @@ class DeleteLayouts {
 	}
 
 	CreateAll() {
+		if (addLayouts.IsActive) {
+			addLayouts.RemoveAll()
+		}
+		if (editLayouts.IsActive) {
+			editLayouts.RemoveAll()
+		}
 		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
 			let deleteLayout = new Layout({
 				class: "delete",

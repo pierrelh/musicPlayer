@@ -13,6 +13,12 @@ class EditLayouts {
 	}
 
 	CreateAll() {
+		if (addLayouts.IsActive) {
+			addLayouts.RemoveAll()
+		}
+		if (deleteLayouts.IsActive) {
+			deleteLayouts.RemoveAll()
+		}
 		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
 			let editLayout = new Layout({
 				class: "edit",
