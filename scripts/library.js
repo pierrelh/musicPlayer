@@ -3,6 +3,7 @@ class Library {
 		this.Element				= document.getElementById("LibraryObjects");
 		this.MusicsPlaylist			= [];
 		this.MusicsRandomPlaylist	= [];
+		this.getFiles('file_id', 'DESC');
 	}
 
 	getFiles(row, type){

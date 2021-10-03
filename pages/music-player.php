@@ -26,11 +26,7 @@
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/sidebar.php");
 		?>
 		<section id="Library" class="library-show">
-			<div id="LibraryObjects">
-				<script>
-					library.getFiles('file_id', 'DESC');
-				</script>
-			</div>
+			<div id="LibraryObjects"></div>
 		</section>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/library.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/background.js"></script>
