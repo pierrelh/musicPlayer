@@ -5,12 +5,8 @@ class UploadSection {
 		this.UploadBTN	= document.getElementById("UploadButton")
 		this.ErrorMSG	= document.getElementById("ErrorMsgUpload")
 
-		// Handle click event on CrossUpload
 		this.Cross.addEventListener("click", evt => this.Toggle());
-
-		// Handle click on UploadButton
 		this.UploadBTN.addEventListener("click", evt => this.UploadFiles(evt));
-
 	}
 
 	// Toggle upload section
@@ -74,13 +70,13 @@ class UploadSection {
 									}
 								});
 
-							}else {
+							} else {
 								alert("Une erreur s'est produite lors de l'envoi de la cover");
 								return;
 							}
 						});
 						
-					}else {
+					} else {
 						alert("Une erreur s'est produite lors de l'envoi de la musique");
 						return;
 					}
@@ -91,13 +87,12 @@ class UploadSection {
 			this.ErrorMSG.style.display = "block";
 			return;
 		}
-	}	
+	}
 
 	// Upload a file to Cloudinary
 	UploadFileCloudinary(formDataMusic, barId, txtId, link) {
 		return new Promise((resolve, reject) => {
 			var url = server + "/functions/files/" + link;
-			
 			var xhr = new XMLHttpRequest();
 
 			// Update progress for audio file

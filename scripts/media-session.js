@@ -13,7 +13,6 @@ class MediaSession {
 			this.Element.setActionHandler('seekto',	evt => reader.SeekTo());
 			this.Element.setActionHandler('previoustrack', evt => reader.PlayPreviousMusic());
 			this.Element.setActionHandler('nexttrack',	evt => reader.PlayNextMusic(true));
-			
 		}
 	}
 
@@ -30,7 +29,7 @@ class MediaSession {
 			album: this.HTMLDecode(data.Album),
 			artwork: [
 				{ src: data.Cover, sizes: '150x150', type: 'image/png' },
-				// { src: data.Cover, sizes: '96x96',   type: 'image/png' },
+				// { src: data.Cover, sizes: '96x96', type: 'image/png' },
 				// { src: data.Cover, sizes: '128x128', type: 'image/png' },
 				// { src: data.Cover, sizes: '192x192', type: 'image/png' },
 				// { src: data.Cover, sizes: '256x256', type: 'image/png' },

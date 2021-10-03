@@ -3,7 +3,6 @@ class Help {
 		this.Element	= document.getElementById("Help");
 		this.Cross		= document.getElementById("CrossHelp");
 
-		// Handle click on CrossAccount button of Account section
 		this.Cross.addEventListener("click", evt => this.Toggle());
 	}
 

@@ -7,56 +7,56 @@ document.onkeydown = function(event) {
 				reader.TogglePlayPauseButton();
 				break;
 
-			case "p": // P is pressed -> play last music
-				reader.PlayPreviousMusic();
-				break;
-
-			case "n": // N is pressed -> play next music
-				reader.PlayNextMusic(true);
-				break;
-
-			case "r": // R is pressed -> toggle random
-				reader.ToggleRandom();
-				break;
-
-			case "m": // M is pressed -> toggle mute
-				reader.ToggleMute();
-				break;
-
-			case "l": // L is pressed -> toggle loop
-				reader.ToggleLoop();
-				break;
-
 			case "a": // A is pressed -> toggle account section
 				account.Toggle();
-				break;
-
-			case "u": // U is pressed -> toggle upload section
-				uploadSection.Toggle();
-				break;
-
-			case "e": // E is pressed -> toggle edit
-				editLayouts.ToggleVisibility();
-				break;
-
-			case "d": // D is pressed -> toggle delete
-				deleteLayouts.ToggleVisibility();
-				break;
-
-			case "h": // H is pressed -> toggle help section
-				help.Toggle();
-				break;
-
-			case "z": // Z is pressed -> toggle playlists section
-				playlistSection.ToggleVisibility();
 				break;
 
 			case "c": // C is pressed -> toggle create playlist
 				addLayouts.ToggleVisibility();
 				break;
 
+			case "d": // D is pressed -> toggle delete
+				deleteLayouts.ToggleVisibility();
+				break;
+
+			case "e": // E is pressed -> toggle edit
+				editLayouts.ToggleVisibility();
+				break;
+
+			case "h": // H is pressed -> toggle help section
+				help.Toggle();
+				break;
+
+			case "l": // L is pressed -> toggle loop
+				reader.ToggleLoop();
+				break;
+
+			case "m": // M is pressed -> toggle mute
+				reader.ToggleMute();
+				break;
+
+			case "n": // N is pressed -> play next music
+				reader.PlayNextMusic(true);
+				break;
+
+			case "p": // P is pressed -> play last music
+				reader.PlayPreviousMusic();
+				break;
+
+			case "r": // R is pressed -> toggle random
+				reader.ToggleRandom();
+				break;
+
 			case "s": // S is pressed -> toggle sidebar
 				sidebar.ToggleVisibility();
+				break;
+
+			case "u": // U is pressed -> toggle upload section
+				uploadSection.Toggle();
+				break;
+
+			case "z": // Z is pressed -> toggle playlists section
+				playlistSection.ToggleVisibility();
 				break;
 
 			case "ArrowLeft": // ArrowLeft is pressed -> -10s on audio

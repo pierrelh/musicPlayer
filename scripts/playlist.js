@@ -92,13 +92,10 @@ class PlaylistSection {
 
 	// Toggle the playlist section's visibility
 	ToggleVisibility() {
-		if (this.IsVisible) {
+		if (this.IsVisible)
 			this.Hide();
-			this.IsVisible = false;
-		} else {
+		else
 			this.Show();
-			this.IsVisible = true;
-		}
 	}
 
 	// Hide the playlist section
@@ -106,6 +103,7 @@ class PlaylistSection {
 		if (this.Element.classList.contains("playlist-div-show")) {
 			this.Element.classList.remove("playlist-div-show");
 		}
+		this.IsVisible = false;
 	}
 
 	// Show the playlist section
@@ -133,11 +131,12 @@ class PlaylistSection {
 					li.className = "table";
 					li.addEventListener("click", evt => self.OpenPlaylist(index), false);
 
-					let  p = document.createElement("p");
+					let p = document.createElement("p");
 					li.appendChild(p);
 					p.innerHTML = response[index]["playlist_name"];
 				})(index);
 				self.Element.classList.add("playlist-div-show");
+				this.IsVisible = true;
 			}
 		});
 	}

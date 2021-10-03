@@ -44,12 +44,8 @@ class EditSection {
 		this.Music		= undefined;
 		this.EditBTN	= document.getElementById("EditButton");
 
-		// Handle click on CrossEdit
 		this.Cross.addEventListener("click", evt => this.Hide());
-
 		this.EditBTN.addEventListener("click", evt => this.Edit(evt));
-
-		// Handle change on PictureEdit
 		this.CoverEdit.addEventListener("change", evt => this.ReadURL());
 	}
 

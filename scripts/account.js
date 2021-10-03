@@ -7,10 +7,7 @@ class Account {
 		this.PasswordTwo		= document.getElementById("NewPasswordTwo");
 		this.ErrorMSG			= document.getElementById("errorMsgEditPassword");
 
-		// Handle click on CrossAccount button of Account section
 		this.Cross.addEventListener("click", evt => this.Toggle());
-
-		// Handle click on CrossAccount button of Account section
 		this.UpdatePasswordBtn.addEventListener("click", evt => this.UpdatePassword(evt));
 	}
 

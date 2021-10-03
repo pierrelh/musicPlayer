@@ -17,7 +17,7 @@ class CreateAccount {
 
 	CreateAccount(e) {
 		e.preventDefault();
-	
+
 		if (this.Email.value == "" || this.PasswordOne.value == "" || this.PasswordTwo.value == "") {
 			// Check if all the fiels have been sets
 			this.ErrorMSG.innerHTML = "Veuillez remplir tous les champs";
@@ -49,7 +49,7 @@ class CreateAccount {
 					}
 				}
 			});
-		}	
+		}
 	}
 
 	Hide() {
