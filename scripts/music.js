@@ -19,7 +19,7 @@ class Music {
 		let cover = document.createElement("li");
 		cover.className = "view";
 		if (this.Cover) {
-			cover.style.backgroundImage = "url('" + cover + "')";
+			cover.style.backgroundImage = "url('" + this.Cover + "')";
 		}
 		this.Element.appendChild(cover);
 
