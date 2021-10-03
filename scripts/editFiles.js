@@ -16,11 +16,7 @@ class EditLayouts {
 		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
 			let editLayout = new Layout({
 				class: "edit",
-				event: {
-					type: "click",
-					listener: evt => editSection.Show(music),
-					options: false
-				}
+				event: evt => editSection.Show(music)
 			});
 			this.Elements.push(editLayout);
 			library.MusicsPlaylist[index].Element.prepend(editLayout);

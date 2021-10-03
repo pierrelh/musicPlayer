@@ -2,7 +2,7 @@ class Layout {
 	constructor(data) {
 		this.Element = document.createElement("li");
 		this.Element.classList.add(data.class);
-		this.Element.addEventListener(data.event);
+		this.Element.addEventListener("click", data.event, false);
 		return this.Element;
 	}
 }
