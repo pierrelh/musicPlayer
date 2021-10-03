@@ -19,7 +19,7 @@ class Account {
 		if (this.Element.classList.contains("appear")) {
 			background.Hide();
 			this.Element.className = "";
-		}else {
+		} else {
 			fetch(server + "/functions/account/getCloudinaryAdmin.php")
 			.then((response) => response.json())
 			.then(function (response) {
@@ -69,12 +69,12 @@ class Account {
 			this.ErrorMSG.innerHTML = "Veuillez remplir les champs";
 			this.ErrorMSG.style.display = "block";
 			return;
-		}else if (this.PasswordOne.value != this.PasswordTwo.value) {
+		} else if (this.PasswordOne.value != this.PasswordTwo.value) {
 			this.ErrorMSG.style.color = "red";
 			this.ErrorMSG.innerHTML = "Les deux mots de passe ne correspondent pas";
 			this.ErrorMSG.style.display = "block";
 			return;
-		}else {
+		} else {
 			$.ajax({
 				url: server + "/functions/users/editPassword.php",
 				type: "POST",
@@ -86,7 +86,7 @@ class Account {
 						this.ErrorMSG.style.color = "green";
 						this.ErrorMSG.innerHTML = "Votre mot de passe à bien été mis à jour";
 						this.ErrorMSG.style.display = "block";
-					}else {
+					} else {
 						this.ErrorMSG.innerHTML = "Une erreur s'est produite lors de la mise à jour";
 						this.ErrorMSG.style.display = "block";
 					}
@@ -96,4 +96,4 @@ class Account {
 	}
 }
 
-var account = new Account()
+const account = new Account()
