@@ -79,7 +79,7 @@ class Reader {
 	}
 
 	Ended() {
-		if (this.src) {
+		if (this.src != "") {
 			this.PlayNextMusic(false);
 		}
 	}

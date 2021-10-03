@@ -94,4 +94,4 @@ class UploadSection {
 	}
 }
 
-const uploadSection = new UploadSection()
+const uploadSection = new UploadSection();
