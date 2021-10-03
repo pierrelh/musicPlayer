@@ -73,13 +73,16 @@ class Sidebar {
 		this.CreatePlaylist		= document.getElementById("CreatePlaylistSidebar");
 		this.IsVisible			= false;
 
-		this.Arrow.addEventListener("click", evt => this.ToggleVisibility());
+		this.Arrow.addEventListener("click", evt => this.ToggleVisibility(), false);
 
 		// Handle the my account button click
 		this.MyAccount.addEventListener("click", evt => account.Toggle(), false);
 
 		// Handle the create account button click
 		this.CreateAccount.addEventListener("click", evt => createAccount.Show(), false);
+
+		// Handle the help button click
+		this.Help.addEventListener("click", evt => help.Toggle(), false);
 
 		// Handle the upload file button click
 		this.UploadFile.addEventListener("click", evt => uploadSection.Toggle(), false);
@@ -98,9 +101,6 @@ class Sidebar {
 
 		// Handle the create playlist button click
 		this.CreatePlaylist.addEventListener("click", evt => addLayouts.ToggleVisibility(), false);
-
-		// Handle the help button click
-		this.Help.addEventListener("click", evt => help.Toggle(), false);
 	}
 
 	// Toggle sidebar section 

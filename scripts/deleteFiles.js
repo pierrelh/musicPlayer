@@ -4,21 +4,21 @@ class DeleteLayouts {
 		this.Elements	= [];
 	}
 
+	// Toggle the visibility of the Delete's layouts
 	ToggleVisibility() {
-		if (this.IsActive) {
+		if (this.IsActive)
 			this.RemoveAll();
-		} else {
+		else
 			this.CreateAll();
-		}
 	}
 
+	// Create all the delete's layouts
 	CreateAll() {
-		if (addLayouts.IsActive) {
-			addLayouts.RemoveAll()
-		}
-		if (editLayouts.IsActive) {
-			editLayouts.RemoveAll()
-		}
+		if (addLayouts.IsActive)
+			addLayouts.RemoveAll();
+		if (editLayouts.IsActive)
+			editLayouts.RemoveAll();
+
 		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
 			let deleteLayout = new Layout({
 				class: "delete",
@@ -30,6 +30,7 @@ class DeleteLayouts {
 		this.IsActive = true;
 	}
 
+	// Remove all the delete's layouts
 	RemoveAll() {
 		this.Elements.forEach(element => element.remove());
 		this.IsActive = false;
@@ -91,7 +92,6 @@ class DeleteSection {
 		this.Title.innerHTML = "Voulez-vous vraiment supprimer: " + music.Title + " de " + music.Artist + " ?";
 		background.Show();
 		this.Element.className = "appear";
-
 	}
 }
 

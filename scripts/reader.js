@@ -287,7 +287,7 @@ class Reader {
 			this.Random.src = "../../img/no-random.png";			
 		} else {
 			library.MusicsRandomPlaylist = library.MusicsPlaylist.slice();
-			shuffle(library.MusicsRandomPlaylist); // Creating the random playlist
+			library.ShuffleMusics(); // Creating the random playlist
 			this.IsRandom = true;
 			this.Random.src = "../../img/random.png";
 		}

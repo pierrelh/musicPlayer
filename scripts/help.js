@@ -11,7 +11,7 @@ class Help {
 		if (this.Element.classList.contains("appear")) {
 			background.Hide();
 			this.Element.classList.remove("appear");
-		}else {
+		} else {
 			background.Show();
 			this.Element.classList.add("appear");
 		}

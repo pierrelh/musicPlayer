@@ -1,12 +1,12 @@
 class CreateAccount {
 	constructor() {
-		this.Element = document.getElementById("CreateAccount");
-		this.Cross = document.getElementById("CrossCreateAccount");
-		this.CreataAccountBTN = document.getElementById("CreateAccountButton");
-		this.Email = document.getElementById("NewAccountEmail");
-		this.PasswordOne = document.getElementById("NewAccountPasswordOne");
-		this.PasswordTwo = document.getElementById("NewAccountPasswordTwo");
-		this.ErrorMSG = document.getElementById("errorMsgCreateAccount");
+		this.Element			= document.getElementById("CreateAccount");
+		this.Cross				= document.getElementById("CrossCreateAccount");
+		this.CreataAccountBTN	= document.getElementById("CreateAccountButton");
+		this.Email				= document.getElementById("NewAccountEmail");
+		this.PasswordOne		= document.getElementById("NewAccountPasswordOne");
+		this.PasswordTwo		= document.getElementById("NewAccountPasswordTwo");
+		this.ErrorMSG			= document.getElementById("errorMsgCreateAccount");
 
 		// Handle click on CrossAccount button of Account section
 		this.Cross.addEventListener("click", evt => this.Hide());

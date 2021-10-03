@@ -6,6 +6,14 @@ class Library {
 		this.GetFiles();
 	}
 
+	// Shuffle the musics playlist
+	ShuffleMusics() {
+		for (let i = this.MusicsPlaylist.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[this.MusicsPlaylist[i], this.MusicsPlaylista[j]] = [this.MusicsPlaylist[j], this.MusicsPlaylist[i]];
+		}
+	}
+
 	GetFiles(row = "file_id", type = "DESC") {
 		if (typeof playlistSection !== "undefined") {
 			playlistSection.Hide();

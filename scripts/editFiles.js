@@ -5,20 +5,18 @@ class EditLayouts {
 	}
 
 	ToggleVisibility() {
-		if (this.IsActive) {
+		if (this.IsActive)
 			this.RemoveAll();
-		} else {
+		else
 			this.CreateAll();
-		}
 	}
 
 	CreateAll() {
-		if (addLayouts.IsActive) {
-			addLayouts.RemoveAll()
-		}
-		if (deleteLayouts.IsActive) {
-			deleteLayouts.RemoveAll()
-		}
+		if (addLayouts.IsActive)
+			addLayouts.RemoveAll();
+		if (deleteLayouts.IsActive)
+			deleteLayouts.RemoveAll();
+
 		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
 			let editLayout = new Layout({
 				class: "edit",
@@ -58,7 +56,7 @@ class EditSection {
 	// Dynamically read & print a new input's image
 	ReadURL() {
 		if (this.CoverEdit.files && this.CoverEdit.files[0]) {
-			var fileReader = new FileReader();
+			let fileReader = new FileReader();
 
 			fileReader.addEventListener("load", function(e) {
 				document.getElementById("Banner").style.backgroundImage = "url(" + e.target.result + ")"
@@ -121,7 +119,6 @@ class EditSection {
 		} else {
 			alert("Une erreur s'est produite.");
 		}
-
 	}
 
 	Hide() {

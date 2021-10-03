@@ -6,11 +6,10 @@ class AddLayouts {
 	}
 
 	ToggleVisibility() {
-		if (this.IsActive) {
+		if (this.IsActive)
 			this.RemoveAll();
-		} else {
+		else
 			this.CreateAll();
-		}
 	}
 
 	AddToPlaylist(music) {
@@ -29,12 +28,11 @@ class AddLayouts {
 	}
 
 	CreateAll() {
-		if (editLayouts.IsActive) {
-			editLayouts.RemoveAll()
-		}
-		if (deleteLayouts.IsActive) {
-			deleteLayouts.RemoveAll()
-		}
+		if (editLayouts.IsActive)
+			editLayouts.RemoveAll();
+		if (deleteLayouts.IsActive)
+			deleteLayouts.RemoveAll();
+
 		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
 			let editLayout = new Layout({
 				class: "add",
@@ -44,15 +42,15 @@ class AddLayouts {
 			library.MusicsPlaylist[index].Element.prepend(editLayout);
 		}
 
-		var sidebarList = document.getElementById("SidebarList");
+		let sidebarList = document.getElementById("SidebarList");
 
 		// Create the li element for input playlist name
-		var listPlaylistName = document.createElement("li");
+		let listPlaylistName = document.createElement("li");
 		listPlaylistName.id = "PlaylistNameElement"
 		sidebarList.appendChild(listPlaylistName);
 
 		// Create the input element for playlist name
-		var playlistName = document.createElement("input");
+		let playlistName = document.createElement("input");
 		playlistName.id = "PlaylistName";
 		playlistName.setAttribute("type", "text");
 		playlistName.setAttribute("placeholder", "Nom de la Playlist");
@@ -60,12 +58,12 @@ class AddLayouts {
 		listPlaylistName.appendChild(playlistName);
 
 		// Create the li element for the input playlist create 
-		var listElement = document.createElement("li");
+		let listElement = document.createElement("li");
 		listElement.id = "PlaylistButtonElement"
 		sidebarList.appendChild(listElement);
 
 		// Create the input element for playlist create
-		var buttonCreatePlaylist = document.createElement("input");
+		let buttonCreatePlaylist = document.createElement("input");
 		buttonCreatePlaylist.id = "ButtonCreatePlaylist";
 		buttonCreatePlaylist.setAttribute("type", "submit");
 		buttonCreatePlaylist.classList.add("button-create-playlist");
