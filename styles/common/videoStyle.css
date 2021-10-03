@@ -1,39 +1,26 @@
-.library,
-.library-show {
-	transition: 0.8s;
-	overflow: hidden;
+.library {
 	position: fixed;
-	height: 93vh;
 	z-index: 500;
-}
-
-.library-show {
-	margin-top: 7vh !important;
-	max-height: 93vh;
-	width: 100%;
-}
-
-.library,
-.library-show {
 	display: grid;
 	grid-gap: 20px;
 	justify-content: center;
+	height: 93vh;
+	margin-top: 7vh !important;
 	max-height: 93vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	position: relative;
 	background-color: #0F0F0F;
+	width: 100%;
+	transition: 0.8s;
 }
 
-.library > ul,
-.library-show > ul {
+.library > ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
 
-.library > ul > .view,
-.library-show > ul > .view {
+.library > ul > .view {
 	width: 100%;
 	cursor: pointer;
 	background-color: black;
@@ -42,8 +29,7 @@
 	border-radius: 10px;
 }
 
-.library > ul > li > p,
-.library-show > ul > li > p {
+.library > ul > li > p {
 	font-size: 1.1em;
 	text-align: center;
 	color: #fff;

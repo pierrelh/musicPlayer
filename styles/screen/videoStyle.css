@@ -1,26 +1,22 @@
 @media screen and (min-device-width: 641px) {
 	.library {
+		grid-template-columns: repeat(auto-fill, 150px);
+	}
+
+	.library-sidebar {
 		margin-left: 20%;
 		width: 80% !important;
 	}
 
 	.library-reader-active {
-		max-height: 79vh !important;
-		transition: 0.8s;
+		max-height: 81vh !important;
 	}
 
-	.library,
-	.library-show {
-		grid-template-columns: repeat(auto-fill, 150px);
-	}
-
-	.library > ul > .view,
-	.library-show > ul > .view {
+	.library > ul > .view  {
 		height: 150px;
 	}
 
-	.library > ul > li > p,
-	.library-show > ul > li > p {
+	.library > ul > li > p {
 		max-width: 150px;
 		line-height: 15px;
 		font-weight: 300;

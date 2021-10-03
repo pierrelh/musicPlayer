@@ -109,7 +109,7 @@ class Sidebar {
 			// Hide the sidebar and enlarge the librarys and the player
 			this.Arrow.classList.remove("arrow-active");
 			this.Element.classList.remove("sidebar-show");
-			document.getElementById("Library").classList.remove("library");
+			document.getElementById("Library").classList.remove("library-sidebar");
 			document.getElementById("DivPlaylist").classList.add("playlist-sidebar-hided");
 			document.getElementById("AudioPlayer").classList.add("left");
 			this.IsVisible = false;
@@ -117,7 +117,7 @@ class Sidebar {
 			// Show the sidebar and reduce the librarys and the player
 			this.Arrow.classList.add("arrow-active");
 			this.Element.classList.add("sidebar-show");
-			document.getElementById("Library").classList.add("library");
+			document.getElementById("Library").classList.add("library-sidebar");
 			document.getElementById("DivPlaylist").classList.remove("playlist-sidebar-hided");
 			document.getElementById("AudioPlayer").classList.remove("left");
 			this.IsVisible = true;
