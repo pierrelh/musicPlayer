@@ -24,7 +24,9 @@ class Library {
 					self.Element.innerHTML = "";
 					self.MusicsPlaylist = [];
 					for (let i = 0; i < data.length; i++) {
-						self.Element.appendChild(new Music(data[i], i).Create());
+						let music = new Music(data[i], i);
+						self.MusicsPlaylist.push(music);
+						self.Element.appendChild(music.Create());
 					};
 				}
 			}

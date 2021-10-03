@@ -75,7 +75,7 @@ class Sidebar {
 		this.Arrow				= document.getElementById("Arrow");
 		this.IsVisible			= false;
 
-		this.Arrow.addEventListener("click", evt => this.Toggle());
+		this.Arrow.addEventListener("click", evt => this.ToggleVisibility());
 
 		// Handle the my account button click
 		this.MyAccount.addEventListener("click", evt => account.Toggle(), false);
@@ -87,7 +87,7 @@ class Sidebar {
 		this.UploadFile.addEventListener("click", evt => uploadSection.Toggle(), false);
 
 		// Handle the edit file button click
-		this.EditFile.addEventListener("click", evt => this.ToggleEdit(), false);
+		this.EditFile.addEventListener("click", evt => editLayouts.ToggleVisibility(), false);
 
 		// Handle the delete file button click
 		this.DeleteFile.addEventListener("click", evt => this.ToggleDelete(), false);
@@ -106,7 +106,7 @@ class Sidebar {
 	}
 
 	// Toggle sidebar section 
-	Toggle() {
+	ToggleVisibility() {
 		if (this.IsVisible) {
 			// Hide the sidebar and enlarge the librarys and the player
 			this.Arrow.classList.remove("arrow-active");
@@ -209,35 +209,6 @@ class Sidebar {
 				var parent = libraryChildren[i];
 				var child = parent.children[0];
 				parent.insertBefore(deleteLayout, child);
-			}
-		}
-	}
-
-	// Toggle edit on musics
-	ToggleEdit() {
-		// If elements with edit's class exists then delete them & quit
-		var editElements = Object.values(document.getElementsByClassName("edit"));
-		if (editElements.length != 0) {
-			editElements.forEach(element => element.remove());
-			return;
-		} else {
-			// If elements with delete, add or check class exists then delete them
-			var deleteElements = Object.values(document.getElementsByClassName("delete"));
-			var addElements = Object.values(document.getElementsByClassName("add"));
-			var checkElements = Object.values(document.getElementsByClassName("check"));
-			if (deleteElements.length != 0) {
-				deleteElements.forEach(element => element.remove());
-			} else if (addElements.length != 0 || checkElements.length != 0) {
-				playlistSection.HideAdd();
-			}
-
-			// Create the edit elements
-			var libraryChildren = document.getElementById("LibraryObjects").children;
-			for (var i = 0; i < libraryChildren.length; i++) {
-				var editLayout = new EditLayout(i);
-				var parent = libraryChildren[i];
-				var child = parent.children[0];
-				parent.insertBefore(editLayout, child);
 			}
 		}
 	}

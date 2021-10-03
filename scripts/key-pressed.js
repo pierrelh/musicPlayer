@@ -36,7 +36,7 @@ document.onkeydown = function(event) {
 				break;
 
 			case "e": // E is pressed -> toggle edit
-				sidebar.ToggleEdit();
+				editLayouts.ToggleVisibility();
 				break;
 
 			case "d": // D is pressed -> toggle delete
@@ -56,7 +56,7 @@ document.onkeydown = function(event) {
 				break;
 
 			case "s": // S is pressed -> toggle sidebar
-				sidebar.Toggle();
+				sidebar.ToggleVisibility();
 				break;
 
 			case "ArrowLeft": // ArrowLeft is pressed -> -10s on audio

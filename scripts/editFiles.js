@@ -1,3 +1,45 @@
+class EditLayouts {
+	constructor() {
+		this.IsActive	= false;
+		this.Elements	= [];
+	}
+
+	ToggleVisibility() {
+		if (this.IsActive) {
+			RemoveAll();
+			this.IsActive = false;
+		} else {
+			CreateAll();
+			this.IsActive = true;
+		}
+	}
+
+	CreateAll() {
+		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
+			let editLayout = new EditLayout(library.MusicsPlaylist[index]);
+			this.Elements.push(editLayout);
+			parent.insertBefore(editLayout, library.MusicsPlaylist[index].Element);		
+		}
+	}
+
+	RemoveAll() {
+		this.Elements.forEach(element => element.remove());
+	}
+}
+
+const editLayouts = new EditLayouts();
+
+class EditLayout {
+	constructor(id) {
+		this.Element = document.createElement("li");
+		this.Element.classList.add("edit");
+
+		// Add the event on this edit's click
+		this.Element.addEventListener("click", evt => editSection.Show(library.MusicsPlaylist[id]));
+		return this.Element;
+	}
+}
+
 class EditSection {
 	constructor() {
 		this.Element	= document.getElementById("Edit");
@@ -45,7 +87,7 @@ class EditSection {
 			if (name == "" || author == "") {
 				document.getElementById("ErrorMsgEdit").innerHTML = "Merci de remplir tous les champs.";
 				document.getElementById("ErrorMsgEdit").style.display = "block";
-			} else{
+			} else {
 				var form_data = new FormData(document.getElementById("FormEdit"));
 				form_data.append("file_id", this.Music.MusicID);
 				form_data.append("file_image", picture);
@@ -90,7 +132,7 @@ class EditSection {
 		this.CoverEdit.value = "";
 	}
 
-	Show(music){
+	Show(music) {
 		this.Music = music;
 		document.getElementById("FileNameEdit").value = music.Title;
 		document.getElementById("FileAuthorEdit").value = music.Artist;

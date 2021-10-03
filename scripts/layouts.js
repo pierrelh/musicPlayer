@@ -9,17 +9,6 @@ class DeleteLayout {
 	}
 }
 
-class EditLayout {
-	constructor(id) {
-		this.Element = document.createElement("li");
-		this.Element.classList.add("edit");
-
-		// Add the event on this edit's click
-		this.Element.addEventListener("click", evt => editSection.Show(library.MusicsPlaylist[id]));
-		return this.Element;
-	}
-}
-
 var addLayouts = [];
 
 class AddLayout {
