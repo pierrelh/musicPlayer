@@ -2,18 +2,18 @@
 	.sidebar {
 		width: 20%;
 		padding-top: 7vh;
+		margin-left: -20%;
 	}
 
 	.sidebar > ul > li {
 		margin: 10px;
 	}
 
-	.sidebar-hide {
-		margin-left: -20% !important;
+	.sidebar-show {
+		margin-left: 0% !important;
 	}
 
-	.sidebar > ul > li > input[type="button"]:hover,
-	.sidebar-hide > ul > li > input[type="button"]:hover {
+	.sidebar > ul > li > input[type="button"]:hover {
 		padding-left: 15px;
 		transition-duration: 0.8s;
 	}

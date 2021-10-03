@@ -73,6 +73,7 @@ class Sidebar {
 		this.Filters			= new Filters();
 		this.Help				= document.getElementById("HelpSidebar");
 		this.Arrow				= document.getElementById("Arrow");
+		this.IsVisible			= false;
 
 		this.Arrow.addEventListener("click", evt => this.Toggle());
 
@@ -106,20 +107,22 @@ class Sidebar {
 
 	// Toggle sidebar section 
 	Toggle() {
-		if (document.getElementById("Library").classList.contains("library")) {
+		if (this.IsVisible) {
 			// Hide the sidebar and enlarge the librarys and the player
 			this.Arrow.classList.remove("arrow-active");
-			this.Element.classList.add("sidebar-hide");
+			this.Element.classList.remove("sidebar-show");
 			document.getElementById("Library").classList.remove("library");
 			document.getElementById("DivPlaylist").classList.add("playlist-sidebar-hided");
 			document.getElementById("AudioPlayer").classList.add("left");
+			this.IsVisible = false;
 		} else {
 			// Show the sidebar and reduce the librarys and the player
 			this.Arrow.classList.add("arrow-active");
-			this.Element.classList.remove("sidebar-hide");
+			this.Element.classList.add("sidebar-show");
 			document.getElementById("Library").classList.add("library");
 			document.getElementById("DivPlaylist").classList.remove("playlist-sidebar-hided");
 			document.getElementById("AudioPlayer").classList.remove("left");
+			this.IsVisible = true;
 		}
 	}
 

@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/common/sidebarStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/screen/sidebarStyle.css">
 <link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/sidebarStyle.css">
-<section id="Sidebar" class="sidebar sidebar-hide">
+<section id="Sidebar" class="sidebar">
 	<ul id="SidebarList">
 		<li>
 			<input id="MyAccountSidebar" type="button" value="Mon Compte">

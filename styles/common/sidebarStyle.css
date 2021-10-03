@@ -1,5 +1,5 @@
 .sidebar,
-.sidebar-hide {
+.sidebar-show {
 	background-color: #0B0B0B;
 	position: fixed;
 	height: 100%;
@@ -8,15 +8,13 @@
 	transition: 0.8s;
 }
 
-.sidebar > ul,
-.sidebar-hide > ul {
+.sidebar > ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-.sidebar > ul > li > input[type="button"],
-.sidebar-hide > ul > li > input[type="button"] {
+.sidebar > ul > li > input[type="button"] {
 	font-size: 1.5em;
 	background: none;
 	border: none;
