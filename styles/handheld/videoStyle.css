@@ -1,11 +1,10 @@
 @media screen and (max-device-width: 640px) {
 	.library-reader-active {
-		max-height: 75vh !important;
+		height: 73vh !important;
 	}
 
 	.library {
 		margin-top: 7vh !important;
-		max-height: 93vh;
 		width: 100%;
 		grid-template-columns: repeat(auto-fill, 100px);
 	}

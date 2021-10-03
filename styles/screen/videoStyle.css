@@ -9,7 +9,7 @@
 	}
 
 	.library-reader-active {
-		max-height: 81vh !important;
+		height: 79vh !important;
 	}
 
 	.library > ul > .view  {
