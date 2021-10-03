@@ -7,7 +7,9 @@ class Library {
 	}
 
 	GetFiles(row = "file_id", type = "DESC") {
-		playlistSection.Hide();
+		if (playlistSection) {
+			playlistSection.Hide();
+		}
 		let self = this;
 		$.ajax({
 			url: server + "/functions/files/getAllFiles.php",
