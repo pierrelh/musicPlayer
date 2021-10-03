@@ -168,31 +168,34 @@ class PlaylistSection {
 	}
 
 	// Create the playlist with the choosed musics
-	// SendPlaylist() {
-	// 	var library = document.getElementById("LibraryObjects").children;
-	// 	var playlistName = document.getElementById("PlaylistName").value;
-	// 	var musicList = [];
-	// 	for (var i = 0; i < library.length; i++) {
-	// 		if (document.getElementById("Add" + i).classList.contains("check")) {
-	// 			musicList.push(document.getElementById("Music" + i).dataset.id);
-	// 		}
-	// 	}
-	// 	if (playlistName == "" || musicList == "") {
-	// 		alert("Merci de choisir des morceaux et de remplir le nom de la playlist.");
-	// 	} else {
-	// 		$.ajax({
-	// 			url: server + "/functions/playlists/createPlaylist.php",
-	// 			type: "POST",
-	// 			data: {
-	// 				"musics": musicList,
-	// 				"playlistName": playlistName
-	// 			},
-	// 			success: function(){
-	// 				playlistSection.HideAdd();
-	// 			}
-	// 		});
-	// 	}
-	// }
+	SendPlaylist() {
+		let musicList = [];
+		if (Object.keys(addLayouts.MusicsToAdd).length) {
+			for (key in addLayouts.MusicsToAdd) {
+				musicList.push(key.ID);
+			}
+		} else {
+			alert("Veuillez choisir des morceaux.")
+			return;
+		}
+		let playlistName = document.getElementById("PlaylistName").value;
+		if (playlistName == "" || musicList == "") {
+			alert("Merci de choisir des morceaux et de remplir le nom de la playlist.");
+			return;
+		} else {
+			$.ajax({
+				url: server + "/functions/playlists/createPlaylist.php",
+				type: "POST",
+				data: {
+					"musics": musicList,
+					"playlistName": playlistName
+				},
+				success: function(){
+					playlistSection.HideAdd();
+				}
+			});
+		}
+	}
 }
 
 const playlistSection = new PlaylistSection();
