@@ -173,8 +173,8 @@ class PlaylistSection {
 	SendPlaylist() {
 		let musicList = [];
 		if (Object.keys(addLayouts.MusicsToAdd).length) {
-			for (key in addLayouts.MusicsToAdd) {
-				musicList.push(key.ID);
+			for (let key in addLayouts.MusicsToAdd) {
+				musicList.push(addLayouts.MusicsToAdd[key].ID);
 			}
 		} else {
 			alert("Veuillez choisir des morceaux.")
