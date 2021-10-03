@@ -1,15 +1,20 @@
 class MediaSession {
 	constructor() {
-		this.Element = navigator.mediaSession;
+		this.IsActive = false;
+		if ('mediaSession' in navigator) {
+			this.Element	= navigator.mediaSession;
+			this.IsActive	= true;
 
-		this.Element.setActionHandler('play', evt => reader.TogglePlayPauseButton());
-		this.Element.setActionHandler('pause', evt => reader.TogglePlayPauseButton());
-		this.Element.setActionHandler('stop', evt => reader.StopMusic());
-		this.Element.setActionHandler('seekbackward', evt => reader.SeekBackward());
-		this.Element.setActionHandler('seekforward', evt => reader.SeekForward());
-		this.Element.setActionHandler('seekto',	evt => reader.SeekTo());
-		this.Element.setActionHandler('previoustrack', evt => reader.PlayPreviousMusic());
-		this.Element.setActionHandler('nexttrack',	evt => reader.PlayNextMusic(true));
+			this.Element.setActionHandler('play', evt => reader.TogglePlayPauseButton());
+			this.Element.setActionHandler('pause', evt => reader.TogglePlayPauseButton());
+			this.Element.setActionHandler('stop', evt => reader.StopMusic());
+			this.Element.setActionHandler('seekbackward', evt => reader.SeekBackward());
+			this.Element.setActionHandler('seekforward', evt => reader.SeekForward());
+			this.Element.setActionHandler('seekto',	evt => reader.SeekTo());
+			this.Element.setActionHandler('previoustrack', evt => reader.PlayPreviousMusic());
+			this.Element.setActionHandler('nexttrack',	evt => reader.PlayNextMusic(true));
+			
+		}
 	}
 
 	SetData(data) {
@@ -23,9 +28,8 @@ class MediaSession {
 		});
 	}
 }
+const mediaSession = new MediaSession();
 
-if ('mediaSession' in navigator) {
-	const mediaSession = new MediaSession();
 
 	// Handle the play action on mediaSession
 	// navigator.mediaSession.setActionHandler('play', function() {
@@ -66,7 +70,6 @@ if ('mediaSession' in navigator) {
 	// navigator.mediaSession.setActionHandler('nexttrack', function() {
 	// 	reader.PlayNextMusic(true);
 	// });
-}
 
 // function mediaSessionSetData(data) {
 // 	navigator.mediaSession.metadata = new MediaMetadata({

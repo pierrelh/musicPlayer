@@ -114,7 +114,7 @@ class Reader {
 		}
 	
 		// Setting the mediaSession metadatas
-		if ('mediaSession' in navigator) {
+		if (mediaSession.IsActive) {
 			mediaSession.SetData(music);
 		}
 
