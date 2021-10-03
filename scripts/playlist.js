@@ -71,7 +71,7 @@ class PlaylistSection {
 	OpenPlaylist(identifier) {
 		console.log(this.Playlists);
 		console.log(identifier)
-		if (identifier != "") {
+		if (Number.isInteger(identifier)) {
 			let playlistId = this.Playlists[identifier].id;
 			console.log(playlistId)
 
