@@ -13,8 +13,8 @@
 	width: 100%;
 }
 
-.library > div,
-.library-show > div {
+.library,
+.library-show {
 	display: grid;
 	grid-gap: 20px;
 	justify-content: center;
@@ -25,15 +25,15 @@
 	background-color: #0F0F0F;
 }
 
-.library > div > ul,
-.library-show > div > ul {
+.library > ul,
+.library-show > ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
 
-.library > div > ul > .view,
-.library-show > div > ul > .view {
+.library > ul > .view,
+.library-show > ul > .view {
 	width: 100%;
 	cursor: pointer;
 	background-color: black;
@@ -42,8 +42,8 @@
 	border-radius: 10px;
 }
 
-.library > div > ul > li > p,
-.library-show > div > ul > li > p {
+.library > ul > li > p,
+.library-show > ul > li > p {
 	font-size: 1.1em;
 	text-align: center;
 	color: #fff;

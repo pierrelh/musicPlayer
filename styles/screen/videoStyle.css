@@ -9,18 +9,18 @@
 		transition: 0.8s;
 	}
 
-	.library > div,
-	.library-show > div {
+	.library,
+	.library-show {
 		grid-template-columns: repeat(auto-fill, 150px);
 	}
 
-	.library > div > ul > .view,
-	.library-show > div > ul > .view {
+	.library > ul > .view,
+	.library-show > ul > .view {
 		height: 150px;
 	}
 
-	.library > div > ul > li > p,
-	.library-show > div > ul > li > p {
+	.library > ul > li > p,
+	.library-show > ul > li > p {
 		max-width: 150px;
 		line-height: 15px;
 		font-weight: 300;

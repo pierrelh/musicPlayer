@@ -1,6 +1,6 @@
 class Library {
 	constructor() {
-		this.Element				= document.getElementById("LibraryObjects");
+		this.Element				= document.getElementById("Library");
 		this.MusicsPlaylist			= [];
 		this.MusicsRandomPlaylist	= [];
 		this.GetFiles();

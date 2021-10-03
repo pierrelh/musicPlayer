@@ -22,9 +22,7 @@
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/reader-playlist.php");
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/sidebar.php");
 		?>
-		<section id="Library" class="library-show">
-			<div id="LibraryObjects"></div>
-		</section>
+		<section class="library-show" id="Library"></section>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/media-session.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/key-pressed.js"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/library.js"></script>
