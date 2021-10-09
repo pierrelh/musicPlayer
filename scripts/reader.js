@@ -358,4 +358,4 @@ class VolumeBar {
 
 const _volumeBar = new VolumeBar;
 
-const reader = new Reader();
+// const reader = new Reader();
