@@ -106,7 +106,8 @@ const _musicName = new MusicName;
 
 class Player {
 	constructor() {
-		this.Element	= document.getElementById("MusicPlayer");
+		this.Element		= document.getElementById("MusicPlayer");
+		this.PlayedMusic	= undefined;
 
 		this.Element.addEventListener("loadedmetadata", evt => this.Load);
 		// this.Element.addEventListener("timeupdate", evt => this.TimeUpdate);
@@ -135,7 +136,7 @@ class Player {
 
 	Ended() {
 		if (this.Element.src != "")
-			this.PlayNextMusic(true);
+			this.PlayNextMusic();
 	}
 
 	Load() {
@@ -152,7 +153,7 @@ class LoopButton {
 		this.IMG	= document.getElementById("LoopIMG");
 		this.Type	= "all";
 
-		this.Loop.addEventListener("click", evt => this.Toggle);
+		this.Button.addEventListener("click", evt => this.Toggle);
 	}
 
 	Toggle() {
@@ -191,25 +192,22 @@ class PreviousButton {
 	}
 
 	PlayPreviousMusic() {
-		// Choose witch playlist to use
-		let usedPlaylist
-		if (randomButton.IsRandom)
+		let usedPlaylist;
+		if (_randomButton.IsRandom)
 			usedPlaylist = library.MusicsRandomPlaylist.slice();
 		else
 			usedPlaylist = library.MusicsPlaylist.slice();
 
-		let indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === this.PlayedMusic.ID); // Getting the position of the current music in the playlist
+		let indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === _player.PlayedMusic.ID); // Getting the position of the current music in the playlist
 		if (this.Player.currentTime < 5) {
-			if (indexOfCurrentMusic == 0) { // Check if the played music is the first one
-				var indexOfNextMusic = 0;
-			} else { // The player rollback the playlist
-				var indexOfNextMusic = indexOfCurrentMusic - 1;
-			}
+			let indexOfNextMusic = 0;
+			if (indexOfCurrentMusic != 0)
+				indexOfNextMusic = indexOfCurrentMusic - 1;
 			// Play the previous music
-			this.PlayMusic(usedPlaylist[indexOfNextMusic]);
+			_player.PlayMusic(usedPlaylist[indexOfNextMusic]);
 		} else {
 			// Rollback the current music
-			this.PlayMusic(usedPlaylist[indexOfCurrentMusic]);
+			_player.PlayMusic(usedPlaylist[indexOfCurrentMusic]);
 		}
 	}
 }
@@ -248,25 +246,21 @@ class NextButton {
 	PlayNextMusic(notSkiped = false) {
 		// Check if the reader should loop on the same music or not
 		if (notSkiped && this.LoopType == "one") {
-			this.PlayMusic(this.PlayedMusic); // Replay the current music
+			_player.PlayMusic(_player.PlayedMusic); // Replay the current music
 		} else {
-			// Choose witch playlist to use
+			let usedPlaylist;
 			if (this.IsRandom)
-				var usedPlaylist = library.MusicsRandomPlaylist.slice();
+				usedPlaylist = library.MusicsRandomPlaylist.slice();
 			else
-				var usedPlaylist = library.MusicsPlaylist.slice();
+				usedPlaylist = library.MusicsPlaylist.slice();
 
-			var indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === this.PlayedMusic.ID); // Getting the position of the current music in the playlist
-			if (indexOfCurrentMusic == (usedPlaylist.length) - 1) { // Check if the played music is the last one
-				if (this.LoopType == "none") { // The player will not restart the playlist
-					return;
-				} else { // The player will restart the playlist
-					var indexOfNextMusic = 0;
-				}
-			} else { // The player continu the playlist
-				var indexOfNextMusic = indexOfCurrentMusic + 1;
-			}
-			this.PlayMusic(usedPlaylist[indexOfNextMusic]);
+			let indexOfNextMusic = 0;
+			let indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === _player.PlayedMusic.ID); // Getting the position of the current music in the playlist
+			if (indexOfCurrentMusic == (usedPlaylist.length) - 1 && this.LoopType == "none")
+				return;
+			else if (indexOfCurrentMusic != (usedPlaylist.length) - 1)
+				indexOfNextMusic = indexOfCurrentMusic + 1;
+			_player.PlayMusic(usedPlaylist[indexOfNextMusic]);
 		}
 	}
 }
