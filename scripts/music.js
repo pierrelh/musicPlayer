@@ -26,8 +26,8 @@ class Music {
 		pTitile.innerHTML = this.Artist + " - " + this.Title;
 		this.Element.appendChild(liTitle);
 
-		cover.addEventListener("click", evt => reader.PlayMusic(this));
-		liTitle.addEventListener("click", evt => reader.PlayMusic(this));
+		cover.addEventListener("click", evt => _player.PlayMusic(this));
+		liTitle.addEventListener("click", evt => _player.PlayMusic(this));
 
 		return this.Element;
 	}

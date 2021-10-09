@@ -18,46 +18,12 @@ class Reader {
 			this.Player.volume -= 0.1;
 	}
 
-	// Set Time to the right format
-	FormatTime(t) {
-		let m = ~~(t / 60),
-		s = ~~(t % 60);
-		return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
-	}
-
 	// Add 10% to the player's volume
 	IncreaseVolume() {
 		if (this.Player.volume >= 0.9)
 			this.Player.volume = 1;
 		else
 			this.Player.volume += 0.1;
-	}
-
-	// Play the passed music
-	PlayMusic(music) {
-		// Adding the class to Library if needed
-		var library = document.getElementById("Library");
-		if (!library.classList.contains("library-reader-active"))
-			library.classList.add("library-reader-active");
-
-		// Adding the class to divPlaylist if needed
-		var playlist = document.getElementById("DivPlaylist");
-		if (!playlist.classList.contains("playlist-reader-showed"))
-			playlist.classList.add("playlist-reader-showed");
-
-		// Setting the mediaSession metadatas
-		if (mediaSession.IsActive)
-			mediaSession.SetData(music);
-
-		this.PlayedMusic = music;
-		this.MusicName.innerHTML = music.Artist + " - " + music.Title;
-		this.Player.src = music.URL;
-		music.SetPlayed();
-
-		// Adding the class to audioPlayer if needed
-		var audioPlayer = document.getElementById("AudioPlayer");
-		if (!audioPlayer.classList.contains("show"))
-			audioPlayer.classList.add("show");
 	}
 
 	// Progress -10 secondes to the played music
@@ -84,6 +50,13 @@ class Reader {
 	StopMusic() {
 		this.Player.pause();
 		this.Player.currentTime = 0;
+	}
+
+	// Set Time to the right format
+	FormatTime(t) {
+		let m = ~~(t / 60),
+		s = ~~(t % 60);
+		return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
 	}
 
 	TimeUpdate() {
@@ -125,7 +98,7 @@ class MusicName {
 	}
 
 	Change(name) {
-		this.Element = name;
+		this.Element.innerHTML = name;
 	}
 }
 
@@ -135,10 +108,29 @@ class Player {
 	constructor() {
 		this.Element	= document.getElementById("MusicPlayer");
 
-		this.Player.addEventListener("loadedmetadata", evt => this.Load());
-		this.Player.addEventListener("timeupdate", evt => this.TimeUpdate());
-		this.Player.addEventListener("volumechange", evt => this.VolumeChange());
-		this.Player.addEventListener("ended", evt => this.Ended());
+		this.Element.addEventListener("loadedmetadata", evt => this.Load);
+		// this.Element.addEventListener("timeupdate", evt => this.TimeUpdate);
+		// this.Element.addEventListener("volumechange", evt => this.VolumeChange);
+		this.Element.addEventListener("ended", evt => this.Ended);
+	}
+
+	PlayMusic(music) {
+		// Adding the class to Library if needed
+		library.Reduce;
+		playlistSection.Reduce;
+
+		// Setting the mediaSession metadatas
+		if (mediaSession.IsActive)
+			mediaSession.SetData(music);
+
+		_musicName.Change(music.Artist + " - " + music.Title);
+		this.Element.src = music.URL;
+		music.SetPlayed();
+
+		// Adding the class to audioPlayer if needed
+		var audioPlayer = document.getElementById("AudioPlayer");
+		if (!audioPlayer.classList.contains("show"))
+			audioPlayer.classList.add("show");
 	}
 
 	Ended() {

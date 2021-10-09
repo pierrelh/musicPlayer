@@ -40,6 +40,11 @@ class Library {
 			}
 		});
 	}
+
+	Reduce() {
+		if (this.classList.contains("library-reader-active"))
+			library.classList.add("library-reader-active");
+	}
 }
 
 const library = new Library();

@@ -141,6 +141,11 @@ class PlaylistSection {
 		});
 	}
 
+	Reduce() {
+		if (!this.Element.classList.contains("playlist-reader-showed"))
+			playlist.classList.add("playlist-reader-showed");
+	}
+
 	// Get all musics of a playlist & print them
 	OpenPlaylist(identifier) {
 		if (Number.isInteger(identifier)) {
