@@ -1,44 +1,13 @@
 class Reader {
 	constructor() {
-		this.Time			= document.getElementById("Time");
-		this.Start			= document.getElementById("Start");
-		this.Player 		= document.getElementById("MusicPlayer");
-		this.PlaylistBtn	= document.getElementById("PlaylistBtn");
-		this.ReaderPlaylist	= document.getElementById("PlaylistReader");
-		this.Loop			= document.getElementById("Loop");
-		this.LoopType		= "all"
-		this.PlayPause		= document.getElementById("PlayPause");
-		this.Random			= document.getElementById("Random");
-		this.IsRandom 		= false;
-		this.Mute			= document.getElementById("Mute");
-		this.IsMute 		= false;
-		this.Next			= document.getElementById("Next");
-		this.VolumeBar		= document.getElementById("Volume");
-		this.Volume			= 0;
+		// this.PlaylistBtn	= document.getElementById("PlaylistBtn");
+		// this.ReaderPlaylist	= document.getElementById("PlaylistReader");
 		this.Previous		= document.getElementById("Previous");
-		this.ProgressBar	= document.getElementById("ProgressBar");
-		this.MusicName		= document.getElementById("MusicName");
 		this.PlayedMusic	= undefined;
 
-		this.Player.addEventListener("loadedmetadata", evt => this.Load());
-		this.Player.addEventListener("timeupdate", evt => this.TimeUpdate());
-		this.Player.addEventListener("pause", evt => this.TogglePlayPause());
-		this.Player.addEventListener("play", evt => this.TogglePlayPause());
-		this.Player.addEventListener("volumechange", evt => this.VolumeChange());
-		this.Player.addEventListener("ended", evt => this.Ended());
-		this.Loop.addEventListener("click", evt => this.ToggleLoop());
-		this.Previous.addEventListener("click", evt => this.PlayPreviousMusic());
-		this.PlayPause.addEventListener("click", evt => this.TogglePlayPauseButton());
-		this.Random.addEventListener("click", evt => this.ToggleRandom());
-		this.Next.addEventListener("click", evt => this.PlayNextMusic(true));
 		this.Mute.addEventListener("click", evt => this.ToggleMute());
 		this.VolumeBar.addEventListener("input", evt => this.VolumeBarChange())
-		this.ProgressBar.addEventListener("input", evt => this.ChangeTime());
 		this.PlaylistBtn.addEventListener("click", evt => this.TogglePlaylist());
-	}
-
-	ChangeTime() {
-		this.Player.currentTime = this.Player.duration / this.ProgressBar.max * this.ProgressBar.value;
 	}
 
 	// Remove 10% to the player's volume
@@ -47,11 +16,6 @@ class Reader {
 			this.Player.volume = 0;
 		else
 			this.Player.volume -= 0.1;
-	}
-
-	Ended() {
-		if (this.src != "")
-			this.PlayNextMusic(false);
 	}
 
 	// Set Time to the right format
@@ -67,11 +31,6 @@ class Reader {
 			this.Player.volume = 1;
 		else
 			this.Player.volume += 0.1;
-	}
-
-	Load() {
-		this.ProgressBar.max = this.Player.duration;
-		this.Time.innerHTML = this.FormatTime(this.Player.duration);
 	}
 
 	// Play the passed music
@@ -99,56 +58,6 @@ class Reader {
 		var audioPlayer = document.getElementById("AudioPlayer");
 		if (!audioPlayer.classList.contains("show"))
 			audioPlayer.classList.add("show");
-	}
-
-	// Handle the play of the next music asked by the user
-	PlayNextMusic(isSkiped) {
-		// Check if the reader should loop on the same music or not
-		if (!isSkiped && this.LoopType == "one") {
-			this.PlayMusic(this.PlayedMusic); // Replay the current music
-		} else {
-			// Choose witch playlist to use
-			if (this.IsRandom)
-				var usedPlaylist = library.MusicsRandomPlaylist.slice();
-			else
-				var usedPlaylist = library.MusicsPlaylist.slice();
-
-			var indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === this.PlayedMusic.ID); // Getting the position of the current music in the playlist
-			if (indexOfCurrentMusic == (usedPlaylist.length) - 1) { // Check if the played music is the last one
-				if (this.LoopType == "none") { // The player will not restart the playlist
-					return;
-				} else { // The player will restart the playlist
-					var indexOfNextMusic = 0;
-				}
-			} else { // The player continu the playlist
-				var indexOfNextMusic = indexOfCurrentMusic + 1;
-			}
-			this.PlayMusic(usedPlaylist[indexOfNextMusic]);
-		}
-	}
-
-	// Handle the play of the previous music asked by the user
-	PlayPreviousMusic() {
-		// Choose witch playlist to use
-		let usedPlaylist
-		if (this.IsRandom)
-			usedPlaylist = library.MusicsRandomPlaylist.slice();
-		else
-			usedPlaylist = library.MusicsPlaylist.slice();
-
-		let indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === this.PlayedMusic.ID); // Getting the position of the current music in the playlist
-		if (this.Player.currentTime < 5) {
-			if (indexOfCurrentMusic == 0) { // Check if the played music is the first one
-				var indexOfNextMusic = 0;
-			} else { // The player rollback the playlist
-				var indexOfNextMusic = indexOfCurrentMusic - 1;
-			}
-			// Play the previous music
-			this.PlayMusic(usedPlaylist[indexOfNextMusic]);
-		} else {
-			// Rollback the current music
-			this.PlayMusic(usedPlaylist[indexOfCurrentMusic]);
-		}
 	}
 
 	// Progress -10 secondes to the played music
@@ -187,81 +96,12 @@ class Reader {
 													")";
 	}
 
-	ToggleLoop() {
-		switch (this.LoopType) {
-			case "one": // Setting loop to none
-				this.LoopType = "none";
-				this.Loop.src = server + "/img/no-loop.png";
-				break;
-
-			case "all": // Setting loop to one
-				this.LoopType = "one";
-				this.Loop.src = server + "/img/loop-one.png";
-				break;
-
-			case "none": // Setting loop to all
-				this.LoopType = "all";
-				this.Loop.src = server + "/img/loop.png";
-				break;
-
-			default: // Default: Setting loop to all
-				this.LoopType = "all";
-				this.Loop.src = server + "/img/loop.png";
-				break;
-		}
-	}
-
-	// Handle the Mute button actions
-	ToggleMute() {
-		if (this.IsMute) {
-			this.Player.volume = this.Volume;
-			this.Mute.src = server + "/img/audio-on.png";
-			this.IsMute = false;
-		} else {
-			this.Volume = this.Player.volume;
-			this.Player.volume = 0;
-			this.Mute.src = server + "/img/audio-off.png";
-			this.IsMute = true;
-		}
-	}
-
 	// Toggle playlist reader section
 	TogglePlaylist() {
 		if (this.ReaderPlaylist.classList.contains("show-playlist-reader"))
 			this.ReaderPlaylist.classList.remove("show-playlist-reader");
 		else
 			this.ReaderPlaylist.classList.add("show-playlist-reader");
-	}
-
-	TogglePlayPause() {
-		if (this.Player.paused)
-			this.PlayPause.src = server + "/img/play.png";
-		else
-			this.PlayPause.src = server + "/img/pause.png";
-	}
-
-	TogglePlayPauseButton() {
-		if (this.Player.paused)
-			this.Player.play();
-		else
-			this.Player.pause();
-	}
-
-	// Handle the Random button actions
-	ToggleRandom() {
-		if (this.IsRandom) {
-			this.IsRandom = false;
-			this.Random.src = server + "/img/no-random.png";
-		} else {
-			library.MusicsRandomPlaylist = library.MusicsPlaylist.slice();
-			library.ShuffleMusics(); // Creating the random playlist
-			this.IsRandom = true;
-			this.Random.src = server + "/img/random.png";
-		}
-	}
-
-	VolumeBarChange() {
-		this.Player.volume = this.VolumeBar.value / 100;
 	}
 
 	VolumeChange() {
@@ -278,5 +118,261 @@ class Reader {
 												")";
 	}
 }
+
+class MusicName {
+	constructor() {
+		this.Element	= document.getElementById("MusicName");
+	}
+
+	Change(name) {
+		this.Element = name;
+	}
+}
+
+const _musicName = new MusicName;
+
+class Player {
+	constructor() {
+		this.Element	= document.getElementById("MusicPlayer");
+
+		this.Player.addEventListener("loadedmetadata", evt => this.Load());
+		this.Player.addEventListener("timeupdate", evt => this.TimeUpdate());
+		this.Player.addEventListener("volumechange", evt => this.VolumeChange());
+		this.Player.addEventListener("ended", evt => this.Ended());
+	}
+
+	Ended() {
+		if (this.Element.src != "")
+			this.PlayNextMusic(true);
+	}
+
+	Load() {
+		this.ProgressBar.max = this.Player.duration;
+		this.Time.innerHTML = this.FormatTime(this.Player.duration);
+	}
+}
+
+const _player = new Player;
+
+class LoopButton {
+	constructor() {
+		this.Button	= document.getElementById("Loop");
+		this.IMG	= document.getElementById("LoopIMG");
+		this.Type	= "all";
+
+		this.Loop.addEventListener("click", evt => this.Toggle);
+	}
+
+	Toggle() {
+		switch (this.Type) {
+			case "one": // Setting loop to none
+				this.Type = "none";
+				this.IMG.src = server + "/img/no-loop.png";
+				break;
+
+			case "all": // Setting loop to one
+				this.Type = "one";
+				this.IMG.src = server + "/img/loop-one.png";
+				break;
+
+			case "none": // Setting loop to all
+				this.Type = "all";
+				this.IMG.src = server + "/img/loop.png";
+				break;
+
+			default: // Default: Setting loop to all
+				this.Type = "all";
+				this.IMG.src = server + "/img/loop.png";
+				break;
+		}
+	}
+}
+
+const _loopButton = new LoopButton;
+
+class PreviousButton {
+	constructor() {
+		this.Button = document.getElementById("Previous");
+		this.IMG	= document.getElementById("PreviousIMG");
+
+		this.Button.addEventListener("click", evt => this.PlayPreviousMusic);
+	}
+
+	PlayPreviousMusic() {
+		// Choose witch playlist to use
+		let usedPlaylist
+		if (randomButton.IsRandom)
+			usedPlaylist = library.MusicsRandomPlaylist.slice();
+		else
+			usedPlaylist = library.MusicsPlaylist.slice();
+
+		let indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === this.PlayedMusic.ID); // Getting the position of the current music in the playlist
+		if (this.Player.currentTime < 5) {
+			if (indexOfCurrentMusic == 0) { // Check if the played music is the first one
+				var indexOfNextMusic = 0;
+			} else { // The player rollback the playlist
+				var indexOfNextMusic = indexOfCurrentMusic - 1;
+			}
+			// Play the previous music
+			this.PlayMusic(usedPlaylist[indexOfNextMusic]);
+		} else {
+			// Rollback the current music
+			this.PlayMusic(usedPlaylist[indexOfCurrentMusic]);
+		}
+	}
+}
+
+const _previousButton = new PreviousButton;
+
+class PlayPauseButton {
+	constructor(player) {
+		this.Button	= document.getElementById("PlayPause");
+		this.IMG	= document.getElementById("PlayPauseIMG");
+		this.Player	= player;
+
+		this.Button.addEventListener("click", evt => this.Toggle);
+		this.Player.addEventListener("pause", evt => this.Toggle);
+		this.Player.addEventListener("play", evt => this.Toggle);
+	}
+
+	Toggle() {
+		if (this.Player.paused)
+			this.Player.play();
+		else
+			this.Player.pause();
+	}
+}
+
+const _playPauseButton = new PlayPauseButton;
+
+class NextButton {
+	constructor() {
+		this.Button = document.getElementById("Next");
+		this.IMG	= document.getElementById("NextIMG");
+
+		this.Button.addEventListener("click", evt => this.PlayNextMusic);
+	}
+
+	PlayNextMusic(notSkiped = false) {
+		// Check if the reader should loop on the same music or not
+		if (notSkiped && this.LoopType == "one") {
+			this.PlayMusic(this.PlayedMusic); // Replay the current music
+		} else {
+			// Choose witch playlist to use
+			if (this.IsRandom)
+				var usedPlaylist = library.MusicsRandomPlaylist.slice();
+			else
+				var usedPlaylist = library.MusicsPlaylist.slice();
+
+			var indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === this.PlayedMusic.ID); // Getting the position of the current music in the playlist
+			if (indexOfCurrentMusic == (usedPlaylist.length) - 1) { // Check if the played music is the last one
+				if (this.LoopType == "none") { // The player will not restart the playlist
+					return;
+				} else { // The player will restart the playlist
+					var indexOfNextMusic = 0;
+				}
+			} else { // The player continu the playlist
+				var indexOfNextMusic = indexOfCurrentMusic + 1;
+			}
+			this.PlayMusic(usedPlaylist[indexOfNextMusic]);
+		}
+	}
+}
+
+const _nextButton = new NextButton;
+
+class StartTime {
+	constructor() {
+		this.Element = document.getElementById("StartTime");
+	}
+}
+
+const _startTime = new StartTime;
+
+class AudioBar {
+	constructor() {		
+		this.Element	= document.getElementById("ProgressBar");
+		this.Element.addEventListener("input", evt => this.ChangeTime);
+	}
+
+	ChangeTime() {
+		this.Player.currentTime = this.Player.duration / this.ProgressBar.max * this.ProgressBar.value;
+	}
+
+}
+
+const _audioBar = new AudioBar;
+
+class EndTime {
+	constructor() {
+		this.Element = document.getElementById("EndTime");
+	}
+}
+
+const _endTime = new EndTime;
+
+class RandomButton {
+	constructor() {
+		this.Button		= document.getElementById("Random");
+		this.IMG		= document.getElementById("RandomIMG");
+		this.IsRandom	= false;
+
+		this.Button.addEventListener("click", evt => this.Toggle);
+	}
+
+	// Handle the Random button actions
+	Toggle() {
+		if (this.IsRandom) {
+			this.IsRandom = false;
+			this.IMG.src = server + "/img/no-random.png";
+		} else {
+			library.MusicsRandomPlaylist = library.MusicsPlaylist.slice();
+			library.ShuffleMusics(); // Creating the random playlist
+			this.IsRandom = true;
+			this.IMG.src = server + "/img/random.png";
+		}
+	}
+}
+
+const _randomButton = new RandomButton;
+
+class MuteButton {
+	constructor() {
+		this.Button	= document.getElementById("Mute");
+		this.IMG	= document.getElementById("MuteIMG");
+		this.IsMute	= false;
+
+		this.Button.addEventListener("click", evt => this.Toggle);
+	}
+
+	Toggle() {
+		if (this.IsMute) {
+			this.Player.volume = this.Volume;
+			this.IMG.src = server + "/img/audio-on.png";
+			this.IsMute = false;
+		} else {
+			this.Volume = this.Player.volume;
+			this.Player.volume = 0;
+			this.IMG.src = server + "/img/audio-off.png";
+			this.IsMute = true;
+		}
+	}
+}
+
+const _muteButton = new MuteButton;
+
+class VolumeBar {
+	constructor() {
+		this.Element		= document.getElementById("Volume");
+		this.Volume			= 0;
+	}
+
+	VolumeBarChange() {
+		this.Player.volume = this.Element.value / 100;
+	}
+
+}
+
+const _volumeBar = new VolumeBar;
 
 const reader = new Reader();

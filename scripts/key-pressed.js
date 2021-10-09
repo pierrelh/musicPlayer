@@ -36,7 +36,7 @@ document.onkeydown = function(event) {
 				break;
 
 			case "n": // N is pressed -> play next music
-				reader.PlayNextMusic(true);
+				reader.PlayNextMusic();
 				break;
 
 			case "p": // P is pressed -> play last music

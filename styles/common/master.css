@@ -175,11 +175,9 @@ summary {
 	display: list-item;
 }
 
-template {
-	display: none;
-}
-
-[hidden] {
+template,
+[hidden],
+.hidden {
 	display: none;
 }
 
