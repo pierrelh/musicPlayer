@@ -42,7 +42,7 @@ class Player {
 
 		this.Element.addEventListener("loadedmetadata", evt => this.Load(), false);
 		this.Element.addEventListener("timeupdate", evt => _progress.Update(), false);
-		this.Element.addEventListener("volumechange", evt => _volume.Change(), false);
+		this.Element.addEventListener("volumechange", evt => _volume.Update(), false);
 		this.Element.addEventListener("pause", evt => this.TogglePlayPause(), false);
 		this.Element.addEventListener("play", evt => this.TogglePlayPause(), false);
 		this.Element.addEventListener("ended", evt => this.Ended(), false);
@@ -56,6 +56,7 @@ class Player {
 
 	Play(music) {
 		_musicName.Change(music.Artist + " - " + music.Title);
+		this.PlayedMusic = music;
 		this.Element.src = music.URL;
 		library.Reduce();
 		playlistSection.Reduce();
@@ -78,7 +79,7 @@ class Player {
 
 	Load() {
 		_progress.Element.max = this.Element.duration;
-		_currentTime.innerHTML = this.FormatTime(this.Element.duration);
+		_currentTime.innerHTML = _progress.FormatTime(this.Element.duration);
 	}
 }
 
@@ -345,7 +346,7 @@ class Volume {
 			_player.Element.volume += 0.1;
 	}
 
-	VolumeChange() {
+	Update() {
 		if (_player.Element.volume != 0)
 			_mute.Element.src = server + "/img/audio-on.png";
 		else
