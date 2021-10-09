@@ -216,10 +216,11 @@ class PlayPauseButton {
 		this.Button	= document.getElementById("PlayPause");
 		this.IMG	= document.getElementById("PlayPauseIMG");
 
-		this.Button.addEventListener("click", evt => this.Toggle);
+		this.Button.addEventListener("click", evt => this.Toggle());
 	}
 
 	Toggle() {
+		console.log("HI");
 		if (_player.Element.paused)
 			_player.play();
 		else
