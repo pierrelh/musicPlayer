@@ -3,7 +3,7 @@ class Library {
 		this.Element				= document.getElementById("Library");
 		this.MusicsPlaylist			= [];
 		this.MusicsRandomPlaylist	= [];
-		this.GetFiles;
+		this.GetFiles();
 	}
 
 	// Shuffle the musics playlist
