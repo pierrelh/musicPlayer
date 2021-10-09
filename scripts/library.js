@@ -16,7 +16,7 @@ class Library {
 
 	GetFiles(row = "file_id", type = "DESC") {
 		if (typeof playlistSection !== "undefined") {
-			playlistSection.Hide;
+			playlistSection.Hide();
 		}
 		let self = this;
 		$.ajax({
@@ -34,7 +34,7 @@ class Library {
 					for (let i = 0; i < data.length; i++) {
 						let music = new Music(data[i], i);
 						self.MusicsPlaylist.push(music);
-						self.Element.appendChild(music.Create);
+						self.Element.appendChild(music.Create());
 					};
 				}
 			}
