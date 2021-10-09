@@ -348,7 +348,6 @@ class VolumeBar {
 }
 
 const _musicName = new MusicName;
-const _player = new Player;
 const _loopButton = new LoopButton;
 const _previousButton = new PreviousButton;
 const _playPauseButton = new PlayPauseButton;
@@ -359,4 +358,5 @@ const _endTime = new EndTime;
 const _randomButton = new RandomButton;
 const _muteButton = new MuteButton;
 const _volumeBar = new VolumeBar;
+const _player = new Player;
 // const reader = new Reader();
