@@ -11,7 +11,7 @@
 		<button	id="Previous"><img id="PreviousIMG" class='reader-buttons' src="<?php echo $link ?>/img/back.png" alt="Previous"></button>
 		<button	id="PlayPause"><img id="PlayPauseIMG" class="reader-buttons play" src="<?php echo $link ?>/img/pause.png" alt="Play"></button>
 		<button	id="Next"><img id="NextIMG" class='reader-buttons' src="<?php echo $link ?>/img/skip.png" alt="Next"></button>
-		<span	id="StartTime" class="time current-time">00:00</span>
+		<span	id="CurrentTime" class="time current-time">00:00</span>
 		<input	id="ProgressBar" type="range" min="0" max="100" value="0">
 		<span	id="EndTime" class="time total-time">00:00</span>
 		<button	id="Random"><img id="RandomIMG" class="reader-buttons" src="<?php echo $link ?>/img/no-random.png" alt="Random"></button>

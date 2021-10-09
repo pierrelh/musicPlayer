@@ -17,27 +17,28 @@ class MediaSession {
 	}
 
 	HTMLDecode(input) {
-		var doc = new DOMParser().parseFromString(input, "text/html");
+		let doc = new DOMParser().parseFromString(input, "text/html");
 		return doc.documentElement.textContent;
 	}
 
 	// Setting datas to the mediaSession
 	SetData(data) {
-		this.Element.metadata = new MediaMetadata({
-			title: this.HTMLDecode(data.Title),
-			artist: this.HTMLDecode(data.Artist),
-			album: this.HTMLDecode(data.Album),
-			artwork: [
-				{ src: data.Cover, sizes: '150x150', type: 'image/png' },
-				// { src: data.Cover, sizes: '96x96', type: 'image/png' },
-				// { src: data.Cover, sizes: '128x128', type: 'image/png' },
-				// { src: data.Cover, sizes: '192x192', type: 'image/png' },
-				// { src: data.Cover, sizes: '256x256', type: 'image/png' },
-				// { src: data.Cover, sizes: '384x384', type: 'image/png' },
-				// { src: data.Cover, sizes: '512x512', type: 'image/png' }
-			]
-		});
+		if (this.IsActive)
+			this.Element.metadata = new MediaMetadata({
+				title: this.HTMLDecode(data.Title),
+				artist: this.HTMLDecode(data.Artist),
+				album: this.HTMLDecode(data.Album),
+				artwork: [
+					{ src: data.Cover, sizes: '150x150', type: 'image/png' },
+					// { src: data.Cover, sizes: '96x96', type: 'image/png' },
+					// { src: data.Cover, sizes: '128x128', type: 'image/png' },
+					// { src: data.Cover, sizes: '192x192', type: 'image/png' },
+					// { src: data.Cover, sizes: '256x256', type: 'image/png' },
+					// { src: data.Cover, sizes: '384x384', type: 'image/png' },
+					// { src: data.Cover, sizes: '512x512', type: 'image/png' }
+				]
+			});
 	}
 }
 
-const mediaSession = new MediaSession();
+const _mediaSession = new MediaSession();

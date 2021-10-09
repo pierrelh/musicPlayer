@@ -1,101 +1,32 @@
-// class Reader {
-// 	constructor() {
-// 		// this.PlaylistBtn	= document.getElementById("PlaylistBtn");
-// 		// this.ReaderPlaylist	= document.getElementById("PlaylistReader");
-// 		this.Previous		= document.getElementById("Previous");
-// 		this.PlayedMusic	= undefined;
+class AudioPlayer {
+	constructor() {
+		this.Element = document.getElementById("AudioPlayer");
+		// this.PlaylistBtn	= document.getElementById("PlaylistBtn");
+		// this.ReaderPlaylist	= document.getElementById("PlaylistReader");
+		// this.Previous		= document.getElementById("Previous");
+		// this.PlayedMusic	= undefined;
 
-// 		this.Mute.addEventListener("click", evt => this.ToggleMute());
-// 		this.VolumeBar.addEventListener("input", evt => this.VolumeBarChange())
-// 		this.PlaylistBtn.addEventListener("click", evt => this.TogglePlaylist());
-// 	}
+		// this.Mute.addEventListener("click", evt => this.ToggleMute());
+		// this.PlaylistBtn.addEventListener("click", evt => this.TogglePlaylist());
+	}
+	Show() {
+		if (!this.Element.classList.contains("show"))
+			this.Element.classList.add("show");
+	}
 
-// 	// Remove 10% to the player's volume
-// 	DicreaseVolume() {
-// 		if (this.Player.volume <= 0.1)
-// 			this.Player.volume = 0;
-// 		else
-// 			this.Player.volume -= 0.1;
-// 	}
-
-// 	// Add 10% to the player's volume
-// 	IncreaseVolume() {
-// 		if (this.Player.volume >= 0.9)
-// 			this.Player.volume = 1;
-// 		else
-// 			this.Player.volume += 0.1;
-// 	}
-
-// 	// Progress -10 secondes to the played music
-// 	SeekBackward() {
-// 		this.Player.currentTime -= 10;
-// 	}
-
-// 	// Progress +10 secondes to the played music
-// 	SeekForward() {
-// 		this.Player.currentTime += 10;
-// 	}
-
-// 	// Seek the music player to the wanted second
-// 	SeekTo(data) {
-// 		if (data.fastSeek) {
-// 			startSeeking();
-// 		} else {
-// 			stopSeeking();
-// 			this.Player.currentTime = data.seekTime;
-// 		}
-// 	}
-
-// 	// Stop the music player
-// 	StopMusic() {
-// 		this.Player.pause();
-// 		this.Player.currentTime = 0;
-// 	}
-
-// 	// Set Time to the right format
-// 	FormatTime(t) {
-// 		let m = ~~(t / 60),
-// 		s = ~~(t % 60);
-// 		return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
-// 	}
-
-// 	TimeUpdate() {
-// 		this.ProgressBar.value = this.Player.currentTime;
-// 		this.Start.innerHTML = this.FormatTime(this.Player.currentTime);
-// 		let percent = (this.ProgressBar.value / (this.ProgressBar.max - this.ProgressBar.min)) * 100;
-// 		this.ProgressBar.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
-// 													"color-stop(" + percent + "%, #FFF), " +
-// 													"color-stop(" + percent + "%, rgb(50, 50, 50))" +
-// 													")";
-// 	}
-
-// 	// Toggle playlist reader section
-// 	TogglePlaylist() {
-// 		if (this.ReaderPlaylist.classList.contains("show-playlist-reader"))
-// 			this.ReaderPlaylist.classList.remove("show-playlist-reader");
-// 		else
-// 			this.ReaderPlaylist.classList.add("show-playlist-reader");
-// 	}
-
-// 	VolumeChange() {
-// 		if (this.Player.volume != 0)
-// 			this.Mute.src = server + "/img/audio-on.png";
-// 		else
-// 			this.Mute.src = server + "/img/audio-off.png";
-
-// 		var percent = this.Player.volume * 100;
-// 		this.VolumeBar.value = percent;
-// 		this.VolumeBar.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
-// 												"color-stop(" + percent + "%, #FFF), " +
-// 												"color-stop(" + percent + "%, rgb(50, 50, 50))" +
-// 												")";
-// 	}
-// }
+	// Toggle playlist reader section
+	// TogglePlaylist() {
+	// 	if (this.ReaderPlaylist.classList.contains("show-playlist-reader"))
+	// 		this.ReaderPlaylist.classList.remove("show-playlist-reader");
+	// 	else
+	// 		this.ReaderPlaylist.classList.add("show-playlist-reader");
+	// }
+}
 
 
 class MusicName {
 	constructor() {
-		this.Element	= document.getElementById("MusicName");
+		this.Element = document.getElementById("MusicName");
 	}
 
 	Change(name) {
@@ -110,28 +41,32 @@ class Player {
 		this.PlayedMusic	= undefined;
 
 		this.Element.addEventListener("loadedmetadata", evt => this.Load);
-		// this.Element.addEventListener("timeupdate", evt => this.TimeUpdate);
-		// this.Element.addEventListener("volumechange", evt => this.VolumeChange);
+		this.Element.addEventListener("timeupdate", evt => _progress.Update);
+		this.Element.addEventListener("volumechange", evt => _volume.Change);
 		this.Element.addEventListener("ended", evt => this.Ended);
 	}
 
+	// Stop the music player
+	StopMusic() {
+		this.Element.pause();
+		this.Element.currentTime = 0;
+	}
+
 	PlayMusic(music) {
-		// Adding the class to Library if needed
-		library.Reduce;
-		playlistSection.Reduce;
-
-		// Setting the mediaSession metadatas
-		if (mediaSession.IsActive)
-			mediaSession.SetData(music);
-
 		_musicName.Change(music.Artist + " - " + music.Title);
 		this.Element.src = music.URL;
+		library.Reduce;
+		playlistSection.Reduce;
+		_audioPlayer.Show;
+		_mediaSession.SetData(music);
 		music.SetPlayed();
+	}
 
-		// Adding the class to audioPlayer if needed
-		var audioPlayer = document.getElementById("AudioPlayer");
-		if (!audioPlayer.classList.contains("show"))
-			audioPlayer.classList.add("show");
+	TogglePlayPause() {
+		if (this.Element.paused)
+			_playPause.IMG.src = server + "/img/play.png";
+		else
+			_playPause.IMG.src = server + "/img/pause.png";
 	}
 
 	Ended() {
@@ -140,13 +75,13 @@ class Player {
 	}
 
 	Load() {
-		this.ProgressBar.max = this.Player.duration;
-		this.Time.innerHTML = this.FormatTime(this.Player.duration);
+		_progress.Element.max = this.Element.duration;
+		_currentTime.innerHTML = this.FormatTime(this.Player.duration);
 	}
 }
 
 
-class LoopButton {
+class Loop {
 	constructor() {
 		this.Button	= document.getElementById("Loop");
 		this.IMG	= document.getElementById("LoopIMG");
@@ -181,7 +116,7 @@ class LoopButton {
 }
 
 
-class PreviousButton {
+class Previous {
 	constructor() {
 		this.Button = document.getElementById("Previous");
 		this.IMG	= document.getElementById("PreviousIMG");
@@ -211,7 +146,7 @@ class PreviousButton {
 }
 
 
-class PlayPauseButton {
+class PlayPause {
 	constructor() {
 		this.Button	= document.getElementById("PlayPause");
 		this.IMG	= document.getElementById("PlayPauseIMG");
@@ -220,7 +155,6 @@ class PlayPauseButton {
 	}
 
 	Toggle() {
-		console.log("HI");
 		if (_player.Element.paused)
 			_player.Element.play();
 		else
@@ -229,7 +163,7 @@ class PlayPauseButton {
 }
 
 
-class NextButton {
+class Next {
 	constructor() {
 		this.Button = document.getElementById("Next");
 		this.IMG	= document.getElementById("NextIMG");
@@ -260,23 +194,58 @@ class NextButton {
 }
 
 
-class StartTime {
+class CurrentTime {
 	constructor() {
-		this.Element = document.getElementById("StartTime");
+		this.Element = document.getElementById("CurrentTime");
 	}
 }
 
 
-class AudioBar {
+class Progress {
 	constructor() {		
-		this.Element	= document.getElementById("ProgressBar");
-		this.Element.addEventListener("input", evt => this.ChangeTime);
+		this.Element = document.getElementById("ProgressBar");
+		this.Element.addEventListener("input", evt => this.Change);
 	}
 
-	ChangeTime() {
-		this.Player.currentTime = this.Player.duration / this.ProgressBar.max * this.ProgressBar.value;
+	// Set Time to the right format
+	FormatTime(t) {
+		let m = ~~(t / 60),
+		s = ~~(t % 60);
+		return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+	}
+	
+	Update() {
+		this.Element.value = _player.Element.currentTime;
+		_currentTime.innerHTML = this.FormatTime(_player.Element.currentTime);
+		let percent = (this.ProgressBar.value / (this.Element.max - this.Element.min)) * 100;
+		this.Element.style.backgroundImage = 	"-webkit-gradient(linear, left top, right top, " +
+												"color-stop(" + percent + "%, #FFF), " +
+												"color-stop(" + percent + "%, rgb(50, 50, 50))" +
+												")";
 	}
 
+	Change() {
+		_player.Element.currentTime = this.Player.duration / this.ProgressBar.max * this.ProgressBar.value;
+	}
+
+	// Progress -10 secondes to the played music
+	Backward() {
+		_player.Element.currentTime -= 10;
+	}
+
+	// Progress +10 secondes to the played music
+	Forward() {
+		_player.Element.currentTime += 10;
+	}
+	
+	// Seek the music player to the wanted second
+	To(data) {
+		if (data.fastSeek)
+			startSeeking();
+		else
+			stopSeeking();
+		_player.Element.currentTime = data.seekTime;
+	}
 }
 
 
@@ -287,7 +256,7 @@ class EndTime {
 }
 
 
-class RandomButton {
+class Random {
 	constructor() {
 		this.Button		= document.getElementById("Random");
 		this.IMG		= document.getElementById("RandomIMG");
@@ -311,7 +280,7 @@ class RandomButton {
 }
 
 
-class MuteButton {
+class Mute {
 	constructor() {
 		this.Button	= document.getElementById("Mute");
 		this.IMG	= document.getElementById("MuteIMG");
@@ -335,28 +304,60 @@ class MuteButton {
 }
 
 
-class VolumeBar {
+class Volume {
 	constructor() {
-		this.Element		= document.getElementById("Volume");
-		this.Volume			= 0;
+		this.Element	= document.getElementById("Volume");
+		this.Level		= 0;
+		
+		this.Element.addEventListener("input", evt => this.Change())
 	}
 
-	VolumeBarChange() {
-		this.Player.volume = this.Element.value / 100;
+	Change() {
+		_player.Element.volume = this.Element.value / 100;
+	}
+
+	// Remove 10% to the player's volume
+	Dicrease() {
+		if (_player.Element.volume <= 0.1)
+			_player.volume = 0;
+		else
+			_player.volume -= 0.1;
+	}
+
+	// Add 10% to the player's volume
+	Increase() {
+		if (_player.Element.volume >= 0.9)
+			_player.Element.volume = 1;
+		else
+			_player.Element.volume += 0.1;
+	}
+
+	VolumeChange() {
+		if (this.Player.volume != 0)
+			_mute.src = server + "/img/audio-on.png";
+		else
+			this.Mute.src = server + "/img/audio-off.png";
+	
+		let percent = this.Player.volume * 100;
+		this.VolumeBar.value = percent;
+		this.VolumeBar.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
+												"color-stop(" + percent + "%, #FFF), " +
+												"color-stop(" + percent + "%, rgb(50, 50, 50))" +
+												")";
 	}
 
 }
-
+const _audioPlayer = new AudioPlayer;
 const _musicName = new MusicName;
-const _loopButton = new LoopButton;
-const _previousButton = new PreviousButton;
-const _playPauseButton = new PlayPauseButton;
-const _nextButton = new NextButton;
-const _startTime = new StartTime;
-const _audioBar = new AudioBar;
+const _loop = new Loop;
+const _previous = new Previous;
+const _playPause = new PlayPause;
+const _next = new Next;
+const _currentTime = new CurrentTime;
+const _progress = new Progress;
 const _endTime = new EndTime;
-const _randomButton = new RandomButton;
-const _muteButton = new MuteButton;
-const _volumeBar = new VolumeBar;
+const _random = new Random;
+const _mute = new MuteButton;
+const _volume = new Volume;
 const _player = new Player;
 // const reader = new Reader();
