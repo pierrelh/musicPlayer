@@ -14,9 +14,10 @@ class Library {
 	}
 
 	ShuffleMusics() {
-		for (let i = this.Playlist.length - 1; i > 0; i--) {
+		this.RandomPlaylist = this.Playlist.slice();
+		for (let i = this.RandomPlaylist.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
-			[this.Playlist[i], this.Playlist[j]] = [this.Playlist[j], this.Playlist[i]];
+			[this.RandomPlaylist[i], this.RandomPlaylist[j]] = [this.RandomPlaylist[j], this.RandomPlaylist[i]];
 		}
 	}
 
