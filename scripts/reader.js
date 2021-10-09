@@ -234,7 +234,7 @@ class Reader {
 
 	TogglePlayPause() {
 		if (this.Player.paused)
-			this.PlayPause.src = "../../img/play.png";
+			this.PlayPause.src = server + "/img/play.png";
 		else
 			this.PlayPause.src = "../../img/pause.png";
 	}
