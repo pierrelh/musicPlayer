@@ -215,21 +215,18 @@ class PreviousButton {
 const _previousButton = new PreviousButton;
 
 class PlayPauseButton {
-	constructor(player) {
+	constructor() {
 		this.Button	= document.getElementById("PlayPause");
 		this.IMG	= document.getElementById("PlayPauseIMG");
-		this.Player	= player;
 
 		this.Button.addEventListener("click", evt => this.Toggle);
-		this.Player.addEventListener("pause", evt => this.Toggle);
-		this.Player.addEventListener("play", evt => this.Toggle);
 	}
 
 	Toggle() {
-		if (this.Player.paused)
-			this.Player.play();
+		if (_player.Element.paused)
+			_player.play();
 		else
-			this.Player.pause();
+			_player.pause();
 	}
 }
 
