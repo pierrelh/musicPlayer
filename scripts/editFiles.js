@@ -4,7 +4,7 @@ class EditLayouts {
 		this.Elements	= [];
 	}
 
-	ToggleVisibility() {
+	Toggle() {
 		if (this.IsActive)
 			this.RemoveAll();
 		else
@@ -12,18 +12,18 @@ class EditLayouts {
 	}
 
 	CreateAll() {
-		if (addLayouts.IsActive)
-			addLayouts.RemoveAll();
-		if (deleteLayouts.IsActive)
-			deleteLayouts.RemoveAll();
+		if (_addLayouts.IsActive)
+			_addLayouts.RemoveAll();
+		if (_deleteLayouts.IsActive)
+			_deleteLayouts.RemoveAll();
 
-		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
+		for (let index = 0; index < _library.Playlist.length; index++) {
 			let editLayout = new Layout({
 				class: "edit",
-				event: evt => editSection.Show(library.MusicsPlaylist[index])
+				event: evt => _editSection.Show(_library.Playlist[index])
 			});
 			this.Elements.push(editLayout);
-			library.MusicsPlaylist[index].Element.prepend(editLayout);
+			_library.Playlist[index].Element.prepend(editLayout);
 		}
 		this.IsActive = true;
 	}
@@ -34,22 +34,24 @@ class EditLayouts {
 	}
 }
 
-const editLayouts = new EditLayouts();
-
 class EditSection {
 	constructor() {
-		this.Element	= document.getElementById("Edit");
-		this.Cross		= document.getElementById("CrossEdit");
-		this.CoverEdit	= document.getElementById("PictureEdit")
-		this.Music		= undefined;
-		this.EditBTN	= document.getElementById("EditButton");
+		this.Element		= document.getElementById("Edit");
+		this.Cross			= document.getElementById("CrossEdit");
+		this.CoverEdit		= document.getElementById("PictureEdit")
+		this.NameEdit		= document.getElementById("FileNameEdit").value;
+		this.AuthorEdit		= document.getElementById("FileAuthorEdit").value;
+		this.AlbumEdit		= document.getElementById("FileAlbumEdit").value;
+		this.Music			= undefined;
+		this.EditBTN		= document.getElementById("EditButton");
+		this.ProgressBar	= document.getElementById("ProgressBarEditCover");
+		this.ProgressTxt	= document.getElementById("TextProgressBarEditCover");
 
 		this.Cross.addEventListener("click", evt => this.Hide(), false);
 		this.EditBTN.addEventListener("click", evt => this.Edit(evt), false);
 		this.CoverEdit.addEventListener("change", evt => this.ReadURL(), false);
 	}
 
-	// Dynamically read & print a new input's image
 	ReadURL() {
 		if (this.CoverEdit.files && this.CoverEdit.files[0]) {
 			let fileReader = new FileReader();
@@ -62,25 +64,23 @@ class EditSection {
 		}
 	}
 
-	// Handle click on EditButton
 	Edit(e) {
 		e.preventDefault();
+		let self = this;
 		if (this.Music.MusicID != "undefined") {
-			if (this.CoverEdit.files.length == 0) {
-				var picture = "undefined";
-				var publicId = "undefined";
-			} else {
-				// Formating the publicId of the music's cover to overwrite it
-				var publicId = this.Music.Cover;
-				var picture = this.CoverEdit.files[0];
+			let picture = "undefined";
+			let publicId = "undefined";
+			if (this.CoverEdit.files.length != 0) {
+				publicId = this.Music.Cover;
+				picture = this.CoverEdit.files[0];
 			}
-			var name = document.getElementById("FileNameEdit").value;
-			var author = document.getElementById("FileAuthorEdit").value;
-			if (name == "" || author == "") {
+			let name = this.NameEdit.value;
+			let author = this.AuthorEdit.value;
+			if (name || author) {
 				document.getElementById("ErrorMsgEdit").innerHTML = "Merci de remplir tous les champs.";
 				document.getElementById("ErrorMsgEdit").style.display = "block";
 			} else {
-				var form_data = new FormData(document.getElementById("FormEdit"));
+				let form_data = new FormData(document.getElementById("FormEdit"));
 				form_data.append("file_id", this.Music.MusicID);
 				form_data.append("file_image", picture);
 				form_data.append("public_id", publicId);
@@ -93,24 +93,22 @@ class EditSection {
 					processData: false,
 					data: form_data,
 					xhr: function () {
-						var xhr = $.ajaxSettings.xhr();
+						let xhr = $.ajaxSettings.xhr();
 						xhr.upload.onprogress = function(e) {
 							if (e.lengthComputable) {
-								document.getElementById("ProgressBarEditCover").style.width = Math.round((e.loaded / e.total)*100) + "%";
-								document.getElementById("TextProgressBarEditCover").innerHTML = Math.round((e.loaded / e.total)*100) + " %";
+								this.ProgressBar.style.width = Math.round((e.loaded / e.total)*100) + "%";
+								this.ProgressTxt.innerHTML = Math.round((e.loaded / e.total)*100) + " %";
 							}
 						};
 						return xhr;
 					}
 				}).done(function() {
-					library.GetFiles();
+					_library.GetFiles();
 				}).fail(function() {
 					alert("Edit failed");
 				});
 
-				background.Hide();
-				this.Element.className = "";
-				this.CoverEdit.value = "";
+				self.Hide();
 			}
 		} else {
 			alert("Une erreur s'est produite.");
@@ -118,20 +116,21 @@ class EditSection {
 	}
 
 	Hide() {
-		background.Hide();
+		_background.Hide();
 		this.Element.className = "";
 		this.CoverEdit.value = "";
 	}
 
 	Show(music) {
 		this.Music = music;
-		document.getElementById("FileNameEdit").value = music.Title;
-		document.getElementById("FileAuthorEdit").value = music.Artist;
-		document.getElementById("FileAlbumEdit").value = music.Album;
+		this.NameEdit.value = music.Title;
+		this.AuthorEdit.value = music.Artist;
+		this.AlbumEdit.value = music.Album;
 		document.getElementById("Banner").style.backgroundImage = "url(" + music.Cover + ")";
-		background.Show();
+		_background.Show();
 		this.Element.className = "appear";
 	}
 }
 
-const editSection = new EditSection();
+const _editLayouts = new EditLayouts();
+const _editSection = new EditSection();

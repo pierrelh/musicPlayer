@@ -20,4 +20,4 @@ class PlayingLayout {
 	}
 }
 
-const playingLayout = new PlayingLayout();
+const _playingLayout = new PlayingLayout();

@@ -48,7 +48,6 @@ class Player {
 		this.Element.addEventListener("ended", evt => this.Ended(), false);
 	}
 
-	// Stop the music player
 	StopMusic() {
 		this.Element.pause();
 		this.Element.currentTime = 0;
@@ -58,8 +57,8 @@ class Player {
 		_musicName.Change(music.Artist + " - " + music.Title);
 		this.PlayedMusic = music;
 		this.Element.src = music.URL;
-		library.Reduce();
-		playlistSection.Reduce();
+		_library.Reduce();
+		_playlistSection.Reduce();
 		_audioPlayer.Show();
 		_mediaSession.SetData(music);
 		music.SetPlayed();
@@ -128,11 +127,7 @@ class Previous {
 	}
 
 	Play() {
-		let usedPlaylist;
-		if (_random.IsRandom)
-			usedPlaylist = library.MusicsRandomPlaylist.slice();
-		else
-			usedPlaylist = library.MusicsPlaylist.slice();
+		let usedPlaylist = _library.GetPlaylist();
 
 		let indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === _player.PlayedMusic.ID); // Getting the position of the current music in the playlist
 		if (_player.Element.currentTime < 5) {
@@ -175,19 +170,14 @@ class Next {
 	}
 
 	Play(notSkiped = false) {
-		// Check if the reader should loop on the same music or not
-		if (notSkiped && this.LoopType == "one") {
-			_player.Play(_player.PlayedMusic); // Replay the current music
+		if (notSkiped && _loop.Type == "one") {
+			_player.Play(_player.PlayedMusic);
 		} else {
-			let usedPlaylist;
-			if (_random.IsRandom)
-				usedPlaylist = library.MusicsRandomPlaylist.slice();
-			else
-				usedPlaylist = library.MusicsPlaylist.slice();
+			let usedPlaylist = _library.GetPlaylist();
 
 			let indexOfNextMusic = 0;
 			let indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === _player.PlayedMusic.ID); // Getting the position of the current music in the playlist
-			if (indexOfCurrentMusic == (usedPlaylist.length) - 1 && this.LoopType == "none")
+			if (indexOfCurrentMusic == (usedPlaylist.length) - 1 && _loop.Type == "none")
 				return;
 			else if (indexOfCurrentMusic != (usedPlaylist.length) - 1)
 				indexOfNextMusic = indexOfCurrentMusic + 1;
@@ -285,7 +275,7 @@ class Random {
 	}
 
 	Enable() {
-		library.ShuffleMusics();
+		_library.ShuffleMusics();
 		this.IsRandom = true;
 		this.IMG.src = server + "/img/random.png";
 	}

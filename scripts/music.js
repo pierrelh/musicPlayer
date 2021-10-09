@@ -15,9 +15,8 @@ class Music {
 	Create() {
 		let cover = document.createElement("li");
 		cover.className = "view";
-		if (this.Cover) {
+		if (this.Cover)
 			cover.style.backgroundImage = "url('" + this.Cover + "')";
-		}
 		this.Element.appendChild(cover);
 
 		let liTitle = document.createElement("li");
@@ -34,6 +33,6 @@ class Music {
 
 	SetPlayed() {
 		this.Played = true;
-		playingLayout.Change(this.Element);
+		_playingLayout.Change(this.Element);
 	}
 }

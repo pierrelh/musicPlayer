@@ -1,19 +1,27 @@
 class Background {
 	constructor() {
-		this.Element = document.getElementById("Background");
+		this.Element	= document.getElementById("Background");
+		this.IsVisible	= false;
 	}
 
-	// Hide the assets Background
+	Toggle() {
+		if (this.IsVisible)
+			this.Hide();
+		else
+			this.Show();
+	}
+
 	Hide() {
 		if (this.Element.classList.contains("background-appear"))
 			this.Element.classList.remove("background-appear");
+		this.IsVisible = false;
 	}
 
-	// Show the assets Background
 	Show() {
 		if (!this.Element.classList.contains("background-appear"))
 			this.Element.classList.add("background-appear");
+		this.IsVisible = true;
 	}
 }
 
-const background = new Background();
+const _background = new Background();

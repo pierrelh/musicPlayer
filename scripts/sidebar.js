@@ -14,22 +14,22 @@ class Filters {
 	}
 
 	ByAlbum() {
-		library.GetFiles("file_album", this.Order);
+		_library.GetFiles("file_album", this.Order);
 		this.ChangeOrder();
 	}
 
 	ByArtist() {
-		library.GetFiles("file_author", this.Order);
+		_library.GetFiles("file_author", this.Order);
 		this.ChangeOrder();
 	}
 
 	ByID() {
-		library.GetFiles("file_id", this.Order);
+		_library.GetFiles("file_id", this.Order);
 		this.ChangeOrder();
 	}
 
 	ByName() {
-		library.GetFiles("file_name", this.Order);
+		_library.GetFiles("file_name", this.Order);
 		this.ChangeOrder();
 	}
 
@@ -57,38 +57,42 @@ class Sidebar {
 		this.CreatePlaylist		= document.getElementById("CreatePlaylistSidebar");
 		this.IsVisible			= false;
 
-		this.Arrow.addEventListener("click", evt => this.ToggleVisibility(), false);
-		this.MyAccount.addEventListener("click", evt => account.Toggle(), false);
-		this.CreateAccount.addEventListener("click", evt => createAccount.Show(), false);
-		this.Help.addEventListener("click", evt => help.Toggle(), false);
-		this.UploadFile.addEventListener("click", evt => uploadSection.Toggle(), false);
-		this.EditFile.addEventListener("click", evt => editLayouts.ToggleVisibility(), false);
-		this.DeleteFile.addEventListener("click", evt => deleteLayouts.ToggleVisibility(), false);
-		this.MyMusics.addEventListener("click", evt => library.GetFiles(), false);
-		this.MyPlaylists.addEventListener("click", evt => playlistSection.ToggleVisibility(), false);
-		this.CreatePlaylist.addEventListener("click", evt => addLayouts.ToggleVisibility(), false);
+		this.Arrow.addEventListener("click", evt => this.Toggle(), false);
+		this.MyAccount.addEventListener("click", evt => _account.Toggle(), false);
+		this.CreateAccount.addEventListener("click", evt => _createAccount.Toggle(), false);
+		this.Help.addEventListener("click", evt => _help.Show(), false);
+		this.UploadFile.addEventListener("click", evt => _uploadSection.Toggle(), false);
+		this.EditFile.addEventListener("click", evt => _editLayouts.Toggle(), false);
+		this.DeleteFile.addEventListener("click", evt => _deleteLayouts.Toggle(), false);
+		this.MyMusics.addEventListener("click", evt => _library.GetFiles(), false);
+		this.MyPlaylists.addEventListener("click", evt => _playlistSection.Toggle(), false);
+		this.CreatePlaylist.addEventListener("click", evt => _addLayouts.Toggle(), false);
 	}
 
-	// Toggle sidebar section 
-	ToggleVisibility() {
-		if (this.IsVisible) {
-			// Hide the sidebar and enlarge the librarys and the player
-			this.Arrow.classList.remove("arrow-active");
-			this.Element.classList.remove("sidebar-show");
-			document.getElementById("Library").classList.remove("library-sidebar");
-			document.getElementById("DivPlaylist").classList.add("playlist-sidebar-hided");
-			document.getElementById("AudioPlayer").classList.add("left");
-			this.IsVisible = false;
-		} else {
-			// Show the sidebar and reduce the librarys and the player
-			this.Arrow.classList.add("arrow-active");
-			this.Element.classList.add("sidebar-show");
-			document.getElementById("Library").classList.add("library-sidebar");
-			document.getElementById("DivPlaylist").classList.remove("playlist-sidebar-hided");
-			document.getElementById("AudioPlayer").classList.remove("left");
-			this.IsVisible = true;
-		}
+	Show() {
+		this.Arrow.classList.add("arrow-active");
+		this.Element.classList.add("sidebar-show");
+		document.getElementById("Library").classList.add("library-sidebar");
+		document.getElementById("DivPlaylist").classList.remove("playlist-sidebar-hided");
+		document.getElementById("AudioPlayer").classList.remove("left");
+		this.IsVisible = true;
+	}
+
+	Hide() {
+		this.Arrow.classList.remove("arrow-active");
+		this.Element.classList.remove("sidebar-show");
+		document.getElementById("Library").classList.remove("library-sidebar");
+		document.getElementById("DivPlaylist").classList.add("playlist-sidebar-hided");
+		document.getElementById("AudioPlayer").classList.add("left");
+		this.IsVisible = false;
+	}
+
+	Toggle() {
+		if (this.IsVisible)
+			this.Hide();
+		else
+			this.Show();
 	}
 }
 
-const sidebar = new Sidebar();
+const _sidebar = new Sidebar();

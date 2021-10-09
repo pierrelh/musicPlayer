@@ -2,42 +2,51 @@ class UploadSection {
 	constructor() {
 		this.Element	= document.getElementById("Upload");
 		this.Cross		= document.getElementById("CrossUpload");
-		this.UploadBTN	= document.getElementById("UploadButton")
-		this.ErrorMSG	= document.getElementById("ErrorMsgUpload")
+		this.UploadBTN	= document.getElementById("UploadButton");
+		this.ErrorMSG	= document.getElementById("ErrorMsgUpload");
+		this.From		= document.getElementById("FormUpload");
+		this.FileIPT	= document.getElementById("File");
+		this.PictureIPT	= document.getElementById("Picture");
+		this.NameIPT	= document.getElementById("FileName");
+		this.AuthorIPT	= document.getElementById("FileAuthor");
+		this.IsVisible	= false;
 
 		this.Cross.addEventListener("click", evt => this.Toggle(), false);
 		this.UploadBTN.addEventListener("click", evt => this.UploadFiles(evt), false);
 	}
 
-	// Toggle upload section
+	Show() {
+		_background.Show();
+		this.Element.classList.add("appear");
+	}
+
+	Hide() {
+		_background.Hide();
+		this.Element.classList.remove("appear");
+	}
+
 	Toggle() {
-		if (this.Element.classList.contains("appear")) {
-			background.Hide();
-			this.Element.classList.remove("appear");
-		} else {
-			background.Show();
-			this.Element.classList.add("appear");
-		}
+		if (this.IsVisible)
+			this.Hide();
+		else
+			this.Show();
 	}
 
 	async UploadFiles(e) {
 		e.preventDefault();
-		var file = document.getElementById("File").files[0];
-		var picture = document.getElementById("Picture").files[0];
+		let file = this.FileIPT.files[0];
+		let picture = this.PictureIPT.files[0];
 
-		// Check if file & picture exist
 		if (file && picture) {
-			var formData = new FormData(document.getElementById("FormUpload"));
-			// Delete default from data values for file & picture
+			let formData = new FormData(this.Form);
 			formData.delete("file");
 			formData.delete("picture");
-			var formDataMusic = new FormData();
+			let formDataMusic = new FormData();
 			formDataMusic.append("music", file);
-			var formDataCover = new FormData();
+			let formDataCover = new FormData();
 			formDataCover.append("cover", picture);
 
-			// Check if the music has a name & an author
-			if (document.getElementById("FileName").value == "" || document.getElementById("FileAuthor").value == "") {
+			if (this.NameIPT.value || this.AuthorIPT) {
 				this.ErrorMSG.innerHTML = "Merci de remplir tous les champs.";
 				this.ErrorMSG.style.display = "block";
 				return;
@@ -55,8 +64,6 @@ class UploadSection {
 							if (response != "false") {
 
 								formData.append("file_image", response);
-
-								// Sending the new music's informations to the db
 								$.ajax({
 									url: server + "/functions/files/uploadFile.php",
 									type: "POST",
@@ -66,7 +73,7 @@ class UploadSection {
 									processData: false,
 									data: formData,
 									success: function () {
-										library.GetFiles();
+										_library.GetFiles();
 									}
 								});
 
@@ -89,15 +96,14 @@ class UploadSection {
 		}
 	}
 
-	// Upload a file to Cloudinary
 	UploadFileCloudinary(formDataMusic, barId, txtId, link) {
 		return new Promise((resolve, reject) => {
-			var url = server + "/functions/files/" + link;
-			var xhr = new XMLHttpRequest();
+			let url = server + "/functions/files/" + link;
+			let xhr = new XMLHttpRequest();
 
 			// Update progress for audio file
 			xhr.upload.addEventListener("progress", function (e) {
-				var progress = Math.round((e.loaded * 100.0) / e.total);
+				let progress = Math.round((e.loaded * 100.0) / e.total);
 				document.getElementById(barId).style.width = progress + "%";
 				document.getElementById(txtId).innerHTML = progress + "%";
 			}, false);
@@ -116,4 +122,4 @@ class UploadSection {
 	}
 }
 
-const uploadSection = new UploadSection();
+const _uploadSection = new UploadSection();

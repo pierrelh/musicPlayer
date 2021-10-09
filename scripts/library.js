@@ -1,22 +1,28 @@
 class Library {
 	constructor() {
-		this.Element				= document.getElementById("Library");
-		this.MusicsPlaylist			= [];
-		this.MusicsRandomPlaylist	= [];
+		this.Element		= document.getElementById("Library");
+		this.Playlist		= [];
+		this.RandomPlaylist	= [];
 		this.GetFiles();
 	}
 
-	// Shuffle the musics playlist
+	GetPlaylist() {		
+		if (_random.IsRandom)
+			return this.RandomPlaylist.slice();
+		else
+			return this.Playlist.slice();
+	}
+
 	ShuffleMusics() {
-		for (let i = this.MusicsPlaylist.length - 1; i > 0; i--) {
+		for (let i = this.Playlist.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
-			[this.MusicsPlaylist[i], this.MusicsPlaylist[j]] = [this.MusicsPlaylist[j], this.MusicsPlaylist[i]];
+			[this.Playlist[i], this.Playlist[j]] = [this.Playlist[j], this.Playlist[i]];
 		}
 	}
 
 	GetFiles(row = "file_id", type = "DESC") {
-		if (typeof playlistSection !== "undefined") {
-			playlistSection.Hide();
+		if (_playlistSection.IsVisible) {
+			_playlistSection.Hide();
 		}
 		let self = this;
 		$.ajax({
@@ -30,10 +36,10 @@ class Library {
 				data = JSON.parse(data);
 				if (data.length != 0) {
 					self.Element.innerHTML = "";
-					self.MusicsPlaylist = [];
+					self.Playlist = [];
 					for (let i = 0; i < data.length; i++) {
 						let music = new Music(data[i], i);
-						self.MusicsPlaylist.push(music);
+						self.Playlist.push(music);
 						self.Element.appendChild(music.Create());
 					};
 				}
@@ -47,4 +53,4 @@ class Library {
 	}
 }
 
-const library = new Library();
+const _library = new Library();

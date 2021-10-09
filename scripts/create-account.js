@@ -8,17 +8,14 @@ class CreateAccount {
 		this.PasswordTwo		= document.getElementById("NewAccountPasswordTwo");
 		this.ErrorMSG			= document.getElementById("errorMsgCreateAccount");
 
-		// Handle click on CrossAccount button of Account section
 		this.Cross.addEventListener("click", evt => this.Hide(), false);
-
-		// Handle click on CrossAccount button of Account section
 		this.CreataAccountBTN.addEventListener("click", evt => this.CreateAccount(evt), false);
 	}
 
 	CreateAccount(e) {
 		e.preventDefault();
 
-		if (this.Email.value == "" || this.PasswordOne.value == "" || this.PasswordTwo.value == "") {
+		if (this.Email.value || this.PasswordOne.value || this.PasswordTwo.value) {
 			// Check if all the fiels have been sets
 			this.ErrorMSG.innerHTML = "Veuillez remplir tous les champs";
 			this.ErrorMSG.style.display = "block";
@@ -53,14 +50,14 @@ class CreateAccount {
 	}
 
 	Hide() {
-		background.Hide();
+		_background.Hide();
 		this.Element.className = "";
 	}
 
 	Show() {
-		background.Show();
+		_background.Show();
 		document.getElementById("CreateAccount").classList.add("appear");
 	}
 }
 
-const createAccount = new CreateAccount();
+const _createAccount = new CreateAccount();

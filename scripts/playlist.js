@@ -5,7 +5,7 @@ class AddLayouts {
 		this.MusicsToAdd	= [];
 	}
 
-	ToggleVisibility() {
+	Toggle() {
 		if (this.IsActive)
 			this.RemoveAll();
 		else
@@ -19,7 +19,6 @@ class AddLayouts {
 		music.Element.children[0].addEventListener("click", evt => this.RemoveFromPlaylist(music), false);
 	}
 
-	// Toggle a music's class to be remove from a playlist
 	RemoveFromPlaylist(music) {
 		delete this.MusicsToAdd[music.MusicID];
 		music.Element.children[0].classList.remove("check");
@@ -28,28 +27,26 @@ class AddLayouts {
 	}
 
 	CreateAll() {
-		if (editLayouts.IsActive)
-			editLayouts.RemoveAll();
-		if (deleteLayouts.IsActive)
-			deleteLayouts.RemoveAll();
+		if (_editLayouts.IsActive)
+			_editLayouts.RemoveAll();
+		if (_deleteLayouts.IsActive)
+			_deleteLayouts.RemoveAll();
 
-		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
+		for (let index = 0; index < _library.Playlist.length; index++) {
 			let editLayout = new Layout({
 				class: "add",
-				event: evt => this.AddToPlaylist(library.MusicsPlaylist[index])
+				event: evt => this.AddToPlaylist(_library.Playlist[index])
 			});
 			this.Elements.push(editLayout);
-			library.MusicsPlaylist[index].Element.prepend(editLayout);
+			_library.Playlist[index].Element.prepend(editLayout);
 		}
 
 		let sidebarList = document.getElementById("SidebarList");
 
-		// Create the li element for input playlist name
 		let listPlaylistName = document.createElement("li");
 		listPlaylistName.id = "PlaylistNameElement"
 		sidebarList.appendChild(listPlaylistName);
 
-		// Create the input element for playlist name
 		let playlistName = document.createElement("input");
 		playlistName.id = "PlaylistName";
 		playlistName.setAttribute("type", "text");
@@ -57,19 +54,17 @@ class AddLayouts {
 		playlistName.classList.add("playlist-name");
 		listPlaylistName.appendChild(playlistName);
 
-		// Create the li element for the input playlist create 
 		let listElement = document.createElement("li");
 		listElement.id = "PlaylistButtonElement"
 		sidebarList.appendChild(listElement);
 
-		// Create the input element for playlist create
 		let buttonCreatePlaylist = document.createElement("input");
 		buttonCreatePlaylist.id = "ButtonCreatePlaylist";
 		buttonCreatePlaylist.setAttribute("type", "submit");
 		buttonCreatePlaylist.classList.add("button-create-playlist");
 		buttonCreatePlaylist.value = "Créer la Playlist";
 		listElement.appendChild(buttonCreatePlaylist);
-		buttonCreatePlaylist.addEventListener("click", evt => playlistSection.SendPlaylist(), false);
+		buttonCreatePlaylist.addEventListener("click", evt => _playlistSection.SendPlaylist(), false);
 		this.IsActive = true;
 	}
 
@@ -81,8 +76,6 @@ class AddLayouts {
 	}
 }
 
-const addLayouts = new AddLayouts();
-
 class PlaylistSection {
 	constructor() {
 		this.Element	= document.getElementById("DivPlaylist");
@@ -90,22 +83,19 @@ class PlaylistSection {
 		this.Playlists	= [];
 	}
 
-	// Toggle the playlist section's visibility
-	ToggleVisibility() {
+	Toggle() {
 		if (this.IsVisible)
 			this.Hide();
 		else
 			this.Show();
 	}
 
-	// Hide the playlist section
 	Hide() {
 		if (this.Element.classList.contains("playlist-div-show"))
 			this.Element.classList.remove("playlist-div-show");
 		this.IsVisible = false;
 	}
 
-	// Show the playlist section
 	Show() {
 		let self = this;
 		fetch(server + "/functions/playlists/getAllPlaylists.php")
@@ -145,7 +135,6 @@ class PlaylistSection {
 			this.Element.classList.add("playlist-reader-showed");
 	}
 
-	// Get all musics of a playlist & print them
 	OpenPlaylist(identifier) {
 		if (Number.isInteger(identifier)) {
 			let playlistId = this.Playlists[identifier].id;
@@ -156,13 +145,13 @@ class PlaylistSection {
 				data: {"playlist_id": playlistId},
 				success: function(data) {
 					data = JSON.parse(data);
-					library.Element.innerHTML = "";
+					_library.Element.innerHTML = "";
 					if (data.length != 0) {
-						playlistSection.Hide();
-						library.MusicsPlaylist = [];
+						_playlistSection.Hide();
+						_library.Playlist = [];
 						for (let index = 0; index < data.length; index++) {
 							let music = new Music(data[index], index).Create();
-							library.Element.appendChild(music);
+							_library.Element.appendChild(music);
 						}
 					}
 				}
@@ -170,20 +159,19 @@ class PlaylistSection {
 		}
 	}
 
-	// Create the playlist with the choosed musics
 	SendPlaylist() {
-		if (addLayouts.MusicsToAdd.length) {
+		if (_addLayouts.MusicsToAdd.length) {
 			let playlistName = document.getElementById("PlaylistName").value;
 			if (playlistName) {
 				$.ajax({
 					url: server + "/functions/playlists/createPlaylist.php",
 					type: "POST",
 					data: {
-						"musics": addLayouts.MusicsToAdd.reverse(),
+						"musics": _addLayouts.MusicsToAdd.reverse(),
 						"playlistName": playlistName
 					},
 					success: function() {
-						addLayouts.RemoveAll();
+						_addLayouts.RemoveAll();
 					}
 				});
 			} else {
@@ -197,4 +185,5 @@ class PlaylistSection {
 	}
 }
 
-const playlistSection = new PlaylistSection();
+const _addLayouts		= new AddLayouts();
+const _playlistSection	= new PlaylistSection();

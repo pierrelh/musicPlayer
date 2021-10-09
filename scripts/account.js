@@ -6,62 +6,71 @@ class Account {
 		this.PasswordOne		= document.getElementById("NewPasswordOne");
 		this.PasswordTwo		= document.getElementById("NewPasswordTwo");
 		this.ErrorMSG			= document.getElementById("errorMsgEditPassword");
+		this.IsVisible			= false;
 
 		this.Cross.addEventListener("click", evt => this.Toggle(), false);
 		this.UpdatePasswordBtn.addEventListener("click", evt => this.UpdatePassword(evt), false);
 	}
 
-	// Toggle account section's visibility 
+	Show() {
+		fetch(server + "/functions/account/getCloudinaryAdmin.php")
+		.then((response) => response.json())
+		.then(function (response) {
+
+			document.getElementById("AccountPlan").innerHTML = response["plan"];
+			document.getElementById("AccountLastUpdate").innerHTML = response["last_updated"];
+			document.getElementById("AccountRequests").innerHTML = response["requests"];
+			document.getElementById("AccountResources").innerHTML = response["resources"];
+			document.getElementById("AccountDerivedResources").innerHTML = response["derived_resources"];
+
+			document.getElementById("AccountTransformationUsage").innerHTML = response["transformations"]["usage"];
+			document.getElementById("AccountTransformationPercent").innerHTML = response["transformations"]["used_percent"] + "%";
+			document.getElementById("AccountTransformationProgressBar").style.width = response["transformations"]["used_percent"] + "%";
+			document.getElementById("AccountTransformationLimit").innerHTML = response["transformations"]["limit"];
+
+			document.getElementById("AccountObjectsUsage").innerHTML = response["objects"]["usage"];
+			document.getElementById("AccountObjectsPercent").innerHTML = response["objects"]["used_percent"] + "%";
+			document.getElementById("AccountObjectsProgressBar").style.width = response["objects"]["used_percent"] + "%";
+			document.getElementById("AccountObjectsUsageLimit").innerHTML = response["objects"]["limit"];
+
+			document.getElementById("AccountBandwidthUsage").innerHTML = (response["bandwidth"]["usage"] / 1000000000).toFixed(2) + " GB";
+			document.getElementById("AccountBandwidthPercent").innerHTML = response["bandwidth"]["used_percent"] + "%";
+			document.getElementById("AccountBandwidthProgressBar").style.width = response["bandwidth"]["used_percent"] + "%";
+			document.getElementById("AccountBandwidthLimit").innerHTML = (response["bandwidth"]["limit"] / 1000000000).toFixed(2) + " GB";
+
+			document.getElementById("AccountStorageUsage").innerHTML = (response["storage"]["usage"] / 1000000000).toFixed(2) + " GB";
+			document.getElementById("AccountStoragePercent").innerHTML = response["storage"]["used_percent"] + "%";
+			document.getElementById("AccountStorageProgressBar").style.width = response["storage"]["used_percent"] + "%";
+			document.getElementById("AccountStorageLimit").innerHTML = (response["storage"]["limit"] / 1000000000).toFixed(2) + " GB";
+
+			document.getElementById("AccountImageMaxSize").innerHTML = response["media_limits"]["image_max_size_bytes"];
+			document.getElementById("AccountVideoMaxSize").innerHTML = response["media_limits"]["video_max_size_bytes"];
+			document.getElementById("AccountRawMaxSize").innerHTML = response["media_limits"]["raw_max_size_bytes"];
+			document.getElementById("AccountImageMaxPx").innerHTML = response["media_limits"]["image_max_px"];
+			document.getElementById("AccountAssetMaxTotalPx").innerHTML = response["media_limits"]["asset_max_total_px"];
+
+			_background.Show();
+			document.getElementById("Account").classList.add("appear");
+		});
+		this.IsVisible = true;
+	}
+
+	Hide() {
+		_background.Hide();
+		this.Element.className = "";
+		this.IsVisible = false;
+	}
+
 	Toggle() {
-		if (this.Element.classList.contains("appear")) {
-			background.Hide();
-			this.Element.className = "";
-		} else {
-			fetch(server + "/functions/account/getCloudinaryAdmin.php")
-			.then((response) => response.json())
-			.then(function (response) {
-
-				document.getElementById("AccountPlan").innerHTML = response["plan"];
-				document.getElementById("AccountLastUpdate").innerHTML = response["last_updated"];
-				document.getElementById("AccountRequests").innerHTML = response["requests"];
-				document.getElementById("AccountResources").innerHTML = response["resources"];
-				document.getElementById("AccountDerivedResources").innerHTML = response["derived_resources"];
-
-				document.getElementById("AccountTransformationUsage").innerHTML = response["transformations"]["usage"];
-				document.getElementById("AccountTransformationPercent").innerHTML = response["transformations"]["used_percent"] + "%";
-				document.getElementById("AccountTransformationProgressBar").style.width = response["transformations"]["used_percent"] + "%";
-				document.getElementById("AccountTransformationLimit").innerHTML = response["transformations"]["limit"];
-
-				document.getElementById("AccountObjectsUsage").innerHTML = response["objects"]["usage"];
-				document.getElementById("AccountObjectsPercent").innerHTML = response["objects"]["used_percent"] + "%";
-				document.getElementById("AccountObjectsProgressBar").style.width = response["objects"]["used_percent"] + "%";
-				document.getElementById("AccountObjectsUsageLimit").innerHTML = response["objects"]["limit"];
-
-				document.getElementById("AccountBandwidthUsage").innerHTML = (response["bandwidth"]["usage"] / 1000000000).toFixed(2) + " GB";
-				document.getElementById("AccountBandwidthPercent").innerHTML = response["bandwidth"]["used_percent"] + "%";
-				document.getElementById("AccountBandwidthProgressBar").style.width = response["bandwidth"]["used_percent"] + "%";
-				document.getElementById("AccountBandwidthLimit").innerHTML = (response["bandwidth"]["limit"] / 1000000000).toFixed(2) + " GB";
-
-				document.getElementById("AccountStorageUsage").innerHTML = (response["storage"]["usage"] / 1000000000).toFixed(2) + " GB";
-				document.getElementById("AccountStoragePercent").innerHTML = response["storage"]["used_percent"] + "%";
-				document.getElementById("AccountStorageProgressBar").style.width = response["storage"]["used_percent"] + "%";
-				document.getElementById("AccountStorageLimit").innerHTML = (response["storage"]["limit"] / 1000000000).toFixed(2) + " GB";
-
-				document.getElementById("AccountImageMaxSize").innerHTML = response["media_limits"]["image_max_size_bytes"];
-				document.getElementById("AccountVideoMaxSize").innerHTML = response["media_limits"]["video_max_size_bytes"];
-				document.getElementById("AccountRawMaxSize").innerHTML = response["media_limits"]["raw_max_size_bytes"];
-				document.getElementById("AccountImageMaxPx").innerHTML = response["media_limits"]["image_max_px"];
-				document.getElementById("AccountAssetMaxTotalPx").innerHTML = response["media_limits"]["asset_max_total_px"];
-
-				background.Show();
-				document.getElementById("Account").classList.add("appear");
-			});
-		}
+		if (this.IsVisible)
+			this.Hide();
+		else
+			this.Show();
 	}
 
 	UpdatePassword(e) {
 		e.preventDefault();
-		if (this.PasswordOne.value == "" || this.PasswordTwo.value == "") {
+		if (this.PasswordOne.value || this.PasswordTwo.value) {
 			this.ErrorMSG.style.color = "red";
 			this.ErrorMSG.innerHTML = "Veuillez remplir les champs";
 			this.ErrorMSG.style.display = "block";
@@ -93,4 +102,4 @@ class Account {
 	}
 }
 
-const account = new Account();
+const _account = new Account();

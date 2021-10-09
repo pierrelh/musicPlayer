@@ -4,35 +4,35 @@ document.onkeydown = function(event) {
 		switch (event.key) {
 
 			case " ": // Spacebar is pressed -> play/pause audio
-				reader.TogglePlayPauseButton();
+				_playPause.Toggle();
 				break;
 
 			case "a": // A is pressed -> toggle account section
-				account.Toggle();
+				_account.Toggle();
 				break;
 
 			case "c": // C is pressed -> toggle create playlist
-				addLayouts.ToggleVisibility();
+				_addLayouts.Toggle();
 				break;
 
 			case "d": // D is pressed -> toggle delete
-				deleteLayouts.ToggleVisibility();
+				_deleteLayouts.Toggle();
 				break;
 
 			case "e": // E is pressed -> toggle edit
-				editLayouts.ToggleVisibility();
+				_editLayouts.Toggle();
 				break;
 
 			case "h": // H is pressed -> toggle help section
-				help.Toggle();
+				_help.Toggle();
 				break;
 
 			case "l": // L is pressed -> toggle loop
-				reader.ToggleLoop();
+				_loop.Toggle();
 				break;
 
 			case "m": // M is pressed -> toggle mute
-				reader.ToggleMute();
+				_mute.Toggle();
 				break;
 
 			case "n": // N is pressed -> play next music
@@ -44,35 +44,35 @@ document.onkeydown = function(event) {
 				break;
 
 			case "r": // R is pressed -> toggle random
-				reader.ToggleRandom();
+				_random.Toggle();
 				break;
 
 			case "s": // S is pressed -> toggle sidebar
-				sidebar.ToggleVisibility();
+				_sidebar.Toggle();
 				break;
 
 			case "u": // U is pressed -> toggle upload section
-				uploadSection.Toggle();
+				_uploadSection.Toggle();
 				break;
 
 			case "z": // Z is pressed -> toggle playlists section
-				playlistSection.ToggleVisibility();
+				_playlistSection.Toggle();
 				break;
 
 			case "ArrowLeft": // ArrowLeft is pressed -> -10s on audio
-				reader.SeekBackward();
+				_progress.Backward();
 				break;
 
 			case "ArrowRight": // ArrowRight is pressed -> +10s on audio
-				reader.SeekForward();
+				_progress.Forward();
 				break;
 
 			case "ArrowUp": // ArrowUp is pressed -> +10% on volume
-				reader.IncreaseVolume();
+				_volume.Increase();
 				break;
 
 			case "ArrowDown": // ArrowDown is pressed -> -10% on volume
-				reader.DicreaseVolume();
+				_volume.Dicrease();
 				break;
 		}
 	}
