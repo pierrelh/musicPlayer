@@ -55,9 +55,9 @@ class Player {
 	PlayMusic(music) {
 		_musicName.Change(music.Artist + " - " + music.Title);
 		this.Element.src = music.URL;
-		library.Reduce;
-		playlistSection.Reduce;
-		_audioPlayer.Show;
+		library.Reduce();
+		playlistSection.Reduce();
+		_audioPlayer.Show();
 		_mediaSession.SetData(music);
 		music.SetPlayed();
 	}
