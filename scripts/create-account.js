@@ -9,10 +9,10 @@ class CreateAccount {
 		this.ErrorMSG			= document.getElementById("errorMsgCreateAccount");
 
 		// Handle click on CrossAccount button of Account section
-		this.Cross.addEventListener("click", evt => this.Hide());
+		this.Cross.addEventListener("click", evt => this.Hide(), false);
 
 		// Handle click on CrossAccount button of Account section
-		this.CreataAccountBTN.addEventListener("click", evt => this.CreateAccount(evt));
+		this.CreataAccountBTN.addEventListener("click", evt => this.CreateAccount(evt), false);
 	}
 
 	CreateAccount(e) {

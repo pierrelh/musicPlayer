@@ -7,8 +7,8 @@ class Account {
 		this.PasswordTwo		= document.getElementById("NewPasswordTwo");
 		this.ErrorMSG			= document.getElementById("errorMsgEditPassword");
 
-		this.Cross.addEventListener("click", evt => this.Toggle());
-		this.UpdatePasswordBtn.addEventListener("click", evt => this.UpdatePassword(evt));
+		this.Cross.addEventListener("click", evt => this.Toggle(), false);
+		this.UpdatePasswordBtn.addEventListener("click", evt => this.UpdatePassword(evt), false);
 	}
 
 	// Toggle account section's visibility 

@@ -6,10 +6,10 @@ class Filters {
 		this.FilterName		= document.getElementById("FilterName");
 		this.Order			= "ASC";
 
-		this.FilterArtist.addEventListener("click", evt => this.ByArtist());
-		this.FilterAlbum.addEventListener("click", evt => this.ByAlbum());
-		this.FilterId.addEventListener("click", evt => this.ByID());
-		this.FilterName.addEventListener("click", evt => this.ByName());
+		this.FilterArtist.addEventListener("click", evt => this.ByArtist(), false);
+		this.FilterAlbum.addEventListener("click", evt => this.ByAlbum(), false);
+		this.FilterId.addEventListener("click", evt => this.ByID(), false);
+		this.FilterName.addEventListener("click", evt => this.ByName(), false);
 
 	}
 

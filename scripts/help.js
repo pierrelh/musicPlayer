@@ -3,7 +3,7 @@ class Help {
 		this.Element	= document.getElementById("Help");
 		this.Cross		= document.getElementById("CrossHelp");
 
-		this.Cross.addEventListener("click", evt => this.Toggle());
+		this.Cross.addEventListener("click", evt => this.Toggle(), false);
 	}
 
 	Toggle() {

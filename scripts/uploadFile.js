@@ -5,8 +5,8 @@ class UploadSection {
 		this.UploadBTN	= document.getElementById("UploadButton")
 		this.ErrorMSG	= document.getElementById("ErrorMsgUpload")
 
-		this.Cross.addEventListener("click", evt => this.Toggle());
-		this.UploadBTN.addEventListener("click", evt => this.UploadFiles(evt));
+		this.Cross.addEventListener("click", evt => this.Toggle(), false);
+		this.UploadBTN.addEventListener("click", evt => this.UploadFiles(evt), false);
 	}
 
 	// Toggle upload section
@@ -100,7 +100,7 @@ class UploadSection {
 				var progress = Math.round((e.loaded * 100.0) / e.total);
 				document.getElementById(barId).style.width = progress + "%";
 				document.getElementById(txtId).innerHTML = progress + "%";
-			});
+			}, false);
 
 			xhr.onerror = () => reject("false");
 			xhr.onreadystatechange = function () {

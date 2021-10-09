@@ -48,10 +48,10 @@ class DeleteSection {
 		this.Music		= undefined;
 
 		// Handle click on No button of Delete section
-		this.No.addEventListener("click", evt => this.Hide());
+		this.No.addEventListener("click", evt => this.Hide(), false);
 
 		// Handle click on Yes button of Delete section
-		this.Yes.addEventListener("click", evt => this.DeleteMusic());
+		this.Yes.addEventListener("click", evt => this.DeleteMusic(), false);
 	}
 
 	DeleteMusic() {

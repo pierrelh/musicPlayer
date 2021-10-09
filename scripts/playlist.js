@@ -24,7 +24,7 @@ class AddLayouts {
 		delete this.MusicsToAdd[music.MusicID];
 		music.Element.children[0].classList.remove("check");
 		music.Element.children[0].classList.add("add");
-		music.Element.children[0].addEventListener("click", evt => this.AddToPlaylist(music));
+		music.Element.children[0].addEventListener("click", evt => this.AddToPlaylist(music), false);
 	}
 
 	CreateAll() {

@@ -40,12 +40,12 @@ class Player {
 		this.Element		= document.getElementById("MusicPlayer");
 		this.PlayedMusic	= undefined;
 
-		this.Element.addEventListener("loadedmetadata", evt => this.Load);
-		this.Element.addEventListener("timeupdate", evt => _progress.Update);
-		this.Element.addEventListener("volumechange", evt => _volume.Change);
-		this.Element.addEventListener("pause", evt => this.TogglePlayPause);
-		this.Element.addEventListener("play", evt => this.TogglePlayPause);
-		this.Element.addEventListener("ended", evt => this.Ended);
+		this.Element.addEventListener("loadedmetadata", evt => this.Load(), false);
+		this.Element.addEventListener("timeupdate", evt => _progress.Update(), false);
+		this.Element.addEventListener("volumechange", evt => _volume.Change(), false);
+		this.Element.addEventListener("pause", evt => this.TogglePlayPause(), false);
+		this.Element.addEventListener("play", evt => this.TogglePlayPause(), false);
+		this.Element.addEventListener("ended", evt => this.Ended(), false);
 	}
 
 	// Stop the music player
@@ -89,7 +89,7 @@ class Loop {
 		this.IMG	= document.getElementById("LoopIMG");
 		this.Type	= "all";
 
-		this.Button.addEventListener("click", evt => this.Toggle);
+		this.Button.addEventListener("click", evt => this.Toggle(), false);
 	}
 
 	Toggle() {
@@ -123,7 +123,7 @@ class Previous {
 		this.Button = document.getElementById("Previous");
 		this.IMG	= document.getElementById("PreviousIMG");
 
-		this.Button.addEventListener("click", evt => this.PlayPreviousMusic);
+		this.Button.addEventListener("click", evt => this.PlayPreviousMusic(), false);
 	}
 
 	PlayPreviousMusic() {
@@ -153,7 +153,7 @@ class PlayPause {
 		this.Button	= document.getElementById("PlayPause");
 		this.IMG	= document.getElementById("PlayPauseIMG");
 
-		this.Button.addEventListener("click", evt => this.Toggle());
+		this.Button.addEventListener("click", evt => this.Toggle(), false);
 	}
 
 	Toggle() {
@@ -170,7 +170,7 @@ class Next {
 		this.Button = document.getElementById("Next");
 		this.IMG	= document.getElementById("NextIMG");
 
-		this.Button.addEventListener("click", evt => this.PlayNextMusic);
+		this.Button.addEventListener("click", evt => this.PlayNextMusic(), false);
 	}
 
 	PlayNextMusic(notSkiped = false) {
@@ -206,7 +206,7 @@ class CurrentTime {
 class Progress {
 	constructor() {		
 		this.Element = document.getElementById("ProgressBar");
-		this.Element.addEventListener("input", evt => this.Change);
+		this.Element.addEventListener("input", evt => this.Change(), false);
 	}
 
 	// Set Time to the right format
@@ -264,7 +264,7 @@ class Random {
 		this.IMG		= document.getElementById("RandomIMG");
 		this.IsRandom	= false;
 
-		this.Button.addEventListener("click", evt => this.Toggle);
+		this.Button.addEventListener("click", evt => this.Toggle(), false);
 	}
 
 	// Handle the Random button actions
@@ -288,7 +288,7 @@ class Mute {
 		this.IMG	= document.getElementById("MuteIMG");
 		this.IsMute	= false;
 
-		this.Button.addEventListener("click", evt => this.Toggle);
+		this.Button.addEventListener("click", evt => this.Toggle(), false);
 	}
 
 	Toggle() {
@@ -311,7 +311,7 @@ class Volume {
 		this.Element	= document.getElementById("Volume");
 		this.Level		= 0;
 		
-		this.Element.addEventListener("input", evt => this.Change())
+		this.Element.addEventListener("input", evt => this.Change(), false)
 	}
 
 	Change() {

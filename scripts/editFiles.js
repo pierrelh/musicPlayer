@@ -44,9 +44,9 @@ class EditSection {
 		this.Music		= undefined;
 		this.EditBTN	= document.getElementById("EditButton");
 
-		this.Cross.addEventListener("click", evt => this.Hide());
-		this.EditBTN.addEventListener("click", evt => this.Edit(evt));
-		this.CoverEdit.addEventListener("change", evt => this.ReadURL());
+		this.Cross.addEventListener("click", evt => this.Hide(), false);
+		this.EditBTN.addEventListener("click", evt => this.Edit(evt), false);
+		this.CoverEdit.addEventListener("change", evt => this.ReadURL(), false);
 	}
 
 	// Dynamically read & print a new input's image
@@ -56,7 +56,7 @@ class EditSection {
 
 			fileReader.addEventListener("load", function(e) {
 				document.getElementById("Banner").style.backgroundImage = "url(" + e.target.result + ")"
-			});
+			}, false);
 
 			fileReader.readAsDataURL(this.CoverEdit.files[0]);
 		}
