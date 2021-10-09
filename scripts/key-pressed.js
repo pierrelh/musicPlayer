@@ -36,11 +36,11 @@ document.onkeydown = function(event) {
 				break;
 
 			case "n": // N is pressed -> play next music
-				reader.PlayNextMusic();
+				_next.Play();
 				break;
 
 			case "p": // P is pressed -> play last music
-				reader.PlayPreviousMusic();
+				_previous.Play();
 				break;
 
 			case "r": // R is pressed -> toggle random

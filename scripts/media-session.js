@@ -11,8 +11,8 @@ class MediaSession {
 			this.Element.setActionHandler('seekbackward', evt => reader.SeekBackward());
 			this.Element.setActionHandler('seekforward', evt => reader.SeekForward());
 			this.Element.setActionHandler('seekto',	evt => reader.SeekTo());
-			this.Element.setActionHandler('previoustrack', evt => reader.PlayPreviousMusic());
-			this.Element.setActionHandler('nexttrack',	evt => reader.PlayNextMusic());
+			this.Element.setActionHandler('previoustrack', evt => _previous.Play());
+			this.Element.setActionHandler('nexttrack',	evt => _next.Play());
 		}
 	}
 

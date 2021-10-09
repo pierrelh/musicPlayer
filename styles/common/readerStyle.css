@@ -31,6 +31,12 @@
 	line-height: 12vh;
 }
 
+#Controls > button {
+	background: none;
+	border: none;
+	padding: 0;
+}
+
 .reader-buttons {
 	position: relative;
 	cursor: pointer;

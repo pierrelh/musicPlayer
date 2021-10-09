@@ -54,7 +54,7 @@ class Player {
 		this.Element.currentTime = 0;
 	}
 
-	PlayMusic(music) {
+	Play(music) {
 		_musicName.Change(music.Artist + " - " + music.Title);
 		this.Element.src = music.URL;
 		library.Reduce();
@@ -73,12 +73,12 @@ class Player {
 
 	Ended() {
 		if (this.Element.src != "")
-			this.PlayNextMusic();
+			_next.Play();
 	}
 
 	Load() {
 		_progress.Element.max = this.Element.duration;
-		_currentTime.innerHTML = this.FormatTime(this.Player.duration);
+		_currentTime.innerHTML = this.FormatTime(this.Element.duration);
 	}
 }
 
@@ -123,10 +123,10 @@ class Previous {
 		this.Button = document.getElementById("Previous");
 		this.IMG	= document.getElementById("PreviousIMG");
 
-		this.Button.addEventListener("click", evt => this.PlayPreviousMusic(), false);
+		this.Button.addEventListener("click", evt => this.Play(), false);
 	}
 
-	PlayPreviousMusic() {
+	Play() {
 		let usedPlaylist;
 		if (_randomButton.IsRandom)
 			usedPlaylist = library.MusicsRandomPlaylist.slice();
@@ -134,15 +134,15 @@ class Previous {
 			usedPlaylist = library.MusicsPlaylist.slice();
 
 		let indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === _player.PlayedMusic.ID); // Getting the position of the current music in the playlist
-		if (this.Player.currentTime < 5) {
+		if (_player.Element.currentTime < 5) {
 			let indexOfNextMusic = 0;
 			if (indexOfCurrentMusic != 0)
 				indexOfNextMusic = indexOfCurrentMusic - 1;
 			// Play the previous music
-			_player.PlayMusic(usedPlaylist[indexOfNextMusic]);
+			_player.Play(usedPlaylist[indexOfNextMusic]);
 		} else {
 			// Rollback the current music
-			_player.PlayMusic(usedPlaylist[indexOfCurrentMusic]);
+			_player.Play(usedPlaylist[indexOfCurrentMusic]);
 		}
 	}
 }
@@ -170,16 +170,16 @@ class Next {
 		this.Button = document.getElementById("Next");
 		this.IMG	= document.getElementById("NextIMG");
 
-		this.Button.addEventListener("click", evt => this.PlayNextMusic(), false);
+		this.Button.addEventListener("click", evt => this.Play(), false);
 	}
 
-	PlayNextMusic(notSkiped = false) {
+	Play(notSkiped = false) {
 		// Check if the reader should loop on the same music or not
 		if (notSkiped && this.LoopType == "one") {
-			_player.PlayMusic(_player.PlayedMusic); // Replay the current music
+			_player.Play(_player.PlayedMusic); // Replay the current music
 		} else {
 			let usedPlaylist;
-			if (this.IsRandom)
+			if (_random.IsRandom)
 				usedPlaylist = library.MusicsRandomPlaylist.slice();
 			else
 				usedPlaylist = library.MusicsPlaylist.slice();
@@ -190,7 +190,7 @@ class Next {
 				return;
 			else if (indexOfCurrentMusic != (usedPlaylist.length) - 1)
 				indexOfNextMusic = indexOfCurrentMusic + 1;
-			_player.PlayMusic(usedPlaylist[indexOfNextMusic]);
+			_player.Play(usedPlaylist[indexOfNextMusic]);
 		}
 	}
 }
@@ -219,7 +219,7 @@ class Progress {
 	Update() {
 		this.Element.value = _player.Element.currentTime;
 		_currentTime.innerHTML = this.FormatTime(_player.Element.currentTime);
-		let percent = (this.ProgressBar.value / (this.Element.max - this.Element.min)) * 100;
+		let percent = (this.Element.value / (this.Element.max - this.Element.min)) * 100;
 		this.Element.style.backgroundImage = 	"-webkit-gradient(linear, left top, right top, " +
 												"color-stop(" + percent + "%, #FFF), " +
 												"color-stop(" + percent + "%, rgb(50, 50, 50))" +
@@ -227,7 +227,7 @@ class Progress {
 	}
 
 	Change() {
-		_player.Element.currentTime = this.Player.duration / this.ProgressBar.max * this.ProgressBar.value;
+		_player.Element.currentTime = _player.Element.duration / this.Element.max * this.Element.value;
 	}
 
 	// Progress -10 secondes to the played music
@@ -269,15 +269,21 @@ class Random {
 
 	// Handle the Random button actions
 	Toggle() {
-		if (this.IsRandom) {
-			this.IsRandom = false;
-			this.IMG.src = server + "/img/no-random.png";
-		} else {
-			library.MusicsRandomPlaylist = library.MusicsPlaylist.slice();
-			library.ShuffleMusics(); // Creating the random playlist
-			this.IsRandom = true;
-			this.IMG.src = server + "/img/random.png";
-		}
+		if (this.IsRandom)
+			this.Disable();
+		else
+			this.Enable();
+	}
+
+	Enable() {
+		library.ShuffleMusics();
+		this.IsRandom = true;
+		this.IMG.src = server + "/img/random.png";
+	}
+
+	Disable() {
+		this.IsRandom = false;
+		this.IMG.src = server + "/img/no-random.png";
 	}
 }
 
@@ -292,16 +298,23 @@ class Mute {
 	}
 
 	Toggle() {
-		if (this.IsMute) {
-			this.Player.volume = this.Volume;
-			this.IMG.src = server + "/img/audio-on.png";
-			this.IsMute = false;
-		} else {
-			this.Volume = this.Player.volume;
-			this.Player.volume = 0;
-			this.IMG.src = server + "/img/audio-off.png";
-			this.IsMute = true;
-		}
+		if (this.IsMute)
+			this.Disable();
+		else
+			this.Enable();
+	}
+
+	Enable() {
+		_volume.Level = _player.Element.volume;
+		_player.Element.volume = 0;
+		this.IMG.src = server + "/img/audio-off.png";
+		this.IsMute = true;
+	}
+
+	Disable() {
+		_player.Element.volume = _volume.Level;
+		this.IMG.src = server + "/img/audio-on.png";
+		this.IsMute = false;
 	}
 }
 
@@ -318,7 +331,6 @@ class Volume {
 		_player.Element.volume = this.Element.value / 100;
 	}
 
-	// Remove 10% to the player's volume
 	Dicrease() {
 		if (_player.Element.volume <= 0.1)
 			_player.volume = 0;
@@ -326,7 +338,6 @@ class Volume {
 			_player.volume -= 0.1;
 	}
 
-	// Add 10% to the player's volume
 	Increase() {
 		if (_player.Element.volume >= 0.9)
 			_player.Element.volume = 1;
@@ -335,31 +346,31 @@ class Volume {
 	}
 
 	VolumeChange() {
-		if (this.Player.volume != 0)
-			_mute.src = server + "/img/audio-on.png";
+		if (_player.Element.volume != 0)
+			_mute.Element.src = server + "/img/audio-on.png";
 		else
-			this.Mute.src = server + "/img/audio-off.png";
+			_mute.Element.src = server + "/img/audio-off.png";
 	
-		let percent = this.Player.volume * 100;
-		this.VolumeBar.value = percent;
-		this.VolumeBar.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
+		let percent = _player.Element.volume * 100;
+		this.Element.value = percent;
+		this.Element.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
 												"color-stop(" + percent + "%, #FFF), " +
 												"color-stop(" + percent + "%, rgb(50, 50, 50))" +
 												")";
 	}
 
 }
-const _audioPlayer = new AudioPlayer;
-const _musicName = new MusicName;
-const _loop = new Loop;
-const _previous = new Previous;
-const _playPause = new PlayPause;
-const _next = new Next;
-const _currentTime = new CurrentTime;
-const _progress = new Progress;
-const _endTime = new EndTime;
-const _random = new Random;
-const _mute = new Mute;
-const _volume = new Volume;
-const _player = new Player;
-// const reader = new Reader();
+
+const _audioPlayer	= new AudioPlayer;
+const _musicName	= new MusicName;
+const _loop			= new Loop;
+const _previous		= new Previous;
+const _playPause	= new PlayPause;
+const _next			= new Next;
+const _currentTime	= new CurrentTime;
+const _progress		= new Progress;
+const _endTime		= new EndTime;
+const _random		= new Random;
+const _mute			= new Mute;
+const _volume		= new Volume;
+const _player		= new Player;
