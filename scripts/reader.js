@@ -4,6 +4,7 @@ class Reader {
 		this.Start			= document.getElementById("Start");
 		this.Player 		= document.getElementById("MusicPlayer");
 		this.PlaylistBtn	= document.getElementById("PlaylistBtn");
+		this.ReaderPlaylist	= document.getElementById("PlaylistReader");
 		this.Loop			= document.getElementById("Loop");
 		this.LoopType		= "all"
 		this.PlayPause		= document.getElementById("PlayPause");
@@ -190,22 +191,22 @@ class Reader {
 		switch (this.LoopType) {
 			case "one": // Setting loop to none
 				this.LoopType = "none";
-				this.Loop.src = "../../img/no-loop.png";
+				this.Loop.src = server + "/img/no-loop.png";
 				break;
 
 			case "all": // Setting loop to one
 				this.LoopType = "one";
-				this.Loop.src = "../../img/loop-one.png";
+				this.Loop.src = server + "/img/loop-one.png";
 				break;
 
 			case "none": // Setting loop to all
 				this.LoopType = "all";
-				this.Loop.src = "../../img/loop.png";
+				this.Loop.src = server + "/img/loop.png";
 				break;
 
 			default: // Default: Setting loop to all
 				this.LoopType = "all";
-				this.Loop.src = "../../img/loop.png";
+				this.Loop.src = server + "/img/loop.png";
 				break;
 		}
 	}
@@ -214,29 +215,29 @@ class Reader {
 	ToggleMute() {
 		if (this.IsMute) {
 			this.Player.volume = this.Volume;
-			this.Mute.src = "../../img/audio-on.png";
+			this.Mute.src = server + "/img/audio-on.png";
 			this.IsMute = false;
 		} else {
 			this.Volume = this.Player.volume;
 			this.Player.volume = 0;
-			this.Mute.src = "../../img/audio-off.png";
+			this.Mute.src = server + "/img/audio-off.png";
 			this.IsMute = true;
 		}
 	}
 
 	// Toggle playlist reader section
 	TogglePlaylist() {
-		if (this.PlaylistBtn.classList.contains("show-playlist-reader"))
-			this.PlaylistBtn.classList.remove("show-playlist-reader");
+		if (this.ReaderPlaylist.classList.contains("show-playlist-reader"))
+			this.ReaderPlaylist.classList.remove("show-playlist-reader");
 		else
-			this.PlaylistBtn.classList.add("show-playlist-reader");
+			this.ReaderPlaylist.classList.add("show-playlist-reader");
 	}
 
 	TogglePlayPause() {
 		if (this.Player.paused)
 			this.PlayPause.src = server + "/img/play.png";
 		else
-			this.PlayPause.src = "../../img/pause.png";
+			this.PlayPause.src = server + "/img/pause.png";
 	}
 
 	TogglePlayPauseButton() {
@@ -250,12 +251,12 @@ class Reader {
 	ToggleRandom() {
 		if (this.IsRandom) {
 			this.IsRandom = false;
-			this.Random.src = "../../img/no-random.png";
+			this.Random.src = server + "/img/no-random.png";
 		} else {
 			library.MusicsRandomPlaylist = library.MusicsPlaylist.slice();
 			library.ShuffleMusics(); // Creating the random playlist
 			this.IsRandom = true;
-			this.Random.src = "../../img/random.png";
+			this.Random.src = server + "/img/random.png";
 		}
 	}
 
@@ -265,9 +266,9 @@ class Reader {
 
 	VolumeChange() {
 		if (this.Player.volume != 0)
-			this.Mute.src = "../../img/audio-on.png";
+			this.Mute.src = server + "/img/audio-on.png";
 		else
-			this.Mute.src = "../../img/audio-off.png";
+			this.Mute.src = server + "/img/audio-off.png";
 
 		var percent = this.Player.volume * 100;
 		this.VolumeBar.value = percent;
