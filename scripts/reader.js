@@ -54,14 +54,14 @@ class Player {
 	}
 
 	Play(music) {
-		_musicName.Change(music.Artist + " - " + music.Title);
 		this.PlayedMusic = music;
-		this.Element.src = music.URL;
+		_musicName.Change(this.PlayedMusic.Artist + " - " + this.PlayedMusic.Title);
+		this.Element.src = this.PlayedMusic.URL;
 		_library.Reduce();
 		_playlistSection.Reduce();
 		_audioPlayer.Show();
-		_mediaSession.SetData(music);
-		music.SetPlayed();
+		_mediaSession.SetData(this.PlayedMusic);
+		this.PlayedMusic.SetPlayed();
 	}
 
 	TogglePlayPause() {
@@ -73,7 +73,7 @@ class Player {
 
 	Ended() {
 		if (this.Element.src != "")
-			_next.Play();
+			_next.Play(true);
 	}
 
 	Load() {
@@ -94,22 +94,18 @@ class Loop {
 
 	Toggle() {
 		switch (this.Type) {
-			case "one": // Setting loop to none
+			case "one":
 				this.Type = "none";
 				this.IMG.src = server + "/img/no-loop.png";
 				break;
 
-			case "all": // Setting loop to one
+			case "all":
 				this.Type = "one";
 				this.IMG.src = server + "/img/loop-one.png";
 				break;
 
-			case "none": // Setting loop to all
-				this.Type = "all";
-				this.IMG.src = server + "/img/loop.png";
-				break;
-
-			default: // Default: Setting loop to all
+			case "none":
+			default:
 				this.Type = "all";
 				this.IMG.src = server + "/img/loop.png";
 				break;
@@ -173,15 +169,15 @@ class Next {
 		if (notSkiped && _loop.Type == "one") {
 			_player.Play(_player.PlayedMusic);
 		} else {
-			let usedPlaylist = _library.GetPlaylist();
-
-			let indexOfNextMusic = 0;
-			let indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === _player.PlayedMusic.ID); // Getting the position of the current music in the playlist
-			if (indexOfCurrentMusic == (usedPlaylist.length) - 1 && _loop.Type == "none")
+			let playlist = _library.GetPlaylist();
+			console.log(playlist);
+			let nextMusic = 0;
+			let currentMusic = playlist.findIndex(x => x.ID === _player.PlayedMusic.ID); // Getting the position of the current music in the playlist
+			if (currentMusic == (playlist.length) - 1 && _loop.Type == "none")
 				return;
-			else if (indexOfCurrentMusic != (usedPlaylist.length) - 1)
-				indexOfNextMusic = indexOfCurrentMusic + 1;
-			_player.Play(usedPlaylist[indexOfNextMusic]);
+			else if (currentMusic != (playlist.length) - 1)
+				nextMusic = currentMusic + 1;
+			_player.Play(playlist[nextMusic]);
 		}
 	}
 }

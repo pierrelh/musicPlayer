@@ -21,9 +21,6 @@ class Library {
 	}
 
 	GetFiles(row = "file_id", type = "DESC") {
-		if (typeof _playlistSection !== "undefined") {
-			_playlistSection.Hide();
-		}
 		let self = this;
 		$.ajax({
 			url: server + "/functions/files/getAllFiles.php",
