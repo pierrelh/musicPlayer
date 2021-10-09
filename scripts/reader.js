@@ -43,6 +43,8 @@ class Player {
 		this.Element.addEventListener("loadedmetadata", evt => this.Load);
 		this.Element.addEventListener("timeupdate", evt => _progress.Update);
 		this.Element.addEventListener("volumechange", evt => _volume.Change);
+		this.Element.addEventListener("pause", evt => this.TogglePlayPause);
+		this.Element.addEventListener("play", evt => this.TogglePlayPause);
 		this.Element.addEventListener("ended", evt => this.Ended);
 	}
 
