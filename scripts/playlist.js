@@ -7,9 +7,9 @@ class AddLayouts {
 
 	ToggleVisibility() {
 		if (this.IsActive)
-			this.RemoveAll();
+			this.RemoveAll;
 		else
-			this.CreateAll();
+			this.CreateAll;
 	}
 
 	AddToPlaylist(music) {
@@ -29,9 +29,9 @@ class AddLayouts {
 
 	CreateAll() {
 		if (editLayouts.IsActive)
-			editLayouts.RemoveAll();
+			editLayouts.RemoveAll;
 		if (deleteLayouts.IsActive)
-			deleteLayouts.RemoveAll();
+			deleteLayouts.RemoveAll;
 
 		for (let index = 0; index < library.MusicsPlaylist.length; index++) {
 			let editLayout = new Layout({
@@ -81,7 +81,7 @@ class AddLayouts {
 	}
 }
 
-const addLayouts = new AddLayouts();
+const addLayouts = new AddLayouts;
 
 class PlaylistSection {
 	constructor() {
@@ -93,16 +93,15 @@ class PlaylistSection {
 	// Toggle the playlist section's visibility
 	ToggleVisibility() {
 		if (this.IsVisible)
-			this.Hide();
+			this.Hide;
 		else
-			this.Show();
+			this.Show;
 	}
 
 	// Hide the playlist section
 	Hide() {
-		if (this.Element.classList.contains("playlist-div-show")) {
+		if (this.Element.classList.contains("playlist-div-show"))
 			this.Element.classList.remove("playlist-div-show");
-		}
 		this.IsVisible = false;
 	}
 
@@ -184,7 +183,7 @@ class PlaylistSection {
 						"playlistName": playlistName
 					},
 					success: function() {
-						addLayouts.RemoveAll();
+						addLayouts.RemoveAll;
 					}
 				});
 			} else {
@@ -198,4 +197,4 @@ class PlaylistSection {
 	}
 }
 
-const playlistSection = new PlaylistSection();
+const playlistSection = new PlaylistSection;

@@ -92,6 +92,19 @@
 // 	}
 // }
 
+const _musicName = new MusicName;
+const _player = new Player;
+const _loopButton = new LoopButton;
+const _previousButton = new PreviousButton;
+const _playPauseButton = new PlayPauseButton;
+const _nextButton = new NextButton;
+const _startTime = new StartTime;
+const _audioBar = new AudioBar;
+const _endTime = new EndTime;
+const _randomButton = new RandomButton;
+const _muteButton = new MuteButton;
+const _volumeBar = new VolumeBar;
+
 class MusicName {
 	constructor() {
 		this.Element	= document.getElementById("MusicName");
@@ -102,7 +115,6 @@ class MusicName {
 	}
 }
 
-const _musicName = new MusicName;
 
 class Player {
 	constructor() {
@@ -145,7 +157,6 @@ class Player {
 	}
 }
 
-const _player = new Player;
 
 class LoopButton {
 	constructor() {
@@ -181,7 +192,6 @@ class LoopButton {
 	}
 }
 
-const _loopButton = new LoopButton;
 
 class PreviousButton {
 	constructor() {
@@ -212,7 +222,6 @@ class PreviousButton {
 	}
 }
 
-const _previousButton = new PreviousButton;
 
 class PlayPauseButton {
 	constructor() {
@@ -230,7 +239,6 @@ class PlayPauseButton {
 	}
 }
 
-const _playPauseButton = new PlayPauseButton;
 
 class NextButton {
 	constructor() {
@@ -262,7 +270,6 @@ class NextButton {
 	}
 }
 
-const _nextButton = new NextButton;
 
 class StartTime {
 	constructor() {
@@ -270,7 +277,6 @@ class StartTime {
 	}
 }
 
-const _startTime = new StartTime;
 
 class AudioBar {
 	constructor() {		
@@ -284,7 +290,6 @@ class AudioBar {
 
 }
 
-const _audioBar = new AudioBar;
 
 class EndTime {
 	constructor() {
@@ -292,7 +297,6 @@ class EndTime {
 	}
 }
 
-const _endTime = new EndTime;
 
 class RandomButton {
 	constructor() {
@@ -317,7 +321,6 @@ class RandomButton {
 	}
 }
 
-const _randomButton = new RandomButton;
 
 class MuteButton {
 	constructor() {
@@ -342,7 +345,6 @@ class MuteButton {
 	}
 }
 
-const _muteButton = new MuteButton;
 
 class VolumeBar {
 	constructor() {
@@ -356,6 +358,5 @@ class VolumeBar {
 
 }
 
-const _volumeBar = new VolumeBar;
 
 // const reader = new Reader();
