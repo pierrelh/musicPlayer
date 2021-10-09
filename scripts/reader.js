@@ -222,9 +222,9 @@ class PlayPauseButton {
 	Toggle() {
 		console.log("HI");
 		if (_player.Element.paused)
-			_player.play();
+			_player.Element.play();
 		else
-			_player.pause();
+			_player.Element.pause();
 	}
 }
 
