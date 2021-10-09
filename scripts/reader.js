@@ -92,18 +92,6 @@
 // 	}
 // }
 
-const _musicName = new MusicName;
-const _player = new Player;
-const _loopButton = new LoopButton;
-const _previousButton = new PreviousButton;
-const _playPauseButton = new PlayPauseButton;
-const _nextButton = new NextButton;
-const _startTime = new StartTime;
-const _audioBar = new AudioBar;
-const _endTime = new EndTime;
-const _randomButton = new RandomButton;
-const _muteButton = new MuteButton;
-const _volumeBar = new VolumeBar;
 
 class MusicName {
 	constructor() {
@@ -358,5 +346,16 @@ class VolumeBar {
 
 }
 
-
+const _musicName = new MusicName;
+const _player = new Player;
+const _loopButton = new LoopButton;
+const _previousButton = new PreviousButton;
+const _playPauseButton = new PlayPauseButton;
+const _nextButton = new NextButton;
+const _startTime = new StartTime;
+const _audioBar = new AudioBar;
+const _endTime = new EndTime;
+const _randomButton = new RandomButton;
+const _muteButton = new MuteButton;
+const _volumeBar = new VolumeBar;
 // const reader = new Reader();
