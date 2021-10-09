@@ -1,96 +1,96 @@
-class Reader {
-	constructor() {
-		// this.PlaylistBtn	= document.getElementById("PlaylistBtn");
-		// this.ReaderPlaylist	= document.getElementById("PlaylistReader");
-		this.Previous		= document.getElementById("Previous");
-		this.PlayedMusic	= undefined;
+// class Reader {
+// 	constructor() {
+// 		// this.PlaylistBtn	= document.getElementById("PlaylistBtn");
+// 		// this.ReaderPlaylist	= document.getElementById("PlaylistReader");
+// 		this.Previous		= document.getElementById("Previous");
+// 		this.PlayedMusic	= undefined;
 
-		this.Mute.addEventListener("click", evt => this.ToggleMute());
-		this.VolumeBar.addEventListener("input", evt => this.VolumeBarChange())
-		this.PlaylistBtn.addEventListener("click", evt => this.TogglePlaylist());
-	}
+// 		this.Mute.addEventListener("click", evt => this.ToggleMute());
+// 		this.VolumeBar.addEventListener("input", evt => this.VolumeBarChange())
+// 		this.PlaylistBtn.addEventListener("click", evt => this.TogglePlaylist());
+// 	}
 
-	// Remove 10% to the player's volume
-	DicreaseVolume() {
-		if (this.Player.volume <= 0.1)
-			this.Player.volume = 0;
-		else
-			this.Player.volume -= 0.1;
-	}
+// 	// Remove 10% to the player's volume
+// 	DicreaseVolume() {
+// 		if (this.Player.volume <= 0.1)
+// 			this.Player.volume = 0;
+// 		else
+// 			this.Player.volume -= 0.1;
+// 	}
 
-	// Add 10% to the player's volume
-	IncreaseVolume() {
-		if (this.Player.volume >= 0.9)
-			this.Player.volume = 1;
-		else
-			this.Player.volume += 0.1;
-	}
+// 	// Add 10% to the player's volume
+// 	IncreaseVolume() {
+// 		if (this.Player.volume >= 0.9)
+// 			this.Player.volume = 1;
+// 		else
+// 			this.Player.volume += 0.1;
+// 	}
 
-	// Progress -10 secondes to the played music
-	SeekBackward() {
-		this.Player.currentTime -= 10;
-	}
+// 	// Progress -10 secondes to the played music
+// 	SeekBackward() {
+// 		this.Player.currentTime -= 10;
+// 	}
 
-	// Progress +10 secondes to the played music
-	SeekForward() {
-		this.Player.currentTime += 10;
-	}
+// 	// Progress +10 secondes to the played music
+// 	SeekForward() {
+// 		this.Player.currentTime += 10;
+// 	}
 
-	// Seek the music player to the wanted second
-	SeekTo(data) {
-		if (data.fastSeek) {
-			startSeeking();
-		} else {
-			stopSeeking();
-			this.Player.currentTime = data.seekTime;
-		}
-	}
+// 	// Seek the music player to the wanted second
+// 	SeekTo(data) {
+// 		if (data.fastSeek) {
+// 			startSeeking();
+// 		} else {
+// 			stopSeeking();
+// 			this.Player.currentTime = data.seekTime;
+// 		}
+// 	}
 
-	// Stop the music player
-	StopMusic() {
-		this.Player.pause();
-		this.Player.currentTime = 0;
-	}
+// 	// Stop the music player
+// 	StopMusic() {
+// 		this.Player.pause();
+// 		this.Player.currentTime = 0;
+// 	}
 
-	// Set Time to the right format
-	FormatTime(t) {
-		let m = ~~(t / 60),
-		s = ~~(t % 60);
-		return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
-	}
+// 	// Set Time to the right format
+// 	FormatTime(t) {
+// 		let m = ~~(t / 60),
+// 		s = ~~(t % 60);
+// 		return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+// 	}
 
-	TimeUpdate() {
-		this.ProgressBar.value = this.Player.currentTime;
-		this.Start.innerHTML = this.FormatTime(this.Player.currentTime);
-		let percent = (this.ProgressBar.value / (this.ProgressBar.max - this.ProgressBar.min)) * 100;
-		this.ProgressBar.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
-													"color-stop(" + percent + "%, #FFF), " +
-													"color-stop(" + percent + "%, rgb(50, 50, 50))" +
-													")";
-	}
+// 	TimeUpdate() {
+// 		this.ProgressBar.value = this.Player.currentTime;
+// 		this.Start.innerHTML = this.FormatTime(this.Player.currentTime);
+// 		let percent = (this.ProgressBar.value / (this.ProgressBar.max - this.ProgressBar.min)) * 100;
+// 		this.ProgressBar.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
+// 													"color-stop(" + percent + "%, #FFF), " +
+// 													"color-stop(" + percent + "%, rgb(50, 50, 50))" +
+// 													")";
+// 	}
 
-	// Toggle playlist reader section
-	TogglePlaylist() {
-		if (this.ReaderPlaylist.classList.contains("show-playlist-reader"))
-			this.ReaderPlaylist.classList.remove("show-playlist-reader");
-		else
-			this.ReaderPlaylist.classList.add("show-playlist-reader");
-	}
+// 	// Toggle playlist reader section
+// 	TogglePlaylist() {
+// 		if (this.ReaderPlaylist.classList.contains("show-playlist-reader"))
+// 			this.ReaderPlaylist.classList.remove("show-playlist-reader");
+// 		else
+// 			this.ReaderPlaylist.classList.add("show-playlist-reader");
+// 	}
 
-	VolumeChange() {
-		if (this.Player.volume != 0)
-			this.Mute.src = server + "/img/audio-on.png";
-		else
-			this.Mute.src = server + "/img/audio-off.png";
+// 	VolumeChange() {
+// 		if (this.Player.volume != 0)
+// 			this.Mute.src = server + "/img/audio-on.png";
+// 		else
+// 			this.Mute.src = server + "/img/audio-off.png";
 
-		var percent = this.Player.volume * 100;
-		this.VolumeBar.value = percent;
-		this.VolumeBar.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
-												"color-stop(" + percent + "%, #FFF), " +
-												"color-stop(" + percent + "%, rgb(50, 50, 50))" +
-												")";
-	}
-}
+// 		var percent = this.Player.volume * 100;
+// 		this.VolumeBar.value = percent;
+// 		this.VolumeBar.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
+// 												"color-stop(" + percent + "%, #FFF), " +
+// 												"color-stop(" + percent + "%, rgb(50, 50, 50))" +
+// 												")";
+// 	}
+// }
 
 class MusicName {
 	constructor() {
