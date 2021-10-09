@@ -46,7 +46,7 @@ class Library {
 	}
 
 	Reduce() {
-		if (this.Element.classList.contains("library-reader-active"))
+		if (!this.Element.classList.contains("library-reader-active"))
 			this.Element.classList.add("library-reader-active");
 	}
 }

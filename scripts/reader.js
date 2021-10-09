@@ -170,7 +170,6 @@ class Next {
 			_player.Play(_player.PlayedMusic);
 		} else {
 			let playlist = _library.GetPlaylist();
-			console.log(playlist);
 			let nextMusic = 0;
 			let currentMusic = playlist.findIndex(x => x.ID === _player.PlayedMusic.ID); // Getting the position of the current music in the playlist
 			if (currentMusic == (playlist.length) - 1 && _loop.Type == "none")
