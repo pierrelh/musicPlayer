@@ -7,7 +7,9 @@
 <section id="AudioPlayer" class="left">
 	<p id="MusicName"></p>
 	<section id="Controls">
-		<img id="Loop" class="reader-buttons loop" src="<?php echo $link ?>/img/loop.png" alt="loop">
+		<button>
+			<img id="Loop" class="reader-buttons loop" src="<?php echo $link ?>/img/loop.png" alt="loop">
+		</button>
 		<img id="Previous" class='reader-buttons' src="<?php echo $link ?>/img/back.png" alt="">
 		<img id="PlayPause" class="reader-buttons play" src="<?php echo $link ?>/img/pause.png" alt="play">
 		<img id="Next" class='reader-buttons' src="<?php echo $link ?>/img/skip.png" alt="">
