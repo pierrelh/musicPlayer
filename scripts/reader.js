@@ -79,7 +79,7 @@ class Player {
 
 	Load() {
 		_progress.Element.max = this.Element.duration;
-		_currentTime.innerHTML = _progress.FormatTime(this.Element.duration);
+		_endTime.Set(_progress.FormatTime(this.Element.duration));
 	}
 }
 
@@ -129,7 +129,7 @@ class Previous {
 
 	Play() {
 		let usedPlaylist;
-		if (_randomButton.IsRandom)
+		if (_random.IsRandom)
 			usedPlaylist = library.MusicsRandomPlaylist.slice();
 		else
 			usedPlaylist = library.MusicsPlaylist.slice();
@@ -201,6 +201,10 @@ class CurrentTime {
 	constructor() {
 		this.Element = document.getElementById("CurrentTime");
 	}
+
+	Set(time) {
+		this.Element.innerHTML = time;
+	}
 }
 
 
@@ -219,7 +223,7 @@ class Progress {
 	
 	Update() {
 		this.Element.value = _player.Element.currentTime;
-		_currentTime.innerHTML = this.FormatTime(_player.Element.currentTime);
+		_currentTime.Set(this.FormatTime(_player.Element.currentTime));
 		let percent = (this.Element.value / (this.Element.max - this.Element.min)) * 100;
 		this.Element.style.backgroundImage = 	"-webkit-gradient(linear, left top, right top, " +
 												"color-stop(" + percent + "%, #FFF), " +
@@ -255,6 +259,10 @@ class Progress {
 class EndTime {
 	constructor() {
 		this.Element = document.getElementById("EndTime");
+	}
+
+	Set(time) {
+		this.Element.innerHTML = time;
 	}
 }
 
@@ -348,9 +356,9 @@ class Volume {
 
 	Update() {
 		if (_player.Element.volume != 0)
-			_mute.Element.src = server + "/img/audio-on.png";
+			_mute.IMG.src = server + "/img/audio-on.png";
 		else
-			_mute.Element.src = server + "/img/audio-off.png";
+			_mute.IMG.src = server + "/img/audio-off.png";
 	
 		let percent = _player.Element.volume * 100;
 		this.Element.value = percent;
