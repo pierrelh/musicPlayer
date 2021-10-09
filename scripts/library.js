@@ -21,7 +21,7 @@ class Library {
 	}
 
 	GetFiles(row = "file_id", type = "DESC") {
-		if (_playlistSection.IsVisible) {
+		if (typeof _playlistSection !== "undefined") {
 			_playlistSection.Hide();
 		}
 		let self = this;
