@@ -65,3 +65,4 @@
 		<input class="send-form" id="UploadButton" type="submit" value="ENVOYER">
 	</form>
 </section>
+<script type="text/javascript" src="<?php echo $link ?>/scripts/uploadFile.js?cachev=<?php echo $cacheVersion ?>"></script>

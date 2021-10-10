@@ -9,3 +9,4 @@
 		include_once($_SERVER['DOCUMENT_ROOT']."/assets/help.php");
 	?>
 </section>
+<script type="text/javascript" src="<?php echo $link ?>/scripts/background.js?cachev=<?php echo $cacheVersion ?>"></script>

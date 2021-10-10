@@ -43,3 +43,4 @@
 		</div>
 	</form>
 </section>
+<script type="text/javascript" src="<?php echo $link ?>/scripts/editFiles.js?cachev=<?php echo $cacheVersion ?>"></script>

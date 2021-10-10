@@ -5,3 +5,4 @@
 	<ul id="PlaylistReaderList">
 	</ul>
 </section>
+<script type="text/javascript" src="<?php echo $link ?>/scripts/playlist-reader.js?cachev=<?php echo $cacheVersion ?>"></script>

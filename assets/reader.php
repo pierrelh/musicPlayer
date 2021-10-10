@@ -20,3 +20,4 @@
 		<button	id="PlaylistBtn"><img class="reader-buttons playlist-button" src="<?php echo $link ?>/img/playlist.png" alt="playlist"></button>
 	</section>
 </section>
+<script type="text/javascript" src="<?php echo $link ?>/scripts/reader.js?cachev=<?php echo $cacheVersion ?>"></script>

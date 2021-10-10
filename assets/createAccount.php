@@ -28,3 +28,4 @@
 		<input class="send-form" id="CreateAccountButton" type="submit" value="Créer le compte">
 	</form>
 </section>
+<script type="text/javascript" src="<?php echo $link ?>/scripts/create-account.js?cachev=<?php echo $cacheVersion ?>"></script>
