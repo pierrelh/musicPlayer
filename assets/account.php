@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/accountStyle.css?cachev=<?php echo $cacheVersion ?>"">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/common/accountStyle.css?cachev=<?php echo $cacheVersion ?>">
 <section id="Account">
 	<img id="CrossAccount" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
 	<h2 class="form-title">Informations générales du compte</h2>

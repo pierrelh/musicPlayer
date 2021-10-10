@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/helpStyle.css?cachev=<?php echo $cacheVersion ?>"">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/common/helpStyle.css?cachev=<?php echo $cacheVersion ?>">
 <section id="Help">
 	<button>
 		<img id="CrossHelp" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">

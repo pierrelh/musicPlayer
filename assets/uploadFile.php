@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/uploadFileStyle.css?cachev=<?php echo $cacheVersion ?>"">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/common/uploadFileStyle.css?cachev=<?php echo $cacheVersion ?>">
 <section id="Upload">
 	<button>
 		<img id="CrossUpload" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">

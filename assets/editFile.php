@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/editFileStyle.css?cachev=<?php echo $cacheVersion ?>"">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/common/editFileStyle.css?cachev=<?php echo $cacheVersion ?>">
 <section id="Edit">
 	<button>
 		<img id="CrossEdit" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">

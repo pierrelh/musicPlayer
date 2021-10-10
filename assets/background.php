@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/backgroundStyle.css?cachev=<?php echo $cacheVersion ?>"">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/common/backgroundStyle.css?cachev=<?php echo $cacheVersion ?>">
 <section id="Background">
 	<?php
 		include_once($_SERVER['DOCUMENT_ROOT']."/assets/uploadFile.php");

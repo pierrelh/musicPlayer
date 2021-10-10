@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/sidebarStyle.css?cachev=<?php echo $cacheVersion ?>"">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/sidebarStyle.css?cachev=<?php echo $cacheVersion ?>"">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/sidebarStyle.css?cachev=<?php echo $cacheVersion ?>"">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/common/sidebarStyle.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/sidebarStyle.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/sidebarStyle.css?cachev=<?php echo $cacheVersion ?>">
 <section id="Sidebar" class="sidebar">
 	<ul id="SidebarList">
 		<li>
