@@ -5,18 +5,18 @@
 	}
 
 	#AudioPlayer {
-		margin-left: 10%;
-		width: 80%;
+		padding-left: 10%;
+		width: 100%;
 		height: 12vh;
 		bottom: -12vh;
 	}
 
-	#Controls {
-		font-size: 0;
+	.reader-sidebar {
+		padding-left: 20% !important;
 	}
 
-	.reader-sidebar {
-		margin-left: 20% !important;
+	#Controls {
+		font-size: 0;
 	}
 
 	.reader-buttons {
