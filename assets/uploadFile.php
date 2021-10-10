@@ -1,6 +1,8 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/uploadFileStyle.css">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/common/uploadFileStyle.css?cachev=<?php echo $cacheVersion ?>"">
 <section id="Upload">
-	<img id="CrossUpload" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
+	<button>
+		<img id="CrossUpload" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
+	</button>
 	<h2 class="form-title">Uploader un fichier</h2>
 	<form id="FormUpload" enctype="multipart/form-data" method="post">
 		<h3 class="error-msg" id="ErrorMsgUpload"></h3>

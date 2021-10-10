@@ -1,6 +1,7 @@
 <?php
 
 	$link = 'https://' . $_SERVER['HTTP_HOST'];
+	$cacheVersion = "20211010-1";
 
 	switch (isset($_COOKIE['SESSION_ID'])) {
 		case false:

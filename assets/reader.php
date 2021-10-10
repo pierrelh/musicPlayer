@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/readerStyle.css">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/readerStyle.css">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/readerStyle.css">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/common/readerStyle.css?cachev=<?php echo $cacheVersion ?>"">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/readerStyle.css?cachev=<?php echo $cacheVersion ?>"">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/readerStyle.css?cachev=<?php echo $cacheVersion ?>"">
 <section class="hidden">
 	<audio autoplay controls id="MusicPlayer"></audio>
 </section>
