@@ -4,7 +4,7 @@
 <section class="hidden">
 	<audio autoplay controls id="MusicPlayer"></audio>
 </section>
-<section id="AudioPlayer" class="left">
+<section id="AudioPlayer">
 	<p id="MusicName"></p>
 	<section id="Controls">
 		<button	id="Loop"><img id="LoopIMG" class="reader-buttons loop" src="<?php echo $link ?>/img/loop.png" alt="Loop"></button>

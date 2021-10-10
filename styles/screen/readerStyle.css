@@ -5,7 +5,7 @@
 	}
 
 	#AudioPlayer {
-		margin-left: 20%;
+		margin-left: 10%;
 		width: 80%;
 		height: 12vh;
 		bottom: -12vh;
@@ -15,10 +15,8 @@
 		font-size: 0;
 	}
 
-	.left {
-		padding-left: 10% !important;
-		margin-left: 0% !important;
-		width: 100% !important;
+	.reader-sidebar {
+		margin-left: 20% !important;
 	}
 
 	.reader-buttons {

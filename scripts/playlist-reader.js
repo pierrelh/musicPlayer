@@ -14,10 +14,12 @@ class PlaylistReader {
 
     Show() {
         this.Element.classList.add("show-playlist-reader");
+        this.IsVisible  = true;
     }
 
     Hide() {
         this.Element.classList.remove("show-playlist-reader");
+        this.IsVisible  = false;
     }
 }
 

@@ -74,7 +74,7 @@ class Sidebar {
 		this.Element.classList.add("sidebar-show");
 		document.getElementById("Library").classList.add("library-sidebar");
 		document.getElementById("DivPlaylist").classList.remove("playlist-sidebar-hided");
-		document.getElementById("AudioPlayer").classList.remove("left");
+		document.getElementById("AudioPlayer").classList.add("reader-sidebar");
 		this.IsVisible = true;
 	}
 
@@ -83,7 +83,7 @@ class Sidebar {
 		this.Element.classList.remove("sidebar-show");
 		document.getElementById("Library").classList.remove("library-sidebar");
 		document.getElementById("DivPlaylist").classList.add("playlist-sidebar-hided");
-		document.getElementById("AudioPlayer").classList.add("left");
+		document.getElementById("AudioPlayer").classList.remove("reader-sidebar");
 		this.IsVisible = false;
 	}
 
