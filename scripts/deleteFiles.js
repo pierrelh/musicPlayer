@@ -57,10 +57,12 @@ class DeleteSection {
 					"file_cover":	this.Music.Cover
 				},
 				success: function(data) {
-					if (data == 1)
+					if (data == 1) {
 						this.Hide();
-					else
+						this.Music.Element.remove();
+					} else {
 						alert("Une erreur inatendue s'est produite, merci de réessayer plus tard.");
+					}
 				}
 			});
 		} else {
@@ -71,7 +73,6 @@ class DeleteSection {
 	Hide() {
 		_background.Hide();
 		this.Element.className = "";
-		this.Music.Element.remove();
 	}
 
 	Show(music) {

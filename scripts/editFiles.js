@@ -39,9 +39,9 @@ class EditSection {
 		this.Element		= document.getElementById("Edit");
 		this.Cross			= document.getElementById("CrossEdit");
 		this.CoverEdit		= document.getElementById("PictureEdit")
-		this.NameEdit		= document.getElementById("FileNameEdit").value;
-		this.AuthorEdit		= document.getElementById("FileAuthorEdit").value;
-		this.AlbumEdit		= document.getElementById("FileAlbumEdit").value;
+		this.NameEdit		= document.getElementById("FileNameEdit");
+		this.AuthorEdit		= document.getElementById("FileAuthorEdit");
+		this.AlbumEdit		= document.getElementById("FileAlbumEdit");
 		this.Music			= undefined;
 		this.EditBTN		= document.getElementById("EditButton");
 		this.ProgressBar	= document.getElementById("ProgressBarEditCover");
@@ -123,10 +123,10 @@ class EditSection {
 
 	Show(music) {
 		this.Music = music;
-		this.NameEdit.value = music.Title;
-		this.AuthorEdit.value = music.Artist;
-		this.AlbumEdit.value = music.Album;
-		document.getElementById("Banner").style.backgroundImage = "url(" + music.Cover + ")";
+		this.NameEdit.value = this.Music.Title;
+		this.AuthorEdit.value = this.Music.Artist;
+		this.AlbumEdit.value = this.Music.Album;
+		document.getElementById("Banner").style.backgroundImage = "url(" + this.Music.Cover + ")";
 		_background.Show();
 		this.Element.className = "appear";
 	}
