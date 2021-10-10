@@ -5,9 +5,13 @@
 		height: 12vh;
 		bottom: -12vh;
 	}
+
+	#MusicName {
+		margin-top: 15px;
+	}
 	
 	#Controls {
-		margin: 15px 10%;
+		margin-top: 15px;
 	}
 
 	.reader-sidebar {
