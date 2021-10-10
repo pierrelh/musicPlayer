@@ -17,18 +17,16 @@
 	transition-duration: 0.8s;
 }
 
-#MusicName {
-	font-size: 1.4em;
-	padding-left: 25px;
-	margin: 0;
-}
-
 #Controls {
-	padding-left: 25px;
 	height: inherit;
 	width: 100%;
 	margin: auto;
 	line-height: 12vh;
+}
+
+#MusicName {
+	font-size: 1.4em;
+	margin: 0;
 }
 
 #Controls ul {
