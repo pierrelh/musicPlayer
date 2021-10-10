@@ -13,7 +13,7 @@
 					<img id="LoopIMG" src="<?php echo $link ?>/img/loop.png" alt="Loop">
 				</button>
 			</li>
-			<li>
+			<li id="AudioControllers">
 				<ul>
 					<li>
 						<button	id="Previous" class="reader-buttons">
@@ -32,7 +32,7 @@
 					</li>
 				</ul>
 			</li>
-			<li>
+			<li id="TimeControllers">
 				<ul>
 					<li>
 						<span id="CurrentTime" class="current-time">00:00</span>

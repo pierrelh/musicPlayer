@@ -19,9 +19,6 @@
 
 #Controls {
 	height: inherit;
-	width: 100%;
-	margin: auto;
-	line-height: 12vh;
 }
 
 #MusicName {
@@ -34,6 +31,7 @@
 	margin: 0;
 	list-style: none;
 	display: flex;
+	justify-content: space-between;
 }
 
 .reader-buttons {
@@ -61,12 +59,9 @@
 	vertical-align: middle;
 }
 
-#Volume {
-	background: linear-gradient(to right, rgb(255, 255, 255) 100%, rgb(50, 50, 50) 0%);
-}
-
+#Volume,
 #ProgressBar {
-	background: linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(50, 50, 50) 100%);
+	background: linear-gradient(to right, rgb(255, 255, 255), rgb(50, 50, 50));
 }
 
 #Volume::-webkit-slider-thumb,
