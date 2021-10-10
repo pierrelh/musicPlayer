@@ -17,34 +17,33 @@
 	transition-duration: 0.8s;
 }
 
-#Controls {
-	height: inherit;
-}
-
 #MusicName {
 	font-size: 1.4em;
+	padding-left: 25px;
 	margin: 0;
 }
 
-#Controls ul {
+#Controls {
+	padding-left: 25px;
+	height: inherit;
+	width: 100%;
+	margin: auto;
+	line-height: 12vh;
+}
+
+#Controls > button {
+	background: none;
+	border: none;
 	padding: 0;
-	margin: 0;
-	list-style: none;
-	display: flex;
-	justify-content: space-between;
 }
 
 .reader-buttons {
 	position: relative;
 	cursor: pointer;
 	vertical-align: middle;
-	background: none;
-	border: none;
-	padding: 0;
 }
 
-#CurrentTime,
-#EndTime {
+.time {
 	font-size: 13px;
 	line-height: initial;
 }
@@ -54,14 +53,14 @@
 	-webkit-appearance: none;
 	width: 13%;
 	outline: none;
-	height: 5px;
-	cursor: pointer;
-	vertical-align: middle;
 }
 
-#Volume,
+#Volume {
+	background: linear-gradient(to right, rgb(255, 255, 255) 100%, rgb(50, 50, 50) 0%);
+}
+
 #ProgressBar {
-	background: linear-gradient(to right, rgb(255, 255, 255), rgb(50, 50, 50));
+	background: linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(50, 50, 50) 100%);
 }
 
 #Volume::-webkit-slider-thumb,
@@ -92,6 +91,6 @@
 	height: 15px;
 }
 
-#PlaylistBtn {
+.playlist-button {
 	margin-left: 12.5%;
 }
