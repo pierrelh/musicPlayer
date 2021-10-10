@@ -1,6 +1,6 @@
 <section id="CreateAccount">
-	<button>
-		<img id="CrossCreateAccount" class="cross" src="<?php echo $link ?>/img/cross.png" alt="">
+	<button class="cross">
+		<img id="CrossCreateAccount" src="<?php echo $link ?>/img/cross.png" alt="">
 	</button>
 	<h2 class="form-title">Créer un nouveau compte</h2>
 	<form>

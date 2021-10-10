@@ -1,26 +1,12 @@
 class AudioPlayer {
 	constructor() {
 		this.Element = document.getElementById("AudioPlayer");
-		// this.PlaylistBtn	= document.getElementById("PlaylistBtn");
-		// this.ReaderPlaylist	= document.getElementById("PlaylistReader");
-		// this.Previous		= document.getElementById("Previous");
-		// this.PlayedMusic	= undefined;
-
-		// this.Mute.addEventListener("click", evt => this.ToggleMute());
-		// this.PlaylistBtn.addEventListener("click", evt => this.TogglePlaylist());
 	}
+
 	Show() {
 		if (!this.Element.classList.contains("show"))
 			this.Element.classList.add("show");
 	}
-
-	// Toggle playlist reader section
-	// TogglePlaylist() {
-	// 	if (this.ReaderPlaylist.classList.contains("show-playlist-reader"))
-	// 		this.ReaderPlaylist.classList.remove("show-playlist-reader");
-	// 	else
-	// 		this.ReaderPlaylist.classList.add("show-playlist-reader");
-	// }
 }
 
 
@@ -352,19 +338,26 @@ class Volume {
 												"color-stop(" + percent + "%, rgb(50, 50, 50))" +
 												")";
 	}
-
 }
 
-const _audioPlayer	= new AudioPlayer;
-const _musicName	= new MusicName;
-const _loop			= new Loop;
-const _previous		= new Previous;
-const _playPause	= new PlayPause;
-const _next			= new Next;
-const _currentTime	= new CurrentTime;
-const _progress		= new Progress;
-const _endTime		= new EndTime;
-const _random		= new Random;
-const _mute			= new Mute;
-const _volume		= new Volume;
-const _player		= new Player;
+class PlaylistReaderBTN {
+	constructor() {
+		this.BTN	= document.getElementById("PlaylistBtn");
+		this.BTN.addEventListener("click", evt => _playlistReader.Toggle());
+	}
+}
+
+const _audioPlayer			= new AudioPlayer;
+const _playlistReaderBTN	= new PlaylistReaderBTN;
+const _musicName			= new MusicName;
+const _loop					= new Loop;
+const _previous				= new Previous;
+const _playPause			= new PlayPause;
+const _next					= new Next;
+const _currentTime			= new CurrentTime;
+const _progress				= new Progress;
+const _endTime				= new EndTime;
+const _random				= new Random;
+const _mute					= new Mute;
+const _volume				= new Volume;
+const _player				= new Player;
