@@ -1,4 +1,4 @@
-@media screen and (min-device-width: 641px) {
+@media screen and (min-device-width: 769px) {
 	#MusicName{
 		position: absolute;
 		margin-top: 1.5vh;
@@ -32,7 +32,8 @@
 		margin-right: 5px;
 	}
 
-	.time {
+	#CurrentTime,
+	#EndTime {
 		vertical-align: middle;
 		display: inline-block;
 	}

@@ -43,7 +43,8 @@
 	vertical-align: middle;
 }
 
-.time {
+#CurrentTime,
+#EndTime {
 	font-size: 13px;
 	line-height: initial;
 }
@@ -94,6 +95,6 @@
 	height: 15px;
 }
 
-.playlist-button {
+#PlaylistBtn {
 	margin-left: 12.5%;
 }
