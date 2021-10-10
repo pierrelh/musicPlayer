@@ -53,6 +53,9 @@
 	-webkit-appearance: none;
 	width: 13%;
 	outline: none;
+	height: 5px;
+	cursor: pointer;
+	vertical-align: middle;
 }
 
 #Volume {

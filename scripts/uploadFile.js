@@ -18,11 +18,13 @@ class UploadSection {
 	Show() {
 		_background.Show();
 		this.Element.classList.add("appear");
+		this.IsVisible = true;
 	}
 
 	Hide() {
 		_background.Hide();
 		this.Element.classList.remove("appear");
+		this.IsVisible = false;
 	}
 
 	Toggle() {

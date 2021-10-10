@@ -7,6 +7,7 @@ class CreateAccount {
 		this.PasswordOne		= document.getElementById("NewAccountPasswordOne");
 		this.PasswordTwo		= document.getElementById("NewAccountPasswordTwo");
 		this.ErrorMSG			= document.getElementById("errorMsgCreateAccount");
+		this.IsVisible			= false;
 
 		this.Cross.addEventListener("click", evt => this.Hide(), false);
 		this.CreataAccountBTN.addEventListener("click", evt => this.CreateAccount(evt), false);
@@ -49,14 +50,23 @@ class CreateAccount {
 		}
 	}
 
+	Toggle() {
+		if (this.IsVisible)
+			this.Hide();
+		else
+			this.Show();
+	}
+
 	Hide() {
 		_background.Hide();
 		this.Element.className = "";
+		this.IsVisible = false;
 	}
 
 	Show() {
 		_background.Show();
 		document.getElementById("CreateAccount").classList.add("appear");
+		this.IsVisible = true;
 	}
 }
 
