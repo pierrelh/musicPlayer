@@ -19,8 +19,8 @@
 		font-size: 0;
 	}
 
-	.reader-buttons {
-		height: 2.5vh;
+	.reader-buttons > img {
+		width: 25px;
 	}
 
 	#Loop {
