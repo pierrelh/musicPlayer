@@ -1,12 +1,16 @@
 @media screen and (max-device-width: 768px) {
 	#MusicName{
-		margin-top: 2vh;
+		margin: 2vh 15px 0;
 	}
 
 	#AudioPlayer {
 		width: 100%;
 		height: 18vh;
 		bottom: -18vh;
+	}
+
+	#Controls button > img {
+		width: 100%;
 	}
 
 	.reader-buttons {
@@ -61,7 +65,7 @@
 		outline: none;
 		position: absolute;
 		width: 75%;
-		top: 7.8vh;
+		top: 7.7vh;
 		left: 12.5%;
 	}
 }
