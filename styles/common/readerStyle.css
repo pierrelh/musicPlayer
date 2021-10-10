@@ -13,22 +13,17 @@
 }
 
 .show {
-	bottom: 0px !important;
-	transition-duration: 0.8s;
+	bottom: 0 !important;
 }
 
 #MusicName {
 	font-size: 1.4em;
-	padding-left: 25px;
+	margin-top: 15px;
 	margin: 0;
 }
 
 #Controls {
-	padding-left: 25px;
-	height: inherit;
 	width: 100%;
-	margin: auto;
-	line-height: 12vh;
 }
 
 #Controls > button {
@@ -43,7 +38,8 @@
 	vertical-align: middle;
 }
 
-.time {
+#CurrentTime,
+#EndTime {
 	font-size: 13px;
 	line-height: initial;
 }
@@ -53,13 +49,7 @@
 	-webkit-appearance: none;
 	width: 13%;
 	outline: none;
-}
-
-#Volume {
-	background: linear-gradient(to right, rgb(255, 255, 255) 100%, rgb(50, 50, 50) 0%);
-}
-
-#ProgressBar {
+	height: 5px;
 	background: linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(50, 50, 50) 100%);
 }
 
@@ -71,6 +61,7 @@
 	cursor: pointer;
 	width: 15px;
 	height: 15px;
+	border: none;
 }
 
 #Volume::-moz-range-thumb,
@@ -80,6 +71,7 @@
 	cursor: pointer;
 	width: 15px;
 	height: 15px;
+	border: none;
 }
 
 #Volume::-ms-thumb,
@@ -89,6 +81,7 @@
 	cursor: pointer;
 	width: 15px;
 	height: 15px;
+	border: none;
 }
 
 .playlist-button {

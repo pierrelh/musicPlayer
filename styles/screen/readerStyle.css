@@ -1,6 +1,7 @@
 @media screen and (min-device-width: 769px) {
 	#AudioPlayer {
-		width: 100%;
+		width: 80%;
+		padding: 0 10%;
 		height: 12vh;
 		bottom: -12vh;
 	}
@@ -32,12 +33,12 @@
 		display: inline-block;
 	}
 
-	.current-time {
+	#CurrentTime {
 		margin-left: 15px;
 		margin-right: 5px;
 	}
 
-	.total-time {
+	#EndTime {
 		margin-left: 5px;
 		margin-right: 15px;
 	}
