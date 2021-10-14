@@ -1,4 +1,4 @@
-class CreateAccount {
+const _createAccount = new class {
 	constructor() {
 		this.Element			= document.getElementById("CreateAccount");
 		this.Cross				= document.getElementById("CrossCreateAccount");
@@ -69,5 +69,3 @@ class CreateAccount {
 		this.IsVisible = true;
 	}
 }
-
-const _createAccount = new CreateAccount();

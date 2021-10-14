@@ -7,7 +7,7 @@ class Layout {
 	}
 }
 
-class PlayingLayout {
+const _playingLayout = new class {
 	constructor() {
 		this.Element	= document.createElement("li");
 		this.Element.id	= "PlayedMusic";
@@ -19,5 +19,3 @@ class PlayingLayout {
 		parent.insertBefore(this.Element, parent.children[0]);
 	}
 }
-
-const _playingLayout = new PlayingLayout();

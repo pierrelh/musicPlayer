@@ -1,4 +1,4 @@
-class PlaylistReader {
+const _playlistReader = new class {
     constructor() {
         this.Element    = document.getElementById("PlaylistReader");
         this.List       = document.getElementById("PlaylistReaderList");
@@ -22,5 +22,3 @@ class PlaylistReader {
         this.IsVisible  = false;
     }
 }
-
-const _playlistReader = new PlaylistReader;

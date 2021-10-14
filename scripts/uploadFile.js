@@ -1,4 +1,4 @@
-class UploadSection {
+const _uploadSection = new class {
 	constructor() {
 		this.Element	= document.getElementById("Upload");
 		this.Cross		= document.getElementById("CrossUpload");
@@ -123,5 +123,3 @@ class UploadSection {
 		});
 	}
 }
-
-const _uploadSection = new UploadSection();

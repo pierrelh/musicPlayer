@@ -1,4 +1,4 @@
-class DeleteLayouts {
+const _deleteLayouts = new class {
 	constructor() {
 		this.IsActive	= false;
 		this.Elements	= [];
@@ -34,7 +34,7 @@ class DeleteLayouts {
 	}
 }
 
-class DeleteSection {
+const _deleteSection = new class {
 	constructor() {
 		this.Element	= document.getElementById("Delete");
 		this.Title		= document.getElementById("DeleteTitle")
@@ -82,6 +82,3 @@ class DeleteSection {
 		this.Element.className = "appear";
 	}
 }
-
-const _deleteLayouts = new DeleteLayouts();
-const _deleteSection = new DeleteSection();

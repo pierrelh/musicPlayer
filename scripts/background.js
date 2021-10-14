@@ -1,4 +1,4 @@
-class Background {
+const _background = new class {
 	constructor() {
 		this.Element	= document.getElementById("Background");
 		this.IsVisible	= false;
@@ -23,5 +23,3 @@ class Background {
 		this.IsVisible = true;
 	}
 }
-
-const _background = new Background();

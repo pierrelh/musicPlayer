@@ -1,4 +1,4 @@
-class EditLayouts {
+const _editLayouts = new class {
 	constructor() {
 		this.IsActive	= false;
 		this.Elements	= [];
@@ -34,7 +34,7 @@ class EditLayouts {
 	}
 }
 
-class EditSection {
+const _editSection = new class {
 	constructor() {
 		this.Element		= document.getElementById("Edit");
 		this.Cross			= document.getElementById("CrossEdit");
@@ -131,6 +131,3 @@ class EditSection {
 		this.Element.className = "appear";
 	}
 }
-
-const _editLayouts = new EditLayouts();
-const _editSection = new EditSection();

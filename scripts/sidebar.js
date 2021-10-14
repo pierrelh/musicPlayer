@@ -41,7 +41,7 @@ class Filters {
 	}
 }
 
-class Sidebar {
+const _sidebar = new class {
 	constructor() {
 		this.Element			= document.getElementById("Sidebar");
 		this.Arrow				= document.getElementById("Arrow");
@@ -94,5 +94,3 @@ class Sidebar {
 			this.Show();
 	}
 }
-
-const _sidebar = new Sidebar();

@@ -1,4 +1,4 @@
-class Library {
+const _library = new class {
 	constructor() {
 		this.Element		= document.getElementById("Library");
 		this.Playlist		= [];
@@ -50,5 +50,3 @@ class Library {
 			this.Element.classList.add("library-reader-active");
 	}
 }
-
-const _library = new Library();

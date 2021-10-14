@@ -1,4 +1,4 @@
-class Account {
+const _account = new class {
 	constructor() {
 		this.Element			= document.getElementById("Account");
 		this.Cross				= document.getElementById("CrossAccount");
@@ -101,5 +101,3 @@ class Account {
 		}
 	}
 }
-
-const _account = new Account();

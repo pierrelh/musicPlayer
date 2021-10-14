@@ -1,4 +1,4 @@
-class MediaSession {
+const _mediaSession = new class {
 	constructor() {
 		this.IsActive = false;
 		if ('mediaSession' in navigator) {
@@ -40,5 +40,3 @@ class MediaSession {
 			});
 	}
 }
-
-const _mediaSession = new MediaSession();

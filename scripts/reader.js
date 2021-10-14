@@ -1,4 +1,4 @@
-class AudioPlayer {
+const _audioPlayer = new class {
 	constructor() {
 		this.Element = document.getElementById("AudioPlayer");
 	}
@@ -9,8 +9,7 @@ class AudioPlayer {
 	}
 }
 
-
-class MusicName {
+const _musicName = new class {
 	constructor() {
 		this.Element = document.getElementById("MusicName");
 	}
@@ -20,8 +19,7 @@ class MusicName {
 	}
 }
 
-
-class Player {
+const _player = new class {
 	constructor() {
 		this.Element		= document.getElementById("MusicPlayer");
 		this.PlayedMusic	= undefined;
@@ -68,8 +66,7 @@ class Player {
 	}
 }
 
-
-class Loop {
+const _loop = new class {
 	constructor() {
 		this.Button	= document.getElementById("Loop");
 		this.IMG	= document.getElementById("LoopIMG");
@@ -99,8 +96,7 @@ class Loop {
 	}
 }
 
-
-class Previous {
+const _previous = new class {
 	constructor() {
 		this.Button = document.getElementById("Previous");
 		this.IMG	= document.getElementById("PreviousIMG");
@@ -125,8 +121,7 @@ class Previous {
 	}
 }
 
-
-class PlayPause {
+const _playPause = new class {
 	constructor() {
 		this.Button	= document.getElementById("PlayPause");
 		this.IMG	= document.getElementById("PlayPauseIMG");
@@ -142,8 +137,7 @@ class PlayPause {
 	}
 }
 
-
-class Next {
+const _next = new class {
 	constructor() {
 		this.Button = document.getElementById("Next");
 		this.IMG	= document.getElementById("NextIMG");
@@ -167,8 +161,7 @@ class Next {
 	}
 }
 
-
-class CurrentTime {
+const _currentTime = new class {
 	constructor() {
 		this.Element = document.getElementById("CurrentTime");
 	}
@@ -178,8 +171,7 @@ class CurrentTime {
 	}
 }
 
-
-class Progress {
+const _progress = new class {
 	constructor() {		
 		this.Element = document.getElementById("ProgressBar");
 		this.Element.addEventListener("input", evt => this.Change(), false);
@@ -226,8 +218,7 @@ class Progress {
 	}
 }
 
-
-class EndTime {
+const _endTime = new class {
 	constructor() {
 		this.Element = document.getElementById("EndTime");
 	}
@@ -237,8 +228,7 @@ class EndTime {
 	}
 }
 
-
-class Random {
+const _random = new class {
 	constructor() {
 		this.Button		= document.getElementById("Random");
 		this.IMG		= document.getElementById("RandomIMG");
@@ -267,8 +257,7 @@ class Random {
 	}
 }
 
-
-class Mute {
+const _mute = new class {
 	constructor() {
 		this.Button	= document.getElementById("Mute");
 		this.IMG	= document.getElementById("MuteIMG");
@@ -298,8 +287,7 @@ class Mute {
 	}
 }
 
-
-class Volume {
+const _volume = new class {
 	constructor() {
 		this.Element	= document.getElementById("Volume");
 		this.Level		= 0;
@@ -340,24 +328,9 @@ class Volume {
 	}
 }
 
-class PlaylistReaderBTN {
+const _playlistReaderBTN = class {
 	constructor() {
 		this.BTN	= document.getElementById("PlaylistBtn");
 		this.BTN.addEventListener("click", evt => _playlistReader.Toggle());
 	}
 }
-
-const _audioPlayer			= new AudioPlayer;
-const _playlistReaderBTN	= new PlaylistReaderBTN;
-const _musicName			= new MusicName;
-const _loop					= new Loop;
-const _previous				= new Previous;
-const _playPause			= new PlayPause;
-const _next					= new Next;
-const _currentTime			= new CurrentTime;
-const _progress				= new Progress;
-const _endTime				= new EndTime;
-const _random				= new Random;
-const _mute					= new Mute;
-const _volume				= new Volume;
-const _player				= new Player;

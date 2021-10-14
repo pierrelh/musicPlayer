@@ -1,4 +1,4 @@
-class AddLayouts {
+const _addLayouts = new class {
 	constructor() {
 		this.IsActive		= false;
 		this.Elements		= [];
@@ -76,7 +76,7 @@ class AddLayouts {
 	}
 }
 
-class PlaylistSection {
+const _playlistSection = new class {
 	constructor() {
 		this.Element	= document.getElementById("DivPlaylist");
 		this.IsVisible	= false;
@@ -184,6 +184,3 @@ class PlaylistSection {
 		}
 	}
 }
-
-const _addLayouts		= new AddLayouts();
-const _playlistSection	= new PlaylistSection();

@@ -1,4 +1,4 @@
-class Help {
+const _help = new class {
 	constructor() {
 		this.Element	= document.getElementById("Help");
 		this.Cross		= document.getElementById("CrossHelp");
@@ -26,5 +26,3 @@ class Help {
 			this.Show();
 	}
 }
-
-const _help = new Help();
