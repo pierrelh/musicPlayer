@@ -5,12 +5,12 @@ class MediaSession {
 			this.Element	= navigator.mediaSession;
 			this.IsActive	= true;
 
-			this.Element.setActionHandler('play', evt => reader.TogglePlayPauseButton());
-			this.Element.setActionHandler('pause', evt => reader.TogglePlayPauseButton());
-			this.Element.setActionHandler('stop', evt => reader.StopMusic());
-			this.Element.setActionHandler('seekbackward', evt => reader.SeekBackward());
-			this.Element.setActionHandler('seekforward', evt => reader.SeekForward());
-			this.Element.setActionHandler('seekto',	evt => reader.SeekTo());
+			this.Element.setActionHandler('play', evt => _playPause.Toggle());
+			this.Element.setActionHandler('pause', evt => _playPause.Toggle());
+			this.Element.setActionHandler('stop', evt => _player.StopMusic());
+			this.Element.setActionHandler('seekbackward', evt => _progress.Backward());
+			this.Element.setActionHandler('seekforward', evt => _progress.Forward());
+			this.Element.setActionHandler('seekto',	evt => _progress.To(evt));
 			this.Element.setActionHandler('previoustrack', evt => _previous.Play());
 			this.Element.setActionHandler('nexttrack',	evt => _next.Play());
 		}
