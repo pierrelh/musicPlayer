@@ -48,7 +48,7 @@ const _uploadSection = new class {
 			let formDataCover = new FormData();
 			formDataCover.append("cover", picture);
 
-			if (this.NameIPT.value || this.AuthorIPT) {
+			if (this.NameIPT.value || this.AuthorIPT.value) {
 				this.ErrorMSG.innerHTML = "Merci de remplir tous les champs.";
 				this.ErrorMSG.style.display = "block";
 				return;
