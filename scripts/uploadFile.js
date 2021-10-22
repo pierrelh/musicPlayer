@@ -54,14 +54,14 @@ const _uploadSection = new class {
 				return;
 			} else {
 				// Uploading the music
-				await this.uploadFileCloudinary(formDataMusic, "ProgressBarVideo", "TextProgressBarVideo", "uploadMusic.php")
+				await this.UploadFileCloudinary(formDataMusic, "ProgressBarVideo", "TextProgressBarVideo", "uploadMusic.php")
 				.then( async (response) => {
 					if (response != "false") {
 
 						formData.append("file_url", response);
 						
 						// Uploading the cover
-						await this.uploadFileCloudinary(formDataCover, "ProgressBarPicture", "TextProgessBarPicture", "uploadCover.php")
+						await this.UploadFileCloudinary(formDataCover, "ProgressBarPicture", "TextProgessBarPicture", "uploadCover.php")
 						.then( async (response) => {
 							if (response != "false") {
 
