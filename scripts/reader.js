@@ -49,6 +49,7 @@ const _player = new class {
 		this.PlayedMusic.SetPlayed();
 		_musicName.Change(this.PlayedMusic.Artist + ' - ' + this.PlayedMusic.Title);
 		this.Element.src = this.PlayedMusic.URL;
+		this.Element.load();
 		if (!_audioPlayer.IsVisible)
 			_audioPlayer.Show();
 		_mediaSession.SetData(this.PlayedMusic);

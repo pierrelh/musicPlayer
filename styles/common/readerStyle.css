@@ -83,6 +83,6 @@
 	border: none;
 }
 
-.playlist-button {
-	margin-left: 12.5%;
+#PlaylistBtn {
+	float: right;
 }
