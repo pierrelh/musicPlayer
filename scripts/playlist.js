@@ -42,38 +42,41 @@ const _addLayouts = new class {
 		}
 
 		let sidebarList = document.getElementById('SidebarList');
-
-		let listPlaylistName = new Element({
-			ElementType:	'li',
-			ID:				'PlaylistNameElement'
-		});
-
-		listPlaylistName.append(new Element({
-			ElementType:	'input',
-			ID:				'PlaylistName',
-			ClassList:		'playlist-name',
-			Type:			'text',
-			Placeholder:	'Nom de la Playlist'
-		}));
-
-		let listElement = new Element({
-			ElementType:	'li',
-			ID:				'PlaylistButtonElement'
-		});
-
-		let buttonCreatePlaylist = new Element({
-			ElementType:	'input',
-			ID:				'ButtonCreatePlaylist',
-			ClassList:		'button-create-playlist',
-			Type:			'submit',
-			Placeholder:	'Créer la Playlist',
-			Event:			'click',
-			Trigger:		evt => _playlistSection.SendPlaylist()
-		});
-
-		listElement.append(buttonCreatePlaylist);
-		// buttonCreatePlaylist.addEventListener('click', evt => _playlistSection.SendPlaylist(), false);
-		sidebarList.append(listPlaylistName, listElement);
+		sidebarList.append(
+			new Element(
+				{
+					ElementType	: 'li',
+					ID			: 'PlaylistNameElement'
+				}
+			).append(
+				new Element(
+					{
+						ElementType	: 'input',
+						ID			: 'PlaylistName',
+						ClassList	: 'playlist-name',
+						Type		: 'text',
+						Placeholder	: 'Nom de la Playlist'
+					}
+				)
+			),
+			new Element(
+				{
+					ElementType	: 'li',
+					ID			: 'PlaylistButtonElement'
+				}
+			).append(new Element(
+				{
+					ElementType	: 'input',
+					ID			: 'ButtonCreatePlaylist',
+					ClassList	: 'button-create-playlist',
+					Type		: 'submit',
+					Placeholder	: 'Créer la Playlist',
+					EventType	: 'click',
+					Listener	: evt => _playlistSection.SendPlaylist()
+				}
+			))
+		);
+		
 		this.IsActive = true;
 	}
 

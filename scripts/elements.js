@@ -7,7 +7,9 @@
 //     BackgroundIMG,
 //     SRC,
 //     Type,
-//     Placeholder
+//     Placeholder,
+//     EventType,
+//     Listener,
 // };
 
 class Element {
@@ -30,8 +32,8 @@ class Element {
                 this.Element.setAttribute('type', data.Type);
             if (data.Placeholder)
                 this.Element.setAttribute('placeholder', data.Placeholder);
-            if (data.Event && data.Trigger)
-                this.Element.addEventListener(data.Event, data.Trigger, false);
+            if (data.EventType && data.Listener)
+                this.Element.addEventListener(data.EventType, data.Listener, false);
 
             return this.Element;
         } else {
