@@ -5,7 +5,6 @@
 	</button>
 	<h2 class="form-title">Modifier un fichier</h2>
 	<form id="FormEdit" method="post">
-		<h3 class="error-msg" id="ErrorMsgEdit"></h3>
 		<div id="BannerContainer">
 			<div id="Banner" class='div-detail'>
 				<label class='modify-img' for="PictureEdit">

@@ -250,15 +250,6 @@ html{
 	height: 25px;
 }
 
-.error-msg {
-	color: red;
-	margin-left: 10px;
-	margin-top: 70px;
-	display: none;
-	text-align: center;
-	font-size: 1.5em;
-}
-
 .edit,
 .delete,
 .add,

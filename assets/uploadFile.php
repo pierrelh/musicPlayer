@@ -5,7 +5,6 @@
 	</button>
 	<h2 class="form-title">Uploader un fichier</h2>
 	<form id="FormUpload" enctype="multipart/form-data" method="post">
-		<h3 class="error-msg" id="ErrorMsgUpload"></h3>
 		<ul class="medias-upload-list">
 			<li>
 				<ul>

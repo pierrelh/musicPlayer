@@ -134,10 +134,10 @@ const _previous = new class {
 
 const _playPause = new class {
 	constructor() {
-		this.Button	= document.getElementById('PlayPause');
+		this.BTN	= document.getElementById('PlayPause');
 		this.IMG	= document.getElementById('PlayPauseIMG');
 
-		this.Button.addEventListener('click', evt => this.Toggle(), false);
+		this.BTN.addEventListener('click', evt => this.Toggle(), false);
 	}
 
 	Toggle() {
@@ -150,10 +150,10 @@ const _playPause = new class {
 
 const _next = new class {
 	constructor() {
-		this.Button = document.getElementById('Next');
+		this.BTN = document.getElementById('Next');
 		this.IMG	= document.getElementById('NextIMG');
 
-		this.Button.addEventListener('click', evt => this.Play(), false);
+		this.BTN.addEventListener('click', evt => this.Play(), false);
 	}
 
 	Play(notSkiped = false) {
@@ -241,11 +241,11 @@ const _endTime = new class {
 
 const _random = new class {
 	constructor() {
-		this.Button		= document.getElementById('Random');
+		this.BTN		= document.getElementById('Random');
 		this.IMG		= document.getElementById('RandomIMG');
 		this.IsRandom	= false;
 
-		this.Button.addEventListener('click', evt => this.Toggle(), false);
+		this.BTN.addEventListener('click', evt => this.Toggle(), false);
 	}
 
 	Toggle() {
@@ -270,11 +270,11 @@ const _random = new class {
 
 const _mute = new class {
 	constructor() {
-		this.Button	= document.getElementById('Mute');
+		this.BTN	= document.getElementById('Mute');
 		this.IMG	= document.getElementById('MuteIMG');
 		this.IsMute	= false;
 
-		this.Button.addEventListener('click', evt => this.Toggle(), false);
+		this.BTN.addEventListener('click', evt => this.Toggle(), false);
 	}
 
 	Toggle() {

@@ -4,7 +4,6 @@
 	</button>
 	<h2 class="form-title">Créer un nouveau compte</h2>
 	<form>
-		<h3 class="error-msg" id="errorMsgCreateAccount"></h3>
 		<ul class="form-list">
 			<li>
 				<div class="fields">
