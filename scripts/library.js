@@ -1,24 +1,33 @@
 const _library = new class {
 	constructor() {
 		this.Element		= document.getElementById('Library');
+		this.All			= [];
 		this.Playlist		= [];
 		this.RandomPlaylist	= [];
 		this.GetFiles();
 	}
 
-	GetPlaylist() {		
+	GetPlaylist() {
 		if (_random.IsRandom)
-			return this.RandomPlaylist.slice();
+			return this.RandomPlaylist;
 		else
-			return this.Playlist.slice();
+			return this.Playlist;
 	}
 
 	CreateRandomPlaylist() {
-		this.RandomPlaylist = this.Playlist.slice();
+		this.RandomPlaylist = this.All.slice();
 		for (let i = this.RandomPlaylist.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
 			[this.RandomPlaylist[i], this.RandomPlaylist[j]] = [this.RandomPlaylist[j], this.RandomPlaylist[i]];
 		}
+	}
+
+	RemoveFromPlaylist(music) {
+		if (_random.IsRandom)
+			this.RandomPlaylist = this.GetPlaylist().filter(function(e) { return e !== music });
+		else
+			this.Playlist = this.GetPlaylist().filter(function(e) { return e !== music });
+		
 	}
 
 	GetFiles(row = 'file_id', type = 'DESC') {
@@ -37,9 +46,10 @@ const _library = new class {
 					self.Playlist = [];
 					for (let i = 0; i < data.length; i++) {
 						let music = new Music(data[i], i);
-						self.Playlist.push(music);
+						self.All.push(music);
 						self.Element.appendChild(music.Create());
 					};
+					self.Playlist = self.All.slice();
 					_playlistReader.Hydrate();
 				}
 			}

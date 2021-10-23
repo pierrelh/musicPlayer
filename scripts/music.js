@@ -46,6 +46,6 @@ class Music {
 	}
 
 	RemoveFromPlaylist() {
-		console.log('Removing from playlist')
+		_library.RemoveFromPlaylist(this);
 	}
 }
