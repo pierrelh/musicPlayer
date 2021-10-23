@@ -38,7 +38,7 @@ class Music {
 
 		this.Elements.Library.Title.appendChild(this.Elements.Library.TitleText)
 		this.Elements.Library.TitleText.innerHTML = this.Artist + ' - ' + this.Title;
-		this.Element.appendChild(this.Elements.Library.Title);
+		this.Elements.Library.Element.appendChild(this.Elements.Library.Title);
 
 		this.Elements.Library.Cover.addEventListener('click', evt => this.Play(), false);
 		this.Elements.Library.Title.addEventListener('click', evt => this.Play(), false);
