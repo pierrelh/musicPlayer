@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/errorStyle.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $link ?>/styles/common/error.css?cachev=<?php echo $cacheVersion ?>">
 <section id="Error">
     <h1 id="ErrorTitle"></h1>
     <button id="ErrorBTN">OK</button>

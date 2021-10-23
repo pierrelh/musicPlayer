@@ -38,7 +38,7 @@ const _addLayouts = new class {
 				event: evt => this.AddToPlaylist(_library.Playlist[index])
 			});
 			this.Elements.push(editLayout);
-			_library.Playlist[index].Element.prepend(editLayout);
+			_library.Playlist[index].Elements.Library.Element.prepend(editLayout);
 		}
 
 		let sidebarList = document.getElementById('SidebarList');

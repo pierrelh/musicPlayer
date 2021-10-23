@@ -1,14 +1,14 @@
-const ElementData = {
-    ElementType,
-    ID,
-    ClassList,
-    InnerHTML,
-    Value,
-    BackgroundIMG,
-    SRC,
-    Type,
-    Placeholder
-};
+// const ElementData = {
+//     ElementType,
+//     ID,
+//     ClassList,
+//     InnerHTML,
+//     Value,
+//     BackgroundIMG,
+//     SRC,
+//     Type,
+//     Placeholder
+// };
 
 class Element {
     constructor(data) {
