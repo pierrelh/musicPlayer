@@ -201,17 +201,14 @@ const _progress = new class {
 		_player.Element.currentTime = _player.Element.duration / this.Element.max * this.Element.value;
 	}
 
-	// Progress -10 secondes to the played music
 	Backward() {
 		_player.Element.currentTime -= 10;
 	}
 
-	// Progress +10 secondes to the played music
 	Forward() {
 		_player.Element.currentTime += 10;
 	}
 	
-	// Seek the music player to the wanted second
 	To(data) {
 		if (data.fastSeek)
 			startSeeking();

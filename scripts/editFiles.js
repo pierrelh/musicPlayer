@@ -26,7 +26,8 @@ const _editSection = new class {
 	constructor() {
 		this.Element		= document.getElementById('Edit');
 		this.Cross			= document.getElementById('CrossEdit');
-		this.CoverEdit		= document.getElementById('PictureEdit')
+		this.CoverEdit		= document.getElementById('PictureEdit');
+		this.Banner			= document.getElementById('Banner');
 		this.NameEdit		= document.getElementById('FileNameEdit');
 		this.AuthorEdit		= document.getElementById('FileAuthorEdit');
 		this.AlbumEdit		= document.getElementById('FileAlbumEdit');
@@ -56,16 +57,18 @@ const _editSection = new class {
 		e.preventDefault();
 		if (this.Music === undefined)		
 			return _info.SetTitle('Aucun fichier n\'est sélectionné', 'red');
+
+		let name = this.NameEdit.value;
+		let author = this.AuthorEdit.value;
+		if (name == '' || author == '')
+			return _info.SetTitle('Merci de remplir tous les champs.', 'red');
+
 		let picture = 'undefined';
 		let publicId = 'undefined';
 		if (this.CoverEdit.files.length != 0) {
 			publicId = this.Music.Cover;
 			picture = this.CoverEdit.files[0];
 		}
-		let name = this.NameEdit.value;
-		let author = this.AuthorEdit.value;
-		if (name == '' || author == '')
-			return _info.SetTitle('Merci de remplir tous les champs.', 'red');
 				
 		let form_data = new FormData(document.getElementById('FormEdit'));
 		form_data.append('file_id', this.Music.MusicID);
@@ -111,7 +114,7 @@ const _editSection = new class {
 		this.NameEdit.value = this.Music.Title;
 		this.AuthorEdit.value = this.Music.Artist;
 		this.AlbumEdit.value = this.Music.Album;
-		document.getElementById('Banner').style.backgroundImage = 'url(' + this.Music.Cover + ')';
+		this.Banner.style.backgroundImage = 'url(' + this.Music.Cover + ')';
 		_background.Show();
 		this.Element.className = 'appear';
 	}

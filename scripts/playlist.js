@@ -54,7 +54,7 @@ const _addLayouts = new class {
 					})
 				]
 			})
-		);		
+		);
 		this.IsActive = true;
 	}
 

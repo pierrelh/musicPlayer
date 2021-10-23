@@ -52,6 +52,7 @@ class Music {
 			this.Elements.Reader.PlayIMG.src = server + '/img/pause.png';
 		else
 			this.Elements.Reader.PlayIMG.src = server + '/img/play.png';
+			
 		this.Elements.Reader.PlayBTN.append(this.Elements.Reader.PlayIMG);
 		this.Elements.Reader.PlayBTN.addEventListener('click', evt => this.ReaderTogglePlayPause(), false);
 
