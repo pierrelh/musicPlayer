@@ -4,7 +4,6 @@ const _library = new class {
 		this.Playlist		= [];
 		this.RandomPlaylist	= [];
 		this.GetFiles();
-		_playlistReader.Hydrate();
 	}
 
 	GetPlaylist() {		
@@ -41,6 +40,7 @@ const _library = new class {
 						self.Playlist.push(music);
 						self.Element.appendChild(music.Create());
 					};
+					_playlistReader.Hydrate();
 				}
 			}
 		});
