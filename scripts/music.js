@@ -109,6 +109,6 @@ class Music {
 	}
 
 	RemoveLayout() {
-		this.Elements.Library.Main.RemoveChild(this.Elements.Library.Main.getElementsByClassName('layout')[0]);
+		this.Elements.Library.Main.removeChild(this.Elements.Library.Main.getElementsByClassName('layout')[0]);
 	}
 }
