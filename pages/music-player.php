@@ -16,7 +16,7 @@
 		<?php
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/headers/header.php");
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/background.php");
-			include_once($_SERVER['DOCUMENT_ROOT']."/assets/error.php");
+			include_once($_SERVER['DOCUMENT_ROOT']."/assets/info.php");
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/playlists.php");
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/reader.php");
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/reader-playlist.php");
