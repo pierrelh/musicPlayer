@@ -44,12 +44,12 @@ const _library = new class {
 				if (data.length != 0) {
 					self.Element.innerHTML = '';
 					self.Playlist = [];
+					_playlistReader.Drop();
 					for (let i = 0; i < data.length; i++) {
 						let music = new Music(data[i], i);
 						self.All.push(music);
 					};
 					self.Playlist = self.All.slice();
-					_playlistReader.Hydrate();
 				}
 			}
 		});

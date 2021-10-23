@@ -23,8 +23,12 @@ const _playlistReader = new class {
 		this.IsVisible = false;
 	}
 
-	Hydrate() {
+	Drop() {
 		this.List.innerHTML = '';
+	}
+
+	Hydrate() {
+		this.Drop();
 		let playlist = _library.GetPlaylist();
 		for (let index = 0; index < playlist.length; index++) {
 			playlist[index].CreateInReader();
