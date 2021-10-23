@@ -150,8 +150,7 @@ const _playlistSection = new class {
 						_playlistSection.Hide();
 						_library.Playlist = [];
 						for (let index = 0; index < data.length; index++) {
-							let music = new Music(data[index], index).Create();
-							_library.Element.appendChild(music);
+							new Music(data[index], index);
 						}
 					}
 				}

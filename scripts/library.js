@@ -47,7 +47,6 @@ const _library = new class {
 					for (let i = 0; i < data.length; i++) {
 						let music = new Music(data[i], i);
 						self.All.push(music);
-						self.Element.appendChild(music.Create());
 					};
 					self.Playlist = self.All.slice();
 					_playlistReader.Hydrate();

@@ -1,6 +1,5 @@
 class Music {
 	constructor(data, id) {
-		this.Element	= document.createElement('ul');
 		this.Artist		= data['file_author'];
 		this.Title		= data['file_name'];
 		this.Album		= data['file_album'];
@@ -9,35 +8,74 @@ class Music {
 		this.Cover		= data['file_image'];
 		this.ID			= id;
 		this.IsPlayed	= false;
-		this.Layout		= false;
+		this.Elements	= {
+			Library: {
+				Element:	document.createElement('ul'),
+				Cover:		document.createElement('li'),
+				Title:		document.createElement('li'),
+				TitleText:	document.createElement('p'),
+			},
+			Reader: {
+				Element:	document.createElement('li'),
+				Title:		document.createElement('p'),
+				PlayBTN:	document.createElement('button'),
+				PlayIMG:	document.createElement('img'),
+				DeleteBTN:	document.createElement('button'),
+				DeleteIMG:	document.createElement('img'),
+			}
+		}
+
+		this.CreateInLibrary();
+		this.CreateInReader();
+		return this;
 	}
 
-	Create() {
-		let cover = document.createElement('li');
-		cover.className = 'view';
+	CreateInLibrary() {
+		this.Elements.Library.Cover.className = 'view';
 		if (this.Cover)
-			cover.style.backgroundImage = 'url("' + this.Cover + '")';
-		this.Element.appendChild(cover);
+			this.Elements.Library.Cover.style.backgroundImage = 'url("' + this.Cover + '")';
+		this.Elements.Library.Element.appendChild(this.Elements.Library.Cover);
 
-		let liTitle = document.createElement('li');
-		let pTitile = document.createElement('p');
-		liTitle.appendChild(pTitile)
-		pTitile.innerHTML = this.Artist + ' - ' + this.Title;
-		this.Element.appendChild(liTitle);
+		this.Elements.Library.Title.appendChild(this.Elements.Library.TitleText)
+		this.Elements.Library.TitleText.innerHTML = this.Artist + ' - ' + this.Title;
+		this.Element.appendChild(this.Elements.Library.Title);
 
-		cover.addEventListener('click', evt => this.Play(), false);
-		liTitle.addEventListener('click', evt => this.Play(), false);
+		this.Elements.Library.Cover.addEventListener('click', evt => this.Play(), false);
+		this.Elements.Library.Title.addEventListener('click', evt => this.Play(), false);
 
-		return this.Element;
+		_library.Element.appendChild(this.Elements.Library.Element);
+	}
+
+	CreateInReader() {		
+		this.Elements.Reader.Title.innerHTML = this.Artist + ' - ' + this.Title;
+		this.Elements.Reader.Element.appendChild(this.Elements.Reader.Title);
+
+		if (this.IsPlayed)
+			this.Elements.Reader.PlayIMG.src = server + '/img/pause.png';
+		else
+			this.Elements.Reader.PlayIMG.src = server + '/img/play.png';
+		this.Elements.Reader.PlayBTN.appendChild(this.Elements.Reader.PlayIMG);
+		this.Elements.Reader.PlayBTN.addEventListener('click', evt => this.ReaderTogglePlayPause(), false);
+		this.PlayBTN.push(this.Elements.Reader.PlayIMG);
+		this.Elements.Reader.Element.appendChild(this.Elements.Reader.PlayBTN);
+
+		this.Elements.Reader.DeleteBTN.addEventListener('click', evt => this.RemoveFromReader(), false);
+		this.Elements.Reader.DeleteIMG.src = server + '/img/cross.png';
+		this.Elements.Reader.DeleteBTN.appendChild(this.Elements.Reader.DeleteIMG);
+		this.Elements.Reader.Element.appendChild(this.Elements.Reader.DeleteBTN);
+		
+		_playlistReader.List.appendChild(this.Elements.Reader.Element);
 	}
 
 	SetPlayed() {
 		this.IsPlayed = true;
-		_playingLayout.Change(this.Element);
+		_playingLayout.Change(this.Elements.Library.Element);
+		this.Elements.Reader.PlayIMG.src = server + '/img/pause.png';
 	}
 
 	SetNotPlayed() {
 		this.IsPlayed = false;
+		this.Elements.Reader.PlayIMG.src = server + '/img/play.png';
 	}
 
 	Play() {
@@ -47,5 +85,25 @@ class Music {
 
 	RemoveFromPlaylist() {
 		_library.RemoveFromPlaylist(this);
+	}
+
+	RemoveFromReader() {
+		if(!this.IsPlayed) {
+			this.Elements.Reader.Element.remove();
+			this.RemoveFromPlaylist();
+		}
+	}
+
+	ReaderTogglePlayPause() {
+		if (this.IsPlayed) {
+			if (_player.Element.paused)
+				this.Elements.Reader.PlayIMG.src = server + '/img/pause.png';
+			else
+				this.Elements.Reader.PlayIMG.src = server + '/img/play.png';
+			_playPause.Toggle();
+		} else {
+			this.Play();
+			this.Elements.Reader.PlayIMG.src = server + '/img/pause.png';
+		}
 	}
 }
