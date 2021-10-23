@@ -43,12 +43,10 @@ const _library = new class {
 				data = JSON.parse(data);
 				if (data.length != 0) {
 					self.Element.innerHTML = '';
-					self.Playlist = [];
+					self.All = [];
 					_playlistReader.Drop();
-					for (let i = 0; i < data.length; i++) {
-						let music = new Music(data[i], i);
-						self.All.push(music);
-					};
+					for (let i = 0; i < data.length; i++)
+						self.All.push(new Music(data[i], i));
 					self.Playlist = self.All.slice();
 				}
 			}

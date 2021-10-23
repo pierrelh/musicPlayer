@@ -21,5 +21,7 @@ const _info = new class {
     SetTitle(text, color) {
         this.Elements.Title.innerHTML = text;
         this.Elements.Title.style.color = color;
+        this.Show();
+        return false;
     }
 }

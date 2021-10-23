@@ -3,7 +3,6 @@ const _uploadSection = new class {
 		this.Element	= document.getElementById('Upload');
 		this.Cross		= document.getElementById('CrossUpload');
 		this.UploadBTN	= document.getElementById('UploadButton');
-		this.ErrorMSG	= document.getElementById('ErrorMsgUpload');
 		this.Form		= document.getElementById('FormUpload');
 		this.FileIPT	= document.getElementById('File');
 		this.PictureIPT	= document.getElementById('Picture');
@@ -39,63 +38,46 @@ const _uploadSection = new class {
 		let file = this.FileIPT.files[0];
 		let picture = this.PictureIPT.files[0];
 
-		if (file && picture) {
-			let formData = new FormData(this.Form);
-			formData.delete('file');
-			formData.delete('picture');
-			let formDataMusic = new FormData();
-			formDataMusic.append('music', file);
-			let formDataCover = new FormData();
-			formDataCover.append('cover', picture);
+		if (!file && !picture)
+			return _info.SetTitle('Aucun fichier n\'a été choisi.', 'red');
 
-			if (this.NameIPT.value == '' || this.AuthorIPT.value == '') {
-				this.ErrorMSG.innerHTML = 'Merci de remplir tous les champs.';
-				this.ErrorMSG.style.display = 'block';
-				return;
-			} else {
-				// Uploading the music
-				await this.UploadFileCloudinary(formDataMusic, 'ProgressBarVideo', 'TextProgressBarVideo', 'uploadMusic.php')
-				.then( async (response) => {
-					if (response != 'false') {
+		if (this.NameIPT.value == '' || this.AuthorIPT.value == '')
+			return _info.SetTitle('Merci de remplir tous les champs.', 'red');
+		
+		let formData = new FormData(this.Form);
+		formData.delete('file');
+		formData.delete('picture');
+		let formDataMusic = new FormData();
+		formDataMusic.append('music', file);
+		let formDataCover = new FormData();
+		formDataCover.append('cover', picture);
 
-						formData.append('file_url', response);
-						
-						// Uploading the cover
-						await this.UploadFileCloudinary(formDataCover, 'ProgressBarPicture', 'TextProgessBarPicture', 'uploadCover.php')
-						.then( async (response) => {
-							if (response != 'false') {
-
-								formData.append('file_image', response);
-								$.ajax({
-									url: server + '/functions/files/uploadFile.php',
-									type: 'POST',
-									dataType: 'script',
-									cache: false,
-									contentType: false,
-									processData: false,
-									data: formData,
-									success: function () {
-										_library.GetFiles();
-									}
-								});
-
-							} else {
-								alert('Une erreur s\'est produite lors de l\'envoi de la cover');
-								return;
-							}
-						});
-						
-					} else {
-						alert('Une erreur s\'est produite lors de l\'envoi de la musique');
-						return;
+		await this.UploadFileCloudinary(formDataMusic, 'ProgressBarVideo', 'TextProgressBarVideo', 'uploadMusic.php')
+		.then( async (response) => {
+			if (response == 'false') 
+				return _info.SetTitle('Une erreur s\'est produite lors de l\'envoi de la musique.', 'red');
+			formData.append('file_url', response);
+					
+			// Uploading the cover
+			await this.UploadFileCloudinary(formDataCover, 'ProgressBarPicture', 'TextProgessBarPicture', 'uploadCover.php')
+			.then( async (response) => {
+				if (response == 'false') 
+					return _info.SetTitle('Une erreur s\'est produite lors de l\'envoi de la cover.', 'red');
+				formData.append('file_image', response);
+				$.ajax({
+					url: server + '/functions/files/uploadFile.php',
+					type: 'POST',
+					dataType: 'script',
+					cache: false,
+					contentType: false,
+					processData: false,
+					data: formData,
+					success: function () {
+						_library.GetFiles();
 					}
 				});
-			}
-		} else {
-			this.ErrorMSG.innerHTML = 'Aucun fichier n\'a été choisi.';
-			this.ErrorMSG.style.display = 'block';
-			return;
-		}
+			});
+		});
 	}
 
 	UploadFileCloudinary(formDataMusic, barId, txtId, link) {

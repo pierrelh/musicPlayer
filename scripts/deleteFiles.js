@@ -35,27 +35,23 @@ const _deleteSection = new class {
 	}
 
 	DeleteMusic() {
-		if (this.Music.MusicID) {
-			$.ajax({
-				url: server + '/functions/files/deleteFile.php',
-				type: 'POST',
-				data: {
-					'file_id':		this.Music.MusicID,
-					'file_url':		this.Music.URL,
-					'file_cover':	this.Music.Cover
-				},
-				success: function(data) {
-					if (data == 1) {
-						this.Hide();
-						this.Music.Element.remove();
-					} else {
-						alert('Une erreur inatendue s\'est produite, merci de réessayer plus tard.');
-					}
-				}
-			});
-		} else {
-			alert('Une erreur s\'est produite.');
-		}
+		if (!this.Music.MusicID)		
+			return _info.SetTitle('Une erreur s\'est produite.', 'red');
+		$.ajax({
+			url: server + '/functions/files/deleteFile.php',
+			type: 'POST',
+			data: {
+				'file_id':		this.Music.MusicID,
+				'file_url':		this.Music.URL,
+				'file_cover':	this.Music.Cover
+			},
+			success: function(data) {
+				if (data != 1)
+					return _info.SetTitle('Une erreur inatendue s\'est produite, merci de réessayer plus tard.', 'red');
+				this.Hide();
+				this.Music.Element.remove();					
+			}
+		});
 	}
 
 	Hide() {

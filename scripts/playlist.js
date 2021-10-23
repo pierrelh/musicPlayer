@@ -87,36 +87,41 @@ const _playlistSection = new class {
 	}
 
 	Show() {
+		this.Hydrate();
+		this.Element.classList.add('playlist-div-show');
+		this.IsVisible = true;
+	}
+
+	Hydrate() {
 		let self = this;
 		fetch(server + '/functions/playlists/getAllPlaylists.php')
 		.then((response) => response.json())
 		.then(function (response) {
 
-			if (response.length != 0) {
-				self.Element.innerHTML = '';
+			if (response.length == 0)
+				return;
 
-				let ul = document.createElement('ul');
-				ul.id = 'ListPlaylist';
-				ul.className = 'listPlaylist';
-				self.Element.append(ul);
+			self.Element.innerHTML = '';
 
-				for (let index = 0; index < response.length; index++) (function(index) {
-					self.Playlists[index] = {
-						id: response[index]['playlist_id'],
-						name: response[index]['playlist_name']
-					}
-					let li = document.createElement('li');
-					ul.append(li);
-					li.className = 'table';
-					li.addEventListener('click', evt => self.OpenPlaylist(index), false);
+			let ul = document.createElement('ul');
+			ul.id = 'ListPlaylist';
+			ul.className = 'listPlaylist';
+			self.Element.append(ul);
 
-					let p = document.createElement('p');
-					li.append(p);
-					p.innerHTML = response[index]['playlist_name'];
-				})(index);
-				self.Element.classList.add('playlist-div-show');
-				self.IsVisible = true;
-			}
+			for (let index = 0; index < response.length; index++) (function(index) {
+				self.Playlists[index] = {
+					id: response[index]['playlist_id'],
+					name: response[index]['playlist_name']
+				}
+				let li = document.createElement('li');
+				li.className = 'table';
+				li.addEventListener('click', evt => self.OpenPlaylist(index), false);
+
+				let p = document.createElement('p');
+				p.innerHTML = response[index]['playlist_name'];
+				li.append(p);
+				ul.append(li);
+			})(index);
 		});
 	}
 
@@ -126,50 +131,43 @@ const _playlistSection = new class {
 	}
 
 	OpenPlaylist(identifier) {
-		if (Number.isInteger(identifier)) {
-			let playlistId = this.Playlists[identifier].id;
+		if (!Number.isInteger(identifier))
+			return;
+		let playlistId = this.Playlists[identifier].id;
 
-			$.ajax({
-				url: server + '/functions/playlists/getPlaylistsMusics.php',
-				type: 'POST',
-				data: {'playlist_id': playlistId},
-				success: function(data) {
-					data = JSON.parse(data);
-					_library.Element.innerHTML = '';
-					if (data.length != 0) {
-						_playlistSection.Hide();
-						_library.Playlist = [];
-						for (let index = 0; index < data.length; index++) {
-							new Music(data[index], index);
-						}
-					}
-				}
-			});
-		}
+		$.ajax({
+			url: server + '/functions/playlists/getPlaylistsMusics.php',
+			type: 'POST',
+			data: {'playlist_id': playlistId},
+			success: function(data) {
+				data = JSON.parse(data);
+				_library.Element.innerHTML = '';
+				if (data.length == 0)
+					return;
+				_playlistSection.Hide();
+				_library.Playlist = [];
+				for (let index = 0; index < data.length; index++)
+					new Music(data[index], index);
+			}
+		});
 	}
 
 	SendPlaylist() {
-		if (_addLayouts.MusicsToAdd.length) {
-			let playlistName = document.getElementById('PlaylistName').value;
-			if (playlistName) {
-				$.ajax({
-					url: server + '/functions/playlists/createPlaylist.php',
-					type: 'POST',
-					data: {
-						'musics': _addLayouts.MusicsToAdd.reverse(),
-						'playlistName': playlistName
-					},
-					success: function() {
-						_addLayouts.RemoveAll();
-					}
-				});
-			} else {
-				alert('Merci de choisir des morceaux et de remplir le nom de la playlist.');
-				return;
+		if (_addLayouts.MusicsToAdd.length == 0)
+			return _info.SetTitle('Veuillez choisir des morceaux.', 'red');
+		let playlistName = document.getElementById('PlaylistName').value;
+		if (playlistName == "")		
+			return _info.SetTitle('Merci de choisir des morceaux et de remplir le nom de la playlist.', 'red');
+		$.ajax({
+			url: server + '/functions/playlists/createPlaylist.php',
+			type: 'POST',
+			data: {
+				'musics': _addLayouts.MusicsToAdd.reverse(),
+				'playlistName': playlistName
+			},
+			success: function() {
+				_addLayouts.RemoveAll();
 			}
-		} else {
-			alert('Veuillez choisir des morceaux.')
-			return;
-		}
+		});
 	}
 }

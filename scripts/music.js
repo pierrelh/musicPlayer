@@ -80,23 +80,20 @@ class Music {
 	}
 
 	RemoveFromPlaylist() {
+		this.Elements.Reader.Main.remove();
 		_library.RemoveFromPlaylist(this);
 	}
 
 	RemoveFromReader() {
-		if(!this.IsPlayed) {
-			this.Elements.Reader.Main.remove();
+		if(!this.IsPlayed)
 			this.RemoveFromPlaylist();
-		}
 	}
 
 	ReaderTogglePlayPause() {
-		if (this.IsPlayed) {
+		if (this.IsPlayed)
 			_playPause.Toggle();
-		} else {
+		else
 			this.Play();
-			this.Elements.Reader.PlayIMG.src = server + '/img/pause.png';
-		}
 	}
 
 	CreateLayout(layoutClass, layoutEvent) {

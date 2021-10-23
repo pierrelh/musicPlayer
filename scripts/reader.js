@@ -5,12 +5,12 @@ const _audioPlayer = new class {
 	}
 
 	Show() {
-		if (!this.Element.classList.contains('show')) {
-			_library.Reduce();
-			_playlistSection.Reduce();
-			this.Element.classList.add('show');
-		}
 		this.IsVisible = true;
+		if (this.Element.classList.contains('show'))
+			return;
+		_library.Reduce();
+		_playlistSection.Reduce();
+		this.Element.classList.add('show');
 	}
 }
 
@@ -117,18 +117,13 @@ const _previous = new class {
 
 	Play() {
 		let usedPlaylist = _library.GetPlaylist();
-
 		let indexOfCurrentMusic = usedPlaylist.findIndex(x => x.ID === _player.PlayedMusic.ID); // Getting the position of the current music in the playlist
-		if (_player.Element.currentTime < 5) {
-			let indexOfNextMusic = 0;
-			if (indexOfCurrentMusic != 0)
+		let indexOfNextMusic = 0;
+		if (_player.Element.currentTime < 5 && indexOfCurrentMusic != 0)
 				indexOfNextMusic = indexOfCurrentMusic - 1;
-			// Play the previous music
-			_player.Play(usedPlaylist[indexOfNextMusic]);
-		} else {
-			// Rollback the current music
-			_player.Play(usedPlaylist[indexOfCurrentMusic]);
-		}
+		else if (_player.Element.currentTime >= 5)
+			indexOfNextMusic = indexOfCurrentMusic;
+		_player.Play(usedPlaylist[indexOfNextMusic])
 	}
 }
 
@@ -157,18 +152,16 @@ const _next = new class {
 	}
 
 	Play(notSkiped = false) {
-		if (notSkiped && _loop.Type == 'one') {
-			_player.Play(_player.PlayedMusic);
-		} else {
-			let playlist = _library.GetPlaylist();
-			let nextMusic = 0;
-			let currentMusic = playlist.findIndex(x => x.ID === _player.PlayedMusic.ID); // Getting the position of the current music in the playlist
-			if (currentMusic == (playlist.length) - 1 && _loop.Type == 'none')
-				return;
-			else if (currentMusic != (playlist.length) - 1)
-				nextMusic = currentMusic + 1;
-			_player.Play(playlist[nextMusic]);
-		}
+		if (notSkiped && _loop.Type == 'one')
+			return _player.Play(_player.PlayedMusic);
+		let playlist = _library.GetPlaylist();
+		let nextMusic = 0;
+		let currentMusic = playlist.findIndex(x => x.ID === _player.PlayedMusic.ID); // Getting the position of the current music in the playlist
+		if (currentMusic == (playlist.length) - 1 && _loop.Type == 'none')
+			return;
+		else if (currentMusic != (playlist.length) - 1)
+			nextMusic = currentMusic + 1;
+		_player.Play(playlist[nextMusic]);
 	}
 }
 
@@ -188,7 +181,6 @@ const _progress = new class {
 		this.Element.addEventListener('input', evt => this.Change(), false);
 	}
 
-	// Set Time to the right format
 	FormatTime(t) {
 		let m = ~~(t / 60),
 		s = ~~(t % 60);

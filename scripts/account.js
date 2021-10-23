@@ -10,7 +10,6 @@ const _account = new class {
 		this.Elements	= {
 			Main:				document.getElementById('Account'),
 			Cross:				document.getElementById('CrossAccount'),
-			ErrorMSG:			document.getElementById('errorMsgEditPassword'),
 			Password: {
 				Btn	: document.getElementById('UpdatePassword'),
 				One	: document.getElementById('NewPasswordOne'),
@@ -81,36 +80,23 @@ const _account = new class {
 
 	UpdatePassword(e) {
 		e.preventDefault();
-		if (this.Elements.Password.One.value || this.Elements.Password.Two.value) {
-			this.Elements.ErrorMSG.style.color = 'red';
-			this.Elements.ErrorMSG.innerHTML = 'Veuillez remplir les champs';
-			this.Elements.ErrorMSG.style.display = 'block';
-			return;
-		} else if (this.Elements.Password.One.value != this.Elements.Password.Two.value) {
-			this.Elements.ErrorMSG.style.color = 'red';
-			this.Elements.ErrorMSG.innerHTML = 'Les deux mots de passe ne correspondent pas';
-			this.Elements.ErrorMSG.style.display = 'block';
-			return;
-		} else {
-			const self = this;
-			$.ajax({
-				url: server + this.URLs.EditPassword,
-				type: 'POST',
-				data: {
-					'user_password': this.Elements.Password.One.value
-				},
-				success: function (response) {
-					if (response == 'true') {
-						self.Elements.ErrorMSG.style.color = 'green';
-						self.Elements.ErrorMSG.innerHTML = 'Votre mot de passe à bien été mis à jour';
-						self.Elements.ErrorMSG.style.display = 'block';
-					} else {
-						self.Elements.ErrorMSG.innerHTML = 'Une erreur s\'est produite lors de la mise à jour';
-						self.Elements.ErrorMSG.style.display = 'block';
-					}
-				}
-			});
-		}
+		if (this.Elements.Password.One.value || this.Elements.Password.Two.value)
+			return _info.SetTitle('Veuillez remplir les champs', 'red');
+		else if (this.Elements.Password.One.value != this.Elements.Password.Two.value)
+			return _info.SetTitle('Les deux mots de passe ne correspondent pas', 'red');
+		
+		$.ajax({
+			url: server + this.URLs.EditPassword,
+			type: 'POST',
+			data: {
+				'user_password': this.Elements.Password.One.value
+			},
+			success: function (response) {
+				if (response != 'true')
+					return _info.SetTitle('Une erreur s\'est produite lors de la mise à jour', 'red');
+				return _info.SetTitle('Votre mot de passe à bien été mis à jour', 'green');
+			}
+		});
 	}
 
 	Hydrate() {

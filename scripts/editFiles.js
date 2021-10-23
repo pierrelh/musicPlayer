@@ -54,59 +54,56 @@ const _editSection = new class {
 
 	Edit(e) {
 		e.preventDefault();
-		let self = this;
-		if (this.Music.MusicID != 'undefined') {
-			let picture = 'undefined';
-			let publicId = 'undefined';
-			if (this.CoverEdit.files.length != 0) {
-				publicId = this.Music.Cover;
-				picture = this.CoverEdit.files[0];
-			}
-			let name = this.NameEdit.value;
-			let author = this.AuthorEdit.value;
-			if (name || author) {
-				document.getElementById('ErrorMsgEdit').innerHTML = 'Merci de remplir tous les champs.';
-				document.getElementById('ErrorMsgEdit').style.display = 'block';
-			} else {
-				let form_data = new FormData(document.getElementById('FormEdit'));
-				form_data.append('file_id', this.Music.MusicID);
-				form_data.append('file_image', picture);
-				form_data.append('public_id', publicId);
-				$.ajax({
-					url: server + '/functions/files/editFile.php',
-					type: 'POST',
-					dataType: 'script',
-					cache: false,
-					contentType: false,
-					processData: false,
-					data: form_data,
-					xhr: function () {
-						let xhr = $.ajaxSettings.xhr();
-						xhr.upload.onprogress = function(e) {
-							if (e.lengthComputable) {
-								this.ProgressBar.style.width = Math.round((e.loaded / e.total)*100) + '%';
-								this.ProgressTxt.innerHTML = Math.round((e.loaded / e.total)*100) + ' %';
-							}
-						};
-						return xhr;
-					}
-				}).done(function() {
-					_library.GetFiles();
-				}).fail(function() {
-					alert('Edit failed');
-				});
-
-				self.Hide();
-			}
-		} else {
-			alert('Une erreur s\'est produite.');
+		if (this.Music === undefined)		
+			return _info.SetTitle('Aucun fichier n\'est sélectionné', 'red');
+		let picture = 'undefined';
+		let publicId = 'undefined';
+		if (this.CoverEdit.files.length != 0) {
+			publicId = this.Music.Cover;
+			picture = this.CoverEdit.files[0];
 		}
+		let name = this.NameEdit.value;
+		let author = this.AuthorEdit.value;
+		if (name == '' || author == '')
+			return _info.SetTitle('Merci de remplir tous les champs.', 'red');
+				
+		let form_data = new FormData(document.getElementById('FormEdit'));
+		form_data.append('file_id', this.Music.MusicID);
+		form_data.append('file_image', picture);
+		form_data.append('public_id', publicId);
+		let self = this;
+		$.ajax({
+			url: server + '/functions/files/editFile.php',
+			type: 'POST',
+			dataType: 'script',
+			cache: false,
+			contentType: false,
+			processData: false,
+			data: form_data,
+			xhr: function () {
+				let xhr = $.ajaxSettings.xhr();
+				xhr.upload.onprogress = function(e) {
+					if (e.lengthComputable) {
+						self.ProgressBar.style.width = Math.round((e.loaded / e.total)*100) + '%';
+						self.ProgressTxt.innerHTML = Math.round((e.loaded / e.total)*100) + ' %';
+					}
+				};
+				return xhr;
+			}
+		}).done(function() {
+			_library.GetFiles();
+		}).fail(function() {
+			return _info.SetTitle('Une erreur s\'est produite lors de l\'édition de votre fichier', 'red');
+		});
+
+		this.Hide();
 	}
 
 	Hide() {
 		_background.Hide();
 		this.Element.className = '';
 		this.CoverEdit.value = '';
+		this.Music = undefined;
 	}
 
 	Show(music) {

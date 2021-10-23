@@ -9,8 +9,7 @@ const _createAccount = new class {
 			BTN			: document.getElementById('CreateAccountButton'),
 			Email		: document.getElementById('NewAccountEmail'),
 			PasswordOne	: document.getElementById('NewAccountPasswordOne'),
-			PasswordTwo	: document.getElementById('NewAccountPasswordTwo'),
-			ErrorMSG	: document.getElementById('errorMsgCreateAccount')
+			PasswordTwo	: document.getElementById('NewAccountPasswordTwo')
 		};
 
 		this.Elements.Cross.addEventListener('click', evt => this.Hide(), false);
@@ -20,39 +19,24 @@ const _createAccount = new class {
 	CreateAccount(e) {
 		e.preventDefault();
 
-		if (this.Elements.Email.value == '' || this.Elements.PasswordOne.value == '' || this.Elements.PasswordTwo.value == '') {
-			// Check if all the fiels have been sets
-			this.Elements.ErrorMSG.innerHTML = 'Veuillez remplir tous les champs';
-			this.Elements.ErrorMSG.style.display = 'block';
-			return;
-		} else if (this.Elements.PasswordOne.value != this.Elements.PasswordTwo.value) {
-			// Check if the 2 password match
-			this.Elements.ErrorMSG.innerHTML = 'Les 2 mots de passes ne correspondent pas';
-			this.Elements.ErrorMSG.style.display = 'block';
-			return;
-		} else {
-			const self = this;
-			// Create the new account
-			$.ajax({
-				url: server + this.URL,
-				type: 'POST',
-				data: {
-					'user_login': this.Elements.Email.value,
-					'user_password': this.Elements.PasswordOne.value
-				},
-				success: function (response) {
-					if (response == 'true') {
-						self.Elements.ErrorMSG.style.color = 'green';
-						self.Elements.ErrorMSG.innerHTML = 'Votre compte à bien été créé';
-						self.Elements.ErrorMSG.style.display = 'block';
-					} else {
-						self.Elements.ErrorMSG.style.color = 'red';
-						self.Elements.ErrorMSG.innerHTML = 'Une erreur s\'est produite lors de la création du compte';
-						self.Elements.ErrorMSG.style.display = 'block';
-					}
-				}
-			});
-		}
+		if (this.Elements.Email.value == '' || this.Elements.PasswordOne.value == '' || this.Elements.PasswordTwo.value == '')
+			return _info.SetTitle('Veuillez remplir tous les champs', 'red');
+		else if (this.Elements.PasswordOne.value != this.Elements.PasswordTwo.value)
+			return _info.SetTitle('Les 2 mots de passes ne correspondent pas', 'red');
+
+		$.ajax({
+			url: server + this.URL,
+			type: 'POST',
+			data: {
+				'user_login': this.Elements.Email.value,
+				'user_password': this.Elements.PasswordOne.value
+			},
+			success: function (response) {
+				if (response != 'true')
+					return _info.SetTitle('Une erreur s\'est produite lors de la création du compte', 'red');
+				return _info.SetTitle('Votre compte à bien été créé', 'green');
+			}
+		});
 	}
 
 	Toggle() {

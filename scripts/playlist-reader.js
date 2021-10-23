@@ -30,8 +30,7 @@ const _playlistReader = new class {
 	Hydrate() {
 		this.Drop();
 		let playlist = _library.GetPlaylist();
-		for (let index = 0; index < playlist.length; index++) {
+		for (let index = 0; index < playlist.length; index++)
 			playlist[index].CreateInReader();
-		}
 	}
 }
