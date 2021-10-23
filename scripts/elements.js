@@ -30,6 +30,8 @@ class Element {
                 this.Element.setAttribute('type', data.Type);
             if (data.Placeholder)
                 this.Element.setAttribute('placeholder', data.Placeholder);
+            if (data.Event && data.Trigger)
+                this.Element.addEventListener(data.Event, data.Trigger, false);
 
             return this.Element;
         } else {

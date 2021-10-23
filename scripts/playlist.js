@@ -56,14 +56,6 @@ const _addLayouts = new class {
 			Placeholder:	'Nom de la Playlist'
 		}));
 
-		listPlaylistName.append(new Element({
-			ElementType:	'input',
-			ID:				'PlaylistName',
-			ClassList:		'playlist-name',
-			Type:			'text',
-			Placeholder:	'Nom de la Playlist'
-		}));
-
 		let listElement = new Element({
 			ElementType:	'li',
 			ID:				'PlaylistButtonElement'
@@ -74,11 +66,13 @@ const _addLayouts = new class {
 			ID:				'ButtonCreatePlaylist',
 			ClassList:		'button-create-playlist',
 			Type:			'submit',
-			Placeholder:	'Créer la Playlist'
+			Placeholder:	'Créer la Playlist',
+			Event:			'click',
+			Trigger:		evt => _playlistSection.SendPlaylist()
 		});
 
 		listElement.append(buttonCreatePlaylist);
-		buttonCreatePlaylist.addEventListener('click', evt => _playlistSection.SendPlaylist(), false);
+		// buttonCreatePlaylist.addEventListener('click', evt => _playlistSection.SendPlaylist(), false);
 		sidebarList.append(listPlaylistName, listElement);
 		this.IsActive = true;
 	}
