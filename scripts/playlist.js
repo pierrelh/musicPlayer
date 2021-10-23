@@ -14,12 +14,12 @@ const _addLayouts = new class {
 
 	AddToPlaylist(music) {
 		this.MusicsToAdd.push(music.MusicID);
-		_library.Playlist[index].CreateLayout('check', evt => this.RemoveFromPlaylist(music));
+		music.CreateLayout('check', evt => this.RemoveFromPlaylist(music));
 	}
 
 	RemoveFromPlaylist(music) {
 		delete this.MusicsToAdd[music.MusicID];
-		_library.Playlist[index].CreateLayout('add', evt => this.AddToPlaylist(music));
+		music.CreateLayout('add', evt => this.AddToPlaylist(music));
 	}
 
 	CreateAll() {
