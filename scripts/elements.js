@@ -31,7 +31,7 @@ class Element {
             if (data.Placeholder)
                 this.Element.setAttribute('placeholder', data.Placeholder);
 
-            return this;
+            return this.Element;
         } else {
             delete this;
         }
