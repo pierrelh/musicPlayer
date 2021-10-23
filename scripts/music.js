@@ -100,8 +100,7 @@ class Music {
 	}
 
 	CreateLayout(layoutClass, layoutEvent) {
-		if (this.Elements.Library.Main.getElementsByClassName('layout')[0])
-			this.RemoveLayout();
+		this.RemoveLayout();
 		this.Elements.Library.Main.prepend(new Layout({
 			class: layoutClass,
 			event: layoutEvent
@@ -109,6 +108,7 @@ class Music {
 	}
 
 	RemoveLayout() {
-		this.Elements.Library.Main.removeChild(this.Elements.Library.Main.getElementsByClassName('layout')[0]);
+		if (this.Elements.Library.Main.getElementsByClassName('layout')[0])
+			this.Elements.Library.Main.removeChild(this.Elements.Library.Main.getElementsByClassName('layout')[0]);
 	}
 }
