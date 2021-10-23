@@ -33,13 +33,13 @@ const _playlistReader = new class {
 			elem.appendChild(elemTitle);
 
 			let elemPlayBTN = document.createElement('button');
-			elemPlayBTN.addEventListener('click', evt => this.TogglePlayPause(playlist[index], elemPlayIMG), false);
 			let elemPlayIMG = document.createElement('img');
 			if (playlist[index].IsPlayed)
 				elemPlayIMG.src = server + '/img/pause.png';
 			else
 				elemPlayIMG.src = server + '/img/play.png';
 			elemPlayBTN.appendChild(elemPlayIMG);
+			elemPlayBTN.addEventListener('click', evt => this.TogglePlayPause(playlist[index], elemPlayIMG), false);
 			elem.appendChild(elemPlayBTN);
 
 			let elemDeleteBTN = document.createElement('button');
