@@ -55,10 +55,14 @@ const _player = new class {
 	}
 
 	TogglePlayPause() {
-		if (this.Element.paused)
+		if (this.Element.paused) {
 			_playPause.IMG.src = server + '/img/play.png';
-		else
+			this.PlayedMusic.Elements.Reader.PlayIMG.src =server + '/img/play.png'; 
+		}
+		else {
 			_playPause.IMG.src = server + '/img/pause.png';
+			this.PlayedMusic.Elements.Reader.PlayIMG.src = server + '/img/pause.png';
+		}
 	}
 
 	Ended() {

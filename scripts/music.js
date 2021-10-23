@@ -95,10 +95,6 @@ class Music {
 
 	ReaderTogglePlayPause() {
 		if (this.IsPlayed) {
-			if (_player.Element.paused)
-				this.Elements.Reader.PlayIMG.src = server + '/img/pause.png';
-			else
-				this.Elements.Reader.PlayIMG.src = server + '/img/play.png';
 			_playPause.Toggle();
 		} else {
 			this.Play();
