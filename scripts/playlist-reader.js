@@ -14,11 +14,11 @@ const _playlistReader = new class {
 
     Show() {
         this.Element.classList.add("show-playlist-reader");
-        this.IsVisible  = true;
+        this.IsVisible = true;
     }
 
     Hide() {
         this.Element.classList.remove("show-playlist-reader");
-        this.IsVisible  = false;
+        this.IsVisible = false;
     }
 }

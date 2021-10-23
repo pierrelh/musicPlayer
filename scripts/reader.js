@@ -328,9 +328,9 @@ const _volume = new class {
 	}
 }
 
-const _playlistReaderBTN = class {
+const _playlistReaderBTN = new class {
 	constructor() {
-		this.BTN	= document.getElementById("PlaylistBtn");
+		this.BTN = document.getElementById("PlaylistBtn");
 		this.BTN.addEventListener("click", evt => _playlistReader.Toggle());
 	}
 }
