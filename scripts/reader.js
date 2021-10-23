@@ -1,11 +1,13 @@
 const _audioPlayer = new class {
 	constructor() {
-		this.Element = document.getElementById("AudioPlayer");
+		this.Element	= document.getElementById("AudioPlayer");
+		this.IsVisible	= false;
 	}
 
 	Show() {
 		if (!this.Element.classList.contains("show"))
 			this.Element.classList.add("show");
+		this.IsVisible = true;
 	}
 }
 
@@ -38,12 +40,16 @@ const _player = new class {
 	}
 
 	Play(music) {
+		if (this.PlayedMusic)
+			this.PlayedMusic.SetNotPlayed();
 		this.PlayedMusic = music;
 		_musicName.Change(this.PlayedMusic.Artist + " - " + this.PlayedMusic.Title);
 		this.Element.src = this.PlayedMusic.URL;
-		_library.Reduce();
-		_playlistSection.Reduce();
-		_audioPlayer.Show();
+		if (!_audioPlayer.IsVisible) {
+			_library.Reduce();
+			_playlistSection.Reduce();
+			_audioPlayer.Show();
+		}
 		_mediaSession.SetData(this.PlayedMusic);
 	}
 

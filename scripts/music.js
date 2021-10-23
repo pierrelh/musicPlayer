@@ -36,6 +36,10 @@ class Music {
 		_playingLayout.Change(this.Element);
 	}
 
+	SetNotPlayed() {
+		this.IsPlayed = false;
+	}
+
 	Play() {
 		_player.Play(this);
 		this.SetPlayed();
