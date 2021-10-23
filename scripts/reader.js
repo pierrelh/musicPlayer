@@ -5,8 +5,11 @@ const _audioPlayer = new class {
 	}
 
 	Show() {
-		if (!this.Element.classList.contains('show'))
+		if (!this.Element.classList.contains('show')) {
+			_library.Reduce();
+			_playlistSection.Reduce();
 			this.Element.classList.add('show');
+		}
 		this.IsVisible = true;
 	}
 }
@@ -43,13 +46,11 @@ const _player = new class {
 		if (this.PlayedMusic)
 			this.PlayedMusic.SetNotPlayed();
 		this.PlayedMusic = music;
+		this.PlayedMusic.SetPlayed();
 		_musicName.Change(this.PlayedMusic.Artist + ' - ' + this.PlayedMusic.Title);
 		this.Element.src = this.PlayedMusic.URL;
-		if (!_audioPlayer.IsVisible) {
-			_library.Reduce();
-			_playlistSection.Reduce();
+		if (!_audioPlayer.IsVisible)
 			_audioPlayer.Show();
-		}
 		_mediaSession.SetData(this.PlayedMusic);
 	}
 

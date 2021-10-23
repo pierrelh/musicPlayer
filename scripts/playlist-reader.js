@@ -54,7 +54,7 @@ const _playlistReader = new class {
 	}
 
 	UpdatePlayed() {
-		
+
 	}
 
 	TogglePlayPause(music, img) {
@@ -70,8 +70,10 @@ const _playlistReader = new class {
 		}
 	}
 
-	Remove(elem, music) {		
-		elem.remove();
-		music.RemoveFromPlaylist();
+	Remove(elem, music) {
+		if(!music.IsPlayed) {
+			elem.remove();
+			music.RemoveFromPlaylist();
+		}
 	}
 }
