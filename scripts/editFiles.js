@@ -1,7 +1,6 @@
 const _editLayouts = new class {
 	constructor() {
 		this.IsActive	= false;
-		this.Elements	= [];
 	}
 
 	Toggle() {
@@ -12,24 +11,13 @@ const _editLayouts = new class {
 	}
 
 	CreateAll() {
-		if (_addLayouts.IsActive)
-			_addLayouts.RemoveAll();
-		if (_deleteLayouts.IsActive)
-			_deleteLayouts.RemoveAll();
-
-		for (let index = 0; index < _library.Playlist.length; index++) {
-			let editLayout = new Layout({
-				class: 'edit',
-				event: evt => _editSection.Show(_library.Playlist[index])
-			});
-			this.Elements.push(editLayout);
-			_library.Playlist[index].Element.prepend(editLayout);
-		}
+		for (let index = 0; index < _library.Playlist.length; index++)
+			_library.Playlist[index].CreateLayout('edit', evt => _editSection.Show(_library.Playlist[index]));
 		this.IsActive = true;
 	}
 
 	RemoveAll() {
-		this.Elements.forEach(element => element.remove());
+		_library.Playlist.forEach(music => music.RemoveLayout());
 		this.IsActive = false;
 	}
 }

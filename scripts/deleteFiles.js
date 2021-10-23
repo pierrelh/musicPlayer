@@ -1,7 +1,6 @@
 const _deleteLayouts = new class {
 	constructor() {
 		this.IsActive	= false;
-		this.Elements	= [];
 	}
 
 	Toggle() {
@@ -12,24 +11,13 @@ const _deleteLayouts = new class {
 	}
 
 	CreateAll() {
-		if (_addLayouts.IsActive)
-			_addLayouts.RemoveAll();
-		if (_editLayouts.IsActive)
-			_editLayouts.RemoveAll();
-
-		for (let index = 0; index < _library.Playlist.length; index++) {
-			let deleteLayout = new Layout({
-				class: 'delete',
-				event: evt => _deleteSection.Show(_library.Playlist[index])
-			});
-			this.Elements.push(deleteLayout);
-			_library.Playlist[index].Element.prepend(deleteLayout);
-		}
+		for (let index = 0; index < _library.Playlist.length; index++)
+			_library.Playlist[index].CreateLayout('delete', evt => _deleteSection.Show(_library.Playlist[index]));
 		this.IsActive = true;
 	}
 
 	RemoveAll() {
-		this.Elements.forEach(element => element.remove());
+		_library.Playlist.forEach(music => music.RemoveLayout());
 		this.IsActive = false;
 	}
 }

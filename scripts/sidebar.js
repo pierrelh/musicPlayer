@@ -44,6 +44,7 @@ class Filters {
 const _sidebar = new class {
 	constructor() {
 		this.Element			= document.getElementById('Sidebar');
+		this.List				= document.getElementById('SidebarList');
 		this.Arrow				= document.getElementById('Arrow');
 		this.MyAccount			= document.getElementById('MyAccountSidebar');
 		this.CreateAccount		= document.getElementById('CreateAccountSidebar');

@@ -1,7 +1,6 @@
 const _addLayouts = new class {
 	constructor() {
 		this.IsActive		= false;
-		this.Elements		= [];
 		this.MusicsToAdd	= [];
 	}
 
@@ -23,17 +22,10 @@ const _addLayouts = new class {
 	}
 
 	CreateAll() {
-		if (_editLayouts.IsActive)
-			_editLayouts.RemoveAll();
-		if (_deleteLayouts.IsActive)
-			_deleteLayouts.RemoveAll();
-
-		for (let index = 0; index < _library.Playlist.length; index++) {
+		for (let index = 0; index < _library.Playlist.length; index++)
 			_library.Playlist[index].CreateLayout('add', evt => this.AddToPlaylist(_library.Playlist[index]));
-		}
 
-		let sidebarList = document.getElementById('SidebarList');
-		sidebarList.append(
+		_sidebar.List.append(
 			new Element({
 				ElementType	: 'li',
 				ID			: 'PlaylistNameElement',
@@ -62,13 +54,12 @@ const _addLayouts = new class {
 					})
 				]
 			})
-		);
-		
+		);		
 		this.IsActive = true;
 	}
 
 	RemoveAll() {
-		this.Elements.forEach(element => element.remove());
+		_library.Playlist.forEach(music => music.RemoveLayout());
 		document.getElementById('PlaylistNameElement').remove();
 		document.getElementById('PlaylistButtonElement').remove();
 		this.IsActive = false;
