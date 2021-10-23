@@ -31,18 +31,18 @@
 		</ul>
 		<ul>
 			<li class="account-element-title">
-				<p>Resources:</p>
+				<p>Ressources:</p>
 			</li>
 			<li>
-				<p id="AccountResources"></p>
+				<p id="AccountRessources"></p>
 			</li>
 		</ul>
 		<ul>
 			<li class="account-element-title">
-				<p>Derived Resources:</p>
+				<p>Derived Ressources:</p>
 			</li>
 			<li>
-				<p id="AccountDerivedResources"></p>
+				<p id="AccountDerivedRessources"></p>
 			</li>
 		</ul>
 		<ul>

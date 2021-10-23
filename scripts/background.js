@@ -1,7 +1,8 @@
 const _background = new class {
 	constructor() {
-		this.Element	= document.getElementById('Background');
+		this.Main		= document.getElementById('Background');
 		this.IsVisible	= false;
+		this.ClassName	= 'background-appear';
 	}
 
 	Toggle() {
@@ -12,14 +13,14 @@ const _background = new class {
 	}
 
 	Hide() {
-		if (this.Element.classList.contains('background-appear'))
-			this.Element.classList.remove('background-appear');
+		if (this.Main.classList.contains(this.ClassName))
+			this.Main.classList.remove(this.ClassName);
 		this.IsVisible = false;
 	}
 
 	Show() {
-		if (!this.Element.classList.contains('background-appear'))
-			this.Element.classList.add('background-appear');
+		if (!this.Main.classList.contains(this.ClassName))
+			this.Main.classList.add(this.ClassName);
 		this.IsVisible = true;
 	}
 }
