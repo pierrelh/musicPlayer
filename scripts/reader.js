@@ -45,7 +45,7 @@ const _player = new class {
 		_playlistSection.Reduce();
 		_audioPlayer.Show();
 		_mediaSession.SetData(this.PlayedMusic);
-		this.PlayedMusic.SetPlayed();
+		this.PlayedMusic.Play();
 	}
 
 	TogglePlayPause() {

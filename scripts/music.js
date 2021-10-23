@@ -8,7 +8,7 @@ class Music {
 		this.MusicID	= data["file_id"];
 		this.Cover		= data["file_image"];
 		this.ID			= id;
-		this.Played		= false;
+		this.IsPlayed	= false;
 		this.Layout		= false;
 	}
 
@@ -25,14 +25,23 @@ class Music {
 		pTitile.innerHTML = this.Artist + " - " + this.Title;
 		this.Element.appendChild(liTitle);
 
-		cover.addEventListener("click", evt => _player.Play(this), false);
-		liTitle.addEventListener("click", evt => _player.Play(this), false);
+		cover.addEventListener("click", evt => this.Play(), false);
+		liTitle.addEventListener("click", evt => this.Play(), false);
 
 		return this.Element;
 	}
 
 	SetPlayed() {
-		this.Played = true;
+		this.IsPlayed = true;
 		_playingLayout.Change(this.Element);
+	}
+
+	Play() {
+		_player.Play(this);
+		this.SetPlayed();
+	}
+
+	RemoveFromPlaylist() {
+		console.log('Removing from playlist')
 	}
 }

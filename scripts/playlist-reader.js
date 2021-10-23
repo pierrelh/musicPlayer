@@ -25,7 +25,6 @@ const _playlistReader = new class {
 	Hydrate() {
 		this.List.innerHTML = '';
 		let playlist = _library.GetPlaylist();
-		console.log(playlist);
 		for (let index = 0; index < playlist.length; index++) {
 			let elem = document.createElement('li');
 			
@@ -34,12 +33,17 @@ const _playlistReader = new class {
 			elem.appendChild(elemTitle);
 
 			let elemPlayBTN = document.createElement('button');
+			elemPlayBTN.addEventListener('click', evt => this.TogglePlayPause(playlist[index], elemPlayIMG), false);
 			let elemPlayIMG = document.createElement('img');
-			elemPlayIMG.src = server + '/img/play.png';
+			if (playlist[index].IsPlayed)
+				elemPlayIMG.src = server + '/img/pause.png';
+			else
+				elemPlayIMG.src = server + '/img/play.png';
 			elemPlayBTN.appendChild(elemPlayIMG);
 			elem.appendChild(elemPlayBTN);
 
 			let elemDeleteBTN = document.createElement('button');
+			elemDeleteBTN.addEventListener('click', evt => this.RemoveFromPlaylist(elem, playlist[index]), false);
 			let elemDeleteIMG = document.createElement('img');
 			elemDeleteIMG.src = server + '/img/cross.png';
 			elemDeleteBTN.appendChild(elemDeleteIMG);
@@ -47,5 +51,20 @@ const _playlistReader = new class {
 			
 			this.List.appendChild(elem);
 		}
+	}
+
+	TogglePlayPause(music, img) {
+		if (music.IsPlayed) {
+			_playPause.Toggle();
+			img.src = server + '/img/play.png';
+		} else {
+			music.Play();
+			img.src = server + '/img/pause.png';
+		}
+	}
+
+	Remove(elem, music) {		
+		elem.remove();
+		music.RemoveFromPlaylist();
 	}
 }
