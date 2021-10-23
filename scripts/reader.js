@@ -247,6 +247,7 @@ const _random = new class {
 			this.Disable();
 		else
 			this.Enable();
+		_playlistReader.Hydrate();			
 	}
 
 	Enable() {
