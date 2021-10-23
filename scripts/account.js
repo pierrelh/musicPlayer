@@ -4,17 +4,17 @@ const _account = new class {
 		this.IsVisible	= false;
 		this.ClassName	= 'appear';
 		this.URLs		= {
-			AdminData:		'/functions/account/getCloudinaryAdmin.php',
-			EditPassword:	'/functions/users/editPassword.php'
+			AdminData		: '/functions/account/getCloudinaryAdmin.php',
+			EditPassword	: '/functions/users/editPassword.php'
 		};
 		this.Elements	= {
 			Main:				document.getElementById('Account'),
 			Cross:				document.getElementById('CrossAccount'),
 			ErrorMSG:			document.getElementById('errorMsgEditPassword'),
 			Password: {
-				Btn:	document.getElementById('UpdatePassword'),
-				One:	document.getElementById('NewPasswordOne'),
-				Two:	document.getElementById('NewPasswordTwo'),
+				Btn	: document.getElementById('UpdatePassword'),
+				One	: document.getElementById('NewPasswordOne'),
+				Two	: document.getElementById('NewPasswordTwo'),
 			},
 			Account: {
 				Plan:				document.getElementById('AccountPlan'),

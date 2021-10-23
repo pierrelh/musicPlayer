@@ -4,13 +4,13 @@ const _createAccount = new class {
 		this.IsVisible	= false;
 		this.URL		= '/functions/users/createAccount.php'
 		this.Elements	= {
-			Main		= document.getElementById('CreateAccount'),
-			Cross		= document.getElementById('CrossCreateAccount'),
-			BTN			= document.getElementById('CreateAccountButton'),
-			Email		= document.getElementById('NewAccountEmail'),
-			PasswordOne	= document.getElementById('NewAccountPasswordOne'),
-			PasswordTwo	= document.getElementById('NewAccountPasswordTwo'),
-			ErrorMSG	= document.getElementById('errorMsgCreateAccount')
+			Main		: document.getElementById('CreateAccount'),
+			Cross		: document.getElementById('CrossCreateAccount'),
+			BTN			: document.getElementById('CreateAccountButton'),
+			Email		: document.getElementById('NewAccountEmail'),
+			PasswordOne	: document.getElementById('NewAccountPasswordOne'),
+			PasswordTwo	: document.getElementById('NewAccountPasswordTwo'),
+			ErrorMSG	: document.getElementById('errorMsgCreateAccount')
 		};
 
 		this.Elements.Cross.addEventListener('click', evt => this.Hide(), false);
