@@ -35,7 +35,7 @@ class Element {
             if (data.EventType && data.Listener)
                 this.Element.addEventListener(data.EventType, data.Listener, false);
             if (data.Children)
-                for (let index = 0; index < array.length; index++)
+                for (let index = 0; index < data.Children.length; index++)
                     this.Element.append(data.Children[index]);
 
             return this.Element;
