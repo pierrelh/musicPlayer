@@ -43,38 +43,34 @@ const _addLayouts = new class {
 
 		let sidebarList = document.getElementById('SidebarList');
 		sidebarList.append(
-			new Element(
-				{
-					ElementType	: 'li',
-					ID			: 'PlaylistNameElement'
-				}
-			).append(
-				new Element(
-					{
+			new Element({
+				ElementType	: 'li',
+				ID			: 'PlaylistNameElement',
+				Children	: [
+					new Element({
 						ElementType	: 'input',
 						ID			: 'PlaylistName',
 						ClassList	: 'playlist-name',
 						Type		: 'text',
 						Placeholder	: 'Nom de la Playlist'
-					}
-				)
-			),
-			new Element(
-				{
-					ElementType	: 'li',
-					ID			: 'PlaylistButtonElement'
-				}
-			).append(new Element(
-				{
-					ElementType	: 'input',
-					ID			: 'ButtonCreatePlaylist',
-					ClassList	: 'button-create-playlist',
-					Type		: 'submit',
-					Placeholder	: 'Créer la Playlist',
-					EventType	: 'click',
-					Listener	: evt => _playlistSection.SendPlaylist()
-				}
-			))
+					})
+				]
+			}),
+			new Element({
+				ElementType	: 'li',
+				ID			: 'PlaylistButtonElement',
+				Children	: [
+					new Element({
+							ElementType	: 'input',
+							ID			: 'ButtonCreatePlaylist',
+							ClassList	: 'button-create-playlist',
+							Type		: 'submit',
+							Placeholder	: 'Créer la Playlist',
+							EventType	: 'click',
+							Listener	: evt => _playlistSection.SendPlaylist()
+					})
+				]
+			})
 		);
 		
 		this.IsActive = true;
