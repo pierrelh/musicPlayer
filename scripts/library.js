@@ -1,6 +1,6 @@
 const _library = new class {
 	constructor() {
-		this.Element		= document.getElementById("Library");
+		this.Element		= document.getElementById('Library');
 		this.Playlist		= [];
 		this.RandomPlaylist	= [];
 		this.GetFiles();
@@ -22,19 +22,19 @@ const _library = new class {
 		_playlistReader.Hydrate();
 	}
 
-	GetFiles(row = "file_id", type = "DESC") {
+	GetFiles(row = 'file_id', type = 'DESC') {
 		let self = this;
 		$.ajax({
-			url: server + "/functions/files/getAllFiles.php",
-			type: "POST",
+			url: server + '/functions/files/getAllFiles.php',
+			type: 'POST',
 			data: {
-				"row": row,
-				"type": type
+				'row': row,
+				'type': type
 			},
 			success: function(data){
 				data = JSON.parse(data);
 				if (data.length != 0) {
-					self.Element.innerHTML = "";
+					self.Element.innerHTML = '';
 					self.Playlist = [];
 					for (let i = 0; i < data.length; i++) {
 						let music = new Music(data[i], i);
@@ -48,7 +48,7 @@ const _library = new class {
 	}
 
 	Reduce() {
-		if (!this.Element.classList.contains("library-reader-active"))
-			this.Element.classList.add("library-reader-active");
+		if (!this.Element.classList.contains('library-reader-active'))
+			this.Element.classList.add('library-reader-active');
 	}
 }

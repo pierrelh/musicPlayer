@@ -1,19 +1,19 @@
 const _audioPlayer = new class {
 	constructor() {
-		this.Element	= document.getElementById("AudioPlayer");
+		this.Element	= document.getElementById('AudioPlayer');
 		this.IsVisible	= false;
 	}
 
 	Show() {
-		if (!this.Element.classList.contains("show"))
-			this.Element.classList.add("show");
+		if (!this.Element.classList.contains('show'))
+			this.Element.classList.add('show');
 		this.IsVisible = true;
 	}
 }
 
 const _musicName = new class {
 	constructor() {
-		this.Element = document.getElementById("MusicName");
+		this.Element = document.getElementById('MusicName');
 	}
 
 	Change(name) {
@@ -23,15 +23,15 @@ const _musicName = new class {
 
 const _player = new class {
 	constructor() {
-		this.Element		= document.getElementById("MusicPlayer");
+		this.Element		= document.getElementById('MusicPlayer');
 		this.PlayedMusic	= undefined;
 
-		this.Element.addEventListener("loadedmetadata", evt => this.Load(), false);
-		this.Element.addEventListener("timeupdate", evt => _progress.Update(), false);
-		this.Element.addEventListener("volumechange", evt => _volume.Update(), false);
-		this.Element.addEventListener("pause", evt => this.TogglePlayPause(), false);
-		this.Element.addEventListener("play", evt => this.TogglePlayPause(), false);
-		this.Element.addEventListener("ended", evt => this.Ended(), false);
+		this.Element.addEventListener('loadedmetadata', evt => this.Load(), false);
+		this.Element.addEventListener('timeupdate', evt => _progress.Update(), false);
+		this.Element.addEventListener('volumechange', evt => _volume.Update(), false);
+		this.Element.addEventListener('pause', evt => this.TogglePlayPause(), false);
+		this.Element.addEventListener('play', evt => this.TogglePlayPause(), false);
+		this.Element.addEventListener('ended', evt => this.Ended(), false);
 	}
 
 	StopMusic() {
@@ -43,7 +43,7 @@ const _player = new class {
 		if (this.PlayedMusic)
 			this.PlayedMusic.SetNotPlayed();
 		this.PlayedMusic = music;
-		_musicName.Change(this.PlayedMusic.Artist + " - " + this.PlayedMusic.Title);
+		_musicName.Change(this.PlayedMusic.Artist + ' - ' + this.PlayedMusic.Title);
 		this.Element.src = this.PlayedMusic.URL;
 		if (!_audioPlayer.IsVisible) {
 			_library.Reduce();
@@ -55,13 +55,13 @@ const _player = new class {
 
 	TogglePlayPause() {
 		if (this.Element.paused)
-			_playPause.IMG.src = server + "/img/play.png";
+			_playPause.IMG.src = server + '/img/play.png';
 		else
-			_playPause.IMG.src = server + "/img/pause.png";
+			_playPause.IMG.src = server + '/img/pause.png';
 	}
 
 	Ended() {
-		if (this.Element.src != "")
+		if (this.Element.src != '')
 			_next.Play(true);
 	}
 
@@ -73,29 +73,29 @@ const _player = new class {
 
 const _loop = new class {
 	constructor() {
-		this.Button	= document.getElementById("Loop");
-		this.IMG	= document.getElementById("LoopIMG");
-		this.Type	= "all";
+		this.Button	= document.getElementById('Loop');
+		this.IMG	= document.getElementById('LoopIMG');
+		this.Type	= 'all';
 
-		this.Button.addEventListener("click", evt => this.Toggle(), false);
+		this.Button.addEventListener('click', evt => this.Toggle(), false);
 	}
 
 	Toggle() {
 		switch (this.Type) {
-			case "one":
-				this.Type = "none";
-				this.IMG.src = server + "/img/no-loop.png";
+			case 'one':
+				this.Type = 'none';
+				this.IMG.src = server + '/img/no-loop.png';
 				break;
 
-			case "all":
-				this.Type = "one";
-				this.IMG.src = server + "/img/loop-one.png";
+			case 'all':
+				this.Type = 'one';
+				this.IMG.src = server + '/img/loop-one.png';
 				break;
 
-			case "none":
+			case 'none':
 			default:
-				this.Type = "all";
-				this.IMG.src = server + "/img/loop.png";
+				this.Type = 'all';
+				this.IMG.src = server + '/img/loop.png';
 				break;
 		}
 	}
@@ -103,10 +103,10 @@ const _loop = new class {
 
 const _previous = new class {
 	constructor() {
-		this.Button = document.getElementById("Previous");
-		this.IMG	= document.getElementById("PreviousIMG");
+		this.Button = document.getElementById('Previous');
+		this.IMG	= document.getElementById('PreviousIMG');
 
-		this.Button.addEventListener("click", evt => this.Play(), false);
+		this.Button.addEventListener('click', evt => this.Play(), false);
 	}
 
 	Play() {
@@ -128,10 +128,10 @@ const _previous = new class {
 
 const _playPause = new class {
 	constructor() {
-		this.Button	= document.getElementById("PlayPause");
-		this.IMG	= document.getElementById("PlayPauseIMG");
+		this.Button	= document.getElementById('PlayPause');
+		this.IMG	= document.getElementById('PlayPauseIMG');
 
-		this.Button.addEventListener("click", evt => this.Toggle(), false);
+		this.Button.addEventListener('click', evt => this.Toggle(), false);
 	}
 
 	Toggle() {
@@ -144,20 +144,20 @@ const _playPause = new class {
 
 const _next = new class {
 	constructor() {
-		this.Button = document.getElementById("Next");
-		this.IMG	= document.getElementById("NextIMG");
+		this.Button = document.getElementById('Next');
+		this.IMG	= document.getElementById('NextIMG');
 
-		this.Button.addEventListener("click", evt => this.Play(), false);
+		this.Button.addEventListener('click', evt => this.Play(), false);
 	}
 
 	Play(notSkiped = false) {
-		if (notSkiped && _loop.Type == "one") {
+		if (notSkiped && _loop.Type == 'one') {
 			_player.Play(_player.PlayedMusic);
 		} else {
 			let playlist = _library.GetPlaylist();
 			let nextMusic = 0;
 			let currentMusic = playlist.findIndex(x => x.ID === _player.PlayedMusic.ID); // Getting the position of the current music in the playlist
-			if (currentMusic == (playlist.length) - 1 && _loop.Type == "none")
+			if (currentMusic == (playlist.length) - 1 && _loop.Type == 'none')
 				return;
 			else if (currentMusic != (playlist.length) - 1)
 				nextMusic = currentMusic + 1;
@@ -168,7 +168,7 @@ const _next = new class {
 
 const _currentTime = new class {
 	constructor() {
-		this.Element = document.getElementById("CurrentTime");
+		this.Element = document.getElementById('CurrentTime');
 	}
 
 	Set(time) {
@@ -178,25 +178,25 @@ const _currentTime = new class {
 
 const _progress = new class {
 	constructor() {		
-		this.Element = document.getElementById("ProgressBar");
-		this.Element.addEventListener("input", evt => this.Change(), false);
+		this.Element = document.getElementById('ProgressBar');
+		this.Element.addEventListener('input', evt => this.Change(), false);
 	}
 
 	// Set Time to the right format
 	FormatTime(t) {
 		let m = ~~(t / 60),
 		s = ~~(t % 60);
-		return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+		return (m < 10 ? '0' + m : m) + ':' + (s < 10 ? '0' + s : s);
 	}
 	
 	Update() {
 		this.Element.value = _player.Element.currentTime;
 		_currentTime.Set(this.FormatTime(_player.Element.currentTime));
 		let percent = (this.Element.value / (this.Element.max - this.Element.min)) * 100;
-		this.Element.style.backgroundImage = 	"-webkit-gradient(linear, left top, right top, " +
-												"color-stop(" + percent + "%, #FFF), " +
-												"color-stop(" + percent + "%, rgb(50, 50, 50))" +
-												")";
+		this.Element.style.backgroundImage = 	'-webkit-gradient(linear, left top, right top, ' +
+												'color-stop(' + percent + '%, #FFF), ' +
+												'color-stop(' + percent + '%, rgb(50, 50, 50))' +
+												')';
 	}
 
 	Change() {
@@ -225,7 +225,7 @@ const _progress = new class {
 
 const _endTime = new class {
 	constructor() {
-		this.Element = document.getElementById("EndTime");
+		this.Element = document.getElementById('EndTime');
 	}
 
 	Set(time) {
@@ -235,11 +235,11 @@ const _endTime = new class {
 
 const _random = new class {
 	constructor() {
-		this.Button		= document.getElementById("Random");
-		this.IMG		= document.getElementById("RandomIMG");
+		this.Button		= document.getElementById('Random');
+		this.IMG		= document.getElementById('RandomIMG');
 		this.IsRandom	= false;
 
-		this.Button.addEventListener("click", evt => this.Toggle(), false);
+		this.Button.addEventListener('click', evt => this.Toggle(), false);
 	}
 
 	// Handle the Random button actions
@@ -253,22 +253,22 @@ const _random = new class {
 	Enable() {
 		_library.CreateRandomPlaylist();
 		this.IsRandom = true;
-		this.IMG.src = server + "/img/random.png";
+		this.IMG.src = server + '/img/random.png';
 	}
 
 	Disable() {
 		this.IsRandom = false;
-		this.IMG.src = server + "/img/no-random.png";
+		this.IMG.src = server + '/img/no-random.png';
 	}
 }
 
 const _mute = new class {
 	constructor() {
-		this.Button	= document.getElementById("Mute");
-		this.IMG	= document.getElementById("MuteIMG");
+		this.Button	= document.getElementById('Mute');
+		this.IMG	= document.getElementById('MuteIMG');
 		this.IsMute	= false;
 
-		this.Button.addEventListener("click", evt => this.Toggle(), false);
+		this.Button.addEventListener('click', evt => this.Toggle(), false);
 	}
 
 	Toggle() {
@@ -281,23 +281,23 @@ const _mute = new class {
 	Enable() {
 		_volume.Level = _player.Element.volume;
 		_player.Element.volume = 0;
-		this.IMG.src = server + "/img/audio-off.png";
+		this.IMG.src = server + '/img/audio-off.png';
 		this.IsMute = true;
 	}
 
 	Disable() {
 		_player.Element.volume = _volume.Level;
-		this.IMG.src = server + "/img/audio-on.png";
+		this.IMG.src = server + '/img/audio-on.png';
 		this.IsMute = false;
 	}
 }
 
 const _volume = new class {
 	constructor() {
-		this.Element	= document.getElementById("Volume");
+		this.Element	= document.getElementById('Volume');
 		this.Level		= 0;
 		
-		this.Element.addEventListener("input", evt => this.Change(), false)
+		this.Element.addEventListener('input', evt => this.Change(), false)
 	}
 
 	Change() {
@@ -320,22 +320,22 @@ const _volume = new class {
 
 	Update() {
 		if (_player.Element.volume != 0)
-			_mute.IMG.src = server + "/img/audio-on.png";
+			_mute.IMG.src = server + '/img/audio-on.png';
 		else
-			_mute.IMG.src = server + "/img/audio-off.png";
+			_mute.IMG.src = server + '/img/audio-off.png';
 	
 		let percent = _player.Element.volume * 100;
 		this.Element.value = percent;
-		this.Element.style.backgroundImage =	"-webkit-gradient(linear, left top, right top, " +
-												"color-stop(" + percent + "%, #FFF), " +
-												"color-stop(" + percent + "%, rgb(50, 50, 50))" +
-												")";
+		this.Element.style.backgroundImage =	'-webkit-gradient(linear, left top, right top, ' +
+												'color-stop(' + percent + '%, #FFF), ' +
+												'color-stop(' + percent + '%, rgb(50, 50, 50))' +
+												')';
 	}
 }
 
 const _playlistReaderBTN = new class {
 	constructor() {
-		this.BTN = document.getElementById("PlaylistBtn");
-		this.BTN.addEventListener("click", evt => _playlistReader.Toggle());
+		this.BTN = document.getElementById('PlaylistBtn');
+		this.BTN.addEventListener('click', evt => _playlistReader.Toggle());
 	}
 }

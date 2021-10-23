@@ -17,7 +17,7 @@ const _mediaSession = new class {
 	}
 
 	HTMLDecode(input) {
-		let doc = new DOMParser().parseFromString(input, "text/html");
+		let doc = new DOMParser().parseFromString(input, 'text/html');
 		return doc.documentElement.textContent;
 	}
 

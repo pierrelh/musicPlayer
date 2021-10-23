@@ -1,7 +1,7 @@
 const _playlistReader = new class {
 	constructor() {
-		this.Element	= document.getElementById("PlaylistReader");
-		this.List		= document.getElementById("PlaylistReaderList");
+		this.Element	= document.getElementById('PlaylistReader');
+		this.List		= document.getElementById('PlaylistReaderList');
 		this.IsVisible	= false;
 	}
 
@@ -13,12 +13,12 @@ const _playlistReader = new class {
 	}
 
 	Show() {
-		this.Element.classList.add("show-playlist-reader");
+		this.Element.classList.add('show-playlist-reader');
 		this.IsVisible = true;
 	}
 
 	Hide() {
-		this.Element.classList.remove("show-playlist-reader");
+		this.Element.classList.remove('show-playlist-reader');
 		this.IsVisible = false;
 	}
 
@@ -55,8 +55,11 @@ const _playlistReader = new class {
 
 	TogglePlayPause(music, img) {
 		if (music.IsPlayed) {
+			if (_player.Element.paused)
+				img.src = server + '/img/pause.png';
+			else
+				img.src = server + '/img/play.png';
 			_playPause.Toggle();
-			img.src = server + '/img/play.png';
 		} else {
 			music.Play();
 			img.src = server + '/img/pause.png';

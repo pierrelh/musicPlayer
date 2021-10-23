@@ -1,6 +1,6 @@
 const _background = new class {
 	constructor() {
-		this.Element	= document.getElementById("Background");
+		this.Element	= document.getElementById('Background');
 		this.IsVisible	= false;
 	}
 
@@ -12,14 +12,14 @@ const _background = new class {
 	}
 
 	Hide() {
-		if (this.Element.classList.contains("background-appear"))
-			this.Element.classList.remove("background-appear");
+		if (this.Element.classList.contains('background-appear'))
+			this.Element.classList.remove('background-appear');
 		this.IsVisible = false;
 	}
 
 	Show() {
-		if (!this.Element.classList.contains("background-appear"))
-			this.Element.classList.add("background-appear");
+		if (!this.Element.classList.contains('background-appear'))
+			this.Element.classList.add('background-appear');
 		this.IsVisible = true;
 	}
 }
