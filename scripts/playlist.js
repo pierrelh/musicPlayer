@@ -43,28 +43,43 @@ const _addLayouts = new class {
 
 		let sidebarList = document.getElementById('SidebarList');
 
-		let listPlaylistName = document.createElement('li');
-		listPlaylistName.id = 'PlaylistNameElement'
-		sidebarList.appendChild(listPlaylistName);
+		let listPlaylistName = new Element({
+			ElementType:	'li',
+			ID:				'PlaylistNameElement'
+		});
 
-		let playlistName = document.createElement('input');
-		playlistName.id = 'PlaylistName';
-		playlistName.setAttribute('type', 'text');
-		playlistName.setAttribute('placeholder', 'Nom de la Playlist');
-		playlistName.classList.add('playlist-name');
-		listPlaylistName.appendChild(playlistName);
+		listPlaylistName.append(new Element({
+			ElementType:	'input',
+			ID:				'PlaylistName',
+			ClassList:		'playlist-name',
+			Type:			'text',
+			Placeholder:	'Nom de la Playlist'
+		}));
 
-		let listElement = document.createElement('li');
-		listElement.id = 'PlaylistButtonElement'
-		sidebarList.appendChild(listElement);
+		listPlaylistName.append(new Element({
+			ElementType:	'input',
+			ID:				'PlaylistName',
+			ClassList:		'playlist-name',
+			Type:			'text',
+			Placeholder:	'Nom de la Playlist'
+		}));
 
-		let buttonCreatePlaylist = document.createElement('input');
-		buttonCreatePlaylist.id = 'ButtonCreatePlaylist';
-		buttonCreatePlaylist.setAttribute('type', 'submit');
-		buttonCreatePlaylist.classList.add('button-create-playlist');
-		buttonCreatePlaylist.value = 'Créer la Playlist';
-		listElement.appendChild(buttonCreatePlaylist);
+		let listElement = new Element({
+			ElementType:	'li',
+			ID:				'PlaylistButtonElement'
+		});
+
+		let buttonCreatePlaylist = new Element({
+			ElementType:	'input',
+			ID:				'ButtonCreatePlaylist',
+			ClassList:		'button-create-playlist',
+			Type:			'submit',
+			Placeholder:	'Créer la Playlist'
+		});
+
+		listElement.append(buttonCreatePlaylist);
 		buttonCreatePlaylist.addEventListener('click', evt => _playlistSection.SendPlaylist(), false);
+		sidebarList.append(listPlaylistName, listElement);
 		this.IsActive = true;
 	}
 
@@ -108,7 +123,7 @@ const _playlistSection = new class {
 				let ul = document.createElement('ul');
 				ul.id = 'ListPlaylist';
 				ul.className = 'listPlaylist';
-				self.Element.appendChild(ul);
+				self.Element.append(ul);
 
 				for (let index = 0; index < response.length; index++) (function(index) {
 					self.Playlists[index] = {
@@ -116,12 +131,12 @@ const _playlistSection = new class {
 						name: response[index]['playlist_name']
 					}
 					let li = document.createElement('li');
-					ul.appendChild(li);
+					ul.append(li);
 					li.className = 'table';
 					li.addEventListener('click', evt => self.OpenPlaylist(index), false);
 
 					let p = document.createElement('p');
-					li.appendChild(p);
+					li.append(p);
 					p.innerHTML = response[index]['playlist_name'];
 				})(index);
 				self.Element.classList.add('playlist-div-show');

@@ -1,49 +1,54 @@
 const _createAccount = new class {
 	constructor() {
-		this.Element			= document.getElementById('CreateAccount');
-		this.Cross				= document.getElementById('CrossCreateAccount');
-		this.CreataAccountBTN	= document.getElementById('CreateAccountButton');
-		this.Email				= document.getElementById('NewAccountEmail');
-		this.PasswordOne		= document.getElementById('NewAccountPasswordOne');
-		this.PasswordTwo		= document.getElementById('NewAccountPasswordTwo');
-		this.ErrorMSG			= document.getElementById('errorMsgCreateAccount');
-		this.IsVisible			= false;
+		this.ClassName	= 'appear';
+		this.IsVisible	= false;
+		this.URL		= '/functions/users/createAccount.php'
+		this.Elements	= {
+			Main		= document.getElementById('CreateAccount'),
+			Cross		= document.getElementById('CrossCreateAccount'),
+			BTN			= document.getElementById('CreateAccountButton'),
+			Email		= document.getElementById('NewAccountEmail'),
+			PasswordOne	= document.getElementById('NewAccountPasswordOne'),
+			PasswordTwo	= document.getElementById('NewAccountPasswordTwo'),
+			ErrorMSG	= document.getElementById('errorMsgCreateAccount')
+		};
 
-		this.Cross.addEventListener('click', evt => this.Hide(), false);
-		this.CreataAccountBTN.addEventListener('click', evt => this.CreateAccount(evt), false);
+		this.Elements.Cross.addEventListener('click', evt => this.Hide(), false);
+		this.Elements.BTN.addEventListener('click', evt => this.CreateAccount(evt), false);
 	}
 
 	CreateAccount(e) {
 		e.preventDefault();
 
-		if (this.Email.value || this.PasswordOne.value || this.PasswordTwo.value) {
+		if (this.Elements.Email.value == '' || this.Elements.PasswordOne.value == '' || this.Elements.PasswordTwo.value == '') {
 			// Check if all the fiels have been sets
-			this.ErrorMSG.innerHTML = 'Veuillez remplir tous les champs';
-			this.ErrorMSG.style.display = 'block';
+			this.Elements.ErrorMSG.innerHTML = 'Veuillez remplir tous les champs';
+			this.Elements.ErrorMSG.style.display = 'block';
 			return;
-		} else if (this.PasswordOne.value != this.PasswordTwo.value) {
+		} else if (this.Elements.PasswordOne.value != this.Elements.PasswordTwo.value) {
 			// Check if the 2 password match
-			this.ErrorMSG.innerHTML = 'Les 2 mots de passes ne correspondent pas';
-			this.ErrorMSG.style.display = 'block';
+			this.Elements.ErrorMSG.innerHTML = 'Les 2 mots de passes ne correspondent pas';
+			this.Elements.ErrorMSG.style.display = 'block';
 			return;
 		} else {
+			const self = this;
 			// Create the new account
 			$.ajax({
-				url: server + '/functions/users/createAccount.php',
+				url: server + this.URL,
 				type: 'POST',
 				data: {
-					'user_login': this.Email.value,
-					'user_password': this.PasswordOne.value
+					'user_login': this.Elements.Email.value,
+					'user_password': this.Elements.PasswordOne.value
 				},
 				success: function (response) {
 					if (response == 'true') {
-						this.ErrorMSG.style.color = 'green';
-						this.ErrorMSG.innerHTML = 'Votre compte à bien été créé';
-						this.ErrorMSG.style.display = 'block';
+						self.Elements.ErrorMSG.style.color = 'green';
+						self.Elements.ErrorMSG.innerHTML = 'Votre compte à bien été créé';
+						self.Elements.ErrorMSG.style.display = 'block';
 					} else {
-						this.ErrorMSG.style.color = 'red';
-						this.ErrorMSG.innerHTML = 'Une erreur s\'est produite lors de la création du compte';
-						this.ErrorMSG.style.display = 'block';
+						self.Elements.ErrorMSG.style.color = 'red';
+						self.Elements.ErrorMSG.innerHTML = 'Une erreur s\'est produite lors de la création du compte';
+						self.Elements.ErrorMSG.style.display = 'block';
 					}
 				}
 			});
@@ -59,13 +64,13 @@ const _createAccount = new class {
 
 	Hide() {
 		_background.Hide();
-		this.Element.className = '';
+		this.Elements.Main.classList.remove(this.ClassName);
 		this.IsVisible = false;
 	}
 
 	Show() {
 		_background.Show();
-		document.getElementById('CreateAccount').classList.add('appear');
+		this.Elements.Main.classList.add(this.ClassName);
 		this.IsVisible = true;
 	}
 }

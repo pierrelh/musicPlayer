@@ -16,6 +16,7 @@
 		<?php
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/headers/header.php");
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/background.php");
+			include_once($_SERVER['DOCUMENT_ROOT']."/assets/error.php");
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/playlists.php");
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/reader.php");
 			include_once($_SERVER['DOCUMENT_ROOT']."/assets/reader-playlist.php");
@@ -27,5 +28,6 @@
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/library.js?cachev=<?php echo $cacheVersion ?>"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/layouts.js?cachev=<?php echo $cacheVersion ?>"></script>
 		<script type="text/javascript" src="<?php echo $link ?>/scripts/music.js?cachev=<?php echo $cacheVersion ?>"></script>
+		<script type="text/javascript" src="<?php echo $link ?>/scripts/elements.js?cachev=<?php echo $cacheVersion ?>"></script>
 	</body>
 </html>

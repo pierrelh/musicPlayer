@@ -31,39 +31,36 @@ class Music {
 	}
 
 	CreateInLibrary() {
-		this.Elements.Library.Cover.className = 'view';
+		this.Elements.Library.Cover.classList.add('view');
 		if (this.Cover)
 			this.Elements.Library.Cover.style.backgroundImage = 'url("' + this.Cover + '")';
-		this.Elements.Library.Element.appendChild(this.Elements.Library.Cover);
 
-		this.Elements.Library.Title.appendChild(this.Elements.Library.TitleText)
+		this.Elements.Library.Title.append(this.Elements.Library.TitleText)
 		this.Elements.Library.TitleText.innerHTML = this.Artist + ' - ' + this.Title;
-		this.Elements.Library.Element.appendChild(this.Elements.Library.Title);
 
 		this.Elements.Library.Cover.addEventListener('click', evt => this.Play(), false);
 		this.Elements.Library.Title.addEventListener('click', evt => this.Play(), false);
 
-		_library.Element.appendChild(this.Elements.Library.Element);
+		this.Elements.Library.Element.append(this.Elements.Library.Cover, this.Elements.Library.Title);
+		_library.Element.append(this.Elements.Library.Element);
 	}
 
 	CreateInReader() {		
 		this.Elements.Reader.Title.innerHTML = this.Artist + ' - ' + this.Title;
-		this.Elements.Reader.Element.appendChild(this.Elements.Reader.Title);
 
 		if (this.IsPlayed)
 			this.Elements.Reader.PlayIMG.src = server + '/img/pause.png';
 		else
 			this.Elements.Reader.PlayIMG.src = server + '/img/play.png';
-		this.Elements.Reader.PlayBTN.appendChild(this.Elements.Reader.PlayIMG);
+		this.Elements.Reader.PlayBTN.append(this.Elements.Reader.PlayIMG);
 		this.Elements.Reader.PlayBTN.addEventListener('click', evt => this.ReaderTogglePlayPause(), false);
-		this.Elements.Reader.Element.appendChild(this.Elements.Reader.PlayBTN);
 
 		this.Elements.Reader.DeleteBTN.addEventListener('click', evt => this.RemoveFromReader(), false);
 		this.Elements.Reader.DeleteIMG.src = server + '/img/cross.png';
-		this.Elements.Reader.DeleteBTN.appendChild(this.Elements.Reader.DeleteIMG);
-		this.Elements.Reader.Element.appendChild(this.Elements.Reader.DeleteBTN);
-		
-		_playlistReader.List.appendChild(this.Elements.Reader.Element);
+		this.Elements.Reader.DeleteBTN.append(this.Elements.Reader.DeleteIMG);
+
+		this.Elements.Reader.Element.append(this.Elements.Reader.Title, this.Elements.Reader.PlayBTN, this.Elements.Reader.DeleteBTN);		
+		_playlistReader.List.append(this.Elements.Reader.Element);
 	}
 
 	SetPlayed() {
