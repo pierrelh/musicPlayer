@@ -13,12 +13,13 @@ const _library = new class {
 			return this.Playlist.slice();
 	}
 
-	ShuffleMusics() {
+	CreateRandomPlaylist() {
 		this.RandomPlaylist = this.Playlist.slice();
 		for (let i = this.RandomPlaylist.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
 			[this.RandomPlaylist[i], this.RandomPlaylist[j]] = [this.RandomPlaylist[j], this.RandomPlaylist[i]];
 		}
+		_playlistReader.Hydrate();
 	}
 
 	GetFiles(row = "file_id", type = "DESC") {
@@ -40,6 +41,7 @@ const _library = new class {
 						self.Playlist.push(music);
 						self.Element.appendChild(music.Create());
 					};
+					_playlistReader.Hydrate();
 				}
 			}
 		});

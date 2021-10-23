@@ -246,7 +246,7 @@ const _random = new class {
 	}
 
 	Enable() {
-		_library.ShuffleMusics();
+		_library.CreateRandomPlaylist();
 		this.IsRandom = true;
 		this.IMG.src = server + "/img/random.png";
 	}
