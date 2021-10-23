@@ -31,9 +31,18 @@
 #PlaylistReaderList > li {
 	display: flex;
 }
+#PlaylistReaderList > li > p {
+	width: 75%;
+	overflow: hidden;
+}
 
 #PlaylistReaderList > li > button {
 	width: 12.5%;
 	background: none;
 	border: none;
+	cursor: pointer;
+}
+
+#PlaylistReaderList > li > button > img {
+	height: 20px;
 }
