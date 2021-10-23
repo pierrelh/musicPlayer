@@ -242,7 +242,6 @@ const _random = new class {
 		this.Button.addEventListener('click', evt => this.Toggle(), false);
 	}
 
-	// Handle the Random button actions
 	Toggle() {
 		if (this.IsRandom)
 			this.Disable();
@@ -251,9 +250,9 @@ const _random = new class {
 	}
 
 	Enable() {
-		_library.CreateRandomPlaylist();
 		this.IsRandom = true;
 		this.IMG.src = server + '/img/random.png';
+		_library.CreateRandomPlaylist();
 	}
 
 	Disable() {

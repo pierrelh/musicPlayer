@@ -43,7 +43,7 @@ const _playlistReader = new class {
 			elem.appendChild(elemPlayBTN);
 
 			let elemDeleteBTN = document.createElement('button');
-			elemDeleteBTN.addEventListener('click', evt => this.RemoveFromPlaylist(elem, playlist[index]), false);
+			elemDeleteBTN.addEventListener('click', evt => this.Remove(elem, playlist[index]), false);
 			let elemDeleteIMG = document.createElement('img');
 			elemDeleteIMG.src = server + '/img/cross.png';
 			elemDeleteBTN.appendChild(elemDeleteIMG);
@@ -51,6 +51,10 @@ const _playlistReader = new class {
 			
 			this.List.appendChild(elem);
 		}
+	}
+
+	UpdatePlayed() {
+		
 	}
 
 	TogglePlayPause(music, img) {
