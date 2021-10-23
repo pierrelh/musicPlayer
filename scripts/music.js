@@ -56,7 +56,6 @@ class Music {
 			this.Elements.Reader.PlayIMG.src = server + '/img/play.png';
 		this.Elements.Reader.PlayBTN.appendChild(this.Elements.Reader.PlayIMG);
 		this.Elements.Reader.PlayBTN.addEventListener('click', evt => this.ReaderTogglePlayPause(), false);
-		this.Elements.Reader.PlayBTN.push(this.Elements.Reader.PlayIMG);
 		this.Elements.Reader.Element.appendChild(this.Elements.Reader.PlayBTN);
 
 		this.Elements.Reader.DeleteBTN.addEventListener('click', evt => this.RemoveFromReader(), false);
