@@ -14,16 +14,12 @@ const _addLayouts = new class {
 
 	AddToPlaylist(music) {
 		this.MusicsToAdd.push(music.MusicID);
-		music.Element.children[0].classList.remove('add');
-		music.Element.children[0].classList.add('check');
-		music.Element.children[0].addEventListener('click', evt => this.RemoveFromPlaylist(music), false);
+		_library.Playlist[index].CreateLayout('check', evt => this.RemoveFromPlaylist(music));
 	}
 
 	RemoveFromPlaylist(music) {
 		delete this.MusicsToAdd[music.MusicID];
-		music.Element.children[0].classList.remove('check');
-		music.Element.children[0].classList.add('add');
-		music.Element.children[0].addEventListener('click', evt => this.AddToPlaylist(music), false);
+		_library.Playlist[index].CreateLayout('add', evt => this.AddToPlaylist(music));
 	}
 
 	CreateAll() {
@@ -33,12 +29,7 @@ const _addLayouts = new class {
 			_deleteLayouts.RemoveAll();
 
 		for (let index = 0; index < _library.Playlist.length; index++) {
-			let editLayout = new Layout({
-				class: 'add',
-				event: evt => this.AddToPlaylist(_library.Playlist[index])
-			});
-			this.Elements.push(editLayout);
-			_library.Playlist[index].Elements.Library.Element.prepend(editLayout);
+			_library.Playlist[index].CreateLayout('add', evt => this.AddToPlaylist(_library.Playlist[index]));
 		}
 
 		let sidebarList = document.getElementById('SidebarList');

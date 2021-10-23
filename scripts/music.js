@@ -10,18 +10,18 @@ class Music {
 		this.IsPlayed	= false;
 		this.Elements	= {
 			Library: {
-				Element:	document.createElement('ul'),
-				Cover:		document.createElement('li'),
-				Title:		document.createElement('li'),
-				TitleText:	document.createElement('p'),
+				Main		: document.createElement('ul'),
+				Cover		: document.createElement('li'),
+				Title		: document.createElement('li'),
+				TitleText	: document.createElement('p'),
 			},
 			Reader: {
-				Element:	document.createElement('li'),
-				Title:		document.createElement('p'),
-				PlayBTN:	document.createElement('button'),
-				PlayIMG:	document.createElement('img'),
-				DeleteBTN:	document.createElement('button'),
-				DeleteIMG:	document.createElement('img'),
+				Main		: document.createElement('li'),
+				Title		: document.createElement('p'),
+				PlayBTN		: document.createElement('button'),
+				PlayIMG		: document.createElement('img'),
+				DeleteBTN	: document.createElement('button'),
+				DeleteIMG	: document.createElement('img'),
 			}
 		}
 
@@ -41,11 +41,11 @@ class Music {
 		this.Elements.Library.Cover.addEventListener('click', evt => this.Play(), false);
 		this.Elements.Library.Title.addEventListener('click', evt => this.Play(), false);
 
-		this.Elements.Library.Element.append(this.Elements.Library.Cover, this.Elements.Library.Title);
-		_library.Element.append(this.Elements.Library.Element);
+		this.Elements.Library.Main.append(this.Elements.Library.Cover, this.Elements.Library.Title);
+		_library.Element.append(this.Elements.Library.Main);
 	}
 
-	CreateInReader() {		
+	CreateInReader() {
 		this.Elements.Reader.Title.innerHTML = this.Artist + ' - ' + this.Title;
 
 		if (this.IsPlayed)
@@ -59,13 +59,13 @@ class Music {
 		this.Elements.Reader.DeleteIMG.src = server + '/img/cross.png';
 		this.Elements.Reader.DeleteBTN.append(this.Elements.Reader.DeleteIMG);
 
-		this.Elements.Reader.Element.append(this.Elements.Reader.Title, this.Elements.Reader.PlayBTN, this.Elements.Reader.DeleteBTN);		
-		_playlistReader.List.append(this.Elements.Reader.Element);
+		this.Elements.Reader.Main.append(this.Elements.Reader.Title, this.Elements.Reader.PlayBTN, this.Elements.Reader.DeleteBTN);		
+		_playlistReader.List.append(this.Elements.Reader.Main);
 	}
 
 	SetPlayed() {
 		this.IsPlayed = true;
-		_playingLayout.Change(this.Elements.Library.Element);
+		_playingLayout.Change(this.Elements.Library.Main);
 		this.Elements.Reader.PlayIMG.src = server + '/img/pause.png';
 	}
 
@@ -85,7 +85,7 @@ class Music {
 
 	RemoveFromReader() {
 		if(!this.IsPlayed) {
-			this.Elements.Reader.Element.remove();
+			this.Elements.Reader.Main.remove();
 			this.RemoveFromPlaylist();
 		}
 	}
@@ -97,5 +97,18 @@ class Music {
 			this.Play();
 			this.Elements.Reader.PlayIMG.src = server + '/img/pause.png';
 		}
+	}
+
+	CreateLayout(layoutClass, layoutEvent) {
+		if (this.Elements.Library.Main.getElementsByClassName('layout')[0])
+			this.RemoveLayout();
+		this.Elements.Library.Main.prepend(new Layout({
+			class: layoutClass,
+			event: layoutEvent
+		}));
+	}
+
+	RemoveLayout() {
+		this.Elements.Library.Main.RemoveChild(this.Elements.Library.Main.getElementsByClassName('layout')[0]);
 	}
 }
