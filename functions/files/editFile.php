@@ -9,23 +9,17 @@
 
 		// Uploading on overwriting the new cover
 		include_once($_SERVER['DOCUMENT_ROOT']."/functions/cloudinary/cloudinaryUpload.php");
-		$coverSizes = [
-			'x96'=> 96,
-			'x128'=> 128,
-			'x192'=> 192,
-			'x256'=> 256,
-			'x384'=> 384,
-			'x512'=> 512
-		];
-		foreach ($coverSizes as $directory => $size) {
-			$key = 'file_cover_' . str_replace("x", '', $directory);
-			$_POST[$key] = uploadCover($files["tmp_name"], $_POST['public_id'], true, $directory, $size);
+		$covers = json_decode($_POST['covers']);
+		foreach ($covers as $directory => $path) {
+			$size = str_replace("x", '', $directory);
+			$key = 'file_cover_' . $size;
+			$_POST[$key] = uploadCover($files["tmp_name"], $path, true, $directory, intval($size));
 		}
 	}else {
 		unset($_POST['file_image']);
 	}
 
-	unset($_POST['public_id']);
+	unset($_POST['covers']);
 
 	// Updating the db
 	$condition = array('file_id' => $_POST['file_id']);
