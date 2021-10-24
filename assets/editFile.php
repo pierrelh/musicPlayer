@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?php echo $link ?>/styles/common/editFileStyle.css?cachev=<?php echo $cacheVersion ?>">
 <section id="Edit">
-	<button class="cross">
-		<img id="CrossEdit" src="<?php echo $link ?>/img/cross.png" alt="">
+	<button id="CrossEdit" class="cross">
+		<img src="<?php echo $link ?>/img/cross.png" alt="">
 	</button>
 	<h2 class="form-title">Modifier un fichier</h2>
 	<form id="FormEdit" method="post">
