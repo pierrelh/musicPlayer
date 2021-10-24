@@ -19,8 +19,6 @@
 		$covers = json_decode($_POST['covers']);
 
 		foreach ($covers as $directory => $path) {
-			error_log($directory);
-			error_log($path);
 			$size = str_replace("x", '', $directory);
 			$key = 'file_cover_' . $size;
 			$_POST[$key] = uploadCover($files["tmp_name"], GetFileNameFormUrl($path), true, $directory, intval($size));
