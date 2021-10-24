@@ -73,7 +73,7 @@ const _editSection = new class {
 		let form_data = new FormData(document.getElementById('FormEdit'));
 		form_data.append('file_id', this.Music.MusicID);
 		form_data.append('file_image', picture);
-		form_data.append('covers', publicId);
+		form_data.append('covers', JSON.stringify(publicId));
 		let self = this;
 		$.ajax({
 			url: server + '/functions/files/editFile.php',
