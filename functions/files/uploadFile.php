@@ -25,12 +25,12 @@
 		array(
 			$filtered['file_name'],
 			$_POST['file_url'],
-			$covers['x96'],
-			$covers['x128'],
-			$covers['x192'],
-			$covers['x256'],
-			$covers['x384'],
-			$covers['x512'],
+			$covers->x96,
+			$covers->x128,
+			$covers->x192,
+			$covers->x256,
+			$covers->x384,
+			$covers->x512,
 			$filtered['file_author'],
 			$filtered['file_album']
 		)
