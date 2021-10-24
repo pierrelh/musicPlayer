@@ -13,7 +13,7 @@
 			array(
 				"public_id" => $fileName,
 				"resource_type" => "auto",
-				"folder" => 'image'.$directory,
+				"folder" => 'image/'.$directory,
 				"overwrite" => $overwrite,
 				"width" => $size,
 				"height"=> $size,

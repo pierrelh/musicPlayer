@@ -37,6 +37,7 @@ const _deleteSection = new class {
 	DeleteMusic() {
 		if (!this.Music.MusicID)		
 			return _info.SetTitle('Une erreur s\'est produite.', 'red');
+		const self = this;
 		$.ajax({
 			url: server + '/functions/files/deleteFile.php',
 			type: 'POST',
@@ -48,8 +49,8 @@ const _deleteSection = new class {
 			success: function(data) {
 				if (data != 1)
 					return _info.SetTitle('Une erreur inatendue s\'est produite, merci de réessayer plus tard.', 'red');
-				this.Hide();
-				this.Music.Element.remove();					
+				self.Hide();
+				self.Music.Element.remove();
 			}
 		});
 	}
