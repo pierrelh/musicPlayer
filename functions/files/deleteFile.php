@@ -25,7 +25,8 @@
 
 	$covers = json_decode($_POST['file_covers']);
 	foreach ($covers as $key => $value) {
-		deleteCloudinaryAsset('image', GetFileNameFormUrl($value));
+		$path = $key.'/'.GetFileNameFormUrl($value);
+		deleteCloudinaryAsset('image', $path);
 	}
 	unset($_POST['file_covers']);
 
