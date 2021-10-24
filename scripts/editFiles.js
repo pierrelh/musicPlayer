@@ -95,11 +95,13 @@ const _editSection = new class {
 			}
 		}).done(function() {
 			_library.GetFiles();
+			self.Hide();
+			_editLayouts.IsActive = false;
+			self.ProgressBar.style.width = '0%';
+			self.ProgressTxt.innerHTML = '';
 		}).fail(function() {
 			return _info.SetTitle('Une erreur s\'est produite lors de l\'édition de votre fichier', 'red');
 		});
-
-		this.Hide();
 	}
 
 	Hide() {

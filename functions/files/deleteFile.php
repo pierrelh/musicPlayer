@@ -17,7 +17,7 @@
 	unset($_POST['file_url']);
 
 	$covers = json_decode($_POST['file_covers']);
-	foreach ($covers as $value) {
+	foreach ($covers as $key => $value) {
 		deleteCloudinaryAsset('image', $value);
 	}
 	unset($_POST['file_covers']);

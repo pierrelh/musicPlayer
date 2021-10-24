@@ -44,7 +44,7 @@ const _deleteSection = new class {
 			data: {
 				'file_id':		this.Music.MusicID,
 				'file_url':		this.Music.URL,
-				'file_covers':	this.Music.Covers
+				'file_covers':	JSON.stringify(this.Music.Covers)
 			},
 			success: function(data) {
 				if (data != 1)
