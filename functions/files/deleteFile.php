@@ -13,11 +13,14 @@
 	}
 
 	// Delete file audio
-	deleteCloudinaryAsset("video", $_POST['file_url']);
+	deleteCloudinaryAsset('video', $_POST['file_url']);
 	unset($_POST['file_url']);
 
-	deleteCloudinaryAsset("image", $_POST['file_cover']);
-	unset($_POST['file_cover']);
+	$covers = json_decode($_POST['file_covers']);
+	foreach ($covers as $value) {
+		deleteCloudinaryAsset('image', $value);
+	}
+	unset($_POST['file_covers']);
 
 	// Deleting the db row
 	include_once($_SERVER['DOCUMENT_ROOT']."/functions/connexion.php");

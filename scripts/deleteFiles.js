@@ -44,13 +44,14 @@ const _deleteSection = new class {
 			data: {
 				'file_id':		this.Music.MusicID,
 				'file_url':		this.Music.URL,
-				'file_cover':	this.Music.Cover
+				'file_covers':	this.Music.Covers
 			},
 			success: function(data) {
 				if (data != 1)
 					return _info.SetTitle('Une erreur inatendue s\'est produite, merci de réessayer plus tard.', 'red');
 				self.Hide();
-				self.Music.Element.remove();
+				self.Music.Elements.Library.Main.remove();
+				self.Music.Elements.Reader.Main.remove();
 			}
 		});
 	}

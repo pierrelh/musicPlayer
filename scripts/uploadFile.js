@@ -61,9 +61,9 @@ const _uploadSection = new class {
 			// Uploading the cover
 			await this.UploadFileCloudinary(formDataCover, 'ProgressBarPicture', 'TextProgessBarPicture', 'uploadCover.php')
 			.then( async (response) => {
-				if (response == 'false') 
+				if (!response) 
 					return _info.SetTitle('Une erreur s\'est produite lors de l\'envoi de la cover.', 'red');
-				formData.append('file_image', response);
+				formData.append('file_covers', response);
 				$.ajax({
 					url: server + '/functions/files/uploadFile.php',
 					type: 'POST',

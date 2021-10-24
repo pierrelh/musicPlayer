@@ -5,9 +5,16 @@ class Music {
 		this.Album		= data['file_album'];
 		this.URL		= data['file_url'];
 		this.MusicID	= data['file_id'];
-		this.Cover		= data['file_image'];
 		this.ID			= id;
 		this.IsPlayed	= false;
+		this.Covers		= {
+			x96		: data['file_cover_96'],
+			x128	: data['file_cover_128'],
+			x192	: data['file_cover_192'],
+			x256	: data['file_cover_256'],
+			x384	: data['file_cover_384'],
+			x512	: data['file_cover_512'],
+		};
 		this.Elements	= {
 			Library: {
 				Main		: document.createElement('ul'),
@@ -32,8 +39,8 @@ class Music {
 
 	CreateInLibrary() {
 		this.Elements.Library.Cover.classList.add('view');
-		if (this.Cover)
-			this.Elements.Library.Cover.style.backgroundImage = 'url("' + this.Cover + '")';
+		if (this.Covers.x192)
+			this.Elements.Library.Cover.style.backgroundImage = 'url("' + this.Covers.x192 + '")';
 
 		this.Elements.Library.Title.append(this.Elements.Library.TitleText)
 		this.Elements.Library.TitleText.innerHTML = this.Artist + ' - ' + this.Title;

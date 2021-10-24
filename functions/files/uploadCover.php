@@ -10,9 +10,10 @@
 		'x512'=> 512
 	];
 	$cover = $_FILES["cover"];
+	$urls = array();
 	foreach ($coverSizes as $directory => $size) {
-		$url = uploadCover($cover["tmp_name"], $cover["name"], false, $directory, $size);
+		$urls[$directory] = uploadCover($cover["tmp_name"], $cover["name"], false, $directory, $size);
 	}
-	print $url;
+	print json_encode($urls);
 
 ?>

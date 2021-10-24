@@ -29,13 +29,12 @@ const _mediaSession = new class {
 				artist: this.HTMLDecode(data.Artist),
 				album: this.HTMLDecode(data.Album),
 				artwork: [
-					{ src: data.Cover, sizes: '150x150', type: 'image/png' },
-					// { src: data.Cover, sizes: '96x96', type: 'image/png' },
-					// { src: data.Cover, sizes: '128x128', type: 'image/png' },
-					// { src: data.Cover, sizes: '192x192', type: 'image/png' },
-					// { src: data.Cover, sizes: '256x256', type: 'image/png' },
-					// { src: data.Cover, sizes: '384x384', type: 'image/png' },
-					// { src: data.Cover, sizes: '512x512', type: 'image/png' }
+					{ src: data.Covers.x96, sizes: '96x96', type: 'image/png' },
+					{ src: data.Covers.x128, sizes: '128x128', type: 'image/png' },
+					{ src: data.Covers.x192, sizes: '192x192', type: 'image/png' },
+					{ src: data.Covers.x256, sizes: '256x256', type: 'image/png' },
+					{ src: data.Covers.x384, sizes: '384x384', type: 'image/png' },
+					{ src: data.Covers.x512, sizes: '512x512', type: 'image/png' }
 				]
 			});
 	}

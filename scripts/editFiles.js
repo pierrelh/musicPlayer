@@ -66,7 +66,7 @@ const _editSection = new class {
 		let picture = 'undefined';
 		let publicId = 'undefined';
 		if (this.CoverEdit.files.length != 0) {
-			publicId = this.Music.Cover;
+			publicId = this.Music.Covers;
 			picture = this.CoverEdit.files[0];
 		}
 				
@@ -114,7 +114,7 @@ const _editSection = new class {
 		this.NameEdit.value = this.Music.Title;
 		this.AuthorEdit.value = this.Music.Artist;
 		this.AlbumEdit.value = this.Music.Album;
-		this.Banner.style.backgroundImage = 'url(' + this.Music.Cover + ')';
+		this.Banner.style.backgroundImage = 'url(' + this.Music.Covers.x512 + ')';
 		_background.Show();
 		this.Element.className = 'appear';
 	}
