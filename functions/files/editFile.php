@@ -10,7 +10,7 @@
 		// Uploading on overwriting the new cover
 		include_once($_SERVER['DOCUMENT_ROOT']."/functions/cloudinary/cloudinaryUpload.php");
 		error_log(print_r($_POST['covers'], true));
-		$covers = json_decode($_POST['covers']);
+		$covers = json_encode($_POST['covers']);
 		error_log(print_r($covers, true));
 		// foreach ($covers as $directory => $path) {
 		// 	$size = str_replace("x", '', $directory);
