@@ -20,7 +20,7 @@
 	}
 
 	// Delete file audio
-	deleteCloudinaryAsset('video', $_POST['file_url']);
+	deleteCloudinaryAsset('video', GetFileNameFormUrl($_POST['file_url']));
 	unset($_POST['file_url']);
 
 	$covers = json_decode($_POST['file_covers']);
