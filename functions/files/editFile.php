@@ -18,11 +18,9 @@
 			'x512'=> 512
 		];
 		foreach ($coverSizes as $directory => $size) {
-			$url = uploadCover($files["tmp_name"], $_POST['public_id'], true, $directory, $size);
+			$key = 'file_cover_' . str_replace("x", '', $directory);
+			$_POST[$key] = uploadCover($files["tmp_name"], $_POST['public_id'], true, $directory, $size);
 		}
-    
-		// Getting the new url version
-		$_POST['file_image'] = $url;
 	}else {
 		unset($_POST['file_image']);
 	}
