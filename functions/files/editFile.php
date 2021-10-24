@@ -9,8 +9,18 @@
 
 		// Uploading on overwriting the new cover
 		include_once($_SERVER['DOCUMENT_ROOT']."/functions/cloudinary/cloudinaryUpload.php");
+		$coverSizes = [
+			'x96'=> 96,
+			'x128'=> 128,
+			'x192'=> 192,
+			'x256'=> 256,
+			'x384'=> 384,
+			'x512'=> 512
+		];
+		foreach ($coverSizes as $directory => $size) {
+			$url = uploadCover($files["tmp_name"], $_POST['public_id'], true, $directory, $size);
+		}
     
-		$url = uploadCover($files["tmp_name"], $_POST['public_id'], true);
 		// Getting the new url version
 		$_POST['file_image'] = $url;
 	}else {

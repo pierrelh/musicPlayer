@@ -1,7 +1,7 @@
 <?php
 
 	// Upload a cover to Cloudinary
-	function uploadCover($filePath, $fileName, $overwrite){
+	function uploadCover($filePath, $fileName, $overwrite, $directory, $size){
 		if (!$overwrite) {
 			include_once($_SERVER['DOCUMENT_ROOT']."/functions/createSlug.php");
 			$fileName = createSlug($fileName);
@@ -13,10 +13,10 @@
 			array(
 				"public_id" => $fileName,
 				"resource_type" => "auto",
-				"folder" => "image",
+				"folder" => 'image'.$directory,
 				"overwrite" => $overwrite,
-				"width" => 150,
-				"height"=> 150,
+				"width" => $size,
+				"height"=> $size,
 				"crop" => "scale",
 				"quality" => "auto",
 				"invalidate" => true
