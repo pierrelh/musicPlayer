@@ -32,5 +32,5 @@
 	// Updating the db
 	$condition = array('file_id' => $_POST['file_id']);
 	$res = pg_update($db, 'files', $_POST, $condition);
-
+	print $res;
 ?>

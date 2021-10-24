@@ -1,5 +1,12 @@
 <?php
 
+	function GetFileNameFormUrl($url) {
+		$url = explode('/', $url);
+		$filename = array_pop($url);
+		$filename = explode('.', $filename);
+		return $filename[0];
+	}
+
 	// Function to delete a cloudinary asset
 	function deleteCloudinaryAsset($type, $fileName){
 		$file = $type . "/" . $fileName;
@@ -18,7 +25,7 @@
 
 	$covers = json_decode($_POST['file_covers']);
 	foreach ($covers as $key => $value) {
-		deleteCloudinaryAsset('image', $value);
+		deleteCloudinaryAsset('image', GetFileNameFormUrl($value));
 	}
 	unset($_POST['file_covers']);
 
