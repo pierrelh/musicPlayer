@@ -9,7 +9,7 @@
 
 	switch (isset($_COOKIE['SESSION_ID'])) {
 		case true:
-			$GLOBALS['User']::CheckIdentification();
+			$GLOBALS['User']->CheckIdentification();
 			require_once($_SERVER['DOCUMENT_ROOT'].'/class/Files.php');
 			require_once($_SERVER['DOCUMENT_ROOT'].'/class/Storage.php');
 			require_once($_SERVER['DOCUMENT_ROOT'].'/class/Playlist.php');
