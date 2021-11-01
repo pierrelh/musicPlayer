@@ -8,7 +8,7 @@
 			return $filename[0];
 		}
 
-		public function GetAll() {
+		public static function GetAll() {
 			global $SQL;
 			$request = 'SELECT *
 						FROM files
