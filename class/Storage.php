@@ -28,7 +28,6 @@
 					'api_secret'    => $this->APISecret,
 					'secure'        => true
 				));
-				$this->Uploader = \Cloudinary\Uploader;
 			}
 		}
 
@@ -49,9 +48,10 @@
 		// Upload a cover to Cloudinary
 		public function UploadCover($filePath, $fileName, $overwrite, $directory, $size){
 			if (!$overwrite)
-				$fileName = $this::createSlug($fileName);
+				$fileName = $this->createSlug($fileName);
 			
-			$result = $this->Uploader::upload(
+			include_once($_SERVER['DOCUMENT_ROOT'].'/vendor/cloudinary/cloudinary_php/autoload.php');
+			$result = \Cloudinary\Uploader::upload(
 				$filePath,
 				array(
 					'public_id'		=> $fileName,
@@ -70,9 +70,10 @@
 
 		// Upload a music to Cloudinary
 		public function UploadMusic($filePath, $fileName){
-			$fileName = $this::createSlug($fileName);
-			
-			$result = $this->Uploader::upload(
+			$fileName = $this->createSlug($fileName);
+
+			include_once($_SERVER['DOCUMENT_ROOT'].'/vendor/cloudinary/cloudinary_php/autoload.php');
+			$result = \Cloudinary\Uploader::upload(
 				$filePath,
 				array(
 					'public_id'     => $fileName,
@@ -106,13 +107,15 @@
 		}
 
 		public function GetAdminPage() {            
-			return this::GetWebPage('https://'.$this->APIKey.':'.$this->APISecret.'@api.cloudinary.com/v1_1/'.$this->CloudName.'/usage');            
+			return this->GetWebPage('https://'.$this->APIKey.':'.$this->APISecret.'@api.cloudinary.com/v1_1/'.$this->CloudName.'/usage');            
 		}        
 
 		// Function to delete a cloudinary asset
 		public function DeleteCloudinary($type, $fileName){
 			$file = $type . '/' . $fileName;
-			$result = $this->Uploader::destroy(
+
+			include_once($_SERVER['DOCUMENT_ROOT'].'/vendor/cloudinary/cloudinary_php/autoload.php');
+			$result = \Cloudinary\Uploader::destroy(
 				$file, 
 				array(
 					'resource_type' => $type,

@@ -1,5 +1,5 @@
 <?php
 
-    print $GLOBALS['Storage']::GetAdminPage();
+    print $GLOBALS['Storage']->GetAdminPage();
 
 ?>

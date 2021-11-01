@@ -32,7 +32,7 @@
 			$cover = $_FILES['cover'];
 			$urls = array();
 			foreach ($coverSizes as $directory => $size)
-				$urls[$directory] = Storage::UploadCover($cover['tmp_name'], $cover['name'], false, $directory, $size);
+				$urls[$directory] = Storage->UploadCover($cover['tmp_name'], $cover['name'], false, $directory, $size);
 			return $urls;
 		}
 
@@ -71,7 +71,7 @@
 
 		public function UploadMusic() {
 			$music = $_FILES['music']; 
-			return Storage::UploadMusic($music['tmp_name'], $music['name']);
+			return Storage->UploadMusic($music['tmp_name'], $music['name']);
 		}
 
 		public function Edit() {
@@ -85,7 +85,7 @@
 				foreach ($covers as $directory => $path) {
 					$size = str_replace('x', '', $directory);
 					$key = 'file_cover_' . $size;
-					$_POST[$key] = uploadCover($files['tmp_name'], $this::GetFileNameFormUrl($path), true, $directory, intval($size));
+					$_POST[$key] = uploadCover($files['tmp_name'], $this->GetFileNameFormUrl($path), true, $directory, intval($size));
 				}
 			}
 		
@@ -97,13 +97,13 @@
 		}
 
 		public function Delete() {
-			Storage::DeleteCloudinaryAsset('video', $this::GetFileNameFormUrl($_POST['file_url']));
+			$GLOBALS['Storage']->DeleteCloudinaryAsset('video', $this->GetFileNameFormUrl($_POST['file_url']));
 			unset($_POST['file_url']);
 		
 			$covers = json_decode($_POST['file_covers']);
 			foreach ($covers as $key => $value) {
 				$path = $key . '/' . $this->GetFileNameFormUrl($value);
-				Storage::DeleteCloudinaryAsset('image', $path);
+				$GLOBALS['Storage']->DeleteCloudinaryAsset('image', $path);
 			}
 			unset($_POST['file_covers']);
 		

@@ -24,7 +24,7 @@
 				array(
 					$_POST['user_login'],
 					hash('sha256', $_POST['user_password']),
-					$this::CreateSessionId()
+					$this->CreateSessionId()
 				)
 			);
 

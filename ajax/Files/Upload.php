@@ -1,5 +1,5 @@
 <?php
 
-    print $GLOBALS['Files']::Upload();
+    print $GLOBALS['Files']->Upload();
 
 ?>

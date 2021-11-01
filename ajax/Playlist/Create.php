@@ -1,5 +1,5 @@
 <?php
 
-    print $GLOBALS['Playlist']::Create();
+    print $GLOBALS['Playlist']->Create();
 
 ?>

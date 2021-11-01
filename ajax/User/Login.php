@@ -1,5 +1,5 @@
 <?php
 
-    print $GLOBALS['User']::Login();
+    print $GLOBALS['User']->Login();
 
 ?>

@@ -1,5 +1,5 @@
 <?php
 
-    print $GLOBALS['Files']::Delete();
+    print $GLOBALS['Files']->Delete();
 
 ?>

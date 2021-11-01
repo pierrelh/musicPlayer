@@ -1,5 +1,5 @@
 <?php
 
-    print $GLOBALS['User']::EditPassword();
+    print $GLOBALS['User']->EditPassword();
 
 ?>
