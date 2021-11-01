@@ -10,7 +10,7 @@
 				die('Erreur : '.$e->getMessage());
 		}
 
-		public function Request($request, $data) {
+		public static function Request($request, $data) {
 			return pg_query_params(
 				$this->db,
 				$request,
