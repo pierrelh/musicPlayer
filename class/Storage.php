@@ -1,6 +1,6 @@
 <?php
 
-	class Storage {
+	$GLOBALS['Storage'] = new class {
 		private $CloudName = null;
 		private $APIKey = null;
 		private $APISecret = null;

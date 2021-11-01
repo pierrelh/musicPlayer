@@ -1,6 +1,6 @@
 <?php
 
-	class User {
+	$GLOBALS['User'] = new class {
 		public function CheckIdentification() {
 			global $SQL;
 			$request = 'SELECT user_session_id
