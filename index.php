@@ -3,8 +3,8 @@
 	$rootURL = 'https://' . $_SERVER['HTTP_HOST'];
 	$cacheVersion = "20211023-2";
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/class/SQL.php');
+	$GLOBALS['SQL'] = new SQL();
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/class/User.php');
-	$GLOBALS['db'] = new SQL();
 
 	switch (isset($_COOKIE['SESSION_ID'])) {
 		case true:
