@@ -1,12 +1,11 @@
 <?php
 
 	class User {
-		public static function CheckIdentification() {
-			global $SQL;
+		public function CheckIdentification() {
 			$request = 'SELECT user_session_id
 						FROM users
 						WHERE user_session_id = $1';
-			$result = $SQL->Request($request, array($_COOKIE['SESSION_ID']));
+			$result = SQL->Request($request, array($_COOKIE['SESSION_ID']));
 			$rows = pg_fetch_all($result);
 			if (empty($rows)) {
 				setcookie('SESSION_ID', null, -1, '/');
