@@ -1,5 +1,5 @@
 <?php
 
-    print Files::UploadMusic();
+    print $GLOBALS['Files']::UploadMusic();
 	
 ?>

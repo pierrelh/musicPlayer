@@ -11,8 +11,11 @@
 		case true:
 			$GLOBALS['User']->CheckIdentification();
 			require_once($_SERVER['DOCUMENT_ROOT'].'/class/Files.php');
+			$GLOBALS['Files'] = new Files();
 			require_once($_SERVER['DOCUMENT_ROOT'].'/class/Storage.php');
+			$GLOBALS['Storage'] = new Storage();
 			require_once($_SERVER['DOCUMENT_ROOT'].'/class/Playlist.php');
+			$GLOBALS['Playlist'] = new Playlist();
 			require_once(__DIR__ . '/pages/music-player.php');
 			break;
 		

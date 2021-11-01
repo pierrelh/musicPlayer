@@ -1,5 +1,5 @@
 <?php
 
-    print User::CreateAccount();
+    print $GLOBALS['User']::CreateAccount();
 
 ?>

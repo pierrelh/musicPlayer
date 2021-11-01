@@ -1,5 +1,5 @@
 <?php
 
-    print json_encode(Playlist::getMusics());
+    print json_encode($GLOBALS['Playlist']::getMusics());
 
 ?>

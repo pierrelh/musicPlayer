@@ -1,5 +1,5 @@
 <?php
 
-    print json_encode(Files::GetAll());
+    print json_encode($GLOBALS['Files']::GetAll());
 
 ?>
