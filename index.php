@@ -1,20 +1,23 @@
 <?php
 
-	$link = 'https://' . $_SERVER['HTTP_HOST'];
+	$rootURL = 'https://' . $_SERVER['HTTP_HOST'];
 	$cacheVersion = "20211023-2";
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/class/SQL.php');
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/class/User.php');
+	$GLOBALS['db'] = new SQL();
 
 	switch (isset($_COOKIE['SESSION_ID'])) {
-		case false:
-			require __DIR__ . '/pages/login.php';
-			break;
-
 		case true:
-			include_once($_SERVER['DOCUMENT_ROOT']."/functions/users/checkUserIdentification.php");
-			require __DIR__ . '/pages/music-player.php';
+			User::CheckIdentification();
+			require_once($_SERVER['DOCUMENT_ROOT'].'/class/Files.php');
+			require_once($_SERVER['DOCUMENT_ROOT'].'/class/Storage.php');
+			require_once($_SERVER['DOCUMENT_ROOT'].'/class/Playlist.php');
+			require_once(__DIR__ . '/pages/music-player.php');
 			break;
 		
+		case false:
 		default:
-			require __DIR__ . '/pages/login.php';
+			require_once(__DIR__ . '/pages/login.php');
 			break;
 	}
 		

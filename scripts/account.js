@@ -4,8 +4,8 @@ const _account = new class {
 		this.IsVisible	= false;
 		this.ClassName	= 'appear';
 		this.URLs		= {
-			AdminData		: '/functions/account/getCloudinaryAdmin.php',
-			EditPassword	: '/functions/users/editPassword.php'
+			AdminData		: '/ajax/Storage/GetAdminPage.php',
+			EditPassword	: '/ajax/User/EditPassword.php'
 		};
 		this.Elements	= {
 			Main:				document.getElementById('Account'),

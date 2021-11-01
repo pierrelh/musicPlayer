@@ -1,12 +1,12 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/master.css?cachev=<?php echo $cacheVersion ?>">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/headerStyle.css?cachev=<?php echo $cacheVersion ?>">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/forms.css?cachev=<?php echo $cacheVersion ?>">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/forms.css?cachev=<?php echo $cacheVersion ?>">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/forms.css?cachev=<?php echo $cacheVersion ?>">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/sectionsSizes.css?cachev=<?php echo $cacheVersion ?>">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/sectionsSizes.css?cachev=<?php echo $cacheVersion ?>">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/sectionsSizes.css?cachev=<?php echo $cacheVersion ?>">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/progressBarStyle.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/common/master.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/common/headerStyle.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/common/forms.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/screen/forms.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/handheld/forms.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/common/sectionsSizes.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/screen/sectionsSizes.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/handheld/sectionsSizes.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/common/progressBarStyle.css?cachev=<?php echo $cacheVersion ?>">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -15,6 +15,6 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 <header>
-	<img id="Arrow" class="arrow" src="<?php echo $link ?>/img/arrow.png" alt="">
+	<img id="Arrow" class="arrow" src="<?php echo $rootURL ?>/img/arrow.png" alt="">
 	<h1>Music Player</h1>
 </header>

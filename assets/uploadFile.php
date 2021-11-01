@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/uploadFileStyle.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/common/uploadFileStyle.css?cachev=<?php echo $cacheVersion ?>">
 <section id="Upload">
 	<button id="CrossUpload" class="cross">
-		<img src="<?php echo $link ?>/img/cross.png" alt="">
+		<img src="<?php echo $rootURL ?>/img/cross.png" alt="">
 	</button>
 	<h2 class="form-title">Uploader un fichier</h2>
 	<form id="FormUpload" enctype="multipart/form-data" method="post">
@@ -10,7 +10,7 @@
 				<ul>
 					<li>
 						<label for="File">
-							<img src="<?php echo $link ?>/img/upload.png" alt="">
+							<img src="<?php echo $rootURL ?>/img/upload.png" alt="">
 						</label>
 					</li>
 					<li>
@@ -26,7 +26,7 @@
 				<ul>
 					<li>
 						<label for="Picture">
-							<img class="thumbnails" src="<?php echo $link ?>/img/picture.png" alt="">
+							<img class="thumbnails" src="<?php echo $rootURL ?>/img/picture.png" alt="">
 						</label>
 					</li>
 					<li>
@@ -64,4 +64,4 @@
 		<input class="send-form" id="UploadButton" type="submit" value="ENVOYER">
 	</form>
 </section>
-<script type="text/javascript" src="<?php echo $link ?>/scripts/uploadFile.js?cachev=<?php echo $cacheVersion ?>"></script>
+<script type="text/javascript" src="<?php echo $rootURL ?>/scripts/uploadFile.js?cachev=<?php echo $cacheVersion ?>"></script>

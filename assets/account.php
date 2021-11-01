@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/accountStyle.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/common/accountStyle.css?cachev=<?php echo $cacheVersion ?>">
 <section id="Account">
 	<button id="CrossAccount" class="cross">
-		<img src="<?php echo $link ?>/img/cross.png" alt="">
+		<img src="<?php echo $rootURL ?>/img/cross.png" alt="">
 	</button>
 	<h2 class="form-title">Informations générales du compte</h2>
 	<div class="div-account">
@@ -178,4 +178,4 @@
 		</form>
 	</div>
 </section>
-<script type="text/javascript" src="<?php echo $link ?>/scripts/account.js?cachev=<?php echo $cacheVersion ?>"></script>
+<script type="text/javascript" src="<?php echo $rootURL ?>/scripts/account.js?cachev=<?php echo $cacheVersion ?>"></script>

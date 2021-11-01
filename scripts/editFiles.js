@@ -76,7 +76,7 @@ const _editSection = new class {
 		form_data.append('covers', JSON.stringify(publicId));
 		let self = this;
 		$.ajax({
-			url: server + '/functions/files/editFile.php',
+			url: server + '/ajax/Files/Edit.php',
 			type: 'POST',
 			dataType: 'script',
 			cache: false,

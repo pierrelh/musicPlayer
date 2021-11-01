@@ -39,7 +39,7 @@ const _deleteSection = new class {
 			return _info.SetTitle('Une erreur s\'est produite.', 'red');
 		const self = this;
 		$.ajax({
-			url: server + '/functions/files/deleteFile.php',
+			url: server + '/ajax/Files/Delete.php',
 			type: 'POST',
 			data: {
 				'file_id':		this.Music.MusicID,

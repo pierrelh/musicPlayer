@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/sidebarStyle.css?cachev=<?php echo $cacheVersion ?>">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/screen/sidebarStyle.css?cachev=<?php echo $cacheVersion ?>">
-<link rel="stylesheet" href="<?php echo $link ?>/styles/handheld/sidebarStyle.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/common/sidebarStyle.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/screen/sidebarStyle.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/handheld/sidebarStyle.css?cachev=<?php echo $cacheVersion ?>">
 <section id="Sidebar" class="sidebar">
 	<ul id="SidebarList">
 		<li>
@@ -47,4 +47,4 @@
 		</li>
 	</ul>
 </section>
-<script type="text/javascript" src="<?php echo $link ?>/scripts/sidebar.js?cachev=<?php echo $cacheVersion ?>"></script>
+<script type="text/javascript" src="<?php echo $rootURL ?>/scripts/sidebar.js?cachev=<?php echo $cacheVersion ?>"></script>

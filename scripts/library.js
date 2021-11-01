@@ -31,7 +31,7 @@ const _library = new class {
 	GetFiles(row = 'file_id', type = 'DESC') {
 		let self = this;
 		$.ajax({
-			url: server + '/functions/files/getAllFiles.php',
+			url: server + '/ajax/Files/GetAll.php',
 			type: 'POST',
 			data: {
 				'row': row,

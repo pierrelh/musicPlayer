@@ -1,6 +1,6 @@
 <section id="CreateAccount">
 	<button id="CrossCreateAccount" class="cross">
-		<img src="<?php echo $link ?>/img/cross.png" alt="">
+		<img src="<?php echo $rootURL ?>/img/cross.png" alt="">
 	</button>
 	<h2 class="form-title">Créer un nouveau compte</h2>
 	<form>
@@ -27,4 +27,4 @@
 		<input class="send-form" id="CreateAccountButton" type="submit" value="Créer le compte">
 	</form>
 </section>
-<script type="text/javascript" src="<?php echo $link ?>/scripts/create-account.js?cachev=<?php echo $cacheVersion ?>"></script>
+<script type="text/javascript" src="<?php echo $rootURL ?>/scripts/create-account.js?cachev=<?php echo $cacheVersion ?>"></script>

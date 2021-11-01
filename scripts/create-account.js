@@ -2,7 +2,7 @@ const _createAccount = new class {
 	constructor() {
 		this.ClassName	= 'appear';
 		this.IsVisible	= false;
-		this.URL		= '/functions/users/createAccount.php'
+		this.URL		= '/ajax/User/CreateAccount.php'
 		this.Elements	= {
 			Main		: document.getElementById('CreateAccount'),
 			Cross		: document.getElementById('CrossCreateAccount'),

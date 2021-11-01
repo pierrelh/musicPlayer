@@ -1,14 +1,14 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/editFileStyle.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/common/editFileStyle.css?cachev=<?php echo $cacheVersion ?>">
 <section id="Edit">
 	<button id="CrossEdit" class="cross">
-		<img src="<?php echo $link ?>/img/cross.png" alt="">
+		<img src="<?php echo $rootURL ?>/img/cross.png" alt="">
 	</button>
 	<h2 class="form-title">Modifier un fichier</h2>
 	<form id="FormEdit" method="post">
 		<div id="BannerContainer">
 			<div id="Banner" class='div-detail'>
 				<label class='modify-img' for="PictureEdit">
-					<img class="editImage" src='<?php echo $link ?>/img/edit.png' alt=''>
+					<img class="editImage" src='<?php echo $rootURL ?>/img/edit.png' alt=''>
 					<input id="PictureEdit" type="file" name="" value="" accept="image/*">
 				</label>
 			</div>
@@ -42,4 +42,4 @@
 		</div>
 	</form>
 </section>
-<script type="text/javascript" src="<?php echo $link ?>/scripts/editFiles.js?cachev=<?php echo $cacheVersion ?>"></script>
+<script type="text/javascript" src="<?php echo $rootURL ?>/scripts/editFiles.js?cachev=<?php echo $cacheVersion ?>"></script>

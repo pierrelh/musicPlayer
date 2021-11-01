@@ -52,20 +52,20 @@ const _uploadSection = new class {
 		let formDataCover = new FormData();
 		formDataCover.append('cover', picture);
 
-		await this.UploadFileCloudinary(formDataMusic, 'ProgressBarVideo', 'TextProgressBarVideo', 'uploadMusic.php')
+		await this.UploadFileCloudinary(formDataMusic, 'ProgressBarVideo', 'TextProgressBarVideo', 'UploadMusic.php')
 		.then( async (response) => {
 			if (response == 'false') 
 				return _info.SetTitle('Une erreur s\'est produite lors de l\'envoi de la musique.', 'red');
 			formData.append('file_url', response);
 					
 			// Uploading the cover
-			await this.UploadFileCloudinary(formDataCover, 'ProgressBarPicture', 'TextProgessBarPicture', 'uploadCover.php')
+			await this.UploadFileCloudinary(formDataCover, 'ProgressBarPicture', 'TextProgessBarPicture', 'UploadCover.php')
 			.then( async (response) => {
 				if (!response) 
 					return _info.SetTitle('Une erreur s\'est produite lors de l\'envoi de la cover.', 'red');
 				formData.append('file_covers', response);
 				$.ajax({
-					url: server + '/functions/files/uploadFile.php',
+					url: server + '/ajax/Files/Upload.php',
 					type: 'POST',
 					dataType: 'script',
 					cache: false,
@@ -82,7 +82,7 @@ const _uploadSection = new class {
 
 	UploadFileCloudinary(formDataMusic, barId, txtId, link) {
 		return new Promise((resolve, reject) => {
-			let url = server + '/functions/files/' + link;
+			let url = server + '/ajax/Files/' + link;
 			let xhr = new XMLHttpRequest();
 
 			// Update progress for audio file

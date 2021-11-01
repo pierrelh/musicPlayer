@@ -94,7 +94,7 @@ const _playlistSection = new class {
 
 	Hydrate() {
 		let self = this;
-		fetch(server + '/functions/playlists/getAllPlaylists.php')
+		fetch(server + '/ajax/Playlist/GetAll.php')
 		.then((response) => response.json())
 		.then(function (response) {
 
@@ -136,7 +136,7 @@ const _playlistSection = new class {
 		let playlistId = this.Playlists[identifier].id;
 
 		$.ajax({
-			url: server + '/functions/playlists/getPlaylistsMusics.php',
+			url: server + '/ajax/Playlist/GetMusics.php',
 			type: 'POST',
 			data: {'playlist_id': playlistId},
 			success: function(data) {
@@ -159,7 +159,7 @@ const _playlistSection = new class {
 		if (playlistName == "")		
 			return _info.SetTitle('Merci de choisir des morceaux et de remplir le nom de la playlist.', 'red');
 		$.ajax({
-			url: server + '/functions/playlists/createPlaylist.php',
+			url: server + '/ajax/Playlist/Create.php',
 			type: 'POST',
 			data: {
 				'musics': _addLayouts.MusicsToAdd.reverse(),

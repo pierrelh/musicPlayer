@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="<?php echo $link ?>/styles/common/helpStyle.css?cachev=<?php echo $cacheVersion ?>">
+<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/common/helpStyle.css?cachev=<?php echo $cacheVersion ?>">
 <section id="Help">
 	<button id="CrossHelp" class="cross">
-		<img src="<?php echo $link ?>/img/cross.png" alt="">
+		<img src="<?php echo $rootURL ?>/img/cross.png" alt="">
 	</button>
 	<h2 class="form-title">Voici la liste des commandes disponibles :</h2>
 	<h3>Commande du Player</h3>
@@ -65,4 +65,4 @@
 		</li>        
 	</ul>
 </section>
-<script type="text/javascript" src="<?php echo $link ?>/scripts/help.js?cachev=<?php echo $cacheVersion ?>"></script>
+<script type="text/javascript" src="<?php echo $rootURL ?>/scripts/help.js?cachev=<?php echo $cacheVersion ?>"></script>
