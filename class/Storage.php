@@ -9,14 +9,13 @@
 		
 		// Set the cloundiary's configuration
 		function __construct() {
-			global $db;
+			global $SQL;
 		
 			$request = "SELECT * 
 						FROM cloudinary_api
 						WHERE key_id='1'";
-		
-			$result = pg_query($db, $request);
-			$val = pg_fetch_all($result);
+
+			$val = pg_fetch_all($SQL->Request($request));
 			include_once($_SERVER['DOCUMENT_ROOT'].'/vendor/cloudinary/cloudinary_php/autoload.php');
 			
 			foreach ($val as $key => $value) {     

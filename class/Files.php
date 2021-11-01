@@ -9,12 +9,12 @@
 		}
 
 		public function GetAll() {
-			global $db;
+			global $SQL;
 			$request = 'SELECT *
 						FROM files
 						ORDER BY ' . $_POST['row'] . ' ' . $_POST['type'];
 
-			$result = pg_query($db, $request);
+			$result = $SQL->Request($request);
 			if (!empty($result))
 				return pg_fetch_all($result);
 			return false;
@@ -38,7 +38,6 @@
 
 		public function Upload() {
 			$covers = json_decode($_POST['file_covers']);
-			global $db;
 			$request = 'INSERT INTO files (
 							file_name,
 							file_url,
@@ -52,8 +51,8 @@
 							file_album
 						)
 						VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)';
-			return $result = pg_query_params(
-				$db,
+			global $SQL;
+			return $SQL->Reqest(
 				$request,
 				array(
 					$_POST['file_name'],
@@ -76,7 +75,6 @@
 		}
 
 		public function Edit() {
-			global $db;	
 			if (isset($_FILES['file_image']) && $_FILES['file_image'] != 'undefined') {
 				$files = $_FILES['file_image'];
 				$files = is_array($files) ? $files : array( $files );
@@ -93,13 +91,12 @@
 		
 			unset($_POST['covers'], $_POST['file_image']);
 		
-			// Updating the db
+			global $db;
 			$condition = array('file_id' => $_POST['file_id']);
 			return pg_update($db, 'files', $_POST, $condition);
 		}
 
 		public function Delete() {
-			// Delete file audio
 			Storage::DeleteCloudinaryAsset('video', $this::GetFileNameFormUrl($_POST['file_url']));
 			unset($_POST['file_url']);
 		
@@ -110,7 +107,6 @@
 			}
 			unset($_POST['file_covers']);
 		
-			// Deleting the db row
 			global $db;
 			return pg_delete($db, 'files', $_POST);
 		}

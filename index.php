@@ -3,7 +3,7 @@
 	$rootURL = 'https://' . $_SERVER['HTTP_HOST'];
 	$cacheVersion = "20211023-2";
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/class/SQL.php');
-	define('SQL', new SQL());
+	$GLOBALS['SQL'] = new SQL();
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/class/User.php');
 	$GLOBALS['User'] = new User();
 
