@@ -1,7 +1,7 @@
 <?php
 
 	class User {
-		public function CheckIdentification() {
+		public static function CheckIdentification() {
 			global $db;
 			$request = 'SELECT user_session_id
 						FROM users
