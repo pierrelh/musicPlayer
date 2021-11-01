@@ -1,5 +1,5 @@
 <?php
 
-    print $GLOBALS['Files']->Edit();
+    print $GLOBALS['Content']->Edit();
 
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-	$GLOBALS['Files'] = new class {	
+	$GLOBALS['Content'] = new class {	
 		public function GetFileNameFormUrl($url) {
 			$url = explode('/', $url);
 			$filename = array_pop($url);
