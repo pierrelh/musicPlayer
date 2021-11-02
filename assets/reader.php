@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="<?php echo $rootURL ?>/styles/common/readerStyle.css?cachev=<?php echo $cacheVersion ?>">
 <link rel="stylesheet" href="<?php echo $rootURL ?>/styles/screen/readerStyle.css?cachev=<?php echo $cacheVersion ?>">
 <link rel="stylesheet" href="<?php echo $rootURL ?>/styles/handheld/readerStyle.css?cachev=<?php echo $cacheVersion ?>">
+<script src="https://kit.fontawesome.com/2356425a97.js" crossorigin="anonymous"></script>
 <section class="hidden">
 	<audio autoplay controls id="MusicPlayer"></audio>
 </section>
@@ -14,7 +15,7 @@
 		<span	id="CurrentTime">00:00</span>
 		<input	id="ProgressBar" type="range" min="0" max="100" value="0">
 		<span	id="EndTime">00:00</span>
-		<button	id="Random" class="reader-buttons"><i id="RandomIMG" class="fas fa-random"></i><img src="<?php echo $rootURL ?>/img/no-random.png" alt="Random"></button>
+		<button	id="Random" class="reader-buttons"><i id="RandomIMG" class="fas fa-random"></i></button>
 		<button	id="Mute" class="reader-buttons"><img id="MuteIMG" src="<?php echo $rootURL ?>/img/audio-on.png" alt="Mute"></button>
 		<input	id="Volume" type="range" min="0" max="100" value="100">
 		<button	id="PlaylistBtn" class="reader-buttons"><img src="<?php echo $rootURL ?>/img/playlist.png" alt="playlist"></button>
