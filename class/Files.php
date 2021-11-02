@@ -1,6 +1,10 @@
 <?php
 
-	class Files {	
+	class Files {
+		public function __construct(){
+			require_once($_SERVER['DOCUMENT_ROOT'] . '/class/SQL.php');
+		}
+
 		public function GetFileNameFormUrl($url) {
 			$url = explode('/', $url);
 			$filename = array_pop($url);
