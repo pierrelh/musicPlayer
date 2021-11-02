@@ -315,9 +315,9 @@ const _volume = new class {
 
 	Update() {
 		if (_player.Element.volume != 0)
-			_mute.IMG.src = server + '/img/audio-on.png';
+			_mute.IMG.classList.replace('bi-volume-mute', 'bi-volume-up');
 		else
-			_mute.IMG.src = server + '/img/audio-off.png';
+			_mute.IMG.classList.replace('bi-volume-up', 'bi-volume-mute');
 	
 		let percent = _player.Element.volume * 100;
 		this.Element.value = percent;
