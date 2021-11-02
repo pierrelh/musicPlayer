@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?php echo $rootURL ?>/styles/common/readerStyle.css?cachev=<?php echo $cacheVersion ?>">
 <link rel="stylesheet" href="<?php echo $rootURL ?>/styles/screen/readerStyle.css?cachev=<?php echo $cacheVersion ?>">
 <link rel="stylesheet" href="<?php echo $rootURL ?>/styles/handheld/readerStyle.css?cachev=<?php echo $cacheVersion ?>">
-<script src="https://kit.fontawesome.com/2356425a97.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
 <section class="hidden">
 	<audio autoplay controls id="MusicPlayer"></audio>
 </section>
@@ -15,7 +15,7 @@
 		<span	id="CurrentTime">00:00</span>
 		<input	id="ProgressBar" type="range" min="0" max="100" value="0">
 		<span	id="EndTime">00:00</span>
-		<button	id="Random" class="reader-buttons"><i id="RandomIMG" class="fas fa-random"></i></button>
+		<button	id="Random" class="reader-buttons"><i id="RandomIMG" class="bi bi-shuffle"></i></button>
 		<button	id="Mute" class="reader-buttons"><img id="MuteIMG" src="<?php echo $rootURL ?>/img/audio-on.png" alt="Mute"></button>
 		<input	id="Volume" type="range" min="0" max="100" value="100">
 		<button	id="PlaylistBtn" class="reader-buttons"><img src="<?php echo $rootURL ?>/img/playlist.png" alt="playlist"></button>
