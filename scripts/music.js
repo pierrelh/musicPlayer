@@ -64,7 +64,7 @@ class Music {
 		this.Elements.Reader.PlayBTN.addEventListener('click', evt => this.ReaderTogglePlayPause(), false);
 
 		this.Elements.Reader.DeleteBTN.addEventListener('click', evt => this.RemoveFromReader(), false);
-		this.Elements.Reader.DeleteI.classList.add(['bi', 'bi-x-lg']);
+		this.Elements.Reader.DeleteI.classList.add('bi', 'bi-x-lg');
 		this.Elements.Reader.DeleteBTN.append(this.Elements.Reader.DeleteI);
 
 		this.Elements.Reader.Main.append(this.Elements.Reader.Title, this.Elements.Reader.PlayBTN, this.Elements.Reader.DeleteBTN);		
