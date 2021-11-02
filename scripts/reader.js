@@ -57,12 +57,12 @@ const _player = new class {
 
 	TogglePlayPause() {
 		if (this.Element.paused) {
-			_playPause.IMG.src = server + '/img/play.png';
-			this.PlayedMusic.Elements.Reader.PlayIMG.src =server + '/img/play.png'; 
+			_playPause.IMG.classList.replace('bi-pause', 'bi-play');
+			this.PlayedMusic.Elements.Reader.PlayI.classList.replace('bi-pause', 'bi-play');
 		}
 		else {
-			_playPause.IMG.src = server + '/img/pause.png';
-			this.PlayedMusic.Elements.Reader.PlayIMG.src = server + '/img/pause.png';
+			_playPause.IMG.classList.replace('bi-play', 'bi-pause');
+			this.PlayedMusic.Elements.Reader.PlayI.classList.replace('bi-play', 'bi-pause');
 		}
 	}
 

@@ -9,9 +9,9 @@
 	<p id="MusicName"></p>
 	<section id="Controls">
 		<button	id="Loop" class="reader-buttons"><img id="LoopIMG" src="<?php echo $rootURL ?>/img/loop.png" alt="Loop"></button>
-		<button	id="Previous" class="reader-buttons"><img id="PreviousIMG" src="<?php echo $rootURL ?>/img/back.png" alt="Previous"></button>
-		<button	id="PlayPause" class="reader-buttons"><img id="PlayPauseIMG" src="<?php echo $rootURL ?>/img/pause.png" alt="Play"></button>
-		<button	id="Next" class="reader-buttons"><img id="NextIMG" src="<?php echo $rootURL ?>/img/skip.png" alt="Next"></button>
+		<button	id="Previous" class="reader-buttons"><i id="PreviousIMG" class="bi bi-skip-start"></i></button>
+		<button	id="PlayPause" class="reader-buttons"><i id="PlayPauseIMG" class="bi bi-play"></i></button>
+		<button	id="Next" class="reader-buttons"><i id="NextIMG" class="bi bi-skip-end"></i></button>
 		<span	id="CurrentTime">00:00</span>
 		<input	id="ProgressBar" type="range" min="0" max="100" value="0">
 		<span	id="EndTime">00:00</span>

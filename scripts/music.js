@@ -26,9 +26,9 @@ class Music {
 				Main		: document.createElement('li'),
 				Title		: document.createElement('p'),
 				PlayBTN		: document.createElement('button'),
-				PlayIMG		: document.createElement('img'),
+				PlayI		: document.createElement('i'),
 				DeleteBTN	: document.createElement('button'),
-				DeleteIMG	: document.createElement('img'),
+				DeleteI		: document.createElement('i'),
 			}
 		}
 
@@ -56,16 +56,16 @@ class Music {
 		this.Elements.Reader.Title.innerHTML = this.Artist + ' - ' + this.Title;
 
 		if (this.IsPlayed)
-			this.Elements.Reader.PlayIMG.src = server + '/img/pause.png';
+			this.Elements.Reader.PlayI.classList.add(['bi', 'bi-pause']);
 		else
-			this.Elements.Reader.PlayIMG.src = server + '/img/play.png';
+			this.Elements.Reader.PlayI.classList.add(['bi', 'bi-play']);
 			
-		this.Elements.Reader.PlayBTN.append(this.Elements.Reader.PlayIMG);
+		this.Elements.Reader.PlayBTN.append(this.Elements.Reader.PlayI);
 		this.Elements.Reader.PlayBTN.addEventListener('click', evt => this.ReaderTogglePlayPause(), false);
 
 		this.Elements.Reader.DeleteBTN.addEventListener('click', evt => this.RemoveFromReader(), false);
-		this.Elements.Reader.DeleteIMG.src = server + '/img/cross.png';
-		this.Elements.Reader.DeleteBTN.append(this.Elements.Reader.DeleteIMG);
+		this.Elements.Reader.DeleteI.classList.add(['bi', 'bi-x-lg']);
+		this.Elements.Reader.DeleteBTN.append(this.Elements.Reader.DeleteI);
 
 		this.Elements.Reader.Main.append(this.Elements.Reader.Title, this.Elements.Reader.PlayBTN, this.Elements.Reader.DeleteBTN);		
 		_playlistReader.List.append(this.Elements.Reader.Main);
@@ -74,12 +74,12 @@ class Music {
 	SetPlayed() {
 		this.IsPlayed = true;
 		_playingLayout.Change(this.Elements.Library.Main);
-		this.Elements.Reader.PlayIMG.src = server + '/img/pause.png';
+		this.Elements.Reader.PlayI.classList.replace('bi-play', 'bi-pause');
 	}
 
 	SetNotPlayed() {
 		this.IsPlayed = false;
-		this.Elements.Reader.PlayIMG.src = server + '/img/play.png';
+		this.Elements.Reader.PlayI.classList.replace('bi-pause', 'bi-play');
 	}
 
 	Play() {

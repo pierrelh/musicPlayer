@@ -246,8 +246,9 @@ html{
 	width: 60px;
 }
 
-.cross > img {
-	height: 25px;
+.cross > i {
+	font-size: 25px;
+	color: white;
 }
 
 .edit,

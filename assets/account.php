@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?php echo $rootURL ?>/styles/common/accountStyle.css?cachev=<?php echo $cacheVersion ?>">
 <section id="Account">
 	<button id="CrossAccount" class="cross">
-		<img src="<?php echo $rootURL ?>/img/cross.png" alt="">
+		<i class="bi bi-x-lg"></i>
 	</button>
 	<h2 class="form-title">Informations générales du compte</h2>
 	<div class="div-account">

@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?php echo $rootURL ?>/styles/common/uploadFileStyle.css?cachev=<?php echo $cacheVersion ?>">
 <section id="Upload">
 	<button id="CrossUpload" class="cross">
-		<img src="<?php echo $rootURL ?>/img/cross.png" alt="">
+		<i class="bi bi-x-lg"></i>
 	</button>
 	<h2 class="form-title">Uploader un fichier</h2>
 	<form id="FormUpload" enctype="multipart/form-data" method="post">

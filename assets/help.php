@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?php echo $rootURL ?>/styles/common/helpStyle.css?cachev=<?php echo $cacheVersion ?>">
 <section id="Help">
 	<button id="CrossHelp" class="cross">
-		<img src="<?php echo $rootURL ?>/img/cross.png" alt="">
+		<i class="bi bi-x-lg"></i>
 	</button>
 	<h2 class="form-title">Voici la liste des commandes disponibles :</h2>
 	<h3>Commande du Player</h3>
