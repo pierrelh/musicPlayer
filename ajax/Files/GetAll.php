@@ -1,6 +1,7 @@
 <?php
-global $Content, $SQL;
-error_log(print_r($SQL,true) );
-    print json_encode($Content::GetAll());
+	
+    require_once($_SERVER['DOCUMENT_ROOT'].'/class/Files.php');
+    $files = new Files();
+    print json_encode($files->GetAll());
 
 ?>

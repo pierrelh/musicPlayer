@@ -1,5 +1,5 @@
 <?php
 
-    print json_encode($GLOBALS['Content']->UploadCover());
+    print json_encode($GLOBALS['FILES']->UploadCover());
 
 ?>
