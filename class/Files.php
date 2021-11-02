@@ -9,12 +9,11 @@
 		}
 
 		public static function GetAll() {
-			global $SQL;
 			$request = 'SELECT *
 						FROM files
 						ORDER BY ' . $_POST['row'] . ' ' . $_POST['type'];
 
-			$result = $SQL->Request($request);
+			$result = (new SQL)->Request($request);
 			if (!empty($result))
 				return pg_fetch_all($result);
 			return false;

@@ -1,6 +1,6 @@
 <?php
 
-	$SQL = new class {
+	class SQL {
 		private $db = null;
 
 		public function __construct(){
