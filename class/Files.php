@@ -1,6 +1,6 @@
 <?php
 
-	$FILES = new class {	
+	class Files {	
 		public function GetFileNameFormUrl($url) {
 			$url = explode('/', $url);
 			$filename = array_pop($url);
