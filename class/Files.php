@@ -12,7 +12,7 @@
 			return $filename[0];
 		}
 
-		public static function GetAll() {
+		public function GetAll() {
 			$request = 'SELECT *
 						FROM files
 						ORDER BY ' . $_POST['row'] . ' ' . $_POST['type'];
