@@ -9,13 +9,11 @@
 		
 		// Set the cloundiary's configuration
 		function __construct() {
-			global $SQL;
-		
 			$request = "SELECT * 
 						FROM cloudinary_api
 						WHERE key_id='1'";
 
-			$val = pg_fetch_all($SQL->Request($request));
+			$val = pg_fetch_all((new SQL)->Request($request));
 			include_once($_SERVER['DOCUMENT_ROOT'].'/vendor/cloudinary/cloudinary_php/autoload.php');
 			
 			foreach ($val as $key => $value) {     
@@ -107,7 +105,7 @@
 		}
 
 		public function GetAdminPage() {            
-			return this->GetWebPage('https://'.$this->APIKey.':'.$this->APISecret.'@api.cloudinary.com/v1_1/'.$this->CloudName.'/usage');            
+			return $this->GetWebPage('https://'.$this->APIKey.':'.$this->APISecret.'@api.cloudinary.com/v1_1/'.$this->CloudName.'/usage');            
 		}        
 
 		// Function to delete a cloudinary asset
