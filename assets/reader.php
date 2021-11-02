@@ -14,7 +14,7 @@
 		<span	id="CurrentTime">00:00</span>
 		<input	id="ProgressBar" type="range" min="0" max="100" value="0">
 		<span	id="EndTime">00:00</span>
-		<button	id="Random" class="reader-buttons"><img id="RandomIMG" src="<?php echo $rootURL ?>/img/no-random.png" alt="Random"></button>
+		<button	id="Random" class="reader-buttons"><i id="RandomIMG" class="fas fa-random"></i><img src="<?php echo $rootURL ?>/img/no-random.png" alt="Random"></button>
 		<button	id="Mute" class="reader-buttons"><img id="MuteIMG" src="<?php echo $rootURL ?>/img/audio-on.png" alt="Mute"></button>
 		<input	id="Volume" type="range" min="0" max="100" value="100">
 		<button	id="PlaylistBtn" class="reader-buttons"><img src="<?php echo $rootURL ?>/img/playlist.png" alt="playlist"></button>

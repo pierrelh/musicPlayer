@@ -8,6 +8,7 @@
 			const server = "https://" + window.location.hostname;
 		</script>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+		<script src="https://kit.fontawesome.com/2356425a97.js" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/common/videoStyle.css?cachev=<?php echo $cacheVersion ?>">
 		<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/screen/videoStyle.css?cachev=<?php echo $cacheVersion ?>">
 		<link rel="stylesheet" href="<?php echo $rootURL ?>/styles/handheld/videoStyle.css?cachev=<?php echo $cacheVersion ?>">
