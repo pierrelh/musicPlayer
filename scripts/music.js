@@ -56,9 +56,9 @@ class Music {
 		this.Elements.Reader.Title.innerHTML = this.Artist + ' - ' + this.Title;
 
 		if (this.IsPlayed)
-			this.Elements.Reader.PlayI.classList.add(['bi', 'bi-pause']);
+			this.Elements.Reader.PlayI.classList.add('bi', 'bi-pause');
 		else
-			this.Elements.Reader.PlayI.classList.add(['bi', 'bi-play']);
+			this.Elements.Reader.PlayI.classList.add('bi', 'bi-play');
 			
 		this.Elements.Reader.PlayBTN.append(this.Elements.Reader.PlayI);
 		this.Elements.Reader.PlayBTN.addEventListener('click', evt => this.ReaderTogglePlayPause(), false);

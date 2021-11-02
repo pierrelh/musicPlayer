@@ -1,7 +1,7 @@
 <?php
 
 	$rootURL = 'https://' . $_SERVER['HTTP_HOST'];
-	$cacheVersion = "20211023-2";
+	$cacheVersion = "20211103-1";
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/class/User.php');
 	$user = new User();
 
