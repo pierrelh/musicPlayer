@@ -35,6 +35,7 @@ const _player = new class {
 		this.Element.addEventListener('pause', evt => this.TogglePlayPause(), false);
 		this.Element.addEventListener('play', evt => this.TogglePlayPause(), false);
 		this.Element.addEventListener('ended', evt => this.Ended(), false);
+		this.Element.volume = 1;
 	}
 
 	StopMusic() {
