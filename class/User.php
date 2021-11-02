@@ -2,11 +2,10 @@
 
 	$GLOBALS['User'] = new class {
 		public function CheckIdentification() {
-			global $SQL;
 			$request = 'SELECT user_session_id
 						FROM users
 						WHERE user_session_id = $1';
-			$result = $SQL->Request($request, array($_COOKIE['SESSION_ID']));
+			$result = (new SQL)->Request($request, array($_COOKIE['SESSION_ID']));
 			$rows = pg_fetch_all($result);
 			if (empty($rows)) {
 				setcookie('SESSION_ID', null, -1, '/');
@@ -16,10 +15,9 @@
 		}
 
 		public function CreateAccount() {
-			global $SQL;
 			$request = 'INSERT INTO users (user_login, user_password, user_session_id)
 						VALUES ($1, $2, $3)';
-			$result = $SQL->Request(
+			$result = (new SQL)->Request(
 				$request,
 				array(
 					$_POST['user_login'],
@@ -34,11 +32,10 @@
 		}
 
 		public function Login(){
-			global $SQL;
 			$request = 'SELECT user_session_id
 						FROM users
 						WHERE user_login = $1 AND user_password = $2';
-			$result = $SQL->Request(
+			$result = (new SQL)->Request(
 				$request,
 				array(
 					$_POST['login'],
@@ -63,11 +60,10 @@
 		}
 
 		public function EditPassword() {
-			global $SQL;
 			$request = 'UPDATE users
 						SET user_password = $1
 						WHERE user_session_id = $2';
-			$result = $SQL->Request(
+			$result = (new SQL)->Request(
 				$request,
 				array(
 					hash('sha256', $_POST['user_password']),
