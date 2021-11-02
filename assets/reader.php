@@ -18,7 +18,7 @@
 		<button	id="Random" class="reader-buttons"><i id="RandomIMG" class="bi bi-shuffle"></i></button>
 		<button	id="Mute" class="reader-buttons"><i id="MuteIMG" class="bi bi-volume-up"></i></button>
 		<input	id="Volume" type="range" min="0" max="100" value="100">
-		<button	id="PlaylistBtn" class="reader-buttons"><img src="<?php echo $rootURL ?>/img/playlist.png" alt="playlist"></button>
+		<button	id="PlaylistBtn" class="reader-buttons"><i class="bi bi-music-note-list"></i></button>
 	</section>
 </section>
 <script type="text/javascript" src="<?php echo $rootURL ?>/scripts/reader.js?cachev=<?php echo $cacheVersion ?>"></script>

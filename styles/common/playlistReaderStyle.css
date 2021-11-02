@@ -45,6 +45,7 @@
 	cursor: pointer;
 }
 
-#PlaylistReaderList > li > button > img {
-	height: 20px;
+#PlaylistReaderList > li > button > i {
+	font-size: 20px;
+	color: white;
 }
