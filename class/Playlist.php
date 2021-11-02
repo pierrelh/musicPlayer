@@ -1,12 +1,16 @@
 <?php
 
-	$GLOBALS['Playlist'] = new class {
+	class Playlist {
+
+		public function __construct(){
+			require_once($_SERVER['DOCUMENT_ROOT'] . '/class/Initiator.php');
+		}
+
 		public function Create() {
-			global $SQL;
 			$request = 'INSERT INTO playlists (playlist_owner, playlist_name)
 						VALUES ($1, $2)
 						RETURNING playlist_id';
-			$result = $SQL->Request(
+			$result = Initiator::SQL()->Request(
 				$request,
 				array(
 					$_COOKIE['SESSION_ID'],
@@ -20,7 +24,7 @@
 			foreach ($_POST['musics'] as $value) {
 				$request = 'INSERT INTO playlists_musics (playlist_id, playlist_music_id)
 							VALUES ($1, $2)';
-				$SQL->Request(
+				Initiator::SQL()->Request(
 					$request,
 					array(
 						$playlistId['playlist_id'],
@@ -32,24 +36,22 @@
 		}
 
 		public function GetAll() {
-			global $SQL;
 			$request = 'SELECT *
 						FROM playlists
 						ORDER BY playlist_id';
-			if (!empty($SQL->Request($request)))
+			if (!empty(Initiator::SQL()->Request($request)))
 				return pg_fetch_all($result);
 			return false;
 		}
 
 		public function getMusics() {
-			global $SQL;
 			$request = 'SELECT *
 						FROM playlists_musics
 						INNER JOIN files
 						ON playlists_musics.playlist_music_id = files.file_id
 						WHERE playlist_id = $1;';
 						
-			if (!empty($SQL->Request($request, array($_POST['playlist_id']))))
+			if (!empty(Initiator::SQL()->Request($request, array($_POST['playlist_id']))))
 				return pg_fetch_all($result);
 			return false;
 		}

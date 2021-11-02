@@ -4,8 +4,7 @@
 		private $db = null;
 
 		public function __construct(){
-			$db_url = getenv("DATABASE_URL") ?: "postgres://user:pass@host:port/dbname";
-			$this->db = pg_connect($db_url);
+			$this->db = pg_connect(getenv("DATABASE_URL") ?: "postgres://user:pass@host:port/dbname");
 			if(!$this->db)
 				die('Erreur : '.$e->getMessage());
 		}

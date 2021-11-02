@@ -7,7 +7,6 @@
 		private $Uploader = null;
 		private $Config = null;
 		
-		// Set the cloundiary's configuration
 		function __construct() {
 			$request = "SELECT * 
 						FROM cloudinary_api
@@ -29,7 +28,6 @@
 			}
 		}
 
-		// Create an entitee slug
 		public function createSlug($raw){
 			$raw = preg_replace('~[^\pL\d]+~u', '-', $raw);
 			$raw = iconv('utf-8', 'us-ascii//TRANSLIT', $raw);
@@ -43,7 +41,6 @@
 			return $slug . rand(1, 999999999);    
 		}
 
-		// Upload a cover to Cloudinary
 		public function UploadCover($filePath, $fileName, $overwrite, $directory, $size){
 			if (!$overwrite)
 				$fileName = $this->createSlug($fileName);
@@ -66,7 +63,6 @@
 			return $result['secure_url'];
 		}
 
-		// Upload a music to Cloudinary
 		public function UploadMusic($filePath, $fileName){
 			$fileName = $this->createSlug($fileName);
 

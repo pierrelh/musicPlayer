@@ -1,17 +1,12 @@
 <?php
 
 	class Files {
-		private function initSQL() {
-			require_once($_SERVER['DOCUMENT_ROOT'] . '/class/SQL.php');
-			return new SQL();
+
+		public function __construct(){
+			require_once($_SERVER['DOCUMENT_ROOT'] . '/class/Initiator.php');
 		}
 
-		private function initStorage() {
-			require_once($_SERVER['DOCUMENT_ROOT'] . '/class/Storage.php');
-			return new Storage();
-		}
-
-		public function GetFileNameFormUrl($url) {
+		private function GetFileNameFormUrl($url) {
 			$url = explode('/', $url);
 			$filename = array_pop($url);
 			$filename = explode('.', $filename);
@@ -23,7 +18,7 @@
 						FROM files
 						ORDER BY ' . $_POST['row'] . ' ' . $_POST['type'];
 
-			$result = $this->initSQL()->Request($request);
+			$result = Initiator::SQL()->Request($request);
 			if (!empty($result))
 				return pg_fetch_all($result);
 			return false;
@@ -41,13 +36,13 @@
 			$cover = $_FILES['cover'];
 			$urls = array();
 			foreach ($coverSizes as $directory => $size)
-				$urls[$directory] = $this->initStorage()->UploadCover($cover['tmp_name'], $cover['name'], false, $directory, $size);
+				$urls[$directory] = Initiator::Storage()->UploadCover($cover['tmp_name'], $cover['name'], false, $directory, $size);
 			return $urls;
 		}
 
 		public function UploadMusic() {
 			$music = $_FILES['music']; 
-			return $this->initStorage()->UploadMusic($music['tmp_name'], $music['name']);
+			return Initiator::Storage()->UploadMusic($music['tmp_name'], $music['name']);
 		}
 
 		public function Upload() {
@@ -66,7 +61,7 @@
 						)
 						VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)';
 
-			return $this->initSQL()->Reqest(
+			return Initiator::SQL()->Reqest(
 				$request,
 				array(
 					$_POST['file_name'],

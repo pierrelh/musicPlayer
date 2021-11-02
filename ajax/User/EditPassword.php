@@ -1,5 +1,6 @@
 <?php
 
-    print $GLOBALS['User']->EditPassword();
+    require_once($_SERVER['DOCUMENT_ROOT'].'/class/User.php');
+    print (new User())->EditPassword();
 
 ?>
