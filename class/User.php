@@ -1,11 +1,18 @@
 <?php
 
-	$GLOBALS['User'] = new class {
+	class User {
+		private $sql = null;
+
+		public function __construct(){
+			require_once($_SERVER['DOCUMENT_ROOT'] . '/class/SQL.php');
+			$this->sql = new SQL();
+		}
+
 		public function CheckIdentification() {
 			$request = 'SELECT user_session_id
 						FROM users
 						WHERE user_session_id = $1';
-			$result = (new SQL)->Request($request, array($_COOKIE['SESSION_ID']));
+			$result = $this->sql->Request($request, array($_COOKIE['SESSION_ID']));
 			$rows = pg_fetch_all($result);
 			if (empty($rows)) {
 				setcookie('SESSION_ID', null, -1, '/');
@@ -17,7 +24,7 @@
 		public function CreateAccount() {
 			$request = 'INSERT INTO users (user_login, user_password, user_session_id)
 						VALUES ($1, $2, $3)';
-			$result = (new SQL)->Request(
+			$result = $this->sql->Request(
 				$request,
 				array(
 					$_POST['user_login'],
@@ -35,7 +42,7 @@
 			$request = 'SELECT user_session_id
 						FROM users
 						WHERE user_login = $1 AND user_password = $2';
-			$result = (new SQL)->Request(
+			$result = $this->sql->Request(
 				$request,
 				array(
 					$_POST['login'],
@@ -63,7 +70,7 @@
 			$request = 'UPDATE users
 						SET user_password = $1
 						WHERE user_session_id = $2';
-			$result = (new SQL)->Request(
+			$result = $this->sql->Request(
 				$request,
 				array(
 					hash('sha256', $_POST['user_password']),

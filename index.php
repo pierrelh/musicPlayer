@@ -2,7 +2,6 @@
 
 	$rootURL = 'https://' . $_SERVER['HTTP_HOST'];
 	$cacheVersion = "20211023-2";
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/class/SQL.php');
 	require_once($_SERVER['DOCUMENT_ROOT'] . '/class/User.php');
 
 	switch (isset($_COOKIE['SESSION_ID'])) {
