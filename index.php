@@ -8,9 +8,6 @@
 	switch (isset($_COOKIE['SESSION_ID'])) {
 		case true:
 			$user->CheckIdentification();
-			require_once($_SERVER['DOCUMENT_ROOT'].'/class/Files.php');
-			require_once($_SERVER['DOCUMENT_ROOT'].'/class/Storage.php');
-			require_once($_SERVER['DOCUMENT_ROOT'].'/class/Playlist.php');
 			require_once(__DIR__ . '/pages/music-player.php');
 			break;
 		

@@ -1,8 +1,14 @@
 <?php
 
 	class Files {
-		public function __construct(){
+		private function initSQL() {
 			require_once($_SERVER['DOCUMENT_ROOT'] . '/class/SQL.php');
+			return new SQL();
+		}
+
+		private function initStorage() {
+			require_once($_SERVER['DOCUMENT_ROOT'] . '/class/Storage.php');
+			return new Storage();
 		}
 
 		public function GetFileNameFormUrl($url) {
@@ -17,7 +23,7 @@
 						FROM files
 						ORDER BY ' . $_POST['row'] . ' ' . $_POST['type'];
 
-			$result = (new SQL)->Request($request);
+			$result = $this->initSQL()->Request($request);
 			if (!empty($result))
 				return pg_fetch_all($result);
 			return false;
@@ -35,8 +41,13 @@
 			$cover = $_FILES['cover'];
 			$urls = array();
 			foreach ($coverSizes as $directory => $size)
-				$urls[$directory] = Storage->UploadCover($cover['tmp_name'], $cover['name'], false, $directory, $size);
+				$urls[$directory] = $this->initStorage()->UploadCover($cover['tmp_name'], $cover['name'], false, $directory, $size);
 			return $urls;
+		}
+
+		public function UploadMusic() {
+			$music = $_FILES['music']; 
+			return $this->initStorage()->UploadMusic($music['tmp_name'], $music['name']);
 		}
 
 		public function Upload() {
@@ -54,8 +65,8 @@
 							file_album
 						)
 						VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)';
-			global $SQL;
-			return $SQL->Reqest(
+
+			return $this->initSQL()->Reqest(
 				$request,
 				array(
 					$_POST['file_name'],
@@ -72,47 +83,42 @@
 			);
 		}
 
-		public function UploadMusic() {
-			$music = $_FILES['music']; 
-			return Storage->UploadMusic($music['tmp_name'], $music['name']);
-		}
+		// public function Edit() {
+		// 	if (isset($_FILES['file_image']) && $_FILES['file_image'] != 'undefined') {
+		// 		$files = $_FILES['file_image'];
+		// 		$files = is_array($files) ? $files : array( $files );
+		
+		// 		// Uploading on overwriting the new cover
+		// 		$covers = json_decode($_POST['covers']);
+		
+		// 		foreach ($covers as $directory => $path) {
+		// 			$size = str_replace('x', '', $directory);
+		// 			$key = 'file_cover_' . $size;
+		// 			$_POST[$key] = uploadCover($files['tmp_name'], $this->GetFileNameFormUrl($path), true, $directory, intval($size));
+		// 		}
+		// 	}
+		
+		// 	unset($_POST['covers'], $_POST['file_image']);
+		
+		// 	global $db;
+		// 	$condition = array('file_id' => $_POST['file_id']);
+		// 	return pg_update($db, 'files', $_POST, $condition);
+		// }
 
-		public function Edit() {
-			if (isset($_FILES['file_image']) && $_FILES['file_image'] != 'undefined') {
-				$files = $_FILES['file_image'];
-				$files = is_array($files) ? $files : array( $files );
+		// public function Delete() {
+		// 	$GLOBALS['Storage']->DeleteCloudinaryAsset('video', $this->GetFileNameFormUrl($_POST['file_url']));
+		// 	unset($_POST['file_url']);
 		
-				// Uploading on overwriting the new cover
-				$covers = json_decode($_POST['covers']);
+		// 	$covers = json_decode($_POST['file_covers']);
+		// 	foreach ($covers as $key => $value) {
+		// 		$path = $key . '/' . $this->GetFileNameFormUrl($value);
+		// 		$GLOBALS['Storage']->DeleteCloudinaryAsset('image', $path);
+		// 	}
+		// 	unset($_POST['file_covers']);
 		
-				foreach ($covers as $directory => $path) {
-					$size = str_replace('x', '', $directory);
-					$key = 'file_cover_' . $size;
-					$_POST[$key] = uploadCover($files['tmp_name'], $this->GetFileNameFormUrl($path), true, $directory, intval($size));
-				}
-			}
-		
-			unset($_POST['covers'], $_POST['file_image']);
-		
-			global $db;
-			$condition = array('file_id' => $_POST['file_id']);
-			return pg_update($db, 'files', $_POST, $condition);
-		}
-
-		public function Delete() {
-			$GLOBALS['Storage']->DeleteCloudinaryAsset('video', $this->GetFileNameFormUrl($_POST['file_url']));
-			unset($_POST['file_url']);
-		
-			$covers = json_decode($_POST['file_covers']);
-			foreach ($covers as $key => $value) {
-				$path = $key . '/' . $this->GetFileNameFormUrl($value);
-				$GLOBALS['Storage']->DeleteCloudinaryAsset('image', $path);
-			}
-			unset($_POST['file_covers']);
-		
-			global $db;
-			return pg_delete($db, 'files', $_POST);
-		}
+		// 	global $db;
+		// 	return pg_delete($db, 'files', $_POST);
+		// }
 	}
 
 ?>
