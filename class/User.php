@@ -19,14 +19,14 @@
 			return false;
 		}
 
-		public function CreateAccount() {
+		public function CreateAccount($login, $password) {
 			$request = 'INSERT INTO users (user_login, user_password, user_session_id)
 						VALUES ($1, $2, $3)';
 			$result = Initiator::SQL()->Request(
 				$request,
 				array(
-					$_POST['user_login'],
-					hash('sha256', $_POST['user_password']),
+					$login,
+					hash('sha256', $password),
 					$this->CreateSessionId()
 				)
 			);
@@ -36,15 +36,15 @@
 			return false;
 		}
 
-		public function Login(){
+		public function Login($login, $password){
 			$request = 'SELECT user_session_id
 						FROM users
 						WHERE user_login = $1 AND user_password = $2';
 			$result = Initiator::SQL()->Request(
 				$request,
 				array(
-					$_POST['login'],
-					hash('sha256', $_POST['password'])
+					$login,
+					hash('sha256', $password)
 				)
 			);
 
@@ -53,25 +53,28 @@
 				return false;
 				
 			$row = $rows[0];
-			$cookieOptions = array (
-				'expires' => time() + 60*60*24*30,
-				'path' => '/',
-				'secure' => true,
-				'httponly' => true,
-				'samesite' => 'Strict'
+			setcookie(
+				'SESSION_ID',
+				$row['user_session_id'],
+				array(
+					'expires' => time() + 60*60*24*30,
+					'path' => '/',
+					'secure' => true,
+					'httponly' => true,
+					'samesite' => 'Strict'
+				)
 			);
-			setcookie('SESSION_ID', $row['user_session_id'], $cookieOptions);
 			echo '<script>window.location.assign(\'https://'.$_SERVER['HTTP_HOST'].'\')</script>';
 		}
 
-		public function EditPassword() {
+		public function EditPassword($newPassword) {
 			$request = 'UPDATE users
 						SET user_password = $1
 						WHERE user_session_id = $2';
 			$result = Initiator::SQL()->Request(
 				$request,
 				array(
-					hash('sha256', $_POST['user_password']),
+					hash('sha256', $newPassword),
 					$_COOKIE['SESSION_ID']
 				)
 			);
@@ -81,7 +84,7 @@
 			return false;
 		}
 		
-		private static function CreateSessionId(){
+		private function CreateSessionId(){
 			return hash('sha256', date_timestamp_get(date_create()) . rand(1, 999999999));
 		}
 	}

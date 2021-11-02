@@ -1,6 +1,6 @@
 <?php
 
-	$GLOBALS['Storage'] = new class {
+	class Storage {
 		private $CloudName = null;
 		private $APIKey = null;
 		private $APISecret = null;
@@ -8,14 +8,15 @@
 		private $Config = null;
 		
 		function __construct() {
+			require_once($_SERVER['DOCUMENT_ROOT'] . '/class/Initiator.php');
 			$request = "SELECT * 
 						FROM cloudinary_api
 						WHERE key_id='1'";
 
-			$val = pg_fetch_all((new SQL)->Request($request));
+			$result = pg_fetch_all(Initiator::SQL()->Request($request));
 			include_once($_SERVER['DOCUMENT_ROOT'].'/vendor/cloudinary/cloudinary_php/autoload.php');
 			
-			foreach ($val as $key => $value) {     
+			foreach ($result as $key => $value) {     
 				$this->CloudName = $value['cloud_name'];
 				$this->APIKey = $value['api_key'];
 				$this->APISecret = $value['api_secret'];
@@ -79,7 +80,6 @@
 			return $result['secure_url'];
 		}        
 
-		// Get the content of a web page with cUrl
 		private function GetWebPage($url) {
 			$options = array(
 				CURLOPT_RETURNTRANSFER => true,   // return web page

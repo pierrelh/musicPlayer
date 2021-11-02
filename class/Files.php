@@ -13,10 +13,10 @@
 			return $filename[0];
 		}
 
-		public function GetAll() {
+		public function GetAll($row, $type) {
 			$request = 'SELECT *
 						FROM files
-						ORDER BY ' . $_POST['row'] . ' ' . $_POST['type'];
+						ORDER BY ' . $row . ' ' . $type;
 
 			$result = Initiator::SQL()->Request($request);
 			if (!empty($result))
@@ -24,7 +24,7 @@
 			return false;
 		}
 
-		public function UploadCover() {
+		public function UploadCover($cover) {
 			$coverSizes = [
 				'x96'=> 96,
 				'x128'=> 128,
@@ -33,20 +33,17 @@
 				'x384'=> 384,
 				'x512'=> 512
 			];
-			$cover = $_FILES['cover'];
 			$urls = array();
 			foreach ($coverSizes as $directory => $size)
 				$urls[$directory] = Initiator::Storage()->UploadCover($cover['tmp_name'], $cover['name'], false, $directory, $size);
 			return $urls;
 		}
 
-		public function UploadMusic() {
-			$music = $_FILES['music']; 
+		public function UploadMusic($music) {
 			return Initiator::Storage()->UploadMusic($music['tmp_name'], $music['name']);
 		}
 
-		public function Upload() {
-			$covers = json_decode($_POST['file_covers']);
+		public function Upload($name, $url, $author, $album, $covers) {
 			$request = 'INSERT INTO files (
 							file_name,
 							file_url,
@@ -64,27 +61,24 @@
 			return Initiator::SQL()->Reqest(
 				$request,
 				array(
-					$_POST['file_name'],
-					$_POST['file_url'],
+					$name,
+					$url,
 					$covers->x96,
 					$covers->x128,
 					$covers->x192,
 					$covers->x256,
 					$covers->x384,
 					$covers->x512,
-					$_POST['file_author'],
-					$_POST['file_album']
+					$author,
+					$album
 				)
 			);
 		}
 
-		// public function Edit() {
-		// 	if (isset($_FILES['file_image']) && $_FILES['file_image'] != 'undefined') {
-		// 		$files = $_FILES['file_image'];
+		// public function Edit($image, $covers) {
+		// 	if (isset($image) && $image != 'undefined') {
+		// 		$files = $image;
 		// 		$files = is_array($files) ? $files : array( $files );
-		
-		// 		// Uploading on overwriting the new cover
-		// 		$covers = json_decode($_POST['covers']);
 		
 		// 		foreach ($covers as $directory => $path) {
 		// 			$size = str_replace('x', '', $directory);
@@ -93,25 +87,16 @@
 		// 		}
 		// 	}
 		
-		// 	unset($_POST['covers'], $_POST['file_image']);
-		
 		// 	global $db;
 		// 	$condition = array('file_id' => $_POST['file_id']);
 		// 	return pg_update($db, 'files', $_POST, $condition);
 		// }
 
-		// public function Delete() {
-		// 	$GLOBALS['Storage']->DeleteCloudinaryAsset('video', $this->GetFileNameFormUrl($_POST['file_url']));
-		// 	unset($_POST['file_url']);
+		// public function Delete($id, $url, $covers) {
+		// 	Initiator::Storage()->DeleteCloudinaryAsset('video', $this->GetFileNameFormUrl($url));
+		// 	foreach ($covers as $key => $value)
+		// 		Initiator::Storage()->DeleteCloudinaryAsset('image', $key . '/' . $this->GetFileNameFormUrl($value));
 		
-		// 	$covers = json_decode($_POST['file_covers']);
-		// 	foreach ($covers as $key => $value) {
-		// 		$path = $key . '/' . $this->GetFileNameFormUrl($value);
-		// 		$GLOBALS['Storage']->DeleteCloudinaryAsset('image', $path);
-		// 	}
-		// 	unset($_POST['file_covers']);
-		
-		// 	global $db;
 		// 	return pg_delete($db, 'files', $_POST);
 		// }
 	}
