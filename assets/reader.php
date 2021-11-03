@@ -8,7 +8,7 @@
 <section id="AudioPlayer">
 	<p id="MusicName"></p>
 	<section id="Controls">
-		<button	id="Loop" class="reader-buttons"><i id="LoopIMG" class="bi bi-arrow-repeat icon-disabled"></i></button>
+		<button	id="Loop" class="reader-buttons"><i id="LoopIMG" class="bi bi-arrow-repeat"></i></button>
 		<button	id="Previous" class="reader-buttons"><i id="PreviousIMG" class="bi bi-skip-start"></i></button>
 		<button	id="PlayPause" class="reader-buttons"><i id="PlayPauseIMG" class="bi bi-play"></i></button>
 		<button	id="Next" class="reader-buttons"><i id="NextIMG" class="bi bi-skip-end"></i></button>

@@ -91,20 +91,18 @@ const _loop = new class {
 		switch (this.Type) {
 			case 'one':
 				this.Type = 'none';
-				this.IMG.classList.add('icon-disabled');
-				this.IMG.innerHTML = '';
+				this.IMG.classList.toggle('bi-arrow-counterclockwise', 'icon-disabled');
 				break;
 
 			case 'all':
 				this.Type = 'one';
-				this.IMG.classList.remove('icon-disabled');
-				this.IMG.innerHTML = '1';
+				this.IMG.classList.toggle('bi-infinity', 'bi-arrow-counterclockwise');
 				break;
 
 			case 'none':
 			default:
 				this.Type = 'all';
-				this.IMG.classList.remove('icon-disabled');
+				this.IMG.classList.toggle('bi-arrow-repeat', 'bi-infinity');
 				break;
 		}
 	}
