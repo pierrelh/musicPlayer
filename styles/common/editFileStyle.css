@@ -1,3 +1,7 @@
+#Edit {
+	overflow-y: scroll;
+}
+
 #BannerContainer {
 	margin: auto;
 	margin-top: 3vh;
@@ -13,10 +17,12 @@
 	height: 100%;
 	width: 100%;
 	position: relative;
+	border-radius: 15px;
 }
 
 .editImage {
-	width: 40px;
+	color: white;
+	font-size: 24px;
 }
 
 .modify-img {
