@@ -91,7 +91,7 @@ const _loop = new class {
 		switch (this.Type) {
 			case 'one':
 				this.Type = 'none';
-				this.IMG.classList.replace('bi-arrow-counterclockwise', 'icon-disabled');
+				this.IMG.classList.replace('bi-arrow-counterclockwise', 'bi-arrow-repeat');
 				break;
 
 			case 'all':
