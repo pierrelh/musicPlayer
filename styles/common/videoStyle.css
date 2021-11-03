@@ -51,7 +51,7 @@
 	background-color: rgba(0, 0, 0, .5);
 }
 
-.layout.bi {
+.layout > .bi {
 	color: white;
 	text-align: center;
 	display: block;

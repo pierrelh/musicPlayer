@@ -28,7 +28,7 @@
 		width: 150px;
 	}
 
-	.layout.bi {
+	.layout > .bi {
 		line-height: 150px;
 	}
 }

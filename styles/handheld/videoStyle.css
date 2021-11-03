@@ -20,7 +20,7 @@
 		width: 100px !important;
 	}
 
-	.layout.bi {
+	.layout > .bi {
 		line-height: 100px;
 	}
 }
