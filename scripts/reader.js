@@ -91,18 +91,20 @@ const _loop = new class {
 		switch (this.Type) {
 			case 'one':
 				this.Type = 'none';
-				this.IMG.src = server + '/img/no-loop.png';
+				this.IMG.classList.add('icon-disabled');
+				this.IMG.innerHTML = '';
 				break;
 
 			case 'all':
 				this.Type = 'one';
-				this.IMG.src = server + '/img/loop-one.png';
+				this.IMG.classList.remove('icon-disabled');
+				this.IMG.innerHTML = '1';
 				break;
 
 			case 'none':
 			default:
 				this.Type = 'all';
-				this.IMG.src = server + '/img/loop.png';
+				this.IMG.classList.remove('icon-disabled');
 				break;
 		}
 	}
@@ -277,13 +279,11 @@ const _mute = new class {
 	Enable() {
 		_volume.Level = _player.Element.volume;
 		_player.Element.volume = 0;
-		this.IMG.src = server + '/img/audio-off.png';
 		this.IsMute = true;
 	}
 
 	Disable() {
 		_player.Element.volume = _volume.Level;
-		this.IMG.src = server + '/img/audio-on.png';
 		this.IsMute = false;
 	}
 }
