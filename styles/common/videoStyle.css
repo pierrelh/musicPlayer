@@ -42,45 +42,14 @@
 	-webkit-box-orient: vertical;
 }
 
-.edit {
-	background-image: url("../../img/edit.png");
-}
-
-.edit-hide,
-.delete-hide,
-.add-hide,
-.check-hide {
-	animation: hide-edit 0.8s ease !important;
-}
-
-.delete,
-.delete-hide {
-	background-image: url("../../img/delete.png");
-}
-
 .playing {
 	background-image: url("../../img/playing.gif");
 	opacity: 0.7;
-	animation: show-playing 0.8s ease !important;
-	z-index: 1 !important;
-}
-
-@keyframes show-edit {
-	0% {
-			opacity: 0;
-	}
-	100% {
-			opacity: 1;
-	}
-}
-
-@keyframes hide-edit {
-		0% {
-				opacity: 1;
-		}
-		100% {
-				opacity: 0;
-		}
+	position: absolute;
+	cursor: pointer;
+	border-radius: 10px;
+	animation: show-playing 0.8s ease;
+	z-index: 1;
 }
 
 @keyframes show-playing {

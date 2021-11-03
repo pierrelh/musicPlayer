@@ -251,33 +251,8 @@ html{
 	color: white;
 }
 
-.edit,
-.delete,
-.add,
-.check,
-.edit-hide,
-.delete-hide,
-.add-hide,
-.check-hide,
-.playing {
-	position: absolute;
-	cursor: pointer;
-	animation: show-edit 0.8s ease;
-	border-radius: 10px;
-	z-index: 2;
-}
-
-.edit,
-.delete,
-.add,
-.check,
-.edit-hide,
-.delete-hide,
-.add-hide,
-.check-hide {
-	background-color: rgba(0, 0, 0, .5);
-	background-position: center;
-	background-repeat: no-repeat;
+.icon-disabled {
+	color: #666 !important;
 }
 
 /* open-sans-300 - latin */

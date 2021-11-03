@@ -1,13 +1,3 @@
-.add,
-.add-hide {
-	background-image: url("../../img/add.png");
-}
-
-.check,
-.check-hide {
-	background-image: url("../../img/check.png");
-}
-
 .playlist-name {
 	color: white;
 	background: none;

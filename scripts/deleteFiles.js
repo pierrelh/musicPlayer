@@ -12,7 +12,7 @@ const _deleteLayouts = new class {
 
 	CreateAll() {
 		for (let index = 0; index < _library.Playlist.length; index++)
-			_library.Playlist[index].CreateLayout('delete', evt => _deleteSection.Show(_library.Playlist[index]));
+			_library.Playlist[index].CreateLayout('bi-trash', evt => _deleteSection.Show(_library.Playlist[index]));
 		this.IsActive = true;
 	}
 

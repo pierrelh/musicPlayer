@@ -12,7 +12,7 @@ const _editLayouts = new class {
 
 	CreateAll() {
 		for (let index = 0; index < _library.Playlist.length; index++)
-			_library.Playlist[index].CreateLayout('edit', evt => _editSection.Show(_library.Playlist[index]));
+			_library.Playlist[index].CreateLayout('bi-pen', evt => _editSection.Show(_library.Playlist[index]));
 		this.IsActive = true;
 	}
 

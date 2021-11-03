@@ -15,6 +15,6 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 <header>
-	<img id="Arrow" class="arrow" src="<?php echo $rootURL ?>/img/arrow.png" alt="">
+	<button><i id="Arrow" class="arrow bi bi-arrow-right"></i></button>
 	<h1>Music Player</h1>
 </header>

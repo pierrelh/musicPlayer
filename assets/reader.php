@@ -15,7 +15,7 @@
 		<span	id="CurrentTime">00:00</span>
 		<input	id="ProgressBar" type="range" min="0" max="100" value="0">
 		<span	id="EndTime">00:00</span>
-		<button	id="Random" class="reader-buttons"><i id="RandomIMG" class="bi bi-shuffle"></i></button>
+		<button	id="Random" class="reader-buttons"><i id="RandomIMG" class="bi bi-shuffle icon-disabled"></i></button>
 		<button	id="Mute" class="reader-buttons"><i id="MuteIMG" class="bi bi-volume-up"></i></button>
 		<input	id="Volume" type="range" min="0" max="100" value="100">
 		<button	id="PlaylistBtn" class="reader-buttons"><i class="bi bi-music-note-list"></i></button>

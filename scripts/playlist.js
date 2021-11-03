@@ -13,17 +13,17 @@ const _addLayouts = new class {
 
 	AddToPlaylist(music) {
 		this.MusicsToAdd.push(music.MusicID);
-		music.CreateLayout('check', evt => this.RemoveFromPlaylist(music));
+		music.CreateLayout('bi-check2', evt => this.RemoveFromPlaylist(music));
 	}
 
 	RemoveFromPlaylist(music) {
 		delete this.MusicsToAdd[music.MusicID];
-		music.CreateLayout('add', evt => this.AddToPlaylist(music));
+		music.CreateLayout('bi-plus-lg', evt => this.AddToPlaylist(music));
 	}
 
 	CreateAll() {
 		for (let index = 0; index < _library.Playlist.length; index++)
-			_library.Playlist[index].CreateLayout('add', evt => this.AddToPlaylist(_library.Playlist[index]));
+			_library.Playlist[index].CreateLayout('bi-plus-lg', evt => this.AddToPlaylist(_library.Playlist[index]));
 
 		_sidebar.List.append(
 			new Element({

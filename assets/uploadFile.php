@@ -10,7 +10,7 @@
 				<ul>
 					<li>
 						<label for="File">
-							<img src="<?php echo $rootURL ?>/img/upload.png" alt="">
+							<i class="bi bi-file-music"></i>
 						</label>
 					</li>
 					<li>
@@ -26,7 +26,7 @@
 				<ul>
 					<li>
 						<label for="Picture">
-							<img class="thumbnails" src="<?php echo $rootURL ?>/img/picture.png" alt="">
+							<i class="thumbnails bi bi-image-fill"></i>
 						</label>
 					</li>
 					<li>

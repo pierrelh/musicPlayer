@@ -248,13 +248,13 @@ const _random = new class {
 
 	Enable() {
 		this.IsRandom = true;
-		this.IMG.src = server + '/img/random.png';
+		this.IMG.classList.remove('icon-disabled');
 		_library.CreateRandomPlaylist();
 	}
 
 	Disable() {
 		this.IsRandom = false;
-		this.IMG.src = server + '/img/no-random.png';
+		this.IMG.classList.add('icon-disabled')
 	}
 }
 

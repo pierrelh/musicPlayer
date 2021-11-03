@@ -13,21 +13,10 @@
 		height: 100px;
 	}
 
-	.edit,
-	.delete,
-	.add,
-	.check,
-	.edit-hide,
-	.delete-hide,
-	.add-hide,
-	.check-hide,
 	.playing {
+		background-size: 100% !important;
 		height: 100px;
 		width: 100px;
 		background-size: 40%;
-	}
-
-	.playing {
-		background-size: 100% !important;
 	}
 }

@@ -8,7 +8,7 @@
 		<div id="BannerContainer">
 			<div id="Banner" class='div-detail'>
 				<label class='modify-img' for="PictureEdit">
-					<img class="editImage" src='<?php echo $rootURL ?>/img/edit.png' alt=''>
+					<i class="editImage bi bi-pen"></i>
 					<input id="PictureEdit" type="file" name="" value="" accept="image/*">
 				</label>
 			</div>

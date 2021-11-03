@@ -22,14 +22,6 @@
 		font-weight: 300;
 	}
 
-	.edit,
-	.delete,
-	.add,
-	.check,
-	.edit-hide,
-	.delete-hide,
-	.add-hide,
-	.check-hide,
 	.playing {
 		height: 150px;
 		width: 150px;
