@@ -16,9 +16,8 @@
 	cursor: pointer;
 }
 
-.medias-upload-list > li > ul > li > label > img {
-	box-sizing: content-box;
-	width: 100%;
+.medias-upload-list > li > ul > li > label > i {
+	font-size: 64px;
 }
 
 #Upload > form > input[type="file"],

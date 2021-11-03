@@ -45,7 +45,7 @@
 .layout {
 	position: absolute;
 	cursor: pointer;
-	animation: show-playing 0.8s ease;
+	animation: show-playing 0.8s;
 	border-radius: 10px;
 	z-index: 2;
 	background-color: rgba(0, 0, 0, .5);
@@ -65,7 +65,7 @@
 	position: absolute;
 	cursor: pointer;
 	border-radius: 10px;
-	animation: show-playing 0.8s ease;
+	animation: show-playing 0.8s;
 	z-index: 1;
 }
 
