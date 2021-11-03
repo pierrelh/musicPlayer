@@ -1,8 +1,10 @@
 class Layout {
 	constructor(data) {
 		this.Element = document.createElement('li');
+		this.Element.classList.add('layout')
 		this.IElement = document.createElement('i');
-		this.IElement.classList.add(data.class, 'bi', 'layout');
+		this.IElement.classList.add(data.class, 'bi');
+		this.Element.append(this.IElement);
 		this.Element.addEventListener('click', data.event, false);
 		return this.Element;
 	}

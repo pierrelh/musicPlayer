@@ -15,6 +15,6 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 <header>
-	<button><i id="Arrow" class="arrow bi bi-arrow-right"></i></button>
+	<button id="Arrow"><i class="bi bi-arrow-right"></i></button>
 	<h1>Music Player</h1>
 </header>

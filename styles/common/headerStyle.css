@@ -17,12 +17,19 @@ header > h1 {
 	font-size: 2vh;
 }
 
-.arrow {
+header > button {
 	cursor: pointer;
 	position: fixed;
-	height: 5vh;
-	margin: 1vh 0 0 2vw;
+	background: none;
+	border: none;
+	margin-left: 2vw;
+	height: 7vh;
+}
+
+header > button > i {
 	transition: 0.8s;
+	font-size: 35px;
+	color: white;
 }
 
 .arrow-active {
