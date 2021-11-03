@@ -45,7 +45,7 @@
 .layout {
 	position: absolute;
 	cursor: pointer;
-	animation: show-playing 0.8s;
+	animation: show-layout 0.8s;
 	border-radius: 10px;
 	z-index: 2;
 	background-color: rgba(0, 0, 0, .5);
@@ -75,5 +75,14 @@
 		}
 		100% {
 				opacity: 0.7;
+		}
+}
+
+@keyframes show-layout {
+		0% {
+				opacity: 0;
+		}
+		100% {
+				opacity: 1;
 		}
 }
