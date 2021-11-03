@@ -13,10 +13,13 @@
 		height: 100px;
 	}
 
-	.playing {
-		background-size: 100% !important;
+	.layout {
 		height: 100px;
 		width: 100px;
 		background-size: 40%;
+	}
+
+	.playing {
+		background-size: 100% !important;
 	}
 }

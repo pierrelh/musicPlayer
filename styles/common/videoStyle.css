@@ -42,16 +42,6 @@
 	-webkit-box-orient: vertical;
 }
 
-.playing {
-	background-image: url("../../img/playing.gif");
-	opacity: 0.7;
-	position: absolute;
-	cursor: pointer;
-	border-radius: 10px;
-	animation: show-playing 0.8s ease;
-	z-index: 1;
-}
-
 @keyframes show-playing {
 		0% {
 				opacity: 0;
