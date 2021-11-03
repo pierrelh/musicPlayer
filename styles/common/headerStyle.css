@@ -24,6 +24,7 @@ header > button {
 	border: none;
 	margin-left: 2vw;
 	height: 7vh;
+	transition: .3s ease-in-out;
 }
 
 header > button > i {

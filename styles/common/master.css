@@ -255,6 +255,14 @@ html{
 	color: #666 !important;
 }
 
+.layout {
+	position: absolute;
+	cursor: pointer;
+	animation: 0.8s ease;
+	border-radius: 10px;
+	z-index: 2;
+}
+
 /* open-sans-300 - latin */
 @font-face {
 	font-family: 'Open Sans';
